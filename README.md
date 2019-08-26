@@ -2,17 +2,17 @@
 
 Angular version 8.0.3
 
-## Build
+## Generate TypeScript Files from .proto
 
+Run `make ts` to generate TypeScript files. The generated files will be stored in the `output` directory.
 
+## Build Angular Library
 
-Run `ng build ng-core-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-`npm run package && npm i --save dist/ng-core-lib/ng-core-lib-0.0.1.tgz && ng serve`
+Run `ng build ng-core-lib` to build the project. The build artifacts will be stored in the `dist/ng-core-lib` directory.
 
 ## Publishing
 
-After building your library with `ng build ng-core-lib`, go to the dist folder `cd dist/ng-core-lib` and run `npm publish`.
+After building your library with `ng build ng-core-lib`, go to the dist folder `cd dist/ng-core-lib` and run `make `.
 
 ### Simple Example
 
