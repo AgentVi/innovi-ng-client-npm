@@ -41,7 +41,7 @@ export declare class SysAccountsService {
      * Change account status
      * @Return: EntityResponse<Account>
      */
-    changeStatus(id?: string, type?: AccountStatusCode): import("rxjs").Observable<any>;
+    changeStatus(id?: string, status?: AccountStatusCode): import("rxjs").Observable<any>;
     /**
      * Change account groups
      * @Return: EntityResponse<Account>

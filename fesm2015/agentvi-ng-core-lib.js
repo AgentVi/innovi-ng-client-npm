@@ -3196,7 +3196,7 @@ if (false) {
     /** @type {?} */
     AccountsServiceChangeStatusRequest.prototype.id;
     /** @type {?} */
-    AccountsServiceChangeStatusRequest.prototype.type;
+    AccountsServiceChangeStatusRequest.prototype.status;
 }
 
 /**
@@ -6817,7 +6817,7 @@ if (false) {
     /** @type {?} */
     UsersServiceChangeDefaultAccountRequest.prototype.id;
     /** @type {?} */
-    UsersServiceChangeDefaultAccountRequest.prototype.account;
+    UsersServiceChangeDefaultAccountRequest.prototype.accountId;
 }
 
 /**
@@ -9555,11 +9555,11 @@ class SysAccountsService {
      * Change account status
      * \@Return: EntityResponse<Account>
      * @param {?=} id
-     * @param {?=} type
+     * @param {?=} status
      * @return {?}
      */
-    changeStatus(id, type) {
-        return this.rest.put(`${this.baseUrl}/${id}/status/{status}`, null);
+    changeStatus(id, status) {
+        return this.rest.put(`${this.baseUrl}/${id}/status/${status}`, null);
     }
     /**
      * Change account groups
@@ -10878,11 +10878,11 @@ class SysUsersService {
      * Change user default account
      * \@Return: EntityResponse<User>
      * @param {?=} id
-     * @param {?=} account
+     * @param {?=} accountId
      * @return {?}
      */
-    changeDefaultAccount(id, account) {
-        return this.rest.put(`${this.baseUrl}/${id}/defaultAccount{accountId}`, null);
+    changeDefaultAccount(id, accountId) {
+        return this.rest.put(`${this.baseUrl}/${id}/defaultAccount/${accountId}`, null);
     }
     /**
      * Set user roles in his accounts (override previous roles)

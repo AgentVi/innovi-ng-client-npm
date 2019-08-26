@@ -4012,7 +4012,7 @@
         /** @type {?} */
         AccountsServiceChangeStatusRequest.prototype.id;
         /** @type {?} */
-        AccountsServiceChangeStatusRequest.prototype.type;
+        AccountsServiceChangeStatusRequest.prototype.status;
     }
 
     /**
@@ -8830,7 +8830,7 @@
         /** @type {?} */
         UsersServiceChangeDefaultAccountRequest.prototype.id;
         /** @type {?} */
-        UsersServiceChangeDefaultAccountRequest.prototype.account;
+        UsersServiceChangeDefaultAccountRequest.prototype.accountId;
     }
 
     /**
@@ -13025,18 +13025,18 @@
          * Change account status
          * \@Return: EntityResponse<Account>
          * @param {?=} id
-         * @param {?=} type
+         * @param {?=} status
          * @return {?}
          */
         SysAccountsService.prototype.changeStatus = /**
          * Change account status
          * \@Return: EntityResponse<Account>
          * @param {?=} id
-         * @param {?=} type
+         * @param {?=} status
          * @return {?}
          */
-        function (id, type) {
-            return this.rest.put(this.baseUrl + "/" + id + "/status/{status}", null);
+        function (id, status) {
+            return this.rest.put(this.baseUrl + "/" + id + "/status/" + status, null);
         };
         /**
          * Change account groups
@@ -15105,18 +15105,18 @@
          * Change user default account
          * \@Return: EntityResponse<User>
          * @param {?=} id
-         * @param {?=} account
+         * @param {?=} accountId
          * @return {?}
          */
         SysUsersService.prototype.changeDefaultAccount = /**
          * Change user default account
          * \@Return: EntityResponse<User>
          * @param {?=} id
-         * @param {?=} account
+         * @param {?=} accountId
          * @return {?}
          */
-        function (id, account) {
-            return this.rest.put(this.baseUrl + "/" + id + "/defaultAccount{accountId}", null);
+        function (id, accountId) {
+            return this.rest.put(this.baseUrl + "/" + id + "/defaultAccount/" + accountId, null);
         };
         /**
          * Set user roles in his accounts (override previous roles)
