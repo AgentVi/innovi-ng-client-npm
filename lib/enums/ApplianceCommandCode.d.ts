@@ -1,0 +1,15 @@
+export declare enum ApplianceCommandCode {
+    UNDEFINED = 0,
+    GET_CAPABILITIES = 1,
+    SET_COMPONENTS = 2,
+    REMOVE_COMPONENTS = 3,
+    RESTART_COMPONENTS = 4,
+    LIST_CONTAINERS = 5,
+    SEND_LOGS = 6,
+    SEND_STATUS = 7,
+    RESET_CREDENTIALS = 8,
+    REBOOT_HOST = 9,
+    FACTORY_RESET = 10,
+    OPEN_SSH = 11,
+    CLOSE_SSH = 12
+}

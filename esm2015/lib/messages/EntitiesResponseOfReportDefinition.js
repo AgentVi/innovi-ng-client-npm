@@ -1,0 +1,18 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { EntitiesResponse } from '../messages/EntitiesResponse';
+/*
+*/
+export class EntitiesResponseOfReportDefinition extends EntitiesResponse {
+}
+if (false) {
+    /** @type {?} */
+    EntitiesResponseOfReportDefinition.prototype.list;
+    /** @type {?} */
+    EntitiesResponseOfReportDefinition.prototype.code;
+    /** @type {?} */
+    EntitiesResponseOfReportDefinition.prototype.error;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW50aXRpZXNSZXNwb25zZU9mUmVwb3J0RGVmaW5pdGlvbi5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL21lc3NhZ2VzL0VudGl0aWVzUmVzcG9uc2VPZlJlcG9ydERlZmluaXRpb24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUNBLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxNQUFNLDhCQUE4QixDQUFDOzs7QUFJaEUsTUFBTSxPQUFPLGtDQUFtQyxTQUFRLGdCQUFnQjtDQVd2RTs7O0lBUkcsa0RBQWdDOztJQUdoQyxrREFBb0I7O0lBR3BCLG1EQUFxQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJlcG9ydERlZmluaXRpb24gfSBmcm9tICcuLi9lbnRpdGllcy9SZXBvcnREZWZpbml0aW9uJztcbmltcG9ydCB7IEVudGl0aWVzUmVzcG9uc2UgfSBmcm9tICcuLi9tZXNzYWdlcy9FbnRpdGllc1Jlc3BvbnNlJztcblxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBFbnRpdGllc1Jlc3BvbnNlT2ZSZXBvcnREZWZpbml0aW9uIGV4dGVuZHMgRW50aXRpZXNSZXNwb25zZSB7XG4gXG4gICAgLy8gUmVwb3J0RGVmaW5pdGlvbiBsaXN0IFxuICAgIHB1YmxpYyBsaXN0OiBSZXBvcnREZWZpbml0aW9uW107XG4gXG4gICAgLy8gRXJyb3IgY29kZSAoMCBmb3Igc3VjY2VzcykgXG4gICAgcHVibGljIGNvZGU6IG51bWJlcjtcbiBcbiAgICAvLyBFcnJvciBtZXNzYWdlIFxuICAgIHB1YmxpYyBlcnJvcjogc3RyaW5nO1xuIFxufVxuXG5cbiJdfQ==

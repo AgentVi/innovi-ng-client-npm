@@ -1,0 +1,15 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+export class IntegrationsServiceUpdateRequest {
+}
+if (false) {
+    /** @type {?} */
+    IntegrationsServiceUpdateRequest.prototype.id;
+    /** @type {?} */
+    IntegrationsServiceUpdateRequest.prototype.body;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW50ZWdyYXRpb25zU2VydmljZVVwZGF0ZVJlcXVlc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9tZXNzYWdlcy9JbnRlZ3JhdGlvbnNTZXJ2aWNlVXBkYXRlUmVxdWVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFJQSxNQUFNLE9BQU8sZ0NBQWdDO0NBUTVDOzs7SUFMRyw4Q0FBa0I7O0lBR2xCLGdEQUErQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEludGVncmF0aW9uVGFyZ2V0IH0gZnJvbSAnLi4vZW50aXRpZXMvSW50ZWdyYXRpb25UYXJnZXQnO1xuXG4vKiAgXG4qL1xuZXhwb3J0IGNsYXNzIEludGVncmF0aW9uc1NlcnZpY2VVcGRhdGVSZXF1ZXN0IHtcbiBcbiAgICAvLyBJbnRlZ3JhdGlvbiBJZCBcbiAgICBwdWJsaWMgaWQ6IHN0cmluZztcbiBcbiAgICAvLyBJbnRlZ3JhdGlvbiBkYXRhIFxuICAgIHB1YmxpYyBib2R5OiBJbnRlZ3JhdGlvblRhcmdldDtcbiBcbn1cblxuXG4iXX0=

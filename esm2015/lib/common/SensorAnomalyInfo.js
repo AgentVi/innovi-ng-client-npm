@@ -1,0 +1,21 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Sensor anomaly information
+   This data model is used by the inference process of Anomaly Detection
+*/
+export class SensorAnomalyInfo {
+}
+if (false) {
+    /** @type {?} */
+    SensorAnomalyInfo.prototype.sensorId;
+    /** @type {?} */
+    SensorAnomalyInfo.prototype.results;
+    /** @type {?} */
+    SensorAnomalyInfo.prototype.sensitivity;
+    /** @type {?} */
+    SensorAnomalyInfo.prototype.objectTypes;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2Vuc29yQW5vbWFseUluZm8uanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9jb21tb24vU2Vuc29yQW5vbWFseUluZm8udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFRQSxNQUFNLE9BQU8saUJBQWlCO0NBYzdCOzs7SUFYRyxxQ0FBd0I7O0lBR3hCLG9DQUFpQzs7SUFHakMsd0NBQWdDOztJQUdoQyx3Q0FBcUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBbmFseXNpc1Jlc3VsdCB9IGZyb20gJy4uL2NvbW1vbi9BbmFseXNpc1Jlc3VsdCc7XG5pbXBvcnQgeyBTZW5zaXRpdml0eSB9IGZyb20gJy4uL2NvbW1vbi9TZW5zaXRpdml0eSc7XG5pbXBvcnQgeyBPYmplY3RUeXBlQ29kZSB9IGZyb20gJy4uL2VudW1zL09iamVjdFR5cGVDb2RlJztcblxuLyogXG4gICBTZW5zb3IgYW5vbWFseSBpbmZvcm1hdGlvblxuICAgVGhpcyBkYXRhIG1vZGVsIGlzIHVzZWQgYnkgdGhlIGluZmVyZW5jZSBwcm9jZXNzIG9mIEFub21hbHkgRGV0ZWN0aW9uIFxuKi9cbmV4cG9ydCBjbGFzcyBTZW5zb3JBbm9tYWx5SW5mbyB7XG4gXG4gICAgLy8gU2Vuc29yIElkIFxuICAgIHB1YmxpYyBzZW5zb3JJZDogc3RyaW5nO1xuIFxuICAgIC8vIExpc3Qgb2YgcmVzdWx0cyAobW9kZWwgKyBmaWxlIHBhdGgpIFxuICAgIHB1YmxpYyByZXN1bHRzOiBBbmFseXNpc1Jlc3VsdFtdO1xuIFxuICAgIC8vIFNlbnNpdGl2aXR5IChmb3IgQW5vbWFseSkgXG4gICAgcHVibGljIHNlbnNpdGl2aXR5OiBTZW5zaXRpdml0eTtcbiBcbiAgICAvLyBPYmplY3QgdHlwZXM6IFBFUlNPTiB8IFZFSElDTEUgfCBNT1RPUkNZQ0xFIC4uLiBcbiAgICBwdWJsaWMgb2JqZWN0VHlwZXM6IE9iamVjdFR5cGVDb2RlW107XG4gXG59XG5cblxuIl19

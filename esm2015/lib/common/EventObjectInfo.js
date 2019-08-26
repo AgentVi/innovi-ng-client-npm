@@ -1,0 +1,19 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Event object info
+   Part of the event type to encapsulate all the info about the detected object (bounding box, trajectory etc)
+*/
+export class EventObjectInfo {
+}
+if (false) {
+    /** @type {?} */
+    EventObjectInfo.prototype.id;
+    /** @type {?} */
+    EventObjectInfo.prototype.detection;
+    /** @type {?} */
+    EventObjectInfo.prototype.trajectory;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXZlbnRPYmplY3RJbmZvLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvY29tbW9uL0V2ZW50T2JqZWN0SW5mby50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQU1BLE1BQU0sT0FBTyxlQUFlO0NBVzNCOzs7SUFSRyw2QkFBa0I7O0lBR2xCLG9DQUFzQzs7SUFHdEMscUNBQXlDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRXZlbnRPYmplY3RJbnN0YW5jZSB9IGZyb20gJy4uL2NvbW1vbi9FdmVudE9iamVjdEluc3RhbmNlJztcblxuLyogXG4gICBFdmVudCBvYmplY3QgaW5mb1xuICAgUGFydCBvZiB0aGUgZXZlbnQgdHlwZSB0byBlbmNhcHN1bGF0ZSBhbGwgdGhlIGluZm8gYWJvdXQgdGhlIGRldGVjdGVkIG9iamVjdCAoYm91bmRpbmcgYm94LCB0cmFqZWN0b3J5IGV0YykgXG4qL1xuZXhwb3J0IGNsYXNzIEV2ZW50T2JqZWN0SW5mbyB7XG4gXG4gICAgLy8gRGV0ZWN0ZWQgb2JqZWN0IGlkIFxuICAgIHB1YmxpYyBpZDogbnVtYmVyO1xuIFxuICAgIC8vIEluc3RhbmNlIGluZm8gb2YgdGhlIG9iamVjdCBhdCB0aGUgZGV0ZWN0aW9uIHRpbWUgKHdoZW4gdGhlIGV2ZW50IHdhcyBmaXJlZCkgXG4gICAgcHVibGljIGRldGVjdGlvbjogRXZlbnRPYmplY3RJbnN0YW5jZTtcbiBcbiAgICAvLyBUcmFqZWN0b3J5IChwYXRoKSBvZiBhbGwgdGhlIG9iamVjdCBpbnN0YW5jZXMgaW4gdGhlIHNjZW5lIGR1cmluZyB0aGUgdGltZSBpdCB3YXMgaW4gdGhlIHNjZW5lIFxuICAgIHB1YmxpYyB0cmFqZWN0b3J5OiBFdmVudE9iamVjdEluc3RhbmNlW107XG4gXG59XG5cblxuIl19

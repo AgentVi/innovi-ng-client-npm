@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+export class EventsServiceCreateRequest {
+}
+if (false) {
+    /** @type {?} */
+    EventsServiceCreateRequest.prototype.body;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXZlbnRzU2VydmljZUNyZWF0ZVJlcXVlc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9tZXNzYWdlcy9FdmVudHNTZXJ2aWNlQ3JlYXRlUmVxdWVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFJQSxNQUFNLE9BQU8sMEJBQTBCO0NBS3RDOzs7SUFGRywwQ0FBbUIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBFdmVudCB9IGZyb20gJy4uL2VudGl0aWVzL0V2ZW50JztcblxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBFdmVudHNTZXJ2aWNlQ3JlYXRlUmVxdWVzdCB7XG4gXG4gICAgLy8gRXZlbnQgZGF0YSBcbiAgICBwdWJsaWMgYm9keTogRXZlbnQ7XG4gXG59XG5cblxuIl19

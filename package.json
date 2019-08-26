@@ -1,0 +1,21 @@
+{
+  "name": "@agentvi/ng-core-lib",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^8.0.3",
+    "@angular/core": "^8.0.3"
+  },
+  "main": "bundles/agentvi-ng-core-lib.umd.js",
+  "module": "fesm5/agentvi-ng-core-lib.js",
+  "es2015": "fesm2015/agentvi-ng-core-lib.js",
+  "esm5": "esm5/agentvi-ng-core-lib.js",
+  "esm2015": "esm2015/agentvi-ng-core-lib.js",
+  "fesm5": "fesm5/agentvi-ng-core-lib.js",
+  "fesm2015": "fesm2015/agentvi-ng-core-lib.js",
+  "typings": "agentvi-ng-core-lib.d.ts",
+  "metadata": "agentvi-ng-core-lib.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

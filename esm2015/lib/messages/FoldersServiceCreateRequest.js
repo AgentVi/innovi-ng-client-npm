@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+export class FoldersServiceCreateRequest {
+}
+if (false) {
+    /** @type {?} */
+    FoldersServiceCreateRequest.prototype.body;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRm9sZGVyc1NlcnZpY2VDcmVhdGVSZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvRm9sZGVyc1NlcnZpY2VDcmVhdGVSZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUlBLE1BQU0sT0FBTywyQkFBMkI7Q0FLdkM7OztJQUZHLDJDQUFvQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEZvbGRlciB9IGZyb20gJy4uL2VudGl0aWVzL0ZvbGRlcic7XG5cbi8qICBcbiovXG5leHBvcnQgY2xhc3MgRm9sZGVyc1NlcnZpY2VDcmVhdGVSZXF1ZXN0IHtcbiBcbiAgICAvLyBGb2xkZXIgZGF0YSBcbiAgICBwdWJsaWMgYm9keTogRm9sZGVyO1xuIFxufVxuXG5cbiJdfQ==
