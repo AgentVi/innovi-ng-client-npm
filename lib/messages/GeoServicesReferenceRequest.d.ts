@@ -1,5 +1,5 @@
-import { GeoControlPoint } from '../common/GeoControlPoint';
+import { GeoControlPoints } from '../common/GeoControlPoints';
 export declare class GeoServicesReferenceRequest {
-    body: GeoControlPoint[];
-    constructor(body?: GeoControlPoint[]);
+    body: GeoControlPoints;
+    constructor(body?: GeoControlPoints);
 }

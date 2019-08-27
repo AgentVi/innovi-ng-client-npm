@@ -5,11 +5,11 @@ export declare class SensorsServiceFindRequest {
     folderId: string;
     subFolders: boolean;
     search: string;
-    type: SensorTypeCode;
-    status: SensorStatusCode;
-    stream: StreamTypeCode;
+    type: SensorTypeCode[];
+    status: SensorStatusCode[];
+    stream: StreamTypeCode[];
     sort: string;
     page: number;
     pageSize: number;
-    constructor(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode, status?: SensorStatusCode, stream?: StreamTypeCode, sort?: string, page?: number, pageSize?: number);
+    constructor(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number);
 }

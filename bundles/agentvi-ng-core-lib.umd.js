@@ -565,30 +565,6 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Control point links between point on the raster (FOV) and world map
-    */
-    var   /*
-       Control point links between point on the raster (FOV) and world map
-    */
-    ControlPoint = /** @class */ (function () {
-        function ControlPoint(key, value) {
-            this.key = key;
-            this.value = value;
-        }
-        return ControlPoint;
-    }());
-    if (false) {
-        /** @type {?} */
-        ControlPoint.prototype.key;
-        /** @type {?} */
-        ControlPoint.prototype.value;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
        Coordinate of WGS-84 grid system
        See (https://en.wikipedia.org/wiki/World_Geodetic_System)
     */
@@ -938,6 +914,27 @@
         GeoControlPoint.prototype.point;
         /** @type {?} */
         GeoControlPoint.prototype.coordinate;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       List of Geo control points
+    */
+    var   /*
+       List of Geo control points
+    */
+    GeoControlPoints = /** @class */ (function () {
+        function GeoControlPoints(points) {
+            this.points = points;
+        }
+        return GeoControlPoints;
+    }());
+    if (false) {
+        /** @type {?} */
+        GeoControlPoints.prototype.points;
     }
 
     /**
@@ -16543,7 +16540,6 @@
     exports.ConfigurationTargetRequest = ConfigurationTargetRequest;
     exports.ConfigurationVersion = ConfigurationVersion;
     exports.ConfigurationVersionIdRequest = ConfigurationVersionIdRequest;
-    exports.ControlPoint = ControlPoint;
     exports.Coordinate = Coordinate;
     exports.CoreLibModule = CoreLibModule;
     exports.DayOfWeekCode = DayOfWeekCode;
@@ -16652,6 +16648,7 @@
     exports.FovGeoAttributes = FovGeoAttributes;
     exports.GeoCircle = GeoCircle;
     exports.GeoControlPoint = GeoControlPoint;
+    exports.GeoControlPoints = GeoControlPoints;
     exports.GeoPolygon = GeoPolygon;
     exports.GeoReferenceData = GeoReferenceData;
     exports.GeoService = GeoService;

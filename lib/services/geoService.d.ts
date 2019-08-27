@@ -1,6 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
-import { GeoControlPoint } from '../common/GeoControlPoint';
+import { GeoControlPoints } from '../common/GeoControlPoints';
 /**
  * List of Geo-spatial utilities
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -23,5 +23,5 @@ export declare class GeoService {
      * FOV on the image and the map and X,Y factors and offsets for transformation
      * @Return: EntityResponse<GeoReferenceData>
      */
-    geoReference(body?: GeoControlPoint[]): import("rxjs").Observable<any>;
+    geoReference(body?: GeoControlPoints): import("rxjs").Observable<any>;
 }
