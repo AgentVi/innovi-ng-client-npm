@@ -34,7 +34,7 @@ export declare class SysFeaturesGroupsService {
      * Change features group features list
      * @Return: EntityResponse<FeaturesGroup>
      */
-    setFeatures(id?: string, body?: string): import("rxjs").Observable<any>;
+    setFeatures(id?: string, body?: string[]): import("rxjs").Observable<any>;
     /**
      * Delete Feature from the system
      * @Return: ActionResponse

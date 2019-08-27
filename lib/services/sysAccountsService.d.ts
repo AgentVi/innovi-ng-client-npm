@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { Coordinate } from '../common/Coordinate';
 import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
-import { Coordinate } from '../common/Coordinate';
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -56,7 +56,7 @@ export declare class SysAccountsService {
      * Change account geo area
      * @Return: EntityResponse<Account> The changed account
      */
-    changeGeoArea(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
      * Get default geo location
      * @Return: EntityResponse<Coordinate> The account location

@@ -35,7 +35,7 @@ export declare class FoldersService {
      * Change folder geo-area (polygon)
      * @Return: EntityResponse<Folder>
      */
-    changeGeoArea(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
      * Change folder geo-location (center)
      * @Return: EntityResponse<Folder>

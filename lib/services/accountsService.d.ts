@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
-import { AccountTypeCode } from '../enums/AccountTypeCode';
 /**
  * List of account related actions
  */
@@ -28,7 +28,7 @@ export declare class AccountsService {
      * Change account geo-area (polygon)
      * @Return: EntityResponse<Account>
      */
-    changeGeoArea(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
      * Change account geo-location (center)
      * @Return: EntityResponse<Account> The changed account

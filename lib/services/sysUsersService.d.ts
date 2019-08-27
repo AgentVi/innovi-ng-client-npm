@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { UserStatusCode } from '../enums/UserStatusCode';
+import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
-import { UserStatusCode } from '../enums/UserStatusCode';
-import { AccountRoleCode } from '../enums/AccountRoleCode';
 /**
  * List of all user related actions for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -58,12 +58,12 @@ export declare class SysUsersService {
      * Set user roles in his accounts (override previous roles)
      * @Return: EntityResponse<User>
      */
-    setRoles(id?: string, roles?: AccountRoleCode): import("rxjs").Observable<any>;
+    setRoles(id?: string, roles?: AccountRoleCode[]): import("rxjs").Observable<any>;
     /**
      * Update user roles in his accounts (merge with existing roles)
      * @Return: EntityResponse<User>
      */
-    mergeRoles(id?: string, roles?: AccountRoleCode): import("rxjs").Observable<any>;
+    mergeRoles(id?: string, roles?: AccountRoleCode[]): import("rxjs").Observable<any>;
     /**
      * Delete user from the system
      * @Return: ActionResponse

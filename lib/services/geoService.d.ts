@@ -23,5 +23,5 @@ export declare class GeoService {
      * FOV on the image and the map and X,Y factors and offsets for transformation
      * @Return: EntityResponse<GeoReferenceData>
      */
-    geoReference(body?: GeoControlPoint): import("rxjs").Observable<any>;
+    geoReference(body?: GeoControlPoint[]): import("rxjs").Observable<any>;
 }
