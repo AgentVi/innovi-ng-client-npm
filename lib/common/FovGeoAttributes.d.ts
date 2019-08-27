@@ -1,6 +1,6 @@
+import { Coordinate } from '../common/Coordinate';
 import { Dimension } from '../common/Dimension';
 import { ControlPoint } from '../common/ControlPoint';
-import { Coordinate } from '../common/Coordinate';
 export declare class FovGeoAttributes {
     geoArea: Coordinate[];
     visibleArea: Dimension;
