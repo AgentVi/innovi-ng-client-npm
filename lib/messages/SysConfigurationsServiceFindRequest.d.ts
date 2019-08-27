@@ -5,4 +5,5 @@ export declare class SysConfigurationsServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(target?: ProductTypeCode, search?: string, sort?: string, page?: number, pageSize?: number);
 }

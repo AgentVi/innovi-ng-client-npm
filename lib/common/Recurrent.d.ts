@@ -6,4 +6,5 @@ export declare class Recurrent {
     period: string;
     daysOfWeek: DayOfWeekCode[];
     action: EventAction;
+    constructor(startTime?: string, endTime?: string, period?: string, daysOfWeek?: DayOfWeekCode[], action?: EventAction);
 }

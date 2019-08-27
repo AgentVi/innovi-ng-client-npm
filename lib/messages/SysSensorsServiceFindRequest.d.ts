@@ -12,4 +12,5 @@ export declare class SysSensorsServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(accountId?: string, folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode, status?: SensorStatusCode, stream?: StreamTypeCode, sort?: string, page?: number, pageSize?: number);
 }

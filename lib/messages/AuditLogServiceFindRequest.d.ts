@@ -6,4 +6,5 @@ export declare class AuditLogServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, page?: number, pageSize?: number);
 }

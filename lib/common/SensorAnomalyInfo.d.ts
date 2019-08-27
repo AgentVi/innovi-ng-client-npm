@@ -6,4 +6,5 @@ export declare class SensorAnomalyInfo {
     results: AnalysisResult[];
     sensitivity: Sensitivity;
     objectTypes: ObjectTypeCode[];
+    constructor(sensorId?: string, results?: AnalysisResult[], sensitivity?: Sensitivity, objectTypes?: ObjectTypeCode[]);
 }

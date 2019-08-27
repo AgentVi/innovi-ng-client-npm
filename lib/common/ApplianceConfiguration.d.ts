@@ -3,4 +3,5 @@ export declare class ApplianceConfiguration {
     description: string;
     currentVersion: string;
     versions: string[];
+    constructor(configurationId?: string, description?: string, currentVersion?: string, versions?: string[]);
 }

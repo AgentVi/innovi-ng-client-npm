@@ -4,4 +4,5 @@ export declare class SensorStatusTimeSeries {
     sensorId: string;
     label: string;
     data: SensorStatusTimestamped[];
+    constructor(accountId?: string, sensorId?: string, label?: string, data?: SensorStatusTimestamped[]);
 }

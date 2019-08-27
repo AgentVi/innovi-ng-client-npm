@@ -7,4 +7,5 @@ export declare class AppliancesServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode, sort?: string, page?: number, pageSize?: number);
 }

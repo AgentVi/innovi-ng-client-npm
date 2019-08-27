@@ -5,6 +5,14 @@
 /*
 */
 export class ReportsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -12,4 +20,4 @@ if (false) {
     /** @type {?} */
     ReportsServiceUpdateRequest.prototype.body;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmVwb3J0c1NlcnZpY2VVcGRhdGVSZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvUmVwb3J0c1NlcnZpY2VVcGRhdGVSZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUlBLE1BQU0sT0FBTywyQkFBMkI7Q0FRdkM7OztJQUxHLHlDQUFrQjs7SUFHbEIsMkNBQThCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUmVwb3J0RGVmaW5pdGlvbiB9IGZyb20gJy4uL2VudGl0aWVzL1JlcG9ydERlZmluaXRpb24nO1xuXG4vKiAgXG4qL1xuZXhwb3J0IGNsYXNzIFJlcG9ydHNTZXJ2aWNlVXBkYXRlUmVxdWVzdCB7XG4gXG4gICAgLy8gUmVwb3J0IElkIFxuICAgIHB1YmxpYyBpZDogc3RyaW5nO1xuIFxuICAgIC8vIFJlcG9ydCBkYXRhIFxuICAgIHB1YmxpYyBib2R5OiBSZXBvcnREZWZpbml0aW9uO1xuIFxufVxuXG5cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmVwb3J0c1NlcnZpY2VVcGRhdGVSZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvUmVwb3J0c1NlcnZpY2VVcGRhdGVSZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUlBLE1BQU0sT0FBTywyQkFBMkI7Ozs7O0lBUXBDLFlBQVksRUFBVyxFQUFFLElBQXVCO1FBQzVDLElBQUksQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDO1FBQ2IsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7SUFDckIsQ0FBQztDQUVKOzs7SUFWRyx5Q0FBa0I7O0lBR2xCLDJDQUE4QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJlcG9ydERlZmluaXRpb24gfSBmcm9tICcuLi9lbnRpdGllcy9SZXBvcnREZWZpbml0aW9uJztcblxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBSZXBvcnRzU2VydmljZVVwZGF0ZVJlcXVlc3Qge1xuIFxuICAgIC8vIFJlcG9ydCBJZCBcbiAgICBwdWJsaWMgaWQ6IHN0cmluZztcbiBcbiAgICAvLyBSZXBvcnQgZGF0YSBcbiAgICBwdWJsaWMgYm9keTogUmVwb3J0RGVmaW5pdGlvbjtcbiBcbiAgICBjb25zdHJ1Y3RvcihpZD86IHN0cmluZywgYm9keT86IFJlcG9ydERlZmluaXRpb24pIHsgXG4gICAgICAgIHRoaXMuaWQgPSBpZDtcbiAgICAgICAgdGhpcy5ib2R5ID0gYm9keTtcbiAgICB9XG5cbn1cblxuXG4iXX0=

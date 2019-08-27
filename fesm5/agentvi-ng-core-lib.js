@@ -37,7 +37,11 @@ var  /*
    </ul>
 */
 AbsoluteTimeFrame = /** @class */ (function () {
-    function AbsoluteTimeFrame() {
+    function AbsoluteTimeFrame(name, startTime, endTime, active) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.active = active;
     }
     return AbsoluteTimeFrame;
 }());
@@ -63,7 +67,9 @@ var  /*
    Account role represents the role of the user in the account
 */
 AccountRole = /** @class */ (function () {
-    function AccountRole() {
+    function AccountRole(accountId, role) {
+        this.accountId = accountId;
+        this.role = role;
     }
     return AccountRole;
 }());
@@ -85,7 +91,15 @@ var  /*
    Account types aggregator summary
 */
 AccountTypeSummary = /** @class */ (function () {
-    function AccountTypeSummary() {
+    function AccountTypeSummary(type, typeName, accounts, accountsPercentage, channels, channelsPercentage, devices, devicesPercentage) {
+        this.type = type;
+        this.typeName = typeName;
+        this.accounts = accounts;
+        this.accountsPercentage = accountsPercentage;
+        this.channels = channels;
+        this.channelsPercentage = channelsPercentage;
+        this.devices = devices;
+        this.devicesPercentage = devicesPercentage;
     }
     return AccountTypeSummary;
 }());
@@ -121,7 +135,10 @@ var  /*
    This data model is used by the training process of Anomaly Detection
 */
 AnalysisResult = /** @class */ (function () {
-    function AnalysisResult() {
+    function AnalysisResult(modelType, resultsPath, completedOn) {
+        this.modelType = modelType;
+        this.resultsPath = resultsPath;
+        this.completedOn = completedOn;
     }
     return AnalysisResult;
 }());
@@ -145,7 +162,11 @@ var  /*
    SW Configuration for appliance
 */
 ApplianceConfiguration = /** @class */ (function () {
-    function ApplianceConfiguration() {
+    function ApplianceConfiguration(configurationId, description, currentVersion, versions) {
+        this.configurationId = configurationId;
+        this.description = description;
+        this.currentVersion = currentVersion;
+        this.versions = versions;
     }
     return ApplianceConfiguration;
 }());
@@ -173,7 +194,14 @@ var  /*
    This model is used when a user registers new appliance in the system
 */
 ApplianceRegistration = /** @class */ (function () {
-    function ApplianceRegistration() {
+    function ApplianceRegistration(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId) {
+        this.name = name;
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.machineId = machineId;
+        this.productType = productType;
+        this.configurationId = configurationId;
+        this.configurationVersionId = configurationVersionId;
     }
     return ApplianceRegistration;
 }());
@@ -205,7 +233,11 @@ var  /*
    Appliance short status data point
 */
 ApplianceStatusDataPoint = /** @class */ (function () {
-    function ApplianceStatusDataPoint() {
+    function ApplianceStatusDataPoint(cpuAvg, cpuMax, ram, loadAvg) {
+        this.cpuAvg = cpuAvg;
+        this.cpuMax = cpuMax;
+        this.ram = ram;
+        this.loadAvg = loadAvg;
     }
     return ApplianceStatusDataPoint;
 }());
@@ -231,7 +263,9 @@ var  /*
    Appliance status list over time
 */
 ApplianceStatusTimeSeries = /** @class */ (function () {
-    function ApplianceStatusTimeSeries() {
+    function ApplianceStatusTimeSeries(label, data) {
+        this.label = label;
+        this.data = data;
     }
     return ApplianceStatusTimeSeries;
 }());
@@ -253,7 +287,10 @@ var  /*
    Data point in a series representing a sensor status value in a specific timestamp
 */
 ApplianceStatusTimestamped = /** @class */ (function () {
-    function ApplianceStatusTimestamped() {
+    function ApplianceStatusTimestamped(timestamp, label, value) {
+        this.timestamp = timestamp;
+        this.label = label;
+        this.value = value;
     }
     return ApplianceStatusTimestamped;
 }());
@@ -277,7 +314,11 @@ var  /*
    Bounding Box of crop in a frame (inside 1000x1000 coordinate system)
 */
 BoundingBox = /** @class */ (function () {
-    function BoundingBox() {
+    function BoundingBox(maxX, maxY, minX, minY) {
+        this.maxX = maxX;
+        this.maxY = maxY;
+        this.minX = minX;
+        this.minY = minY;
     }
     return BoundingBox;
 }());
@@ -303,7 +344,11 @@ var  /*
    Bounding Box of an area in a map (in WGS-84 coordinate system)
 */
 BoundingMap = /** @class */ (function () {
-    function BoundingMap() {
+    function BoundingMap(maxLat, maxLng, minLat, minLng) {
+        this.maxLat = maxLat;
+        this.maxLng = maxLng;
+        this.minLat = minLat;
+        this.minLng = minLng;
     }
     return BoundingMap;
 }());
@@ -329,7 +374,9 @@ var  /*
    Control point links between point on the raster (FOV) and world map
 */
 ControlPoint = /** @class */ (function () {
-    function ControlPoint() {
+    function ControlPoint(key, value) {
+        this.key = key;
+        this.value = value;
     }
     return ControlPoint;
 }());
@@ -353,7 +400,10 @@ var  /*
    See (https://en.wikipedia.org/wiki/World_Geodetic_System)
 */
 Coordinate = /** @class */ (function () {
-    function Coordinate() {
+    function Coordinate(latitude, longitude, altitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
     }
     return Coordinate;
 }());
@@ -377,7 +427,9 @@ var  /*
    Object dimension on FOV
 */
 Dimension = /** @class */ (function () {
-    function Dimension() {
+    function Dimension(width, height) {
+        this.width = width;
+        this.height = height;
     }
     return Dimension;
 }());
@@ -399,7 +451,11 @@ var  /*
    Disk information
 */
 DiskInfo = /** @class */ (function () {
-    function DiskInfo() {
+    function DiskInfo(name, totalBytes, usedBytes, usage) {
+        this.name = name;
+        this.totalBytes = totalBytes;
+        this.usedBytes = usedBytes;
+        this.usage = usage;
     }
     return DiskInfo;
 }());
@@ -427,7 +483,9 @@ var  /*
    Includes information where to access and get images
 */
 DockerCredentials = /** @class */ (function () {
-    function DockerCredentials() {
+    function DockerCredentials(dockerUser, dockerPwd) {
+        this.dockerUser = dockerUser;
+        this.dockerPwd = dockerPwd;
     }
     return DockerCredentials;
 }());
@@ -449,7 +507,19 @@ var  /*
    Event integration action
 */
 EventAction = /** @class */ (function () {
-    function EventAction() {
+    function EventAction(protocol, operation, host, port, user, password, url, headers, recipients, subject, body, clipRequired) {
+        this.protocol = protocol;
+        this.operation = operation;
+        this.host = host;
+        this.port = port;
+        this.user = user;
+        this.password = password;
+        this.url = url;
+        this.headers = headers;
+        this.recipients = recipients;
+        this.subject = subject;
+        this.body = body;
+        this.clipRequired = clipRequired;
     }
     return EventAction;
 }());
@@ -491,7 +561,10 @@ var  /*
    Event count time series data point
 */
 EventCountDataPoint = /** @class */ (function () {
-    function EventCountDataPoint() {
+    function EventCountDataPoint(timestamp, label, value) {
+        this.timestamp = timestamp;
+        this.label = label;
+        this.value = value;
     }
     return EventCountDataPoint;
 }());
@@ -515,7 +588,9 @@ var  /*
    Event count time series result
 */
 EventCountTimeSeries = /** @class */ (function () {
-    function EventCountTimeSeries() {
+    function EventCountTimeSeries(label, data) {
+        this.label = label;
+        this.data = data;
     }
     return EventCountTimeSeries;
 }());
@@ -539,7 +614,10 @@ var  /*
    Part of the event type to encapsulate all the info about the detected object (bounding box, trajectory etc)
 */
 EventObjectInfo = /** @class */ (function () {
-    function EventObjectInfo() {
+    function EventObjectInfo(id, detection, trajectory) {
+        this.id = id;
+        this.detection = detection;
+        this.trajectory = trajectory;
     }
     return EventObjectInfo;
 }());
@@ -563,7 +641,12 @@ var  /*
    Object instance data of object trajectory in the scene
 */
 EventObjectInstance = /** @class */ (function () {
-    function EventObjectInstance() {
+    function EventObjectInstance(timestamp, maxX, maxY, minX, minY) {
+        this.timestamp = timestamp;
+        this.maxX = maxX;
+        this.maxY = maxY;
+        this.minX = minX;
+        this.minY = minY;
     }
     return EventObjectInstance;
 }());
@@ -591,7 +674,11 @@ var  /*
    FOV (Sensor Field of View) Geo attributes
 */
 FovGeoAttributes = /** @class */ (function () {
-    function FovGeoAttributes() {
+    function FovGeoAttributes(geoArea, visibleArea, affineCoefficients, controlPoints) {
+        this.geoArea = geoArea;
+        this.visibleArea = visibleArea;
+        this.affineCoefficients = affineCoefficients;
+        this.controlPoints = controlPoints;
     }
     return FovGeoAttributes;
 }());
@@ -617,7 +704,9 @@ var  /*
    Geo spatial circle
 */
 GeoCircle = /** @class */ (function () {
-    function GeoCircle() {
+    function GeoCircle(center, radius) {
+        this.center = center;
+        this.radius = radius;
     }
     return GeoCircle;
 }());
@@ -641,7 +730,9 @@ var  /*
    Control points are used for FOV geo-referencing
 */
 GeoControlPoint = /** @class */ (function () {
-    function GeoControlPoint() {
+    function GeoControlPoint(point, coordinate) {
+        this.point = point;
+        this.coordinate = coordinate;
     }
     return GeoControlPoint;
 }());
@@ -663,7 +754,8 @@ var  /*
    Geo spatial polygon
 */
 GeoPolygon = /** @class */ (function () {
-    function GeoPolygon() {
+    function GeoPolygon(vertices) {
+        this.vertices = vertices;
     }
     return GeoPolygon;
 }());
@@ -695,7 +787,9 @@ var  /*
    c0 = coefficients[0], c1 = coefficients[1] ... c5 = coefficients[5];
 */
 GeoReferenceData = /** @class */ (function () {
-    function GeoReferenceData() {
+    function GeoReferenceData(coordinates, coefficients) {
+        this.coordinates = coordinates;
+        this.coefficients = coefficients;
     }
     return GeoReferenceData;
 }());
@@ -717,7 +811,15 @@ var  /*
    Login data (returned by the API after successful login)
 */
 LoginData = /** @class */ (function () {
-    function LoginData() {
+    function LoginData(accessToken, accountRole, userId, userName, userEmail, userType, userStatus, changePassword) {
+        this.accessToken = accessToken;
+        this.accountRole = accountRole;
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userType = userType;
+        this.userStatus = userStatus;
+        this.changePassword = changePassword;
     }
     return LoginData;
 }());
@@ -751,7 +853,10 @@ var  /*
    Login parameters data model
 */
 LoginParams = /** @class */ (function () {
-    function LoginParams() {
+    function LoginParams(email, password, accessToken) {
+        this.email = email;
+        this.password = password;
+        this.accessToken = accessToken;
     }
     return LoginParams;
 }());
@@ -775,7 +880,12 @@ var  /*
    Metadata object color description
 */
 ObjectColor = /** @class */ (function () {
-    function ObjectColor() {
+    function ObjectColor(colorType, primary, primaryConf, secondaryColor, secondaryConf) {
+        this.colorType = colorType;
+        this.primary = primary;
+        this.primaryConf = primaryConf;
+        this.secondaryColor = secondaryColor;
+        this.secondaryConf = secondaryConf;
     }
     return ObjectColor;
 }());
@@ -803,7 +913,13 @@ var  /*
    Metadata object info - returned as search result
 */
 ObjectInfo = /** @class */ (function () {
-    function ObjectInfo() {
+    function ObjectInfo(objectId, sensorId, objectType, color, location, instances) {
+        this.objectId = objectId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.color = color;
+        this.location = location;
+        this.instances = instances;
     }
     return ObjectInfo;
 }());
@@ -835,7 +951,18 @@ var  /*
    One instance of the object in the scene
 */
 ObjectInstance = /** @class */ (function () {
-    function ObjectInstance() {
+    function ObjectInstance(objectId, timestamp, objectType, colors, direction, dimension, boundingBox, speed, size, position, location) {
+        this.objectId = objectId;
+        this.timestamp = timestamp;
+        this.objectType = objectType;
+        this.colors = colors;
+        this.direction = direction;
+        this.dimension = dimension;
+        this.boundingBox = boundingBox;
+        this.speed = speed;
+        this.size = size;
+        this.position = position;
+        this.location = location;
     }
     return ObjectInstance;
 }());
@@ -875,7 +1002,9 @@ var  /*
    Point (X,Y) on raster
 */
 Point = /** @class */ (function () {
-    function Point() {
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
     }
     return Point;
 }());
@@ -897,7 +1026,12 @@ var  /*
    Recurrent time frame
 */
 Recurrent = /** @class */ (function () {
-    function Recurrent() {
+    function Recurrent(startTime, endTime, period, daysOfWeek, action) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.period = period;
+        this.daysOfWeek = daysOfWeek;
+        this.action = action;
     }
     return Recurrent;
 }());
@@ -925,7 +1059,10 @@ var  /*
    Schedule recurrent time frame
 */
 RecurrentTimeFrame = /** @class */ (function () {
-    function RecurrentTimeFrame() {
+    function RecurrentTimeFrame(daysOfWeek, startTime, endTime) {
+        this.daysOfWeek = daysOfWeek;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
     return RecurrentTimeFrame;
 }());
@@ -953,7 +1090,9 @@ var  /*
    In case of area description, the line crossing direction field is ignored
 */
 RulePolygon = /** @class */ (function () {
-    function RulePolygon() {
+    function RulePolygon(lineCrossDir, points) {
+        this.lineCrossDir = lineCrossDir;
+        this.points = points;
     }
     return RulePolygon;
 }());
@@ -975,7 +1114,10 @@ var  /*
    Object attributes to search for
 */
 SearchObject = /** @class */ (function () {
-    function SearchObject() {
+    function SearchObject(type, color, identifier) {
+        this.type = type;
+        this.color = color;
+        this.identifier = identifier;
     }
     return SearchObject;
 }());
@@ -999,7 +1141,9 @@ var  /*
    Anomaly sensitivity defines parameters to adjust thresholds for anomaly events
 */
 Sensitivity = /** @class */ (function () {
-    function Sensitivity() {
+    function Sensitivity(events, timeUnit) {
+        this.events = events;
+        this.timeUnit = timeUnit;
     }
     return Sensitivity;
 }());
@@ -1023,7 +1167,11 @@ var  /*
    This data model is used by the inference process of Anomaly Detection
 */
 SensorAnomalyInfo = /** @class */ (function () {
-    function SensorAnomalyInfo() {
+    function SensorAnomalyInfo(sensorId, results, sensitivity, objectTypes) {
+        this.sensorId = sensorId;
+        this.results = results;
+        this.sensitivity = sensitivity;
+        this.objectTypes = objectTypes;
     }
     return SensorAnomalyInfo;
 }());
@@ -1049,7 +1197,11 @@ var  /*
    Sensor status list over time
 */
 SensorStatusTimeSeries = /** @class */ (function () {
-    function SensorStatusTimeSeries() {
+    function SensorStatusTimeSeries(accountId, sensorId, label, data) {
+        this.accountId = accountId;
+        this.sensorId = sensorId;
+        this.label = label;
+        this.data = data;
     }
     return SensorStatusTimeSeries;
 }());
@@ -1075,7 +1227,10 @@ var  /*
    Data point in a series representing a sensor status value in a specific timestamp
 */
 SensorStatusTimestamped = /** @class */ (function () {
-    function SensorStatusTimestamped() {
+    function SensorStatusTimestamped(mask, timestamp, label) {
+        this.mask = mask;
+        this.timestamp = timestamp;
+        this.label = label;
     }
     return SensorStatusTimestamped;
 }());
@@ -1099,7 +1254,9 @@ var  /*
    Key Value string tuple
 */
 StringKeyValue = /** @class */ (function () {
-    function StringKeyValue() {
+    function StringKeyValue(key, value) {
+        this.key = key;
+        this.value = value;
     }
     return StringKeyValue;
 }());
@@ -1121,7 +1278,9 @@ var  /*
    Time frame (for search and reports)
 */
 TimeFrame = /** @class */ (function () {
-    function TimeFrame() {
+    function TimeFrame(from, to) {
+        this.from = from;
+        this.to = to;
     }
     return TimeFrame;
 }());
@@ -1143,7 +1302,11 @@ var  /*
    Tree item for account hierarchy tree
 */
 TreeItem = /** @class */ (function () {
-    function TreeItem() {
+    function TreeItem(itemId, type, name, typeName) {
+        this.itemId = itemId;
+        this.type = type;
+        this.name = name;
+        this.typeName = typeName;
     }
     return TreeItem;
 }());
@@ -1169,7 +1332,12 @@ var  /*
    Tree node in account hierarchy tree
 */
 TreeNode = /** @class */ (function () {
-    function TreeNode() {
+    function TreeNode(id, parentId, name, item, children) {
+        this.id = id;
+        this.parentId = parentId;
+        this.name = name;
+        this.item = item;
+        this.children = children;
     }
     return TreeNode;
 }());
@@ -1197,7 +1365,10 @@ var  /*
    User Account info (for adding new user to the account)
 */
 UserAccountInfo = /** @class */ (function () {
-    function UserAccountInfo() {
+    function UserAccountInfo(accountRole, rootNode, features) {
+        this.accountRole = accountRole;
+        this.rootNode = rootNode;
+        this.features = features;
     }
     return UserAccountInfo;
 }());
@@ -1221,7 +1392,9 @@ var  /*
    User invitation data model - used by account admin to invite user to the account
 */
 UserInvitation = /** @class */ (function () {
-    function UserInvitation() {
+    function UserInvitation(email, role) {
+        this.email = email;
+        this.role = role;
     }
     return UserInvitation;
 }());
@@ -1243,7 +1416,16 @@ var  /*
    User registration data model - used by self registered users
 */
 UserRegistration = /** @class */ (function () {
-    function UserRegistration() {
+    function UserRegistration(name, email, mobile, defaultAccount, role, type, tempPassword, changePassword, verifyByEmail) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.defaultAccount = defaultAccount;
+        this.role = role;
+        this.type = type;
+        this.tempPassword = tempPassword;
+        this.changePassword = changePassword;
+        this.verifyByEmail = verifyByEmail;
     }
     return UserRegistration;
 }());
@@ -1284,7 +1466,11 @@ var  /*
    Base entity includes common fields for all entities (persistence objects) in the system
 */
 BaseEntity = /** @class */ (function () {
-    function BaseEntity() {
+    function BaseEntity(id, docType, createdOn, updatedOn) {
+        this.id = id;
+        this._type = docType;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
     }
     return BaseEntity;
 }());
@@ -1494,7 +1680,22 @@ var  /*
    Some fields represents the device configuration (report intervals, docker credentials, components versions etc) and they are provided by the backend on device registration.
 */
 ApplianceCapabilities = /** @class */ (function () {
-    function ApplianceCapabilities() {
+    function ApplianceCapabilities(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion) {
+        this.productType = productType;
+        this.serialNumber = serialNumber;
+        this.deviceModel = deviceModel;
+        this.cpuModel = cpuModel;
+        this.uuid = uuid;
+        this.ip = ip;
+        this.host = host;
+        this.dockerVersion = dockerVersion;
+        this.kernelVersion = kernelVersion;
+        this.totalRam = totalRam;
+        this.disks = disks;
+        this.commandInterval = commandInterval;
+        this.statusInterval = statusInterval;
+        this.dockerCredentials = dockerCredentials;
+        this.configurationVersion = configurationVersion;
     }
     return ApplianceCapabilities;
 }());
@@ -1708,7 +1909,10 @@ var  /*
    SW Component version type
 */
 ComponentConfiguration = /** @class */ (function () {
-    function ComponentConfiguration() {
+    function ComponentConfiguration(id, dockerImage, variables) {
+        this.id = id;
+        this.dockerImage = dockerImage;
+        this.variables = variables;
     }
     return ComponentConfiguration;
 }());
@@ -2524,7 +2728,10 @@ var  /*
    Sensor debug information
 */
 SensorDebugInfo = /** @class */ (function () {
-    function SensorDebugInfo() {
+    function SensorDebugInfo(saveCrops, saveFrames, saveEventImages) {
+        this.saveCrops = saveCrops;
+        this.saveFrames = saveFrames;
+        this.saveEventImages = saveEventImages;
     }
     return SensorDebugInfo;
 }());
@@ -3731,7 +3938,8 @@ ZoneTypeCode[ZoneTypeCode.SHUTDOWN] = 'SHUTDOWN';
 var  /*
 */
 AccountIdRequest = /** @class */ (function () {
-    function AccountIdRequest() {
+    function AccountIdRequest(id) {
+        this.id = id;
     }
     return AccountIdRequest;
 }());
@@ -3749,7 +3957,8 @@ if (false) {
 var  /*
 */
 AccountIdsRequest = /** @class */ (function () {
-    function AccountIdsRequest() {
+    function AccountIdsRequest(id) {
+        this.id = id;
     }
     return AccountIdsRequest;
 }());
@@ -3767,7 +3976,9 @@ if (false) {
 var  /*
 */
 AccountsServiceChangeGroupsRequest = /** @class */ (function () {
-    function AccountsServiceChangeGroupsRequest() {
+    function AccountsServiceChangeGroupsRequest(id, groupId) {
+        this.id = id;
+        this.groupId = groupId;
     }
     return AccountsServiceChangeGroupsRequest;
 }());
@@ -3787,7 +3998,9 @@ if (false) {
 var  /*
 */
 AccountsServiceChangeNameRequest = /** @class */ (function () {
-    function AccountsServiceChangeNameRequest() {
+    function AccountsServiceChangeNameRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return AccountsServiceChangeNameRequest;
 }());
@@ -3807,7 +4020,9 @@ if (false) {
 var  /*
 */
 AccountsServiceChangeStatusRequest = /** @class */ (function () {
-    function AccountsServiceChangeStatusRequest() {
+    function AccountsServiceChangeStatusRequest(id, status) {
+        this.id = id;
+        this.status = status;
     }
     return AccountsServiceChangeStatusRequest;
 }());
@@ -3827,7 +4042,9 @@ if (false) {
 var  /*
 */
 AccountsServiceChangeTypeRequest = /** @class */ (function () {
-    function AccountsServiceChangeTypeRequest() {
+    function AccountsServiceChangeTypeRequest(id, type) {
+        this.id = id;
+        this.type = type;
     }
     return AccountsServiceChangeTypeRequest;
 }());
@@ -3847,7 +4064,8 @@ if (false) {
 var  /*
 */
 AccountsServiceCreateRequest = /** @class */ (function () {
-    function AccountsServiceCreateRequest() {
+    function AccountsServiceCreateRequest(body) {
+        this.body = body;
     }
     return AccountsServiceCreateRequest;
 }());
@@ -3865,7 +4083,13 @@ if (false) {
 var  /*
 */
 AccountsServiceFindRequest = /** @class */ (function () {
-    function AccountsServiceFindRequest() {
+    function AccountsServiceFindRequest(search, type, status, sort, page, pageSize) {
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return AccountsServiceFindRequest;
 }());
@@ -3893,7 +4117,9 @@ if (false) {
 var  /*
 */
 AccountsServiceUpdateRequest = /** @class */ (function () {
-    function AccountsServiceUpdateRequest() {
+    function AccountsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return AccountsServiceUpdateRequest;
 }());
@@ -3915,7 +4141,11 @@ var  /*
    Entity action response message returned for any create/update action on entity
 */
 ActionResponse = /** @class */ (function () {
-    function ActionResponse() {
+    function ActionResponse(code, error, key, data) {
+        this.code = code;
+        this.error = error;
+        this.key = key;
+        this.data = data;
     }
     return ActionResponse;
 }());
@@ -3939,7 +4169,8 @@ if (false) {
 var  /*
 */
 ApiKeyIdRequest = /** @class */ (function () {
-    function ApiKeyIdRequest() {
+    function ApiKeyIdRequest(id) {
+        this.id = id;
     }
     return ApiKeyIdRequest;
 }());
@@ -3957,7 +4188,8 @@ if (false) {
 var  /*
 */
 ApplianceCommandIdRequest = /** @class */ (function () {
-    function ApplianceCommandIdRequest() {
+    function ApplianceCommandIdRequest(commandId) {
+        this.commandId = commandId;
     }
     return ApplianceCommandIdRequest;
 }());
@@ -3975,7 +4207,8 @@ if (false) {
 var  /*
 */
 ApplianceIdRequest = /** @class */ (function () {
-    function ApplianceIdRequest() {
+    function ApplianceIdRequest(id) {
+        this.id = id;
     }
     return ApplianceIdRequest;
 }());
@@ -3993,7 +4226,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceAddSensorRequest = /** @class */ (function () {
-    function AppliancesServiceAddSensorRequest() {
+    function AppliancesServiceAddSensorRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return AppliancesServiceAddSensorRequest;
 }());
@@ -4013,7 +4248,10 @@ if (false) {
 var  /*
 */
 AppliancesServiceChangeConfigurationRequest = /** @class */ (function () {
-    function AppliancesServiceChangeConfigurationRequest() {
+    function AppliancesServiceChangeConfigurationRequest(id, configId, versionId) {
+        this.id = id;
+        this.configId = configId;
+        this.versionId = versionId;
     }
     return AppliancesServiceChangeConfigurationRequest;
 }());
@@ -4035,7 +4273,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceChangeFolderRequest = /** @class */ (function () {
-    function AppliancesServiceChangeFolderRequest() {
+    function AppliancesServiceChangeFolderRequest(id, folderId) {
+        this.id = id;
+        this.folderId = folderId;
     }
     return AppliancesServiceChangeFolderRequest;
 }());
@@ -4055,7 +4295,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceChangeMachineIdRequest = /** @class */ (function () {
-    function AppliancesServiceChangeMachineIdRequest() {
+    function AppliancesServiceChangeMachineIdRequest(id, machineId) {
+        this.id = id;
+        this.machineId = machineId;
     }
     return AppliancesServiceChangeMachineIdRequest;
 }());
@@ -4075,7 +4317,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceChangeNameRequest = /** @class */ (function () {
-    function AppliancesServiceChangeNameRequest() {
+    function AppliancesServiceChangeNameRequest(id, name) {
+        this.id = id;
+        this.name = name;
     }
     return AppliancesServiceChangeNameRequest;
 }());
@@ -4095,7 +4339,14 @@ if (false) {
 var  /*
 */
 AppliancesServiceFindRequest = /** @class */ (function () {
-    function AppliancesServiceFindRequest() {
+    function AppliancesServiceFindRequest(folderId, subFolders, search, status, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return AppliancesServiceFindRequest;
 }());
@@ -4125,7 +4376,15 @@ if (false) {
 var  /*
 */
 AppliancesServiceFindSensorsRequest = /** @class */ (function () {
-    function AppliancesServiceFindSensorsRequest() {
+    function AppliancesServiceFindSensorsRequest(id, search, type, status, stream, sort, page, pageSize) {
+        this.id = id;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return AppliancesServiceFindSensorsRequest;
 }());
@@ -4157,7 +4416,12 @@ if (false) {
 var  /*
 */
 AppliancesServiceGetCommandsRequest = /** @class */ (function () {
-    function AppliancesServiceGetCommandsRequest() {
+    function AppliancesServiceGetCommandsRequest(accountId, status, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return AppliancesServiceGetCommandsRequest;
 }());
@@ -4183,7 +4447,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceRegisterApplianceRequest = /** @class */ (function () {
-    function AppliancesServiceRegisterApplianceRequest() {
+    function AppliancesServiceRegisterApplianceRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return AppliancesServiceRegisterApplianceRequest;
 }());
@@ -4203,7 +4469,9 @@ if (false) {
 var  /*
 */
 AppliancesServiceSetCommandRequest = /** @class */ (function () {
-    function AppliancesServiceSetCommandRequest() {
+    function AppliancesServiceSetCommandRequest(commandId, status) {
+        this.commandId = commandId;
+        this.status = status;
     }
     return AppliancesServiceSetCommandRequest;
 }());
@@ -4223,7 +4491,10 @@ if (false) {
 var  /*
 */
 AppliancesServiceStatusOvertimeRequest = /** @class */ (function () {
-    function AppliancesServiceStatusOvertimeRequest() {
+    function AppliancesServiceStatusOvertimeRequest(id, from, to) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
     }
     return AppliancesServiceStatusOvertimeRequest;
 }());
@@ -4245,7 +4516,8 @@ if (false) {
 var  /*
 */
 AuditLogIdRequest = /** @class */ (function () {
-    function AuditLogIdRequest() {
+    function AuditLogIdRequest(id) {
+        this.id = id;
     }
     return AuditLogIdRequest;
 }());
@@ -4263,7 +4535,14 @@ if (false) {
 var  /*
 */
 AuditLogServiceFindRequest = /** @class */ (function () {
-    function AuditLogServiceFindRequest() {
+    function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize) {
+        this.userId = userId;
+        this.from = from;
+        this.to = to;
+        this.itemType = itemType;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return AuditLogServiceFindRequest;
 }());
@@ -4293,7 +4572,8 @@ if (false) {
 var  /*
 */
 CalendarIdRequest = /** @class */ (function () {
-    function CalendarIdRequest() {
+    function CalendarIdRequest(id) {
+        this.id = id;
     }
     return CalendarIdRequest;
 }());
@@ -4311,7 +4591,8 @@ if (false) {
 var  /*
 */
 CalendarIdsRequest = /** @class */ (function () {
-    function CalendarIdsRequest() {
+    function CalendarIdsRequest(id) {
+        this.id = id;
     }
     return CalendarIdsRequest;
 }());
@@ -4329,7 +4610,8 @@ if (false) {
 var  /*
 */
 CalendarsServiceCreateRequest = /** @class */ (function () {
-    function CalendarsServiceCreateRequest() {
+    function CalendarsServiceCreateRequest(body) {
+        this.body = body;
     }
     return CalendarsServiceCreateRequest;
 }());
@@ -4347,7 +4629,12 @@ if (false) {
 var  /*
 */
 CalendarsServiceFindRequest = /** @class */ (function () {
-    function CalendarsServiceFindRequest() {
+    function CalendarsServiceFindRequest(search, folderId, sort, page, pageSize) {
+        this.search = search;
+        this.folderId = folderId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return CalendarsServiceFindRequest;
 }());
@@ -4373,7 +4660,8 @@ if (false) {
 var  /*
 */
 CalendarsServiceFolderIdRequest = /** @class */ (function () {
-    function CalendarsServiceFolderIdRequest() {
+    function CalendarsServiceFolderIdRequest(folderId) {
+        this.folderId = folderId;
     }
     return CalendarsServiceFolderIdRequest;
 }());
@@ -4391,7 +4679,9 @@ if (false) {
 var  /*
 */
 CalendarsServiceUpdateRequest = /** @class */ (function () {
-    function CalendarsServiceUpdateRequest() {
+    function CalendarsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return CalendarsServiceUpdateRequest;
 }());
@@ -4411,7 +4701,9 @@ if (false) {
 var  /*
 */
 ChangeGeoAreaRequest = /** @class */ (function () {
-    function ChangeGeoAreaRequest() {
+    function ChangeGeoAreaRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return ChangeGeoAreaRequest;
 }());
@@ -4431,7 +4723,9 @@ if (false) {
 var  /*
 */
 ChangeGeoLocationRequest = /** @class */ (function () {
-    function ChangeGeoLocationRequest() {
+    function ChangeGeoLocationRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return ChangeGeoLocationRequest;
 }());
@@ -4453,7 +4747,10 @@ var  /*
    Change Password request message
 */
 ChangePasswordRequest = /** @class */ (function () {
-    function ChangePasswordRequest() {
+    function ChangePasswordRequest(userId, oldPassword, newPassword) {
+        this.userId = userId;
+        this.oldPassword = oldPassword;
+        this.newPassword = newPassword;
     }
     return ChangePasswordRequest;
 }());
@@ -4475,7 +4772,8 @@ if (false) {
 var  /*
 */
 ConfigurationIdRequest = /** @class */ (function () {
-    function ConfigurationIdRequest() {
+    function ConfigurationIdRequest(id) {
+        this.id = id;
     }
     return ConfigurationIdRequest;
 }());
@@ -4493,7 +4791,8 @@ if (false) {
 var  /*
 */
 ConfigurationTargetRequest = /** @class */ (function () {
-    function ConfigurationTargetRequest() {
+    function ConfigurationTargetRequest(target) {
+        this.target = target;
     }
     return ConfigurationTargetRequest;
 }());
@@ -4511,7 +4810,9 @@ if (false) {
 var  /*
 */
 ConfigurationVersionIdRequest = /** @class */ (function () {
-    function ConfigurationVersionIdRequest() {
+    function ConfigurationVersionIdRequest(id, versionId) {
+        this.id = id;
+        this.versionId = versionId;
     }
     return ConfigurationVersionIdRequest;
 }());
@@ -4547,7 +4848,9 @@ var  /*
    Entities response message returned for read operation on multiple entities
 */
 EntitiesResponse = /** @class */ (function () {
-    function EntitiesResponse() {
+    function EntitiesResponse(code, error) {
+        this.code = code;
+        this.error = error;
     }
     return EntitiesResponse;
 }());
@@ -5097,7 +5400,9 @@ var  /*
    Entity response message returned for read operation on a single entity
 */
 EntityResponse = /** @class */ (function () {
-    function EntityResponse() {
+    function EntityResponse(code, error) {
+        this.code = code;
+        this.error = error;
     }
     return EntityResponse;
 }());
@@ -5837,7 +6142,8 @@ if (false) {
 var  /*
 */
 EventIdRequest = /** @class */ (function () {
-    function EventIdRequest() {
+    function EventIdRequest(id) {
+        this.id = id;
     }
     return EventIdRequest;
 }());
@@ -5855,7 +6161,8 @@ if (false) {
 var  /*
 */
 EventIdsRequest = /** @class */ (function () {
-    function EventIdsRequest() {
+    function EventIdsRequest(id) {
+        this.id = id;
     }
     return EventIdsRequest;
 }());
@@ -5873,7 +6180,8 @@ if (false) {
 var  /*
 */
 EventsServiceCreateRequest = /** @class */ (function () {
-    function EventsServiceCreateRequest() {
+    function EventsServiceCreateRequest(body) {
+        this.body = body;
     }
     return EventsServiceCreateRequest;
 }());
@@ -5891,7 +6199,18 @@ if (false) {
 var  /*
 */
 EventsServiceFindInAreaRequest = /** @class */ (function () {
-    function EventsServiceFindInAreaRequest() {
+    function EventsServiceFindInAreaRequest(folderId, searchArea, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.searchArea = searchArea;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return EventsServiceFindInAreaRequest;
 }());
@@ -5929,7 +6248,18 @@ if (false) {
 var  /*
 */
 EventsServiceFindRequest = /** @class */ (function () {
-    function EventsServiceFindRequest() {
+    function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return EventsServiceFindRequest;
 }());
@@ -5967,7 +6297,9 @@ if (false) {
 var  /*
 */
 EventsServiceSetClipPathRequest = /** @class */ (function () {
-    function EventsServiceSetClipPathRequest() {
+    function EventsServiceSetClipPathRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return EventsServiceSetClipPathRequest;
 }());
@@ -5987,7 +6319,9 @@ if (false) {
 var  /*
 */
 EventsServiceSetImagePathRequest = /** @class */ (function () {
-    function EventsServiceSetImagePathRequest() {
+    function EventsServiceSetImagePathRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return EventsServiceSetImagePathRequest;
 }());
@@ -6007,7 +6341,9 @@ if (false) {
 var  /*
 */
 EventsServiceSetStatusRequest = /** @class */ (function () {
-    function EventsServiceSetStatusRequest() {
+    function EventsServiceSetStatusRequest(id, status) {
+        this.id = id;
+        this.status = status;
     }
     return EventsServiceSetStatusRequest;
 }());
@@ -6027,7 +6363,16 @@ if (false) {
 var  /*
 */
 EventsServiceStatisticsRequest = /** @class */ (function () {
-    function EventsServiceStatisticsRequest() {
+    function EventsServiceStatisticsRequest(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.interval = interval;
+        this.format = format;
     }
     return EventsServiceStatisticsRequest;
 }());
@@ -6061,7 +6406,8 @@ if (false) {
 var  /*
 */
 FeatureIdRequest = /** @class */ (function () {
-    function FeatureIdRequest() {
+    function FeatureIdRequest(id) {
+        this.id = id;
     }
     return FeatureIdRequest;
 }());
@@ -6079,7 +6425,8 @@ if (false) {
 var  /*
 */
 FeatureIdsRequest = /** @class */ (function () {
-    function FeatureIdsRequest() {
+    function FeatureIdsRequest(id) {
+        this.id = id;
     }
     return FeatureIdsRequest;
 }());
@@ -6097,7 +6444,8 @@ if (false) {
 var  /*
 */
 FeaturesGroupIdRequest = /** @class */ (function () {
-    function FeaturesGroupIdRequest() {
+    function FeaturesGroupIdRequest(id) {
+        this.id = id;
     }
     return FeaturesGroupIdRequest;
 }());
@@ -6115,7 +6463,8 @@ if (false) {
 var  /*
 */
 FeaturesGroupIdsRequest = /** @class */ (function () {
-    function FeaturesGroupIdsRequest() {
+    function FeaturesGroupIdsRequest(id) {
+        this.id = id;
     }
     return FeaturesGroupIdsRequest;
 }());
@@ -6133,7 +6482,8 @@ if (false) {
 var  /*
 */
 FeaturesGroupsServiceCreateRequest = /** @class */ (function () {
-    function FeaturesGroupsServiceCreateRequest() {
+    function FeaturesGroupsServiceCreateRequest(body) {
+        this.body = body;
     }
     return FeaturesGroupsServiceCreateRequest;
 }());
@@ -6151,7 +6501,9 @@ if (false) {
 var  /*
 */
 FeaturesGroupsServiceFindRequest = /** @class */ (function () {
-    function FeaturesGroupsServiceFindRequest() {
+    function FeaturesGroupsServiceFindRequest(search, sort) {
+        this.search = search;
+        this.sort = sort;
     }
     return FeaturesGroupsServiceFindRequest;
 }());
@@ -6171,7 +6523,9 @@ if (false) {
 var  /*
 */
 FeaturesGroupsServiceSetFeaturesRequest = /** @class */ (function () {
-    function FeaturesGroupsServiceSetFeaturesRequest() {
+    function FeaturesGroupsServiceSetFeaturesRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FeaturesGroupsServiceSetFeaturesRequest;
 }());
@@ -6191,7 +6545,9 @@ if (false) {
 var  /*
 */
 FeaturesGroupsServiceSetNameRequest = /** @class */ (function () {
-    function FeaturesGroupsServiceSetNameRequest() {
+    function FeaturesGroupsServiceSetNameRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FeaturesGroupsServiceSetNameRequest;
 }());
@@ -6211,7 +6567,9 @@ if (false) {
 var  /*
 */
 FeaturesGroupsServiceUpdateRequest = /** @class */ (function () {
-    function FeaturesGroupsServiceUpdateRequest() {
+    function FeaturesGroupsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FeaturesGroupsServiceUpdateRequest;
 }());
@@ -6231,7 +6589,8 @@ if (false) {
 var  /*
 */
 FeaturesServiceCreateRequest = /** @class */ (function () {
-    function FeaturesServiceCreateRequest() {
+    function FeaturesServiceCreateRequest(body) {
+        this.body = body;
     }
     return FeaturesServiceCreateRequest;
 }());
@@ -6249,7 +6608,10 @@ if (false) {
 var  /*
 */
 FeaturesServiceFindRequest = /** @class */ (function () {
-    function FeaturesServiceFindRequest() {
+    function FeaturesServiceFindRequest(search, category, sort) {
+        this.search = search;
+        this.category = category;
+        this.sort = sort;
     }
     return FeaturesServiceFindRequest;
 }());
@@ -6271,7 +6633,9 @@ if (false) {
 var  /*
 */
 FeaturesServiceUpdateRequest = /** @class */ (function () {
-    function FeaturesServiceUpdateRequest() {
+    function FeaturesServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FeaturesServiceUpdateRequest;
 }());
@@ -6291,7 +6655,8 @@ if (false) {
 var  /*
 */
 FolderIdRequest = /** @class */ (function () {
-    function FolderIdRequest() {
+    function FolderIdRequest(id) {
+        this.id = id;
     }
     return FolderIdRequest;
 }());
@@ -6309,7 +6674,8 @@ if (false) {
 var  /*
 */
 FolderIdsRequest = /** @class */ (function () {
-    function FolderIdsRequest() {
+    function FolderIdsRequest(id) {
+        this.id = id;
     }
     return FolderIdsRequest;
 }());
@@ -6327,7 +6693,9 @@ if (false) {
 var  /*
 */
 FoldersServiceChangeGeoAreaRequest = /** @class */ (function () {
-    function FoldersServiceChangeGeoAreaRequest() {
+    function FoldersServiceChangeGeoAreaRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FoldersServiceChangeGeoAreaRequest;
 }());
@@ -6347,7 +6715,9 @@ if (false) {
 var  /*
 */
 FoldersServiceChangeGeoLocationRequest = /** @class */ (function () {
-    function FoldersServiceChangeGeoLocationRequest() {
+    function FoldersServiceChangeGeoLocationRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FoldersServiceChangeGeoLocationRequest;
 }());
@@ -6367,7 +6737,9 @@ if (false) {
 var  /*
 */
 FoldersServiceChangeNameRequest = /** @class */ (function () {
-    function FoldersServiceChangeNameRequest() {
+    function FoldersServiceChangeNameRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FoldersServiceChangeNameRequest;
 }());
@@ -6387,7 +6759,9 @@ if (false) {
 var  /*
 */
 FoldersServiceChangeParentRequest = /** @class */ (function () {
-    function FoldersServiceChangeParentRequest() {
+    function FoldersServiceChangeParentRequest(id, parentId) {
+        this.id = id;
+        this.parentId = parentId;
     }
     return FoldersServiceChangeParentRequest;
 }());
@@ -6407,7 +6781,9 @@ if (false) {
 var  /*
 */
 FoldersServiceChangeTimezoneRequest = /** @class */ (function () {
-    function FoldersServiceChangeTimezoneRequest() {
+    function FoldersServiceChangeTimezoneRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return FoldersServiceChangeTimezoneRequest;
 }());
@@ -6427,7 +6803,8 @@ if (false) {
 var  /*
 */
 FoldersServiceCreateRequest = /** @class */ (function () {
-    function FoldersServiceCreateRequest() {
+    function FoldersServiceCreateRequest(body) {
+        this.body = body;
     }
     return FoldersServiceCreateRequest;
 }());
@@ -6445,7 +6822,13 @@ if (false) {
 var  /*
 */
 FoldersServiceFindRequest = /** @class */ (function () {
-    function FoldersServiceFindRequest() {
+    function FoldersServiceFindRequest(id, search, parentId, sort, page, pageSize) {
+        this.id = id;
+        this.search = search;
+        this.parentId = parentId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return FoldersServiceFindRequest;
 }());
@@ -6473,7 +6856,8 @@ if (false) {
 var  /*
 */
 FoldersServiceGetHierarchyRequest = /** @class */ (function () {
-    function FoldersServiceGetHierarchyRequest() {
+    function FoldersServiceGetHierarchyRequest(includeSensors) {
+        this.includeSensors = includeSensors;
     }
     return FoldersServiceGetHierarchyRequest;
 }());
@@ -6491,7 +6875,8 @@ if (false) {
 var  /*
 */
 GeoServicesReferenceRequest = /** @class */ (function () {
-    function GeoServicesReferenceRequest() {
+    function GeoServicesReferenceRequest(body) {
+        this.body = body;
     }
     return GeoServicesReferenceRequest;
 }());
@@ -6509,7 +6894,8 @@ if (false) {
 var  /*
 */
 IntegrationIdRequest = /** @class */ (function () {
-    function IntegrationIdRequest() {
+    function IntegrationIdRequest(id) {
+        this.id = id;
     }
     return IntegrationIdRequest;
 }());
@@ -6527,7 +6913,8 @@ if (false) {
 var  /*
 */
 IntegrationIdsRequest = /** @class */ (function () {
-    function IntegrationIdsRequest() {
+    function IntegrationIdsRequest(id) {
+        this.id = id;
     }
     return IntegrationIdsRequest;
 }());
@@ -6545,7 +6932,8 @@ if (false) {
 var  /*
 */
 IntegrationsServiceCreateRequest = /** @class */ (function () {
-    function IntegrationsServiceCreateRequest() {
+    function IntegrationsServiceCreateRequest(body) {
+        this.body = body;
     }
     return IntegrationsServiceCreateRequest;
 }());
@@ -6563,7 +6951,9 @@ if (false) {
 var  /*
 */
 IntegrationsServiceFindRequest = /** @class */ (function () {
-    function IntegrationsServiceFindRequest() {
+    function IntegrationsServiceFindRequest(search, type) {
+        this.search = search;
+        this.type = type;
     }
     return IntegrationsServiceFindRequest;
 }());
@@ -6583,7 +6973,9 @@ if (false) {
 var  /*
 */
 IntegrationsServiceUpdateRequest = /** @class */ (function () {
-    function IntegrationsServiceUpdateRequest() {
+    function IntegrationsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return IntegrationsServiceUpdateRequest;
 }());
@@ -6605,7 +6997,15 @@ var  /*
    Query response message returned for find operation (with pagination) on multiple entities
 */
 QueryResponse = /** @class */ (function () {
-    function QueryResponse() {
+    function QueryResponse(code, error, page, pageSize, pages, total, queryDef, docType) {
+        this.code = code;
+        this.error = error;
+        this.page = page;
+        this.pageSize = pageSize;
+        this.pages = pages;
+        this.total = total;
+        this.queryDef = queryDef;
+        this.docType = docType;
     }
     return QueryResponse;
 }());
@@ -7285,7 +7685,8 @@ if (false) {
 var  /*
 */
 ReportIdRequest = /** @class */ (function () {
-    function ReportIdRequest() {
+    function ReportIdRequest(id) {
+        this.id = id;
     }
     return ReportIdRequest;
 }());
@@ -7303,7 +7704,8 @@ if (false) {
 var  /*
 */
 ReportIdsRequest = /** @class */ (function () {
-    function ReportIdsRequest() {
+    function ReportIdsRequest(id) {
+        this.id = id;
     }
     return ReportIdsRequest;
 }());
@@ -7321,7 +7723,8 @@ if (false) {
 var  /*
 */
 ReportsServiceCreateRequest = /** @class */ (function () {
-    function ReportsServiceCreateRequest() {
+    function ReportsServiceCreateRequest(body) {
+        this.body = body;
     }
     return ReportsServiceCreateRequest;
 }());
@@ -7339,7 +7742,8 @@ if (false) {
 var  /*
 */
 ReportsServiceFindRequest = /** @class */ (function () {
-    function ReportsServiceFindRequest() {
+    function ReportsServiceFindRequest(search) {
+        this.search = search;
     }
     return ReportsServiceFindRequest;
 }());
@@ -7357,7 +7761,9 @@ if (false) {
 var  /*
 */
 ReportsServiceUpdateRequest = /** @class */ (function () {
-    function ReportsServiceUpdateRequest() {
+    function ReportsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return ReportsServiceUpdateRequest;
 }());
@@ -7377,7 +7783,8 @@ if (false) {
 var  /*
 */
 RuleIdRequest = /** @class */ (function () {
-    function RuleIdRequest() {
+    function RuleIdRequest(id) {
+        this.id = id;
     }
     return RuleIdRequest;
 }());
@@ -7395,7 +7802,8 @@ if (false) {
 var  /*
 */
 RuleIdsRequest = /** @class */ (function () {
-    function RuleIdsRequest() {
+    function RuleIdsRequest(id) {
+        this.id = id;
     }
     return RuleIdsRequest;
 }());
@@ -7413,7 +7821,8 @@ if (false) {
 var  /*
 */
 RulesServiceCreateRequest = /** @class */ (function () {
-    function RulesServiceCreateRequest() {
+    function RulesServiceCreateRequest(body) {
+        this.body = body;
     }
     return RulesServiceCreateRequest;
 }());
@@ -7431,7 +7840,16 @@ if (false) {
 var  /*
 */
 RulesServiceFindRequest = /** @class */ (function () {
-    function RulesServiceFindRequest() {
+    function RulesServiceFindRequest(folderId, sensorId, search, ruleType, behaviorType, severity, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.search = search;
+        this.ruleType = ruleType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return RulesServiceFindRequest;
 }());
@@ -7465,7 +7883,9 @@ if (false) {
 var  /*
 */
 RulesServiceUpdateRequest = /** @class */ (function () {
-    function RulesServiceUpdateRequest() {
+    function RulesServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return RulesServiceUpdateRequest;
 }());
@@ -7485,7 +7905,8 @@ if (false) {
 var  /*
 */
 ScheduleIdRequest = /** @class */ (function () {
-    function ScheduleIdRequest() {
+    function ScheduleIdRequest(id) {
+        this.id = id;
     }
     return ScheduleIdRequest;
 }());
@@ -7503,7 +7924,8 @@ if (false) {
 var  /*
 */
 ScheduleIdsRequest = /** @class */ (function () {
-    function ScheduleIdsRequest() {
+    function ScheduleIdsRequest(id) {
+        this.id = id;
     }
     return ScheduleIdsRequest;
 }());
@@ -7521,7 +7943,8 @@ if (false) {
 var  /*
 */
 ScheduledReportIdRequest = /** @class */ (function () {
-    function ScheduledReportIdRequest() {
+    function ScheduledReportIdRequest(id) {
+        this.id = id;
     }
     return ScheduledReportIdRequest;
 }());
@@ -7539,7 +7962,8 @@ if (false) {
 var  /*
 */
 ScheduledReportIdsRequest = /** @class */ (function () {
-    function ScheduledReportIdsRequest() {
+    function ScheduledReportIdsRequest(id) {
+        this.id = id;
     }
     return ScheduledReportIdsRequest;
 }());
@@ -7557,7 +7981,8 @@ if (false) {
 var  /*
 */
 ScheduledReportsServiceCreateRequest = /** @class */ (function () {
-    function ScheduledReportsServiceCreateRequest() {
+    function ScheduledReportsServiceCreateRequest(body) {
+        this.body = body;
     }
     return ScheduledReportsServiceCreateRequest;
 }());
@@ -7575,7 +8000,8 @@ if (false) {
 var  /*
 */
 ScheduledReportsServiceFindRequest = /** @class */ (function () {
-    function ScheduledReportsServiceFindRequest() {
+    function ScheduledReportsServiceFindRequest(search) {
+        this.search = search;
     }
     return ScheduledReportsServiceFindRequest;
 }());
@@ -7593,7 +8019,9 @@ if (false) {
 var  /*
 */
 ScheduledReportsServiceUpdateRequest = /** @class */ (function () {
-    function ScheduledReportsServiceUpdateRequest() {
+    function ScheduledReportsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return ScheduledReportsServiceUpdateRequest;
 }());
@@ -7613,7 +8041,8 @@ if (false) {
 var  /*
 */
 SchedulesServiceCreateRequest = /** @class */ (function () {
-    function SchedulesServiceCreateRequest() {
+    function SchedulesServiceCreateRequest(body) {
+        this.body = body;
     }
     return SchedulesServiceCreateRequest;
 }());
@@ -7631,7 +8060,12 @@ if (false) {
 var  /*
 */
 SchedulesServiceFindRequest = /** @class */ (function () {
-    function SchedulesServiceFindRequest() {
+    function SchedulesServiceFindRequest(search, folderId, sort, page, pageSize) {
+        this.search = search;
+        this.folderId = folderId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SchedulesServiceFindRequest;
 }());
@@ -7657,7 +8091,8 @@ if (false) {
 var  /*
 */
 SchedulesServiceFolderIdRequest = /** @class */ (function () {
-    function SchedulesServiceFolderIdRequest() {
+    function SchedulesServiceFolderIdRequest(folderId) {
+        this.folderId = folderId;
     }
     return SchedulesServiceFolderIdRequest;
 }());
@@ -7675,7 +8110,9 @@ if (false) {
 var  /*
 */
 SchedulesServiceUpdateRequest = /** @class */ (function () {
-    function SchedulesServiceUpdateRequest() {
+    function SchedulesServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SchedulesServiceUpdateRequest;
 }());
@@ -7695,7 +8132,8 @@ if (false) {
 var  /*
 */
 SearchIdRequest = /** @class */ (function () {
-    function SearchIdRequest() {
+    function SearchIdRequest(id) {
+        this.id = id;
     }
     return SearchIdRequest;
 }());
@@ -7713,7 +8151,8 @@ if (false) {
 var  /*
 */
 SearchIdsRequest = /** @class */ (function () {
-    function SearchIdsRequest() {
+    function SearchIdsRequest(id) {
+        this.id = id;
     }
     return SearchIdsRequest;
 }());
@@ -7731,7 +8170,8 @@ if (false) {
 var  /*
 */
 SearchServiceCreateRequest = /** @class */ (function () {
-    function SearchServiceCreateRequest() {
+    function SearchServiceCreateRequest(body) {
+        this.body = body;
     }
     return SearchServiceCreateRequest;
 }());
@@ -7749,7 +8189,8 @@ if (false) {
 var  /*
 */
 SearchServiceExecuteRequest = /** @class */ (function () {
-    function SearchServiceExecuteRequest() {
+    function SearchServiceExecuteRequest(body) {
+        this.body = body;
     }
     return SearchServiceExecuteRequest;
 }());
@@ -7767,7 +8208,11 @@ if (false) {
 var  /*
 */
 SearchServiceFindRequest = /** @class */ (function () {
-    function SearchServiceFindRequest() {
+    function SearchServiceFindRequest(search, sort, page, pageSize) {
+        this.search = search;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SearchServiceFindRequest;
 }());
@@ -7791,7 +8236,9 @@ if (false) {
 var  /*
 */
 SearchServiceUpdateRequest = /** @class */ (function () {
-    function SearchServiceUpdateRequest() {
+    function SearchServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SearchServiceUpdateRequest;
 }());
@@ -7811,7 +8258,8 @@ if (false) {
 var  /*
 */
 SensorIdRequest = /** @class */ (function () {
-    function SensorIdRequest() {
+    function SensorIdRequest(id) {
+        this.id = id;
     }
     return SensorIdRequest;
 }());
@@ -7829,7 +8277,8 @@ if (false) {
 var  /*
 */
 SensorIdsRequest = /** @class */ (function () {
-    function SensorIdsRequest() {
+    function SensorIdsRequest(id) {
+        this.id = id;
     }
     return SensorIdsRequest;
 }());
@@ -7847,7 +8296,9 @@ if (false) {
 var  /*
 */
 SensorsServiceChangeFolderRequest = /** @class */ (function () {
-    function SensorsServiceChangeFolderRequest() {
+    function SensorsServiceChangeFolderRequest(id, folderId) {
+        this.id = id;
+        this.folderId = folderId;
     }
     return SensorsServiceChangeFolderRequest;
 }());
@@ -7867,7 +8318,10 @@ if (false) {
 var  /*
 */
 SensorsServiceChangeFovRequest = /** @class */ (function () {
-    function SensorsServiceChangeFovRequest() {
+    function SensorsServiceChangeFovRequest(id, azimuth, body) {
+        this.id = id;
+        this.azimuth = azimuth;
+        this.body = body;
     }
     return SensorsServiceChangeFovRequest;
 }());
@@ -7889,7 +8343,9 @@ if (false) {
 var  /*
 */
 SensorsServiceChangeGeoLocationRequest = /** @class */ (function () {
-    function SensorsServiceChangeGeoLocationRequest() {
+    function SensorsServiceChangeGeoLocationRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SensorsServiceChangeGeoLocationRequest;
 }());
@@ -7909,7 +8365,9 @@ if (false) {
 var  /*
 */
 SensorsServiceChangeNameRequest = /** @class */ (function () {
-    function SensorsServiceChangeNameRequest() {
+    function SensorsServiceChangeNameRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SensorsServiceChangeNameRequest;
 }());
@@ -7929,7 +8387,9 @@ if (false) {
 var  /*
 */
 SensorsServiceChangeStatusRequest = /** @class */ (function () {
-    function SensorsServiceChangeStatusRequest() {
+    function SensorsServiceChangeStatusRequest(id, status) {
+        this.id = id;
+        this.status = status;
     }
     return SensorsServiceChangeStatusRequest;
 }());
@@ -7949,7 +8409,8 @@ if (false) {
 var  /*
 */
 SensorsServiceCreateRequest = /** @class */ (function () {
-    function SensorsServiceCreateRequest() {
+    function SensorsServiceCreateRequest(body) {
+        this.body = body;
     }
     return SensorsServiceCreateRequest;
 }());
@@ -7967,7 +8428,16 @@ if (false) {
 var  /*
 */
 SensorsServiceFindRequest = /** @class */ (function () {
-    function SensorsServiceFindRequest() {
+    function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SensorsServiceFindRequest;
 }());
@@ -8001,7 +8471,10 @@ if (false) {
 var  /*
 */
 SensorsServiceStatusOvertimeRequest = /** @class */ (function () {
-    function SensorsServiceStatusOvertimeRequest() {
+    function SensorsServiceStatusOvertimeRequest(id, from, to) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
     }
     return SensorsServiceStatusOvertimeRequest;
 }());
@@ -8023,7 +8496,9 @@ if (false) {
 var  /*
 */
 SensorsServiceUpdateRequest = /** @class */ (function () {
-    function SensorsServiceUpdateRequest() {
+    function SensorsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SensorsServiceUpdateRequest;
 }());
@@ -8045,7 +8520,8 @@ var  /*
    Response of byte array
 */
 StreamResponse = /** @class */ (function () {
-    function StreamResponse() {
+    function StreamResponse(content) {
+        this.content = content;
     }
     return StreamResponse;
 }());
@@ -8063,7 +8539,13 @@ if (false) {
 var  /*
 */
 SysAppliancesServiceFindRequest = /** @class */ (function () {
-    function SysAppliancesServiceFindRequest() {
+    function SysAppliancesServiceFindRequest(accountId, search, status, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.search = search;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SysAppliancesServiceFindRequest;
 }());
@@ -8091,7 +8573,10 @@ if (false) {
 var  /*
 */
 SysAppliancesServiceGetCommandsRequest = /** @class */ (function () {
-    function SysAppliancesServiceGetCommandsRequest() {
+    function SysAppliancesServiceGetCommandsRequest(accountId, applianceId, status) {
+        this.accountId = accountId;
+        this.applianceId = applianceId;
+        this.status = status;
     }
     return SysAppliancesServiceGetCommandsRequest;
 }());
@@ -8113,7 +8598,8 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceCreateRequest = /** @class */ (function () {
-    function SysConfigurationsServiceCreateRequest() {
+    function SysConfigurationsServiceCreateRequest(body) {
+        this.body = body;
     }
     return SysConfigurationsServiceCreateRequest;
 }());
@@ -8131,7 +8617,9 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceCreateVersionRequest = /** @class */ (function () {
-    function SysConfigurationsServiceCreateVersionRequest() {
+    function SysConfigurationsServiceCreateVersionRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SysConfigurationsServiceCreateVersionRequest;
 }());
@@ -8151,7 +8639,9 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceDeleteVersionRequest = /** @class */ (function () {
-    function SysConfigurationsServiceDeleteVersionRequest() {
+    function SysConfigurationsServiceDeleteVersionRequest(id, versionId) {
+        this.id = id;
+        this.versionId = versionId;
     }
     return SysConfigurationsServiceDeleteVersionRequest;
 }());
@@ -8171,7 +8661,12 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceFindRequest = /** @class */ (function () {
-    function SysConfigurationsServiceFindRequest() {
+    function SysConfigurationsServiceFindRequest(target, search, sort, page, pageSize) {
+        this.target = target;
+        this.search = search;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SysConfigurationsServiceFindRequest;
 }());
@@ -8197,7 +8692,9 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceUpdateRequest = /** @class */ (function () {
-    function SysConfigurationsServiceUpdateRequest() {
+    function SysConfigurationsServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SysConfigurationsServiceUpdateRequest;
 }());
@@ -8217,7 +8714,9 @@ if (false) {
 var  /*
 */
 SysConfigurationsServiceUpdateVersionRequest = /** @class */ (function () {
-    function SysConfigurationsServiceUpdateVersionRequest() {
+    function SysConfigurationsServiceUpdateVersionRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return SysConfigurationsServiceUpdateVersionRequest;
 }());
@@ -8237,7 +8736,9 @@ if (false) {
 var  /*
 */
 SysEventIdRequest = /** @class */ (function () {
-    function SysEventIdRequest() {
+    function SysEventIdRequest(id, accountId) {
+        this.id = id;
+        this.accountId = accountId;
     }
     return SysEventIdRequest;
 }());
@@ -8257,7 +8758,18 @@ if (false) {
 var  /*
 */
 SysEventsServiceFindInAreaRequest = /** @class */ (function () {
-    function SysEventsServiceFindInAreaRequest() {
+    function SysEventsServiceFindInAreaRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SysEventsServiceFindInAreaRequest;
 }());
@@ -8295,7 +8807,17 @@ if (false) {
 var  /*
 */
 SysEventsServiceStatisticsRequest = /** @class */ (function () {
-    function SysEventsServiceStatisticsRequest() {
+    function SysEventsServiceStatisticsRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.interval = interval;
+        this.format = format;
     }
     return SysEventsServiceStatisticsRequest;
 }());
@@ -8331,7 +8853,8 @@ if (false) {
 var  /*
 */
 SysKeysServiceCreateApiKeyRequest = /** @class */ (function () {
-    function SysKeysServiceCreateApiKeyRequest() {
+    function SysKeysServiceCreateApiKeyRequest(body) {
+        this.body = body;
     }
     return SysKeysServiceCreateApiKeyRequest;
 }());
@@ -8349,7 +8872,17 @@ if (false) {
 var  /*
 */
 SysSensorsServiceFindRequest = /** @class */ (function () {
-    function SysSensorsServiceFindRequest() {
+    function SysSensorsServiceFindRequest(accountId, folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SysSensorsServiceFindRequest;
 }());
@@ -8387,7 +8920,10 @@ var  /*
    Token request message
 */
 TokenRequest = /** @class */ (function () {
-    function TokenRequest() {
+    function TokenRequest(code, error, accountId) {
+        this.code = code;
+        this.error = error;
+        this.accountId = accountId;
     }
     return TokenRequest;
 }());
@@ -8409,7 +8945,8 @@ if (false) {
 var  /*
 */
 UserByEmailRequest = /** @class */ (function () {
-    function UserByEmailRequest() {
+    function UserByEmailRequest(email) {
+        this.email = email;
     }
     return UserByEmailRequest;
 }());
@@ -8427,7 +8964,8 @@ if (false) {
 var  /*
 */
 UserIdRequest = /** @class */ (function () {
-    function UserIdRequest() {
+    function UserIdRequest(id) {
+        this.id = id;
     }
     return UserIdRequest;
 }());
@@ -8445,7 +8983,8 @@ if (false) {
 var  /*
 */
 UserIdsRequest = /** @class */ (function () {
-    function UserIdsRequest() {
+    function UserIdsRequest(id) {
+        this.id = id;
     }
     return UserIdsRequest;
 }());
@@ -8463,7 +9002,8 @@ if (false) {
 var  /*
 */
 UserServiceChangeMobileRequest = /** @class */ (function () {
-    function UserServiceChangeMobileRequest() {
+    function UserServiceChangeMobileRequest(body) {
+        this.body = body;
     }
     return UserServiceChangeMobileRequest;
 }());
@@ -8481,7 +9021,8 @@ if (false) {
 var  /*
 */
 UserServiceChangeNameRequest = /** @class */ (function () {
-    function UserServiceChangeNameRequest() {
+    function UserServiceChangeNameRequest(body) {
+        this.body = body;
     }
     return UserServiceChangeNameRequest;
 }());
@@ -8499,7 +9040,8 @@ if (false) {
 var  /*
 */
 UserServiceChangePasswordRequest = /** @class */ (function () {
-    function UserServiceChangePasswordRequest() {
+    function UserServiceChangePasswordRequest(body) {
+        this.body = body;
     }
     return UserServiceChangePasswordRequest;
 }());
@@ -8517,7 +9059,8 @@ if (false) {
 var  /*
 */
 UserServiceCheckPasswordRequest = /** @class */ (function () {
-    function UserServiceCheckPasswordRequest() {
+    function UserServiceCheckPasswordRequest(body) {
+        this.body = body;
     }
     return UserServiceCheckPasswordRequest;
 }());
@@ -8535,7 +9078,8 @@ if (false) {
 var  /*
 */
 UserServiceLoginRequest = /** @class */ (function () {
-    function UserServiceLoginRequest() {
+    function UserServiceLoginRequest(body) {
+        this.body = body;
     }
     return UserServiceLoginRequest;
 }());
@@ -8553,7 +9097,8 @@ if (false) {
 var  /*
 */
 UserServiceResetPasswordRequest = /** @class */ (function () {
-    function UserServiceResetPasswordRequest() {
+    function UserServiceResetPasswordRequest(code) {
+        this.code = code;
     }
     return UserServiceResetPasswordRequest;
 }());
@@ -8571,7 +9116,8 @@ if (false) {
 var  /*
 */
 UserServiceSendVerificationRequest = /** @class */ (function () {
-    function UserServiceSendVerificationRequest() {
+    function UserServiceSendVerificationRequest(body) {
+        this.body = body;
     }
     return UserServiceSendVerificationRequest;
 }());
@@ -8589,7 +9135,8 @@ if (false) {
 var  /*
 */
 UserServiceSwitchAccountRequest = /** @class */ (function () {
-    function UserServiceSwitchAccountRequest() {
+    function UserServiceSwitchAccountRequest(body) {
+        this.body = body;
     }
     return UserServiceSwitchAccountRequest;
 }());
@@ -8607,7 +9154,8 @@ if (false) {
 var  /*
 */
 UserServiceVerifyLoginRequest = /** @class */ (function () {
-    function UserServiceVerifyLoginRequest() {
+    function UserServiceVerifyLoginRequest(key) {
+        this.key = key;
     }
     return UserServiceVerifyLoginRequest;
 }());
@@ -8625,7 +9173,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeDefaultAccountRequest = /** @class */ (function () {
-    function UsersServiceChangeDefaultAccountRequest() {
+    function UsersServiceChangeDefaultAccountRequest(id, accountId) {
+        this.id = id;
+        this.accountId = accountId;
     }
     return UsersServiceChangeDefaultAccountRequest;
 }());
@@ -8645,7 +9195,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeMobileRequest = /** @class */ (function () {
-    function UsersServiceChangeMobileRequest() {
+    function UsersServiceChangeMobileRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return UsersServiceChangeMobileRequest;
 }());
@@ -8665,7 +9217,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeNameRequest = /** @class */ (function () {
-    function UsersServiceChangeNameRequest() {
+    function UsersServiceChangeNameRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return UsersServiceChangeNameRequest;
 }());
@@ -8685,7 +9239,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeRoleRequest = /** @class */ (function () {
-    function UsersServiceChangeRoleRequest() {
+    function UsersServiceChangeRoleRequest(id, role) {
+        this.id = id;
+        this.role = role;
     }
     return UsersServiceChangeRoleRequest;
 }());
@@ -8705,7 +9261,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeStatusRequest = /** @class */ (function () {
-    function UsersServiceChangeStatusRequest() {
+    function UsersServiceChangeStatusRequest(id, status) {
+        this.id = id;
+        this.status = status;
     }
     return UsersServiceChangeStatusRequest;
 }());
@@ -8725,7 +9283,9 @@ if (false) {
 var  /*
 */
 UsersServiceChangeTypeRequest = /** @class */ (function () {
-    function UsersServiceChangeTypeRequest() {
+    function UsersServiceChangeTypeRequest(id, type) {
+        this.id = id;
+        this.type = type;
     }
     return UsersServiceChangeTypeRequest;
 }());
@@ -8745,7 +9305,13 @@ if (false) {
 var  /*
 */
 UsersServiceFindRequest = /** @class */ (function () {
-    function UsersServiceFindRequest() {
+    function UsersServiceFindRequest(search, type, status, sort, page, pageSize) {
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return UsersServiceFindRequest;
 }());
@@ -8773,7 +9339,8 @@ if (false) {
 var  /*
 */
 UsersServiceInviteRequest = /** @class */ (function () {
-    function UsersServiceInviteRequest() {
+    function UsersServiceInviteRequest(body) {
+        this.body = body;
     }
     return UsersServiceInviteRequest;
 }());
@@ -8791,7 +9358,9 @@ if (false) {
 var  /*
 */
 UsersServiceSetRolesRequest = /** @class */ (function () {
-    function UsersServiceSetRolesRequest() {
+    function UsersServiceSetRolesRequest(id, roles) {
+        this.id = id;
+        this.roles = roles;
     }
     return UsersServiceSetRolesRequest;
 }());
@@ -8811,7 +9380,9 @@ if (false) {
 var  /*
 */
 UsersServiceUpdateRequest = /** @class */ (function () {
-    function UsersServiceUpdateRequest() {
+    function UsersServiceUpdateRequest(id, body) {
+        this.id = id;
+        this.body = body;
     }
     return UsersServiceUpdateRequest;
 }());

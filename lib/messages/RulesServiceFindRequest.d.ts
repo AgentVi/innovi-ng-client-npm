@@ -11,4 +11,5 @@ export declare class RulesServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(folderId?: string, sensorId?: string, search?: string, ruleType?: RuleTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, sort?: string, page?: number, pageSize?: number);
 }

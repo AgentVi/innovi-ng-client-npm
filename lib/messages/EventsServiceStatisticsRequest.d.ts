@@ -12,4 +12,5 @@ export declare class EventsServiceStatisticsRequest {
     to: number;
     interval: TimeUnitCode;
     format: string;
+    constructor(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, from?: number, to?: number, interval?: TimeUnitCode, format?: string);
 }

@@ -3,4 +3,5 @@ export declare class AbsoluteTimeFrame {
     startTime: string;
     endTime: string;
     active: boolean;
+    constructor(name?: string, startTime?: string, endTime?: string, active?: boolean);
 }

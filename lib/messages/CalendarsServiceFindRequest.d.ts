@@ -4,4 +4,5 @@ export declare class CalendarsServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(search?: string, folderId?: string, sort?: string, page?: number, pageSize?: number);
 }

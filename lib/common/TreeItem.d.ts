@@ -3,4 +3,5 @@ export declare class TreeItem {
     type: number;
     name: string;
     typeName: string;
+    constructor(itemId?: string, type?: number, name?: string, typeName?: string);
 }

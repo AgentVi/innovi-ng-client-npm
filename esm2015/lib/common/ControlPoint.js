@@ -6,6 +6,14 @@
    Control point links between point on the raster (FOV) and world map
 */
 export class ControlPoint {
+    /**
+     * @param {?=} key
+     * @param {?=} value
+     */
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -13,4 +21,4 @@ if (false) {
     /** @type {?} */
     ControlPoint.prototype.value;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29udHJvbFBvaW50LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvY29tbW9uL0NvbnRyb2xQb2ludC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBTUEsTUFBTSxPQUFPLFlBQVk7Q0FReEI7OztJQUxHLDJCQUFrQjs7SUFHbEIsNkJBQXlCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUG9pbnQgfSBmcm9tICcuLi9jb21tb24vUG9pbnQnO1xuaW1wb3J0IHsgQ29vcmRpbmF0ZSB9IGZyb20gJy4uL2NvbW1vbi9Db29yZGluYXRlJztcblxuLyogXG4gICBDb250cm9sIHBvaW50IGxpbmtzIGJldHdlZW4gcG9pbnQgb24gdGhlIHJhc3RlciAoRk9WKSBhbmQgd29ybGQgbWFwIFxuKi9cbmV4cG9ydCBjbGFzcyBDb250cm9sUG9pbnQge1xuIFxuICAgIC8vIExhdGl0dWRlIFxuICAgIHB1YmxpYyBrZXk6IFBvaW50O1xuIFxuICAgIC8vIExvbmdpdHVkZSBcbiAgICBwdWJsaWMgdmFsdWU6IENvb3JkaW5hdGU7XG4gXG59XG5cblxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29udHJvbFBvaW50LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvY29tbW9uL0NvbnRyb2xQb2ludC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBTUEsTUFBTSxPQUFPLFlBQVk7Ozs7O0lBUXJCLFlBQVksR0FBVyxFQUFFLEtBQWtCO1FBQ3ZDLElBQUksQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDO1FBQ2YsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7SUFDdkIsQ0FBQztDQUVKOzs7SUFWRywyQkFBa0I7O0lBR2xCLDZCQUF5QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFBvaW50IH0gZnJvbSAnLi4vY29tbW9uL1BvaW50JztcbmltcG9ydCB7IENvb3JkaW5hdGUgfSBmcm9tICcuLi9jb21tb24vQ29vcmRpbmF0ZSc7XG5cbi8qIFxuICAgQ29udHJvbCBwb2ludCBsaW5rcyBiZXR3ZWVuIHBvaW50IG9uIHRoZSByYXN0ZXIgKEZPVikgYW5kIHdvcmxkIG1hcCBcbiovXG5leHBvcnQgY2xhc3MgQ29udHJvbFBvaW50IHtcbiBcbiAgICAvLyBMYXRpdHVkZSBcbiAgICBwdWJsaWMga2V5OiBQb2ludDtcbiBcbiAgICAvLyBMb25naXR1ZGUgXG4gICAgcHVibGljIHZhbHVlOiBDb29yZGluYXRlO1xuIFxuICAgIGNvbnN0cnVjdG9yKGtleT86IFBvaW50LCB2YWx1ZT86IENvb3JkaW5hdGUpIHsgXG4gICAgICAgIHRoaXMua2V5ID0ga2V5O1xuICAgICAgICB0aGlzLnZhbHVlID0gdmFsdWU7XG4gICAgfVxuXG59XG5cblxuIl19

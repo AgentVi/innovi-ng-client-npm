@@ -7,4 +7,5 @@ export declare class UsersServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(search?: string, type?: UserTypeCode, status?: UserStatusCode, sort?: string, page?: number, pageSize?: number);
 }

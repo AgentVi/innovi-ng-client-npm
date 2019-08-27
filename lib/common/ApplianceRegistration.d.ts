@@ -7,4 +7,5 @@ export declare class ApplianceRegistration {
     productType: ProductTypeCode;
     configurationId: string;
     configurationVersionId: string;
+    constructor(name?: string, accountId?: string, folderId?: string, machineId?: string, productType?: ProductTypeCode, configurationId?: string, configurationVersionId?: string);
 }

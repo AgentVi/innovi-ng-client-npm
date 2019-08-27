@@ -16,4 +16,5 @@ export declare class ObjectInstance {
     size: number;
     position: Point;
     location: Coordinate;
+    constructor(objectId?: string, timestamp?: number, objectType?: ObjectTypeCode, colors?: ObjectColor[], direction?: number, dimension?: Dimension, boundingBox?: BoundingBox, speed?: number, size?: number, position?: Point, location?: Coordinate);
 }

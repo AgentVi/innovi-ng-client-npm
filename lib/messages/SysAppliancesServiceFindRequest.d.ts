@@ -6,4 +6,5 @@ export declare class SysAppliancesServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(accountId?: string, search?: string, status?: ApplianceStatusCode, sort?: string, page?: number, pageSize?: number);
 }

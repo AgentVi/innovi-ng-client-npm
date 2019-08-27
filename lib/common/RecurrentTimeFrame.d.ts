@@ -3,4 +3,5 @@ export declare class RecurrentTimeFrame {
     daysOfWeek: DayOfWeekCode;
     startTime: string;
     endTime: string;
+    constructor(daysOfWeek?: DayOfWeekCode, startTime?: string, endTime?: string);
 }

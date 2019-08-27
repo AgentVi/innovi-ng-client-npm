@@ -5,4 +5,5 @@ export declare class AppliancesServiceGetCommandsRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(accountId?: string, status?: CommandStatusCode, sort?: string, page?: number, pageSize?: number);
 }

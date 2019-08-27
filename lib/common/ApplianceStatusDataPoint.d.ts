@@ -3,4 +3,5 @@ export declare class ApplianceStatusDataPoint {
     cpuMax: number;
     ram: number;
     loadAvg: number;
+    constructor(cpuAvg?: number, cpuMax?: number, ram?: number, loadAvg?: number);
 }

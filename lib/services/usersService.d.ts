@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
-import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { UserInvitation } from '../common/UserInvitation';
+import { User } from '../entities/User';
 /**
  * List of all user related actions for account administrator only
  */

@@ -3,4 +3,5 @@ export declare class ComponentConfiguration {
     id: string;
     dockerImage: string;
     variables: StringKeyValue[];
+    constructor(id?: string, dockerImage?: string, variables?: StringKeyValue[]);
 }

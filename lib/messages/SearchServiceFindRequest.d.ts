@@ -3,4 +3,5 @@ export declare class SearchServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
+    constructor(search?: string, sort?: string, page?: number, pageSize?: number);
 }

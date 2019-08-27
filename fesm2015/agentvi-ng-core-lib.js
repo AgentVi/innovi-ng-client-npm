@@ -22,6 +22,18 @@ import { CommonModule } from '@angular/common';
    </ul>
 */
 class AbsoluteTimeFrame {
+    /**
+     * @param {?=} name
+     * @param {?=} startTime
+     * @param {?=} endTime
+     * @param {?=} active
+     */
+    constructor(name, startTime, endTime, active) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.active = active;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -42,6 +54,14 @@ if (false) {
    Account role represents the role of the user in the account
 */
 class AccountRole {
+    /**
+     * @param {?=} accountId
+     * @param {?=} role
+     */
+    constructor(accountId, role) {
+        this.accountId = accountId;
+        this.role = role;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -58,6 +78,26 @@ if (false) {
    Account types aggregator summary
 */
 class AccountTypeSummary {
+    /**
+     * @param {?=} type
+     * @param {?=} typeName
+     * @param {?=} accounts
+     * @param {?=} accountsPercentage
+     * @param {?=} channels
+     * @param {?=} channelsPercentage
+     * @param {?=} devices
+     * @param {?=} devicesPercentage
+     */
+    constructor(type, typeName, accounts, accountsPercentage, channels, channelsPercentage, devices, devicesPercentage) {
+        this.type = type;
+        this.typeName = typeName;
+        this.accounts = accounts;
+        this.accountsPercentage = accountsPercentage;
+        this.channels = channels;
+        this.channelsPercentage = channelsPercentage;
+        this.devices = devices;
+        this.devicesPercentage = devicesPercentage;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -87,6 +127,16 @@ if (false) {
    This data model is used by the training process of Anomaly Detection
 */
 class AnalysisResult {
+    /**
+     * @param {?=} modelType
+     * @param {?=} resultsPath
+     * @param {?=} completedOn
+     */
+    constructor(modelType, resultsPath, completedOn) {
+        this.modelType = modelType;
+        this.resultsPath = resultsPath;
+        this.completedOn = completedOn;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -105,6 +155,18 @@ if (false) {
    SW Configuration for appliance
 */
 class ApplianceConfiguration {
+    /**
+     * @param {?=} configurationId
+     * @param {?=} description
+     * @param {?=} currentVersion
+     * @param {?=} versions
+     */
+    constructor(configurationId, description, currentVersion, versions) {
+        this.configurationId = configurationId;
+        this.description = description;
+        this.currentVersion = currentVersion;
+        this.versions = versions;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -126,6 +188,24 @@ if (false) {
    This model is used when a user registers new appliance in the system
 */
 class ApplianceRegistration {
+    /**
+     * @param {?=} name
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} machineId
+     * @param {?=} productType
+     * @param {?=} configurationId
+     * @param {?=} configurationVersionId
+     */
+    constructor(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId) {
+        this.name = name;
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.machineId = machineId;
+        this.productType = productType;
+        this.configurationId = configurationId;
+        this.configurationVersionId = configurationVersionId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -152,6 +232,18 @@ if (false) {
    Appliance short status data point
 */
 class ApplianceStatusDataPoint {
+    /**
+     * @param {?=} cpuAvg
+     * @param {?=} cpuMax
+     * @param {?=} ram
+     * @param {?=} loadAvg
+     */
+    constructor(cpuAvg, cpuMax, ram, loadAvg) {
+        this.cpuAvg = cpuAvg;
+        this.cpuMax = cpuMax;
+        this.ram = ram;
+        this.loadAvg = loadAvg;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -172,6 +264,14 @@ if (false) {
    Appliance status list over time
 */
 class ApplianceStatusTimeSeries {
+    /**
+     * @param {?=} label
+     * @param {?=} data
+     */
+    constructor(label, data) {
+        this.label = label;
+        this.data = data;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -188,6 +288,16 @@ if (false) {
    Data point in a series representing a sensor status value in a specific timestamp
 */
 class ApplianceStatusTimestamped {
+    /**
+     * @param {?=} timestamp
+     * @param {?=} label
+     * @param {?=} value
+     */
+    constructor(timestamp, label, value) {
+        this.timestamp = timestamp;
+        this.label = label;
+        this.value = value;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -206,6 +316,18 @@ if (false) {
    Bounding Box of crop in a frame (inside 1000x1000 coordinate system)
 */
 class BoundingBox {
+    /**
+     * @param {?=} maxX
+     * @param {?=} maxY
+     * @param {?=} minX
+     * @param {?=} minY
+     */
+    constructor(maxX, maxY, minX, minY) {
+        this.maxX = maxX;
+        this.maxY = maxY;
+        this.minX = minX;
+        this.minY = minY;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -226,6 +348,18 @@ if (false) {
    Bounding Box of an area in a map (in WGS-84 coordinate system)
 */
 class BoundingMap {
+    /**
+     * @param {?=} maxLat
+     * @param {?=} maxLng
+     * @param {?=} minLat
+     * @param {?=} minLng
+     */
+    constructor(maxLat, maxLng, minLat, minLng) {
+        this.maxLat = maxLat;
+        this.maxLng = maxLng;
+        this.minLat = minLat;
+        this.minLng = minLng;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -246,6 +380,14 @@ if (false) {
    Control point links between point on the raster (FOV) and world map
 */
 class ControlPoint {
+    /**
+     * @param {?=} key
+     * @param {?=} value
+     */
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -263,6 +405,16 @@ if (false) {
    See (https://en.wikipedia.org/wiki/World_Geodetic_System)
 */
 class Coordinate {
+    /**
+     * @param {?=} latitude
+     * @param {?=} longitude
+     * @param {?=} altitude
+     */
+    constructor(latitude, longitude, altitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.altitude = altitude;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -281,6 +433,14 @@ if (false) {
    Object dimension on FOV
 */
 class Dimension {
+    /**
+     * @param {?=} width
+     * @param {?=} height
+     */
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -297,6 +457,18 @@ if (false) {
    Disk information
 */
 class DiskInfo {
+    /**
+     * @param {?=} name
+     * @param {?=} totalBytes
+     * @param {?=} usedBytes
+     * @param {?=} usage
+     */
+    constructor(name, totalBytes, usedBytes, usage) {
+        this.name = name;
+        this.totalBytes = totalBytes;
+        this.usedBytes = usedBytes;
+        this.usage = usage;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -318,6 +490,14 @@ if (false) {
    Includes information where to access and get images
 */
 class DockerCredentials {
+    /**
+     * @param {?=} dockerUser
+     * @param {?=} dockerPwd
+     */
+    constructor(dockerUser, dockerPwd) {
+        this.dockerUser = dockerUser;
+        this.dockerPwd = dockerPwd;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -334,6 +514,34 @@ if (false) {
    Event integration action
 */
 class EventAction {
+    /**
+     * @param {?=} protocol
+     * @param {?=} operation
+     * @param {?=} host
+     * @param {?=} port
+     * @param {?=} user
+     * @param {?=} password
+     * @param {?=} url
+     * @param {?=} headers
+     * @param {?=} recipients
+     * @param {?=} subject
+     * @param {?=} body
+     * @param {?=} clipRequired
+     */
+    constructor(protocol, operation, host, port, user, password, url, headers, recipients, subject, body, clipRequired) {
+        this.protocol = protocol;
+        this.operation = operation;
+        this.host = host;
+        this.port = port;
+        this.user = user;
+        this.password = password;
+        this.url = url;
+        this.headers = headers;
+        this.recipients = recipients;
+        this.subject = subject;
+        this.body = body;
+        this.clipRequired = clipRequired;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -370,6 +578,16 @@ if (false) {
    Event count time series data point
 */
 class EventCountDataPoint {
+    /**
+     * @param {?=} timestamp
+     * @param {?=} label
+     * @param {?=} value
+     */
+    constructor(timestamp, label, value) {
+        this.timestamp = timestamp;
+        this.label = label;
+        this.value = value;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -388,6 +606,14 @@ if (false) {
    Event count time series result
 */
 class EventCountTimeSeries {
+    /**
+     * @param {?=} label
+     * @param {?=} data
+     */
+    constructor(label, data) {
+        this.label = label;
+        this.data = data;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -405,6 +631,16 @@ if (false) {
    Part of the event type to encapsulate all the info about the detected object (bounding box, trajectory etc)
 */
 class EventObjectInfo {
+    /**
+     * @param {?=} id
+     * @param {?=} detection
+     * @param {?=} trajectory
+     */
+    constructor(id, detection, trajectory) {
+        this.id = id;
+        this.detection = detection;
+        this.trajectory = trajectory;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -423,6 +659,20 @@ if (false) {
    Object instance data of object trajectory in the scene
 */
 class EventObjectInstance {
+    /**
+     * @param {?=} timestamp
+     * @param {?=} maxX
+     * @param {?=} maxY
+     * @param {?=} minX
+     * @param {?=} minY
+     */
+    constructor(timestamp, maxX, maxY, minX, minY) {
+        this.timestamp = timestamp;
+        this.maxX = maxX;
+        this.maxY = maxY;
+        this.minX = minX;
+        this.minY = minY;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -445,6 +695,18 @@ if (false) {
    FOV (Sensor Field of View) Geo attributes
 */
 class FovGeoAttributes {
+    /**
+     * @param {?=} geoArea
+     * @param {?=} visibleArea
+     * @param {?=} affineCoefficients
+     * @param {?=} controlPoints
+     */
+    constructor(geoArea, visibleArea, affineCoefficients, controlPoints) {
+        this.geoArea = geoArea;
+        this.visibleArea = visibleArea;
+        this.affineCoefficients = affineCoefficients;
+        this.controlPoints = controlPoints;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -465,6 +727,14 @@ if (false) {
    Geo spatial circle
 */
 class GeoCircle {
+    /**
+     * @param {?=} center
+     * @param {?=} radius
+     */
+    constructor(center, radius) {
+        this.center = center;
+        this.radius = radius;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -482,6 +752,14 @@ if (false) {
    Control points are used for FOV geo-referencing
 */
 class GeoControlPoint {
+    /**
+     * @param {?=} point
+     * @param {?=} coordinate
+     */
+    constructor(point, coordinate) {
+        this.point = point;
+        this.coordinate = coordinate;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -498,6 +776,12 @@ if (false) {
    Geo spatial polygon
 */
 class GeoPolygon {
+    /**
+     * @param {?=} vertices
+     */
+    constructor(vertices) {
+        this.vertices = vertices;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -518,6 +802,14 @@ if (false) {
    c0 = coefficients[0], c1 = coefficients[1] ... c5 = coefficients[5];
 */
 class GeoReferenceData {
+    /**
+     * @param {?=} coordinates
+     * @param {?=} coefficients
+     */
+    constructor(coordinates, coefficients) {
+        this.coordinates = coordinates;
+        this.coefficients = coefficients;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -534,6 +826,26 @@ if (false) {
    Login data (returned by the API after successful login)
 */
 class LoginData {
+    /**
+     * @param {?=} accessToken
+     * @param {?=} accountRole
+     * @param {?=} userId
+     * @param {?=} userName
+     * @param {?=} userEmail
+     * @param {?=} userType
+     * @param {?=} userStatus
+     * @param {?=} changePassword
+     */
+    constructor(accessToken, accountRole, userId, userName, userEmail, userType, userStatus, changePassword) {
+        this.accessToken = accessToken;
+        this.accountRole = accountRole;
+        this.userId = userId;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userType = userType;
+        this.userStatus = userStatus;
+        this.changePassword = changePassword;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -562,6 +874,16 @@ if (false) {
    Login parameters data model
 */
 class LoginParams {
+    /**
+     * @param {?=} email
+     * @param {?=} password
+     * @param {?=} accessToken
+     */
+    constructor(email, password, accessToken) {
+        this.email = email;
+        this.password = password;
+        this.accessToken = accessToken;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -580,6 +902,20 @@ if (false) {
    Metadata object color description
 */
 class ObjectColor {
+    /**
+     * @param {?=} colorType
+     * @param {?=} primary
+     * @param {?=} primaryConf
+     * @param {?=} secondaryColor
+     * @param {?=} secondaryConf
+     */
+    constructor(colorType, primary, primaryConf, secondaryColor, secondaryConf) {
+        this.colorType = colorType;
+        this.primary = primary;
+        this.primaryConf = primaryConf;
+        this.secondaryColor = secondaryColor;
+        this.secondaryConf = secondaryConf;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -602,6 +938,22 @@ if (false) {
    Metadata object info - returned as search result
 */
 class ObjectInfo {
+    /**
+     * @param {?=} objectId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} color
+     * @param {?=} location
+     * @param {?=} instances
+     */
+    constructor(objectId, sensorId, objectType, color, location, instances) {
+        this.objectId = objectId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.color = color;
+        this.location = location;
+        this.instances = instances;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -627,6 +979,32 @@ if (false) {
    One instance of the object in the scene
 */
 class ObjectInstance {
+    /**
+     * @param {?=} objectId
+     * @param {?=} timestamp
+     * @param {?=} objectType
+     * @param {?=} colors
+     * @param {?=} direction
+     * @param {?=} dimension
+     * @param {?=} boundingBox
+     * @param {?=} speed
+     * @param {?=} size
+     * @param {?=} position
+     * @param {?=} location
+     */
+    constructor(objectId, timestamp, objectType, colors, direction, dimension, boundingBox, speed, size, position, location) {
+        this.objectId = objectId;
+        this.timestamp = timestamp;
+        this.objectType = objectType;
+        this.colors = colors;
+        this.direction = direction;
+        this.dimension = dimension;
+        this.boundingBox = boundingBox;
+        this.speed = speed;
+        this.size = size;
+        this.position = position;
+        this.location = location;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -661,6 +1039,14 @@ if (false) {
    Point (X,Y) on raster
 */
 class Point {
+    /**
+     * @param {?=} x
+     * @param {?=} y
+     */
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -677,6 +1063,20 @@ if (false) {
    Recurrent time frame
 */
 class Recurrent {
+    /**
+     * @param {?=} startTime
+     * @param {?=} endTime
+     * @param {?=} period
+     * @param {?=} daysOfWeek
+     * @param {?=} action
+     */
+    constructor(startTime, endTime, period, daysOfWeek, action) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.period = period;
+        this.daysOfWeek = daysOfWeek;
+        this.action = action;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -699,6 +1099,16 @@ if (false) {
    Schedule recurrent time frame
 */
 class RecurrentTimeFrame {
+    /**
+     * @param {?=} daysOfWeek
+     * @param {?=} startTime
+     * @param {?=} endTime
+     */
+    constructor(daysOfWeek, startTime, endTime) {
+        this.daysOfWeek = daysOfWeek;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -719,6 +1129,14 @@ if (false) {
    In case of area description, the line crossing direction field is ignored
 */
 class RulePolygon {
+    /**
+     * @param {?=} lineCrossDir
+     * @param {?=} points
+     */
+    constructor(lineCrossDir, points) {
+        this.lineCrossDir = lineCrossDir;
+        this.points = points;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -735,6 +1153,16 @@ if (false) {
    Object attributes to search for
 */
 class SearchObject {
+    /**
+     * @param {?=} type
+     * @param {?=} color
+     * @param {?=} identifier
+     */
+    constructor(type, color, identifier) {
+        this.type = type;
+        this.color = color;
+        this.identifier = identifier;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -753,6 +1181,14 @@ if (false) {
    Anomaly sensitivity defines parameters to adjust thresholds for anomaly events
 */
 class Sensitivity {
+    /**
+     * @param {?=} events
+     * @param {?=} timeUnit
+     */
+    constructor(events, timeUnit) {
+        this.events = events;
+        this.timeUnit = timeUnit;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -770,6 +1206,18 @@ if (false) {
    This data model is used by the inference process of Anomaly Detection
 */
 class SensorAnomalyInfo {
+    /**
+     * @param {?=} sensorId
+     * @param {?=} results
+     * @param {?=} sensitivity
+     * @param {?=} objectTypes
+     */
+    constructor(sensorId, results, sensitivity, objectTypes) {
+        this.sensorId = sensorId;
+        this.results = results;
+        this.sensitivity = sensitivity;
+        this.objectTypes = objectTypes;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -790,6 +1238,18 @@ if (false) {
    Sensor status list over time
 */
 class SensorStatusTimeSeries {
+    /**
+     * @param {?=} accountId
+     * @param {?=} sensorId
+     * @param {?=} label
+     * @param {?=} data
+     */
+    constructor(accountId, sensorId, label, data) {
+        this.accountId = accountId;
+        this.sensorId = sensorId;
+        this.label = label;
+        this.data = data;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -810,6 +1270,16 @@ if (false) {
    Data point in a series representing a sensor status value in a specific timestamp
 */
 class SensorStatusTimestamped {
+    /**
+     * @param {?=} mask
+     * @param {?=} timestamp
+     * @param {?=} label
+     */
+    constructor(mask, timestamp, label) {
+        this.mask = mask;
+        this.timestamp = timestamp;
+        this.label = label;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -828,6 +1298,14 @@ if (false) {
    Key Value string tuple
 */
 class StringKeyValue {
+    /**
+     * @param {?=} key
+     * @param {?=} value
+     */
+    constructor(key, value) {
+        this.key = key;
+        this.value = value;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -844,6 +1322,14 @@ if (false) {
    Time frame (for search and reports)
 */
 class TimeFrame {
+    /**
+     * @param {?=} from
+     * @param {?=} to
+     */
+    constructor(from, to) {
+        this.from = from;
+        this.to = to;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -860,6 +1346,18 @@ if (false) {
    Tree item for account hierarchy tree
 */
 class TreeItem {
+    /**
+     * @param {?=} itemId
+     * @param {?=} type
+     * @param {?=} name
+     * @param {?=} typeName
+     */
+    constructor(itemId, type, name, typeName) {
+        this.itemId = itemId;
+        this.type = type;
+        this.name = name;
+        this.typeName = typeName;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -880,6 +1378,20 @@ if (false) {
    Tree node in account hierarchy tree
 */
 class TreeNode {
+    /**
+     * @param {?=} id
+     * @param {?=} parentId
+     * @param {?=} name
+     * @param {?=} item
+     * @param {?=} children
+     */
+    constructor(id, parentId, name, item, children) {
+        this.id = id;
+        this.parentId = parentId;
+        this.name = name;
+        this.item = item;
+        this.children = children;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -902,6 +1414,16 @@ if (false) {
    User Account info (for adding new user to the account)
 */
 class UserAccountInfo {
+    /**
+     * @param {?=} accountRole
+     * @param {?=} rootNode
+     * @param {?=} features
+     */
+    constructor(accountRole, rootNode, features) {
+        this.accountRole = accountRole;
+        this.rootNode = rootNode;
+        this.features = features;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -920,6 +1442,14 @@ if (false) {
    User invitation data model - used by account admin to invite user to the account
 */
 class UserInvitation {
+    /**
+     * @param {?=} email
+     * @param {?=} role
+     */
+    constructor(email, role) {
+        this.email = email;
+        this.role = role;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -936,6 +1466,28 @@ if (false) {
    User registration data model - used by self registered users
 */
 class UserRegistration {
+    /**
+     * @param {?=} name
+     * @param {?=} email
+     * @param {?=} mobile
+     * @param {?=} defaultAccount
+     * @param {?=} role
+     * @param {?=} type
+     * @param {?=} tempPassword
+     * @param {?=} changePassword
+     * @param {?=} verifyByEmail
+     */
+    constructor(name, email, mobile, defaultAccount, role, type, tempPassword, changePassword, verifyByEmail) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.defaultAccount = defaultAccount;
+        this.role = role;
+        this.type = type;
+        this.tempPassword = tempPassword;
+        this.changePassword = changePassword;
+        this.verifyByEmail = verifyByEmail;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -971,6 +1523,18 @@ if (false) {
    Base entity includes common fields for all entities (persistence objects) in the system
 */
 class BaseEntity {
+    /**
+     * @param {?=} id
+     * @param {?=} docType
+     * @param {?=} createdOn
+     * @param {?=} updatedOn
+     */
+    constructor(id, docType, createdOn, updatedOn) {
+        this.id = id;
+        this._type = docType;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -1137,6 +1701,40 @@ if (false) {
    Some fields represents the device configuration (report intervals, docker credentials, components versions etc) and they are provided by the backend on device registration.
 */
 class ApplianceCapabilities {
+    /**
+     * @param {?=} productType
+     * @param {?=} serialNumber
+     * @param {?=} deviceModel
+     * @param {?=} cpuModel
+     * @param {?=} uuid
+     * @param {?=} ip
+     * @param {?=} host
+     * @param {?=} dockerVersion
+     * @param {?=} kernelVersion
+     * @param {?=} totalRam
+     * @param {?=} disks
+     * @param {?=} commandInterval
+     * @param {?=} statusInterval
+     * @param {?=} dockerCredentials
+     * @param {?=} configurationVersion
+     */
+    constructor(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion) {
+        this.productType = productType;
+        this.serialNumber = serialNumber;
+        this.deviceModel = deviceModel;
+        this.cpuModel = cpuModel;
+        this.uuid = uuid;
+        this.ip = ip;
+        this.host = host;
+        this.dockerVersion = dockerVersion;
+        this.kernelVersion = kernelVersion;
+        this.totalRam = totalRam;
+        this.disks = disks;
+        this.commandInterval = commandInterval;
+        this.statusInterval = statusInterval;
+        this.dockerCredentials = dockerCredentials;
+        this.configurationVersion = configurationVersion;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -1313,6 +1911,16 @@ if (false) {
    SW Component version type
 */
 class ComponentConfiguration {
+    /**
+     * @param {?=} id
+     * @param {?=} dockerImage
+     * @param {?=} variables
+     */
+    constructor(id, dockerImage, variables) {
+        this.id = id;
+        this.dockerImage = dockerImage;
+        this.variables = variables;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -1973,6 +2581,16 @@ if (false) {
    Sensor debug information
 */
 class SensorDebugInfo {
+    /**
+     * @param {?=} saveCrops
+     * @param {?=} saveFrames
+     * @param {?=} saveEventImages
+     */
+    constructor(saveCrops, saveFrames, saveEventImages) {
+        this.saveCrops = saveCrops;
+        this.saveFrames = saveFrames;
+        this.saveEventImages = saveEventImages;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3135,6 +3753,12 @@ ZoneTypeCode[ZoneTypeCode.SHUTDOWN] = 'SHUTDOWN';
 /*
 */
 class AccountIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3148,6 +3772,12 @@ if (false) {
 /*
 */
 class AccountIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3161,6 +3791,14 @@ if (false) {
 /*
 */
 class AccountsServiceChangeGroupsRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} groupId
+     */
+    constructor(id, groupId) {
+        this.id = id;
+        this.groupId = groupId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3176,6 +3814,14 @@ if (false) {
 /*
 */
 class AccountsServiceChangeNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3191,6 +3837,14 @@ if (false) {
 /*
 */
 class AccountsServiceChangeStatusRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} status
+     */
+    constructor(id, status) {
+        this.id = id;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3206,6 +3860,14 @@ if (false) {
 /*
 */
 class AccountsServiceChangeTypeRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} type
+     */
+    constructor(id, type) {
+        this.id = id;
+        this.type = type;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3221,6 +3883,12 @@ if (false) {
 /*
 */
 class AccountsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3234,6 +3902,22 @@ if (false) {
 /*
 */
 class AccountsServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(search, type, status, sort, page, pageSize) {
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3257,6 +3941,14 @@ if (false) {
 /*
 */
 class AccountsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3273,6 +3965,18 @@ if (false) {
    Entity action response message returned for any create/update action on entity
 */
 class ActionResponse {
+    /**
+     * @param {?=} code
+     * @param {?=} error
+     * @param {?=} key
+     * @param {?=} data
+     */
+    constructor(code, error, key, data) {
+        this.code = code;
+        this.error = error;
+        this.key = key;
+        this.data = data;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3292,6 +3996,12 @@ if (false) {
 /*
 */
 class ApiKeyIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3305,6 +4015,12 @@ if (false) {
 /*
 */
 class ApplianceCommandIdRequest {
+    /**
+     * @param {?=} commandId
+     */
+    constructor(commandId) {
+        this.commandId = commandId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3318,6 +4034,12 @@ if (false) {
 /*
 */
 class ApplianceIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3331,6 +4053,14 @@ if (false) {
 /*
 */
 class AppliancesServiceAddSensorRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3346,6 +4076,16 @@ if (false) {
 /*
 */
 class AppliancesServiceChangeConfigurationRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} configId
+     * @param {?=} versionId
+     */
+    constructor(id, configId, versionId) {
+        this.id = id;
+        this.configId = configId;
+        this.versionId = versionId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3363,6 +4103,14 @@ if (false) {
 /*
 */
 class AppliancesServiceChangeFolderRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} folderId
+     */
+    constructor(id, folderId) {
+        this.id = id;
+        this.folderId = folderId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3378,6 +4126,14 @@ if (false) {
 /*
 */
 class AppliancesServiceChangeMachineIdRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} machineId
+     */
+    constructor(id, machineId) {
+        this.id = id;
+        this.machineId = machineId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3393,6 +4149,14 @@ if (false) {
 /*
 */
 class AppliancesServiceChangeNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} name
+     */
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3408,6 +4172,24 @@ if (false) {
 /*
 */
 class AppliancesServiceFindRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} search
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(folderId, subFolders, search, status, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3433,6 +4215,26 @@ if (false) {
 /*
 */
 class AppliancesServiceFindSensorsRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} stream
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(id, search, type, status, stream, sort, page, pageSize) {
+        this.id = id;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3460,6 +4262,20 @@ if (false) {
 /*
 */
 class AppliancesServiceGetCommandsRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(accountId, status, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3481,6 +4297,14 @@ if (false) {
 /*
 */
 class AppliancesServiceRegisterApplianceRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3496,6 +4320,14 @@ if (false) {
 /*
 */
 class AppliancesServiceSetCommandRequest {
+    /**
+     * @param {?=} commandId
+     * @param {?=} status
+     */
+    constructor(commandId, status) {
+        this.commandId = commandId;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3511,6 +4343,16 @@ if (false) {
 /*
 */
 class AppliancesServiceStatusOvertimeRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} from
+     * @param {?=} to
+     */
+    constructor(id, from, to) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3528,6 +4370,12 @@ if (false) {
 /*
 */
 class AuditLogIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3541,6 +4389,24 @@ if (false) {
 /*
 */
 class AuditLogServiceFindRequest {
+    /**
+     * @param {?=} userId
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} itemType
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(userId, from, to, itemType, sort, page, pageSize) {
+        this.userId = userId;
+        this.from = from;
+        this.to = to;
+        this.itemType = itemType;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3566,6 +4432,12 @@ if (false) {
 /*
 */
 class CalendarIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3579,6 +4451,12 @@ if (false) {
 /*
 */
 class CalendarIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3592,6 +4470,12 @@ if (false) {
 /*
 */
 class CalendarsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3605,6 +4489,20 @@ if (false) {
 /*
 */
 class CalendarsServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} folderId
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(search, folderId, sort, page, pageSize) {
+        this.search = search;
+        this.folderId = folderId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3626,6 +4524,12 @@ if (false) {
 /*
 */
 class CalendarsServiceFolderIdRequest {
+    /**
+     * @param {?=} folderId
+     */
+    constructor(folderId) {
+        this.folderId = folderId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3639,6 +4543,14 @@ if (false) {
 /*
 */
 class CalendarsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3654,6 +4566,14 @@ if (false) {
 /*
 */
 class ChangeGeoAreaRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3669,6 +4589,14 @@ if (false) {
 /*
 */
 class ChangeGeoLocationRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3685,6 +4613,16 @@ if (false) {
    Change Password request message
 */
 class ChangePasswordRequest {
+    /**
+     * @param {?=} userId
+     * @param {?=} oldPassword
+     * @param {?=} newPassword
+     */
+    constructor(userId, oldPassword, newPassword) {
+        this.userId = userId;
+        this.oldPassword = oldPassword;
+        this.newPassword = newPassword;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3702,6 +4640,12 @@ if (false) {
 /*
 */
 class ConfigurationIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3715,6 +4659,12 @@ if (false) {
 /*
 */
 class ConfigurationTargetRequest {
+    /**
+     * @param {?=} target
+     */
+    constructor(target) {
+        this.target = target;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3728,6 +4678,14 @@ if (false) {
 /*
 */
 class ConfigurationVersionIdRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} versionId
+     */
+    constructor(id, versionId) {
+        this.id = id;
+        this.versionId = versionId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -3743,6 +4701,8 @@ if (false) {
 /*
 */
 class EmptyRequest {
+    constructor() {
+    }
 }
 
 /**
@@ -3753,6 +4713,14 @@ class EmptyRequest {
    Entities response message returned for read operation on multiple entities
 */
 class EntitiesResponse {
+    /**
+     * @param {?=} code
+     * @param {?=} error
+     */
+    constructor(code, error) {
+        this.code = code;
+        this.error = error;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4143,6 +5111,14 @@ if (false) {
    Entity response message returned for read operation on a single entity
 */
 class EntityResponse {
+    /**
+     * @param {?=} code
+     * @param {?=} error
+     */
+    constructor(code, error) {
+        this.code = code;
+        this.error = error;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4668,6 +5644,12 @@ if (false) {
 /*
 */
 class EventIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4681,6 +5663,12 @@ if (false) {
 /*
 */
 class EventIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4694,6 +5682,12 @@ if (false) {
 /*
 */
 class EventsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4707,6 +5701,32 @@ if (false) {
 /*
 */
 class EventsServiceFindInAreaRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} searchArea
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(folderId, searchArea, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.searchArea = searchArea;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4740,6 +5760,32 @@ if (false) {
 /*
 */
 class EventsServiceFindRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4773,6 +5819,14 @@ if (false) {
 /*
 */
 class EventsServiceSetClipPathRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4788,6 +5842,14 @@ if (false) {
 /*
 */
 class EventsServiceSetImagePathRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4803,6 +5865,14 @@ if (false) {
 /*
 */
 class EventsServiceSetStatusRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} status
+     */
+    constructor(id, status) {
+        this.id = id;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4818,6 +5888,28 @@ if (false) {
 /*
 */
 class EventsServiceStatisticsRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} interval
+     * @param {?=} format
+     */
+    constructor(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.interval = interval;
+        this.format = format;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4847,6 +5939,12 @@ if (false) {
 /*
 */
 class FeatureIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4860,6 +5958,12 @@ if (false) {
 /*
 */
 class FeatureIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4873,6 +5977,12 @@ if (false) {
 /*
 */
 class FeaturesGroupIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4886,6 +5996,12 @@ if (false) {
 /*
 */
 class FeaturesGroupIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4899,6 +6015,12 @@ if (false) {
 /*
 */
 class FeaturesGroupsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4912,6 +6034,14 @@ if (false) {
 /*
 */
 class FeaturesGroupsServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} sort
+     */
+    constructor(search, sort) {
+        this.search = search;
+        this.sort = sort;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4927,6 +6057,14 @@ if (false) {
 /*
 */
 class FeaturesGroupsServiceSetFeaturesRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4942,6 +6080,14 @@ if (false) {
 /*
 */
 class FeaturesGroupsServiceSetNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4957,6 +6103,14 @@ if (false) {
 /*
 */
 class FeaturesGroupsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4972,6 +6126,12 @@ if (false) {
 /*
 */
 class FeaturesServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -4985,6 +6145,16 @@ if (false) {
 /*
 */
 class FeaturesServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} category
+     * @param {?=} sort
+     */
+    constructor(search, category, sort) {
+        this.search = search;
+        this.category = category;
+        this.sort = sort;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5002,6 +6172,14 @@ if (false) {
 /*
 */
 class FeaturesServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5017,6 +6195,12 @@ if (false) {
 /*
 */
 class FolderIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5030,6 +6214,12 @@ if (false) {
 /*
 */
 class FolderIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5043,6 +6233,14 @@ if (false) {
 /*
 */
 class FoldersServiceChangeGeoAreaRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5058,6 +6256,14 @@ if (false) {
 /*
 */
 class FoldersServiceChangeGeoLocationRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5073,6 +6279,14 @@ if (false) {
 /*
 */
 class FoldersServiceChangeNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5088,6 +6302,14 @@ if (false) {
 /*
 */
 class FoldersServiceChangeParentRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} parentId
+     */
+    constructor(id, parentId) {
+        this.id = id;
+        this.parentId = parentId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5103,6 +6325,14 @@ if (false) {
 /*
 */
 class FoldersServiceChangeTimezoneRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5118,6 +6348,12 @@ if (false) {
 /*
 */
 class FoldersServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5131,6 +6367,22 @@ if (false) {
 /*
 */
 class FoldersServiceFindRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} search
+     * @param {?=} parentId
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(id, search, parentId, sort, page, pageSize) {
+        this.id = id;
+        this.search = search;
+        this.parentId = parentId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5154,6 +6406,12 @@ if (false) {
 /*
 */
 class FoldersServiceGetHierarchyRequest {
+    /**
+     * @param {?=} includeSensors
+     */
+    constructor(includeSensors) {
+        this.includeSensors = includeSensors;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5167,6 +6425,12 @@ if (false) {
 /*
 */
 class GeoServicesReferenceRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5180,6 +6444,12 @@ if (false) {
 /*
 */
 class IntegrationIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5193,6 +6463,12 @@ if (false) {
 /*
 */
 class IntegrationIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5206,6 +6482,12 @@ if (false) {
 /*
 */
 class IntegrationsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5219,6 +6501,14 @@ if (false) {
 /*
 */
 class IntegrationsServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} type
+     */
+    constructor(search, type) {
+        this.search = search;
+        this.type = type;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5234,6 +6524,14 @@ if (false) {
 /*
 */
 class IntegrationsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5250,6 +6548,26 @@ if (false) {
    Query response message returned for find operation (with pagination) on multiple entities
 */
 class QueryResponse {
+    /**
+     * @param {?=} code
+     * @param {?=} error
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @param {?=} pages
+     * @param {?=} total
+     * @param {?=} queryDef
+     * @param {?=} docType
+     */
+    constructor(code, error, page, pageSize, pages, total, queryDef, docType) {
+        this.code = code;
+        this.error = error;
+        this.page = page;
+        this.pageSize = pageSize;
+        this.pages = pages;
+        this.total = total;
+        this.queryDef = queryDef;
+        this.docType = docType;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5799,6 +7117,12 @@ if (false) {
 /*
 */
 class ReportIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5812,6 +7136,12 @@ if (false) {
 /*
 */
 class ReportIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5825,6 +7155,12 @@ if (false) {
 /*
 */
 class ReportsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5838,6 +7174,12 @@ if (false) {
 /*
 */
 class ReportsServiceFindRequest {
+    /**
+     * @param {?=} search
+     */
+    constructor(search) {
+        this.search = search;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5851,6 +7193,14 @@ if (false) {
 /*
 */
 class ReportsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5866,6 +7216,12 @@ if (false) {
 /*
 */
 class RuleIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5879,6 +7235,12 @@ if (false) {
 /*
 */
 class RuleIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5892,6 +7254,12 @@ if (false) {
 /*
 */
 class RulesServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5905,6 +7273,28 @@ if (false) {
 /*
 */
 class RulesServiceFindRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} sensorId
+     * @param {?=} search
+     * @param {?=} ruleType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(folderId, sensorId, search, ruleType, behaviorType, severity, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.search = search;
+        this.ruleType = ruleType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5934,6 +7324,14 @@ if (false) {
 /*
 */
 class RulesServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5949,6 +7347,12 @@ if (false) {
 /*
 */
 class ScheduleIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5962,6 +7366,12 @@ if (false) {
 /*
 */
 class ScheduleIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5975,6 +7385,12 @@ if (false) {
 /*
 */
 class ScheduledReportIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -5988,6 +7404,12 @@ if (false) {
 /*
 */
 class ScheduledReportIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6001,6 +7423,12 @@ if (false) {
 /*
 */
 class ScheduledReportsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6014,6 +7442,12 @@ if (false) {
 /*
 */
 class ScheduledReportsServiceFindRequest {
+    /**
+     * @param {?=} search
+     */
+    constructor(search) {
+        this.search = search;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6027,6 +7461,14 @@ if (false) {
 /*
 */
 class ScheduledReportsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6042,6 +7484,12 @@ if (false) {
 /*
 */
 class SchedulesServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6055,6 +7503,20 @@ if (false) {
 /*
 */
 class SchedulesServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} folderId
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(search, folderId, sort, page, pageSize) {
+        this.search = search;
+        this.folderId = folderId;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6076,6 +7538,12 @@ if (false) {
 /*
 */
 class SchedulesServiceFolderIdRequest {
+    /**
+     * @param {?=} folderId
+     */
+    constructor(folderId) {
+        this.folderId = folderId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6089,6 +7557,14 @@ if (false) {
 /*
 */
 class SchedulesServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6104,6 +7580,12 @@ if (false) {
 /*
 */
 class SearchIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6117,6 +7599,12 @@ if (false) {
 /*
 */
 class SearchIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6130,6 +7618,12 @@ if (false) {
 /*
 */
 class SearchServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6143,6 +7637,12 @@ if (false) {
 /*
 */
 class SearchServiceExecuteRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6156,6 +7656,18 @@ if (false) {
 /*
 */
 class SearchServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(search, sort, page, pageSize) {
+        this.search = search;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6175,6 +7687,14 @@ if (false) {
 /*
 */
 class SearchServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6190,6 +7710,12 @@ if (false) {
 /*
 */
 class SensorIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6203,6 +7729,12 @@ if (false) {
 /*
 */
 class SensorIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6216,6 +7748,14 @@ if (false) {
 /*
 */
 class SensorsServiceChangeFolderRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} folderId
+     */
+    constructor(id, folderId) {
+        this.id = id;
+        this.folderId = folderId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6231,6 +7771,16 @@ if (false) {
 /*
 */
 class SensorsServiceChangeFovRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} azimuth
+     * @param {?=} body
+     */
+    constructor(id, azimuth, body) {
+        this.id = id;
+        this.azimuth = azimuth;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6248,6 +7798,14 @@ if (false) {
 /*
 */
 class SensorsServiceChangeGeoLocationRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6263,6 +7821,14 @@ if (false) {
 /*
 */
 class SensorsServiceChangeNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6278,6 +7844,14 @@ if (false) {
 /*
 */
 class SensorsServiceChangeStatusRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} status
+     */
+    constructor(id, status) {
+        this.id = id;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6293,6 +7867,12 @@ if (false) {
 /*
 */
 class SensorsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6306,6 +7886,28 @@ if (false) {
 /*
 */
 class SensorsServiceFindRequest {
+    /**
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} stream
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6335,6 +7937,16 @@ if (false) {
 /*
 */
 class SensorsServiceStatusOvertimeRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} from
+     * @param {?=} to
+     */
+    constructor(id, from, to) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6352,6 +7964,14 @@ if (false) {
 /*
 */
 class SensorsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6368,6 +7988,12 @@ if (false) {
    Response of byte array
 */
 class StreamResponse {
+    /**
+     * @param {?=} content
+     */
+    constructor(content) {
+        this.content = content;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6381,6 +8007,22 @@ if (false) {
 /*
 */
 class SysAppliancesServiceFindRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} search
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(accountId, search, status, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.search = search;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6404,6 +8046,16 @@ if (false) {
 /*
 */
 class SysAppliancesServiceGetCommandsRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} applianceId
+     * @param {?=} status
+     */
+    constructor(accountId, applianceId, status) {
+        this.accountId = accountId;
+        this.applianceId = applianceId;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6421,6 +8073,12 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceCreateRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6434,6 +8092,14 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceCreateVersionRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6449,6 +8115,14 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceDeleteVersionRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} versionId
+     */
+    constructor(id, versionId) {
+        this.id = id;
+        this.versionId = versionId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6464,6 +8138,20 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceFindRequest {
+    /**
+     * @param {?=} target
+     * @param {?=} search
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(target, search, sort, page, pageSize) {
+        this.target = target;
+        this.search = search;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6485,6 +8173,14 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6500,6 +8196,14 @@ if (false) {
 /*
 */
 class SysConfigurationsServiceUpdateVersionRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6515,6 +8219,14 @@ if (false) {
 /*
 */
 class SysEventIdRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} accountId
+     */
+    constructor(id, accountId) {
+        this.id = id;
+        this.accountId = accountId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6530,6 +8242,32 @@ if (false) {
 /*
 */
 class SysEventsServiceFindInAreaRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6563,6 +8301,30 @@ if (false) {
 /*
 */
 class SysEventsServiceStatisticsRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} behaviorType
+     * @param {?=} severity
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} interval
+     * @param {?=} format
+     */
+    constructor(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.behaviorType = behaviorType;
+        this.severity = severity;
+        this.from = from;
+        this.to = to;
+        this.interval = interval;
+        this.format = format;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6594,6 +8356,12 @@ if (false) {
 /*
 */
 class SysKeysServiceCreateApiKeyRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6607,6 +8375,30 @@ if (false) {
 /*
 */
 class SysSensorsServiceFindRequest {
+    /**
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} stream
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(accountId, folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.stream = stream;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6639,6 +8431,16 @@ if (false) {
    Token request message
 */
 class TokenRequest {
+    /**
+     * @param {?=} code
+     * @param {?=} error
+     * @param {?=} accountId
+     */
+    constructor(code, error, accountId) {
+        this.code = code;
+        this.error = error;
+        this.accountId = accountId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6656,6 +8458,12 @@ if (false) {
 /*
 */
 class UserByEmailRequest {
+    /**
+     * @param {?=} email
+     */
+    constructor(email) {
+        this.email = email;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6669,6 +8477,12 @@ if (false) {
 /*
 */
 class UserIdRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6682,6 +8496,12 @@ if (false) {
 /*
 */
 class UserIdsRequest {
+    /**
+     * @param {?=} id
+     */
+    constructor(id) {
+        this.id = id;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6695,6 +8515,12 @@ if (false) {
 /*
 */
 class UserServiceChangeMobileRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6708,6 +8534,12 @@ if (false) {
 /*
 */
 class UserServiceChangeNameRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6721,6 +8553,12 @@ if (false) {
 /*
 */
 class UserServiceChangePasswordRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6734,6 +8572,12 @@ if (false) {
 /*
 */
 class UserServiceCheckPasswordRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6747,6 +8591,12 @@ if (false) {
 /*
 */
 class UserServiceLoginRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6760,6 +8610,12 @@ if (false) {
 /*
 */
 class UserServiceResetPasswordRequest {
+    /**
+     * @param {?=} code
+     */
+    constructor(code) {
+        this.code = code;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6773,6 +8629,12 @@ if (false) {
 /*
 */
 class UserServiceSendVerificationRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6786,6 +8648,12 @@ if (false) {
 /*
 */
 class UserServiceSwitchAccountRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6799,6 +8667,12 @@ if (false) {
 /*
 */
 class UserServiceVerifyLoginRequest {
+    /**
+     * @param {?=} key
+     */
+    constructor(key) {
+        this.key = key;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6812,6 +8686,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeDefaultAccountRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} accountId
+     */
+    constructor(id, accountId) {
+        this.id = id;
+        this.accountId = accountId;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6827,6 +8709,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeMobileRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6842,6 +8732,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeNameRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6857,6 +8755,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeRoleRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} role
+     */
+    constructor(id, role) {
+        this.id = id;
+        this.role = role;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6872,6 +8778,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeStatusRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} status
+     */
+    constructor(id, status) {
+        this.id = id;
+        this.status = status;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6887,6 +8801,14 @@ if (false) {
 /*
 */
 class UsersServiceChangeTypeRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} type
+     */
+    constructor(id, type) {
+        this.id = id;
+        this.type = type;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6902,6 +8824,22 @@ if (false) {
 /*
 */
 class UsersServiceFindRequest {
+    /**
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(search, type, status, sort, page, pageSize) {
+        this.search = search;
+        this.type = type;
+        this.status = status;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6925,6 +8863,12 @@ if (false) {
 /*
 */
 class UsersServiceInviteRequest {
+    /**
+     * @param {?=} body
+     */
+    constructor(body) {
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6938,6 +8882,14 @@ if (false) {
 /*
 */
 class UsersServiceSetRolesRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} roles
+     */
+    constructor(id, roles) {
+        this.id = id;
+        this.roles = roles;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -6953,6 +8905,14 @@ if (false) {
 /*
 */
 class UsersServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */

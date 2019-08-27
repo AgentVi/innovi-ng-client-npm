@@ -5,6 +5,14 @@
 /*
 */
 export class SearchServiceUpdateRequest {
+    /**
+     * @param {?=} id
+     * @param {?=} body
+     */
+    constructor(id, body) {
+        this.id = id;
+        this.body = body;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -12,4 +20,4 @@ if (false) {
     /** @type {?} */
     SearchServiceUpdateRequest.prototype.body;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhcmNoU2VydmljZVVwZGF0ZVJlcXVlc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9tZXNzYWdlcy9TZWFyY2hTZXJ2aWNlVXBkYXRlUmVxdWVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFJQSxNQUFNLE9BQU8sMEJBQTBCO0NBUXRDOzs7SUFMRyx3Q0FBa0I7O0lBR2xCLDBDQUE4QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFNlYXJjaERlZmluaXRpb24gfSBmcm9tICcuLi9lbnRpdGllcy9TZWFyY2hEZWZpbml0aW9uJztcblxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBTZWFyY2hTZXJ2aWNlVXBkYXRlUmVxdWVzdCB7XG4gXG4gICAgLy8gU2VhcmNoIElkIFxuICAgIHB1YmxpYyBpZDogc3RyaW5nO1xuIFxuICAgIC8vIFNlYXJjaCBkYXRhIFxuICAgIHB1YmxpYyBib2R5OiBTZWFyY2hEZWZpbml0aW9uO1xuIFxufVxuXG5cbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhcmNoU2VydmljZVVwZGF0ZVJlcXVlc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9tZXNzYWdlcy9TZWFyY2hTZXJ2aWNlVXBkYXRlUmVxdWVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFJQSxNQUFNLE9BQU8sMEJBQTBCOzs7OztJQVFuQyxZQUFZLEVBQVcsRUFBRSxJQUF1QjtRQUM1QyxJQUFJLENBQUMsRUFBRSxHQUFHLEVBQUUsQ0FBQztRQUNiLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO0lBQ3JCLENBQUM7Q0FFSjs7O0lBVkcsd0NBQWtCOztJQUdsQiwwQ0FBOEIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBTZWFyY2hEZWZpbml0aW9uIH0gZnJvbSAnLi4vZW50aXRpZXMvU2VhcmNoRGVmaW5pdGlvbic7XG5cbi8qICBcbiovXG5leHBvcnQgY2xhc3MgU2VhcmNoU2VydmljZVVwZGF0ZVJlcXVlc3Qge1xuIFxuICAgIC8vIFNlYXJjaCBJZCBcbiAgICBwdWJsaWMgaWQ6IHN0cmluZztcbiBcbiAgICAvLyBTZWFyY2ggZGF0YSBcbiAgICBwdWJsaWMgYm9keTogU2VhcmNoRGVmaW5pdGlvbjtcbiBcbiAgICBjb25zdHJ1Y3RvcihpZD86IHN0cmluZywgYm9keT86IFNlYXJjaERlZmluaXRpb24pIHsgXG4gICAgICAgIHRoaXMuaWQgPSBpZDtcbiAgICAgICAgdGhpcy5ib2R5ID0gYm9keTtcbiAgICB9XG5cbn1cblxuXG4iXX0=

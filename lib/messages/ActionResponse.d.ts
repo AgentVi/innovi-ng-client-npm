@@ -3,4 +3,5 @@ export declare class ActionResponse {
     error: string;
     key: string;
     data: string;
+    constructor(code?: number, error?: string, key?: string, data?: string);
 }

@@ -3,4 +3,5 @@ export declare class DiskInfo {
     totalBytes: number;
     usedBytes: number;
     usage: number;
+    constructor(name?: string, totalBytes?: number, usedBytes?: number, usage?: number);
 }

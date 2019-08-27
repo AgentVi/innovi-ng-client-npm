@@ -10,4 +10,5 @@ export declare class UserRegistration {
     tempPassword: string;
     changePassword: boolean;
     verifyByEmail: boolean;
+    constructor(name?: string, email?: string, mobile?: string, defaultAccount?: string, role?: AccountRoleCode, type?: UserTypeCode, tempPassword?: string, changePassword?: boolean, verifyByEmail?: boolean);
 }

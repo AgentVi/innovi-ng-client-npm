@@ -3,4 +3,5 @@ import { Coordinate } from '../common/Coordinate';
 export declare class GeoControlPoint {
     point: Point;
     coordinate: Coordinate;
+    constructor(point?: Point, coordinate?: Coordinate);
 }
