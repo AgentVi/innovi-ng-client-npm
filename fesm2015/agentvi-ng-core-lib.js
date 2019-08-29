@@ -9162,7 +9162,7 @@ class AccountsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get single account by id
@@ -9288,7 +9288,7 @@ class AppliancesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get single appliance by id
@@ -9571,7 +9571,7 @@ class AuditLogService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get single audit log entry by id
@@ -9639,7 +9639,7 @@ class CalendarsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update calendar
@@ -9711,7 +9711,7 @@ class CalendarsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Find all calendars for a specified level in the folder hierarchy
@@ -9780,7 +9780,7 @@ class EventsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Change event workflow status
@@ -9887,7 +9887,7 @@ class EventsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Find events generated in area using spatial query
@@ -10173,7 +10173,7 @@ class FoldersService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Find and filter list of folders
@@ -10321,7 +10321,7 @@ class GeoService {
      * @return {?}
      */
     geoReference(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
 }
 GeoService.decorators = [
@@ -10376,7 +10376,7 @@ class HealthCheckService {
      * @return {?}
      */
     health() {
-        return this.rest.get(`${this.baseUrl}/`);
+        return this.rest.get(`${this.baseUrl}`);
     }
 }
 HealthCheckService.decorators = [
@@ -10435,7 +10435,7 @@ class IntegrationsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update integration target
@@ -10495,7 +10495,7 @@ class IntegrationsService {
         if (type != null) {
             params.push(`type=${type}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 IntegrationsService.decorators = [
@@ -10554,7 +10554,7 @@ class ReportsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update report definition
@@ -10610,7 +10610,7 @@ class ReportsService {
         if (search != null) {
             params.push(`search=${search}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 ReportsService.decorators = [
@@ -10669,7 +10669,7 @@ class RulesService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update rule
@@ -10757,7 +10757,7 @@ class RulesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 RulesService.decorators = [
@@ -10816,7 +10816,7 @@ class ScheduledReportsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update scheduled report definition
@@ -10872,7 +10872,7 @@ class ScheduledReportsService {
         if (search != null) {
             params.push(`search=${search}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 ScheduledReportsService.decorators = [
@@ -10931,7 +10931,7 @@ class SchedulesService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update schedule
@@ -11003,7 +11003,7 @@ class SchedulesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Find all schedules for a specified level in the folder hierarchy
@@ -11072,7 +11072,7 @@ class SearchService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update search definition
@@ -11140,7 +11140,7 @@ class SearchService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Perform metadata search by the search definition
@@ -11219,7 +11219,7 @@ class SensorsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update sensor parameters
@@ -11363,7 +11363,7 @@ class SensorsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get sensor reference image [response content type: image/jpeg]
@@ -11475,7 +11475,7 @@ class SysAccountsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update existing account in the system
@@ -11636,7 +11636,7 @@ class SysAccountsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get account types statistics for all accounts in the system
@@ -11736,7 +11736,7 @@ class SysAppliancesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Delete appliance from the system
@@ -11846,7 +11846,7 @@ class SysConfigurationsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update configuration in the system
@@ -11914,7 +11914,7 @@ class SysConfigurationsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Create new configuration version in the system
@@ -12182,7 +12182,7 @@ class SysFeaturesGroupsService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update features group
@@ -12248,7 +12248,7 @@ class SysFeaturesGroupsService {
         if (sort != null) {
             params.push(`sort=${sort}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 SysFeaturesGroupsService.decorators = [
@@ -12307,7 +12307,7 @@ class SysFeaturesService {
      * @return {?}
      */
     create(body) {
-        return this.rest.post(`${this.baseUrl}/`, JSON.stringify(body));
+        return this.rest.post(`${this.baseUrl}`, JSON.stringify(body));
     }
     /**
      * Update Feature
@@ -12357,7 +12357,7 @@ class SysFeaturesService {
         if (sort != null) {
             params.push(`sort=${sort}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 SysFeaturesService.decorators = [
@@ -12578,7 +12578,7 @@ class SysSensorsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
     /**
      * Get single sensor health by sensor id
@@ -12910,7 +12910,7 @@ class SysUsersService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 SysUsersService.decorators = [
@@ -13222,7 +13222,7 @@ class UsersService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/`, ...params);
+        return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
 UsersService.decorators = [

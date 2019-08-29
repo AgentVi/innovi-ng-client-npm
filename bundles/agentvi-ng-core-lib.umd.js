@@ -9936,7 +9936,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get single account by id
@@ -10120,7 +10120,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get single appliance by id
@@ -10584,7 +10584,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get single audit log entry by id
@@ -10671,7 +10671,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update calendar
@@ -10800,7 +10800,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Find all calendars for a specified level in the folder hierarchy
@@ -10890,7 +10890,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Change event workflow status
@@ -11072,7 +11072,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Find events generated in area using spatial query
@@ -11528,7 +11528,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Find and filter list of folders
@@ -11746,7 +11746,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         GeoService.decorators = [
             { type: core.Injectable }
@@ -11809,7 +11809,7 @@
          * @return {?}
          */
         function () {
-            return this.rest.get(this.baseUrl + "/");
+            return this.rest.get("" + this.baseUrl);
         };
         HealthCheckService.decorators = [
             { type: core.Injectable }
@@ -11877,7 +11877,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update integration target
@@ -11991,7 +11991,7 @@
             if (type != null) {
                 params.push("type=" + type);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         IntegrationsService.decorators = [
             { type: core.Injectable }
@@ -12059,7 +12059,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update report definition
@@ -12168,7 +12168,7 @@
             if (search != null) {
                 params.push("search=" + search);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         ReportsService.decorators = [
             { type: core.Injectable }
@@ -12236,7 +12236,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update rule
@@ -12385,7 +12385,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         RulesService.decorators = [
             { type: core.Injectable }
@@ -12453,7 +12453,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update scheduled report definition
@@ -12562,7 +12562,7 @@
             if (search != null) {
                 params.push("search=" + search);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         ScheduledReportsService.decorators = [
             { type: core.Injectable }
@@ -12630,7 +12630,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update schedule
@@ -12759,7 +12759,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Find all schedules for a specified level in the folder hierarchy
@@ -12849,7 +12849,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update search definition
@@ -12973,7 +12973,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Perform metadata search by the search definition
@@ -13085,7 +13085,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update sensor parameters
@@ -13347,7 +13347,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get sensor reference image [response content type: image/jpeg]
@@ -13520,7 +13520,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update existing account in the system
@@ -13830,7 +13830,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get account types statistics for all accounts in the system
@@ -13964,7 +13964,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Delete appliance from the system
@@ -14129,7 +14129,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update configuration in the system
@@ -14254,7 +14254,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Create new configuration version in the system
@@ -14640,7 +14640,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update features group
@@ -14771,7 +14771,7 @@
             if (sort != null) {
                 params.push("sort=" + sort);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         SysFeaturesGroupsService.decorators = [
             { type: core.Injectable }
@@ -14839,7 +14839,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/", JSON.stringify(body));
+            return this.rest.post("" + this.baseUrl, JSON.stringify(body));
         };
         /**
          * Update Feature
@@ -14933,7 +14933,7 @@
             if (sort != null) {
                 params.push("sort=" + sort);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         SysFeaturesService.decorators = [
             { type: core.Injectable }
@@ -15251,7 +15251,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
          * Get single sensor health by sensor id
@@ -15814,7 +15814,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         SysUsersService.decorators = [
             { type: core.Injectable }
@@ -16343,7 +16343,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         UsersService.decorators = [
             { type: core.Injectable }
