@@ -9819,9 +9819,6 @@
             if ((accessToken !== null) && (accessToken.length > 0)) {
                 setToken(accessToken);
             }
-            else {
-                removeToken();
-            }
             if (response.body && response.body.code && response.body.code !== 0) {
                 throw { code: response.body.code, message: response.body.error };
             }
