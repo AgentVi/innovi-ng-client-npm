@@ -9776,7 +9776,7 @@ var AccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change account geo-location (center)
@@ -9797,7 +9797,7 @@ var AccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Get default geo location
@@ -10020,7 +10020,7 @@ var AppliancesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.post(this.baseUrl + "/" + id + "/sensors", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/" + id + "/sensors", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Register new appliance in the system
@@ -10041,7 +10041,7 @@ var AppliancesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.post(this.baseUrl + "/register", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Get appliance runtime configuration components
@@ -10471,7 +10471,7 @@ var CalendarsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update calendar
@@ -10492,7 +10492,7 @@ var CalendarsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete calendar from the system
@@ -10690,7 +10690,7 @@ var EventsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change event workflow status
@@ -10732,7 +10732,7 @@ var EventsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/imagePath", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/imagePath", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Set event clip path
@@ -10753,7 +10753,7 @@ var EventsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/clipPath", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/clipPath", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Get single event by id
@@ -11113,7 +11113,7 @@ var FoldersService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post(this.baseUrl + "/folders", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/folders", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change folder name
@@ -11134,7 +11134,7 @@ var FoldersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change folder parent id
@@ -11176,7 +11176,7 @@ var FoldersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change folder geo-location (center)
@@ -11197,7 +11197,7 @@ var FoldersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change folder timezone
@@ -11218,7 +11218,7 @@ var FoldersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/timezone", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/timezone", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete folder from the system (only if it is empty)
@@ -11546,7 +11546,7 @@ var GeoService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     GeoService.decorators = [
         { type: Injectable }
@@ -11677,7 +11677,7 @@ var IntegrationsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update integration target
@@ -11698,7 +11698,7 @@ var IntegrationsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete integration target from the system
@@ -11859,7 +11859,7 @@ var ReportsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update report definition
@@ -11880,7 +11880,7 @@ var ReportsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete report definition from the system
@@ -12036,7 +12036,7 @@ var RulesService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update rule
@@ -12057,7 +12057,7 @@ var RulesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete rule from the system
@@ -12253,7 +12253,7 @@ var ScheduledReportsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update scheduled report definition
@@ -12274,7 +12274,7 @@ var ScheduledReportsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete scheduled report definition from the system
@@ -12430,7 +12430,7 @@ var SchedulesService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update schedule
@@ -12451,7 +12451,7 @@ var SchedulesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete schedule from the system
@@ -12649,7 +12649,7 @@ var SearchService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update search definition
@@ -12670,7 +12670,7 @@ var SearchService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete search definition from the system
@@ -12798,7 +12798,7 @@ var SearchService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post(this.baseUrl + "/execute", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/execute", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Perform metadata saved search by the search id
@@ -12885,7 +12885,7 @@ var SensorsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update sensor parameters
@@ -12906,7 +12906,7 @@ var SensorsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change sensor name
@@ -12927,7 +12927,7 @@ var SensorsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change sensor parent folder id
@@ -12969,7 +12969,7 @@ var SensorsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change sensor field of view transformation attributes
@@ -12998,7 +12998,7 @@ var SensorsService = /** @class */ (function () {
         if (azimuth != null) {
             params.push("azimuth=" + azimuth);
         }
-        return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/fov", JSON.stringify(body)], params));
+        return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/fov", typeof body === 'object' ? JSON.stringify(body) : body], params));
     };
     /**
      * Change sensor status
@@ -13288,6 +13288,535 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
+ * Services for user registration and login
+ */
+var UserService = /** @class */ (function () {
+    /**
+     * Class constructor
+     */
+    function UserService(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/user';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * @Return: EntityResponse<LoginData>
+     */
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.login = /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * @Return: EntityResponse<LoginData>
+     */
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    UserService.prototype.refreshToken = /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    function () {
+        return this.rest.post(this.baseUrl + "/refresh-token", null);
+    };
+    /**
+     * Verify user by temporary login key
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    UserService.prototype.verifyLoginKey = /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    function (key) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (key != null) {
+            params.push("key=" + key);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+    };
+    /**
+     * Send verification code by email
+     * @Return: ActionResponse
+     */
+    /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.sendVerificationCode = /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Validate verification code and reset password
+     * @Return: ActionResponse
+     */
+    /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    UserService.prototype.resetPassword = /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    function (code) {
+        return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+    };
+    /**
+     * Change password
+     * @Return: ActionResponse
+     */
+    /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changePassword = /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Check if password was used before (according to password policy)
+     * @Return: ActionResponse
+     */
+    /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.checkUnusedPassword = /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change current user name
+     * @Return: ActionResponse
+     */
+    /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changeName = /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change current user mobile
+     * @Return: ActionResponse
+     */
+    /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changeMobile = /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * @Return: EntityResponse<UserAccountInfo>
+     */
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.switchAccount = /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    UserService.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    UserService.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: Inject, args: ['config',] }] },
+        { type: RestUtil }
+    ]; };
+    return UserService;
+}());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * List of all user related actions for account administrator only
+ */
+var UsersService = /** @class */ (function () {
+    /**
+     * Class constructor
+     */
+    function UsersService(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/users';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * @Return: ActionResponse
+     */
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.invite = /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Update user
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.update = /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.post(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user name
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.changeName = /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user mobile
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.changeMobile = /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user type
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    UsersService.prototype.changeType = /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    function (id, type) {
+        return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+    };
+    /**
+     * Change user role
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user role
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} role
+     * @return {?}
+     */
+    UsersService.prototype.changeRole = /**
+     * Change user role
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} role
+     * @return {?}
+     */
+    function (id, role) {
+        return this.rest.put(this.baseUrl + "/" + id + "/role/" + role, null);
+    };
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * @Return: ActionResponse
+     */
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    UsersService.prototype.delete = /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.delete(this.baseUrl + "/" + id);
+    };
+    /**
+     * Get single user by id
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    UsersService.prototype.get = /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.get(this.baseUrl + "/" + id);
+    };
+    /**
+     * Get single user by email
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    UsersService.prototype.getByEmail = /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    function (email) {
+        return this.rest.get(this.baseUrl + "/byEmail/" + email);
+    };
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * @Return: QueryResponse<User>
+     */
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    UsersService.prototype.find = /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    function (search, type, status, sort, page, pageSize) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (search != null) {
+            params.push("search=" + search);
+        }
+        if (type != null) {
+            params.push("type=" + type);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (sort != null) {
+            params.push("sort=" + sort);
+        }
+        if (page != null) {
+            params.push("page=" + page);
+        }
+        if (pageSize != null) {
+            params.push("pageSize=" + pageSize);
+        }
+        return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+    };
+    UsersService.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    UsersService.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: Inject, args: ['config',] }] },
+        { type: RestUtil }
+    ]; };
+    return UsersService;
+}());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
  * List of account related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (console)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -13320,7 +13849,7 @@ var SysAccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update existing account in the system
@@ -13341,7 +13870,7 @@ var SysAccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.post(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update account name
@@ -13362,7 +13891,7 @@ var SysAccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change account type
@@ -13452,7 +13981,7 @@ var SysAccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change account geo area
@@ -13473,7 +14002,7 @@ var SysAccountsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/geoArea", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Get default geo location
@@ -13929,7 +14458,7 @@ var SysConfigurationsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update configuration in the system
@@ -13950,7 +14479,7 @@ var SysConfigurationsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete configuration by id
@@ -14078,7 +14607,7 @@ var SysConfigurationsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.post(this.baseUrl + "/" + id + "/versions", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/" + id + "/versions", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update configuration version in the system
@@ -14102,7 +14631,7 @@ var SysConfigurationsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/versions", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/versions", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete configuration version by id
@@ -14440,7 +14969,7 @@ var SysFeaturesGroupsService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update features group
@@ -14461,7 +14990,7 @@ var SysFeaturesGroupsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change features group name
@@ -14482,7 +15011,7 @@ var SysFeaturesGroupsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change features group features list
@@ -14503,7 +15032,7 @@ var SysFeaturesGroupsService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/features", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/features", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete Feature from the system
@@ -14639,7 +15168,7 @@ var SysFeaturesService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post("" + this.baseUrl, JSON.stringify(body));
+        return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update Feature
@@ -14660,7 +15189,7 @@ var SysFeaturesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete Feature from the system
@@ -14801,7 +15330,7 @@ var SysKeysService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post(this.baseUrl + "/api-keys", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/api-keys", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change API Key version (rotate key)
@@ -15358,7 +15887,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (body) {
-        return this.rest.post(this.baseUrl + "/sys/users/invite", JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/sys/users/invite", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update user
@@ -15379,7 +15908,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.post(this.baseUrl + "/" + id, JSON.stringify(body));
+        return this.rest.post(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change user name
@@ -15400,7 +15929,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change user mobile
@@ -15421,7 +15950,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/mobile", JSON.stringify(body));
+        return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Change user type
@@ -15505,7 +16034,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, roles) {
-        return this.rest.post(this.baseUrl + "/" + id + "/roles/", JSON.stringify(roles));
+        return this.rest.post(this.baseUrl + "/" + id + "/roles/", typeof roles === 'object' ? JSON.stringify(roles) : roles);
     };
     /**
      * Update user roles in his accounts (merge with existing roles)
@@ -15526,7 +16055,7 @@ var SysUsersService = /** @class */ (function () {
      * @return {?}
      */
     function (id, roles) {
-        return this.rest.put(this.baseUrl + "/" + id + "/roles/", JSON.stringify(roles));
+        return this.rest.put(this.baseUrl + "/" + id + "/roles/", typeof roles === 'object' ? JSON.stringify(roles) : roles);
     };
     /**
      * Delete user from the system
@@ -15648,548 +16177,8 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/**
- * Services for user registration and login
- */
-var UserService = /** @class */ (function () {
-    /**
-     * Class constructor
-     */
-    function UserService(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/user';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * @Return: EntityResponse<LoginData>
-     */
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.login = /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/login", JSON.stringify(body));
-    };
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * @Return: EntityResponse<LoginData>
-     */
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    UserService.prototype.refreshToken = /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    function () {
-        return this.rest.post(this.baseUrl + "/refresh-token", null);
-    };
-    /**
-     * Verify user by temporary login key
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    UserService.prototype.verifyLoginKey = /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    function (key) {
-        var _a;
-        /** @type {?} */
-        var params = new Array();
-        if (key != null) {
-            params.push("key=" + key);
-        }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-    };
-    /**
-     * Send verification code by email
-     * @Return: ActionResponse
-     */
-    /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.sendVerificationCode = /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/verify", JSON.stringify(body));
-    };
-    /**
-     * Validate verification code and reset password
-     * @Return: ActionResponse
-     */
-    /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    UserService.prototype.resetPassword = /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    function (code) {
-        return this.rest.post(this.baseUrl + "/reset-password", JSON.stringify(code));
-    };
-    /**
-     * Change password
-     * @Return: ActionResponse
-     */
-    /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changePassword = /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/change-password", JSON.stringify(body));
-    };
-    /**
-     * Check if password was used before (according to password policy)
-     * @Return: ActionResponse
-     */
-    /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.checkUnusedPassword = /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/check-password", JSON.stringify(body));
-    };
-    /**
-     * Change current user name
-     * @Return: ActionResponse
-     */
-    /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changeName = /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.put(this.baseUrl + "/name", JSON.stringify(body));
-    };
-    /**
-     * Change current user mobile
-     * @Return: ActionResponse
-     */
-    /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changeMobile = /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.put(this.baseUrl + "/mobile", JSON.stringify(body));
-    };
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * @Return: EntityResponse<UserAccountInfo>
-     */
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.switchAccount = /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/switch-account", JSON.stringify(body));
-    };
-    UserService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    UserService.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
-    return UserService;
-}());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * List of all user related actions for account administrator only
- */
-var UsersService = /** @class */ (function () {
-    /**
-     * Class constructor
-     */
-    function UsersService(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/users';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * @Return: ActionResponse
-     */
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.invite = /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/invite", JSON.stringify(body));
-    };
-    /**
-     * Update user
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.update = /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.post(this.baseUrl + "/" + id, JSON.stringify(body));
-    };
-    /**
-     * Change user name
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.changeName = /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", JSON.stringify(body));
-    };
-    /**
-     * Change user mobile
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.changeMobile = /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/mobile", JSON.stringify(body));
-    };
-    /**
-     * Change user type
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    UsersService.prototype.changeType = /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    function (id, type) {
-        return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-    };
-    /**
-     * Change user role
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user role
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} role
-     * @return {?}
-     */
-    UsersService.prototype.changeRole = /**
-     * Change user role
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} role
-     * @return {?}
-     */
-    function (id, role) {
-        return this.rest.put(this.baseUrl + "/" + id + "/role/" + role, null);
-    };
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * @Return: ActionResponse
-     */
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    UsersService.prototype.delete = /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
-        return this.rest.delete(this.baseUrl + "/" + id);
-    };
-    /**
-     * Get single user by id
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    UsersService.prototype.get = /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
-        return this.rest.get(this.baseUrl + "/" + id);
-    };
-    /**
-     * Get single user by email
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    UsersService.prototype.getByEmail = /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    function (email) {
-        return this.rest.get(this.baseUrl + "/byEmail/" + email);
-    };
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * @Return: QueryResponse<User>
-     */
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    UsersService.prototype.find = /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    function (search, type, status, sort, page, pageSize) {
-        var _a;
-        /** @type {?} */
-        var params = new Array();
-        if (search != null) {
-            params.push("search=" + search);
-        }
-        if (type != null) {
-            params.push("type=" + type);
-        }
-        if (status != null) {
-            params.push("status=" + status);
-        }
-        if (sort != null) {
-            params.push("sort=" + sort);
-        }
-        if (page != null) {
-            params.push("page=" + page);
-        }
-        if (pageSize != null) {
-            params.push("pageSize=" + pageSize);
-        }
-        return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-    };
-    UsersService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    UsersService.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
-    return UsersService;
-}());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 /** @type {?} */
 var Services = [
-    HealthCheckService,
-    SysAccountsService,
-    SysAppliancesService,
-    SysConfigurationsService,
-    SysEventsService,
-    SysFeaturesGroupsService,
-    SysFeaturesService,
-    SysKeysService,
-    SysSensorsService,
-    SysSystemService,
-    SysUsersService,
     AccountsService,
     AppliancesService,
     AuditLogService,
@@ -16206,6 +16195,17 @@ var Services = [
     SensorsService,
     UserService,
     UsersService,
+    HealthCheckService,
+    SysAccountsService,
+    SysAppliancesService,
+    SysConfigurationsService,
+    SysEventsService,
+    SysFeaturesGroupsService,
+    SysFeaturesService,
+    SysKeysService,
+    SysSensorsService,
+    SysSystemService,
+    SysUsersService,
 ];
 
 /**
@@ -16274,5 +16274,5 @@ var CoreLibModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisResults, SensorAnomalyInfo, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, HealthCheckService as ɵc, RestUtil as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisResults, SensorAnomalyInfo, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SysKeysService as ɵba, SysSensorsService as ɵbb, SysSystemService as ɵbc, SysUsersService as ɵbd, AccountsService as ɵc, RestUtil as ɵd, AppliancesService as ɵe, AuditLogService as ɵf, CalendarsService as ɵg, EventsService as ɵh, FoldersService as ɵi, GeoService as ɵj, IntegrationsService as ɵk, ReportsService as ɵl, RulesService as ɵm, ScheduledReportsService as ɵn, SchedulesService as ɵo, SearchService as ɵp, SensorsService as ɵq, UserService as ɵr, UsersService as ɵs, HealthCheckService as ɵt, SysAccountsService as ɵu, SysAppliancesService as ɵv, SysConfigurationsService as ɵw, SysEventsService as ɵx, SysFeaturesGroupsService as ɵy, SysFeaturesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map
