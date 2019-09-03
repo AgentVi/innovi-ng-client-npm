@@ -1,4 +1,5 @@
 export * from './accountsService';
+export * from './anomalyService';
 export * from './appliancesService';
 export * from './auditLogService';
 export * from './calendarsService';

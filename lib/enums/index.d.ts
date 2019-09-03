@@ -17,6 +17,7 @@ export * from './ProductTypeCode';
 export * from './RuleTypeCode';
 export * from './SearchScopeCode';
 export * from './SearchTimeCode';
+export * from './SensorConfigChangeMask';
 export * from './SensorResolutionCode';
 export * from './SensorStatusCode';
 export * from './SensorStatusMask';

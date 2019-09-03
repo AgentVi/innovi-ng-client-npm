@@ -81,6 +81,11 @@ export declare class SensorsService {
      */
     getRefImage(id?: string): import("rxjs").Observable<any>;
     /**
+     * Set sensor reference image [put binary image in body with content type: image/jpeg]
+     * @Return: ActionResponse
+     */
+    setRefImage(id?: string, body?: string): import("rxjs").Observable<any>;
+    /**
      * Get default geo location
      * @Return: EntityResponse<Coordinate>
      */
