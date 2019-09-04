@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
-import { CoreLibModule } from 'ng-core-lib'; // <-- import the module
+import { CoreLibModule } from '@agentvi/ng-core-lib'; // <-- import the module
 
 @NgModule({
   declarations: [AppComponent],
