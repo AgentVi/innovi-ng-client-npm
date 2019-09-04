@@ -2703,6 +2703,8 @@ SensorAnalysisResults = /** @class */ (function (_super) {
 }(BaseEntity));
 if (false) {
     /** @type {?} */
+    SensorAnalysisResults.prototype.accountId;
+    /** @type {?} */
     SensorAnalysisResults.prototype.results;
     /** @type {?} */
     SensorAnalysisResults.prototype.id;

@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
-import { Folder } from '../entities/Folder';
 import { Coordinate } from '../common/Coordinate';
+import { Folder } from '../entities/Folder';
 /**
  * Services for folders actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)

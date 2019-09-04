@@ -2900,6 +2900,8 @@
     }(BaseEntity));
     if (false) {
         /** @type {?} */
+        SensorAnalysisResults.prototype.accountId;
+        /** @type {?} */
         SensorAnalysisResults.prototype.results;
         /** @type {?} */
         SensorAnalysisResults.prototype.id;
