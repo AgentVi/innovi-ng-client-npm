@@ -5,7 +5,6 @@ import { ReportDefinition } from '../entities/ReportDefinition';
  * Services for reports definition actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup User Actions
  */
 export declare class ReportsService {
     private config;

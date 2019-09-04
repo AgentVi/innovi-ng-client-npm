@@ -4,7 +4,6 @@ import { CoreConfig } from '../../core-lib.module';
  * Audit log queries for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup Admin
  */
 export declare class AuditLogService {
     private config;

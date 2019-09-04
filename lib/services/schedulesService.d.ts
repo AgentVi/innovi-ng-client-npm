@@ -5,7 +5,6 @@ import { Schedule } from '../entities/Schedule';
  * Services for schedules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup User Actions
  */
 export declare class SchedulesService {
     private config;

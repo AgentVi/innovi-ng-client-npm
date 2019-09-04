@@ -5,7 +5,6 @@ import { IntegrationTarget } from '../entities/IntegrationTarget';
  * Services for integrations targets (templates)
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup User Actions
  */
 export declare class IntegrationsService {
     private config;

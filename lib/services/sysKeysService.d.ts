@@ -5,7 +5,6 @@ import { ApiKey } from '../entities/ApiKey';
  * List of all key (API key + User token) related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup System Administrator
  */
 export declare class SysKeysService {
     private config;

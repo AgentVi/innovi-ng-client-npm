@@ -1,13 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
-import { Configuration } from '../entities/Configuration';
 /**
  * List of configurations related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup System Administrator
  */
 export declare class SysConfigurationsService {
     private config;

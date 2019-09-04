@@ -6,7 +6,6 @@ import { Coordinate } from '../common/Coordinate';
  * Services for folders actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup User Actions
  */
 export declare class FoldersService {
     private config;

@@ -9998,7 +9998,7 @@ var AnomalyService = /** @class */ (function () {
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "//training/results"], params));
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/training/results"], params));
     };
     /**
      * Update sensor analysis results bach for a specific sensors
@@ -10095,7 +10095,6 @@ if (false) {
  * List of appliance related actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var AppliancesService = /** @class */ (function () {
     /**
@@ -10559,7 +10558,6 @@ if (false) {
  * Audit log queries for account administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup Admin
  */
 var AuditLogService = /** @class */ (function () {
     /**
@@ -10682,7 +10680,6 @@ if (false) {
  * Services for calendars (holidays) actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var CalendarsService = /** @class */ (function () {
     /**
@@ -10901,7 +10898,6 @@ if (false) {
  * Services for events actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var EventsService = /** @class */ (function () {
     /**
@@ -11324,7 +11320,6 @@ if (false) {
  * Services for folders actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var FoldersService = /** @class */ (function () {
     /**
@@ -11745,7 +11740,6 @@ if (false) {
  * List of Geo-spatial utilities
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var GeoService = /** @class */ (function () {
     /**
@@ -11888,7 +11882,6 @@ if (false) {
  * Services for integrations targets (templates)
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var IntegrationsService = /** @class */ (function () {
     /**
@@ -12070,7 +12063,6 @@ if (false) {
  * Services for reports definition actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var ReportsService = /** @class */ (function () {
     /**
@@ -12247,7 +12239,6 @@ if (false) {
  * Services for rules actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var RulesService = /** @class */ (function () {
     /**
@@ -12464,7 +12455,6 @@ if (false) {
  * Services for scheduled reports definition actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var ScheduledReportsService = /** @class */ (function () {
     /**
@@ -12641,7 +12631,6 @@ if (false) {
  * Services for schedules actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var SchedulesService = /** @class */ (function () {
     /**
@@ -12860,7 +12849,6 @@ if (false) {
  * Services for metadata search actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var SearchService = /** @class */ (function () {
     /**
@@ -13096,7 +13084,6 @@ if (false) {
  * Services for sensor actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 var SensorsService = /** @class */ (function () {
     /**
@@ -14158,7 +14145,6 @@ if (false) {
  * List of configurations related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (console)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysConfigurationsService = /** @class */ (function () {
     /**
@@ -14463,7 +14449,6 @@ if (false) {
  * Services for event queries for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysEventsService = /** @class */ (function () {
     /**
@@ -14672,7 +14657,6 @@ if (false) {
  * Features groups services for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysFeaturesGroupsService = /** @class */ (function () {
     /**
@@ -14871,7 +14855,6 @@ if (false) {
  * Features services for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysFeaturesService = /** @class */ (function () {
     /**
@@ -15033,7 +15016,6 @@ if (false) {
  * List of all key (API key + User token) related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysKeysService = /** @class */ (function () {
     /**
@@ -15213,7 +15195,6 @@ if (false) {
  * Services for sensor actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 var SysSensorsService = /** @class */ (function () {
     /**

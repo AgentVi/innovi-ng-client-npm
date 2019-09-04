@@ -7,7 +7,6 @@ import { StreamTypeCode } from '../enums/StreamTypeCode';
  * Services for sensor actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup System Administrator
  */
 export declare class SysSensorsService {
     private config;

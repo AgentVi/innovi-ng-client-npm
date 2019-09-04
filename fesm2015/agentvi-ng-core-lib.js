@@ -9371,7 +9371,7 @@ class AnomalyService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}//training/results`, ...params);
+        return this.rest.get(`${this.baseUrl}/training/results`, ...params);
     }
     /**
      * Update sensor analysis results bach for a specific sensors
@@ -9436,7 +9436,6 @@ if (false) {
  * List of appliance related actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class AppliancesService {
     /**
@@ -9719,7 +9718,6 @@ if (false) {
  * Audit log queries for account administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup Admin
  */
 class AuditLogService {
     /**
@@ -9816,7 +9814,6 @@ if (false) {
  * Services for calendars (holidays) actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class CalendarsService {
     /**
@@ -9957,7 +9954,6 @@ if (false) {
  * Services for events actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class EventsService {
     /**
@@ -10237,7 +10233,6 @@ if (false) {
  * Services for folders actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class FoldersService {
     /**
@@ -10494,7 +10489,6 @@ if (false) {
  * List of Geo-spatial utilities
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class GeoService {
     /**
@@ -10612,7 +10606,6 @@ if (false) {
  * Services for integrations targets (templates)
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class IntegrationsService {
     /**
@@ -10731,7 +10724,6 @@ if (false) {
  * Services for reports definition actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class ReportsService {
     /**
@@ -10846,7 +10838,6 @@ if (false) {
  * Services for rules actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class RulesService {
     /**
@@ -10993,7 +10984,6 @@ if (false) {
  * Services for scheduled reports definition actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class ScheduledReportsService {
     /**
@@ -11108,7 +11098,6 @@ if (false) {
  * Services for schedules actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class SchedulesService {
     /**
@@ -11249,7 +11238,6 @@ if (false) {
  * Services for metadata search actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class SearchService {
     /**
@@ -11396,7 +11384,6 @@ if (false) {
  * Services for sensor actions
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup User Actions
  */
 class SensorsService {
     /**
@@ -12032,7 +12019,6 @@ if (false) {
  * List of configurations related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (console)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysConfigurationsService {
     /**
@@ -12211,7 +12197,6 @@ if (false) {
  * Services for event queries for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysEventsService {
     /**
@@ -12369,7 +12354,6 @@ if (false) {
  * Features groups services for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysFeaturesGroupsService {
     /**
@@ -12494,7 +12478,6 @@ if (false) {
  * Features services for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysFeaturesService {
     /**
@@ -12603,7 +12586,6 @@ if (false) {
  * List of all key (API key + User token) related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysKeysService {
     /**
@@ -12715,7 +12697,6 @@ if (false) {
  * Services for sensor actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (portal)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * \@ResourceGroup System Administrator
  */
 class SysSensorsService {
     /**

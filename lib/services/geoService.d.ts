@@ -5,7 +5,6 @@ import { GeoControlPoints } from '../common/GeoControlPoints';
  * List of Geo-spatial utilities
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- * @ResourceGroup User Actions
  */
 export declare class GeoService {
     private config;
