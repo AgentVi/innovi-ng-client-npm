@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-lib.module';
+import { CoreConfig } from '../../core-config';
 import { Schedule } from '../entities/Schedule';
 /**
  * Services for schedules actions

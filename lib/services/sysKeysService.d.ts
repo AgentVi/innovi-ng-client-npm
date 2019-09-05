@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-lib.module';
+import { CoreConfig } from '../../core-config';
 import { ApiKey } from '../entities/ApiKey';
 /**
  * List of all key (API key + User token) related actions for system administrator only

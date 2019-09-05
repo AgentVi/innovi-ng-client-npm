@@ -1,7 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-export interface CoreConfig {
-    api: string;
-}
+import { CoreConfig } from './core-config';
 export declare class CoreLibModule {
     static forRoot(config: CoreConfig): ModuleWithProviders;
 }

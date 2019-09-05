@@ -353,6 +353,33 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Subset of event info required by the anomaly service
+    */
+    var   /*
+       Subset of event info required by the anomaly service
+    */
+    AnomalyEventInfo = /** @class */ (function () {
+        function AnomalyEventInfo(eventId, objectIds, status) {
+            this.eventId = eventId;
+            this.objectIds = objectIds;
+            this.status = status;
+        }
+        return AnomalyEventInfo;
+    }());
+    if (false) {
+        /** @type {?} */
+        AnomalyEventInfo.prototype.eventId;
+        /** @type {?} */
+        AnomalyEventInfo.prototype.objectIds;
+        /** @type {?} */
+        AnomalyEventInfo.prototype.status;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        SW Configuration for appliance
     */
     var   /*
@@ -1274,6 +1301,33 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Rule default encapsulates boundaries and default values of rule parameter
+    */
+    var   /*
+       Rule default encapsulates boundaries and default values of rule parameter
+    */
+    RuleDefault = /** @class */ (function () {
+        function RuleDefault(min, max, defaultValue) {
+            this.min = min;
+            this.max = max;
+            this.defaultValue = defaultValue;
+        }
+        return RuleDefault;
+    }());
+    if (false) {
+        /** @type {?} */
+        RuleDefault.prototype.min;
+        /** @type {?} */
+        RuleDefault.prototype.max;
+        /** @type {?} */
+        RuleDefault.prototype.defaultValue;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Polygon definition for rule is used to describe closed polygon and line (for crossing a line rule)
        In case of a line, it is not a closed polygon (first and last points are not connected)
        In case of area description, the line crossing direction field is ignored
@@ -1295,6 +1349,42 @@
         RulePolygon.prototype.lineCrossDir;
         /** @type {?} */
         RulePolygon.prototype.points;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Rule specification describe rule parameters
+    */
+    var   /*
+       Rule specification describe rule parameters
+    */
+    RuleSpec = /** @class */ (function () {
+        function RuleSpec(ruleType, behaviorTypes, objectTypes, isLineDrawing, dwellTime, peopleInGroup) {
+            this.ruleType = ruleType;
+            this.behaviorTypes = behaviorTypes;
+            this.objectTypes = objectTypes;
+            this.isLineDrawing = isLineDrawing;
+            this.dwellTime = dwellTime;
+            this.peopleInGroup = peopleInGroup;
+        }
+        return RuleSpec;
+    }());
+    if (false) {
+        /** @type {?} */
+        RuleSpec.prototype.ruleType;
+        /** @type {?} */
+        RuleSpec.prototype.behaviorTypes;
+        /** @type {?} */
+        RuleSpec.prototype.objectTypes;
+        /** @type {?} */
+        RuleSpec.prototype.isLineDrawing;
+        /** @type {?} */
+        RuleSpec.prototype.dwellTime;
+        /** @type {?} */
+        RuleSpec.prototype.peopleInGroup;
     }
 
     /**
@@ -16670,14 +16760,6 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /**
-     * @record
-     */
-    function CoreConfig() { }
-    if (false) {
-        /** @type {?} */
-        CoreConfig.prototype.api;
-    }
     var CoreLibModule = /** @class */ (function () {
         function CoreLibModule() {
         }
@@ -16728,6 +16810,7 @@
     exports.Agent = Agent;
     exports.AgentStatusCode = AgentStatusCode;
     exports.AnalysisResult = AnalysisResult;
+    exports.AnomalyEventInfo = AnomalyEventInfo;
     exports.AnomalyService = AnomalyService;
     exports.AnomalyServiceFindRequest = AnomalyServiceFindRequest;
     exports.AnomalyServiceUpdateRequest = AnomalyServiceUpdateRequest;
@@ -16950,9 +17033,11 @@
     exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
     exports.RestUtil = RestUtil;
     exports.Rule = Rule;
+    exports.RuleDefault = RuleDefault;
     exports.RuleIdRequest = RuleIdRequest;
     exports.RuleIdsRequest = RuleIdsRequest;
     exports.RulePolygon = RulePolygon;
+    exports.RuleSpec = RuleSpec;
     exports.RuleTypeCode = RuleTypeCode;
     exports.RulesService = RulesService;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
@@ -17084,35 +17169,35 @@
     exports.setToken = setToken;
     exports.ɵa = RestUtil;
     exports.ɵb = Services;
-    exports.ɵba = SchedulesService;
-    exports.ɵbb = SearchService;
-    exports.ɵbc = SensorsService;
-    exports.ɵbd = UserService;
-    exports.ɵbe = UsersService;
+    exports.ɵba = ScheduledReportsService;
+    exports.ɵbb = SchedulesService;
+    exports.ɵbc = SearchService;
+    exports.ɵbd = SensorsService;
+    exports.ɵbe = UserService;
+    exports.ɵbf = UsersService;
     exports.ɵc = AnomalyService;
-    exports.ɵd = RestUtil;
-    exports.ɵe = HealthCheckService;
-    exports.ɵf = SysAccountsService;
-    exports.ɵg = SysAppliancesService;
-    exports.ɵh = SysConfigurationsService;
-    exports.ɵi = SysEventsService;
-    exports.ɵj = SysFeaturesGroupsService;
-    exports.ɵk = SysFeaturesService;
-    exports.ɵl = SysKeysService;
-    exports.ɵm = SysSensorsService;
-    exports.ɵn = SysSystemService;
-    exports.ɵo = SysUsersService;
-    exports.ɵp = AccountsService;
-    exports.ɵq = AppliancesService;
-    exports.ɵr = AuditLogService;
-    exports.ɵs = CalendarsService;
-    exports.ɵt = EventsService;
-    exports.ɵu = FoldersService;
-    exports.ɵv = GeoService;
-    exports.ɵw = IntegrationsService;
-    exports.ɵx = ReportsService;
-    exports.ɵy = RulesService;
-    exports.ɵz = ScheduledReportsService;
+    exports.ɵe = RestUtil;
+    exports.ɵf = HealthCheckService;
+    exports.ɵg = SysAccountsService;
+    exports.ɵh = SysAppliancesService;
+    exports.ɵi = SysConfigurationsService;
+    exports.ɵj = SysEventsService;
+    exports.ɵk = SysFeaturesGroupsService;
+    exports.ɵl = SysFeaturesService;
+    exports.ɵm = SysKeysService;
+    exports.ɵn = SysSensorsService;
+    exports.ɵo = SysSystemService;
+    exports.ɵp = SysUsersService;
+    exports.ɵq = AccountsService;
+    exports.ɵr = AppliancesService;
+    exports.ɵs = AuditLogService;
+    exports.ɵt = CalendarsService;
+    exports.ɵu = EventsService;
+    exports.ɵv = FoldersService;
+    exports.ɵw = GeoService;
+    exports.ɵx = IntegrationsService;
+    exports.ɵy = ReportsService;
+    exports.ɵz = RulesService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

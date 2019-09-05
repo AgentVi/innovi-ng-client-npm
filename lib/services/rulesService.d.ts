@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-lib.module';
+import { CoreConfig } from '../../core-config';
 import { Rule } from '../entities/Rule';
 import { RuleTypeCode } from '../enums/RuleTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
