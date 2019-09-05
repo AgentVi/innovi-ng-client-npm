@@ -46,7 +46,7 @@ export declare class SysAccountsService {
      * Change account groups
      * @Return: EntityResponse<Account>
      */
-    changeGroups(id?: string, groupId?: string): import("rxjs").Observable<any>;
+    changeGroups(id?: string, groupId?: string[]): import("rxjs").Observable<any>;
     /**
      * Change account geo-location (center)
      * @Return: EntityResponse<Account> The changed account
@@ -83,12 +83,12 @@ export declare class SysAccountsService {
      * Get accounts by list of ids
      * @Return: EntitiesResponse<Account>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find list of accounts and filter
      * @Return: QueryResponse<Account>
      */
-    find(search?: string, type?: AccountTypeCode, status?: AccountStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get account types statistics for all accounts in the system
      * @Return: EntitiesResponse<AccountTypeSummary>

@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 /**
  * Services for sensor actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -25,7 +25,7 @@ export declare class SysSensorsService {
      * Find sensors by filters
      * @Return: QueryResponse<Sensor>
      */
-    find(accountId?: string, folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode, status?: SensorStatusCode, stream?: StreamTypeCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(accountId?: string, folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get single sensor health by sensor id
      * @Return: EntityResponse<SensorHealth>

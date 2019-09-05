@@ -38,7 +38,7 @@ export declare class SchedulesService {
      * Get schedules by list of ids
      * @Return: EntitiesResponse<Schedule>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find schedule by filters
      * @Return: QueryResponse<Schedule>

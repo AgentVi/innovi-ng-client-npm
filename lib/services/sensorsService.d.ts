@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { Coordinate } from '../common/Coordinate';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
-import { Coordinate } from '../common/Coordinate';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
 /**
  * Services for sensor actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -68,12 +68,12 @@ export declare class SensorsService {
      * Get sensors by list of ids
      * @Return: EntitiesResponse<Sensor>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find sensors by filters
      * @Return: QueryResponse<Sensor>
      */
-    find(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode, status?: SensorStatusCode, stream?: StreamTypeCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image

@@ -38,7 +38,7 @@ export declare class IntegrationsService {
      * Get integration targets by list of ids
      * @Return: EntitiesResponse<IntegrationTarget>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find integration targets by filters
      * @Return: EntitiesResponse<IntegrationTarget>

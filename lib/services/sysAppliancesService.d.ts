@@ -24,7 +24,7 @@ export declare class SysAppliancesService {
      * Find list of appliances and filter
      * @Return: QueryResponse<Appliance>
      */
-    find(accountId?: string, search?: string, status?: ApplianceStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(accountId?: string, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Delete appliance from the system
      * @Return: ActionResponse
@@ -34,7 +34,7 @@ export declare class SysAppliancesService {
      * Find list of appliance commands and filter
      * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
      */
-    getCommands(accountId?: string, applianceId?: string, status?: CommandStatusCode): import("rxjs").Observable<any>;
+    getCommands(accountId?: string, applianceId?: string, status?: CommandStatusCode[]): import("rxjs").Observable<any>;
     /**
      * Update command status
      * @Return: ActionResponse

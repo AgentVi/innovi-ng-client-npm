@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -25,7 +25,7 @@ export declare class AppliancesService {
      * Find list of appliances and filter
      * @Return: QueryResponse<Appliance>
      */
-    find(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
@@ -35,7 +35,7 @@ export declare class AppliancesService {
      * Get all sensors assigned to the appliance (getSensors)
      * @Return: QueryResponse<Sensor>
      */
-    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode, status?: SensorStatusCode, stream?: StreamTypeCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Add new sensor and assigned it to a specific appliance
      * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
@@ -86,7 +86,7 @@ export declare class AppliancesService {
      * Find list of appliance commands and filter
      * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
      */
-    getCommands(accountId?: string, status?: CommandStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    getCommands(accountId?: string, status?: CommandStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Delete command
      * @Return: ActionResponse

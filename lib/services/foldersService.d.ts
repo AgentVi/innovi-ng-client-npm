@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-lib.module';
-import { Coordinate } from '../common/Coordinate';
 import { Folder } from '../entities/Folder';
+import { Coordinate } from '../common/Coordinate';
 /**
  * Services for folders actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -59,7 +59,7 @@ export declare class FoldersService {
      * Get folders by list of ids
      * @Return: EntitiesResponse<Folder>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find events by filters
      * @Return: QueryResponse<Folder>

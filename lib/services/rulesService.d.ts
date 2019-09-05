@@ -41,10 +41,10 @@ export declare class RulesService {
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */
-    find(folderId?: string, sensorId?: string, search?: string, ruleType?: RuleTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, sensorId?: string, search?: string, ruleType?: RuleTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
 }

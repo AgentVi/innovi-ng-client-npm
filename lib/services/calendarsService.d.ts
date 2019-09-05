@@ -38,7 +38,7 @@ export declare class CalendarsService {
      * Get calendars by list of ids
      * @Return: EntitiesResponse<Calendar>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find calendars by filters
      * @Return: QueryResponse<Calendar>

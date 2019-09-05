@@ -38,7 +38,7 @@ export declare class SearchService {
      * Get multiple search definitions by list of ids
      * @Return: EntitiesResponse<SearchDefinition>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find search definitions by filters
      * @Return: QueryResponse<SearchDefinition>

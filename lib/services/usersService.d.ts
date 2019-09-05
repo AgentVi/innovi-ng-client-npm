@@ -68,5 +68,5 @@ export declare class UsersService {
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * @Return: QueryResponse<User>
      */
-    find(search?: string, type?: UserTypeCode, status?: UserStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
 }

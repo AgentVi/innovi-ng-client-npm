@@ -38,7 +38,7 @@ export declare class ReportsService {
      * Get multiple report definitions by list of ids
      * @Return: EntitiesResponse<ReportDefinition>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find report definitions by filters
      * @Return: QueryResponse<ReportDefinition>

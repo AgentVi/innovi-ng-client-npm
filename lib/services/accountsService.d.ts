@@ -18,7 +18,7 @@ export declare class AccountsService {
      * Find list of accounts and filter
      * @Return: QueryResponse<Account>
      */
-    find(search?: string, type?: AccountTypeCode, status?: AccountStatusCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get single account by id
      * @Return: EntityResponse<Account>

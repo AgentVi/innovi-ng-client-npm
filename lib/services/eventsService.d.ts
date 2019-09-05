@@ -48,7 +48,7 @@ export declare class EventsService {
      * Get events by list of ids
      * @Return: EntitiesResponse<Event>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find events by filters
      * @Return: QueryResponse<Event>
@@ -73,5 +73,5 @@ export declare class EventsService {
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
      */
-    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, from?: number, to?: number, interval?: TimeUnitCode, format?: string): import("rxjs").Observable<any>;
+    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, format?: string): import("rxjs").Observable<any>;
 }

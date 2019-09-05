@@ -46,7 +46,7 @@ export declare class SysConfigurationsService {
      * Get list of configurations by filter
      * @Return: QueryResponse<Configuration>
      */
-    find(target?: ProductTypeCode, search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(target?: ProductTypeCode[], search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Create new configuration version in the system
      * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method

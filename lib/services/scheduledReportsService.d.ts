@@ -38,7 +38,7 @@ export declare class ScheduledReportsService {
      * Get multiple scheduled report definitions by list of ids
      * @Return: EntitiesResponse<ScheduledReport>
      */
-    list(id?: string): import("rxjs").Observable<any>;
+    list(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Find scheduled report definitions by filters
      * @Return: QueryResponse<ScheduledReport>
