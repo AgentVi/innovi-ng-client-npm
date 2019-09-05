@@ -1,5 +1,5 @@
-import { UserTypeCode } from '../enums/UserTypeCode';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
+import { UserTypeCode } from '../enums/UserTypeCode';
 export declare class UserRegistration {
     name: string;
     email: string;

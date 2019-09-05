@@ -1362,8 +1362,9 @@
        Rule specification describe rule parameters
     */
     RuleSpec = /** @class */ (function () {
-        function RuleSpec(ruleType, behaviorTypes, objectTypes, isLineDrawing, dwellTime, peopleInGroup) {
+        function RuleSpec(ruleType, ruleTypeName, behaviorTypes, objectTypes, isLineDrawing, dwellTime, peopleInGroup) {
             this.ruleType = ruleType;
+            this.ruleTypeName = ruleTypeName;
             this.behaviorTypes = behaviorTypes;
             this.objectTypes = objectTypes;
             this.isLineDrawing = isLineDrawing;
@@ -1375,6 +1376,8 @@
     if (false) {
         /** @type {?} */
         RuleSpec.prototype.ruleType;
+        /** @type {?} */
+        RuleSpec.prototype.ruleTypeName;
         /** @type {?} */
         RuleSpec.prototype.behaviorTypes;
         /** @type {?} */
@@ -5617,6 +5620,30 @@
         EntitiesResponseOfRule.prototype.code;
         /** @type {?} */
         EntitiesResponseOfRule.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntitiesResponseOfRuleSpec = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfRuleSpec, _super);
+        function EntitiesResponseOfRuleSpec() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfRuleSpec;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntitiesResponseOfRuleSpec.prototype.list;
+        /** @type {?} */
+        EntitiesResponseOfRuleSpec.prototype.code;
+        /** @type {?} */
+        EntitiesResponseOfRuleSpec.prototype.error;
     }
 
     /**
@@ -12708,6 +12735,23 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
+        /**
+         * Get rules specifications available by account features
+         * @Return: EntitiesResponse<RuleSpec>
+         */
+        /**
+         * Get rules specifications available by account features
+         * \@Return: EntitiesResponse<RuleSpec>
+         * @return {?}
+         */
+        RulesService.prototype.getSpecs = /**
+         * Get rules specifications available by account features
+         * \@Return: EntitiesResponse<RuleSpec>
+         * @return {?}
+         */
+        function () {
+            return this.rest.get(this.baseUrl + "/spec");
+        };
         RulesService.decorators = [
             { type: core.Injectable }
         ];
@@ -16907,6 +16951,7 @@
     exports.EntitiesResponseOfIntegration = EntitiesResponseOfIntegration;
     exports.EntitiesResponseOfReportDefinition = EntitiesResponseOfReportDefinition;
     exports.EntitiesResponseOfRule = EntitiesResponseOfRule;
+    exports.EntitiesResponseOfRuleSpec = EntitiesResponseOfRuleSpec;
     exports.EntitiesResponseOfSchedule = EntitiesResponseOfSchedule;
     exports.EntitiesResponseOfScheduledReport = EntitiesResponseOfScheduledReport;
     exports.EntitiesResponseOfSearchDefinition = EntitiesResponseOfSearchDefinition;

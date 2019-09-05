@@ -57,6 +57,7 @@ export * from './EntitiesResponseOfFolder';
 export * from './EntitiesResponseOfIntegration';
 export * from './EntitiesResponseOfReportDefinition';
 export * from './EntitiesResponseOfRule';
+export * from './EntitiesResponseOfRuleSpec';
 export * from './EntitiesResponseOfSchedule';
 export * from './EntitiesResponseOfScheduledReport';
 export * from './EntitiesResponseOfSearchDefinition';
