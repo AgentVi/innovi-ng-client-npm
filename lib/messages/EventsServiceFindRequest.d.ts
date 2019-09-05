@@ -1,6 +1,6 @@
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 export declare class EventsServiceFindRequest {
     folderId: string;
     subFolders: boolean;

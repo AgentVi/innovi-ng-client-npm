@@ -16789,6 +16789,19 @@
         return CoreLibModule;
     }());
 
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * @record
+     */
+    function CoreConfig() { }
+    if (false) {
+        /** @type {?} */
+        CoreConfig.prototype.api;
+    }
+
     exports.AbsoluteTimeFrame = AbsoluteTimeFrame;
     exports.Account = Account;
     exports.AccountIdRequest = AccountIdRequest;
@@ -17169,35 +17182,35 @@
     exports.setToken = setToken;
     exports.ɵa = RestUtil;
     exports.ɵb = Services;
-    exports.ɵba = ScheduledReportsService;
-    exports.ɵbb = SchedulesService;
-    exports.ɵbc = SearchService;
-    exports.ɵbd = SensorsService;
-    exports.ɵbe = UserService;
-    exports.ɵbf = UsersService;
+    exports.ɵba = SchedulesService;
+    exports.ɵbb = SearchService;
+    exports.ɵbc = SensorsService;
+    exports.ɵbd = UserService;
+    exports.ɵbe = UsersService;
     exports.ɵc = AnomalyService;
-    exports.ɵe = RestUtil;
-    exports.ɵf = HealthCheckService;
-    exports.ɵg = SysAccountsService;
-    exports.ɵh = SysAppliancesService;
-    exports.ɵi = SysConfigurationsService;
-    exports.ɵj = SysEventsService;
-    exports.ɵk = SysFeaturesGroupsService;
-    exports.ɵl = SysFeaturesService;
-    exports.ɵm = SysKeysService;
-    exports.ɵn = SysSensorsService;
-    exports.ɵo = SysSystemService;
-    exports.ɵp = SysUsersService;
-    exports.ɵq = AccountsService;
-    exports.ɵr = AppliancesService;
-    exports.ɵs = AuditLogService;
-    exports.ɵt = CalendarsService;
-    exports.ɵu = EventsService;
-    exports.ɵv = FoldersService;
-    exports.ɵw = GeoService;
-    exports.ɵx = IntegrationsService;
-    exports.ɵy = ReportsService;
-    exports.ɵz = RulesService;
+    exports.ɵd = RestUtil;
+    exports.ɵe = HealthCheckService;
+    exports.ɵf = SysAccountsService;
+    exports.ɵg = SysAppliancesService;
+    exports.ɵh = SysConfigurationsService;
+    exports.ɵi = SysEventsService;
+    exports.ɵj = SysFeaturesGroupsService;
+    exports.ɵk = SysFeaturesService;
+    exports.ɵl = SysKeysService;
+    exports.ɵm = SysSensorsService;
+    exports.ɵn = SysSystemService;
+    exports.ɵo = SysUsersService;
+    exports.ɵp = AccountsService;
+    exports.ɵq = AppliancesService;
+    exports.ɵr = AuditLogService;
+    exports.ɵs = CalendarsService;
+    exports.ɵt = EventsService;
+    exports.ɵu = FoldersService;
+    exports.ɵv = GeoService;
+    exports.ɵw = IntegrationsService;
+    exports.ɵx = ReportsService;
+    exports.ɵy = RulesService;
+    exports.ɵz = ScheduledReportsService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

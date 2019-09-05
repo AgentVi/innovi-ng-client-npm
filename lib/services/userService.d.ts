@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../core-config';
-import { LoginParams } from '../common/LoginParams';
 import { ChangePasswordRequest } from '../messages/ChangePasswordRequest';
 import { TokenRequest } from '../messages/TokenRequest';
+import { LoginParams } from '../common/LoginParams';
 /**
  * Services for user registration and login
  */
