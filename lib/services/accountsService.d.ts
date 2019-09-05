@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';

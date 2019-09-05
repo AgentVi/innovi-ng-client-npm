@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { ScheduledReport } from '../entities/ScheduledReport';
 /**
  * Services for scheduled reports definition actions

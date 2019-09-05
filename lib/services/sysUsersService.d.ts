@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';

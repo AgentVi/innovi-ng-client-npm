@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
 /**
  * List of anomaly related actions for the anomaly detection service

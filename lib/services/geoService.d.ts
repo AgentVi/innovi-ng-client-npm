@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { GeoControlPoints } from '../common/GeoControlPoints';
 /**
  * List of Geo-spatial utilities

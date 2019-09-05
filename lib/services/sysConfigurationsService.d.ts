@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';

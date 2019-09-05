@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
-import { Event } from '../entities/Event';
+import { CoreConfig } from '../../config';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { Event } from '../entities/Event';
 /**
  * Services for events actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)

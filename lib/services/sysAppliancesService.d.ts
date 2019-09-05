@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 /**

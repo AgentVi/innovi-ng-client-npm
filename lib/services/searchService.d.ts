@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { SearchDefinition } from '../entities/SearchDefinition';
 /**
  * Services for metadata search actions

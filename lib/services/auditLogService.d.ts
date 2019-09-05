@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 /**
  * Audit log queries for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)

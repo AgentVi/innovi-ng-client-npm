@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 import { LoginParams } from '../common/LoginParams';
 import { ChangePasswordRequest } from '../messages/ChangePasswordRequest';
 import { TokenRequest } from '../messages/TokenRequest';

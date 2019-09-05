@@ -1,5 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
-import { CoreConfig } from '../../core-config';
+import { CoreConfig } from '../../config';
 /**
  * Health check service, no X-API-KEY or X-ACCESS-TOKEN are required
  */
