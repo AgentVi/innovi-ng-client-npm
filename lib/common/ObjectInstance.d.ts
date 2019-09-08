@@ -1,9 +1,9 @@
+import { BoundingBox } from '../common/BoundingBox';
+import { Point } from '../common/Point';
 import { Coordinate } from '../common/Coordinate';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { ObjectColor } from '../common/ObjectColor';
 import { Dimension } from '../common/Dimension';
-import { BoundingBox } from '../common/BoundingBox';
-import { Point } from '../common/Point';
 export declare class ObjectInstance {
     objectId: string;
     timestamp: number;
