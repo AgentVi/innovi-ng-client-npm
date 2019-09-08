@@ -1,7 +1,7 @@
-import { ColorCode } from '../enums/ColorCode';
-import { Coordinate } from '../common/Coordinate';
 import { ObjectInstance } from '../common/ObjectInstance';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { ColorCode } from '../enums/ColorCode';
+import { Coordinate } from '../common/Coordinate';
 export declare class ObjectInfo {
     objectId: string;
     sensorId: string;

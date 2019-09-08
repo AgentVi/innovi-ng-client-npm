@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
 import { Configuration } from '../entities/Configuration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
 /**
  * List of configurations related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
