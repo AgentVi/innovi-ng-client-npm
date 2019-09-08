@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
-import { AccountRoleCode } from '../enums/AccountRoleCode';
 /**
  * List of all user related actions for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
