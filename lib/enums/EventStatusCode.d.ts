@@ -1,7 +1,8 @@
 export declare enum EventStatusCode {
-    NEW = 0,
-    OPEN = 1,
-    CLOSE = 2,
+    UNDEFINED = 0,
+    NEW = 1,
+    OPEN = 2,
+    CLOSE = 3,
     IRRELEVANT = 8,
     FALSE = 9
 }

@@ -1,6 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
+import { EventStatusCode } from '../enums/EventStatusCode';
+import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
+import { Event } from '../entities/Event';
 /**
  * List of anomaly related actions for the anomaly detection service
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -33,4 +36,32 @@ export declare class AnomalyService {
      * @Return: EntityResponse<SensorAnomalyInfo>
      */
     getSensorAnomalyInfo(sensorId?: string): import("rxjs").Observable<any>;
+    /**
+     * Find list of anomaly event info objects per sensor in a given time period
+     * @return QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+     */
+    findAnomalyEventInfo(accountId?: string, sensorId?: string, status?: EventStatusCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Update sensor anomaly rule attributed
+     * @return ActionResponse
+     */
+    updateAnomalyRule(sensorId?: string, body?: SensorAnomalyRuleInfo): import("rxjs").Observable<any>;
+    /**
+     * Create dummy event (for anomaly tests only)
+     * This method is used for testing only, the only service generates events in the system is the event service
+     * @param event Event data to create
+     * Some of the event fields are mandatory: (the other are optional)
+     * <ul>
+     * <li><b>id:</b> Unique event id (e.g. GUID string)</li>
+     * <li><b>accountId</b</li>
+     * <li><b>sensorId</b</li>
+     * <li><b>objectType</b</li>
+     * <li><b>behaviorType</b</li>
+     * <li><b>ruleId</b</li>
+     * <li><b>RuleType</b</li>
+     * <li><b>startTime:</b> If se to 0, server start time will be set</li>
+     * </ul>
+     * @return EntityResponse<Event>
+     */
+    createDummyEvent(body?: Event): import("rxjs").Observable<any>;
 }

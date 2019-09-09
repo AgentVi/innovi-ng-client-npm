@@ -1476,6 +1476,30 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Sensor anomaly rule information
+    */
+    var   /*
+       Sensor anomaly rule information
+    */
+    SensorAnomalyRuleInfo = /** @class */ (function () {
+        function SensorAnomalyRuleInfo(sensitivity, objectTypes) {
+            this.sensitivity = sensitivity;
+            this.objectTypes = objectTypes;
+        }
+        return SensorAnomalyRuleInfo;
+    }());
+    if (false) {
+        /** @type {?} */
+        SensorAnomalyRuleInfo.prototype.sensitivity;
+        /** @type {?} */
+        SensorAnomalyRuleInfo.prototype.objectTypes;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Sensor anomaly information
        This data model is used by the inference process of Anomaly Detection
     */
@@ -1483,15 +1507,13 @@
        Sensor anomaly information
        This data model is used by the inference process of Anomaly Detection
     */
-    SensorAnomalyInfo = /** @class */ (function () {
-        function SensorAnomalyInfo(sensorId, results, sensitivity, objectTypes) {
-            this.sensorId = sensorId;
-            this.results = results;
-            this.sensitivity = sensitivity;
-            this.objectTypes = objectTypes;
+    SensorAnomalyInfo = /** @class */ (function (_super) {
+        __extends(SensorAnomalyInfo, _super);
+        function SensorAnomalyInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
         return SensorAnomalyInfo;
-    }());
+    }(SensorAnomalyRuleInfo));
     if (false) {
         /** @type {?} */
         SensorAnomalyInfo.prototype.sensorId;
@@ -1558,6 +1580,30 @@
         SensorStatusTimestamped.prototype.timestamp;
         /** @type {?} */
         SensorStatusTimestamped.prototype.label;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       String Int Value tuple
+    */
+    var   /*
+       String Int Value tuple
+    */
+    StringIntValue = /** @class */ (function () {
+        function StringIntValue(key, value) {
+            this.key = key;
+            this.value = value;
+        }
+        return StringIntValue;
+    }());
+    if (false) {
+        /** @type {?} */
+        StringIntValue.prototype.key;
+        /** @type {?} */
+        StringIntValue.prototype.value;
     }
 
     /**
@@ -3644,17 +3690,20 @@
      */
     /** @enum {number} */
     var EventStatusCode = {
-        // New event [0] 
-        NEW: 0,
-        // Open (in-progress) event [1] 
-        OPEN: 1,
-        // Closed event [2] 
-        CLOSE: 2,
+        // Undefined [0] 
+        UNDEFINED: 0,
+        // New event [1] 
+        NEW: 1,
+        // Open (in-progress) event [2] 
+        OPEN: 2,
+        // Closed event [3] 
+        CLOSE: 3,
         // Irrelevant event [8] 
         IRRELEVANT: 8,
         // False event [9] 
         FALSE: 9,
     };
+    EventStatusCode[EventStatusCode.UNDEFINED] = 'UNDEFINED';
     EventStatusCode[EventStatusCode.NEW] = 'NEW';
     EventStatusCode[EventStatusCode.OPEN] = 'OPEN';
     EventStatusCode[EventStatusCode.CLOSE] = 'CLOSE';
@@ -4507,6 +4556,46 @@
     */
     var   /*
     */
+    AnomalyServiceFindEventsRequest = /** @class */ (function () {
+        function AnomalyServiceFindEventsRequest(accountId, sensorId, status, from, to, sort, page, pageSize) {
+            this.accountId = accountId;
+            this.sensorId = sensorId;
+            this.status = status;
+            this.from = from;
+            this.to = to;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return AnomalyServiceFindEventsRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.accountId;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.sensorId;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.status;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.from;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.to;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.sort;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.page;
+        /** @type {?} */
+        AnomalyServiceFindEventsRequest.prototype.pageSize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AnomalyServiceFindRequest = /** @class */ (function () {
         function AnomalyServiceFindRequest(page, pageSize) {
             this.page = page;
@@ -4541,6 +4630,28 @@
         AnomalyServiceUpdateRequest.prototype.sensorId;
         /** @type {?} */
         AnomalyServiceUpdateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    AnomalyServiceUpdateRuleRequest = /** @class */ (function () {
+        function AnomalyServiceUpdateRuleRequest(sensorId, body) {
+            this.sensorId = sensorId;
+            this.body = body;
+        }
+        return AnomalyServiceUpdateRuleRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AnomalyServiceUpdateRuleRequest.prototype.sensorId;
+        /** @type {?} */
+        AnomalyServiceUpdateRuleRequest.prototype.body;
     }
 
     /**
@@ -6655,13 +6766,14 @@
     var   /*
     */
     EventsServiceFindRequest = /** @class */ (function () {
-        function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
             this.folderId = folderId;
             this.subFolders = subFolders;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.behaviorType = behaviorType;
             this.severity = severity;
+            this.status = status;
             this.from = from;
             this.to = to;
             this.sort = sort;
@@ -6683,6 +6795,8 @@
         EventsServiceFindRequest.prototype.behaviorType;
         /** @type {?} */
         EventsServiceFindRequest.prototype.severity;
+        /** @type {?} */
+        EventsServiceFindRequest.prototype.status;
         /** @type {?} */
         EventsServiceFindRequest.prototype.from;
         /** @type {?} */
@@ -10419,6 +10533,115 @@
         function (sensorId) {
             return this.rest.get(this.baseUrl + "/inference/" + sensorId + "/info");
         };
+        /**
+         * Find list of anomaly event info objects per sensor in a given time period
+         * @return QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+         */
+        /**
+         * Find list of anomaly event info objects per sensor in a given time period
+         * @param {?=} accountId
+         * @param {?=} sensorId
+         * @param {?=} status
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?} QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+         */
+        AnomalyService.prototype.findAnomalyEventInfo = /**
+         * Find list of anomaly event info objects per sensor in a given time period
+         * @param {?=} accountId
+         * @param {?=} sensorId
+         * @param {?=} status
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?} QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+         */
+        function (accountId, sensorId, status, from, to, sort, page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/inference/events"], params));
+        };
+        /**
+         * Update sensor anomaly rule attributed
+         * @return ActionResponse
+         */
+        /**
+         * Update sensor anomaly rule attributed
+         * @param {?=} sensorId
+         * @param {?=} body
+         * @return {?} ActionResponse
+         */
+        AnomalyService.prototype.updateAnomalyRule = /**
+         * Update sensor anomaly rule attributed
+         * @param {?=} sensorId
+         * @param {?=} body
+         * @return {?} ActionResponse
+         */
+        function (sensorId, body) {
+            return this.rest.put(this.baseUrl + "/rule/" + sensorId, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Create dummy event (for anomaly tests only)
+         * This method is used for testing only, the only service generates events in the system is the event service
+         * @param event Event data to create
+         * Some of the event fields are mandatory: (the other are optional)
+         * <ul>
+         * <li><b>id:</b> Unique event id (e.g. GUID string)</li>
+         * <li><b>accountId</b</li>
+         * <li><b>sensorId</b</li>
+         * <li><b>objectType</b</li>
+         * <li><b>behaviorType</b</li>
+         * <li><b>ruleId</b</li>
+         * <li><b>RuleType</b</li>
+         * <li><b>startTime:</b> If se to 0, server start time will be set</li>
+         * </ul>
+         * @return EntityResponse<Event>
+         */
+        /**
+         * Create dummy event (for anomaly tests only)
+         * This method is used for testing only, the only service generates events in the system is the event service
+         * @param {?=} body
+         * @return {?} EntityResponse<Event>
+         */
+        AnomalyService.prototype.createDummyEvent = /**
+         * Create dummy event (for anomaly tests only)
+         * This method is used for testing only, the only service generates events in the system is the event service
+         * @param {?=} body
+         * @return {?} EntityResponse<Event>
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/event", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
         AnomalyService.decorators = [
             { type: core.Injectable }
         ];
@@ -11409,6 +11632,7 @@
          * @param {?=} objectType
          * @param {?=} behaviorType
          * @param {?=} severity
+         * @param {?=} status
          * @param {?=} from
          * @param {?=} to
          * @param {?=} sort
@@ -11425,6 +11649,7 @@
          * @param {?=} objectType
          * @param {?=} behaviorType
          * @param {?=} severity
+         * @param {?=} status
          * @param {?=} from
          * @param {?=} to
          * @param {?=} sort
@@ -11432,7 +11657,7 @@
          * @param {?=} pageSize
          * @return {?}
          */
-        function (folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+        function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -11453,6 +11678,9 @@
             }
             if (severity != null) {
                 params.push("severity=" + severity);
+            }
+            if (status != null) {
+                params.push("status=" + status);
             }
             if (from != null) {
                 params.push("from=" + from);
@@ -16895,8 +17123,10 @@
     exports.AnalysisResult = AnalysisResult;
     exports.AnomalyEventInfo = AnomalyEventInfo;
     exports.AnomalyService = AnomalyService;
+    exports.AnomalyServiceFindEventsRequest = AnomalyServiceFindEventsRequest;
     exports.AnomalyServiceFindRequest = AnomalyServiceFindRequest;
     exports.AnomalyServiceUpdateRequest = AnomalyServiceUpdateRequest;
+    exports.AnomalyServiceUpdateRuleRequest = AnomalyServiceUpdateRuleRequest;
     exports.ApiKey = ApiKey;
     exports.ApiKeyIdRequest = ApiKeyIdRequest;
     exports.Appliance = Appliance;
@@ -17160,6 +17390,7 @@
     exports.SensorAnalysisIdRequest = SensorAnalysisIdRequest;
     exports.SensorAnalysisResults = SensorAnalysisResults;
     exports.SensorAnomalyInfo = SensorAnomalyInfo;
+    exports.SensorAnomalyRuleInfo = SensorAnomalyRuleInfo;
     exports.SensorConfigChangeMask = SensorConfigChangeMask;
     exports.SensorDebugInfo = SensorDebugInfo;
     exports.SensorHealth = SensorHealth;
@@ -17187,6 +17418,7 @@
     exports.SeverityTypeCode = SeverityTypeCode;
     exports.StreamResponse = StreamResponse;
     exports.StreamTypeCode = StreamTypeCode;
+    exports.StringIntValue = StringIntValue;
     exports.StringKeyValue = StringKeyValue;
     exports.SysAccountsService = SysAccountsService;
     exports.SysAppliancesService = SysAppliancesService;

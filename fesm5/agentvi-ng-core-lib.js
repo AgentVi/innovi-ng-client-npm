@@ -1279,6 +1279,30 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
+   Sensor anomaly rule information
+*/
+var  /*
+   Sensor anomaly rule information
+*/
+SensorAnomalyRuleInfo = /** @class */ (function () {
+    function SensorAnomalyRuleInfo(sensitivity, objectTypes) {
+        this.sensitivity = sensitivity;
+        this.objectTypes = objectTypes;
+    }
+    return SensorAnomalyRuleInfo;
+}());
+if (false) {
+    /** @type {?} */
+    SensorAnomalyRuleInfo.prototype.sensitivity;
+    /** @type {?} */
+    SensorAnomalyRuleInfo.prototype.objectTypes;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
    Sensor anomaly information
    This data model is used by the inference process of Anomaly Detection
 */
@@ -1286,15 +1310,13 @@ var  /*
    Sensor anomaly information
    This data model is used by the inference process of Anomaly Detection
 */
-SensorAnomalyInfo = /** @class */ (function () {
-    function SensorAnomalyInfo(sensorId, results, sensitivity, objectTypes) {
-        this.sensorId = sensorId;
-        this.results = results;
-        this.sensitivity = sensitivity;
-        this.objectTypes = objectTypes;
+SensorAnomalyInfo = /** @class */ (function (_super) {
+    __extends(SensorAnomalyInfo, _super);
+    function SensorAnomalyInfo() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
     return SensorAnomalyInfo;
-}());
+}(SensorAnomalyRuleInfo));
 if (false) {
     /** @type {?} */
     SensorAnomalyInfo.prototype.sensorId;
@@ -1361,6 +1383,30 @@ if (false) {
     SensorStatusTimestamped.prototype.timestamp;
     /** @type {?} */
     SensorStatusTimestamped.prototype.label;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   String Int Value tuple
+*/
+var  /*
+   String Int Value tuple
+*/
+StringIntValue = /** @class */ (function () {
+    function StringIntValue(key, value) {
+        this.key = key;
+        this.value = value;
+    }
+    return StringIntValue;
+}());
+if (false) {
+    /** @type {?} */
+    StringIntValue.prototype.key;
+    /** @type {?} */
+    StringIntValue.prototype.value;
 }
 
 /**
@@ -3447,17 +3493,20 @@ DayOfWeekCode[DayOfWeekCode.SAT] = 'SAT';
  */
 /** @enum {number} */
 var EventStatusCode = {
-    // New event [0] 
-    NEW: 0,
-    // Open (in-progress) event [1] 
-    OPEN: 1,
-    // Closed event [2] 
-    CLOSE: 2,
+    // Undefined [0] 
+    UNDEFINED: 0,
+    // New event [1] 
+    NEW: 1,
+    // Open (in-progress) event [2] 
+    OPEN: 2,
+    // Closed event [3] 
+    CLOSE: 3,
     // Irrelevant event [8] 
     IRRELEVANT: 8,
     // False event [9] 
     FALSE: 9,
 };
+EventStatusCode[EventStatusCode.UNDEFINED] = 'UNDEFINED';
 EventStatusCode[EventStatusCode.NEW] = 'NEW';
 EventStatusCode[EventStatusCode.OPEN] = 'OPEN';
 EventStatusCode[EventStatusCode.CLOSE] = 'CLOSE';
@@ -4310,6 +4359,46 @@ if (false) {
 */
 var  /*
 */
+AnomalyServiceFindEventsRequest = /** @class */ (function () {
+    function AnomalyServiceFindEventsRequest(accountId, sensorId, status, from, to, sort, page, pageSize) {
+        this.accountId = accountId;
+        this.sensorId = sensorId;
+        this.status = status;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
+    return AnomalyServiceFindEventsRequest;
+}());
+if (false) {
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.accountId;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.sensorId;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.status;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.from;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.to;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.sort;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.page;
+    /** @type {?} */
+    AnomalyServiceFindEventsRequest.prototype.pageSize;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 AnomalyServiceFindRequest = /** @class */ (function () {
     function AnomalyServiceFindRequest(page, pageSize) {
         this.page = page;
@@ -4344,6 +4433,28 @@ if (false) {
     AnomalyServiceUpdateRequest.prototype.sensorId;
     /** @type {?} */
     AnomalyServiceUpdateRequest.prototype.body;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+AnomalyServiceUpdateRuleRequest = /** @class */ (function () {
+    function AnomalyServiceUpdateRuleRequest(sensorId, body) {
+        this.sensorId = sensorId;
+        this.body = body;
+    }
+    return AnomalyServiceUpdateRuleRequest;
+}());
+if (false) {
+    /** @type {?} */
+    AnomalyServiceUpdateRuleRequest.prototype.sensorId;
+    /** @type {?} */
+    AnomalyServiceUpdateRuleRequest.prototype.body;
 }
 
 /**
@@ -6458,13 +6569,14 @@ if (false) {
 var  /*
 */
 EventsServiceFindRequest = /** @class */ (function () {
-    function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+    function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
         this.objectType = objectType;
         this.behaviorType = behaviorType;
         this.severity = severity;
+        this.status = status;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -6486,6 +6598,8 @@ if (false) {
     EventsServiceFindRequest.prototype.behaviorType;
     /** @type {?} */
     EventsServiceFindRequest.prototype.severity;
+    /** @type {?} */
+    EventsServiceFindRequest.prototype.status;
     /** @type {?} */
     EventsServiceFindRequest.prototype.from;
     /** @type {?} */
@@ -10222,6 +10336,115 @@ var AnomalyService = /** @class */ (function () {
     function (sensorId) {
         return this.rest.get(this.baseUrl + "/inference/" + sensorId + "/info");
     };
+    /**
+     * Find list of anomaly event info objects per sensor in a given time period
+     * @return QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+     */
+    /**
+     * Find list of anomaly event info objects per sensor in a given time period
+     * @param {?=} accountId
+     * @param {?=} sensorId
+     * @param {?=} status
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?} QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+     */
+    AnomalyService.prototype.findAnomalyEventInfo = /**
+     * Find list of anomaly event info objects per sensor in a given time period
+     * @param {?=} accountId
+     * @param {?=} sensorId
+     * @param {?=} status
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?} QueryResponse<AnomalyEventInfo> List of anomaly event info objects
+     */
+    function (accountId, sensorId, status, from, to, sort, page, pageSize) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
+        if (sensorId != null) {
+            params.push("sensorId=" + sensorId);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (from != null) {
+            params.push("from=" + from);
+        }
+        if (to != null) {
+            params.push("to=" + to);
+        }
+        if (sort != null) {
+            params.push("sort=" + sort);
+        }
+        if (page != null) {
+            params.push("page=" + page);
+        }
+        if (pageSize != null) {
+            params.push("pageSize=" + pageSize);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/inference/events"], params));
+    };
+    /**
+     * Update sensor anomaly rule attributed
+     * @return ActionResponse
+     */
+    /**
+     * Update sensor anomaly rule attributed
+     * @param {?=} sensorId
+     * @param {?=} body
+     * @return {?} ActionResponse
+     */
+    AnomalyService.prototype.updateAnomalyRule = /**
+     * Update sensor anomaly rule attributed
+     * @param {?=} sensorId
+     * @param {?=} body
+     * @return {?} ActionResponse
+     */
+    function (sensorId, body) {
+        return this.rest.put(this.baseUrl + "/rule/" + sensorId, typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Create dummy event (for anomaly tests only)
+     * This method is used for testing only, the only service generates events in the system is the event service
+     * @param event Event data to create
+     * Some of the event fields are mandatory: (the other are optional)
+     * <ul>
+     * <li><b>id:</b> Unique event id (e.g. GUID string)</li>
+     * <li><b>accountId</b</li>
+     * <li><b>sensorId</b</li>
+     * <li><b>objectType</b</li>
+     * <li><b>behaviorType</b</li>
+     * <li><b>ruleId</b</li>
+     * <li><b>RuleType</b</li>
+     * <li><b>startTime:</b> If se to 0, server start time will be set</li>
+     * </ul>
+     * @return EntityResponse<Event>
+     */
+    /**
+     * Create dummy event (for anomaly tests only)
+     * This method is used for testing only, the only service generates events in the system is the event service
+     * @param {?=} body
+     * @return {?} EntityResponse<Event>
+     */
+    AnomalyService.prototype.createDummyEvent = /**
+     * Create dummy event (for anomaly tests only)
+     * This method is used for testing only, the only service generates events in the system is the event service
+     * @param {?=} body
+     * @return {?} EntityResponse<Event>
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/event", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
     AnomalyService.decorators = [
         { type: Injectable }
     ];
@@ -11212,6 +11435,7 @@ var EventsService = /** @class */ (function () {
      * @param {?=} objectType
      * @param {?=} behaviorType
      * @param {?=} severity
+     * @param {?=} status
      * @param {?=} from
      * @param {?=} to
      * @param {?=} sort
@@ -11228,6 +11452,7 @@ var EventsService = /** @class */ (function () {
      * @param {?=} objectType
      * @param {?=} behaviorType
      * @param {?=} severity
+     * @param {?=} status
      * @param {?=} from
      * @param {?=} to
      * @param {?=} sort
@@ -11235,7 +11460,7 @@ var EventsService = /** @class */ (function () {
      * @param {?=} pageSize
      * @return {?}
      */
-    function (folderId, subFolders, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+    function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -11256,6 +11481,9 @@ var EventsService = /** @class */ (function () {
         }
         if (severity != null) {
             params.push("severity=" + severity);
+        }
+        if (status != null) {
+            params.push("status=" + status);
         }
         if (from != null) {
             params.push("from=" + from);
@@ -16690,5 +16918,5 @@ var CoreLibModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map
