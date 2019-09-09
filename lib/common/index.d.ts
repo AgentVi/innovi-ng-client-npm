@@ -30,6 +30,7 @@ export * from './LoginParams';
 export * from './ObjectColor';
 export * from './ObjectInfo';
 export * from './ObjectInstance';
+export * from './ObjectTypeNode';
 export * from './Point';
 export * from './Recurrent';
 export * from './RecurrentTimeFrame';
