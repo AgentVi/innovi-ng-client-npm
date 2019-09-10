@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
+import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
 /**
  * List of anomaly related actions for the anomaly detection service
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -53,13 +53,13 @@ export declare class AnomalyService {
      * Some of the event fields are mandatory: (the other are optional)
      * <ul>
      * <li><b>id:</b> Unique event id (e.g. GUID string)</li>
-     * <li><b>accountId</b</li>
-     * <li><b>sensorId</b</li>
-     * <li><b>objectType</b</li>
-     * <li><b>behaviorType</b</li>
-     * <li><b>ruleId</b</li>
-     * <li><b>RuleType</b</li>
-     * <li><b>startTime:</b> If se to 0, server start time will be set</li>
+     * <li><b>accountId</b> Account Id</li>
+     * <li><b>sensorId</b> Sensor Id</li>
+     * <li><b>objectType</b> Detected object type</li>
+     * <li><b>behaviorType</b> Behavior</li>
+     * <li><b>ruleId</b> Rule Id</li>
+     * <li><b>RuleType</b> Rule type</li>
+     * <li><b>startTime:</b> If set to 0, server time will be set</li>
      * </ul>
      * @return EntityResponse<Event>
      */

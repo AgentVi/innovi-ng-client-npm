@@ -6515,6 +6515,54 @@
     */
     var   /*
     */
+    EntityResponseOfSensorAnalysisResults = /** @class */ (function (_super) {
+        __extends(EntityResponseOfSensorAnalysisResults, _super);
+        function EntityResponseOfSensorAnalysisResults() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfSensorAnalysisResults;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfSensorAnalysisResults.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfSensorAnalysisResults.prototype.code;
+        /** @type {?} */
+        EntityResponseOfSensorAnalysisResults.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfSensorAnomalyInfo = /** @class */ (function (_super) {
+        __extends(EntityResponseOfSensorAnomalyInfo, _super);
+        function EntityResponseOfSensorAnomalyInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfSensorAnomalyInfo;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfSensorAnomalyInfo.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfSensorAnomalyInfo.prototype.code;
+        /** @type {?} */
+        EntityResponseOfSensorAnomalyInfo.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     EntityResponseOfSensorHealth = /** @class */ (function (_super) {
         __extends(EntityResponseOfSensorHealth, _super);
         function EntityResponseOfSensorHealth() {
@@ -7569,6 +7617,42 @@
     */
     var   /*
     */
+    QueryResponseOfAnomalyEventInfo = /** @class */ (function (_super) {
+        __extends(QueryResponseOfAnomalyEventInfo, _super);
+        function QueryResponseOfAnomalyEventInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfAnomalyEventInfo;
+    }(QueryResponse));
+    if (false) {
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.list;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.code;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.error;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.page;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.pageSize;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.pages;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.total;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.queryDef;
+        /** @type {?} */
+        QueryResponseOfAnomalyEventInfo.prototype.docType;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     QueryResponseOfAppliance = /** @class */ (function (_super) {
         __extends(QueryResponseOfAppliance, _super);
         function QueryResponseOfAppliance() {
@@ -8099,6 +8183,42 @@
         QueryResponseOfSensor.prototype.queryDef;
         /** @type {?} */
         QueryResponseOfSensor.prototype.docType;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    QueryResponseOfSensorAnalysisResults = /** @class */ (function (_super) {
+        __extends(QueryResponseOfSensorAnalysisResults, _super);
+        function QueryResponseOfSensorAnalysisResults() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfSensorAnalysisResults;
+    }(QueryResponse));
+    if (false) {
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.list;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.code;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.error;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.page;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.pageSize;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.pages;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.total;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.queryDef;
+        /** @type {?} */
+        QueryResponseOfSensorAnalysisResults.prototype.docType;
     }
 
     /**
@@ -10593,13 +10713,13 @@
          * Some of the event fields are mandatory: (the other are optional)
          * <ul>
          * <li><b>id:</b> Unique event id (e.g. GUID string)</li>
-         * <li><b>accountId</b</li>
-         * <li><b>sensorId</b</li>
-         * <li><b>objectType</b</li>
-         * <li><b>behaviorType</b</li>
-         * <li><b>ruleId</b</li>
-         * <li><b>RuleType</b</li>
-         * <li><b>startTime:</b> If se to 0, server start time will be set</li>
+         * <li><b>accountId</b> Account Id</li>
+         * <li><b>sensorId</b> Sensor Id</li>
+         * <li><b>objectType</b> Detected object type</li>
+         * <li><b>behaviorType</b> Behavior</li>
+         * <li><b>ruleId</b> Rule Id</li>
+         * <li><b>RuleType</b> Rule type</li>
+         * <li><b>startTime:</b> If set to 0, server time will be set</li>
          * </ul>
          * @return EntityResponse<Event>
          */
@@ -17216,6 +17336,8 @@
     exports.EntityResponseOfScheduledReport = EntityResponseOfScheduledReport;
     exports.EntityResponseOfSearchDefinition = EntityResponseOfSearchDefinition;
     exports.EntityResponseOfSensor = EntityResponseOfSensor;
+    exports.EntityResponseOfSensorAnalysisResults = EntityResponseOfSensorAnalysisResults;
+    exports.EntityResponseOfSensorAnomalyInfo = EntityResponseOfSensorAnomalyInfo;
     exports.EntityResponseOfSensorHealth = EntityResponseOfSensorHealth;
     exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
     exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
@@ -17297,6 +17419,7 @@
     exports.ProductTypeCode = ProductTypeCode;
     exports.QueryResponse = QueryResponse;
     exports.QueryResponseOfAccount = QueryResponseOfAccount;
+    exports.QueryResponseOfAnomalyEventInfo = QueryResponseOfAnomalyEventInfo;
     exports.QueryResponseOfAppliance = QueryResponseOfAppliance;
     exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
     exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
@@ -17312,6 +17435,7 @@
     exports.QueryResponseOfSchedule = QueryResponseOfSchedule;
     exports.QueryResponseOfSearchDefinition = QueryResponseOfSearchDefinition;
     exports.QueryResponseOfSensor = QueryResponseOfSensor;
+    exports.QueryResponseOfSensorAnalysisResults = QueryResponseOfSensorAnalysisResults;
     exports.QueryResponseOfTreeItem = QueryResponseOfTreeItem;
     exports.QueryResponseOfUser = QueryResponseOfUser;
     exports.Recurrent = Recurrent;
