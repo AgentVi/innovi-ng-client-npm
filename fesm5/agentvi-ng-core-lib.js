@@ -3872,64 +3872,40 @@ SensorStatusCode[SensorStatusCode.PENDING] = 'PENDING';
  */
 /** @enum {number} */
 var SensorStatusMask = {
-    // [ERROR] No Communication [0x0] 
-    STATUS_NO_COMM: 0,
-    // [OK] Active [0x00000001] 
-    STATUS_ACTIVE: 1,
-    // [ERROR] No video [0x00000004] 
-    STATUS_NO_VIDEO: 4,
-    // [ERROR] AS service not available. set from health-service [0x00000008] 
-    STATUS_NO_AS: 8,
-    // [ERROR] Failed to add detector to sensor or feature timeout [0x00000020] 
-    STATUS_DETECTION_MALFUNCTION: 32,
-    // [ERROR] 70% of the image is FG for 4 second. Maximum blocked time is 10 minutes [0x00000040] 
-    STATUS_IMAGE_BLOCKED: 64,
-    // [WARNING] 75% of the ROI (overlapping rules - if no rules whole image) has greyscale levels above 245 for 10 seconds [0x00000080] 
-    STATUS_IMAGE_SATURATED: 128,
-    // [WARNING] 60% of the ROI (overlapping rules - if no rules whole image) has greyscale levels below 16 for 10 seconds [0x00000100] 
-    STATUS_IMAGE_DARK: 256,
-    // [ERROR] No feature some time (5 sec). for active sensor [0x00001000] 
-    STATUS_FEATURE_TIMEOUT: 4096,
-    // [WARNING] Feature processing is low (depends: threshold and duration) [0x00100000] 
-    STATUS_LOW_FRAME_RATE: 1048576,
-    // [ERROR] No Agent [0x00400000] 
-    STATUS_NO_AGENT: 4194304,
-    // [DISABLED] Sensor in disable mode (feature sending disabled) [0x00800000] 
-    STATUS_DISABLED: 8388608,
-    // [ERROR] Sensor first connection [0x01000000] 
-    STATUS_STREAM_NOT_CONFIGURED: 16777216,
-    // [DISABLED] Video source disabled (no streaming video from video source) [0x02000000] 
-    STATUS_STREAM_DISABLED: 33554432,
-    // [WARNING] Network latency [0x04000000] 
-    STATUS_HIGH_LATENCY: 67108864,
-    // [WARNING] Video source low frame rate [0x08000000] 
-    STATUS_LOW_FR: 134217728,
-    // [ERROR] Ping failed or file not exist [0x0000000010000000] 
-    STATUS_STREAM_RESOURCE_NOT_EXIST: 268435456,
-    // [ERROR] RTSP authorization error [0x0000000020000000] 
-    STATUS_STREAM_AUTH_ERROR: 536870912,
-    // [ERROR] ONVIF Error [0x0000000040000000] 
-    STATUS_ONVIF_UNKNOWN_ERROR: 1073741824,
+    // [OK] No error [0x0000000000000000] 
+    SENSOR_OK: 0,
+    // [ERROR] General sensor error [0x0000000000000001] 
+    SENSOR_ERROR: 1,
+    // [ERROR] Sensor can't read video stream or stream is not valid [0x0000000000000010] 
+    SOURCE_ERROR: 16,
+    // [ERROR] Video stream format is not supported [0x0000000000000020] 
+    UNSUPPORTED_FORMAT: 32,
+    // [ERROR] Video stream resolution is not supported [0x0000000000000040] 
+    UNSUPPORTED_RESOLUTION: 64,
+    // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000100] 
+    FRAMERATE_CRITICAL: 256,
+    // [WARNING] Video stream FPS is less than 6 for one minute [0x0000000000000200] 
+    FRAMERATE_LOW: 512,
+    // [WARNING] Video stream FPS is more than 30 for one minute [0x0000000000000400] 
+    FRAMERATE_HIGH: 1024,
+    // [WARNING] Image from video source is blocked [0x0000000000001000] 
+    IMAGE_BLOCKED: 4096,
+    // [WARNING] Image from video source is saturated [0x0000000000002000] 
+    IMAGE_SATURATED: 8192,
+    // [WARNING] Image from video source is dark [0x0000000000004000] 
+    IMAGE_DARK: 16384,
 };
-SensorStatusMask[SensorStatusMask.STATUS_NO_COMM] = 'STATUS_NO_COMM';
-SensorStatusMask[SensorStatusMask.STATUS_ACTIVE] = 'STATUS_ACTIVE';
-SensorStatusMask[SensorStatusMask.STATUS_NO_VIDEO] = 'STATUS_NO_VIDEO';
-SensorStatusMask[SensorStatusMask.STATUS_NO_AS] = 'STATUS_NO_AS';
-SensorStatusMask[SensorStatusMask.STATUS_DETECTION_MALFUNCTION] = 'STATUS_DETECTION_MALFUNCTION';
-SensorStatusMask[SensorStatusMask.STATUS_IMAGE_BLOCKED] = 'STATUS_IMAGE_BLOCKED';
-SensorStatusMask[SensorStatusMask.STATUS_IMAGE_SATURATED] = 'STATUS_IMAGE_SATURATED';
-SensorStatusMask[SensorStatusMask.STATUS_IMAGE_DARK] = 'STATUS_IMAGE_DARK';
-SensorStatusMask[SensorStatusMask.STATUS_FEATURE_TIMEOUT] = 'STATUS_FEATURE_TIMEOUT';
-SensorStatusMask[SensorStatusMask.STATUS_LOW_FRAME_RATE] = 'STATUS_LOW_FRAME_RATE';
-SensorStatusMask[SensorStatusMask.STATUS_NO_AGENT] = 'STATUS_NO_AGENT';
-SensorStatusMask[SensorStatusMask.STATUS_DISABLED] = 'STATUS_DISABLED';
-SensorStatusMask[SensorStatusMask.STATUS_STREAM_NOT_CONFIGURED] = 'STATUS_STREAM_NOT_CONFIGURED';
-SensorStatusMask[SensorStatusMask.STATUS_STREAM_DISABLED] = 'STATUS_STREAM_DISABLED';
-SensorStatusMask[SensorStatusMask.STATUS_HIGH_LATENCY] = 'STATUS_HIGH_LATENCY';
-SensorStatusMask[SensorStatusMask.STATUS_LOW_FR] = 'STATUS_LOW_FR';
-SensorStatusMask[SensorStatusMask.STATUS_STREAM_RESOURCE_NOT_EXIST] = 'STATUS_STREAM_RESOURCE_NOT_EXIST';
-SensorStatusMask[SensorStatusMask.STATUS_STREAM_AUTH_ERROR] = 'STATUS_STREAM_AUTH_ERROR';
-SensorStatusMask[SensorStatusMask.STATUS_ONVIF_UNKNOWN_ERROR] = 'STATUS_ONVIF_UNKNOWN_ERROR';
+SensorStatusMask[SensorStatusMask.SENSOR_OK] = 'SENSOR_OK';
+SensorStatusMask[SensorStatusMask.SENSOR_ERROR] = 'SENSOR_ERROR';
+SensorStatusMask[SensorStatusMask.SOURCE_ERROR] = 'SOURCE_ERROR';
+SensorStatusMask[SensorStatusMask.UNSUPPORTED_FORMAT] = 'UNSUPPORTED_FORMAT';
+SensorStatusMask[SensorStatusMask.UNSUPPORTED_RESOLUTION] = 'UNSUPPORTED_RESOLUTION';
+SensorStatusMask[SensorStatusMask.FRAMERATE_CRITICAL] = 'FRAMERATE_CRITICAL';
+SensorStatusMask[SensorStatusMask.FRAMERATE_LOW] = 'FRAMERATE_LOW';
+SensorStatusMask[SensorStatusMask.FRAMERATE_HIGH] = 'FRAMERATE_HIGH';
+SensorStatusMask[SensorStatusMask.IMAGE_BLOCKED] = 'IMAGE_BLOCKED';
+SensorStatusMask[SensorStatusMask.IMAGE_SATURATED] = 'IMAGE_SATURATED';
+SensorStatusMask[SensorStatusMask.IMAGE_DARK] = 'IMAGE_DARK';
 
 /**
  * @fileoverview added by tsickle
