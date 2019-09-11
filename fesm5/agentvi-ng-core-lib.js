@@ -2130,6 +2130,38 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
+   SW Configuration template type
+*/
+var  /*
+   SW Configuration template type
+*/
+ConfigurationTemplate = /** @class */ (function (_super) {
+    __extends(ConfigurationTemplate, _super);
+    function ConfigurationTemplate() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return ConfigurationTemplate;
+}(BaseEntity));
+if (false) {
+    /** @type {?} */
+    ConfigurationTemplate.prototype.dockerImage;
+    /** @type {?} */
+    ConfigurationTemplate.prototype.variables;
+    /** @type {?} */
+    ConfigurationTemplate.prototype.id;
+    /** @type {?} */
+    ConfigurationTemplate.prototype._type;
+    /** @type {?} */
+    ConfigurationTemplate.prototype.createdOn;
+    /** @type {?} */
+    ConfigurationTemplate.prototype.updatedOn;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
    SW Configuration version type
 */
 var  /*
@@ -5082,6 +5114,25 @@ if (false) {
 */
 var  /*
 */
+ConfigurationTemplateIdRequest = /** @class */ (function () {
+    function ConfigurationTemplateIdRequest(id) {
+        this.id = id;
+    }
+    return ConfigurationTemplateIdRequest;
+}());
+if (false) {
+    /** @type {?} */
+    ConfigurationTemplateIdRequest.prototype.id;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 ConfigurationVersionIdRequest = /** @class */ (function () {
     function ConfigurationVersionIdRequest(id, versionId) {
         this.id = id;
@@ -5900,6 +5951,30 @@ if (false) {
     EntityResponseOfConfiguration.prototype.code;
     /** @type {?} */
     EntityResponseOfConfiguration.prototype.error;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+EntityResponseOfConfigurationTemplate = /** @class */ (function (_super) {
+    __extends(EntityResponseOfConfigurationTemplate, _super);
+    function EntityResponseOfConfigurationTemplate() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityResponseOfConfigurationTemplate;
+}(EntityResponse));
+if (false) {
+    /** @type {?} */
+    EntityResponseOfConfigurationTemplate.prototype.entity;
+    /** @type {?} */
+    EntityResponseOfConfigurationTemplate.prototype.code;
+    /** @type {?} */
+    EntityResponseOfConfigurationTemplate.prototype.error;
 }
 
 /**
@@ -7636,6 +7711,42 @@ if (false) {
 */
 var  /*
 */
+QueryResponseOfConfigurationTemplate = /** @class */ (function (_super) {
+    __extends(QueryResponseOfConfigurationTemplate, _super);
+    function QueryResponseOfConfigurationTemplate() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return QueryResponseOfConfigurationTemplate;
+}(QueryResponse));
+if (false) {
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.list;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.code;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.error;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.page;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.pageSize;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.pages;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.total;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.queryDef;
+    /** @type {?} */
+    QueryResponseOfConfigurationTemplate.prototype.docType;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 QueryResponseOfConfigurationVersion = /** @class */ (function (_super) {
     __extends(QueryResponseOfConfigurationVersion, _super);
     function QueryResponseOfConfigurationVersion() {
@@ -9077,6 +9188,25 @@ if (false) {
 */
 var  /*
 */
+SysConfigurationsServiceCreateTemplateRequest = /** @class */ (function () {
+    function SysConfigurationsServiceCreateTemplateRequest(body) {
+        this.body = body;
+    }
+    return SysConfigurationsServiceCreateTemplateRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SysConfigurationsServiceCreateTemplateRequest.prototype.body;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 SysConfigurationsServiceCreateVersionRequest = /** @class */ (function () {
     function SysConfigurationsServiceCreateVersionRequest(id, body) {
         this.id = id;
@@ -9152,6 +9282,28 @@ if (false) {
 */
 var  /*
 */
+SysConfigurationsServiceFindTemplateRequest = /** @class */ (function () {
+    function SysConfigurationsServiceFindTemplateRequest(page, pageSize) {
+        this.page = page;
+        this.pageSize = pageSize;
+    }
+    return SysConfigurationsServiceFindTemplateRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SysConfigurationsServiceFindTemplateRequest.prototype.page;
+    /** @type {?} */
+    SysConfigurationsServiceFindTemplateRequest.prototype.pageSize;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 SysConfigurationsServiceUpdateRequest = /** @class */ (function () {
     function SysConfigurationsServiceUpdateRequest(id, body) {
         this.id = id;
@@ -9164,6 +9316,28 @@ if (false) {
     SysConfigurationsServiceUpdateRequest.prototype.id;
     /** @type {?} */
     SysConfigurationsServiceUpdateRequest.prototype.body;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+SysConfigurationsServiceUpdateTemplateRequest = /** @class */ (function () {
+    function SysConfigurationsServiceUpdateTemplateRequest(id, body) {
+        this.id = id;
+        this.body = body;
+    }
+    return SysConfigurationsServiceUpdateTemplateRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SysConfigurationsServiceUpdateTemplateRequest.prototype.id;
+    /** @type {?} */
+    SysConfigurationsServiceUpdateTemplateRequest.prototype.body;
 }
 
 /**
@@ -14917,6 +15091,114 @@ var SysConfigurationsService = /** @class */ (function () {
     function (id) {
         return this.rest.get(this.baseUrl + "/" + id + "/versions");
     };
+    /**
+     * Create new configuration template in the system
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    /**
+     * Create new configuration template in the system
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} body
+     * @return {?}
+     */
+    SysConfigurationsService.prototype.createTemplate = /**
+     * Create new configuration template in the system
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/templates", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Update configuration template in the system
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    /**
+     * Update configuration template in the system
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    SysConfigurationsService.prototype.updateTemplate = /**
+     * Update configuration template in the system
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/templates/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Delete configuration template by id
+     * @Return: ActionResponse
+     */
+    /**
+     * Delete configuration template by id
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    SysConfigurationsService.prototype.deleteTemplate = /**
+     * Delete configuration template by id
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.delete(this.baseUrl + "/" + id);
+    };
+    /**
+     * Get configuration template by id
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    /**
+     * Get configuration template by id
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} id
+     * @return {?}
+     */
+    SysConfigurationsService.prototype.getTemplate = /**
+     * Get configuration template by id
+     * \@Return: EntityResponse<ConfigurationTemplate>
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.get(this.baseUrl + "/templates/" + id);
+    };
+    /**
+     * Get list of configuration templates
+     * @Return: QueryResponse<ConfigurationTemplate>
+     */
+    /**
+     * Get list of configuration templates
+     * \@Return: QueryResponse<ConfigurationTemplate>
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    SysConfigurationsService.prototype.findTemplates = /**
+     * Get list of configuration templates
+     * \@Return: QueryResponse<ConfigurationTemplate>
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    function (page, pageSize) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (page != null) {
+            params.push("page=" + page);
+        }
+        if (pageSize != null) {
+            params.push("pageSize=" + pageSize);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/templates"], params));
+    };
     SysConfigurationsService.decorators = [
         { type: Injectable }
     ];
@@ -17014,5 +17296,5 @@ var CoreLibModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventObjectInfo, EventObjectInstance, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoService, GeoServicesReferenceRequest, HealthCheckService, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map

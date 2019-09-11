@@ -2327,6 +2327,38 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       SW Configuration template type
+    */
+    var   /*
+       SW Configuration template type
+    */
+    ConfigurationTemplate = /** @class */ (function (_super) {
+        __extends(ConfigurationTemplate, _super);
+        function ConfigurationTemplate() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return ConfigurationTemplate;
+    }(BaseEntity));
+    if (false) {
+        /** @type {?} */
+        ConfigurationTemplate.prototype.dockerImage;
+        /** @type {?} */
+        ConfigurationTemplate.prototype.variables;
+        /** @type {?} */
+        ConfigurationTemplate.prototype.id;
+        /** @type {?} */
+        ConfigurationTemplate.prototype._type;
+        /** @type {?} */
+        ConfigurationTemplate.prototype.createdOn;
+        /** @type {?} */
+        ConfigurationTemplate.prototype.updatedOn;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        SW Configuration version type
     */
     var   /*
@@ -5279,6 +5311,25 @@
     */
     var   /*
     */
+    ConfigurationTemplateIdRequest = /** @class */ (function () {
+        function ConfigurationTemplateIdRequest(id) {
+            this.id = id;
+        }
+        return ConfigurationTemplateIdRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        ConfigurationTemplateIdRequest.prototype.id;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     ConfigurationVersionIdRequest = /** @class */ (function () {
         function ConfigurationVersionIdRequest(id, versionId) {
             this.id = id;
@@ -6097,6 +6148,30 @@
         EntityResponseOfConfiguration.prototype.code;
         /** @type {?} */
         EntityResponseOfConfiguration.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfConfigurationTemplate = /** @class */ (function (_super) {
+        __extends(EntityResponseOfConfigurationTemplate, _super);
+        function EntityResponseOfConfigurationTemplate() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfConfigurationTemplate;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfConfigurationTemplate.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfConfigurationTemplate.prototype.code;
+        /** @type {?} */
+        EntityResponseOfConfigurationTemplate.prototype.error;
     }
 
     /**
@@ -7833,6 +7908,42 @@
     */
     var   /*
     */
+    QueryResponseOfConfigurationTemplate = /** @class */ (function (_super) {
+        __extends(QueryResponseOfConfigurationTemplate, _super);
+        function QueryResponseOfConfigurationTemplate() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfConfigurationTemplate;
+    }(QueryResponse));
+    if (false) {
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.list;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.code;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.error;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.page;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.pageSize;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.pages;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.total;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.queryDef;
+        /** @type {?} */
+        QueryResponseOfConfigurationTemplate.prototype.docType;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     QueryResponseOfConfigurationVersion = /** @class */ (function (_super) {
         __extends(QueryResponseOfConfigurationVersion, _super);
         function QueryResponseOfConfigurationVersion() {
@@ -9274,6 +9385,25 @@
     */
     var   /*
     */
+    SysConfigurationsServiceCreateTemplateRequest = /** @class */ (function () {
+        function SysConfigurationsServiceCreateTemplateRequest(body) {
+            this.body = body;
+        }
+        return SysConfigurationsServiceCreateTemplateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SysConfigurationsServiceCreateTemplateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     SysConfigurationsServiceCreateVersionRequest = /** @class */ (function () {
         function SysConfigurationsServiceCreateVersionRequest(id, body) {
             this.id = id;
@@ -9349,6 +9479,28 @@
     */
     var   /*
     */
+    SysConfigurationsServiceFindTemplateRequest = /** @class */ (function () {
+        function SysConfigurationsServiceFindTemplateRequest(page, pageSize) {
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return SysConfigurationsServiceFindTemplateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SysConfigurationsServiceFindTemplateRequest.prototype.page;
+        /** @type {?} */
+        SysConfigurationsServiceFindTemplateRequest.prototype.pageSize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     SysConfigurationsServiceUpdateRequest = /** @class */ (function () {
         function SysConfigurationsServiceUpdateRequest(id, body) {
             this.id = id;
@@ -9361,6 +9513,28 @@
         SysConfigurationsServiceUpdateRequest.prototype.id;
         /** @type {?} */
         SysConfigurationsServiceUpdateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    SysConfigurationsServiceUpdateTemplateRequest = /** @class */ (function () {
+        function SysConfigurationsServiceUpdateTemplateRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return SysConfigurationsServiceUpdateTemplateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SysConfigurationsServiceUpdateTemplateRequest.prototype.id;
+        /** @type {?} */
+        SysConfigurationsServiceUpdateTemplateRequest.prototype.body;
     }
 
     /**
@@ -15114,6 +15288,114 @@
         function (id) {
             return this.rest.get(this.baseUrl + "/" + id + "/versions");
         };
+        /**
+         * Create new configuration template in the system
+         * @Return: EntityResponse<ConfigurationTemplate>
+         */
+        /**
+         * Create new configuration template in the system
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} body
+         * @return {?}
+         */
+        SysConfigurationsService.prototype.createTemplate = /**
+         * Create new configuration template in the system
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/templates", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Update configuration template in the system
+         * @Return: EntityResponse<ConfigurationTemplate>
+         */
+        /**
+         * Update configuration template in the system
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        SysConfigurationsService.prototype.updateTemplate = /**
+         * Update configuration template in the system
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/templates/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Delete configuration template by id
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete configuration template by id
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        SysConfigurationsService.prototype.deleteTemplate = /**
+         * Delete configuration template by id
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get configuration template by id
+         * @Return: EntityResponse<ConfigurationTemplate>
+         */
+        /**
+         * Get configuration template by id
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} id
+         * @return {?}
+         */
+        SysConfigurationsService.prototype.getTemplate = /**
+         * Get configuration template by id
+         * \@Return: EntityResponse<ConfigurationTemplate>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/templates/" + id);
+        };
+        /**
+         * Get list of configuration templates
+         * @Return: QueryResponse<ConfigurationTemplate>
+         */
+        /**
+         * Get list of configuration templates
+         * \@Return: QueryResponse<ConfigurationTemplate>
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        SysConfigurationsService.prototype.findTemplates = /**
+         * Get list of configuration templates
+         * \@Return: QueryResponse<ConfigurationTemplate>
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        function (page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/templates"], params));
+        };
         SysConfigurationsService.decorators = [
             { type: core.Injectable }
         ];
@@ -17276,6 +17558,8 @@
     exports.Configuration = Configuration;
     exports.ConfigurationIdRequest = ConfigurationIdRequest;
     exports.ConfigurationTargetRequest = ConfigurationTargetRequest;
+    exports.ConfigurationTemplate = ConfigurationTemplate;
+    exports.ConfigurationTemplateIdRequest = ConfigurationTemplateIdRequest;
     exports.ConfigurationVersion = ConfigurationVersion;
     exports.ConfigurationVersionIdRequest = ConfigurationVersionIdRequest;
     exports.Coordinate = Coordinate;
@@ -17319,6 +17603,7 @@
     exports.EntityResponseOfCalendar = EntityResponseOfCalendar;
     exports.EntityResponseOfComponentConfiguration = EntityResponseOfComponentConfiguration;
     exports.EntityResponseOfConfiguration = EntityResponseOfConfiguration;
+    exports.EntityResponseOfConfigurationTemplate = EntityResponseOfConfigurationTemplate;
     exports.EntityResponseOfConfigurationVersion = EntityResponseOfConfigurationVersion;
     exports.EntityResponseOfCoordinate = EntityResponseOfCoordinate;
     exports.EntityResponseOfEvent = EntityResponseOfEvent;
@@ -17425,6 +17710,7 @@
     exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
     exports.QueryResponseOfComponentConfiguration = QueryResponseOfComponentConfiguration;
     exports.QueryResponseOfConfiguration = QueryResponseOfConfiguration;
+    exports.QueryResponseOfConfigurationTemplate = QueryResponseOfConfigurationTemplate;
     exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
     exports.QueryResponseOfEvent = QueryResponseOfEvent;
     exports.QueryResponseOfFolder = QueryResponseOfFolder;
@@ -17526,10 +17812,13 @@
     exports.SysAppliancesServiceGetCommandsRequest = SysAppliancesServiceGetCommandsRequest;
     exports.SysConfigurationsService = SysConfigurationsService;
     exports.SysConfigurationsServiceCreateRequest = SysConfigurationsServiceCreateRequest;
+    exports.SysConfigurationsServiceCreateTemplateRequest = SysConfigurationsServiceCreateTemplateRequest;
     exports.SysConfigurationsServiceCreateVersionRequest = SysConfigurationsServiceCreateVersionRequest;
     exports.SysConfigurationsServiceDeleteVersionRequest = SysConfigurationsServiceDeleteVersionRequest;
     exports.SysConfigurationsServiceFindRequest = SysConfigurationsServiceFindRequest;
+    exports.SysConfigurationsServiceFindTemplateRequest = SysConfigurationsServiceFindTemplateRequest;
     exports.SysConfigurationsServiceUpdateRequest = SysConfigurationsServiceUpdateRequest;
+    exports.SysConfigurationsServiceUpdateTemplateRequest = SysConfigurationsServiceUpdateTemplateRequest;
     exports.SysConfigurationsServiceUpdateVersionRequest = SysConfigurationsServiceUpdateVersionRequest;
     exports.SysEventIdRequest = SysEventIdRequest;
     exports.SysEventsService = SysEventsService;

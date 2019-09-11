@@ -3,6 +3,7 @@ import { CoreConfig } from '../../config';
 import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
+import { ConfigurationTemplate } from '../entities/ConfigurationTemplate';
 /**
  * List of configurations related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -74,4 +75,29 @@ export declare class SysConfigurationsService {
      * @Return: EntitiesResponse<ConfigurationVersion>
      */
     getVersions(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Create new configuration template in the system
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    createTemplate(body?: ConfigurationTemplate): import("rxjs").Observable<any>;
+    /**
+     * Update configuration template in the system
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    updateTemplate(id?: string, body?: ConfigurationTemplate): import("rxjs").Observable<any>;
+    /**
+     * Delete configuration template by id
+     * @Return: ActionResponse
+     */
+    deleteTemplate(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get configuration template by id
+     * @Return: EntityResponse<ConfigurationTemplate>
+     */
+    getTemplate(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get list of configuration templates
+     * @Return: QueryResponse<ConfigurationTemplate>
+     */
+    findTemplates(page?: number, pageSize?: number): import("rxjs").Observable<any>;
 }

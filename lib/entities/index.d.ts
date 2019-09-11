@@ -10,6 +10,7 @@ export * from './BaseEntity';
 export * from './Calendar';
 export * from './ComponentConfiguration';
 export * from './Configuration';
+export * from './ConfigurationTemplate';
 export * from './ConfigurationVersion';
 export * from './Event';
 export * from './EventStatistics';
