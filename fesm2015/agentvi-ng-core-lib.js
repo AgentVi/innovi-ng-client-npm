@@ -1330,34 +1330,20 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Sensor anomaly rule information
-*/
-class SensorAnomalyRuleInfo {
-    /**
-     * @param {?=} sensitivity
-     * @param {?=} objectTypes
-     */
-    constructor(sensitivity, objectTypes) {
-        this.sensitivity = sensitivity;
-        this.objectTypes = objectTypes;
-    }
-}
-if (false) {
-    /** @type {?} */
-    SensorAnomalyRuleInfo.prototype.sensitivity;
-    /** @type {?} */
-    SensorAnomalyRuleInfo.prototype.objectTypes;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
    Sensor anomaly information
    This data model is used by the inference process of Anomaly Detection
 */
-class SensorAnomalyInfo extends SensorAnomalyRuleInfo {
+class SensorAnomalyInfo {
+    /**
+     * @param {?=} sensorId
+     * @param {?=} results
+     * @param {?=} ruleInfo
+     */
+    constructor(sensorId, results, ruleInfo) {
+        this.sensorId = sensorId;
+        this.results = results;
+        this.ruleInfo = ruleInfo;
+    }
 }
 if (false) {
     /** @type {?} */
@@ -1365,9 +1351,35 @@ if (false) {
     /** @type {?} */
     SensorAnomalyInfo.prototype.results;
     /** @type {?} */
-    SensorAnomalyInfo.prototype.sensitivity;
+    SensorAnomalyInfo.prototype.ruleInfo;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Sensor anomaly rule information
+*/
+class SensorAnomalyRuleInfo {
+    /**
+     * @param {?=} active
+     * @param {?=} sensitivity
+     * @param {?=} objectTypes
+     */
+    constructor(active, sensitivity, objectTypes) {
+        this.active = active;
+        this.sensitivity = sensitivity;
+        this.objectTypes = objectTypes;
+    }
+}
+if (false) {
     /** @type {?} */
-    SensorAnomalyInfo.prototype.objectTypes;
+    SensorAnomalyRuleInfo.prototype.active;
+    /** @type {?} */
+    SensorAnomalyRuleInfo.prototype.sensitivity;
+    /** @type {?} */
+    SensorAnomalyRuleInfo.prototype.objectTypes;
 }
 
 /**

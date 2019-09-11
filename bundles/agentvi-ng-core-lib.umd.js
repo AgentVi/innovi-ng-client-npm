@@ -1476,23 +1476,28 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Sensor anomaly rule information
+       Sensor anomaly information
+       This data model is used by the inference process of Anomaly Detection
     */
     var   /*
-       Sensor anomaly rule information
+       Sensor anomaly information
+       This data model is used by the inference process of Anomaly Detection
     */
-    SensorAnomalyRuleInfo = /** @class */ (function () {
-        function SensorAnomalyRuleInfo(sensitivity, objectTypes) {
-            this.sensitivity = sensitivity;
-            this.objectTypes = objectTypes;
+    SensorAnomalyInfo = /** @class */ (function () {
+        function SensorAnomalyInfo(sensorId, results, ruleInfo) {
+            this.sensorId = sensorId;
+            this.results = results;
+            this.ruleInfo = ruleInfo;
         }
-        return SensorAnomalyRuleInfo;
+        return SensorAnomalyInfo;
     }());
     if (false) {
         /** @type {?} */
-        SensorAnomalyRuleInfo.prototype.sensitivity;
+        SensorAnomalyInfo.prototype.sensorId;
         /** @type {?} */
-        SensorAnomalyRuleInfo.prototype.objectTypes;
+        SensorAnomalyInfo.prototype.results;
+        /** @type {?} */
+        SensorAnomalyInfo.prototype.ruleInfo;
     }
 
     /**
@@ -1500,29 +1505,26 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Sensor anomaly information
-       This data model is used by the inference process of Anomaly Detection
+       Sensor anomaly rule information
     */
     var   /*
-       Sensor anomaly information
-       This data model is used by the inference process of Anomaly Detection
+       Sensor anomaly rule information
     */
-    SensorAnomalyInfo = /** @class */ (function (_super) {
-        __extends(SensorAnomalyInfo, _super);
-        function SensorAnomalyInfo() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    SensorAnomalyRuleInfo = /** @class */ (function () {
+        function SensorAnomalyRuleInfo(active, sensitivity, objectTypes) {
+            this.active = active;
+            this.sensitivity = sensitivity;
+            this.objectTypes = objectTypes;
         }
-        return SensorAnomalyInfo;
-    }(SensorAnomalyRuleInfo));
+        return SensorAnomalyRuleInfo;
+    }());
     if (false) {
         /** @type {?} */
-        SensorAnomalyInfo.prototype.sensorId;
+        SensorAnomalyRuleInfo.prototype.active;
         /** @type {?} */
-        SensorAnomalyInfo.prototype.results;
+        SensorAnomalyRuleInfo.prototype.sensitivity;
         /** @type {?} */
-        SensorAnomalyInfo.prototype.sensitivity;
-        /** @type {?} */
-        SensorAnomalyInfo.prototype.objectTypes;
+        SensorAnomalyRuleInfo.prototype.objectTypes;
     }
 
     /**

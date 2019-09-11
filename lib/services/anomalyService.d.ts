@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
-import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
+import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
+import { EventStatusCode } from '../enums/EventStatusCode';
 /**
  * List of anomaly related actions for the anomaly detection service
  * @RequestHeader X-API-KEY The key to identify the application (console)

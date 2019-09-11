@@ -1,10 +1,10 @@
-import { SearchObject } from '../common/SearchObject';
-import { SearchTimeCode } from '../enums/SearchTimeCode';
-import { TimeFrame } from '../common/TimeFrame';
 import { SearchScopeCode } from '../enums/SearchScopeCode';
 import { GeoCircle } from '../common/GeoCircle';
 import { GeoPolygon } from '../common/GeoPolygon';
 import { BaseEntity } from '../entities/BaseEntity';
+import { SearchObject } from '../common/SearchObject';
+import { SearchTimeCode } from '../enums/SearchTimeCode';
+import { TimeFrame } from '../common/TimeFrame';
 export declare class SearchDefinition extends BaseEntity {
     accountId: string;
     userId: string;
