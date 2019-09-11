@@ -17,8 +17,6 @@ export * from './DockerCredentials';
 export * from './EventAction';
 export * from './EventCountDataPoint';
 export * from './EventCountTimeSeries';
-export * from './EventObjectInfo';
-export * from './EventObjectInstance';
 export * from './FovGeoAttributes';
 export * from './GeoCircle';
 export * from './GeoControlPoint';
