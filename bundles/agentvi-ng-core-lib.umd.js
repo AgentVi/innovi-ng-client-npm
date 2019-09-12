@@ -15279,7 +15279,7 @@
          * @return {?}
          */
         function (id) {
-            return this.rest.delete(this.baseUrl + "/" + id);
+            return this.rest.delete(this.baseUrl + "/templates/" + id);
         };
         /**
          * Get configuration template by id
