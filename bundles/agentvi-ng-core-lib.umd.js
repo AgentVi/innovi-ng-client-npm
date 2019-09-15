@@ -3662,19 +3662,19 @@
         NEW: 1,
         // Open (in-progress) event [2] 
         OPEN: 2,
-        // Closed event [3] 
-        CLOSE: 3,
-        // Irrelevant event [8] 
-        IRRELEVANT: 8,
-        // False event [9] 
-        FALSE: 9,
+        // Closed event (tagged as True event) [7] 
+        CLOSED_TRUE: 7,
+        // Closed event (tagged as False event) [8] 
+        CLOSED_FALSE: 8,
+        // Closed event (tagged as irrelevant anomaly event) [9] 
+        CLOSED_IRRELEVANT: 9,
     };
     EventStatusCode[EventStatusCode.UNDEFINED] = 'UNDEFINED';
     EventStatusCode[EventStatusCode.NEW] = 'NEW';
     EventStatusCode[EventStatusCode.OPEN] = 'OPEN';
-    EventStatusCode[EventStatusCode.CLOSE] = 'CLOSE';
-    EventStatusCode[EventStatusCode.IRRELEVANT] = 'IRRELEVANT';
-    EventStatusCode[EventStatusCode.FALSE] = 'FALSE';
+    EventStatusCode[EventStatusCode.CLOSED_TRUE] = 'CLOSED_TRUE';
+    EventStatusCode[EventStatusCode.CLOSED_FALSE] = 'CLOSED_FALSE';
+    EventStatusCode[EventStatusCode.CLOSED_IRRELEVANT] = 'CLOSED_IRRELEVANT';
 
     /**
      * @fileoverview added by tsickle
