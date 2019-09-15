@@ -1,5 +1,5 @@
-import { ObjectInfo } from '../common/ObjectInfo';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ObjectInfo } from '../common/ObjectInfo';
 export declare class QueryResponseOfObjectInfo extends QueryResponse {
     list: ObjectInfo[];
     code: number;

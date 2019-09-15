@@ -12,6 +12,7 @@ export * from './DayOfWeekCode';
 export * from './EventStatusCode';
 export * from './IntegrationTypeCode';
 export * from './LineCrossDirectionCode';
+export * from './MapClientCode';
 export * from './ObjectTypeCode';
 export * from './ProductTypeCode';
 export * from './RuleTypeCode';

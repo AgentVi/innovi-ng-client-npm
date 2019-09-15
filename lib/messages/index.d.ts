@@ -84,6 +84,7 @@ export * from './EntityResponseOfFeature';
 export * from './EntityResponseOfFeaturesGroup';
 export * from './EntityResponseOfFolder';
 export * from './EntityResponseOfGeoReferenceData';
+export * from './EntityResponseOfInnoviClientConfig';
 export * from './EntityResponseOfIntegration';
 export * from './EntityResponseOfLicense';
 export * from './EntityResponseOfLoginData';

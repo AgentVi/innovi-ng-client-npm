@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { TokenRequest } from '../messages/TokenRequest';
 import { LoginParams } from '../common/LoginParams';
 import { ChangePasswordRequest } from '../messages/ChangePasswordRequest';
+import { TokenRequest } from '../messages/TokenRequest';
 /**
  * Services for user registration and login
  */
@@ -65,4 +65,9 @@ export declare class UserService {
      * @Return: EntityResponse<UserAccountInfo>
      */
     switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
+    /**
+     * Get innoVi client configuration (map clients and other configurations)
+     * @Return: EntityResponse<InnoviClientConfig>
+     */
+    getConfig(): import("rxjs").Observable<any>;
 }
