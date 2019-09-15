@@ -1,6 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
+import { AnalysisResult } from '../common/AnalysisResult';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
@@ -25,14 +25,14 @@ export declare class AnomalyService {
      * Update sensor analysis results bach for a specific sensors
      * @Return: EntityResponse<SensorAnalysisResults>
      */
-    update(sensorId?: string, body?: SensorAnalysisResults): import("rxjs").Observable<any>;
+    update(sensorId?: string, body?: AnalysisResult): import("rxjs").Observable<any>;
     /**
      * Delete all analysis results for a specific sensors
      * @Return: ActionResponse
      */
     delete(sensorId?: string): import("rxjs").Observable<any>;
     /**
-     * Get sensor inference info for anomaly
+     * Get sensor info for anomaly
      * @Return: EntityResponse<SensorAnomalyInfo>
      */
     getSensorAnomalyInfo(sensorId?: string): import("rxjs").Observable<any>;

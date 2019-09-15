@@ -1,6 +1,6 @@
-import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
+import { AnalysisResult } from '../common/AnalysisResult';
 export declare class AnomalyServiceUpdateRequest {
     sensorId: string;
-    body: SensorAnalysisResults;
-    constructor(sensorId?: string, body?: SensorAnalysisResults);
+    body: AnalysisResult;
+    constructor(sensorId?: string, body?: AnalysisResult);
 }
