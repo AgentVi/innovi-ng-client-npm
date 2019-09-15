@@ -4,6 +4,6 @@ export declare class TreeNode {
     parentId: string;
     name: string;
     item: TreeItem;
-    children: TreeItem[];
-    constructor(id?: string, parentId?: string, name?: string, item?: TreeItem, children?: TreeItem[]);
+    children: TreeNode[];
+    constructor(id?: string, parentId?: string, name?: string, item?: TreeItem, children?: TreeNode[]);
 }
