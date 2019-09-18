@@ -11100,7 +11100,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors", null], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
         };
         /**
          * Add new sensor and assigned it to a specific appliance

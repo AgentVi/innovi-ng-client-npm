@@ -10100,7 +10100,7 @@ class AppliancesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.put(`${this.baseUrl}/${id}/sensors`, null, ...params);
+        return this.rest.get(`${this.baseUrl}/${id}/sensors`, ...params);
     }
     /**
      * Add new sensor and assigned it to a specific appliance
