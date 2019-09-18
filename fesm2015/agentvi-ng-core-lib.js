@@ -313,7 +313,7 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Data point in a series representing a sensor status value in a specific timestamp
+   Data point in a series representing appliance status values in a specific timestamp
 */
 class ApplianceStatusTimestamped {
     /**
