@@ -962,6 +962,7 @@ class ObjectInstance {
      * @param {?=} timestamp
      * @param {?=} objectType
      * @param {?=} confidence
+     * @param {?=} isStopped
      * @param {?=} colors
      * @param {?=} direction
      * @param {?=} dimension
@@ -971,10 +972,11 @@ class ObjectInstance {
      * @param {?=} position
      * @param {?=} location
      */
-    constructor(timestamp, objectType, confidence, colors, direction, dimension, boundingBox, speed, size, position, location) {
+    constructor(timestamp, objectType, confidence, isStopped, colors, direction, dimension, boundingBox, speed, size, position, location) {
         this.timestamp = timestamp;
         this.objectType = objectType;
         this.confidence = confidence;
+        this.isStopped = isStopped;
         this.colors = colors;
         this.direction = direction;
         this.dimension = dimension;
@@ -992,6 +994,8 @@ if (false) {
     ObjectInstance.prototype.objectType;
     /** @type {?} */
     ObjectInstance.prototype.confidence;
+    /** @type {?} */
+    ObjectInstance.prototype.isStopped;
     /** @type {?} */
     ObjectInstance.prototype.colors;
     /** @type {?} */
@@ -2177,9 +2181,11 @@ if (false) {
     /** @type {?} */
     Event.prototype.severity;
     /** @type {?} */
-    Event.prototype.imageTime;
+    Event.prototype.eventImageTime;
     /** @type {?} */
     Event.prototype.eventObjects;
+    /** @type {?} */
+    Event.prototype.boundingBoxes;
     /** @type {?} */
     Event.prototype.id;
     /** @type {?} */
@@ -3103,36 +3109,24 @@ ApplianceStatusCode[ApplianceStatusCode.DELETED] = 'DELETED';
  */
 /** @enum {number} */
 const BehaviorTypeCode = {
-    // Undefined [0] 
+    // Undefined 0 
     UNDEFINED: 0,
-    // Crossing a Line (innoVi) [1] 
-    INNOVI_CROSSING: 1,
-    // Moving in an area (innoVi) [2] 
-    INNOVI_MOVING: 2,
-    // Stopped vehicle (innoVi) [3] 
-    INNOVI_STOPPED: 3,
-    // Occupancy (innoVi) [4] 
-    INNOVI_OCCUPANCY: 4,
-    // Grouping (innoVi) [5] 
-    INNOVI_GROUPING: 5,
-    // Ignore mask (innovi 1) [100] 
-    INNOVI_MASK_IGNORE: 100,
-    // Shutdown mask (Currently unused) [101] 
-    INNOVI_MASK_SHUTDOWN: 101,
-    // General Anomaly (innoVi) [200] 
-    INNOVI_ANOMALY: 200,
-    // Hard hat object exists (custom: Hard Hat) [1001] 
-    HARD_HAT_EXISTS: 1001,
-    // Hard hat object not exists (custom: Hard Hat) [1002] 
-    HARD_HAT_NOT_EXISTS: 1002,
-    // Trash object exists (custom: Trash Dumping) [1101] 
-    TRASH_EXISTS: 1101,
-    // Trash object not exists (custom: Trash Dumping) [1102] 
-    TRASH_NOT_EXISTS: 1102,
-    // MCC object exists (custom: MCC) [1201] 
-    MCC_EXISTS: 1201,
-    // MCC object not exists (custom: MCC) [1202] 
-    MCC_NOT_EXISTS: 1202,
+    // Crossing a Line 65793 
+    INNOVI_CROSSING: 65793,
+    // Moving in an area 65794 
+    INNOVI_MOVING: 65794,
+    // Stopped vehicle 65795 
+    INNOVI_STOPPED: 65795,
+    // Occupancy 65796 
+    INNOVI_OCCUPANCY: 65796,
+    // Grouping 65797 
+    INNOVI_GROUPING: 65797,
+    // Ignore mask 66049 
+    INNOVI_MASK_IGNORE: 66049,
+    // Shutdown mask 66050 
+    INNOVI_MASK_SHUTDOWN: 66050,
+    // General Anomaly 66304 
+    INNOVI_ANOMALY: 66304,
 };
 BehaviorTypeCode[BehaviorTypeCode.UNDEFINED] = 'UNDEFINED';
 BehaviorTypeCode[BehaviorTypeCode.INNOVI_CROSSING] = 'INNOVI_CROSSING';
@@ -3143,12 +3137,6 @@ BehaviorTypeCode[BehaviorTypeCode.INNOVI_GROUPING] = 'INNOVI_GROUPING';
 BehaviorTypeCode[BehaviorTypeCode.INNOVI_MASK_IGNORE] = 'INNOVI_MASK_IGNORE';
 BehaviorTypeCode[BehaviorTypeCode.INNOVI_MASK_SHUTDOWN] = 'INNOVI_MASK_SHUTDOWN';
 BehaviorTypeCode[BehaviorTypeCode.INNOVI_ANOMALY] = 'INNOVI_ANOMALY';
-BehaviorTypeCode[BehaviorTypeCode.HARD_HAT_EXISTS] = 'HARD_HAT_EXISTS';
-BehaviorTypeCode[BehaviorTypeCode.HARD_HAT_NOT_EXISTS] = 'HARD_HAT_NOT_EXISTS';
-BehaviorTypeCode[BehaviorTypeCode.TRASH_EXISTS] = 'TRASH_EXISTS';
-BehaviorTypeCode[BehaviorTypeCode.TRASH_NOT_EXISTS] = 'TRASH_NOT_EXISTS';
-BehaviorTypeCode[BehaviorTypeCode.MCC_EXISTS] = 'MCC_EXISTS';
-BehaviorTypeCode[BehaviorTypeCode.MCC_NOT_EXISTS] = 'MCC_NOT_EXISTS';
 
 /**
  * @fileoverview added by tsickle
@@ -3458,22 +3446,6 @@ const ObjectTypeCode = {
     INNOVI_ANIMAL_SMALL: 17105408,
     // Large animal (ie. Horses/Cows) 17105664 
     INNOVI_ANIMAL_LARGE: 17105664,
-    // Abstract group of Hard Hat 33619968 
-    HARD_HAT_PERSON: 33619968,
-    // Person with hard hat 33620224 
-    HARD_HAT_PERSON_WITH_HARDHAT: 33620224,
-    // Person without hard hat 33620480 
-    HARD_HAT_PERSON_WITHOUT_HARDHAT: 33620480,
-    // Abstract group of trash bin 50397184 
-    TRASH_BIN: 50397184,
-    // Trash bin 50397440 
-    TRASH_BIN_TRASH: 50397440,
-    // Abstract group of MCC vehicle 67174400 
-    MCC_VEHICLE: 67174400,
-    // MCC Taxi 67174656 
-    MCC_VEHICLE_TAXI: 67174656,
-    // MCC School Bus 67174912 
-    MCC_VEHICLE_SCHOOL_BUS: 67174912,
 };
 ObjectTypeCode[ObjectTypeCode.UNDEFINED] = 'UNDEFINED';
 ObjectTypeCode[ObjectTypeCode.INNOVI_UNKNOWNS] = 'INNOVI_UNKNOWNS';
@@ -3504,14 +3476,6 @@ ObjectTypeCode[ObjectTypeCode.INNOVI_ANIMAL] = 'INNOVI_ANIMAL';
 ObjectTypeCode[ObjectTypeCode.INNOVI_ANIMAL_BIRD] = 'INNOVI_ANIMAL_BIRD';
 ObjectTypeCode[ObjectTypeCode.INNOVI_ANIMAL_SMALL] = 'INNOVI_ANIMAL_SMALL';
 ObjectTypeCode[ObjectTypeCode.INNOVI_ANIMAL_LARGE] = 'INNOVI_ANIMAL_LARGE';
-ObjectTypeCode[ObjectTypeCode.HARD_HAT_PERSON] = 'HARD_HAT_PERSON';
-ObjectTypeCode[ObjectTypeCode.HARD_HAT_PERSON_WITH_HARDHAT] = 'HARD_HAT_PERSON_WITH_HARDHAT';
-ObjectTypeCode[ObjectTypeCode.HARD_HAT_PERSON_WITHOUT_HARDHAT] = 'HARD_HAT_PERSON_WITHOUT_HARDHAT';
-ObjectTypeCode[ObjectTypeCode.TRASH_BIN] = 'TRASH_BIN';
-ObjectTypeCode[ObjectTypeCode.TRASH_BIN_TRASH] = 'TRASH_BIN_TRASH';
-ObjectTypeCode[ObjectTypeCode.MCC_VEHICLE] = 'MCC_VEHICLE';
-ObjectTypeCode[ObjectTypeCode.MCC_VEHICLE_TAXI] = 'MCC_VEHICLE_TAXI';
-ObjectTypeCode[ObjectTypeCode.MCC_VEHICLE_SCHOOL_BUS] = 'MCC_VEHICLE_SCHOOL_BUS';
 
 /**
  * @fileoverview added by tsickle
@@ -3551,20 +3515,14 @@ const RuleTypeCode = {
     INNOVI_RULE_CROSSING: 1,
     // Moving in an area (innoVi) [2] 
     INNOVI_RULE_MOVING: 2,
-    // Stopped vehicle (innoVi) [4] 
-    INNOVI_RULE_STOPPED: 4,
-    // Occupancy (innoVi) [8] 
-    INNOVI_RULE_OCCUPANCY: 8,
-    // Grouping (innoVi) [16] 
-    INNOVI_RULE_GROPPING: 16,
-    // Anomaly (innoVi) [2048] 
-    INNOVI_ANOMALY: 2048,
-    // Hard hat custom rule (custom: Hard Hat) [4096] 
-    CUSTOM_HARD_HAT: 4096,
-    // Trash dumping custom rule (custom: Trash Dumping) [8192] 
-    CUSTOM_TRASH: 8192,
-    // MCC custom rules (custom: MCC) [16384] 
-    CUSTOM_MCC: 16384,
+    // Stopped vehicle (innoVi) [3] 
+    INNOVI_RULE_STOPPED: 3,
+    // Occupancy (innoVi) [4] 
+    INNOVI_RULE_OCCUPANCY: 4,
+    // Grouping (innoVi) [5] 
+    INNOVI_RULE_GROPPING: 5,
+    // Anomaly (innoVi) [100] 
+    INNOVI_ANOMALY: 100,
 };
 RuleTypeCode[RuleTypeCode.UNDEFINED] = 'UNDEFINED';
 RuleTypeCode[RuleTypeCode.INNOVI_RULE_CROSSING] = 'INNOVI_RULE_CROSSING';
@@ -3573,9 +3531,6 @@ RuleTypeCode[RuleTypeCode.INNOVI_RULE_STOPPED] = 'INNOVI_RULE_STOPPED';
 RuleTypeCode[RuleTypeCode.INNOVI_RULE_OCCUPANCY] = 'INNOVI_RULE_OCCUPANCY';
 RuleTypeCode[RuleTypeCode.INNOVI_RULE_GROPPING] = 'INNOVI_RULE_GROPPING';
 RuleTypeCode[RuleTypeCode.INNOVI_ANOMALY] = 'INNOVI_ANOMALY';
-RuleTypeCode[RuleTypeCode.CUSTOM_HARD_HAT] = 'CUSTOM_HARD_HAT';
-RuleTypeCode[RuleTypeCode.CUSTOM_TRASH] = 'CUSTOM_TRASH';
-RuleTypeCode[RuleTypeCode.CUSTOM_MCC] = 'CUSTOM_MCC';
 
 /**
  * @fileoverview added by tsickle
