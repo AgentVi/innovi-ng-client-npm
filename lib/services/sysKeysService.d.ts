@@ -49,4 +49,14 @@ export declare class SysKeysService {
      * @Return: EntityResponse<ApiKey>
      */
     disable(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Create access token for the user in the specified account
+     * @Return: ActionResponse
+     */
+    createAccessToken(accountId?: string, userId?: string, ttl?: number): import("rxjs").Observable<any>;
+    /**
+     * Create time limited password for user to access the API documentation
+     * @Return: ActionResponse
+     */
+    createTimedPassword(days?: number, user?: string): import("rxjs").Observable<any>;
 }

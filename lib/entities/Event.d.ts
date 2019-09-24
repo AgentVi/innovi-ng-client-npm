@@ -1,12 +1,12 @@
-import { RuleTypeCode } from '../enums/RuleTypeCode';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { ObjectInfo } from '../common/ObjectInfo';
-import { BaseEntity } from '../entities/BaseEntity';
+import { BoundingBox } from '../common/BoundingBox';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { Coordinate } from '../common/Coordinate';
-import { BoundingBox } from '../common/BoundingBox';
+import { BaseEntity } from '../entities/BaseEntity';
+import { RuleTypeCode } from '../enums/RuleTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 export declare class Event extends BaseEntity {
     sensorId: string;
     accountId: string;

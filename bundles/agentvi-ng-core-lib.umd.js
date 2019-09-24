@@ -9668,6 +9668,53 @@
     */
     var   /*
     */
+    SysKeysServiceCreatePasswordRequest = /** @class */ (function () {
+        function SysKeysServiceCreatePasswordRequest(days, user) {
+            this.days = days;
+            this.user = user;
+        }
+        return SysKeysServiceCreatePasswordRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SysKeysServiceCreatePasswordRequest.prototype.days;
+        /** @type {?} */
+        SysKeysServiceCreatePasswordRequest.prototype.user;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    SysKeysServiceCreateTokenRequest = /** @class */ (function () {
+        function SysKeysServiceCreateTokenRequest(accountId, userId, ttl) {
+            this.accountId = accountId;
+            this.userId = userId;
+            this.ttl = ttl;
+        }
+        return SysKeysServiceCreateTokenRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SysKeysServiceCreateTokenRequest.prototype.accountId;
+        /** @type {?} */
+        SysKeysServiceCreateTokenRequest.prototype.userId;
+        /** @type {?} */
+        SysKeysServiceCreateTokenRequest.prototype.ttl;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     SysSensorsServiceFindRequest = /** @class */ (function () {
         function SysSensorsServiceFindRequest(accountId, folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
             this.accountId = accountId;
@@ -16107,6 +16154,71 @@
         function (id) {
             return this.rest.put(this.baseUrl + "/api-keys/" + id + "/disable", null);
         };
+        /**
+         * Create access token for the user in the specified account
+         * @Return: ActionResponse
+         */
+        /**
+         * Create access token for the user in the specified account
+         * \@Return: ActionResponse
+         * @param {?=} accountId
+         * @param {?=} userId
+         * @param {?=} ttl
+         * @return {?}
+         */
+        SysKeysService.prototype.createAccessToken = /**
+         * Create access token for the user in the specified account
+         * \@Return: ActionResponse
+         * @param {?=} accountId
+         * @param {?=} userId
+         * @param {?=} ttl
+         * @return {?}
+         */
+        function (accountId, userId, ttl) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (userId != null) {
+                params.push("userId=" + userId);
+            }
+            if (ttl != null) {
+                params.push("ttl=" + ttl);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/token", null], params));
+        };
+        /**
+         * Create time limited password for user to access the API documentation
+         * @Return: ActionResponse
+         */
+        /**
+         * Create time limited password for user to access the API documentation
+         * \@Return: ActionResponse
+         * @param {?=} days
+         * @param {?=} user
+         * @return {?}
+         */
+        SysKeysService.prototype.createTimedPassword = /**
+         * Create time limited password for user to access the API documentation
+         * \@Return: ActionResponse
+         * @param {?=} days
+         * @param {?=} user
+         * @return {?}
+         */
+        function (days, user) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (days != null) {
+                params.push("days=" + days);
+            }
+            if (user != null) {
+                params.push("user=" + user);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/password", null], params));
+        };
         SysKeysService.decorators = [
             { type: core.Injectable }
         ];
@@ -17811,6 +17923,8 @@
     exports.SysFeaturesService = SysFeaturesService;
     exports.SysKeysService = SysKeysService;
     exports.SysKeysServiceCreateApiKeyRequest = SysKeysServiceCreateApiKeyRequest;
+    exports.SysKeysServiceCreatePasswordRequest = SysKeysServiceCreatePasswordRequest;
+    exports.SysKeysServiceCreateTokenRequest = SysKeysServiceCreateTokenRequest;
     exports.SysSensorsService = SysSensorsService;
     exports.SysSensorsServiceFindRequest = SysSensorsServiceFindRequest;
     exports.SysSystemService = SysSystemService;
