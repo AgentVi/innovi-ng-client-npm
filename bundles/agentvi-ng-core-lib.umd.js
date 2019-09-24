@@ -601,19 +601,19 @@
     */
     Coordinate = /** @class */ (function () {
         function Coordinate(latitude, longitude, altitude) {
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.altitude = altitude;
+            this.lat = latitude;
+            this.lon = longitude;
+            this.alt = altitude;
         }
         return Coordinate;
     }());
     if (false) {
         /** @type {?} */
-        Coordinate.prototype.latitude;
+        Coordinate.prototype.lat;
         /** @type {?} */
-        Coordinate.prototype.longitude;
+        Coordinate.prototype.lon;
         /** @type {?} */
-        Coordinate.prototype.altitude;
+        Coordinate.prototype.alt;
     }
 
     /**
