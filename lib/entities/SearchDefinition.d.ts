@@ -1,10 +1,12 @@
-import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { GeoRule } from '../entities/GeoRule';
 import { GeoCircle } from '../common/GeoCircle';
+import { TimeFrame } from '../common/TimeFrame';
+import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { SensorRule } from '../entities/SensorRule';
 import { GeoPolygon } from '../common/GeoPolygon';
 import { BaseEntity } from '../entities/BaseEntity';
 import { SearchObject } from '../common/SearchObject';
 import { SearchTimeCode } from '../enums/SearchTimeCode';
-import { TimeFrame } from '../common/TimeFrame';
 export declare class SearchDefinition extends BaseEntity {
     accountId: string;
     userId: string;
@@ -15,7 +17,8 @@ export declare class SearchDefinition extends BaseEntity {
     timeScope: SearchTimeCode;
     timeFrame: TimeFrame;
     sourceScope: SearchScopeCode;
-    sensorIds: string[];
+    sensorRules: SensorRule[];
+    geoRule: GeoRule;
     folderIds: string[];
     geoCircle: GeoCircle;
     geoPolygon: GeoPolygon;

@@ -1387,15 +1387,42 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Color definitions to search for
+    */
+    var   /*
+       Color definitions to search for
+    */
+    SearchColor = /** @class */ (function () {
+        function SearchColor(conf, color, type) {
+            this.conf = conf;
+            this.color = color;
+            this.type = type;
+        }
+        return SearchColor;
+    }());
+    if (false) {
+        /** @type {?} */
+        SearchColor.prototype.conf;
+        /** @type {?} */
+        SearchColor.prototype.color;
+        /** @type {?} */
+        SearchColor.prototype.type;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Object attributes to search for
     */
     var   /*
        Object attributes to search for
     */
     SearchObject = /** @class */ (function () {
-        function SearchObject(type, color, identifier) {
+        function SearchObject(type, colors, identifier) {
             this.type = type;
-            this.color = color;
+            this.colors = colors;
             this.identifier = identifier;
         }
         return SearchObject;
@@ -1404,9 +1431,86 @@
         /** @type {?} */
         SearchObject.prototype.type;
         /** @type {?} */
-        SearchObject.prototype.color;
+        SearchObject.prototype.colors;
         /** @type {?} */
         SearchObject.prototype.identifier;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Search result item
+    */
+    var   /*
+       Search result item
+    */
+    SearchResult = /** @class */ (function () {
+        function SearchResult(id, sequenceId, timestamp, behaviorType, objectType, description, isGeo, location, objectsInfo) {
+            this.id = id;
+            this.sequenceId = sequenceId;
+            this.timestamp = timestamp;
+            this.behaviorType = behaviorType;
+            this.objectType = objectType;
+            this.description = description;
+            this.isGeo = isGeo;
+            this.location = location;
+            this.objectsInfo = objectsInfo;
+        }
+        return SearchResult;
+    }());
+    if (false) {
+        /** @type {?} */
+        SearchResult.prototype.id;
+        /** @type {?} */
+        SearchResult.prototype.sequenceId;
+        /** @type {?} */
+        SearchResult.prototype.timestamp;
+        /** @type {?} */
+        SearchResult.prototype.behaviorType;
+        /** @type {?} */
+        SearchResult.prototype.objectType;
+        /** @type {?} */
+        SearchResult.prototype.description;
+        /** @type {?} */
+        SearchResult.prototype.isGeo;
+        /** @type {?} */
+        SearchResult.prototype.location;
+        /** @type {?} */
+        SearchResult.prototype.objectsInfo;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Object description in search result
+       Search result item may refer to several object (example: in a single group there may be several people)
+    */
+    var   /*
+       Object description in search result
+       Search result item may refer to several object (example: in a single group there may be several people)
+    */
+    SearchResultObject = /** @class */ (function () {
+        function SearchResultObject(objectId, sensorId, boundingBox, objectHistory) {
+            this.objectId = objectId;
+            this.sensorId = sensorId;
+            this.boundingBox = boundingBox;
+            this.objectHistory = objectHistory;
+        }
+        return SearchResultObject;
+    }());
+    if (false) {
+        /** @type {?} */
+        SearchResultObject.prototype.objectId;
+        /** @type {?} */
+        SearchResultObject.prototype.sensorId;
+        /** @type {?} */
+        SearchResultObject.prototype.boundingBox;
+        /** @type {?} */
+        SearchResultObject.prototype.objectHistory;
     }
 
     /**
@@ -2563,6 +2667,36 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Rule definition for Geo search
+    */
+    var   /*
+       Rule definition for Geo search
+    */
+    GeoRule = /** @class */ (function () {
+        function GeoRule(behaviorType, dwellTime, maxObjectsInGroup, polygon) {
+            this.behaviorType = behaviorType;
+            this.dwellTime = dwellTime;
+            this.maxObjectsInGroup = maxObjectsInGroup;
+            this.polygon = polygon;
+        }
+        return GeoRule;
+    }());
+    if (false) {
+        /** @type {?} */
+        GeoRule.prototype.behaviorType;
+        /** @type {?} */
+        GeoRule.prototype.dwellTime;
+        /** @type {?} */
+        GeoRule.prototype.maxObjectsInGroup;
+        /** @type {?} */
+        GeoRule.prototype.polygon;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Integration action describes integration protocol and details to execute
     */
     var   /*
@@ -2951,7 +3085,9 @@
         /** @type {?} */
         SearchDefinition.prototype.sourceScope;
         /** @type {?} */
-        SearchDefinition.prototype.sensorIds;
+        SearchDefinition.prototype.sensorRules;
+        /** @type {?} */
+        SearchDefinition.prototype.geoRule;
         /** @type {?} */
         SearchDefinition.prototype.folderIds;
         /** @type {?} */
@@ -3139,6 +3275,36 @@
         SensorHealth.prototype.createdOn;
         /** @type {?} */
         SensorHealth.prototype.updatedOn;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Rule definition for Sensors search
+    */
+    var   /*
+       Rule definition for Sensors search
+    */
+    SensorRule = /** @class */ (function (_super) {
+        __extends(SensorRule, _super);
+        function SensorRule() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return SensorRule;
+    }(GeoRule));
+    if (false) {
+        /** @type {?} */
+        SensorRule.prototype.sensorId;
+        /** @type {?} */
+        SensorRule.prototype.behaviorType;
+        /** @type {?} */
+        SensorRule.prototype.dwellTime;
+        /** @type {?} */
+        SensorRule.prototype.maxObjectsInGroup;
+        /** @type {?} */
+        SensorRule.prototype.polygon;
     }
 
     /**
@@ -17771,6 +17937,7 @@
     exports.GeoControlPoints = GeoControlPoints;
     exports.GeoPolygon = GeoPolygon;
     exports.GeoReferenceData = GeoReferenceData;
+    exports.GeoRule = GeoRule;
     exports.GeoService = GeoService;
     exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
     exports.HealthCheckService = HealthCheckService;
@@ -17855,10 +18022,13 @@
     exports.SchedulesServiceFindRequest = SchedulesServiceFindRequest;
     exports.SchedulesServiceFolderIdRequest = SchedulesServiceFolderIdRequest;
     exports.SchedulesServiceUpdateRequest = SchedulesServiceUpdateRequest;
+    exports.SearchColor = SearchColor;
     exports.SearchDefinition = SearchDefinition;
     exports.SearchIdRequest = SearchIdRequest;
     exports.SearchIdsRequest = SearchIdsRequest;
     exports.SearchObject = SearchObject;
+    exports.SearchResult = SearchResult;
+    exports.SearchResultObject = SearchResultObject;
     exports.SearchScopeCode = SearchScopeCode;
     exports.SearchService = SearchService;
     exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
@@ -17878,6 +18048,7 @@
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorResolutionCode = SensorResolutionCode;
+    exports.SensorRule = SensorRule;
     exports.SensorStatus = SensorStatus;
     exports.SensorStatusCode = SensorStatusCode;
     exports.SensorStatusMask = SensorStatusMask;

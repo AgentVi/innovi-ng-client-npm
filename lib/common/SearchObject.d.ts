@@ -1,8 +1,8 @@
-import { ColorCode } from '../enums/ColorCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { SearchColor } from '../common/SearchColor';
 export declare class SearchObject {
     type: ObjectTypeCode;
-    color: ColorCode;
+    colors: SearchColor[];
     identifier: string;
-    constructor(type?: ObjectTypeCode, color?: ColorCode, identifier?: string);
+    constructor(type?: ObjectTypeCode, colors?: SearchColor[], identifier?: string);
 }
