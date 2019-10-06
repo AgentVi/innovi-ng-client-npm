@@ -10407,6 +10407,39 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /*
+       @WebSocketMessage Message header for all web socket messages
+    */
+    var   /*
+       @WebSocketMessage Message header for all web socket messages
+    */
+    WebSocketMessageHeader = /** @class */ (function () {
+        function WebSocketMessageHeader(opcode, version, messageId, correlationId, sessionId) {
+            this.op = opcode;
+            this.ver = version;
+            this.id = messageId;
+            this.cid = correlationId;
+            this.sid = sessionId;
+        }
+        return WebSocketMessageHeader;
+    }());
+    if (false) {
+        /** @type {?} */
+        WebSocketMessageHeader.prototype.op;
+        /** @type {?} */
+        WebSocketMessageHeader.prototype.ver;
+        /** @type {?} */
+        WebSocketMessageHeader.prototype.id;
+        /** @type {?} */
+        WebSocketMessageHeader.prototype.cid;
+        /** @type {?} */
+        WebSocketMessageHeader.prototype.sid;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
 
     /**
      * @fileoverview added by tsickle
@@ -12385,7 +12418,7 @@
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/folders", typeof body === 'object' ? JSON.stringify(body) : body);
+            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Change folder name
@@ -17704,6 +17737,139 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+    /*
+       @WebSocketMessage
+    */
+    var   /*
+       @WebSocketMessage
+    */
+    EventsSocketServiceOpen = /** @class */ (function () {
+        function EventsSocketServiceOpen(accountId) {
+            this.accountId = accountId;
+        }
+        return EventsSocketServiceOpen;
+    }());
+    if (false) {
+        /** @type {?} */
+        EventsSocketServiceOpen.prototype.accountId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       @WebSocketMessage
+    */
+    var   /*
+       @WebSocketMessage
+    */
+    HealthSocketServiceOpen = /** @class */ (function () {
+        function HealthSocketServiceOpen(accountId) {
+            this.accountId = accountId;
+        }
+        return HealthSocketServiceOpen;
+    }());
+    if (false) {
+        /** @type {?} */
+        HealthSocketServiceOpen.prototype.accountId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       @WebSocketMessage
+       This message is pushed to the client upon any new event in the registered account
+    */
+    var   /*
+       @WebSocketMessage
+       This message is pushed to the client upon any new event in the registered account
+    */
+    SocketEventNotification = /** @class */ (function (_super) {
+        __extends(SocketEventNotification, _super);
+        function SocketEventNotification() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return SocketEventNotification;
+    }(WebSocketMessageHeader));
+    if (false) {
+        /** @type {?} */
+        SocketEventNotification.prototype.code;
+        /** @type {?} */
+        SocketEventNotification.prototype.error;
+        /** @type {?} */
+        SocketEventNotification.prototype.accountId;
+        /** @type {?} */
+        SocketEventNotification.prototype.sensorId;
+        /** @type {?} */
+        SocketEventNotification.prototype.eventId;
+        /** @type {?} */
+        SocketEventNotification.prototype.op;
+        /** @type {?} */
+        SocketEventNotification.prototype.ver;
+        /** @type {?} */
+        SocketEventNotification.prototype.id;
+        /** @type {?} */
+        SocketEventNotification.prototype.cid;
+        /** @type {?} */
+        SocketEventNotification.prototype.sid;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       @WebSocketMessage
+       This message is pushed to the client upon any sensor health status change in the registered account
+    */
+    var   /*
+       @WebSocketMessage
+       This message is pushed to the client upon any sensor health status change in the registered account
+    */
+    SocketSensorStatusNotification = /** @class */ (function (_super) {
+        __extends(SocketSensorStatusNotification, _super);
+        function SocketSensorStatusNotification() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return SocketSensorStatusNotification;
+    }(WebSocketMessageHeader));
+    if (false) {
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.code;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.error;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.updatedOn;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.sensorId;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.mask;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.status;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.op;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.ver;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.id;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.cid;
+        /** @type {?} */
+        SocketSensorStatusNotification.prototype.sid;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
 
     /**
      * @fileoverview added by tsickle
@@ -17905,6 +18071,7 @@
     exports.EventsServiceSetImagePathRequest = EventsServiceSetImagePathRequest;
     exports.EventsServiceSetStatusRequest = EventsServiceSetStatusRequest;
     exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
+    exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
     exports.Feature = Feature;
     exports.FeatureIdRequest = FeatureIdRequest;
     exports.FeatureIdsRequest = FeatureIdsRequest;
@@ -17941,6 +18108,7 @@
     exports.GeoService = GeoService;
     exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
     exports.HealthCheckService = HealthCheckService;
+    exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.InnoviClientConfig = InnoviClientConfig;
     exports.IntegrationAction = IntegrationAction;
     exports.IntegrationIdRequest = IntegrationIdRequest;
@@ -18068,6 +18236,8 @@
     exports.SensorsServiceUpdateRequest = SensorsServiceUpdateRequest;
     exports.Services = Services;
     exports.SeverityTypeCode = SeverityTypeCode;
+    exports.SocketEventNotification = SocketEventNotification;
+    exports.SocketSensorStatusNotification = SocketSensorStatusNotification;
     exports.StreamResponse = StreamResponse;
     exports.StreamTypeCode = StreamTypeCode;
     exports.StringIntValue = StringIntValue;
@@ -18138,6 +18308,7 @@
     exports.UsersServiceUpdateRequest = UsersServiceUpdateRequest;
     exports.Verification = Verification;
     exports.VisualQualityCode = VisualQualityCode;
+    exports.WebSocketMessageHeader = WebSocketMessageHeader;
     exports.ZoneTypeCode = ZoneTypeCode;
     exports.getToken = getToken;
     exports.removeToken = removeToken;

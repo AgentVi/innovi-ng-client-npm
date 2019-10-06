@@ -242,3 +242,4 @@ export * from './UsersServiceFindRequest';
 export * from './UsersServiceInviteRequest';
 export * from './UsersServiceSetRolesRequest';
 export * from './UsersServiceUpdateRequest';
+export * from './WebSocketMessageHeader';
