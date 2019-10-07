@@ -1190,60 +1190,6 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Color definitions to search for
-*/
-var  /*
-   Color definitions to search for
-*/
-SearchColor = /** @class */ (function () {
-    function SearchColor(conf, color, type) {
-        this.conf = conf;
-        this.color = color;
-        this.type = type;
-    }
-    return SearchColor;
-}());
-if (false) {
-    /** @type {?} */
-    SearchColor.prototype.conf;
-    /** @type {?} */
-    SearchColor.prototype.color;
-    /** @type {?} */
-    SearchColor.prototype.type;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
-   Object attributes to search for
-*/
-var  /*
-   Object attributes to search for
-*/
-SearchObject = /** @class */ (function () {
-    function SearchObject(type, colors, identifier) {
-        this.type = type;
-        this.colors = colors;
-        this.identifier = identifier;
-    }
-    return SearchObject;
-}());
-if (false) {
-    /** @type {?} */
-    SearchObject.prototype.type;
-    /** @type {?} */
-    SearchObject.prototype.colors;
-    /** @type {?} */
-    SearchObject.prototype.identifier;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
    Search result item
 */
 var  /*
@@ -2856,6 +2802,33 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
+   Color definitions to search for
+*/
+var  /*
+   Color definitions to search for
+*/
+SearchColor = /** @class */ (function () {
+    function SearchColor(conf, color, type) {
+        this.conf = conf;
+        this.color = color;
+        this.type = type;
+    }
+    return SearchColor;
+}());
+if (false) {
+    /** @type {?} */
+    SearchColor.prototype.conf;
+    /** @type {?} */
+    SearchColor.prototype.color;
+    /** @type {?} */
+    SearchColor.prototype.type;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
    Query definitions for ad-hoc search specification
 */
 var  /*
@@ -2882,6 +2855,8 @@ if (false) {
     /** @type {?} */
     SearchDefinition.prototype.objects;
     /** @type {?} */
+    SearchDefinition.prototype.colors;
+    /** @type {?} */
     SearchDefinition.prototype.timeScope;
     /** @type {?} */
     SearchDefinition.prototype.timeFrame;
@@ -2894,10 +2869,6 @@ if (false) {
     /** @type {?} */
     SearchDefinition.prototype.folderIds;
     /** @type {?} */
-    SearchDefinition.prototype.geoCircle;
-    /** @type {?} */
-    SearchDefinition.prototype.geoPolygon;
-    /** @type {?} */
     SearchDefinition.prototype.id;
     /** @type {?} */
     SearchDefinition.prototype._type;
@@ -2905,6 +2876,30 @@ if (false) {
     SearchDefinition.prototype.createdOn;
     /** @type {?} */
     SearchDefinition.prototype.updatedOn;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Object attributes to search for
+*/
+var  /*
+   Object attributes to search for
+*/
+SearchObject = /** @class */ (function () {
+    function SearchObject(type, identifier) {
+        this.type = type;
+        this.identifier = identifier;
+    }
+    return SearchObject;
+}());
+if (false) {
+    /** @type {?} */
+    SearchObject.prototype.type;
+    /** @type {?} */
+    SearchObject.prototype.identifier;
 }
 
 /**

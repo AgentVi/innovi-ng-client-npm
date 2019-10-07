@@ -36,8 +36,6 @@ export * from './RecurrentTimeFrame';
 export * from './RuleDefault';
 export * from './RulePolygon';
 export * from './RuleSpec';
-export * from './SearchColor';
-export * from './SearchObject';
 export * from './SearchResult';
 export * from './SearchResultObject';
 export * from './Sensitivity';

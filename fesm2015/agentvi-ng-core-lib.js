@@ -1237,62 +1237,6 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Color definitions to search for
-*/
-class SearchColor {
-    /**
-     * @param {?=} conf
-     * @param {?=} color
-     * @param {?=} type
-     */
-    constructor(conf, color, type) {
-        this.conf = conf;
-        this.color = color;
-        this.type = type;
-    }
-}
-if (false) {
-    /** @type {?} */
-    SearchColor.prototype.conf;
-    /** @type {?} */
-    SearchColor.prototype.color;
-    /** @type {?} */
-    SearchColor.prototype.type;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
-   Object attributes to search for
-*/
-class SearchObject {
-    /**
-     * @param {?=} type
-     * @param {?=} colors
-     * @param {?=} identifier
-     */
-    constructor(type, colors, identifier) {
-        this.type = type;
-        this.colors = colors;
-        this.identifier = identifier;
-    }
-}
-if (false) {
-    /** @type {?} */
-    SearchObject.prototype.type;
-    /** @type {?} */
-    SearchObject.prototype.colors;
-    /** @type {?} */
-    SearchObject.prototype.identifier;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
    Search result item
 */
 class SearchResult {
@@ -2746,6 +2690,34 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
+   Color definitions to search for
+*/
+class SearchColor {
+    /**
+     * @param {?=} conf
+     * @param {?=} color
+     * @param {?=} type
+     */
+    constructor(conf, color, type) {
+        this.conf = conf;
+        this.color = color;
+        this.type = type;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchColor.prototype.conf;
+    /** @type {?} */
+    SearchColor.prototype.color;
+    /** @type {?} */
+    SearchColor.prototype.type;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
    Query definitions for ad-hoc search specification
 */
 class SearchDefinition extends BaseEntity {
@@ -2764,6 +2736,8 @@ if (false) {
     /** @type {?} */
     SearchDefinition.prototype.objects;
     /** @type {?} */
+    SearchDefinition.prototype.colors;
+    /** @type {?} */
     SearchDefinition.prototype.timeScope;
     /** @type {?} */
     SearchDefinition.prototype.timeFrame;
@@ -2776,10 +2750,6 @@ if (false) {
     /** @type {?} */
     SearchDefinition.prototype.folderIds;
     /** @type {?} */
-    SearchDefinition.prototype.geoCircle;
-    /** @type {?} */
-    SearchDefinition.prototype.geoPolygon;
-    /** @type {?} */
     SearchDefinition.prototype.id;
     /** @type {?} */
     SearchDefinition.prototype._type;
@@ -2787,6 +2757,30 @@ if (false) {
     SearchDefinition.prototype.createdOn;
     /** @type {?} */
     SearchDefinition.prototype.updatedOn;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Object attributes to search for
+*/
+class SearchObject {
+    /**
+     * @param {?=} type
+     * @param {?=} identifier
+     */
+    constructor(type, identifier) {
+        this.type = type;
+        this.identifier = identifier;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchObject.prototype.type;
+    /** @type {?} */
+    SearchObject.prototype.identifier;
 }
 
 /**
