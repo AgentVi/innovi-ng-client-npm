@@ -2907,6 +2907,10 @@
         /** @type {?} */
         Rule.prototype.polygons;
         /** @type {?} */
+        Rule.prototype.createImage;
+        /** @type {?} */
+        Rule.prototype.createClip;
+        /** @type {?} */
         Rule.prototype.id;
         /** @type {?} */
         Rule.prototype._type;
