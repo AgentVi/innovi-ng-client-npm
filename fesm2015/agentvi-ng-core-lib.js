@@ -3652,23 +3652,29 @@ ObjectTypeCode[ObjectTypeCode.INNOVI_ANIMAL_LARGE] = 'INNOVI_ANIMAL_LARGE';
 const ProductTypeCode = {
     // Undefined [0] 
     UNDEFINED: 0,
+    // Virtual Edge (Pipeline running as Kubernetes deployment with no actual edge device) [1] 
+    VIRTUAL: 1,
+    // Custom Device (Customer provides it's own hardware) [100] 
+    CUSTOM: 100,
     // Edge 200 [200] 
     EDGE_200: 200,
     // Edge 220 [220] 
     EDGE_220: 220,
     // Edge 250 [250] 
     EDGE_250: 250,
+    // Edge 300 [300] 
+    EDGE_300: 300,
     // Edge 500 [500] 
     EDGE_500: 500,
-    // Virtual Edge [1] 
-    VIRTUAL: 1,
 };
 ProductTypeCode[ProductTypeCode.UNDEFINED] = 'UNDEFINED';
+ProductTypeCode[ProductTypeCode.VIRTUAL] = 'VIRTUAL';
+ProductTypeCode[ProductTypeCode.CUSTOM] = 'CUSTOM';
 ProductTypeCode[ProductTypeCode.EDGE_200] = 'EDGE_200';
 ProductTypeCode[ProductTypeCode.EDGE_220] = 'EDGE_220';
 ProductTypeCode[ProductTypeCode.EDGE_250] = 'EDGE_250';
+ProductTypeCode[ProductTypeCode.EDGE_300] = 'EDGE_300';
 ProductTypeCode[ProductTypeCode.EDGE_500] = 'EDGE_500';
-ProductTypeCode[ProductTypeCode.VIRTUAL] = 'VIRTUAL';
 
 /**
  * @fileoverview added by tsickle
@@ -12433,326 +12439,6 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * Services for user registration and login
- */
-class UserService {
-    /**
-     * Class constructor
-     * @param {?} config
-     * @param {?} rest
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/user';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    login(body) {
-        return this.rest.post(`${this.baseUrl}/login`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    refreshToken() {
-        return this.rest.post(`${this.baseUrl}/refresh-token`, null);
-    }
-    /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    verifyLoginKey(key) {
-        /** @type {?} */
-        const params = new Array();
-        if (key != null) {
-            params.push(`key=${key}`);
-        }
-        return this.rest.get(`${this.baseUrl}/login/verify`, ...params);
-    }
-    /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    sendVerificationCode(body) {
-        return this.rest.post(`${this.baseUrl}/verify`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    resetPassword(code) {
-        return this.rest.post(`${this.baseUrl}/reset-password`, typeof code === 'object' ? JSON.stringify(code) : code);
-    }
-    /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changePassword(body) {
-        return this.rest.post(`${this.baseUrl}/change-password`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    checkUnusedPassword(body) {
-        return this.rest.post(`${this.baseUrl}/check-password`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changeName(body) {
-        return this.rest.put(`${this.baseUrl}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changeMobile(body) {
-        return this.rest.put(`${this.baseUrl}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    switchAccount(body) {
-        return this.rest.post(`${this.baseUrl}/switch-account`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Get innoVi client configuration (map clients and other configurations)
-     * \@Return: EntityResponse<InnoviClientConfig>
-     * @return {?}
-     */
-    getConfig() {
-        return this.rest.get(`${this.baseUrl}/config`);
-    }
-}
-UserService.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-UserService.ctorParameters = () => [
-    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-    { type: RestUtil }
-];
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * List of all user related actions for account administrator only
- */
-class UsersService {
-    /**
-     * Class constructor
-     * @param {?} config
-     * @param {?} rest
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/users';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    invite(body) {
-        return this.rest.post(`${this.baseUrl}/invite`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    update(id, body) {
-        return this.rest.post(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    changeName(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    changeMobile(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    changeType(id, type) {
-        return this.rest.put(`${this.baseUrl}/${id}/type/${type}`, null);
-    }
-    /**
-     * Change user role
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} role
-     * @return {?}
-     */
-    changeRole(id, role) {
-        return this.rest.put(`${this.baseUrl}/${id}/role/${role}`, null);
-    }
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    delete(id) {
-        return this.rest.delete(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    get(id) {
-        return this.rest.get(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    getByEmail(email) {
-        return this.rest.get(`${this.baseUrl}/byEmail/${email}`);
-    }
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    find(search, type, status, sort, page, pageSize) {
-        /** @type {?} */
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (type != null) {
-            params.push(`type=${type}`);
-        }
-        if (status != null) {
-            params.push(`status=${status}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        if (page != null) {
-            params.push(`page=${page}`);
-        }
-        if (pageSize != null) {
-            params.push(`pageSize=${pageSize}`);
-        }
-        return this.rest.get(`${this.baseUrl}`, ...params);
-    }
-}
-UsersService.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-UsersService.ctorParameters = () => [
-    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-    { type: RestUtil }
-];
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * List of account related actions for system administrator only
  * \@RequestHeader X-API-KEY The key to identify the application (console)
  * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -14334,8 +14020,340 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Services for user registration and login
+ */
+class UserService {
+    /**
+     * Class constructor
+     * @param {?} config
+     * @param {?} rest
+     */
+    constructor(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/user';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    login(body) {
+        return this.rest.post(`${this.baseUrl}/login`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    refreshToken() {
+        return this.rest.post(`${this.baseUrl}/refresh-token`, null);
+    }
+    /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    verifyLoginKey(key) {
+        /** @type {?} */
+        const params = new Array();
+        if (key != null) {
+            params.push(`key=${key}`);
+        }
+        return this.rest.get(`${this.baseUrl}/login/verify`, ...params);
+    }
+    /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    sendVerificationCode(body) {
+        return this.rest.post(`${this.baseUrl}/verify`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    resetPassword(code) {
+        return this.rest.post(`${this.baseUrl}/reset-password`, typeof code === 'object' ? JSON.stringify(code) : code);
+    }
+    /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changePassword(body) {
+        return this.rest.post(`${this.baseUrl}/change-password`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    checkUnusedPassword(body) {
+        return this.rest.post(`${this.baseUrl}/check-password`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changeName(body) {
+        return this.rest.put(`${this.baseUrl}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changeMobile(body) {
+        return this.rest.put(`${this.baseUrl}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    switchAccount(body) {
+        return this.rest.post(`${this.baseUrl}/switch-account`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Get innoVi client configuration (map clients and other configurations)
+     * \@Return: EntityResponse<InnoviClientConfig>
+     * @return {?}
+     */
+    getConfig() {
+        return this.rest.get(`${this.baseUrl}/config`);
+    }
+}
+UserService.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+UserService.ctorParameters = () => [
+    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+    { type: RestUtil }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * List of all user related actions for account administrator only
+ */
+class UsersService {
+    /**
+     * Class constructor
+     * @param {?} config
+     * @param {?} rest
+     */
+    constructor(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/users';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    invite(body) {
+        return this.rest.post(`${this.baseUrl}/invite`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    update(id, body) {
+        return this.rest.post(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    changeName(id, body) {
+        return this.rest.put(`${this.baseUrl}/${id}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    changeMobile(id, body) {
+        return this.rest.put(`${this.baseUrl}/${id}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    changeType(id, type) {
+        return this.rest.put(`${this.baseUrl}/${id}/type/${type}`, null);
+    }
+    /**
+     * Change user role
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} role
+     * @return {?}
+     */
+    changeRole(id, role) {
+        return this.rest.put(`${this.baseUrl}/${id}/role/${role}`, null);
+    }
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    delete(id) {
+        return this.rest.delete(`${this.baseUrl}/${id}`);
+    }
+    /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    get(id) {
+        return this.rest.get(`${this.baseUrl}/${id}`);
+    }
+    /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    getByEmail(email) {
+        return this.rest.get(`${this.baseUrl}/byEmail/${email}`);
+    }
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    find(search, type, status, sort, page, pageSize) {
+        /** @type {?} */
+        const params = new Array();
+        if (search != null) {
+            params.push(`search=${search}`);
+        }
+        if (type != null) {
+            params.push(`type=${type}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        return this.rest.get(`${this.baseUrl}`, ...params);
+    }
+}
+UsersService.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+UsersService.ctorParameters = () => [
+    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+    { type: RestUtil }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /** @type {?} */
 const Services = [
+    AnomalyService,
+    HealthCheckService,
+    SysAccountsService,
+    SysAppliancesService,
+    SysConfigurationsService,
+    SysEventsService,
+    SysFeaturesGroupsService,
+    SysFeaturesService,
+    SysKeysService,
+    SysSensorsService,
+    SysSystemService,
+    SysUsersService,
     AccountsService,
     AppliancesService,
     AuditLogService,
@@ -14352,18 +14370,6 @@ const Services = [
     SensorsService,
     UserService,
     UsersService,
-    AnomalyService,
-    HealthCheckService,
-    SysAccountsService,
-    SysAppliancesService,
-    SysConfigurationsService,
-    SysEventsService,
-    SysFeaturesGroupsService,
-    SysFeaturesService,
-    SysKeysService,
-    SysSensorsService,
-    SysSystemService,
-    SysUsersService,
 ];
 
 /**
@@ -14531,5 +14537,5 @@ CoreLibModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfInnoviClientConfig, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoRule, GeoService, GeoServicesReferenceRequest, HealthCheckService, HealthSocketServiceOpen, InnoviClientConfig, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchColor, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchResult, SearchResultObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorRule, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketSensorStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SysKeysService as ɵba, SysSensorsService as ɵbb, SysSystemService as ɵbc, SysUsersService as ɵbd, AccountsService as ɵc, AppliancesService as ɵd, AuditLogService as ɵe, CalendarsService as ɵf, EventsService as ɵg, FoldersService as ɵh, GeoService as ɵi, IntegrationsService as ɵj, ReportsService as ɵk, RulesService as ɵl, ScheduledReportsService as ɵm, SchedulesService as ɵn, SearchService as ɵo, SensorsService as ɵp, UserService as ɵq, UsersService as ɵr, AnomalyService as ɵs, HealthCheckService as ɵt, SysAccountsService as ɵu, SysAppliancesService as ɵv, SysConfigurationsService as ɵw, SysEventsService as ɵx, SysFeaturesGroupsService as ɵy, SysFeaturesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceFindRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdRequest, ApplianceRegistration, ApplianceStatus, ApplianceStatusCode, ApplianceStatusDataPoint, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorHealth, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfInnoviClientConfig, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHealth, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoRule, GeoService, GeoServicesReferenceRequest, HealthCheckService, HealthSocketServiceOpen, InnoviClientConfig, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RuleTypeCode, RulesService, RulesServiceCreateRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchColor, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchResult, SearchResultObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorHealth, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorRule, SensorStatus, SensorStatusCode, SensorStatusMask, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketSensorStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map
