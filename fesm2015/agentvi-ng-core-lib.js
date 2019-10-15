@@ -341,7 +341,7 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Bounding Box of crop in a frame (inside 100000 x 100000 coordinate system)
+   Bounding Box of crop in a frame (inside 10000 x 10000 coordinate system)
 */
 class BoundingBox {
     /**
@@ -687,7 +687,7 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Control point maps FOV location (100000 x 100000 coordinate system) to WGS-84 coordinate system
+   Control point maps FOV location (10000 x 10000 coordinate system) to WGS-84 coordinate system
    Control points are used for FOV geo-referencing
 */
 class GeoControlPoint {
@@ -11290,7 +11290,7 @@ class GeoService {
     /**
      * Digitize sensor FOV on WGS-84 coordinate system
      * Each GeoControlPoint in the list composed of point in the FOV and its referenced coordinate.
-     * The point represents the x,y values a normalized scale (each axis is 0 - 100000)
+     * The point represents the x,y values a normalized scale (each axis is 0 - 10000)
      * The returned value is a GeoReference data structure describes the contours of the
      * FOV on the image and the map and X,Y factors and offsets for transformation
      * \@Return: EntityResponse<GeoReferenceData>
