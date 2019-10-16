@@ -1,9 +1,0 @@
-export declare enum RuleTypeCode {
-    UNDEFINED = 0,
-    INNOVI_RULE_CROSSING = 1,
-    INNOVI_RULE_MOVING = 2,
-    INNOVI_RULE_STOPPED = 3,
-    INNOVI_RULE_OCCUPANCY = 4,
-    INNOVI_RULE_GROPPING = 5,
-    INNOVI_ANOMALY = 100
-}

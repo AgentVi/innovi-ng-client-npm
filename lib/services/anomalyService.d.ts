@@ -58,7 +58,6 @@ export declare class AnomalyService {
      * <li><b>objectType</b> Detected object type</li>
      * <li><b>behaviorType</b> Behavior</li>
      * <li><b>ruleId</b> Rule Id</li>
-     * <li><b>RuleType</b> Rule type</li>
      * <li><b>startTime:</b> If set to 0, server time will be set</li>
      * </ul>
      * @return EntityResponse<Event>

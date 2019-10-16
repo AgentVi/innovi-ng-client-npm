@@ -1351,10 +1351,9 @@
        Rule specification describe rule parameters
     */
     RuleSpec = /** @class */ (function () {
-        function RuleSpec(ruleType, ruleTypeName, behaviorTypes, objectTypes, isLineDrawing, dwellTime, peopleInGroup, objectHierarchy) {
-            this.ruleType = ruleType;
+        function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, peopleInGroup, objectHierarchy) {
+            this.behaviorType = behaviorType;
             this.ruleTypeName = ruleTypeName;
-            this.behaviorTypes = behaviorTypes;
             this.objectTypes = objectTypes;
             this.isLineDrawing = isLineDrawing;
             this.dwellTime = dwellTime;
@@ -1365,11 +1364,9 @@
     }());
     if (false) {
         /** @type {?} */
-        RuleSpec.prototype.ruleType;
+        RuleSpec.prototype.behaviorType;
         /** @type {?} */
         RuleSpec.prototype.ruleTypeName;
-        /** @type {?} */
-        RuleSpec.prototype.behaviorTypes;
         /** @type {?} */
         RuleSpec.prototype.objectTypes;
         /** @type {?} */
@@ -2433,8 +2430,6 @@
         /** @type {?} */
         Event.prototype.description;
         /** @type {?} */
-        Event.prototype.ruleType;
-        /** @type {?} */
         Event.prototype.objectType;
         /** @type {?} */
         Event.prototype.behaviorType;
@@ -2890,8 +2885,6 @@
         Rule.prototype.active;
         /** @type {?} */
         Rule.prototype.externalId;
-        /** @type {?} */
-        Rule.prototype.ruleType;
         /** @type {?} */
         Rule.prototype.behaviorType;
         /** @type {?} */
@@ -4056,35 +4049,6 @@
     ProductTypeCode[ProductTypeCode.EDGE_250] = 'EDGE_250';
     ProductTypeCode[ProductTypeCode.EDGE_300] = 'EDGE_300';
     ProductTypeCode[ProductTypeCode.EDGE_500] = 'EDGE_500';
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /** @enum {number} */
-    var RuleTypeCode = {
-        // Undefined [0] 
-        UNDEFINED: 0,
-        // Crossing a Line (innoVi) [1] 
-        INNOVI_RULE_CROSSING: 1,
-        // Moving in an area (innoVi) [2] 
-        INNOVI_RULE_MOVING: 2,
-        // Stopped vehicle (innoVi) [3] 
-        INNOVI_RULE_STOPPED: 3,
-        // Occupancy (innoVi) [4] 
-        INNOVI_RULE_OCCUPANCY: 4,
-        // Grouping (innoVi) [5] 
-        INNOVI_RULE_GROPPING: 5,
-        // Anomaly (innoVi) [100] 
-        INNOVI_ANOMALY: 100,
-    };
-    RuleTypeCode[RuleTypeCode.UNDEFINED] = 'UNDEFINED';
-    RuleTypeCode[RuleTypeCode.INNOVI_RULE_CROSSING] = 'INNOVI_RULE_CROSSING';
-    RuleTypeCode[RuleTypeCode.INNOVI_RULE_MOVING] = 'INNOVI_RULE_MOVING';
-    RuleTypeCode[RuleTypeCode.INNOVI_RULE_STOPPED] = 'INNOVI_RULE_STOPPED';
-    RuleTypeCode[RuleTypeCode.INNOVI_RULE_OCCUPANCY] = 'INNOVI_RULE_OCCUPANCY';
-    RuleTypeCode[RuleTypeCode.INNOVI_RULE_GROPPING] = 'INNOVI_RULE_GROPPING';
-    RuleTypeCode[RuleTypeCode.INNOVI_ANOMALY] = 'INNOVI_ANOMALY';
 
     /**
      * @fileoverview added by tsickle
@@ -8704,11 +8668,10 @@
     var   /*
     */
     RulesServiceFindRequest = /** @class */ (function () {
-        function RulesServiceFindRequest(folderId, sensorId, search, ruleType, behaviorType, severity, sort, page, pageSize) {
+        function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             this.folderId = folderId;
             this.sensorId = sensorId;
             this.search = search;
-            this.ruleType = ruleType;
             this.behaviorType = behaviorType;
             this.severity = severity;
             this.sort = sort;
@@ -8724,8 +8687,6 @@
         RulesServiceFindRequest.prototype.sensorId;
         /** @type {?} */
         RulesServiceFindRequest.prototype.search;
-        /** @type {?} */
-        RulesServiceFindRequest.prototype.ruleType;
         /** @type {?} */
         RulesServiceFindRequest.prototype.behaviorType;
         /** @type {?} */
@@ -11108,7 +11069,6 @@
          * <li><b>objectType</b> Detected object type</li>
          * <li><b>behaviorType</b> Behavior</li>
          * <li><b>ruleId</b> Rule Id</li>
-         * <li><b>RuleType</b> Rule type</li>
          * <li><b>startTime:</b> If set to 0, server time will be set</li>
          * </ul>
          * @return EntityResponse<Event>
@@ -13438,7 +13398,6 @@
          * @param {?=} folderId
          * @param {?=} sensorId
          * @param {?=} search
-         * @param {?=} ruleType
          * @param {?=} behaviorType
          * @param {?=} severity
          * @param {?=} sort
@@ -13452,7 +13411,6 @@
          * @param {?=} folderId
          * @param {?=} sensorId
          * @param {?=} search
-         * @param {?=} ruleType
          * @param {?=} behaviorType
          * @param {?=} severity
          * @param {?=} sort
@@ -13460,7 +13418,7 @@
          * @param {?=} pageSize
          * @return {?}
          */
-        function (folderId, sensorId, search, ruleType, behaviorType, severity, sort, page, pageSize) {
+        function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -13472,9 +13430,6 @@
             }
             if (search != null) {
                 params.push("search=" + search);
-            }
-            if (ruleType != null) {
-                params.push("ruleType=" + ruleType);
             }
             if (behaviorType != null) {
                 params.push("behaviorType=" + behaviorType);
@@ -18175,7 +18130,6 @@
     exports.RuleIdsRequest = RuleIdsRequest;
     exports.RulePolygon = RulePolygon;
     exports.RuleSpec = RuleSpec;
-    exports.RuleTypeCode = RuleTypeCode;
     exports.RulesService = RulesService;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
     exports.RulesServiceFindRequest = RulesServiceFindRequest;
