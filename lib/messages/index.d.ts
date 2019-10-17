@@ -238,6 +238,7 @@ export * from './UsersServiceChangeNameRequest';
 export * from './UsersServiceChangeRoleRequest';
 export * from './UsersServiceChangeStatusRequest';
 export * from './UsersServiceChangeTypeRequest';
+export * from './UsersServiceCreateRequest';
 export * from './UsersServiceFindRequest';
 export * from './UsersServiceInviteRequest';
 export * from './UsersServiceSetRolesRequest';

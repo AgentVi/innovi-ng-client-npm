@@ -10280,6 +10280,25 @@
     */
     var   /*
     */
+    UsersServiceCreateRequest = /** @class */ (function () {
+        function UsersServiceCreateRequest(body) {
+            this.body = body;
+        }
+        return UsersServiceCreateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        UsersServiceCreateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     UsersServiceFindRequest = /** @class */ (function () {
         function UsersServiceFindRequest(search, type, status, sort, page, pageSize) {
             this.search = search;
@@ -16835,26 +16854,26 @@
             this.baseUrl = this.config.api + this.baseUrl;
         }
         /**
-         * Send invitation to a new user for the current account
+         * Create a new user for the current account
          * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
          * @Return: ActionResponse
          */
         /**
-         * Send invitation to a new user for the current account
+         * Create a new user for the current account
          * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
          * \@Return: ActionResponse
          * @param {?=} body
          * @return {?}
          */
         SysUsersService.prototype.create = /**
-         * Send invitation to a new user for the current account
+         * Create a new user for the current account
          * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
          * \@Return: ActionResponse
          * @param {?=} body
          * @return {?}
          */
         function (body) {
-            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Update user
@@ -18295,6 +18314,7 @@
     exports.UsersServiceChangeRoleRequest = UsersServiceChangeRoleRequest;
     exports.UsersServiceChangeStatusRequest = UsersServiceChangeStatusRequest;
     exports.UsersServiceChangeTypeRequest = UsersServiceChangeTypeRequest;
+    exports.UsersServiceCreateRequest = UsersServiceCreateRequest;
     exports.UsersServiceFindRequest = UsersServiceFindRequest;
     exports.UsersServiceInviteRequest = UsersServiceInviteRequest;
     exports.UsersServiceSetRolesRequest = UsersServiceSetRolesRequest;

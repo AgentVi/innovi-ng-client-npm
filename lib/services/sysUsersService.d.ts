@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { UserInvitation } from '../common/UserInvitation';
-import { User } from '../entities/User';
-import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
+import { UserRegistration } from '../common/UserRegistration';
+import { User } from '../entities/User';
+import { UserTypeCode } from '../enums/UserTypeCode';
 /**
  * List of all user related actions for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -19,11 +19,11 @@ export declare class SysUsersService {
      */
     constructor(config: CoreConfig, rest: RestUtil);
     /**
-     * Send invitation to a new user for the current account
+     * Create a new user for the current account
      * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
      * @Return: ActionResponse
      */
-    create(body?: UserInvitation): import("rxjs").Observable<any>;
+    create(body?: UserRegistration): import("rxjs").Observable<any>;
     /**
      * Update user
      * @Return: EntityResponse<User>
