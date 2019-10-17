@@ -13738,7 +13738,7 @@ class SysSystemService {
     }
     /**
      * Export SW package configurations data
-     * \@Return: StreamingOutput of the content (gzip)
+     * \@Return: StreamingOutput of the content (zip)
      * @param {?=} id
      * @return {?}
      */
@@ -13752,6 +13752,22 @@ class SysSystemService {
      */
     importConfigurations() {
         return this.rest.post(`${this.baseUrl}/configurations/import`, null);
+    }
+    /**
+     * Backup entire system (configurations, users and accounts)
+     * \@Return: StreamingOutput of the content (zip)
+     * @return {?}
+     */
+    backupSystem() {
+        return this.rest.get(`${this.baseUrl}/backup`);
+    }
+    /**
+     * Restore entire system (zip content)
+     * \@Return: ActionResponse
+     * @return {?}
+     */
+    restoreSystem() {
+        return this.rest.post(`${this.baseUrl}/restore`, null);
     }
 }
 SysSystemService.decorators = [

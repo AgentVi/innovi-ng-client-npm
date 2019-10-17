@@ -38,7 +38,7 @@ export declare class SysSystemService {
     importAccountData(): import("rxjs").Observable<any>;
     /**
      * Export SW package configurations data
-     * @Return: StreamingOutput of the content (gzip)
+     * @Return: StreamingOutput of the content (zip)
      */
     exportConfigurations(id?: string): import("rxjs").Observable<any>;
     /**
@@ -46,4 +46,14 @@ export declare class SysSystemService {
      * @Return: ActionResponse
      */
     importConfigurations(): import("rxjs").Observable<any>;
+    /**
+     * Backup entire system (configurations, users and accounts)
+     * @Return: StreamingOutput of the content (zip)
+     */
+    backupSystem(): import("rxjs").Observable<any>;
+    /**
+     * Restore entire system (zip content)
+     * @Return: ActionResponse
+     */
+    restoreSystem(): import("rxjs").Observable<any>;
 }

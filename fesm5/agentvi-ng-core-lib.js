@@ -16521,17 +16521,17 @@ var SysSystemService = /** @class */ (function () {
     };
     /**
      * Export SW package configurations data
-     * @Return: StreamingOutput of the content (gzip)
+     * @Return: StreamingOutput of the content (zip)
      */
     /**
      * Export SW package configurations data
-     * \@Return: StreamingOutput of the content (gzip)
+     * \@Return: StreamingOutput of the content (zip)
      * @param {?=} id
      * @return {?}
      */
     SysSystemService.prototype.exportConfigurations = /**
      * Export SW package configurations data
-     * \@Return: StreamingOutput of the content (gzip)
+     * \@Return: StreamingOutput of the content (zip)
      * @param {?=} id
      * @return {?}
      */
@@ -16554,6 +16554,40 @@ var SysSystemService = /** @class */ (function () {
      */
     function () {
         return this.rest.post(this.baseUrl + "/configurations/import", null);
+    };
+    /**
+     * Backup entire system (configurations, users and accounts)
+     * @Return: StreamingOutput of the content (zip)
+     */
+    /**
+     * Backup entire system (configurations, users and accounts)
+     * \@Return: StreamingOutput of the content (zip)
+     * @return {?}
+     */
+    SysSystemService.prototype.backupSystem = /**
+     * Backup entire system (configurations, users and accounts)
+     * \@Return: StreamingOutput of the content (zip)
+     * @return {?}
+     */
+    function () {
+        return this.rest.get(this.baseUrl + "/backup");
+    };
+    /**
+     * Restore entire system (zip content)
+     * @Return: ActionResponse
+     */
+    /**
+     * Restore entire system (zip content)
+     * \@Return: ActionResponse
+     * @return {?}
+     */
+    SysSystemService.prototype.restoreSystem = /**
+     * Restore entire system (zip content)
+     * \@Return: ActionResponse
+     * @return {?}
+     */
+    function () {
+        return this.rest.post(this.baseUrl + "/restore", null);
     };
     SysSystemService.decorators = [
         { type: Injectable }
