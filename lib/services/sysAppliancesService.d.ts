@@ -31,6 +31,11 @@ export declare class SysAppliancesService {
      */
     delete(id?: string): import("rxjs").Observable<any>;
     /**
+     * Get all appliance agents
+     * @Return: EntitiesResponse<Agent>
+     */
+    getApplianceAgents(id?: string): import("rxjs").Observable<any>;
+    /**
      * Find list of appliance commands and filter
      * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
      */

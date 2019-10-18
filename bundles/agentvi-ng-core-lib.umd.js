@@ -5562,6 +5562,30 @@
     */
     var   /*
     */
+    EntitiesResponseOfApplianceAgents = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfApplianceAgents, _super);
+        function EntitiesResponseOfApplianceAgents() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfApplianceAgents;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntitiesResponseOfApplianceAgents.prototype.list;
+        /** @type {?} */
+        EntitiesResponseOfApplianceAgents.prototype.code;
+        /** @type {?} */
+        EntitiesResponseOfApplianceAgents.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     EntitiesResponseOfApplianceCommand = /** @class */ (function (_super) {
         __extends(EntitiesResponseOfApplianceCommand, _super);
         function EntitiesResponseOfApplianceCommand() {
@@ -11287,6 +11311,25 @@
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
         };
         /**
+         * Get all appliance agents
+         * @Return: EntitiesResponse<Agent>
+         */
+        /**
+         * Get all appliance agents
+         * \@Return: EntitiesResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        AppliancesService.prototype.getApplianceAgents = /**
+         * Get all appliance agents
+         * \@Return: EntitiesResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/agents");
+        };
+        /**
          * Add new sensor and assigned it to a specific appliance
          * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
          * @Return: EntityResponse<Sensor> The updated sensor
@@ -15100,6 +15143,25 @@
             return this.rest.delete(this.baseUrl + "/" + id);
         };
         /**
+         * Get all appliance agents
+         * @Return: EntitiesResponse<Agent>
+         */
+        /**
+         * Get all appliance agents
+         * \@Return: EntitiesResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        SysAppliancesService.prototype.getApplianceAgents = /**
+         * Get all appliance agents
+         * \@Return: EntitiesResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/agents");
+        };
+        /**
          * Find list of appliance commands and filter
          * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
          */
@@ -18014,6 +18076,7 @@
     exports.EntitiesResponseOfAccountTypeSummary = EntitiesResponseOfAccountTypeSummary;
     exports.EntitiesResponseOfApiKey = EntitiesResponseOfApiKey;
     exports.EntitiesResponseOfAppliance = EntitiesResponseOfAppliance;
+    exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
     exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
     exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
     exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;

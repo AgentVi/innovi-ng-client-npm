@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { Recurrent } from '../common/Recurrent';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class ScheduledReport extends BaseEntity {
     accountId: string;
     reportId: string;

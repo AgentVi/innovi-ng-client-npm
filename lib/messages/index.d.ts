@@ -47,6 +47,7 @@ export * from './EntitiesResponseOfAccount';
 export * from './EntitiesResponseOfAccountTypeSummary';
 export * from './EntitiesResponseOfApiKey';
 export * from './EntitiesResponseOfAppliance';
+export * from './EntitiesResponseOfApplianceAgents';
 export * from './EntitiesResponseOfApplianceCommand';
 export * from './EntitiesResponseOfApplianceConfiguration';
 export * from './EntitiesResponseOfAuditLog';
