@@ -1,7 +1,7 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { Coordinate } from '../common/Coordinate';
 import { SearchResultObject } from '../common/SearchResultObject';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { Coordinate } from '../common/Coordinate';
 export declare class SearchResult {
     id: string;
     sequenceId: number;

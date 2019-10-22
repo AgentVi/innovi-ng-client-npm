@@ -134,6 +134,7 @@ export * from './FoldersServiceCreateRequest';
 export * from './FoldersServiceFindRequest';
 export * from './FoldersServiceGetHierarchyRequest';
 export * from './GeoServicesReferenceRequest';
+export * from './GeoServicesTransformRequest';
 export * from './IntegrationIdRequest';
 export * from './IntegrationIdsRequest';
 export * from './IntegrationsServiceCreateRequest';

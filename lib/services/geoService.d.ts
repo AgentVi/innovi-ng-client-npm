@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { GeoControlPoints } from '../common/GeoControlPoints';
+import { GeoReferenceTest } from '../common/GeoReferenceTest';
 /**
  * List of Geo-spatial utilities
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -23,4 +24,10 @@ export declare class GeoService {
      * @Return: EntityResponse<GeoReferenceData>
      */
     geoReference(body?: GeoControlPoints): import("rxjs").Observable<any>;
+    /**
+     * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
+     * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
+     * @Return: EntityResponse<GeoReferenceData>
+     */
+    transform(body?: GeoReferenceTest): import("rxjs").Observable<any>;
 }

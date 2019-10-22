@@ -812,10 +812,10 @@
        FOV (Sensor Field of View) Geo attributes
     */
     FovGeoAttributes = /** @class */ (function () {
-        function FovGeoAttributes(geoArea, visibleArea, affineCoefficients, controlPoints) {
+        function FovGeoAttributes(geoArea, visibleArea, coefficients, controlPoints) {
             this.geoArea = geoArea;
             this.visibleArea = visibleArea;
-            this.affineCoefficients = affineCoefficients;
+            this.coefficients = coefficients;
             this.controlPoints = controlPoints;
         }
         return FovGeoAttributes;
@@ -826,7 +826,7 @@
         /** @type {?} */
         FovGeoAttributes.prototype.visibleArea;
         /** @type {?} */
-        FovGeoAttributes.prototype.affineCoefficients;
+        FovGeoAttributes.prototype.coefficients;
         /** @type {?} */
         FovGeoAttributes.prototype.controlPoints;
     }
@@ -930,20 +930,10 @@
     /*
        Geo Reference data includes the contour of the raster image on the World coordinate system (WGS-84)
        and the list of transformation coefficients.
-       To transform any point (x,y) on the FOV to WGS-84 coordinate, use the following functions:
-       lng = (c0 * x) + (c1 * y) + c2
-       lat = (c3 * y) + (c4 * x) + c5
-       Where: c0..c5 are the indexed values of the coefficients vector e.g.
-       c0 = coefficients[0], c1 = coefficients[1] ... c5 = coefficients[5];
     */
     var   /*
        Geo Reference data includes the contour of the raster image on the World coordinate system (WGS-84)
        and the list of transformation coefficients.
-       To transform any point (x,y) on the FOV to WGS-84 coordinate, use the following functions:
-       lng = (c0 * x) + (c1 * y) + c2
-       lat = (c3 * y) + (c4 * x) + c5
-       Where: c0..c5 are the indexed values of the coefficients vector e.g.
-       c0 = coefficients[0], c1 = coefficients[1] ... c5 = coefficients[5];
     */
     GeoReferenceData = /** @class */ (function () {
         function GeoReferenceData(coordinates, coefficients) {
@@ -957,6 +947,32 @@
         GeoReferenceData.prototype.coordinates;
         /** @type {?} */
         GeoReferenceData.prototype.coefficients;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Geo Reference test used to test geo-referencing algorithm. The structure includes arbitrary list of points
+       and the list of transformation coefficients.
+    */
+    var   /*
+       Geo Reference test used to test geo-referencing algorithm. The structure includes arbitrary list of points
+       and the list of transformation coefficients.
+    */
+    GeoReferenceTest = /** @class */ (function () {
+        function GeoReferenceTest(points, coefficients) {
+            this.points = points;
+            this.coefficients = coefficients;
+        }
+        return GeoReferenceTest;
+    }());
+    if (false) {
+        /** @type {?} */
+        GeoReferenceTest.prototype.points;
+        /** @type {?} */
+        GeoReferenceTest.prototype.coefficients;
     }
 
     /**
@@ -7637,6 +7653,25 @@
     */
     var   /*
     */
+    GeoServicesTransformRequest = /** @class */ (function () {
+        function GeoServicesTransformRequest(body) {
+            this.body = body;
+        }
+        return GeoServicesTransformRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        GeoServicesTransformRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     IntegrationIdRequest = /** @class */ (function () {
         function IntegrationIdRequest(id) {
             this.id = id;
@@ -12878,6 +12913,28 @@
          */
         function (body) {
             return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
+         * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
+         * @Return: EntityResponse<GeoReferenceData>
+         */
+        /**
+         * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
+         * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
+         * \@Return: EntityResponse<GeoReferenceData>
+         * @param {?=} body
+         * @return {?}
+         */
+        GeoService.prototype.transform = /**
+         * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
+         * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
+         * \@Return: EntityResponse<GeoReferenceData>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/transform", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         GeoService.decorators = [
             { type: core.Injectable }
@@ -18180,9 +18237,11 @@
     exports.GeoControlPoints = GeoControlPoints;
     exports.GeoPolygon = GeoPolygon;
     exports.GeoReferenceData = GeoReferenceData;
+    exports.GeoReferenceTest = GeoReferenceTest;
     exports.GeoRule = GeoRule;
     exports.GeoService = GeoService;
     exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
+    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
     exports.HealthCheckService = HealthCheckService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.InnoviClientConfig = InnoviClientConfig;
