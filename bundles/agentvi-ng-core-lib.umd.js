@@ -1806,12 +1806,12 @@
        User registration data model - used by self registered users
     */
     UserRegistration = /** @class */ (function () {
-        function UserRegistration(name, email, mobile, defaultAccount, role, type, tempPassword, changePassword, verifyByEmail) {
+        function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail) {
             this.name = name;
             this.email = email;
             this.mobile = mobile;
             this.defaultAccount = defaultAccount;
-            this.role = role;
+            this.accountRoles = accountRoles;
             this.type = type;
             this.tempPassword = tempPassword;
             this.changePassword = changePassword;
@@ -1829,7 +1829,7 @@
         /** @type {?} */
         UserRegistration.prototype.defaultAccount;
         /** @type {?} */
-        UserRegistration.prototype.role;
+        UserRegistration.prototype.accountRoles;
         /** @type {?} */
         UserRegistration.prototype.type;
         /** @type {?} */

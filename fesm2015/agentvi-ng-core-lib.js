@@ -1679,18 +1679,18 @@ class UserRegistration {
      * @param {?=} email
      * @param {?=} mobile
      * @param {?=} defaultAccount
-     * @param {?=} role
+     * @param {?=} accountRoles
      * @param {?=} type
      * @param {?=} tempPassword
      * @param {?=} changePassword
      * @param {?=} verifyByEmail
      */
-    constructor(name, email, mobile, defaultAccount, role, type, tempPassword, changePassword, verifyByEmail) {
+    constructor(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.defaultAccount = defaultAccount;
-        this.role = role;
+        this.accountRoles = accountRoles;
         this.type = type;
         this.tempPassword = tempPassword;
         this.changePassword = changePassword;
@@ -1707,7 +1707,7 @@ if (false) {
     /** @type {?} */
     UserRegistration.prototype.defaultAccount;
     /** @type {?} */
-    UserRegistration.prototype.role;
+    UserRegistration.prototype.accountRoles;
     /** @type {?} */
     UserRegistration.prototype.type;
     /** @type {?} */
