@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 /**
  * Services for rules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -46,6 +46,11 @@ export declare class RulesService {
      * @Return: QueryResponse<Rule>
      */
     find(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Find anomaly rules by filters
+     * @Return: QueryResponse<Rule>
+     */
+    findAnomalyRules(folderId?: string, sensorId?: string, search?: string, severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get rules specifications available by account features
      * @Return: EntitiesResponse<RuleSpec>

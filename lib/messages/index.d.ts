@@ -170,6 +170,7 @@ export * from './ReportsServiceUpdateRequest';
 export * from './RuleIdRequest';
 export * from './RuleIdsRequest';
 export * from './RulesServiceCreateRequest';
+export * from './RulesServiceFindAnomalyRequest';
 export * from './RulesServiceFindRequest';
 export * from './RulesServiceUpdateRequest';
 export * from './ScheduleIdRequest';

@@ -2920,6 +2920,8 @@
         /** @type {?} */
         Rule.prototype.createClip;
         /** @type {?} */
+        Rule.prototype.lastTrainingOn;
+        /** @type {?} */
         Rule.prototype.id;
         /** @type {?} */
         Rule.prototype._type;
@@ -8726,6 +8728,43 @@
     */
     var   /*
     */
+    RulesServiceFindAnomalyRequest = /** @class */ (function () {
+        function RulesServiceFindAnomalyRequest(folderId, sensorId, search, severity, sort, page, pageSize) {
+            this.folderId = folderId;
+            this.sensorId = sensorId;
+            this.search = search;
+            this.severity = severity;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return RulesServiceFindAnomalyRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.folderId;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.sensorId;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.search;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.severity;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.sort;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.page;
+        /** @type {?} */
+        RulesServiceFindAnomalyRequest.prototype.pageSize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     RulesServiceFindRequest = /** @class */ (function () {
         function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             this.folderId = folderId;
@@ -13568,6 +13607,61 @@
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
+         * Find anomaly rules by filters
+         * @Return: QueryResponse<Rule>
+         */
+        /**
+         * Find anomaly rules by filters
+         * \@Return: QueryResponse<Rule>
+         * @param {?=} folderId
+         * @param {?=} sensorId
+         * @param {?=} search
+         * @param {?=} severity
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        RulesService.prototype.findAnomalyRules = /**
+         * Find anomaly rules by filters
+         * \@Return: QueryResponse<Rule>
+         * @param {?=} folderId
+         * @param {?=} sensorId
+         * @param {?=} search
+         * @param {?=} severity
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        function (folderId, sensorId, search, severity, sort, page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (severity != null) {
+                params.push("severity=" + severity);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/anomaly"], params));
+        };
+        /**
          * Get rules specifications available by account features
          * @Return: EntitiesResponse<RuleSpec>
          */
@@ -18307,6 +18401,7 @@
     exports.RuleSpec = RuleSpec;
     exports.RulesService = RulesService;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
+    exports.RulesServiceFindAnomalyRequest = RulesServiceFindAnomalyRequest;
     exports.RulesServiceFindRequest = RulesServiceFindRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
     exports.Schedule = Schedule;
