@@ -17018,6 +17018,25 @@ var SysUsersService = /** @class */ (function () {
         return this.rest.put(this.baseUrl + "/" + id + "/defaultAccount/" + accountId, null);
     };
     /**
+     * Reset password for user, generate one-time temporary password
+     * @Return: ActionResponse
+     */
+    /**
+     * Reset password for user, generate one-time temporary password
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    SysUsersService.prototype.resetPassword = /**
+     * Reset password for user, generate one-time temporary password
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.post(this.baseUrl + "/" + id + "/reset-password", null);
+    };
+    /**
      * Set user roles in his accounts (override previous roles)
      * @Return: EntityResponse<User>
      */

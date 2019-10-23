@@ -1,5 +1,5 @@
-import { ColorTypeCode } from '../enums/ColorTypeCode';
 import { ColorCode } from '../enums/ColorCode';
+import { ColorTypeCode } from '../enums/ColorTypeCode';
 export declare class ObjectColor {
     colorType: ColorTypeCode;
     primary: ColorCode;

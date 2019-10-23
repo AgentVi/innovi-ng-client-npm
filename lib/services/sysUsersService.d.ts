@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { UserRegistration } from '../common/UserRegistration';
+import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
-import { UserRegistration } from '../common/UserRegistration';
-import { User } from '../entities/User';
 /**
  * List of all user related actions for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -54,6 +54,11 @@ export declare class SysUsersService {
      * @Return: EntityResponse<User>
      */
     changeDefaultAccount(id?: string, accountId?: string): import("rxjs").Observable<any>;
+    /**
+     * Reset password for user, generate one-time temporary password
+     * @Return: ActionResponse
+     */
+    resetPassword(id?: string): import("rxjs").Observable<any>;
     /**
      * Set user roles in his accounts (override previous roles)
      * @Return: EntityResponse<User>
