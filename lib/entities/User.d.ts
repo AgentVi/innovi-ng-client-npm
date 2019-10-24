@@ -17,6 +17,7 @@ export declare class User extends BaseEntity {
     passwordChangedOn: number;
     accountRoles: AccountRole[];
     defaultAccount: string;
+    description: string;
     id: string;
     _type: string;
     createdOn: number;

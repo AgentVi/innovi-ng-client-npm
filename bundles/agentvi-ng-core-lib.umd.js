@@ -1806,7 +1806,7 @@
        User registration data model - used by self registered users
     */
     UserRegistration = /** @class */ (function () {
-        function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail) {
+        function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
             this.name = name;
             this.email = email;
             this.mobile = mobile;
@@ -1816,6 +1816,7 @@
             this.tempPassword = tempPassword;
             this.changePassword = changePassword;
             this.verifyByEmail = verifyByEmail;
+            this.description = description;
         }
         return UserRegistration;
     }());
@@ -1838,6 +1839,8 @@
         UserRegistration.prototype.changePassword;
         /** @type {?} */
         UserRegistration.prototype.verifyByEmail;
+        /** @type {?} */
+        UserRegistration.prototype.description;
     }
 
     /**
@@ -1915,6 +1918,8 @@
         Account.prototype.expiredOn;
         /** @type {?} */
         Account.prototype.maxChannels;
+        /** @type {?} */
+        Account.prototype.description;
         /** @type {?} */
         Account.prototype.id;
         /** @type {?} */
@@ -3435,6 +3440,8 @@
         User.prototype.accountRoles;
         /** @type {?} */
         User.prototype.defaultAccount;
+        /** @type {?} */
+        User.prototype.description;
         /** @type {?} */
         User.prototype.id;
         /** @type {?} */

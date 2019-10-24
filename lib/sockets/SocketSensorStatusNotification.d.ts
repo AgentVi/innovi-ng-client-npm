@@ -1,6 +1,6 @@
-import { SensorStatusMask } from '../enums/SensorStatusMask';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { WebSocketMessageHeader } from '../messages/WebSocketMessageHeader';
+import { SensorStatusMask } from '../enums/SensorStatusMask';
 export declare class SocketSensorStatusNotification extends WebSocketMessageHeader {
     code: number;
     error: string;

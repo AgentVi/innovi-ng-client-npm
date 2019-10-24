@@ -1,5 +1,5 @@
-import { ObjectInstance } from '../common/ObjectInstance';
 import { BoundingBox } from '../common/BoundingBox';
+import { ObjectInstance } from '../common/ObjectInstance';
 export declare class SearchResultObject {
     objectId: number;
     sensorId: string;

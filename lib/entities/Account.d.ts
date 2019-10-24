@@ -14,6 +14,7 @@ export declare class Account extends BaseEntity {
     timezone: string;
     expiredOn: number;
     maxChannels: number;
+    description: string;
     id: string;
     _type: string;
     createdOn: number;

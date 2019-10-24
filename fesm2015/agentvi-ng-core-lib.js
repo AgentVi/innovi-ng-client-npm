@@ -1684,8 +1684,9 @@ class UserRegistration {
      * @param {?=} tempPassword
      * @param {?=} changePassword
      * @param {?=} verifyByEmail
+     * @param {?=} description
      */
-    constructor(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail) {
+    constructor(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
         this.name = name;
         this.email = email;
         this.mobile = mobile;
@@ -1695,6 +1696,7 @@ class UserRegistration {
         this.tempPassword = tempPassword;
         this.changePassword = changePassword;
         this.verifyByEmail = verifyByEmail;
+        this.description = description;
     }
 }
 if (false) {
@@ -1716,6 +1718,8 @@ if (false) {
     UserRegistration.prototype.changePassword;
     /** @type {?} */
     UserRegistration.prototype.verifyByEmail;
+    /** @type {?} */
+    UserRegistration.prototype.description;
 }
 
 /**
@@ -1787,6 +1791,8 @@ if (false) {
     Account.prototype.expiredOn;
     /** @type {?} */
     Account.prototype.maxChannels;
+    /** @type {?} */
+    Account.prototype.description;
     /** @type {?} */
     Account.prototype.id;
     /** @type {?} */
@@ -3065,6 +3071,8 @@ if (false) {
     User.prototype.accountRoles;
     /** @type {?} */
     User.prototype.defaultAccount;
+    /** @type {?} */
+    User.prototype.description;
     /** @type {?} */
     User.prototype.id;
     /** @type {?} */

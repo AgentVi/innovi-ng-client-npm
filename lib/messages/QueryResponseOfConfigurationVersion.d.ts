@@ -1,5 +1,5 @@
-import { ConfigurationVersion } from '../entities/ConfigurationVersion';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ConfigurationVersion } from '../entities/ConfigurationVersion';
 export declare class QueryResponseOfConfigurationVersion extends QueryResponse {
     list: ConfigurationVersion[];
     code: number;
