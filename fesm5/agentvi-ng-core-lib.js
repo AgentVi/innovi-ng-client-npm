@@ -2981,8 +2981,6 @@ if (false) {
     /** @type {?} */
     Sensor.prototype.fovAttributes;
     /** @type {?} */
-    Sensor.prototype.optimizationEnabled;
-    /** @type {?} */
     Sensor.prototype.externalId;
     /** @type {?} */
     Sensor.prototype.tags;
