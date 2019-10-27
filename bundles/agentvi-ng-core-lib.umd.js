@@ -4210,12 +4210,12 @@
         UNSUPPORTED_FORMAT: 32,
         // [ERROR] Video stream resolution is not supported [0x0000000000000040] 
         UNSUPPORTED_RESOLUTION: 64,
-        // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000100] 
-        FRAMERATE_CRITICAL: 256,
-        // [WARNING] Video stream FPS is less than 6 for one minute [0x0000000000000200] 
-        FRAMERATE_LOW: 512,
-        // [WARNING] Video stream FPS is more than 30 for one minute [0x0000000000000400] 
-        FRAMERATE_HIGH: 1024,
+        // [WARNING] Video stream FPS is less than 6 for one minute [0x0000000000000100] 
+        FRAMERATE_LOW: 256,
+        // [WARNING] Video stream FPS is more than 30 for one minute [0x0000000000000200] 
+        FRAMERATE_HIGH: 512,
+        // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000400] 
+        FRAMERATE_CRITICAL: 1024,
         // [WARNING] Image from video source is blocked [0x0000000000001000] 
         IMAGE_BLOCKED: 4096,
         // [WARNING] Image from video source is saturated [0x0000000000002000] 
@@ -4228,9 +4228,9 @@
     SensorStatusMask[SensorStatusMask.SOURCE_ERROR] = 'SOURCE_ERROR';
     SensorStatusMask[SensorStatusMask.UNSUPPORTED_FORMAT] = 'UNSUPPORTED_FORMAT';
     SensorStatusMask[SensorStatusMask.UNSUPPORTED_RESOLUTION] = 'UNSUPPORTED_RESOLUTION';
-    SensorStatusMask[SensorStatusMask.FRAMERATE_CRITICAL] = 'FRAMERATE_CRITICAL';
     SensorStatusMask[SensorStatusMask.FRAMERATE_LOW] = 'FRAMERATE_LOW';
     SensorStatusMask[SensorStatusMask.FRAMERATE_HIGH] = 'FRAMERATE_HIGH';
+    SensorStatusMask[SensorStatusMask.FRAMERATE_CRITICAL] = 'FRAMERATE_CRITICAL';
     SensorStatusMask[SensorStatusMask.IMAGE_BLOCKED] = 'IMAGE_BLOCKED';
     SensorStatusMask[SensorStatusMask.IMAGE_SATURATED] = 'IMAGE_SATURATED';
     SensorStatusMask[SensorStatusMask.IMAGE_DARK] = 'IMAGE_DARK';
