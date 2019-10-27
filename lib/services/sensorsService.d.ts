@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 /**
  * Services for sensor actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)

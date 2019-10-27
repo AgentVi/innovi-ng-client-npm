@@ -1,6 +1,6 @@
-import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 export declare class SysSensorsServiceFindRequest {
     accountId: string;
     folderId: string;

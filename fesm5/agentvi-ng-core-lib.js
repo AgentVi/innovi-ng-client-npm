@@ -11313,7 +11313,7 @@ var AppliancesService = /** @class */ (function () {
      * @return {?}
      */
     function (id, name) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", null);
+        return this.rest.put(this.baseUrl + "/" + id + "/name/" + name, null);
     };
     /**
      * Change appliance folder
