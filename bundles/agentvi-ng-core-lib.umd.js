@@ -812,9 +812,10 @@
        FOV (Sensor Field of View) Geo attributes
     */
     FovGeoAttributes = /** @class */ (function () {
-        function FovGeoAttributes(geoArea, visibleArea, coefficients, controlPoints) {
+        function FovGeoAttributes(geoArea, visibleArea, transformType, coefficients, controlPoints) {
             this.geoArea = geoArea;
             this.visibleArea = visibleArea;
+            this.transformType = transformType;
             this.coefficients = coefficients;
             this.controlPoints = controlPoints;
         }
@@ -825,6 +826,8 @@
         FovGeoAttributes.prototype.geoArea;
         /** @type {?} */
         FovGeoAttributes.prototype.visibleArea;
+        /** @type {?} */
+        FovGeoAttributes.prototype.transformType;
         /** @type {?} */
         FovGeoAttributes.prototype.coefficients;
         /** @type {?} */
@@ -4332,6 +4335,26 @@
     TimeUnitCode[TimeUnitCode.DAY] = 'DAY';
     TimeUnitCode[TimeUnitCode.WEEK] = 'WEEK';
     TimeUnitCode[TimeUnitCode.MONTH] = 'MONTH';
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @enum {number} */
+    var TransformationTypeCode = {
+        // Transformation type not specified [0] 
+        UNDEFINED: 0,
+        // Location and azimuth based transformation [1] 
+        AZIMUTH: 1,
+        // Projective transformation based on 4 reference points [2] 
+        PT4: 2,
+        // Polynomial transformation based on 6 reference points [3] 
+        PT6: 3,
+    };
+    TransformationTypeCode[TransformationTypeCode.UNDEFINED] = 'UNDEFINED';
+    TransformationTypeCode[TransformationTypeCode.AZIMUTH] = 'AZIMUTH';
+    TransformationTypeCode[TransformationTypeCode.PT4] = 'PT4';
+    TransformationTypeCode[TransformationTypeCode.PT6] = 'PT6';
 
     /**
      * @fileoverview added by tsickle
@@ -18526,6 +18549,7 @@
     exports.TimeFrame = TimeFrame;
     exports.TimeUnitCode = TimeUnitCode;
     exports.TokenRequest = TokenRequest;
+    exports.TransformationTypeCode = TransformationTypeCode;
     exports.TreeItem = TreeItem;
     exports.TreeNode = TreeNode;
     exports.UpdateStatus = UpdateStatus;

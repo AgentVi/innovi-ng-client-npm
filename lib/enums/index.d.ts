@@ -25,6 +25,7 @@ export * from './SensorTypeCode';
 export * from './SeverityTypeCode';
 export * from './StreamTypeCode';
 export * from './TimeUnitCode';
+export * from './TransformationTypeCode';
 export * from './UserStatusCode';
 export * from './UserTypeCode';
 export * from './VisualQualityCode';
