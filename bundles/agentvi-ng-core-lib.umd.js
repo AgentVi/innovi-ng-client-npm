@@ -2376,6 +2376,8 @@
     }(BaseEntity));
     if (false) {
         /** @type {?} */
+        ConfigurationTemplate.prototype.name;
+        /** @type {?} */
         ConfigurationTemplate.prototype.dockerImage;
         /** @type {?} */
         ConfigurationTemplate.prototype.variables;
