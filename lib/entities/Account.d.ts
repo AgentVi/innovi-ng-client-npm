@@ -1,7 +1,7 @@
-import { Coordinate } from '../common/Coordinate';
-import { BaseEntity } from '../entities/BaseEntity';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Coordinate } from '../common/Coordinate';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class Account extends BaseEntity {
     name: string;
     key: string;

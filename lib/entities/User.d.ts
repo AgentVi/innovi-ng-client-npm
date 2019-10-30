@@ -1,7 +1,7 @@
-import { AccountRole } from '../common/AccountRole';
-import { BaseEntity } from '../entities/BaseEntity';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
+import { AccountRole } from '../common/AccountRole';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class User extends BaseEntity {
     name: string;
     email: string;
@@ -12,6 +12,7 @@ export declare class User extends BaseEntity {
     status: UserStatusCode;
     suspendedOn: number;
     signInAttempts: number;
+    lastSignIn: number;
     lastFailedSignIn: number;
     changePassword: boolean;
     passwordChangedOn: number;

@@ -3237,6 +3237,8 @@ if (false) {
     /** @type {?} */
     User.prototype.signInAttempts;
     /** @type {?} */
+    User.prototype.lastSignIn;
+    /** @type {?} */
     User.prototype.lastFailedSignIn;
     /** @type {?} */
     User.prototype.changePassword;
