@@ -1,5 +1,5 @@
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { RulePolygon } from '../common/RulePolygon';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 export declare class GeoRule {
     behaviorType: BehaviorTypeCode;
     dwellTime: number;

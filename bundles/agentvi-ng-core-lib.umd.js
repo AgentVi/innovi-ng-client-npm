@@ -1949,6 +1949,46 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Agent integration represents a local agent to third-party interactions.
+       The purpose is to connect the agent to another system in the local network
+       and perform integration without the dependency with the remote core services in the data center or cloud.
+       The supported integrations are:
+       - Web-hook: REST API call to http(s) endpoint (GET / POST / PUT)
+       - Web-socket: Websocket client endpoint; ws(s)
+    */
+    var   /*
+       Agent integration represents a local agent to third-party interactions.
+       The purpose is to connect the agent to another system in the local network
+       and perform integration without the dependency with the remote core services in the data center or cloud.
+       The supported integrations are:
+       - Web-hook: REST API call to http(s) endpoint (GET / POST / PUT)
+       - Web-socket: Websocket client endpoint; ws(s)
+    */
+    AgentIntegration = /** @class */ (function () {
+        function AgentIntegration(content, endpoint, operation, headers) {
+            this.content = content;
+            this.endpoint = endpoint;
+            this.operation = operation;
+            this.headers = headers;
+        }
+        return AgentIntegration;
+    }());
+    if (false) {
+        /** @type {?} */
+        AgentIntegration.prototype.content;
+        /** @type {?} */
+        AgentIntegration.prototype.endpoint;
+        /** @type {?} */
+        AgentIntegration.prototype.operation;
+        /** @type {?} */
+        AgentIntegration.prototype.headers;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        API Key is used per application (e.g. Portal, Console, Mobile App) or service (e.g. Health Service, Search Service ...) for identifying the consumer.
        The access to sets of REST endpoints is restricted according the API key.
        API key also dictates the default session TTL per application (e.g. 20 minutes for Portal or Console, 30 days for Mobile app)
@@ -2026,6 +2066,8 @@
         Appliance.prototype.configurationVersionId;
         /** @type {?} */
         Appliance.prototype.capabilities;
+        /** @type {?} */
+        Appliance.prototype.integrations;
         /** @type {?} */
         Appliance.prototype.id;
         /** @type {?} */
@@ -18132,6 +18174,7 @@
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
     exports.Agent = Agent;
+    exports.AgentIntegration = AgentIntegration;
     exports.AgentStatusCode = AgentStatusCode;
     exports.AnalysisResult = AnalysisResult;
     exports.AnomalyEventInfo = AnomalyEventInfo;

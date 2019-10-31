@@ -1,5 +1,6 @@
 export * from './Account';
 export * from './Agent';
+export * from './AgentIntegration';
 export * from './ApiKey';
 export * from './Appliance';
 export * from './ApplianceCapabilities';
