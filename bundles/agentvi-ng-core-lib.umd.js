@@ -983,33 +983,6 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Client configuration parameters (for the UI)
-    */
-    var   /*
-       Client configuration parameters (for the UI)
-    */
-    InnoviClientConfig = /** @class */ (function () {
-        function InnoviClientConfig(mapClient, mapKey, wMS) {
-            this.mapClient = mapClient;
-            this.mapKey = mapKey;
-            this.wMS = wMS;
-        }
-        return InnoviClientConfig;
-    }());
-    if (false) {
-        /** @type {?} */
-        InnoviClientConfig.prototype.mapClient;
-        /** @type {?} */
-        InnoviClientConfig.prototype.mapKey;
-        /** @type {?} */
-        InnoviClientConfig.prototype.wMS;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
        Login data (returned by the API after successful login)
     */
     var   /*
@@ -6514,30 +6487,6 @@
         EntityResponseOfGeoReferenceData.prototype.code;
         /** @type {?} */
         EntityResponseOfGeoReferenceData.prototype.error;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
-    */
-    var   /*
-    */
-    EntityResponseOfInnoviClientConfig = /** @class */ (function (_super) {
-        __extends(EntityResponseOfInnoviClientConfig, _super);
-        function EntityResponseOfInnoviClientConfig() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return EntityResponseOfInnoviClientConfig;
-    }(EntityResponse));
-    if (false) {
-        /** @type {?} */
-        EntityResponseOfInnoviClientConfig.prototype.entity;
-        /** @type {?} */
-        EntityResponseOfInnoviClientConfig.prototype.code;
-        /** @type {?} */
-        EntityResponseOfInnoviClientConfig.prototype.error;
     }
 
     /**
@@ -17638,23 +17587,6 @@
         function (body) {
             return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
         };
-        /**
-         * Get innoVi client configuration (map clients and other configurations)
-         * @Return: EntityResponse<InnoviClientConfig>
-         */
-        /**
-         * Get innoVi client configuration (map clients and other configurations)
-         * \@Return: EntityResponse<InnoviClientConfig>
-         * @return {?}
-         */
-        UserService.prototype.getConfig = /**
-         * Get innoVi client configuration (map clients and other configurations)
-         * \@Return: EntityResponse<InnoviClientConfig>
-         * @return {?}
-         */
-        function () {
-            return this.rest.get(this.baseUrl + "/config");
-        };
         UserService.decorators = [
             { type: core.Injectable }
         ];
@@ -18316,7 +18248,6 @@
     exports.EntityResponseOfFeaturesGroup = EntityResponseOfFeaturesGroup;
     exports.EntityResponseOfFolder = EntityResponseOfFolder;
     exports.EntityResponseOfGeoReferenceData = EntityResponseOfGeoReferenceData;
-    exports.EntityResponseOfInnoviClientConfig = EntityResponseOfInnoviClientConfig;
     exports.EntityResponseOfIntegration = EntityResponseOfIntegration;
     exports.EntityResponseOfLicense = EntityResponseOfLicense;
     exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
@@ -18389,7 +18320,6 @@
     exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
     exports.HealthCheckService = HealthCheckService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
-    exports.InnoviClientConfig = InnoviClientConfig;
     exports.IntegrationAction = IntegrationAction;
     exports.IntegrationIdRequest = IntegrationIdRequest;
     exports.IntegrationIdsRequest = IntegrationIdsRequest;

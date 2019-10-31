@@ -65,9 +65,4 @@ export declare class UserService {
      * @Return: EntityResponse<UserAccountInfo>
      */
     switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
-    /**
-     * Get innoVi client configuration (map clients and other configurations)
-     * @Return: EntityResponse<InnoviClientConfig>
-     */
-    getConfig(): import("rxjs").Observable<any>;
 }

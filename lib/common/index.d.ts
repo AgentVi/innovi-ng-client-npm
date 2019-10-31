@@ -24,7 +24,6 @@ export * from './GeoControlPoints';
 export * from './GeoPolygon';
 export * from './GeoReferenceData';
 export * from './GeoReferenceTest';
-export * from './InnoviClientConfig';
 export * from './LoginData';
 export * from './LoginParams';
 export * from './ObjectColor';
