@@ -2322,8 +2322,9 @@
        SW Component version type
     */
     ComponentConfiguration = /** @class */ (function () {
-        function ComponentConfiguration(id, dockerImage, variables) {
+        function ComponentConfiguration(id, component, dockerImage, variables) {
             this.id = id;
+            this.component = component;
             this.dockerImage = dockerImage;
             this.variables = variables;
         }
@@ -2332,6 +2333,8 @@
     if (false) {
         /** @type {?} */
         ComponentConfiguration.prototype.id;
+        /** @type {?} */
+        ComponentConfiguration.prototype.component;
         /** @type {?} */
         ComponentConfiguration.prototype.dockerImage;
         /** @type {?} */
