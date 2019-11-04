@@ -1,5 +1,5 @@
-import { ComponentConfiguration } from '../entities/ComponentConfiguration';
 import { BaseEntity } from '../entities/BaseEntity';
+import { ComponentConfiguration } from '../entities/ComponentConfiguration';
 export declare class ConfigurationVersion extends BaseEntity {
     configurationId: string;
     versionNum: number;
