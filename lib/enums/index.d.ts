@@ -15,6 +15,7 @@ export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
 export * from './ObjectTypeCode';
 export * from './ProductTypeCode';
+export * from './RuntimeStatusCode';
 export * from './SearchScopeCode';
 export * from './SearchTimeCode';
 export * from './SensorConfigChangeMask';

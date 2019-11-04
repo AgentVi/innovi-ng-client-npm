@@ -4109,6 +4109,26 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {number} */
+    var RuntimeStatusCode = {
+        // Undefined [0] 
+        UNDEFINED: 0,
+        // Component is defined in the configuration but not running [1] 
+        CONFIGURED: 1,
+        // Component is running on the device [2] 
+        RUNNING: 2,
+        // Component is defined in the configuration and running on the device [3] 
+        CONFIGURED_AND_RUNNING: 3,
+    };
+    RuntimeStatusCode[RuntimeStatusCode.UNDEFINED] = 'UNDEFINED';
+    RuntimeStatusCode[RuntimeStatusCode.CONFIGURED] = 'CONFIGURED';
+    RuntimeStatusCode[RuntimeStatusCode.RUNNING] = 'RUNNING';
+    RuntimeStatusCode[RuntimeStatusCode.CONFIGURED_AND_RUNNING] = 'CONFIGURED_AND_RUNNING';
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @enum {number} */
     var SearchScopeCode = {
         // Undefined [0] 
         UNDEFINED: 0,
@@ -18531,6 +18551,7 @@
     exports.RulesServiceFindAnomalyRequest = RulesServiceFindAnomalyRequest;
     exports.RulesServiceFindRequest = RulesServiceFindRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
+    exports.RuntimeStatusCode = RuntimeStatusCode;
     exports.Schedule = Schedule;
     exports.ScheduleIdRequest = ScheduleIdRequest;
     exports.ScheduleIdsRequest = ScheduleIdsRequest;
