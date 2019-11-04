@@ -36,6 +36,18 @@ export declare class SysAppliancesService {
      */
     getApplianceAgents(id?: string): import("rxjs").Observable<any>;
     /**
+     * Add agent to appliance
+     * Agent can be added to virtual appliance only
+     * @Return: EntityResponse<Agent>
+     */
+    addApplianceAgent(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Delete agent from the system
+     * Only virtual device agent can be deleted
+     * @Return: ActionResponse
+     */
+    deleteApplianceAgent(id?: string, agentId?: string): import("rxjs").Observable<any>;
+    /**
      * Find list of appliance commands and filter
      * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
      */

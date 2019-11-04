@@ -4852,6 +4852,28 @@
     */
     var   /*
     */
+    ApplianceIdAgentIdRequest = /** @class */ (function () {
+        function ApplianceIdAgentIdRequest(id, agentId) {
+            this.id = id;
+            this.agentId = agentId;
+        }
+        return ApplianceIdAgentIdRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceIdAgentIdRequest.prototype.id;
+        /** @type {?} */
+        ApplianceIdAgentIdRequest.prototype.agentId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     ApplianceIdRequest = /** @class */ (function () {
         function ApplianceIdRequest(id) {
             this.id = id;
@@ -6196,6 +6218,30 @@
         EntityResponseOfAppliance.prototype.code;
         /** @type {?} */
         EntityResponseOfAppliance.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfApplianceAgents = /** @class */ (function (_super) {
+        __extends(EntityResponseOfApplianceAgents, _super);
+        function EntityResponseOfApplianceAgents() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfApplianceAgents;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfApplianceAgents.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfApplianceAgents.prototype.code;
+        /** @type {?} */
+        EntityResponseOfApplianceAgents.prototype.error;
     }
 
     /**
@@ -15339,6 +15385,52 @@
             return this.rest.get(this.baseUrl + "/" + id + "/agents");
         };
         /**
+         * Add agent to appliance
+         * Agent can be added to virtual appliance only
+         * @Return: EntityResponse<Agent>
+         */
+        /**
+         * Add agent to appliance
+         * Agent can be added to virtual appliance only
+         * \@Return: EntityResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        SysAppliancesService.prototype.addApplianceAgent = /**
+         * Add agent to appliance
+         * Agent can be added to virtual appliance only
+         * \@Return: EntityResponse<Agent>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/agents", null);
+        };
+        /**
+         * Delete agent from the system
+         * Only virtual device agent can be deleted
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete agent from the system
+         * Only virtual device agent can be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @param {?=} agentId
+         * @return {?}
+         */
+        SysAppliancesService.prototype.deleteApplianceAgent = /**
+         * Delete agent from the system
+         * Only virtual device agent can be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @param {?=} agentId
+         * @return {?}
+         */
+        function (id, agentId) {
+            return this.rest.delete(this.baseUrl + "/" + id + "/agents/" + agentId);
+        };
+        /**
          * Find list of appliance commands and filter
          * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands
          */
@@ -18194,6 +18286,7 @@
     exports.ApplianceCommandCode = ApplianceCommandCode;
     exports.ApplianceCommandIdRequest = ApplianceCommandIdRequest;
     exports.ApplianceConfiguration = ApplianceConfiguration;
+    exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
     exports.ApplianceIdRequest = ApplianceIdRequest;
     exports.ApplianceRegistration = ApplianceRegistration;
     exports.ApplianceStatus = ApplianceStatus;
@@ -18280,6 +18373,7 @@
     exports.EntityResponseOfAccount = EntityResponseOfAccount;
     exports.EntityResponseOfApiKey = EntityResponseOfApiKey;
     exports.EntityResponseOfAppliance = EntityResponseOfAppliance;
+    exports.EntityResponseOfApplianceAgents = EntityResponseOfApplianceAgents;
     exports.EntityResponseOfApplianceStatusTimeSeries = EntityResponseOfApplianceStatusTimeSeries;
     exports.EntityResponseOfAuditLog = EntityResponseOfAuditLog;
     exports.EntityResponseOfCalendar = EntityResponseOfCalendar;
