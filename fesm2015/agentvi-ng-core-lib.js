@@ -4772,14 +4772,14 @@ if (false) {
 */
 class AppliancesServiceGetCommandsRequest {
     /**
-     * @param {?=} accountId
+     * @param {?=} id
      * @param {?=} status
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
      */
-    constructor(accountId, status, sort, page, pageSize) {
-        this.accountId = accountId;
+    constructor(id, status, sort, page, pageSize) {
+        this.id = id;
         this.status = status;
         this.sort = sort;
         this.page = page;
@@ -4788,7 +4788,7 @@ class AppliancesServiceGetCommandsRequest {
 }
 if (false) {
     /** @type {?} */
-    AppliancesServiceGetCommandsRequest.prototype.accountId;
+    AppliancesServiceGetCommandsRequest.prototype.id;
     /** @type {?} */
     AppliancesServiceGetCommandsRequest.prototype.status;
     /** @type {?} */
@@ -10594,19 +10594,16 @@ class AppliancesService {
     /**
      * Find list of appliance commands and filter
      * \@Return: EntitiesResponse<ApplianceCommand> List of appliance commands
-     * @param {?=} accountId
+     * @param {?=} id
      * @param {?=} status
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
      * @return {?}
      */
-    getCommands(accountId, status, sort, page, pageSize) {
+    getCommands(id, status, sort, page, pageSize) {
         /** @type {?} */
         const params = new Array();
-        if (accountId != null) {
-            params.push(`accountId=${accountId}`);
-        }
         if (status != null) {
             params.push(`status=${status}`);
         }
@@ -10619,7 +10616,7 @@ class AppliancesService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/commands`, ...params);
+        return this.rest.get(`${this.baseUrl}/${id}/commands`, ...params);
     }
     /**
      * Delete command

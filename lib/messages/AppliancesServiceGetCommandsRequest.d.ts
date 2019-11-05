@@ -1,9 +1,9 @@
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 export declare class AppliancesServiceGetCommandsRequest {
-    accountId: string;
+    id: string;
     status: CommandStatusCode[];
     sort: string;
     page: number;
     pageSize: number;
-    constructor(accountId?: string, status?: CommandStatusCode[], sort?: string, page?: number, pageSize?: number);
+    constructor(id?: string, status?: CommandStatusCode[], sort?: string, page?: number, pageSize?: number);
 }

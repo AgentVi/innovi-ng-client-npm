@@ -4913,8 +4913,8 @@ if (false) {
 var  /*
 */
 AppliancesServiceGetCommandsRequest = /** @class */ (function () {
-    function AppliancesServiceGetCommandsRequest(accountId, status, sort, page, pageSize) {
-        this.accountId = accountId;
+    function AppliancesServiceGetCommandsRequest(id, status, sort, page, pageSize) {
+        this.id = id;
         this.status = status;
         this.sort = sort;
         this.page = page;
@@ -4924,7 +4924,7 @@ AppliancesServiceGetCommandsRequest = /** @class */ (function () {
 }());
 if (false) {
     /** @type {?} */
-    AppliancesServiceGetCommandsRequest.prototype.accountId;
+    AppliancesServiceGetCommandsRequest.prototype.id;
     /** @type {?} */
     AppliancesServiceGetCommandsRequest.prototype.status;
     /** @type {?} */
@@ -11499,7 +11499,7 @@ var AppliancesService = /** @class */ (function () {
     /**
      * Find list of appliance commands and filter
      * \@Return: EntitiesResponse<ApplianceCommand> List of appliance commands
-     * @param {?=} accountId
+     * @param {?=} id
      * @param {?=} status
      * @param {?=} sort
      * @param {?=} page
@@ -11509,20 +11509,17 @@ var AppliancesService = /** @class */ (function () {
     AppliancesService.prototype.getCommands = /**
      * Find list of appliance commands and filter
      * \@Return: EntitiesResponse<ApplianceCommand> List of appliance commands
-     * @param {?=} accountId
+     * @param {?=} id
      * @param {?=} status
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
      * @return {?}
      */
-    function (accountId, status, sort, page, pageSize) {
+    function (id, status, sort, page, pageSize) {
         var _a;
         /** @type {?} */
         var params = new Array();
-        if (accountId != null) {
-            params.push("accountId=" + accountId);
-        }
         if (status != null) {
             params.push("status=" + status);
         }
@@ -11535,7 +11532,7 @@ var AppliancesService = /** @class */ (function () {
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/commands"], params));
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/commands"], params));
     };
     /**
      * Delete command
