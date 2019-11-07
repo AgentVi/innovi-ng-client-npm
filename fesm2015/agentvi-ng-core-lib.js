@@ -4733,8 +4733,10 @@ class AppliancesServiceFindSensorsRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(id, search, type, status, stream, sort, page, pageSize) {
+    constructor(id, search, type, status, stream, sort, page, pageSize, format, fields) {
         this.id = id;
         this.search = search;
         this.type = type;
@@ -4743,6 +4745,8 @@ class AppliancesServiceFindSensorsRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -4762,6 +4766,10 @@ if (false) {
     AppliancesServiceFindSensorsRequest.prototype.page;
     /** @type {?} */
     AppliancesServiceFindSensorsRequest.prototype.pageSize;
+    /** @type {?} */
+    AppliancesServiceFindSensorsRequest.prototype.format;
+    /** @type {?} */
+    AppliancesServiceFindSensorsRequest.prototype.fields;
 }
 
 /**
@@ -4906,8 +4914,10 @@ class AuditLogServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(userId, from, to, itemType, sort, page, pageSize) {
+    constructor(userId, from, to, itemType, sort, page, pageSize, format, fields) {
         this.userId = userId;
         this.from = from;
         this.to = to;
@@ -4915,6 +4925,8 @@ class AuditLogServiceFindRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -4932,6 +4944,10 @@ if (false) {
     AuditLogServiceFindRequest.prototype.page;
     /** @type {?} */
     AuditLogServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    AuditLogServiceFindRequest.prototype.format;
+    /** @type {?} */
+    AuditLogServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -6403,8 +6419,10 @@ class EventsServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
+    constructor(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
@@ -6417,6 +6435,8 @@ class EventsServiceFindRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -6444,6 +6464,10 @@ if (false) {
     EventsServiceFindRequest.prototype.page;
     /** @type {?} */
     EventsServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    EventsServiceFindRequest.prototype.format;
+    /** @type {?} */
+    EventsServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -7008,14 +7032,16 @@ class FoldersServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      */
-    constructor(id, search, parentId, sort, page, pageSize) {
+    constructor(id, search, parentId, sort, page, pageSize, format) {
         this.id = id;
         this.search = search;
         this.parentId = parentId;
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
     }
 }
 if (false) {
@@ -7031,6 +7057,8 @@ if (false) {
     FoldersServiceFindRequest.prototype.page;
     /** @type {?} */
     FoldersServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    FoldersServiceFindRequest.prototype.format;
 }
 
 /**
@@ -8065,8 +8093,10 @@ class RulesServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    constructor(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.sensorId = sensorId;
         this.search = search;
@@ -8075,6 +8105,8 @@ class RulesServiceFindRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -8094,6 +8126,10 @@ if (false) {
     RulesServiceFindRequest.prototype.page;
     /** @type {?} */
     RulesServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    RulesServiceFindRequest.prototype.format;
+    /** @type {?} */
+    RulesServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -8694,8 +8730,10 @@ class SensorsServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    constructor(folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.search = search;
@@ -8705,6 +8743,8 @@ class SensorsServiceFindRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -8726,6 +8766,10 @@ if (false) {
     SensorsServiceFindRequest.prototype.page;
     /** @type {?} */
     SensorsServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    SensorsServiceFindRequest.prototype.format;
+    /** @type {?} */
+    SensorsServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -9786,14 +9830,18 @@ class UsersServiceFindRequest {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      */
-    constructor(search, type, status, sort, page, pageSize) {
+    constructor(search, type, status, sort, page, pageSize, format, fields) {
         this.search = search;
         this.type = type;
         this.status = status;
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
 }
 if (false) {
@@ -9809,6 +9857,10 @@ if (false) {
     UsersServiceFindRequest.prototype.page;
     /** @type {?} */
     UsersServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.format;
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -10465,9 +10517,11 @@ class AppliancesService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize) {
+    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -10490,6 +10544,12 @@ class AppliancesService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}/${id}/sensors`, ...params);
     }
@@ -10705,9 +10765,11 @@ class AuditLogService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(userId, from, to, itemType, sort, page, pageSize) {
+    find(userId, from, to, itemType, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (userId != null) {
@@ -10730,6 +10792,12 @@ class AuditLogService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -11008,9 +11076,11 @@ class EventsService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
+    find(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (folderId != null) {
@@ -11048,6 +11118,12 @@ class EventsService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -11314,9 +11390,10 @@ class FoldersService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    find(id, search, parentId, sort, page, pageSize) {
+    find(id, search, parentId, sort, page, pageSize, format) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -11333,6 +11410,9 @@ class FoldersService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -11345,9 +11425,10 @@ class FoldersService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    getSubFolders(id, search, parentId, sort, page, pageSize) {
+    getSubFolders(id, search, parentId, sort, page, pageSize, format) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -11364,6 +11445,9 @@ class FoldersService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
         }
         return this.rest.get(`${this.baseUrl}/${id}/folders`, ...params);
     }
@@ -11376,9 +11460,10 @@ class FoldersService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    getSubItems(id, search, parentId, sort, page, pageSize) {
+    getSubItems(id, search, parentId, sort, page, pageSize, format) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -11395,6 +11480,9 @@ class FoldersService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
         }
         return this.rest.get(`${this.baseUrl}/${id}/items`, ...params);
     }
@@ -11891,9 +11979,11 @@ class RulesService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    find(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (folderId != null) {
@@ -11919,6 +12009,12 @@ class RulesService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -12536,9 +12632,11 @@ class SensorsService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    find(folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (folderId != null) {
@@ -12567,6 +12665,12 @@ class SensorsService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -14246,9 +14350,11 @@ class SysUsersService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(search, type, status, sort, page, pageSize) {
+    find(search, type, status, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -14268,6 +14374,12 @@ class SysUsersService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -14558,9 +14670,11 @@ class UsersService {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    find(search, type, status, sort, page, pageSize) {
+    find(search, type, status, sort, page, pageSize, format, fields) {
         /** @type {?} */
         const params = new Array();
         if (search != null) {
@@ -14580,6 +14694,12 @@ class UsersService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }

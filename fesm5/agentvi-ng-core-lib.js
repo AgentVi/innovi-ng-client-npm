@@ -4873,7 +4873,7 @@ if (false) {
 var  /*
 */
 AppliancesServiceFindSensorsRequest = /** @class */ (function () {
-    function AppliancesServiceFindSensorsRequest(id, search, type, status, stream, sort, page, pageSize) {
+    function AppliancesServiceFindSensorsRequest(id, search, type, status, stream, sort, page, pageSize, format, fields) {
         this.id = id;
         this.search = search;
         this.type = type;
@@ -4882,6 +4882,8 @@ AppliancesServiceFindSensorsRequest = /** @class */ (function () {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return AppliancesServiceFindSensorsRequest;
 }());
@@ -4902,6 +4904,10 @@ if (false) {
     AppliancesServiceFindSensorsRequest.prototype.page;
     /** @type {?} */
     AppliancesServiceFindSensorsRequest.prototype.pageSize;
+    /** @type {?} */
+    AppliancesServiceFindSensorsRequest.prototype.format;
+    /** @type {?} */
+    AppliancesServiceFindSensorsRequest.prototype.fields;
 }
 
 /**
@@ -5032,7 +5038,7 @@ if (false) {
 var  /*
 */
 AuditLogServiceFindRequest = /** @class */ (function () {
-    function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize) {
+    function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize, format, fields) {
         this.userId = userId;
         this.from = from;
         this.to = to;
@@ -5040,6 +5046,8 @@ AuditLogServiceFindRequest = /** @class */ (function () {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return AuditLogServiceFindRequest;
 }());
@@ -5058,6 +5066,10 @@ if (false) {
     AuditLogServiceFindRequest.prototype.page;
     /** @type {?} */
     AuditLogServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    AuditLogServiceFindRequest.prototype.format;
+    /** @type {?} */
+    AuditLogServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -6908,7 +6920,7 @@ if (false) {
 var  /*
 */
 EventsServiceFindRequest = /** @class */ (function () {
-    function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
+    function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
@@ -6921,6 +6933,8 @@ EventsServiceFindRequest = /** @class */ (function () {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return EventsServiceFindRequest;
 }());
@@ -6949,6 +6963,10 @@ if (false) {
     EventsServiceFindRequest.prototype.page;
     /** @type {?} */
     EventsServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    EventsServiceFindRequest.prototype.format;
+    /** @type {?} */
+    EventsServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -7485,13 +7503,14 @@ if (false) {
 var  /*
 */
 FoldersServiceFindRequest = /** @class */ (function () {
-    function FoldersServiceFindRequest(id, search, parentId, sort, page, pageSize) {
+    function FoldersServiceFindRequest(id, search, parentId, sort, page, pageSize, format) {
         this.id = id;
         this.search = search;
         this.parentId = parentId;
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
     }
     return FoldersServiceFindRequest;
 }());
@@ -7508,6 +7527,8 @@ if (false) {
     FoldersServiceFindRequest.prototype.page;
     /** @type {?} */
     FoldersServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    FoldersServiceFindRequest.prototype.format;
 }
 
 /**
@@ -8667,7 +8688,7 @@ if (false) {
 var  /*
 */
 RulesServiceFindRequest = /** @class */ (function () {
-    function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.sensorId = sensorId;
         this.search = search;
@@ -8676,6 +8697,8 @@ RulesServiceFindRequest = /** @class */ (function () {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return RulesServiceFindRequest;
 }());
@@ -8696,6 +8719,10 @@ if (false) {
     RulesServiceFindRequest.prototype.page;
     /** @type {?} */
     RulesServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    RulesServiceFindRequest.prototype.format;
+    /** @type {?} */
+    RulesServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -9271,7 +9298,7 @@ if (false) {
 var  /*
 */
 SensorsServiceFindRequest = /** @class */ (function () {
-    function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.search = search;
@@ -9281,6 +9308,8 @@ SensorsServiceFindRequest = /** @class */ (function () {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return SensorsServiceFindRequest;
 }());
@@ -9303,6 +9332,10 @@ if (false) {
     SensorsServiceFindRequest.prototype.page;
     /** @type {?} */
     SensorsServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    SensorsServiceFindRequest.prototype.format;
+    /** @type {?} */
+    SensorsServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -10299,13 +10332,15 @@ if (false) {
 var  /*
 */
 UsersServiceFindRequest = /** @class */ (function () {
-    function UsersServiceFindRequest(search, type, status, sort, page, pageSize) {
+    function UsersServiceFindRequest(search, type, status, sort, page, pageSize, format, fields) {
         this.search = search;
         this.type = type;
         this.status = status;
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.format = format;
+        this.fields = fields;
     }
     return UsersServiceFindRequest;
 }());
@@ -10322,6 +10357,10 @@ if (false) {
     UsersServiceFindRequest.prototype.page;
     /** @type {?} */
     UsersServiceFindRequest.prototype.pageSize;
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.format;
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.fields;
 }
 
 /**
@@ -11243,6 +11282,8 @@ var AppliancesService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     AppliancesService.prototype.findApplianceSensors = /**
@@ -11256,9 +11297,11 @@ var AppliancesService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (id, search, type, status, stream, sort, page, pageSize) {
+    function (id, search, type, status, stream, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -11282,6 +11325,12 @@ var AppliancesService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
     };
@@ -11647,6 +11696,8 @@ var AuditLogService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     AuditLogService.prototype.find = /**
@@ -11659,9 +11710,11 @@ var AuditLogService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (userId, from, to, itemType, sort, page, pageSize) {
+    function (userId, from, to, itemType, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -11685,6 +11738,12 @@ var AuditLogService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -12118,6 +12177,8 @@ var EventsService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     EventsService.prototype.find = /**
@@ -12135,9 +12196,11 @@ var EventsService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
+    function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -12176,6 +12239,12 @@ var EventsService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -12600,6 +12669,7 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
     FoldersService.prototype.find = /**
@@ -12611,9 +12681,10 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    function (id, search, parentId, sort, page, pageSize) {
+    function (id, search, parentId, sort, page, pageSize, format) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -12631,6 +12702,9 @@ var FoldersService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -12647,6 +12721,7 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
     FoldersService.prototype.getSubFolders = /**
@@ -12658,9 +12733,10 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    function (id, search, parentId, sort, page, pageSize) {
+    function (id, search, parentId, sort, page, pageSize, format) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -12678,6 +12754,9 @@ var FoldersService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
     };
@@ -12694,6 +12773,7 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
     FoldersService.prototype.getSubItems = /**
@@ -12705,9 +12785,10 @@ var FoldersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
      * @return {?}
      */
-    function (id, search, parentId, sort, page, pageSize) {
+    function (id, search, parentId, sort, page, pageSize, format) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -12725,6 +12806,9 @@ var FoldersService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/items"], params));
     };
@@ -13459,6 +13543,8 @@ var RulesService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     RulesService.prototype.find = /**
@@ -13472,9 +13558,11 @@ var RulesService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -13501,6 +13589,12 @@ var RulesService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -14485,6 +14579,8 @@ var SensorsService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     SensorsService.prototype.find = /**
@@ -14499,9 +14595,11 @@ var SensorsService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    function (folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -14531,6 +14629,12 @@ var SensorsService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -17270,6 +17374,8 @@ var SysUsersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     SysUsersService.prototype.find = /**
@@ -17281,9 +17387,11 @@ var SysUsersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (search, type, status, sort, page, pageSize) {
+    function (search, type, status, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -17304,6 +17412,12 @@ var SysUsersService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
@@ -17798,6 +17912,8 @@ var UsersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
     UsersService.prototype.find = /**
@@ -17810,9 +17926,11 @@ var UsersService = /** @class */ (function () {
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
+     * @param {?=} format
+     * @param {?=} fields
      * @return {?}
      */
-    function (search, type, status, sort, page, pageSize) {
+    function (search, type, status, sort, page, pageSize, format, fields) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -17833,6 +17951,12 @@ var UsersService = /** @class */ (function () {
         }
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
         }
         return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };

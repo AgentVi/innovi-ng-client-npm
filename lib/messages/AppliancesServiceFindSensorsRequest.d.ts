@@ -10,5 +10,7 @@ export declare class AppliancesServiceFindSensorsRequest {
     sort: string;
     page: number;
     pageSize: number;
-    constructor(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number);
+    format: string;
+    fields: string[];
+    constructor(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]);
 }

@@ -73,7 +73,7 @@ export declare class SensorsService {
      * Find sensors by filters
      * @Return: QueryResponse<Sensor>
      */
-    find(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image

@@ -35,7 +35,7 @@ export declare class AppliancesService {
      * Get all sensors assigned to the appliance (getSensors)
      * @Return: QueryResponse<Sensor>
      */
-    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>

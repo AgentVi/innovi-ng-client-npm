@@ -17,7 +17,7 @@ export declare class AuditLogService {
      * Find list of audit log entries and filter
      * @Return: QueryResponse<AuditLog>
      */
-    find(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Get single audit log entry by id
      * @Return: EntityResponse<Appliance>
