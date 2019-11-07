@@ -7044,7 +7044,7 @@ if (false) {
 var  /*
 */
 EventsServiceStatisticsRequest = /** @class */ (function () {
-    function EventsServiceStatisticsRequest(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+    function EventsServiceStatisticsRequest(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, label) {
         this.folderId = folderId;
         this.sensorId = sensorId;
         this.objectType = objectType;
@@ -7053,7 +7053,7 @@ EventsServiceStatisticsRequest = /** @class */ (function () {
         this.from = from;
         this.to = to;
         this.interval = interval;
-        this.format = format;
+        this.label = label;
     }
     return EventsServiceStatisticsRequest;
 }());
@@ -7075,7 +7075,7 @@ if (false) {
     /** @type {?} */
     EventsServiceStatisticsRequest.prototype.interval;
     /** @type {?} */
-    EventsServiceStatisticsRequest.prototype.format;
+    EventsServiceStatisticsRequest.prototype.label;
 }
 
 /**
@@ -12371,7 +12371,7 @@ var EventsService = /** @class */ (function () {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} format
+     * @param {?=} label
      * @return {?}
      */
     EventsService.prototype.getEventsCountOvertime = /**
@@ -12385,10 +12385,10 @@ var EventsService = /** @class */ (function () {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} format
+     * @param {?=} label
      * @return {?}
      */
-    function (folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+    function (folderId, sensorId, objectType, behaviorType, severity, from, to, interval, label) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -12416,8 +12416,8 @@ var EventsService = /** @class */ (function () {
         if (interval != null) {
             params.push("interval=" + interval);
         }
-        if (format != null) {
-            params.push("format=" + format);
+        if (label != null) {
+            params.push("label=" + label);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/overtime"], params));
     };

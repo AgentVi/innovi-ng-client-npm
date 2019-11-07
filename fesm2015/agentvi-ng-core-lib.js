@@ -6555,9 +6555,9 @@ class EventsServiceStatisticsRequest {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} format
+     * @param {?=} label
      */
-    constructor(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+    constructor(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, label) {
         this.folderId = folderId;
         this.sensorId = sensorId;
         this.objectType = objectType;
@@ -6566,7 +6566,7 @@ class EventsServiceStatisticsRequest {
         this.from = from;
         this.to = to;
         this.interval = interval;
-        this.format = format;
+        this.label = label;
     }
 }
 if (false) {
@@ -6587,7 +6587,7 @@ if (false) {
     /** @type {?} */
     EventsServiceStatisticsRequest.prototype.interval;
     /** @type {?} */
-    EventsServiceStatisticsRequest.prototype.format;
+    EventsServiceStatisticsRequest.prototype.label;
 }
 
 /**
@@ -11206,10 +11206,10 @@ class EventsService {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} format
+     * @param {?=} label
      * @return {?}
      */
-    getEventsCountOvertime(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, format) {
+    getEventsCountOvertime(folderId, sensorId, objectType, behaviorType, severity, from, to, interval, label) {
         /** @type {?} */
         const params = new Array();
         if (folderId != null) {
@@ -11236,8 +11236,8 @@ class EventsService {
         if (interval != null) {
             params.push(`interval=${interval}`);
         }
-        if (format != null) {
-            params.push(`format=${format}`);
+        if (label != null) {
+            params.push(`label=${label}`);
         }
         return this.rest.get(`${this.baseUrl}/overtime`, ...params);
     }
