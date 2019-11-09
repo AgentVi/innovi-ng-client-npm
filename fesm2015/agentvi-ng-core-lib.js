@@ -12901,6 +12901,15 @@ class SysAccountsService {
         return this.rest.delete(`${this.baseUrl}/purge/${id}`);
     }
     /**
+     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    reset(id) {
+        return this.rest.delete(`${this.baseUrl}/reset/${id}`);
+    }
+    /**
      * Get single account by id
      * \@Return: EntityResponse<Account>
      * @param {?=} id

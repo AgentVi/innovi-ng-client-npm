@@ -75,6 +75,11 @@ export declare class SysAccountsService {
      */
     purge(id?: string): import("rxjs").Observable<any>;
     /**
+     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * @Return: ActionResponse
+     */
+    reset(id?: string): import("rxjs").Observable<any>;
+    /**
      * Get single account by id
      * @Return: EntityResponse<Account>
      */

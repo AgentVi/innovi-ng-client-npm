@@ -15049,6 +15049,25 @@ var SysAccountsService = /** @class */ (function () {
         return this.rest.delete(this.baseUrl + "/purge/" + id);
     };
     /**
+     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * @Return: ActionResponse
+     */
+    /**
+     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    SysAccountsService.prototype.reset = /**
+     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.delete(this.baseUrl + "/reset/" + id);
+    };
+    /**
      * Get single account by id
      * @Return: EntityResponse<Account>
      */
