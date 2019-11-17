@@ -50,4 +50,9 @@ export declare class CalendarsService {
      * @Return: EntitiesResponse<Calendar>
      */
     getFolderCalendars(folderId?: string): import("rxjs").Observable<any>;
+    /**
+     * Import calendar from outlook CSV file or iCal
+     * @Return: ActionResponse
+     */
+    import(): import("rxjs").Observable<any>;
 }
