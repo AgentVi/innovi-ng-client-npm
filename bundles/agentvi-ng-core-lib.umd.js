@@ -2926,6 +2926,8 @@
         /** @type {?} */
         Rule.prototype.scheduleId;
         /** @type {?} */
+        Rule.prototype.enabled;
+        /** @type {?} */
         Rule.prototype.active;
         /** @type {?} */
         Rule.prototype.externalId;
@@ -13663,6 +13665,56 @@
             return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
+         * Enable list of rules
+         * @Return: ActionResponse
+         */
+        /**
+         * Enable list of rules
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        RulesService.prototype.enable = /**
+         * Enable list of rules
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/enable", null], params));
+        };
+        /**
+         * Disable list of rules
+         * @Return: ActionResponse
+         */
+        /**
+         * Disable list of rules
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        RulesService.prototype.disable = /**
+         * Disable list of rules
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/disable", null], params));
+        };
+        /**
          * Delete rule from the system
          * @Return: ActionResponse
          */
@@ -14677,25 +14729,42 @@
             return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/fov", typeof body === 'object' ? JSON.stringify(body) : body], params));
         };
         /**
-         * Change sensor status
+         * Enable (activate) sensor
          * @Return: EntityResponse<Sensor>
          */
         /**
-         * Change sensor status
+         * Enable (activate) sensor
          * \@Return: EntityResponse<Sensor>
          * @param {?=} id
-         * @param {?=} status
          * @return {?}
          */
-        SensorsService.prototype.changeStatus = /**
-         * Change sensor status
+        SensorsService.prototype.enable = /**
+         * Enable (activate) sensor
          * \@Return: EntityResponse<Sensor>
          * @param {?=} id
-         * @param {?=} status
          * @return {?}
          */
-        function (id, status) {
-            return this.rest.put(this.baseUrl + "/" + id + "/status/" + status, null);
+        function (id) {
+            return this.rest.put(this.baseUrl + "/" + id + "/enable", null);
+        };
+        /**
+         * Disable (de-activate) sensor
+         * @Return: EntityResponse<Sensor>
+         */
+        /**
+         * Disable (de-activate) sensor
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @return {?}
+         */
+        SensorsService.prototype.disable = /**
+         * Disable (de-activate) sensor
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.put(this.baseUrl + "/" + id + "/disable", null);
         };
         /**
          * Delete sensor from the system

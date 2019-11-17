@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 /**
  * Services for sensor actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -50,10 +50,15 @@ export declare class SensorsService {
      */
     changeFovAttributes(id?: string, azimuth?: number, body?: FovGeoAttributes): import("rxjs").Observable<any>;
     /**
-     * Change sensor status
+     * Enable (activate) sensor
      * @Return: EntityResponse<Sensor>
      */
-    changeStatus(id?: string, status?: SensorStatusCode): import("rxjs").Observable<any>;
+    enable(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Disable (de-activate) sensor
+     * @Return: EntityResponse<Sensor>
+     */
+    disable(id?: string): import("rxjs").Observable<any>;
     /**
      * Delete sensor from the system
      * @Return: ActionResponse

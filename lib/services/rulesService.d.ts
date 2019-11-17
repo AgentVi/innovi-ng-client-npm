@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 /**
  * Services for rules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -26,6 +26,16 @@ export declare class RulesService {
      * @Return: EntityResponse<Rule>
      */
     update(id?: string, body?: Rule): import("rxjs").Observable<any>;
+    /**
+     * Enable list of rules
+     * @Return: ActionResponse
+     */
+    enable(id?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Disable list of rules
+     * @Return: ActionResponse
+     */
+    disable(id?: string[]): import("rxjs").Observable<any>;
     /**
      * Delete rule from the system
      * @Return: ActionResponse

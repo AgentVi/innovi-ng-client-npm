@@ -1,15 +1,16 @@
-import { Sensitivity } from '../common/Sensitivity';
-import { RulePolygon } from '../common/RulePolygon';
-import { BaseEntity } from '../entities/BaseEntity';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { Sensitivity } from '../common/Sensitivity';
+import { RulePolygon } from '../common/RulePolygon';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class Rule extends BaseEntity {
     accountId: string;
     sensorId: string;
     name: string;
     description: string;
     scheduleId: string;
+    enabled: boolean;
     active: boolean;
     externalId: string;
     behaviorType: BehaviorTypeCode;

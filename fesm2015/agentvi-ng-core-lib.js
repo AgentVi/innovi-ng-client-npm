@@ -2635,6 +2635,8 @@ if (false) {
     /** @type {?} */
     Rule.prototype.scheduleId;
     /** @type {?} */
+    Rule.prototype.enabled;
+    /** @type {?} */
     Rule.prototype.active;
     /** @type {?} */
     Rule.prototype.externalId;
@@ -11937,6 +11939,34 @@ class RulesService {
         return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
+     * Enable list of rules
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    enable(id) {
+        /** @type {?} */
+        const params = new Array();
+        if (id != null) {
+            params.push(`id=${id}`);
+        }
+        return this.rest.put(`${this.baseUrl}/enable`, null, ...params);
+    }
+    /**
+     * Disable list of rules
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    disable(id) {
+        /** @type {?} */
+        const params = new Array();
+        if (id != null) {
+            params.push(`id=${id}`);
+        }
+        return this.rest.put(`${this.baseUrl}/disable`, null, ...params);
+    }
+    /**
      * Delete rule from the system
      * \@Return: ActionResponse
      * @param {?=} id
@@ -12579,14 +12609,22 @@ class SensorsService {
         return this.rest.put(`${this.baseUrl}/${id}/fov`, typeof body === 'object' ? JSON.stringify(body) : body, ...params);
     }
     /**
-     * Change sensor status
+     * Enable (activate) sensor
      * \@Return: EntityResponse<Sensor>
      * @param {?=} id
-     * @param {?=} status
      * @return {?}
      */
-    changeStatus(id, status) {
-        return this.rest.put(`${this.baseUrl}/${id}/status/${status}`, null);
+    enable(id) {
+        return this.rest.put(`${this.baseUrl}/${id}/enable`, null);
+    }
+    /**
+     * Disable (de-activate) sensor
+     * \@Return: EntityResponse<Sensor>
+     * @param {?=} id
+     * @return {?}
+     */
+    disable(id) {
+        return this.rest.put(`${this.baseUrl}/${id}/disable`, null);
     }
     /**
      * Delete sensor from the system
