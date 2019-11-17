@@ -18036,7 +18036,7 @@
          * @return {?}
          */
         function (id, body) {
-            return this.rest.post(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Change user name
@@ -18100,27 +18100,6 @@
          */
         function (id, type) {
             return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-        };
-        /**
-         * Change user role
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user role
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} role
-         * @return {?}
-         */
-        UsersService.prototype.changeRole = /**
-         * Change user role
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} role
-         * @return {?}
-         */
-        function (id, role) {
-            return this.rest.put(this.baseUrl + "/" + id + "/role/" + role, null);
         };
         /**
          * Delete user from the system

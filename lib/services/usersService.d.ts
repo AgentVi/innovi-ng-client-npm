@@ -3,7 +3,6 @@ import { CoreConfig } from '../../config';
 import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
-import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 /**
  * List of all user related actions for account administrator only
@@ -42,11 +41,6 @@ export declare class UsersService {
      * @Return: EntityResponse<User>
      */
     changeType(id?: string, type?: UserTypeCode): import("rxjs").Observable<any>;
-    /**
-     * Change user role
-     * @Return: EntityResponse<User>
-     */
-    changeRole(id?: string, role?: AccountRoleCode): import("rxjs").Observable<any>;
     /**
      * Delete user from the system
      * The user will be removed from the account, if no accounts associated with the user, it will be deleted

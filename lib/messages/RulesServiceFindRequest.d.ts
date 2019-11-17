@@ -1,5 +1,5 @@
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 export declare class RulesServiceFindRequest {
     folderId: string;
     sensorId: string;

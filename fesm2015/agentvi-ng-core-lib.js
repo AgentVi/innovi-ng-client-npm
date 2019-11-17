@@ -14637,7 +14637,7 @@ class UsersService {
      * @return {?}
      */
     update(id, body) {
-        return this.rest.post(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
+        return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
      * Change user name
@@ -14668,16 +14668,6 @@ class UsersService {
      */
     changeType(id, type) {
         return this.rest.put(`${this.baseUrl}/${id}/type/${type}`, null);
-    }
-    /**
-     * Change user role
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} role
-     * @return {?}
-     */
-    changeRole(id, role) {
-        return this.rest.put(`${this.baseUrl}/${id}/role/${role}`, null);
     }
     /**
      * Delete user from the system
