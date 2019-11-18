@@ -5392,6 +5392,50 @@
     */
     var   /*
     */
+    CalendarsServiceImportRequest = /** @class */ (function () {
+        function CalendarsServiceImportRequest(content, folderId) {
+            this.content = content;
+            this.folderId = folderId;
+        }
+        return CalendarsServiceImportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        CalendarsServiceImportRequest.prototype.content;
+        /** @type {?} */
+        CalendarsServiceImportRequest.prototype.folderId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    CalendarsServiceImportUrlRequest = /** @class */ (function () {
+        function CalendarsServiceImportUrlRequest(folderId, body) {
+            this.folderId = folderId;
+            this.body = body;
+        }
+        return CalendarsServiceImportUrlRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        CalendarsServiceImportUrlRequest.prototype.folderId;
+        /** @type {?} */
+        CalendarsServiceImportUrlRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     CalendarsServiceUpdateRequest = /** @class */ (function () {
         function CalendarsServiceUpdateRequest(id, body) {
             this.id = id;
@@ -12190,21 +12234,56 @@
             return this.rest.get(this.baseUrl + "/folder/" + folderId);
         };
         /**
-         * Import calendar from outlook CSV file or iCal
+         * Import calendar from outlook CSV, ICS or iCal file
          * @Return: ActionResponse
          */
         /**
-         * Import calendar from outlook CSV file or iCal
+         * Import calendar from outlook CSV, ICS or iCal file
          * \@Return: ActionResponse
+         * @param {?=} folderId
          * @return {?}
          */
         CalendarsService.prototype.import = /**
-         * Import calendar from outlook CSV file or iCal
+         * Import calendar from outlook CSV, ICS or iCal file
          * \@Return: ActionResponse
+         * @param {?=} folderId
          * @return {?}
          */
-        function () {
-            return this.rest.post(this.baseUrl + "/import", null);
+        function (folderId) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/import", null], params));
+        };
+        /**
+         * Import calendar from Url (ICS or iCal formats)
+         * @Return: ActionResponse
+         */
+        /**
+         * Import calendar from Url (ICS or iCal formats)
+         * \@Return: ActionResponse
+         * @param {?=} folderId
+         * @param {?=} body
+         * @return {?}
+         */
+        CalendarsService.prototype.importUrl = /**
+         * Import calendar from Url (ICS or iCal formats)
+         * \@Return: ActionResponse
+         * @param {?=} folderId
+         * @param {?=} body
+         * @return {?}
+         */
+        function (folderId, body) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/importUrl", typeof body === 'object' ? JSON.stringify(body) : body], params));
         };
         CalendarsService.decorators = [
             { type: core.Injectable }
@@ -18558,6 +18637,8 @@
     exports.CalendarsServiceCreateRequest = CalendarsServiceCreateRequest;
     exports.CalendarsServiceFindRequest = CalendarsServiceFindRequest;
     exports.CalendarsServiceFolderIdRequest = CalendarsServiceFolderIdRequest;
+    exports.CalendarsServiceImportRequest = CalendarsServiceImportRequest;
+    exports.CalendarsServiceImportUrlRequest = CalendarsServiceImportUrlRequest;
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;

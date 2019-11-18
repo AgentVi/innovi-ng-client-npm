@@ -34,6 +34,8 @@ export * from './CalendarIdsRequest';
 export * from './CalendarsServiceCreateRequest';
 export * from './CalendarsServiceFindRequest';
 export * from './CalendarsServiceFolderIdRequest';
+export * from './CalendarsServiceImportRequest';
+export * from './CalendarsServiceImportUrlRequest';
 export * from './CalendarsServiceUpdateRequest';
 export * from './ChangeGeoAreaRequest';
 export * from './ChangeGeoLocationRequest';

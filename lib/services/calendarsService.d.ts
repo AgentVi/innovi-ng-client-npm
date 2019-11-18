@@ -51,8 +51,13 @@ export declare class CalendarsService {
      */
     getFolderCalendars(folderId?: string): import("rxjs").Observable<any>;
     /**
-     * Import calendar from outlook CSV file or iCal
+     * Import calendar from outlook CSV, ICS or iCal file
      * @Return: ActionResponse
      */
-    import(): import("rxjs").Observable<any>;
+    import(folderId?: string): import("rxjs").Observable<any>;
+    /**
+     * Import calendar from Url (ICS or iCal formats)
+     * @Return: ActionResponse
+     */
+    importUrl(folderId?: string, body?: string): import("rxjs").Observable<any>;
 }
