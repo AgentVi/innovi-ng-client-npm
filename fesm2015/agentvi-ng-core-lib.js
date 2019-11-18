@@ -2106,7 +2106,7 @@ if (false) {
  */
 /*
    Calendar is a list of absolute time frames (representing events or holidays) to specify active analytics
-   Calendar time frames override the schedule e.g. if the current time falls into a scheduled time frame (non-active analytics) but also during a calendar time frame, analytics shall be active
+   Calendar time frames override the schedule e.g. if the current time falls into a non-scheduled time frame (non-active analytics) but also during a calendar time frame, analytics shall be active
 */
 class Calendar extends BaseEntity {
 }
@@ -2676,7 +2676,7 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Schedule is a list of recurrent time frames to specify non-active analytics
+   Schedule is a list of recurrent time frames to specify active analytics
    Schedule is associated with account and optionally with folder and multiple schedules can be specified.
    When defining a rule, it can be scheduled by one of the schedules associated with the sensor's folder, it's parent folder, it's parent's parent folder and so on up to the account
 */
