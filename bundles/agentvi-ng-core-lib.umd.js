@@ -1261,8 +1261,8 @@
        Schedule recurrent time frame
     */
     RecurrentTimeFrame = /** @class */ (function () {
-        function RecurrentTimeFrame(daysOfWeek, startTime, endTime) {
-            this.daysOfWeek = daysOfWeek;
+        function RecurrentTimeFrame(dayOfWeek, startTime, endTime) {
+            this.dayOfWeek = dayOfWeek;
             this.startTime = startTime;
             this.endTime = endTime;
         }
@@ -1270,7 +1270,7 @@
     }());
     if (false) {
         /** @type {?} */
-        RecurrentTimeFrame.prototype.daysOfWeek;
+        RecurrentTimeFrame.prototype.dayOfWeek;
         /** @type {?} */
         RecurrentTimeFrame.prototype.startTime;
         /** @type {?} */

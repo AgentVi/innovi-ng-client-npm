@@ -1,7 +1,7 @@
 import { DayOfWeekCode } from '../enums/DayOfWeekCode';
 export declare class RecurrentTimeFrame {
-    daysOfWeek: DayOfWeekCode;
+    dayOfWeek: DayOfWeekCode;
     startTime: string;
     endTime: string;
-    constructor(daysOfWeek?: DayOfWeekCode, startTime?: string, endTime?: string);
+    constructor(dayOfWeek?: DayOfWeekCode, startTime?: string, endTime?: string);
 }

@@ -1107,19 +1107,19 @@ if (false) {
 */
 class RecurrentTimeFrame {
     /**
-     * @param {?=} daysOfWeek
+     * @param {?=} dayOfWeek
      * @param {?=} startTime
      * @param {?=} endTime
      */
-    constructor(daysOfWeek, startTime, endTime) {
-        this.daysOfWeek = daysOfWeek;
+    constructor(dayOfWeek, startTime, endTime) {
+        this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
     }
 }
 if (false) {
     /** @type {?} */
-    RecurrentTimeFrame.prototype.daysOfWeek;
+    RecurrentTimeFrame.prototype.dayOfWeek;
     /** @type {?} */
     RecurrentTimeFrame.prototype.startTime;
     /** @type {?} */

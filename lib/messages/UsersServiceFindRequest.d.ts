@@ -1,5 +1,5 @@
-import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
+import { UserTypeCode } from '../enums/UserTypeCode';
 export declare class UsersServiceFindRequest {
     search: string;
     type: UserTypeCode[];
