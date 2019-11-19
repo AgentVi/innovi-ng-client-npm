@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
-import { Rule } from '../entities/Rule';
 /**
  * Services for rules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)

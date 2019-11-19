@@ -18139,7 +18139,7 @@
          * @return {?}
          */
         function (id) {
-            return this.rest.post(this.baseUrl + "/invite/" + id, null);
+            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
         };
         /**
          * Update user
