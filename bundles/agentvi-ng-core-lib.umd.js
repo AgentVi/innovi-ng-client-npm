@@ -18120,6 +18120,28 @@
             return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: ActionResponse
+         */
+        /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.reInvite = /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.post(this.baseUrl + "/invite/" + id, null);
+        };
+        /**
          * Update user
          * @Return: EntityResponse<User>
          */
