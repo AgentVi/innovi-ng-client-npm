@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 /**
  * Services for rules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -55,7 +55,12 @@ export declare class RulesService {
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */
-    find(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    find(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of rules and filter
+     * @Return: StreamContent
+     */
+    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>

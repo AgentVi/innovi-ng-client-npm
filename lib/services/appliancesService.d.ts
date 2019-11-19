@@ -1,6 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
@@ -8,6 +7,7 @@ import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -26,6 +26,11 @@ export declare class AppliancesService {
      * @Return: QueryResponse<Appliance>
      */
     find(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of appliances and filter
+     * @Return: StreamContent
+     */
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>

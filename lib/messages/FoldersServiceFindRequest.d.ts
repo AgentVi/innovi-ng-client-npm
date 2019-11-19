@@ -5,6 +5,5 @@ export declare class FoldersServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
-    format: string;
-    constructor(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number, format?: string);
+    constructor(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number);
 }

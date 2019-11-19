@@ -68,5 +68,10 @@ export declare class UsersService {
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * @Return: QueryResponse<User>
      */
-    find(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    find(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of users and filter
+     * @Return: StreamContent
+     */
+    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
 }

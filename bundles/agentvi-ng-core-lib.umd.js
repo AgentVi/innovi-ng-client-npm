@@ -4656,6 +4656,40 @@
     */
     var   /*
     */
+    AccountsServiceExportRequest = /** @class */ (function () {
+        function AccountsServiceExportRequest(name, type, status, sort, format, fields) {
+            this.name = name;
+            this.type = type;
+            this.status = status;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return AccountsServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.name;
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.type;
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.status;
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.format;
+        /** @type {?} */
+        AccountsServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AccountsServiceFindRequest = /** @class */ (function () {
         function AccountsServiceFindRequest(search, type, status, sort, page, pageSize) {
             this.search = search;
@@ -5040,6 +5074,43 @@
     */
     var   /*
     */
+    AppliancesServiceExportRequest = /** @class */ (function () {
+        function AppliancesServiceExportRequest(folderId, subFolders, search, status, sort, format, fields) {
+            this.folderId = folderId;
+            this.subFolders = subFolders;
+            this.search = search;
+            this.status = status;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return AppliancesServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.folderId;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.subFolders;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.search;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.status;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.format;
+        /** @type {?} */
+        AppliancesServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AppliancesServiceFindRequest = /** @class */ (function () {
         function AppliancesServiceFindRequest(folderId, subFolders, search, status, sort, page, pageSize) {
             this.folderId = folderId;
@@ -5242,8 +5313,45 @@
     */
     var   /*
     */
+    AuditLogServiceExportRequest = /** @class */ (function () {
+        function AuditLogServiceExportRequest(userId, from, to, itemType, sort, format, fields) {
+            this.userId = userId;
+            this.from = from;
+            this.to = to;
+            this.itemType = itemType;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return AuditLogServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.userId;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.from;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.to;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.itemType;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.format;
+        /** @type {?} */
+        AuditLogServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AuditLogServiceFindRequest = /** @class */ (function () {
-        function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize, format, fields) {
+        function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize) {
             this.userId = userId;
             this.from = from;
             this.to = to;
@@ -5251,8 +5359,6 @@
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
-            this.fields = fields;
         }
         return AuditLogServiceFindRequest;
     }());
@@ -5271,10 +5377,6 @@
         AuditLogServiceFindRequest.prototype.page;
         /** @type {?} */
         AuditLogServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        AuditLogServiceFindRequest.prototype.format;
-        /** @type {?} */
-        AuditLogServiceFindRequest.prototype.fields;
     }
 
     /**
@@ -7119,6 +7221,58 @@
     */
     var   /*
     */
+    EventsServiceExportRequest = /** @class */ (function () {
+        function EventsServiceExportRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, format, fields) {
+            this.folderId = folderId;
+            this.subFolders = subFolders;
+            this.sensorId = sensorId;
+            this.objectType = objectType;
+            this.behaviorType = behaviorType;
+            this.severity = severity;
+            this.status = status;
+            this.from = from;
+            this.to = to;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return EventsServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.folderId;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.subFolders;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.sensorId;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.objectType;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.behaviorType;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.severity;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.status;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.from;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.to;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.format;
+        /** @type {?} */
+        EventsServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     EventsServiceFindInAreaRequest = /** @class */ (function () {
         function EventsServiceFindInAreaRequest(folderId, searchArea, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
             this.folderId = folderId;
@@ -7169,7 +7323,7 @@
     var   /*
     */
     EventsServiceFindRequest = /** @class */ (function () {
-        function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
+        function EventsServiceFindRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
             this.folderId = folderId;
             this.subFolders = subFolders;
             this.sensorId = sensorId;
@@ -7182,8 +7336,6 @@
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
-            this.fields = fields;
         }
         return EventsServiceFindRequest;
     }());
@@ -7212,10 +7364,6 @@
         EventsServiceFindRequest.prototype.page;
         /** @type {?} */
         EventsServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        EventsServiceFindRequest.prototype.format;
-        /** @type {?} */
-        EventsServiceFindRequest.prototype.fields;
     }
 
     /**
@@ -7751,15 +7899,48 @@
     */
     var   /*
     */
+    FoldersServiceExportRequest = /** @class */ (function () {
+        function FoldersServiceExportRequest(id, search, parentId, sort, format, fields) {
+            this.id = id;
+            this.search = search;
+            this.parentId = parentId;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return FoldersServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.id;
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.search;
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.parentId;
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.format;
+        /** @type {?} */
+        FoldersServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     FoldersServiceFindRequest = /** @class */ (function () {
-        function FoldersServiceFindRequest(id, search, parentId, sort, page, pageSize, format) {
+        function FoldersServiceFindRequest(id, search, parentId, sort, page, pageSize) {
             this.id = id;
             this.search = search;
             this.parentId = parentId;
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
         }
         return FoldersServiceFindRequest;
     }());
@@ -7776,8 +7957,6 @@
         FoldersServiceFindRequest.prototype.page;
         /** @type {?} */
         FoldersServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        FoldersServiceFindRequest.prototype.format;
     }
 
     /**
@@ -8899,6 +9078,46 @@
     */
     var   /*
     */
+    RulesServiceExportRequest = /** @class */ (function () {
+        function RulesServiceExportRequest(folderId, sensorId, search, behaviorType, severity, sort, format, fields) {
+            this.folderId = folderId;
+            this.sensorId = sensorId;
+            this.search = search;
+            this.behaviorType = behaviorType;
+            this.severity = severity;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return RulesServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.folderId;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.sensorId;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.search;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.behaviorType;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.severity;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.format;
+        /** @type {?} */
+        RulesServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     RulesServiceFindAnomalyRequest = /** @class */ (function () {
         function RulesServiceFindAnomalyRequest(folderId, sensorId, search, severity, sort, page, pageSize) {
             this.folderId = folderId;
@@ -8937,7 +9156,7 @@
     var   /*
     */
     RulesServiceFindRequest = /** @class */ (function () {
-        function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
+        function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             this.folderId = folderId;
             this.sensorId = sensorId;
             this.search = search;
@@ -8946,8 +9165,6 @@
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
-            this.fields = fields;
         }
         return RulesServiceFindRequest;
     }());
@@ -8968,10 +9185,6 @@
         RulesServiceFindRequest.prototype.page;
         /** @type {?} */
         RulesServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        RulesServiceFindRequest.prototype.format;
-        /** @type {?} */
-        RulesServiceFindRequest.prototype.fields;
     }
 
     /**
@@ -9546,8 +9759,51 @@
     */
     var   /*
     */
+    SensorsServiceExportRequest = /** @class */ (function () {
+        function SensorsServiceExportRequest(folderId, subFolders, search, type, status, stream, sort, format, fields) {
+            this.folderId = folderId;
+            this.subFolders = subFolders;
+            this.search = search;
+            this.type = type;
+            this.status = status;
+            this.stream = stream;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return SensorsServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.folderId;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.subFolders;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.search;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.type;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.status;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.stream;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.format;
+        /** @type {?} */
+        SensorsServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     SensorsServiceFindRequest = /** @class */ (function () {
-        function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
+        function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
             this.folderId = folderId;
             this.subFolders = subFolders;
             this.search = search;
@@ -9557,8 +9813,6 @@
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
-            this.fields = fields;
         }
         return SensorsServiceFindRequest;
     }());
@@ -9581,10 +9835,6 @@
         SensorsServiceFindRequest.prototype.page;
         /** @type {?} */
         SensorsServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        SensorsServiceFindRequest.prototype.format;
-        /** @type {?} */
-        SensorsServiceFindRequest.prototype.fields;
     }
 
     /**
@@ -10580,16 +10830,48 @@
     */
     var   /*
     */
+    UsersServiceExportRequest = /** @class */ (function () {
+        function UsersServiceExportRequest(search, type, status, sort, format, fields) {
+            this.search = search;
+            this.type = type;
+            this.status = status;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return UsersServiceExportRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.search;
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.type;
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.status;
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.sort;
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.format;
+        /** @type {?} */
+        UsersServiceExportRequest.prototype.fields;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     UsersServiceFindRequest = /** @class */ (function () {
-        function UsersServiceFindRequest(search, type, status, sort, page, pageSize, format, fields) {
+        function UsersServiceFindRequest(search, type, status, sort, page, pageSize) {
             this.search = search;
             this.type = type;
             this.status = status;
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
-            this.format = format;
-            this.fields = fields;
         }
         return UsersServiceFindRequest;
     }());
@@ -10606,10 +10888,6 @@
         UsersServiceFindRequest.prototype.page;
         /** @type {?} */
         UsersServiceFindRequest.prototype.pageSize;
-        /** @type {?} */
-        UsersServiceFindRequest.prototype.format;
-        /** @type {?} */
-        UsersServiceFindRequest.prototype.fields;
     }
 
     /**
@@ -11071,6 +11349,56 @@
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
+         * Export list of accounts and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of accounts and filter
+         * \@Return: StreamContent
+         * @param {?=} name
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        AccountsService.prototype.exportFormat = /**
+         * Export list of accounts and filter
+         * \@Return: StreamContent
+         * @param {?=} name
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (name, type, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (name != null) {
+                params.push("name=" + name);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        };
+        /**
          * Get single account by id
          * @Return: EntityResponse<Account>
          */
@@ -11496,6 +11824,61 @@
                 params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of appliances and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of appliances and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        AppliancesService.prototype.exportFormat = /**
+         * Export list of appliances and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (folderId, subFolders, search, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (subFolders != null) {
+                params.push("subFolders=" + subFolders);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Get single appliance by id
@@ -11945,8 +12328,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
         AuditLogService.prototype.find = /**
@@ -11959,11 +12340,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
-        function (userId, from, to, itemType, sort, page, pageSize, format, fields) {
+        function (userId, from, to, itemType, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -11988,13 +12367,62 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of audit log entries and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of audit log entries and filter
+         * \@Return: StreamContent
+         * @param {?=} userId
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} itemType
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        AuditLogService.prototype.exportFormat = /**
+         * Export list of audit log entries and filter
+         * \@Return: StreamContent
+         * @param {?=} userId
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} itemType
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (userId, from, to, itemType, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (userId != null) {
+                params.push("userId=" + userId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (itemType != null) {
+                params.push("itemType=" + itemType);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
             if (format != null) {
                 params.push("format=" + format);
             }
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Get single audit log entry by id
@@ -12478,8 +12906,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
         EventsService.prototype.find = /**
@@ -12497,11 +12923,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
-        function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize, format, fields) {
+        function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -12541,13 +12965,87 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of events and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of events and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} sensorId
+         * @param {?=} objectType
+         * @param {?=} behaviorType
+         * @param {?=} severity
+         * @param {?=} status
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        EventsService.prototype.exportFormat = /**
+         * Export list of events and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} sensorId
+         * @param {?=} objectType
+         * @param {?=} behaviorType
+         * @param {?=} severity
+         * @param {?=} status
+         * @param {?=} from
+         * @param {?=} to
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, from, to, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (subFolders != null) {
+                params.push("subFolders=" + subFolders);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (objectType != null) {
+                params.push("objectType=" + objectType);
+            }
+            if (behaviorType != null) {
+                params.push("behaviorType=" + behaviorType);
+            }
+            if (severity != null) {
+                params.push("severity=" + severity);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
             if (format != null) {
                 params.push("format=" + format);
             }
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Find events generated in area using spatial query
@@ -12958,11 +13456,11 @@
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
         };
         /**
-         * Find events by filters
+         * Find folders by filters
          * @Return: QueryResponse<Folder>
          */
         /**
-         * Find events by filters
+         * Find folders by filters
          * \@Return: QueryResponse<Folder>
          * @param {?=} id
          * @param {?=} search
@@ -12970,11 +13468,10 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
         FoldersService.prototype.find = /**
-         * Find events by filters
+         * Find folders by filters
          * \@Return: QueryResponse<Folder>
          * @param {?=} id
          * @param {?=} search
@@ -12982,10 +13479,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
-        function (id, search, parentId, sort, page, pageSize, format) {
+        function (id, search, parentId, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -13004,10 +13500,54 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of folders and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of folders and filter
+         * \@Return: StreamContent
+         * @param {?=} id
+         * @param {?=} search
+         * @param {?=} parentId
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        FoldersService.prototype.exportFormat = /**
+         * Export list of folders and filter
+         * \@Return: StreamContent
+         * @param {?=} id
+         * @param {?=} search
+         * @param {?=} parentId
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (id, search, parentId, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (parentId != null) {
+                params.push("parentId=" + parentId);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
             if (format != null) {
                 params.push("format=" + format);
             }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Find and filter list of folders
@@ -13022,7 +13562,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
         FoldersService.prototype.getSubFolders = /**
@@ -13034,10 +13573,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
-        function (id, search, parentId, sort, page, pageSize, format) {
+        function (id, search, parentId, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -13055,9 +13593,6 @@
             }
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
-            }
-            if (format != null) {
-                params.push("format=" + format);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
         };
@@ -13074,7 +13609,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
         FoldersService.prototype.getSubItems = /**
@@ -13086,10 +13620,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
          * @return {?}
          */
-        function (id, search, parentId, sort, page, pageSize, format) {
+        function (id, search, parentId, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -13107,9 +13640,6 @@
             }
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
-            }
-            if (format != null) {
-                params.push("format=" + format);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/items"], params));
         };
@@ -13894,8 +14424,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
         RulesService.prototype.find = /**
@@ -13909,11 +14437,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
-        function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize, format, fields) {
+        function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -13941,13 +14467,67 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of rules and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of rules and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} sensorId
+         * @param {?=} search
+         * @param {?=} behaviorType
+         * @param {?=} severity
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        RulesService.prototype.exportFormat = /**
+         * Export list of rules and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} sensorId
+         * @param {?=} search
+         * @param {?=} behaviorType
+         * @param {?=} severity
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (folderId, sensorId, search, behaviorType, severity, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (behaviorType != null) {
+                params.push("behaviorType=" + behaviorType);
+            }
+            if (severity != null) {
+                params.push("severity=" + severity);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
             if (format != null) {
                 params.push("format=" + format);
             }
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Find anomaly rules by filters
@@ -14947,8 +15527,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
         SensorsService.prototype.find = /**
@@ -14963,11 +15541,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
-        function (folderId, subFolders, search, type, status, stream, sort, page, pageSize, format, fields) {
+        function (folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -14998,13 +15574,72 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of sensors and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of sensors and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} stream
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        SensorsService.prototype.exportFormat = /**
+         * Export list of sensors and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} stream
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (folderId, subFolders, search, type, status, stream, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (subFolders != null) {
+                params.push("subFolders=" + subFolders);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (stream != null) {
+                params.push("stream=" + stream);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
             if (format != null) {
                 params.push("format=" + format);
             }
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Get sensor reference image [response content type: image/jpeg]
@@ -15159,6 +15794,586 @@
          * @private
          */
         SensorsService.prototype.rest;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * Services for user registration and login
+     */
+    var UserService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UserService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/user';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: EntityResponse<LoginData>
+         */
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: EntityResponse<LoginData>
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.login = /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: EntityResponse<LoginData>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<LoginData>
+         */
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<LoginData>
+         * @return {?}
+         */
+        UserService.prototype.refreshToken = /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<LoginData>
+         * @return {?}
+         */
+        function () {
+            return this.rest.post(this.baseUrl + "/refresh-token", null);
+        };
+        /**
+         * Verify user by temporary login key
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Verify user by temporary login key
+         * \@Return: EntityResponse<User>
+         * @param {?=} key
+         * @return {?}
+         */
+        UserService.prototype.verifyLoginKey = /**
+         * Verify user by temporary login key
+         * \@Return: EntityResponse<User>
+         * @param {?=} key
+         * @return {?}
+         */
+        function (key) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (key != null) {
+                params.push("key=" + key);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+        };
+        /**
+         * Send verification code by email
+         * @Return: ActionResponse
+         */
+        /**
+         * Send verification code by email
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.sendVerificationCode = /**
+         * Send verification code by email
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Validate verification code and reset password
+         * @Return: ActionResponse
+         */
+        /**
+         * Validate verification code and reset password
+         * \@Return: ActionResponse
+         * @param {?=} code
+         * @return {?}
+         */
+        UserService.prototype.resetPassword = /**
+         * Validate verification code and reset password
+         * \@Return: ActionResponse
+         * @param {?=} code
+         * @return {?}
+         */
+        function (code) {
+            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+        };
+        /**
+         * Change password
+         * @Return: ActionResponse
+         */
+        /**
+         * Change password
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changePassword = /**
+         * Change password
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Check if password was used before (according to password policy)
+         * @Return: ActionResponse
+         */
+        /**
+         * Check if password was used before (according to password policy)
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.checkUnusedPassword = /**
+         * Check if password was used before (according to password policy)
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user name
+         * @Return: ActionResponse
+         */
+        /**
+         * Change current user name
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changeName = /**
+         * Change current user name
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user mobile
+         * @Return: ActionResponse
+         */
+        /**
+         * Change current user mobile
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changeMobile = /**
+         * Change current user mobile
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<UserAccountInfo>
+         */
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<UserAccountInfo>
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.switchAccount = /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<UserAccountInfo>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        UserService.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        UserService.ctorParameters = function () { return [
+            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
+            { type: RestUtil }
+        ]; };
+        return UserService;
+    }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.baseUrl;
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.config;
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.rest;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * List of all user related actions for account administrator only
+     */
+    var UsersService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UsersService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/users';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: ActionResponse
+         */
+        /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.invite = /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: ActionResponse
+         */
+        /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.reInvite = /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+        };
+        /**
+         * Update user
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Update user
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.update = /**
+         * Update user
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user name
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user name
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.changeName = /**
+         * Change user name
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user mobile
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user mobile
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.changeMobile = /**
+         * Change user mobile
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user type
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user type
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} type
+         * @return {?}
+         */
+        UsersService.prototype.changeType = /**
+         * Change user type
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} type
+         * @return {?}
+         */
+        function (id, type) {
+            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+        };
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.delete = /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by id
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Get single user by id
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.get = /**
+         * Get single user by id
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by email
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Get single user by email
+         * \@Return: EntityResponse<User>
+         * @param {?=} email
+         * @return {?}
+         */
+        UsersService.prototype.getByEmail = /**
+         * Get single user by email
+         * \@Return: EntityResponse<User>
+         * @param {?=} email
+         * @return {?}
+         */
+        function (email) {
+            return this.rest.get(this.baseUrl + "/byEmail/" + email);
+        };
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * @Return: QueryResponse<User>
+         */
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * \@Return: QueryResponse<User>
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        UsersService.prototype.find = /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * \@Return: QueryResponse<User>
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        function (search, type, status, sort, page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of users and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        UsersService.prototype.exportFormat = /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (search, type, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        };
+        UsersService.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        UsersService.ctorParameters = function () { return [
+            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
+            { type: RestUtil }
+        ]; };
+        return UsersService;
+    }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.baseUrl;
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.config;
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.rest;
     }
 
     /**
@@ -17761,8 +18976,6 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
         SysUsersService.prototype.find = /**
@@ -17774,11 +18987,9 @@
          * @param {?=} sort
          * @param {?=} page
          * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
          * @return {?}
          */
-        function (search, type, status, sort, page, pageSize, format, fields) {
+        function (search, type, status, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -17799,12 +19010,6 @@
             }
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
-            }
-            if (format != null) {
-                params.push("format=" + format);
-            }
-            if (fields != null) {
-                params.push("fields=" + fields);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
@@ -17840,560 +19045,8 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /**
-     * Services for user registration and login
-     */
-    var UserService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UserService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/user';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: EntityResponse<LoginData>
-         */
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: EntityResponse<LoginData>
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.login = /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: EntityResponse<LoginData>
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<LoginData>
-         */
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<LoginData>
-         * @return {?}
-         */
-        UserService.prototype.refreshToken = /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<LoginData>
-         * @return {?}
-         */
-        function () {
-            return this.rest.post(this.baseUrl + "/refresh-token", null);
-        };
-        /**
-         * Verify user by temporary login key
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Verify user by temporary login key
-         * \@Return: EntityResponse<User>
-         * @param {?=} key
-         * @return {?}
-         */
-        UserService.prototype.verifyLoginKey = /**
-         * Verify user by temporary login key
-         * \@Return: EntityResponse<User>
-         * @param {?=} key
-         * @return {?}
-         */
-        function (key) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (key != null) {
-                params.push("key=" + key);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-        };
-        /**
-         * Send verification code by email
-         * @Return: ActionResponse
-         */
-        /**
-         * Send verification code by email
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.sendVerificationCode = /**
-         * Send verification code by email
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Validate verification code and reset password
-         * @Return: ActionResponse
-         */
-        /**
-         * Validate verification code and reset password
-         * \@Return: ActionResponse
-         * @param {?=} code
-         * @return {?}
-         */
-        UserService.prototype.resetPassword = /**
-         * Validate verification code and reset password
-         * \@Return: ActionResponse
-         * @param {?=} code
-         * @return {?}
-         */
-        function (code) {
-            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-        };
-        /**
-         * Change password
-         * @Return: ActionResponse
-         */
-        /**
-         * Change password
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changePassword = /**
-         * Change password
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Check if password was used before (according to password policy)
-         * @Return: ActionResponse
-         */
-        /**
-         * Check if password was used before (according to password policy)
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.checkUnusedPassword = /**
-         * Check if password was used before (according to password policy)
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user name
-         * @Return: ActionResponse
-         */
-        /**
-         * Change current user name
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changeName = /**
-         * Change current user name
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user mobile
-         * @Return: ActionResponse
-         */
-        /**
-         * Change current user mobile
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changeMobile = /**
-         * Change current user mobile
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<UserAccountInfo>
-         */
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<UserAccountInfo>
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.switchAccount = /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<UserAccountInfo>
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        UserService.decorators = [
-            { type: core.Injectable }
-        ];
-        /** @nocollapse */
-        UserService.ctorParameters = function () { return [
-            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
-            { type: RestUtil }
-        ]; };
-        return UserService;
-    }());
-    if (false) {
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.baseUrl;
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.config;
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.rest;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /**
-     * List of all user related actions for account administrator only
-     */
-    var UsersService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UsersService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/users';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: ActionResponse
-         */
-        /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.invite = /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: ActionResponse
-         */
-        /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.reInvite = /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-        };
-        /**
-         * Update user
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Update user
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.update = /**
-         * Update user
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user name
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user name
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.changeName = /**
-         * Change user name
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user mobile
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user mobile
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.changeMobile = /**
-         * Change user mobile
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user type
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user type
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} type
-         * @return {?}
-         */
-        UsersService.prototype.changeType = /**
-         * Change user type
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} type
-         * @return {?}
-         */
-        function (id, type) {
-            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-        };
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * @Return: ActionResponse
-         */
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.delete = /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.delete(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by id
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Get single user by id
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.get = /**
-         * Get single user by id
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.get(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by email
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Get single user by email
-         * \@Return: EntityResponse<User>
-         * @param {?=} email
-         * @return {?}
-         */
-        UsersService.prototype.getByEmail = /**
-         * Get single user by email
-         * \@Return: EntityResponse<User>
-         * @param {?=} email
-         * @return {?}
-         */
-        function (email) {
-            return this.rest.get(this.baseUrl + "/byEmail/" + email);
-        };
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * @Return: QueryResponse<User>
-         */
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * \@Return: QueryResponse<User>
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} page
-         * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
-         * @return {?}
-         */
-        UsersService.prototype.find = /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * \@Return: QueryResponse<User>
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} page
-         * @param {?=} pageSize
-         * @param {?=} format
-         * @param {?=} fields
-         * @return {?}
-         */
-        function (search, type, status, sort, page, pageSize, format, fields) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (page != null) {
-                params.push("page=" + page);
-            }
-            if (pageSize != null) {
-                params.push("pageSize=" + pageSize);
-            }
-            if (format != null) {
-                params.push("format=" + format);
-            }
-            if (fields != null) {
-                params.push("fields=" + fields);
-            }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-        };
-        UsersService.decorators = [
-            { type: core.Injectable }
-        ];
-        /** @nocollapse */
-        UsersService.ctorParameters = function () { return [
-            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
-            { type: RestUtil }
-        ]; };
-        return UsersService;
-    }());
-    if (false) {
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.baseUrl;
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.config;
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.rest;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /** @type {?} */
     var Services = [
-        AnomalyService,
-        HealthCheckService,
-        SysAccountsService,
-        SysAppliancesService,
-        SysConfigurationsService,
-        SysEventsService,
-        SysFeaturesGroupsService,
-        SysFeaturesService,
-        SysKeysService,
-        SysSensorsService,
-        SysSystemService,
-        SysUsersService,
         AccountsService,
         AppliancesService,
         AuditLogService,
@@ -18410,6 +19063,18 @@
         SensorsService,
         UserService,
         UsersService,
+        AnomalyService,
+        HealthCheckService,
+        SysAccountsService,
+        SysAppliancesService,
+        SysConfigurationsService,
+        SysEventsService,
+        SysFeaturesGroupsService,
+        SysFeaturesService,
+        SysKeysService,
+        SysSensorsService,
+        SysSystemService,
+        SysUsersService,
     ];
 
     /**
@@ -18603,6 +19268,7 @@
     exports.AccountsServiceChangeStatusRequest = AccountsServiceChangeStatusRequest;
     exports.AccountsServiceChangeTypeRequest = AccountsServiceChangeTypeRequest;
     exports.AccountsServiceCreateRequest = AccountsServiceCreateRequest;
+    exports.AccountsServiceExportRequest = AccountsServiceExportRequest;
     exports.AccountsServiceFindRequest = AccountsServiceFindRequest;
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
@@ -18638,6 +19304,7 @@
     exports.AppliancesServiceChangeFolderRequest = AppliancesServiceChangeFolderRequest;
     exports.AppliancesServiceChangeMachineIdRequest = AppliancesServiceChangeMachineIdRequest;
     exports.AppliancesServiceChangeNameRequest = AppliancesServiceChangeNameRequest;
+    exports.AppliancesServiceExportRequest = AppliancesServiceExportRequest;
     exports.AppliancesServiceFindRequest = AppliancesServiceFindRequest;
     exports.AppliancesServiceFindSensorsRequest = AppliancesServiceFindSensorsRequest;
     exports.AppliancesServiceGetCommandsRequest = AppliancesServiceGetCommandsRequest;
@@ -18647,6 +19314,7 @@
     exports.AuditLog = AuditLog;
     exports.AuditLogIdRequest = AuditLogIdRequest;
     exports.AuditLogService = AuditLogService;
+    exports.AuditLogServiceExportRequest = AuditLogServiceExportRequest;
     exports.AuditLogServiceFindRequest = AuditLogServiceFindRequest;
     exports.BaseEntity = BaseEntity;
     exports.BehaviorTypeCode = BehaviorTypeCode;
@@ -18754,6 +19422,7 @@
     exports.EventStatusCode = EventStatusCode;
     exports.EventsService = EventsService;
     exports.EventsServiceCreateRequest = EventsServiceCreateRequest;
+    exports.EventsServiceExportRequest = EventsServiceExportRequest;
     exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
     exports.EventsServiceFindRequest = EventsServiceFindRequest;
     exports.EventsServiceSetClipPathRequest = EventsServiceSetClipPathRequest;
@@ -18785,6 +19454,7 @@
     exports.FoldersServiceChangeParentRequest = FoldersServiceChangeParentRequest;
     exports.FoldersServiceChangeTimezoneRequest = FoldersServiceChangeTimezoneRequest;
     exports.FoldersServiceCreateRequest = FoldersServiceCreateRequest;
+    exports.FoldersServiceExportRequest = FoldersServiceExportRequest;
     exports.FoldersServiceFindRequest = FoldersServiceFindRequest;
     exports.FoldersServiceGetHierarchyRequest = FoldersServiceGetHierarchyRequest;
     exports.FovGeoAttributes = FovGeoAttributes;
@@ -18862,6 +19532,7 @@
     exports.RuleSpec = RuleSpec;
     exports.RulesService = RulesService;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
+    exports.RulesServiceExportRequest = RulesServiceExportRequest;
     exports.RulesServiceFindAnomalyRequest = RulesServiceFindAnomalyRequest;
     exports.RulesServiceFindRequest = RulesServiceFindRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
@@ -18921,6 +19592,7 @@
     exports.SensorsServiceChangeNameRequest = SensorsServiceChangeNameRequest;
     exports.SensorsServiceChangeStatusRequest = SensorsServiceChangeStatusRequest;
     exports.SensorsServiceCreateRequest = SensorsServiceCreateRequest;
+    exports.SensorsServiceExportRequest = SensorsServiceExportRequest;
     exports.SensorsServiceFindRequest = SensorsServiceFindRequest;
     exports.SensorsServiceSetRefImageRequest = SensorsServiceSetRefImageRequest;
     exports.SensorsServiceStatusOvertimeRequest = SensorsServiceStatusOvertimeRequest;
@@ -18995,6 +19667,7 @@
     exports.UsersServiceChangeStatusRequest = UsersServiceChangeStatusRequest;
     exports.UsersServiceChangeTypeRequest = UsersServiceChangeTypeRequest;
     exports.UsersServiceCreateRequest = UsersServiceCreateRequest;
+    exports.UsersServiceExportRequest = UsersServiceExportRequest;
     exports.UsersServiceFindRequest = UsersServiceFindRequest;
     exports.UsersServiceInviteRequest = UsersServiceInviteRequest;
     exports.UsersServiceSetRolesRequest = UsersServiceSetRolesRequest;
@@ -19008,34 +19681,34 @@
     exports.setToken = setToken;
     exports.ɵa = RestUtil;
     exports.ɵb = Services;
-    exports.ɵba = SearchService;
-    exports.ɵbb = SensorsService;
-    exports.ɵbc = UserService;
-    exports.ɵbd = UsersService;
-    exports.ɵc = AnomalyService;
-    exports.ɵd = HealthCheckService;
-    exports.ɵe = SysAccountsService;
-    exports.ɵf = SysAppliancesService;
-    exports.ɵg = SysConfigurationsService;
-    exports.ɵh = SysEventsService;
-    exports.ɵi = SysFeaturesGroupsService;
-    exports.ɵj = SysFeaturesService;
-    exports.ɵk = SysKeysService;
-    exports.ɵl = SysSensorsService;
-    exports.ɵm = SysSystemService;
-    exports.ɵn = SysUsersService;
-    exports.ɵo = AccountsService;
-    exports.ɵp = AppliancesService;
-    exports.ɵq = AuditLogService;
-    exports.ɵr = CalendarsService;
-    exports.ɵs = EventsService;
-    exports.ɵt = FoldersService;
-    exports.ɵu = GeoService;
-    exports.ɵv = IntegrationsService;
-    exports.ɵw = ReportsService;
-    exports.ɵx = RulesService;
-    exports.ɵy = ScheduledReportsService;
-    exports.ɵz = SchedulesService;
+    exports.ɵba = SysKeysService;
+    exports.ɵbb = SysSensorsService;
+    exports.ɵbc = SysSystemService;
+    exports.ɵbd = SysUsersService;
+    exports.ɵc = AccountsService;
+    exports.ɵd = AppliancesService;
+    exports.ɵe = AuditLogService;
+    exports.ɵf = CalendarsService;
+    exports.ɵg = EventsService;
+    exports.ɵh = FoldersService;
+    exports.ɵi = GeoService;
+    exports.ɵj = IntegrationsService;
+    exports.ɵk = ReportsService;
+    exports.ɵl = RulesService;
+    exports.ɵm = ScheduledReportsService;
+    exports.ɵn = SchedulesService;
+    exports.ɵo = SearchService;
+    exports.ɵp = SensorsService;
+    exports.ɵq = UserService;
+    exports.ɵr = UsersService;
+    exports.ɵs = AnomalyService;
+    exports.ɵt = HealthCheckService;
+    exports.ɵu = SysAccountsService;
+    exports.ɵv = SysAppliancesService;
+    exports.ɵw = SysConfigurationsService;
+    exports.ɵx = SysEventsService;
+    exports.ɵy = SysFeaturesGroupsService;
+    exports.ɵz = SysFeaturesService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

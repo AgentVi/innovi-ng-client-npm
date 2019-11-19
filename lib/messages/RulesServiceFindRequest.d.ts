@@ -9,7 +9,5 @@ export declare class RulesServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
-    format: string;
-    fields: string[];
-    constructor(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]);
+    constructor(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number);
 }

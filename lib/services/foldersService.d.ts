@@ -61,20 +61,25 @@ export declare class FoldersService {
      */
     list(id?: string[]): import("rxjs").Observable<any>;
     /**
-     * Find events by filters
+     * Find folders by filters
      * @Return: QueryResponse<Folder>
      */
-    find(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number, format?: string): import("rxjs").Observable<any>;
+    find(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of folders and filter
+     * @Return: StreamContent
+     */
+    exportFormat(id?: string, search?: string, parentId?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Find and filter list of folders
      * @Return: QueryResponse<Folder>
      */
-    getSubFolders(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number, format?: string): import("rxjs").Observable<any>;
+    getSubFolders(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get items (folders and sensors) by parent folder id
      * @Return: QueryResponse<TreeItem>
      */
-    getSubItems(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number, format?: string): import("rxjs").Observable<any>;
+    getSubItems(id?: string, search?: string, parentId?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get account tree hierarchy (folders and sensors) - starting from the account level as root
      * @Return: EntityResponse<TreeNode>

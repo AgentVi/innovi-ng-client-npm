@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
 /**
  * List of account related actions
  */
@@ -19,6 +19,11 @@ export declare class AccountsService {
      * @Return: QueryResponse<Account>
      */
     find(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of accounts and filter
+     * @Return: StreamContent
+     */
+    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
     /**
      * Get single account by id
      * @Return: EntityResponse<Account>
