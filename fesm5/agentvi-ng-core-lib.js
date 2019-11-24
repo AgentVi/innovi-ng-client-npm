@@ -10843,6 +10843,44 @@ var RestUtil = /** @class */ (function () {
         this.headers = new HttpHeaders().set('Content-Type', 'application/json');
     }
     /**
+     * Download is HTTP GET action but the content is blob
+     */
+    /**
+     * Download is HTTP GET action but the content is blob
+     * @param {?} url
+     * @param {...?} params
+     * @return {?}
+     */
+    RestUtil.prototype.download = /**
+     * Download is HTTP GET action but the content is blob
+     * @param {?} url
+     * @param {...?} params
+     * @return {?}
+     */
+    function (url) {
+        var params = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            params[_i - 1] = arguments[_i];
+        }
+        /** @type {?} */
+        var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+        // return this.http.get(resourceUrl, {responseType: 'blob'}).map(res => ({content: res.body,
+        //   fileName: res.headers.get('content-filename')}));
+        return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe((/**
+         * @param {?} data
+         * @return {?}
+         */
+        function (data) {
+            /** @type {?} */
+            var downloadURL = window.URL.createObjectURL(data);
+            /** @type {?} */
+            var link = document.createElement('a');
+            link.href = downloadURL;
+            link.download = 'filename.ext';
+            link.click();
+        }));
+    };
+    /**
      * HTTP GET action
      */
     /**
@@ -11201,7 +11239,7 @@ var AccountsService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Get single account by id
@@ -11683,7 +11721,7 @@ var AppliancesService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Get single appliance by id
@@ -12227,7 +12265,7 @@ var AuditLogService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Get single audit log entry by id
@@ -12850,7 +12888,7 @@ var EventsService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Find events generated in area using spatial query
@@ -12939,7 +12977,7 @@ var EventsService = /** @class */ (function () {
      * @return {?}
      */
     function (id) {
-        return this.rest.get(this.baseUrl + "/" + id + "/image");
+        return this.rest.download(this.baseUrl + "/" + id + "/image");
     };
     /**
      * Get event clip [response content type: video/mp4]
@@ -12958,7 +12996,7 @@ var EventsService = /** @class */ (function () {
      * @return {?}
      */
     function (id) {
-        return this.rest.get(this.baseUrl + "/" + id + "/clip");
+        return this.rest.download(this.baseUrl + "/" + id + "/clip");
     };
     /**
      * Get events count overtime for all events in the system
@@ -13352,7 +13390,7 @@ var FoldersService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Find and filter list of folders
@@ -14332,7 +14370,7 @@ var RulesService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Find anomaly rules by filters
@@ -15444,7 +15482,7 @@ var SensorsService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     /**
      * Get sensor reference image [response content type: image/jpeg]
@@ -15463,7 +15501,7 @@ var SensorsService = /** @class */ (function () {
      * @return {?}
      */
     function (id) {
-        return this.rest.get(this.baseUrl + "/" + id + "/ref-image");
+        return this.rest.download(this.baseUrl + "/" + id + "/ref-image");
     };
     /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
@@ -17804,7 +17842,7 @@ var SysSystemService = /** @class */ (function () {
      * @return {?}
      */
     function (id) {
-        return this.rest.get(this.baseUrl + "/export");
+        return this.rest.download(this.baseUrl + "/export");
     };
     /**
      * Import account configuration data from byte array (zip content)
@@ -17840,7 +17878,7 @@ var SysSystemService = /** @class */ (function () {
      * @return {?}
      */
     function (id) {
-        return this.rest.get(this.baseUrl + "/configurations/export");
+        return this.rest.download(this.baseUrl + "/configurations/export");
     };
     /**
      * Import SW package configurations data from byte array (zip content)
@@ -17874,7 +17912,7 @@ var SysSystemService = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        return this.rest.get(this.baseUrl + "/backup");
+        return this.rest.download(this.baseUrl + "/backup");
     };
     /**
      * Restore entire system (zip content)
@@ -18816,7 +18854,7 @@ var UsersService = /** @class */ (function () {
         if (fields != null) {
             params.push("fields=" + fields);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/export"], params));
+        return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
     };
     UsersService.decorators = [
         { type: Injectable }

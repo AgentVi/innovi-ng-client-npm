@@ -73,5 +73,5 @@ export declare class UsersService {
      * Export list of users and filter
      * @Return: StreamContent
      */
-    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
 }

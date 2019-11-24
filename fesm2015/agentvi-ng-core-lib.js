@@ -10390,6 +10390,31 @@ class RestUtil {
         this.headers = new HttpHeaders().set('Content-Type', 'application/json');
     }
     /**
+     * Download is HTTP GET action but the content is blob
+     * @param {?} url
+     * @param {...?} params
+     * @return {?}
+     */
+    download(url, ...params) {
+        /** @type {?} */
+        const resourceUrl = this.buildUrl(url, ...params);
+        // return this.http.get(resourceUrl, {responseType: 'blob'}).map(res => ({content: res.body,
+        //   fileName: res.headers.get('content-filename')}));
+        return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe((/**
+         * @param {?} data
+         * @return {?}
+         */
+        (data) => {
+            /** @type {?} */
+            const downloadURL = window.URL.createObjectURL(data);
+            /** @type {?} */
+            const link = document.createElement('a');
+            link.href = downloadURL;
+            link.download = 'filename.ext';
+            link.click();
+        }));
+    }
+    /**
      * HTTP GET action
      * @param {?} url
      * @param {...?} params
@@ -10624,7 +10649,7 @@ class AccountsService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Get single account by id
@@ -10940,7 +10965,7 @@ class AppliancesService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Get single appliance by id
@@ -11274,7 +11299,7 @@ class AuditLogService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Get single audit log entry by id
@@ -11679,7 +11704,7 @@ class EventsService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Find events generated in area using spatial query
@@ -11738,7 +11763,7 @@ class EventsService {
      * @return {?}
      */
     getEventImage(id) {
-        return this.rest.get(`${this.baseUrl}/${id}/image`);
+        return this.rest.download(`${this.baseUrl}/${id}/image`);
     }
     /**
      * Get event clip [response content type: video/mp4]
@@ -11747,7 +11772,7 @@ class EventsService {
      * @return {?}
      */
     getEventClip(id) {
-        return this.rest.get(`${this.baseUrl}/${id}/clip`);
+        return this.rest.download(`${this.baseUrl}/${id}/clip`);
     }
     /**
      * Get events count overtime for all events in the system
@@ -11995,7 +12020,7 @@ class FoldersService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Find and filter list of folders
@@ -12651,7 +12676,7 @@ class RulesService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Find anomaly rules by filters
@@ -13353,7 +13378,7 @@ class SensorsService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
     /**
      * Get sensor reference image [response content type: image/jpeg]
@@ -13362,7 +13387,7 @@ class SensorsService {
      * @return {?}
      */
     getRefImage(id) {
-        return this.rest.get(`${this.baseUrl}/${id}/ref-image`);
+        return this.rest.download(`${this.baseUrl}/${id}/ref-image`);
     }
     /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
@@ -14822,7 +14847,7 @@ class SysSystemService {
      * @return {?}
      */
     exportAccountData(id) {
-        return this.rest.get(`${this.baseUrl}/export`);
+        return this.rest.download(`${this.baseUrl}/export`);
     }
     /**
      * Import account configuration data from byte array (zip content)
@@ -14839,7 +14864,7 @@ class SysSystemService {
      * @return {?}
      */
     exportConfigurations(id) {
-        return this.rest.get(`${this.baseUrl}/configurations/export`);
+        return this.rest.download(`${this.baseUrl}/configurations/export`);
     }
     /**
      * Import SW package configurations data from byte array (zip content)
@@ -14855,7 +14880,7 @@ class SysSystemService {
      * @return {?}
      */
     backupSystem() {
-        return this.rest.get(`${this.baseUrl}/backup`);
+        return this.rest.download(`${this.baseUrl}/backup`);
     }
     /**
      * Restore entire system (zip content)
@@ -15409,7 +15434,7 @@ class UsersService {
         if (fields != null) {
             params.push(`fields=${fields}`);
         }
-        return this.rest.get(`${this.baseUrl}/export`, ...params);
+        return this.rest.download(`${this.baseUrl}/export`, ...params);
     }
 }
 UsersService.decorators = [

@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
 import { Folder } from '../entities/Folder';
+import { Coordinate } from '../common/Coordinate';
 /**
  * Services for folders actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -69,7 +69,7 @@ export declare class FoldersService {
      * Export list of folders and filter
      * @Return: StreamContent
      */
-    exportFormat(id?: string, search?: string, parentId?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(id?: string, search?: string, parentId?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Find and filter list of folders
      * @Return: QueryResponse<Folder>

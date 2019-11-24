@@ -83,12 +83,12 @@ export declare class SensorsService {
      * Export list of sensors and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image
      */
-    getRefImage(id?: string): import("rxjs").Observable<any>;
+    getRefImage(id?: string): import("rxjs").Subscription;
     /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
      * @Return: ActionResponse

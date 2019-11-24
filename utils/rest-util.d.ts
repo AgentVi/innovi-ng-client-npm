@@ -10,6 +10,10 @@ export declare class RestUtil {
      */
     constructor(http: HttpClient);
     /**
+     * Download is HTTP GET action but the content is blob
+     */
+    download(url: string, ...params: string[]): import("rxjs").Subscription;
+    /**
      * HTTP GET action
      */
     get(url: string, ...params: string[]): import("rxjs").Observable<any>;

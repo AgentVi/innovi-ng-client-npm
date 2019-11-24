@@ -58,7 +58,7 @@ export declare class EventsService {
      * Export list of events and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, status?: EventStatusCode, from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, status?: EventStatusCode, from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Find events generated in area using spatial query
      * @Return: QueryResponse<Event>
@@ -68,12 +68,12 @@ export declare class EventsService {
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(id?: string): import("rxjs").Observable<any>;
+    getEventImage(id?: string): import("rxjs").Subscription;
     /**
      * Get event clip [response content type: video/mp4]
      * @Return: StreamingOutput of the clip
      */
-    getEventClip(id?: string): import("rxjs").Observable<any>;
+    getEventClip(id?: string): import("rxjs").Subscription;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>

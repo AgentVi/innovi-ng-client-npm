@@ -23,7 +23,7 @@ export declare class AccountsService {
      * Export list of accounts and filter
      * @Return: StreamContent
      */
-    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single account by id
      * @Return: EntityResponse<Account>

@@ -22,7 +22,7 @@ export declare class AuditLogService {
      * Export list of audit log entries and filter
      * @Return: StreamContent
      */
-    exportFormat(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single audit log entry by id
      * @Return: EntityResponse<Appliance>

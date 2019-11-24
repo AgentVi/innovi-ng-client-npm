@@ -60,7 +60,7 @@ export declare class RulesService {
      * Export list of rules and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>

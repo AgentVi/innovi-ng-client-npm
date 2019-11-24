@@ -30,7 +30,7 @@ export declare class AppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
