@@ -16205,6 +16205,56 @@
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
         /**
+         * Export list of accounts and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of accounts and filter
+         * \@Return: StreamContent
+         * @param {?=} name
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        SysAccountsService.prototype.exportFormat = /**
+         * Export list of accounts and filter
+         * \@Return: StreamContent
+         * @param {?=} name
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (name, type, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (name != null) {
+                params.push("name=" + name);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
+        };
+        /**
          * Get account types statistics for all accounts in the system
          * @Return: EntitiesResponse<AccountTypeSummary>
          */
@@ -16337,6 +16387,61 @@
                 params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of appliances and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of appliances and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        SysAppliancesService.prototype.exportFormat = /**
+         * Export list of appliances and filter
+         * \@Return: StreamContent
+         * @param {?=} folderId
+         * @param {?=} subFolders
+         * @param {?=} search
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (folderId, subFolders, search, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (subFolders != null) {
+                params.push("subFolders=" + subFolders);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         /**
          * Delete appliance from the system
@@ -18472,6 +18577,56 @@
                 params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of users and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        SysUsersService.prototype.exportFormat = /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (search, type, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread([this.baseUrl + "/export"], params));
         };
         SysUsersService.decorators = [
             { type: core.Injectable }

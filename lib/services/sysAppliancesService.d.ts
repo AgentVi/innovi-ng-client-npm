@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 /**
  * List of appliance queries for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -25,6 +25,11 @@ export declare class SysAppliancesService {
      * @Return: QueryResponse<Appliance>
      */
     find(accountId?: string, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Export list of appliances and filter
+     * @Return: StreamContent
+     */
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Delete appliance from the system
      * @Return: ActionResponse
