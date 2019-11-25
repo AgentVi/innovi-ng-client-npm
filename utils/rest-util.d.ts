@@ -12,7 +12,7 @@ export declare class RestUtil {
     /**
      * Download is HTTP GET action but the content is blob
      */
-    download(url: string, ...params: string[]): import("rxjs").Subscription;
+    download(fileName: string, url: string, ...params: string[]): import("rxjs").Subscription;
     /**
      * HTTP GET action
      */
