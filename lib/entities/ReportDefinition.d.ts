@@ -5,6 +5,7 @@ export declare class ReportDefinition extends BaseEntity {
     name: string;
     tag: string;
     privateReport: boolean;
+    reportUrl: string;
     id: string;
     _type: string;
     createdOn: number;

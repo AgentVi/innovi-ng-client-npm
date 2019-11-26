@@ -2888,6 +2888,8 @@
         /** @type {?} */
         ReportDefinition.prototype.privateReport;
         /** @type {?} */
+        ReportDefinition.prototype.reportUrl;
+        /** @type {?} */
         ReportDefinition.prototype.id;
         /** @type {?} */
         ReportDefinition.prototype._type;
