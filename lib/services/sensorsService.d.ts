@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 /**
  * Services for sensor actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -101,12 +101,12 @@ export declare class SensorsService {
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
     /**
      * Get single sensor health by sensor id
-     * @Return: EntityResponse<SensorHealth>
+     * @Return: EntityResponse<SensorStatus>
      */
     getSensorHealthStatus(id?: string): import("rxjs").Observable<any>;
     /**
      * Get all sensors health status
-     * @Return: EntitiesResponse<SensorHealth>
+     * @Return: EntitiesResponse<SensorStatus>
      */
     getSensorsHealthStatus(): import("rxjs").Observable<any>;
     /**

@@ -33,7 +33,6 @@ export * from './SearchObject';
 export * from './Sensor';
 export * from './SensorAnalysisResults';
 export * from './SensorDebugInfo';
-export * from './SensorHealth';
 export * from './SensorRule';
 export * from './SensorStatus';
 export * from './UpdateStatus';
