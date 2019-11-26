@@ -1,5 +1,6 @@
 export * from './AbsoluteTimeFrame';
 export * from './AccountRole';
+export * from './AccountSettings';
 export * from './AccountTypeSummary';
 export * from './AnalysisResult';
 export * from './AnomalyEventInfo';
@@ -26,6 +27,7 @@ export * from './GeoReferenceData';
 export * from './GeoReferenceTest';
 export * from './LoginData';
 export * from './LoginParams';
+export * from './LongTuple';
 export * from './ObjectColor';
 export * from './ObjectInfo';
 export * from './ObjectInstance';

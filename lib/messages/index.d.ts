@@ -7,6 +7,7 @@ export * from './AccountsServiceChangeTypeRequest';
 export * from './AccountsServiceCreateRequest';
 export * from './AccountsServiceExportRequest';
 export * from './AccountsServiceFindRequest';
+export * from './AccountsServiceResetRequest';
 export * from './AccountsServiceUpdateRequest';
 export * from './ActionResponse';
 export * from './AnomalyServiceFindEventsRequest';

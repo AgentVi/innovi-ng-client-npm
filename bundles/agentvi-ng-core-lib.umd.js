@@ -282,6 +282,36 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Account specific settings
+    */
+    var   /*
+       Account specific settings
+    */
+    AccountSettings = /** @class */ (function () {
+        function AccountSettings(retentionDays, objectColors, ruleColor, maskColor) {
+            this.retentionDays = retentionDays;
+            this.objectColors = objectColors;
+            this.ruleColor = ruleColor;
+            this.maskColor = maskColor;
+        }
+        return AccountSettings;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountSettings.prototype.retentionDays;
+        /** @type {?} */
+        AccountSettings.prototype.objectColors;
+        /** @type {?} */
+        AccountSettings.prototype.ruleColor;
+        /** @type {?} */
+        AccountSettings.prototype.maskColor;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Account types aggregator summary
     */
     var   /*
@@ -1045,6 +1075,30 @@
         LoginParams.prototype.password;
         /** @type {?} */
         LoginParams.prototype.accessToken;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Key Value long tuple
+    */
+    var   /*
+       Key Value long tuple
+    */
+    LongTuple = /** @class */ (function () {
+        function LongTuple(key, value) {
+            this.key = key;
+            this.value = value;
+        }
+        return LongTuple;
+    }());
+    if (false) {
+        /** @type {?} */
+        LongTuple.prototype.key;
+        /** @type {?} */
+        LongTuple.prototype.value;
     }
 
     /**
@@ -1896,6 +1950,8 @@
         Account.prototype.maxChannels;
         /** @type {?} */
         Account.prototype.description;
+        /** @type {?} */
+        Account.prototype.settings;
         /** @type {?} */
         Account.prototype.id;
         /** @type {?} */
@@ -4718,6 +4774,28 @@
         AccountsServiceFindRequest.prototype.page;
         /** @type {?} */
         AccountsServiceFindRequest.prototype.pageSize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    AccountsServiceResetRequest = /** @class */ (function () {
+        function AccountsServiceResetRequest(id, days) {
+            this.id = id;
+            this.days = days;
+        }
+        return AccountsServiceResetRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountsServiceResetRequest.prototype.id;
+        /** @type {?} */
+        AccountsServiceResetRequest.prototype.days;
     }
 
     /**
@@ -16111,23 +16189,25 @@
             return this.rest.delete(this.baseUrl + "/purge/" + id);
         };
         /**
-         * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+         * Reset account - remove all operational data older than the retention time in days (events, status, log ...) but leave configuration data
          * @Return: ActionResponse
          */
         /**
-         * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+         * Reset account - remove all operational data older than the retention time in days (events, status, log ...) but leave configuration data
          * \@Return: ActionResponse
          * @param {?=} id
+         * @param {?=} days
          * @return {?}
          */
         SysAccountsService.prototype.reset = /**
-         * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+         * Reset account - remove all operational data older than the retention time in days (events, status, log ...) but leave configuration data
          * \@Return: ActionResponse
          * @param {?=} id
+         * @param {?=} days
          * @return {?}
          */
-        function (id) {
-            return this.rest.delete(this.baseUrl + "/reset/" + id);
+        function (id, days) {
+            return this.rest.delete(this.baseUrl + "/reset/" + id + "/days/" + days);
         };
         /**
          * Get single account by id
@@ -19473,6 +19553,7 @@
     exports.AccountIdsRequest = AccountIdsRequest;
     exports.AccountRole = AccountRole;
     exports.AccountRoleCode = AccountRoleCode;
+    exports.AccountSettings = AccountSettings;
     exports.AccountStatusCode = AccountStatusCode;
     exports.AccountTypeCode = AccountTypeCode;
     exports.AccountTypeSummary = AccountTypeSummary;
@@ -19484,6 +19565,7 @@
     exports.AccountsServiceCreateRequest = AccountsServiceCreateRequest;
     exports.AccountsServiceExportRequest = AccountsServiceExportRequest;
     exports.AccountsServiceFindRequest = AccountsServiceFindRequest;
+    exports.AccountsServiceResetRequest = AccountsServiceResetRequest;
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
     exports.Agent = Agent;
@@ -19697,6 +19779,7 @@
     exports.LineCrossDirectionCode = LineCrossDirectionCode;
     exports.LoginData = LoginData;
     exports.LoginParams = LoginParams;
+    exports.LongTuple = LongTuple;
     exports.MapClientCode = MapClientCode;
     exports.ObjectColor = ObjectColor;
     exports.ObjectInfo = ObjectInfo;

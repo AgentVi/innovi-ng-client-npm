@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
+import { Account } from '../entities/Account';
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -75,10 +75,10 @@ export declare class SysAccountsService {
      */
     purge(id?: string): import("rxjs").Observable<any>;
     /**
-     * Reset account - remove all operational data (events, status, log ...) but leave configuration data
+     * Reset account - remove all operational data older than the retention time in days (events, status, log ...) but leave configuration data
      * @Return: ActionResponse
      */
-    reset(id?: string): import("rxjs").Observable<any>;
+    reset(id?: string, days?: number): import("rxjs").Observable<any>;
     /**
      * Get single account by id
      * @Return: EntityResponse<Account>
