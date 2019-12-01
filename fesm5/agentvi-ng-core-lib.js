@@ -3365,13 +3365,13 @@ var AccountRoleCode = {
     UNDEFINED: 0,
     // Account administrator can perform all operations [1] 
     ADMIN: 1,
-    // Supervisor can perform all operations on folders [2] 
+    // Supervisor can perform all operations on specific folder(s) [2] 
     SUPERVISOR: 2,
-    // Account operator can perform operations on events [3] 
+    // Account operator can perform operations on events only, this user can see administrator and monitor modules but has write permissions on events status only [3] 
     OPERATOR: 3,
-    // Registered account user [4] 
+    // User can see Administrator, Monitor, Investigation and Analytics modules but has write permissions on Reports and investigation modules only [4] 
     USER: 4,
-    // Edge config user (installer) [5 
+    // Installer can only connect device to the system and configure cameras, it can see Administrator and Monitor modules only) [5] 
     INSTALLER: 5,
 };
 AccountRoleCode[AccountRoleCode.UNDEFINED] = 'UNDEFINED';
