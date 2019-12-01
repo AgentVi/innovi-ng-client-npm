@@ -215,6 +215,7 @@ export * from './SensorsServiceSetRefImageRequest';
 export * from './SensorsServiceStatusOvertimeRequest';
 export * from './SensorsServiceUpdateRequest';
 export * from './StreamResponse';
+export * from './SysAccountsExportRequest';
 export * from './SysAppliancesServiceFindRequest';
 export * from './SysAppliancesServiceGetCommandsRequest';
 export * from './SysConfigurationsServiceCreateRequest';
