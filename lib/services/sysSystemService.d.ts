@@ -30,7 +30,7 @@ export declare class SysSystemService {
      * Export account configuration data
      * @Return: StreamingOutput of the content (gzip)
      */
-    exportAccountData(accountId?: string): import("rxjs").Subscription;
+    exportAccountData(accountId?: string, password?: string): import("rxjs").Subscription;
     /**
      * Import account configuration data from byte array (zip content)
      * @Return: ActionResponse
