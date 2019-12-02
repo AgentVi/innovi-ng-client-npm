@@ -3192,12 +3192,12 @@ const AccountRoleCode = {
     ADMIN: 1,
     // Supervisor can perform all operations on specific folder(s) [2] 
     SUPERVISOR: 2,
-    // Account operator can perform operations on events only, this user can see administrator and monitor modules but has write permissions on events status only [3] 
-    OPERATOR: 3,
-    // User can see Administrator, Monitor, Investigation and Analytics modules but has write permissions on Reports and investigation modules only [4] 
-    USER: 4,
-    // Installer can only connect device to the system and configure cameras, it can see Administrator and Monitor modules only) [5] 
-    INSTALLER: 5,
+    // Account operator can perform operations on events only, this user can see administrator and monitor modules but has write permissions on events status only [4] 
+    OPERATOR: 4,
+    // User can see Administrator, Monitor, Investigation and Analytics modules but has write permissions on Reports and investigation modules only [8] 
+    USER: 8,
+    // Installer can only connect device to the system and configure cameras, it can see Administrator and Monitor modules only) [16] 
+    INSTALLER: 16,
 };
 AccountRoleCode[AccountRoleCode.UNDEFINED] = 'UNDEFINED';
 AccountRoleCode[AccountRoleCode.ADMIN] = 'ADMIN';
