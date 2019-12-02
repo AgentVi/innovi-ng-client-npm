@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { EventAction } from '../common/EventAction';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationAction extends BaseEntity {
     accountId: string;
     folderId: string;

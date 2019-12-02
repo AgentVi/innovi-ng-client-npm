@@ -2228,6 +2228,8 @@
         /** @type {?} */
         ApplianceCommand.prototype.status;
         /** @type {?} */
+        ApplianceCommand.prototype.reason;
+        /** @type {?} */
         ApplianceCommand.prototype.components;
         /** @type {?} */
         ApplianceCommand.prototype.componentIds;
@@ -3562,7 +3564,7 @@
         UNDEFINED: 0,
         // Account administrator can perform all operations [1] 
         ADMIN: 1,
-        // Supervisor can perform all operations on specific folder(s) [2] 
+        // Supervisor can perform all operations on specific folder(s)and can see all modules except Settings [2] 
         SUPERVISOR: 2,
         // Account operator can perform operations on events only, this user can see administrator and monitor modules but has write permissions on events status only [4] 
         OPERATOR: 4,
