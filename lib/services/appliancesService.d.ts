@@ -1,6 +1,5 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
@@ -8,6 +7,7 @@ import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -89,6 +89,8 @@ export declare class AppliancesService {
     changeConfiguration(id?: string, configId?: string, versionId?: string): import("rxjs").Observable<any>;
     /**
      * Delete appliance from the system
+     * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is PENDING
+     * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
      * @Return: ActionResponse
      */
     delete(id?: string): import("rxjs").Observable<any>;
