@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ConfigurationVersion } from '../entities/ConfigurationVersion';
-import { ConfigurationTemplate } from '../entities/ConfigurationTemplate';
 import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { ConfigurationVersion } from '../entities/ConfigurationVersion';
+import { ConfigurationTemplate } from '../entities/ConfigurationTemplate';
 /**
  * List of configurations related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -50,16 +50,19 @@ export declare class SysConfigurationsService {
     find(target?: ProductTypeCode[], search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Create new configuration version in the system
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
      * @Return: EntityResponse<ConfigurationVersion>
      */
     createVersion(id?: string, body?: ConfigurationVersion): import("rxjs").Observable<any>;
     /**
      * Update configuration version in the system
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
      * @Return: EntityResponse<ConfigurationVersion>
      */
     updateVersion(id?: string, body?: ConfigurationVersion): import("rxjs").Observable<any>;
+    /**
+     * Duplicate configuration version from existing one
+     * @Return: EntityResponse<ConfigurationVersion>
+     */
+    duplicateVersion(id?: string, versionId?: string): import("rxjs").Observable<any>;
     /**
      * Delete configuration version by id
      * @Return: ActionResponse
