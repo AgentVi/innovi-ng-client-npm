@@ -3880,10 +3880,8 @@
      */
     /** @enum {number} */
     var DayOfWeekCode = {
-        // Undefined [0] 
-        UNDEFINED: 0,
-        // Sunday [7] 
-        SUN: 7,
+        // Sunday [0] 
+        SUN: 0,
         // Monday [1] 
         MON: 1,
         // Tuesday [2] 
@@ -3897,7 +3895,6 @@
         // Saturday [6] 
         SAT: 6,
     };
-    DayOfWeekCode[DayOfWeekCode.UNDEFINED] = 'UNDEFINED';
     DayOfWeekCode[DayOfWeekCode.SUN] = 'SUN';
     DayOfWeekCode[DayOfWeekCode.MON] = 'MON';
     DayOfWeekCode[DayOfWeekCode.TUE] = 'TUE';

@@ -1,6 +1,5 @@
 export declare enum DayOfWeekCode {
-    UNDEFINED = 0,
-    SUN = 7,
+    SUN = 0,
     MON = 1,
     TUE = 2,
     WED = 3,
