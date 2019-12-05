@@ -2067,6 +2067,8 @@ if (false) {
     /** @type {?} */
     ApplianceStatus.prototype.applianceId;
     /** @type {?} */
+    ApplianceStatus.prototype.status;
+    /** @type {?} */
     ApplianceStatus.prototype.cpuAvg;
     /** @type {?} */
     ApplianceStatus.prototype.cpuMax;

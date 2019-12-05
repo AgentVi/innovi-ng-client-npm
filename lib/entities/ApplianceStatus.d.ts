@@ -1,6 +1,8 @@
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class ApplianceStatus extends BaseEntity {
     applianceId: string;
+    status: ApplianceStatusCode;
     cpuAvg: number;
     cpuMax: number;
     ram: number;
