@@ -3932,23 +3932,14 @@ var ProductTypeCode = {
     VIRTUAL: 1,
     // Custom Device (Customer provides it's own hardware) [100] 
     CUSTOM: 100,
-    // Edge 200 [200] 
-    EDGE_200: 200,
-    // Edge 220 [220] 
-    EDGE_220: 220,
-    // Edge 250 [250] 
-    EDGE_250: 250,
-    // Edge 300 [300] 
-    EDGE_300: 300,
+    // Edge 320 [320] 
+    EDGE_300: 320,
     // Edge 500 [500] 
     EDGE_500: 500,
 };
 ProductTypeCode[ProductTypeCode.UNDEFINED] = 'UNDEFINED';
 ProductTypeCode[ProductTypeCode.VIRTUAL] = 'VIRTUAL';
 ProductTypeCode[ProductTypeCode.CUSTOM] = 'CUSTOM';
-ProductTypeCode[ProductTypeCode.EDGE_200] = 'EDGE_200';
-ProductTypeCode[ProductTypeCode.EDGE_220] = 'EDGE_220';
-ProductTypeCode[ProductTypeCode.EDGE_250] = 'EDGE_250';
 ProductTypeCode[ProductTypeCode.EDGE_300] = 'EDGE_300';
 ProductTypeCode[ProductTypeCode.EDGE_500] = 'EDGE_500';
 
