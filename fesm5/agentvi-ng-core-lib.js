@@ -3933,14 +3933,14 @@ var ProductTypeCode = {
     // Custom Device (Customer provides it's own hardware) [100] 
     CUSTOM: 100,
     // Edge 320 [320] 
-    EDGE_300: 320,
+    EDGE_320: 320,
     // Edge 500 [500] 
     EDGE_500: 500,
 };
 ProductTypeCode[ProductTypeCode.UNDEFINED] = 'UNDEFINED';
 ProductTypeCode[ProductTypeCode.VIRTUAL] = 'VIRTUAL';
 ProductTypeCode[ProductTypeCode.CUSTOM] = 'CUSTOM';
-ProductTypeCode[ProductTypeCode.EDGE_300] = 'EDGE_300';
+ProductTypeCode[ProductTypeCode.EDGE_320] = 'EDGE_320';
 ProductTypeCode[ProductTypeCode.EDGE_500] = 'EDGE_500';
 
 /**
