@@ -2630,6 +2630,8 @@
     }(BaseEntity));
     if (false) {
         /** @type {?} */
+        Feature.prototype.code;
+        /** @type {?} */
         Feature.prototype.name;
         /** @type {?} */
         Feature.prototype.description;
@@ -3943,6 +3945,56 @@
     EventStatusCode[EventStatusCode.CLOSED_FALSE] = 'CLOSED_FALSE';
     EventStatusCode[EventStatusCode.CLOSED_RELEVANT] = 'CLOSED_RELEVANT';
     EventStatusCode[EventStatusCode.CLOSED_IRRELEVANT] = 'CLOSED_IRRELEVANT';
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /** @enum {number} */
+    var FeatureCode = {
+        // Undefined [0] 
+        UNDEFINED: 0,
+        // Account administrator module [2048] 
+        MODULE_ADMIN: 2048,
+        // Crossing a line rule [2049] 
+        RULE_CROSSING: 2049,
+        // Moving in an area rule [2051] 
+        RULE_MOVING: 2051,
+        // Stopped vehicle rule only [2052] 
+        RULE_STOPPED: 2052,
+        // Occupancy rule [2056] 
+        RULE_OCCUPANCY: 2056,
+        // Grouping rule [2064] 
+        RULE_GROUPING: 2064,
+        // Ignore (yellow) mask rule [2080] 
+        RULE_IGNORE_MASK: 2080,
+        // Anomaly detection rule [2112] 
+        RULE_ANOMALY: 2112,
+        // Monitor (real time events) module [4096] 
+        MODULE_MONITOR: 4096,
+        // Google maps support module [4097] 
+        MAP_GOOGLE: 4097,
+        // Leaflet maps support module [4098] 
+        MAP_LEAFLET: 4098,
+        // Investigation (search) module [8192] 
+        MODULE_INVESTIGATION: 8192,
+        // Analytics (BI) module [8192] 
+        MODULE_ANALYTICS: 16384,
+    };
+    FeatureCode[FeatureCode.UNDEFINED] = 'UNDEFINED';
+    FeatureCode[FeatureCode.MODULE_ADMIN] = 'MODULE_ADMIN';
+    FeatureCode[FeatureCode.RULE_CROSSING] = 'RULE_CROSSING';
+    FeatureCode[FeatureCode.RULE_MOVING] = 'RULE_MOVING';
+    FeatureCode[FeatureCode.RULE_STOPPED] = 'RULE_STOPPED';
+    FeatureCode[FeatureCode.RULE_OCCUPANCY] = 'RULE_OCCUPANCY';
+    FeatureCode[FeatureCode.RULE_GROUPING] = 'RULE_GROUPING';
+    FeatureCode[FeatureCode.RULE_IGNORE_MASK] = 'RULE_IGNORE_MASK';
+    FeatureCode[FeatureCode.RULE_ANOMALY] = 'RULE_ANOMALY';
+    FeatureCode[FeatureCode.MODULE_MONITOR] = 'MODULE_MONITOR';
+    FeatureCode[FeatureCode.MAP_GOOGLE] = 'MAP_GOOGLE';
+    FeatureCode[FeatureCode.MAP_LEAFLET] = 'MAP_LEAFLET';
+    FeatureCode[FeatureCode.MODULE_INVESTIGATION] = 'MODULE_INVESTIGATION';
+    FeatureCode[FeatureCode.MODULE_ANALYTICS] = 'MODULE_ANALYTICS';
 
     /**
      * @fileoverview added by tsickle
@@ -17440,48 +17492,6 @@
             return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
-         * Change features group name
-         * @Return: EntityResponse<FeaturesGroup>
-         */
-        /**
-         * Change features group name
-         * \@Return: EntityResponse<FeaturesGroup>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        SysFeaturesGroupsService.prototype.setName = /**
-         * Change features group name
-         * \@Return: EntityResponse<FeaturesGroup>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change features group features list
-         * @Return: EntityResponse<FeaturesGroup>
-         */
-        /**
-         * Change features group features list
-         * \@Return: EntityResponse<FeaturesGroup>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        SysFeaturesGroupsService.prototype.setFeatures = /**
-         * Change features group features list
-         * \@Return: EntityResponse<FeaturesGroup>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/features", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
          * Delete Feature from the system
          * @Return: ActionResponse
          */
@@ -19766,6 +19776,7 @@
     exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
     exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
     exports.Feature = Feature;
+    exports.FeatureCode = FeatureCode;
     exports.FeatureIdRequest = FeatureIdRequest;
     exports.FeatureIdsRequest = FeatureIdsRequest;
     exports.FeaturesGroup = FeaturesGroup;

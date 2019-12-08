@@ -25,16 +25,6 @@ export declare class SysFeaturesGroupsService {
      */
     update(id?: string, body?: FeaturesGroup): import("rxjs").Observable<any>;
     /**
-     * Change features group name
-     * @Return: EntityResponse<FeaturesGroup>
-     */
-    setName(id?: string, body?: string): import("rxjs").Observable<any>;
-    /**
-     * Change features group features list
-     * @Return: EntityResponse<FeaturesGroup>
-     */
-    setFeatures(id?: string, body?: string[]): import("rxjs").Observable<any>;
-    /**
      * Delete Feature from the system
      * @Return: ActionResponse
      */
