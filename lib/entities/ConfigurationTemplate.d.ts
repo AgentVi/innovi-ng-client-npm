@@ -4,6 +4,7 @@ export declare class ConfigurationTemplate extends BaseEntity {
     name: string;
     dockerImage: string;
     variables: StringKeyValue[];
+    mounts: StringKeyValue[];
     id: string;
     _type: string;
     createdOn: number;
