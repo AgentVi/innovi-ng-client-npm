@@ -5063,6 +5063,28 @@
     */
     var   /*
     */
+    ApplianceServiceDeleteCommandRequest = /** @class */ (function () {
+        function ApplianceServiceDeleteCommandRequest(id, commandId) {
+            this.id = id;
+            this.commandId = commandId;
+        }
+        return ApplianceServiceDeleteCommandRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceServiceDeleteCommandRequest.prototype.id;
+        /** @type {?} */
+        ApplianceServiceDeleteCommandRequest.prototype.commandId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AppliancesServiceAddSensorRequest = /** @class */ (function () {
         function AppliancesServiceAddSensorRequest(id, body) {
             this.id = id;
@@ -16629,6 +16651,50 @@
             return this.rest.delete(this.baseUrl + "/" + id);
         };
         /**
+         * Change appliance machine Id (for VIRTUAL device only)
+         * @Return: EntityResponse<Appliance> - Updated appliance
+         */
+        /**
+         * Change appliance machine Id (for VIRTUAL device only)
+         * \@Return: EntityResponse<Appliance> - Updated appliance
+         * @param {?=} id
+         * @param {?=} machineId
+         * @return {?}
+         */
+        SysAppliancesService.prototype.changeMachineId = /**
+         * Change appliance machine Id (for VIRTUAL device only)
+         * \@Return: EntityResponse<Appliance> - Updated appliance
+         * @param {?=} id
+         * @param {?=} machineId
+         * @return {?}
+         */
+        function (id, machineId) {
+            return this.rest.put(this.baseUrl + "/" + id + "/machine/" + machineId, null);
+        };
+        /**
+         * Change appliance configuration
+         * @Return: EntityResponse<Appliance> - Updated appliance
+         */
+        /**
+         * Change appliance configuration
+         * \@Return: EntityResponse<Appliance> - Updated appliance
+         * @param {?=} id
+         * @param {?=} configId
+         * @param {?=} versionId
+         * @return {?}
+         */
+        SysAppliancesService.prototype.changeConfiguration = /**
+         * Change appliance configuration
+         * \@Return: EntityResponse<Appliance> - Updated appliance
+         * @param {?=} id
+         * @param {?=} configId
+         * @param {?=} versionId
+         * @return {?}
+         */
+        function (id, configId, versionId) {
+            return this.rest.put(this.baseUrl + "/" + id + "/config/" + configId + "/" + versionId, null);
+        };
+        /**
          * Get all appliance agents
          * @Return: EntitiesResponse<Agent>
          */
@@ -16756,17 +16822,40 @@
         /**
          * Delete command
          * \@Return: ActionResponse
+         * @param {?=} id
          * @param {?=} commandId
          * @return {?}
          */
         SysAppliancesService.prototype.deleteCommand = /**
          * Delete command
          * \@Return: ActionResponse
+         * @param {?=} id
          * @param {?=} commandId
          * @return {?}
          */
-        function (commandId) {
-            return this.rest.delete(this.baseUrl + "/commands/" + commandId);
+        function (id, commandId) {
+            return this.rest.delete(this.baseUrl + "/" + id + "/commands/" + commandId);
+        };
+        /**
+         * Delete all appliance commands
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete all appliance commands
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @param {?=} agentId
+         * @return {?}
+         */
+        SysAppliancesService.prototype.deleteAllCommands = /**
+         * Delete all appliance commands
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @param {?=} agentId
+         * @return {?}
+         */
+        function (id, agentId) {
+            return this.rest.delete(this.baseUrl + "/" + id + "/commands");
         };
         SysAppliancesService.decorators = [
             { type: core.Injectable }
@@ -19638,6 +19727,7 @@
     exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
     exports.ApplianceIdRequest = ApplianceIdRequest;
     exports.ApplianceRegistration = ApplianceRegistration;
+    exports.ApplianceServiceDeleteCommandRequest = ApplianceServiceDeleteCommandRequest;
     exports.ApplianceStatus = ApplianceStatus;
     exports.ApplianceStatusCode = ApplianceStatusCode;
     exports.ApplianceStatusDataPoint = ApplianceStatusDataPoint;

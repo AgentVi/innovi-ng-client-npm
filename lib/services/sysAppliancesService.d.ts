@@ -36,6 +36,16 @@ export declare class SysAppliancesService {
      */
     delete(id?: string): import("rxjs").Observable<any>;
     /**
+     * Change appliance machine Id (for VIRTUAL device only)
+     * @Return: EntityResponse<Appliance> - Updated appliance
+     */
+    changeMachineId(id?: string, machineId?: string): import("rxjs").Observable<any>;
+    /**
+     * Change appliance configuration
+     * @Return: EntityResponse<Appliance> - Updated appliance
+     */
+    changeConfiguration(id?: string, configId?: string, versionId?: string): import("rxjs").Observable<any>;
+    /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>
      */
@@ -66,5 +76,10 @@ export declare class SysAppliancesService {
      * Delete command
      * @Return: ActionResponse
      */
-    deleteCommand(commandId?: string): import("rxjs").Observable<any>;
+    deleteCommand(id?: string, commandId?: string): import("rxjs").Observable<any>;
+    /**
+     * Delete all appliance commands
+     * @Return: ActionResponse
+     */
+    deleteAllCommands(id?: string, agentId?: string): import("rxjs").Observable<any>;
 }

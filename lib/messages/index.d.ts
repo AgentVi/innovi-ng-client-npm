@@ -18,6 +18,7 @@ export * from './ApiKeyIdRequest';
 export * from './ApplianceCommandIdRequest';
 export * from './ApplianceIdAgentIdRequest';
 export * from './ApplianceIdRequest';
+export * from './ApplianceServiceDeleteCommandRequest';
 export * from './AppliancesServiceAddSensorRequest';
 export * from './AppliancesServiceChangeConfigurationRequest';
 export * from './AppliancesServiceChangeFolderRequest';
