@@ -1,7 +1,7 @@
-import { ApplianceStatusDataPoint } from '../common/ApplianceStatusDataPoint';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 export declare class ApplianceStatusTimestamped {
     timestamp: number;
     label: string;
-    value: ApplianceStatusDataPoint;
-    constructor(timestamp?: number, label?: string, value?: ApplianceStatusDataPoint);
+    value: ApplianceStatusCode;
+    constructor(timestamp?: number, label?: string, value?: ApplianceStatusCode);
 }

@@ -440,6 +440,87 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Appliance KPIs data point
+    */
+    var   /*
+       Appliance KPIs data point
+    */
+    ApplianceKpiDataPoint = /** @class */ (function () {
+        function ApplianceKpiDataPoint(cpuAvg, cpuMax, ram, loadAvg) {
+            this.cpuAvg = cpuAvg;
+            this.cpuMax = cpuMax;
+            this.ram = ram;
+            this.loadAvg = loadAvg;
+        }
+        return ApplianceKpiDataPoint;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceKpiDataPoint.prototype.cpuAvg;
+        /** @type {?} */
+        ApplianceKpiDataPoint.prototype.cpuMax;
+        /** @type {?} */
+        ApplianceKpiDataPoint.prototype.ram;
+        /** @type {?} */
+        ApplianceKpiDataPoint.prototype.loadAvg;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Appliance KPIs list over time (CPU, RAM, LOAD)
+    */
+    var   /*
+       Appliance KPIs list over time (CPU, RAM, LOAD)
+    */
+    ApplianceKpiTimeSeries = /** @class */ (function () {
+        function ApplianceKpiTimeSeries(label, data) {
+            this.label = label;
+            this.data = data;
+        }
+        return ApplianceKpiTimeSeries;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceKpiTimeSeries.prototype.label;
+        /** @type {?} */
+        ApplianceKpiTimeSeries.prototype.data;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Data point in a series representing appliance KPI values in a specific timestamp
+    */
+    var   /*
+       Data point in a series representing appliance KPI values in a specific timestamp
+    */
+    ApplianceKpiTimestamped = /** @class */ (function () {
+        function ApplianceKpiTimestamped(timestamp, label, value) {
+            this.timestamp = timestamp;
+            this.label = label;
+            this.value = value;
+        }
+        return ApplianceKpiTimestamped;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceKpiTimestamped.prototype.timestamp;
+        /** @type {?} */
+        ApplianceKpiTimestamped.prototype.label;
+        /** @type {?} */
+        ApplianceKpiTimestamped.prototype.value;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Appliance registration info
        This model is used when a user registers new appliance in the system
     */
@@ -474,36 +555,6 @@
         ApplianceRegistration.prototype.configurationId;
         /** @type {?} */
         ApplianceRegistration.prototype.configurationVersionId;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
-       Appliance short status data point
-    */
-    var   /*
-       Appliance short status data point
-    */
-    ApplianceStatusDataPoint = /** @class */ (function () {
-        function ApplianceStatusDataPoint(cpuAvg, cpuMax, ram, loadAvg) {
-            this.cpuAvg = cpuAvg;
-            this.cpuMax = cpuMax;
-            this.ram = ram;
-            this.loadAvg = loadAvg;
-        }
-        return ApplianceStatusDataPoint;
-    }());
-    if (false) {
-        /** @type {?} */
-        ApplianceStatusDataPoint.prototype.cpuAvg;
-        /** @type {?} */
-        ApplianceStatusDataPoint.prototype.cpuMax;
-        /** @type {?} */
-        ApplianceStatusDataPoint.prototype.ram;
-        /** @type {?} */
-        ApplianceStatusDataPoint.prototype.loadAvg;
     }
 
     /**
@@ -6558,6 +6609,30 @@
         EntityResponseOfApplianceAgents.prototype.code;
         /** @type {?} */
         EntityResponseOfApplianceAgents.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfApplianceKpiTimeSeries = /** @class */ (function (_super) {
+        __extends(EntityResponseOfApplianceKpiTimeSeries, _super);
+        function EntityResponseOfApplianceKpiTimeSeries() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfApplianceKpiTimeSeries;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfApplianceKpiTimeSeries.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfApplianceKpiTimeSeries.prototype.code;
+        /** @type {?} */
+        EntityResponseOfApplianceKpiTimeSeries.prototype.error;
     }
 
     /**
@@ -19747,11 +19822,13 @@
     exports.ApplianceConfiguration = ApplianceConfiguration;
     exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
     exports.ApplianceIdRequest = ApplianceIdRequest;
+    exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
+    exports.ApplianceKpiTimeSeries = ApplianceKpiTimeSeries;
+    exports.ApplianceKpiTimestamped = ApplianceKpiTimestamped;
     exports.ApplianceRegistration = ApplianceRegistration;
     exports.ApplianceServiceDeleteCommandRequest = ApplianceServiceDeleteCommandRequest;
     exports.ApplianceStatus = ApplianceStatus;
     exports.ApplianceStatusCode = ApplianceStatusCode;
-    exports.ApplianceStatusDataPoint = ApplianceStatusDataPoint;
     exports.ApplianceStatusTimeSeries = ApplianceStatusTimeSeries;
     exports.ApplianceStatusTimestamped = ApplianceStatusTimestamped;
     exports.AppliancesService = AppliancesService;
@@ -19838,6 +19915,7 @@
     exports.EntityResponseOfApiKey = EntityResponseOfApiKey;
     exports.EntityResponseOfAppliance = EntityResponseOfAppliance;
     exports.EntityResponseOfApplianceAgents = EntityResponseOfApplianceAgents;
+    exports.EntityResponseOfApplianceKpiTimeSeries = EntityResponseOfApplianceKpiTimeSeries;
     exports.EntityResponseOfApplianceStatusTimeSeries = EntityResponseOfApplianceStatusTimeSeries;
     exports.EntityResponseOfAuditLog = EntityResponseOfAuditLog;
     exports.EntityResponseOfCalendar = EntityResponseOfCalendar;

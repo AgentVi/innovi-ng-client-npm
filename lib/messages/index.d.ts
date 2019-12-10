@@ -80,6 +80,7 @@ export * from './EntityResponseOfAccount';
 export * from './EntityResponseOfApiKey';
 export * from './EntityResponseOfAppliance';
 export * from './EntityResponseOfApplianceAgents';
+export * from './EntityResponseOfApplianceKpiTimeSeries';
 export * from './EntityResponseOfApplianceStatusTimeSeries';
 export * from './EntityResponseOfAuditLog';
 export * from './EntityResponseOfCalendar';

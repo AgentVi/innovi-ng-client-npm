@@ -1,4 +1,4 @@
-export declare class ApplianceStatusDataPoint {
+export declare class ApplianceKpiDataPoint {
     cpuAvg: number;
     cpuMax: number;
     ram: number;
