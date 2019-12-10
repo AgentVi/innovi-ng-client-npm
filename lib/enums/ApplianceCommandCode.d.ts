@@ -9,7 +9,7 @@ export declare enum ApplianceCommandCode {
     SEND_STATUS = 7,
     RESET_CREDENTIALS = 8,
     REBOOT_HOST = 9,
-    FACTORY_RESET = 10,
-    OPEN_SSH = 11,
-    CLOSE_SSH = 12
+    OPEN_SSH = 10,
+    CLOSE_SSH = 11,
+    RESET_DEVICE = 12
 }
