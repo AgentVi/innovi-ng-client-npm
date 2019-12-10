@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 /**
  * List of appliance queries for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -15,6 +16,11 @@ export declare class SysAppliancesService {
      * Class constructor
      */
     constructor(config: CoreConfig, rest: RestUtil);
+    /**
+     * Register new appliance in the system
+     * @Return: EntityResponse<Appliance> The registered appliance
+     */
+    registerAppliance(id?: string, body?: ApplianceRegistration): import("rxjs").Observable<any>;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
