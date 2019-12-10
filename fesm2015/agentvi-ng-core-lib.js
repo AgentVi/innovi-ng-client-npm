@@ -11441,6 +11441,25 @@ class AppliancesService {
         }
         return this.rest.get(`${this.baseUrl}/${id}/status/overtime`, ...params);
     }
+    /**
+     * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+     * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+     * @param {?=} id
+     * @param {?=} from
+     * @param {?=} to
+     * @return {?}
+     */
+    getKpiOverTime(id, from, to) {
+        /** @type {?} */
+        const params = new Array();
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        return this.rest.get(`${this.baseUrl}/${id}/kpi/overtime`, ...params);
+    }
 }
 AppliancesService.decorators = [
     { type: Injectable }
@@ -14231,6 +14250,44 @@ class SysAppliancesService {
      */
     deleteAllCommands(id, agentId) {
         return this.rest.delete(`${this.baseUrl}/${id}/commands`);
+    }
+    /**
+     * Get appliance status history over time
+     * \@Return: EntityResponse<ApplianceStatusTimeSeries>
+     * @param {?=} id
+     * @param {?=} from
+     * @param {?=} to
+     * @return {?}
+     */
+    getStatusOverTime(id, from, to) {
+        /** @type {?} */
+        const params = new Array();
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        return this.rest.get(`${this.baseUrl}/${id}/status/overtime`, ...params);
+    }
+    /**
+     * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+     * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+     * @param {?=} id
+     * @param {?=} from
+     * @param {?=} to
+     * @return {?}
+     */
+    getKpiOverTime(id, from, to) {
+        /** @type {?} */
+        const params = new Array();
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        return this.rest.get(`${this.baseUrl}/${id}/kpi/overtime`, ...params);
     }
 }
 SysAppliancesService.decorators = [

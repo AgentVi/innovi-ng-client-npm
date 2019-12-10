@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 /**
  * List of appliance queries for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -88,4 +88,14 @@ export declare class SysAppliancesService {
      * @Return: ActionResponse
      */
     deleteAllCommands(id?: string, agentId?: string): import("rxjs").Observable<any>;
+    /**
+     * Get appliance status history over time
+     * @Return:  EntityResponse<ApplianceStatusTimeSeries>
+     */
+    getStatusOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+     * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
+     */
+    getKpiOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
 }

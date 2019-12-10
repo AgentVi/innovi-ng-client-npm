@@ -12567,6 +12567,38 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
         };
+        /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
+         */
+        /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        AppliancesService.prototype.getKpiOverTime = /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        function (id, from, to) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
+        };
         AppliancesService.decorators = [
             { type: core.Injectable }
         ];
@@ -16952,6 +16984,70 @@
          */
         function (id, agentId) {
             return this.rest.delete(this.baseUrl + "/" + id + "/commands");
+        };
+        /**
+         * Get appliance status history over time
+         * @Return:  EntityResponse<ApplianceStatusTimeSeries>
+         */
+        /**
+         * Get appliance status history over time
+         * \@Return: EntityResponse<ApplianceStatusTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        SysAppliancesService.prototype.getStatusOverTime = /**
+         * Get appliance status history over time
+         * \@Return: EntityResponse<ApplianceStatusTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        function (id, from, to) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
+        };
+        /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
+         */
+        /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        SysAppliancesService.prototype.getKpiOverTime = /**
+         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
+         * \@Return: EntityResponse<ApplianceKPIsTimeSeries>
+         * @param {?=} id
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        function (id, from, to) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
         };
         SysAppliancesService.decorators = [
             { type: core.Injectable }
