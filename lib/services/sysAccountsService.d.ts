@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
-import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Coordinate } from '../common/Coordinate';
+import { Account } from '../entities/Account';
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -58,11 +58,6 @@ export declare class SysAccountsService {
      */
     changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
-     * Get default geo location
-     * @Return: EntityResponse<Coordinate> The account location
-     */
-    getDefaultLocation(id?: string): import("rxjs").Observable<any>;
-    /**
      * Delete account from the system
      * The account is moved to DELETED mode and will be deleted after 90 days
      * Only account marked as SUSPENDED can be deleted
@@ -94,6 +89,16 @@ export declare class SysAccountsService {
      * @Return: QueryResponse<Account>
      */
     find(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Get account hierarchy
+     * @Return: EntityResponse<TreeNode>
+     */
+    tree(id?: string, sensors?: boolean): import("rxjs").Observable<any>;
+    /**
+     * Find account folders
+     * @Return: QueryResponse<Folder>
+     */
+    findFolders(parentId?: string, search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of accounts and filter
      * @Return: StreamContent

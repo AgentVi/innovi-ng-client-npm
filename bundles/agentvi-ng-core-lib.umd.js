@@ -4821,6 +4821,37 @@
     */
     var   /*
     */
+    AccountsServiceFindFoldersRequest = /** @class */ (function () {
+        function AccountsServiceFindFoldersRequest(parentId, search, sort, page, pageSize) {
+            this.parentId = parentId;
+            this.search = search;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return AccountsServiceFindFoldersRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.parentId;
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.search;
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.sort;
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.page;
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.pageSize;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AccountsServiceFindRequest = /** @class */ (function () {
         function AccountsServiceFindRequest(search, type, status, sort, page, pageSize) {
             this.search = search;
@@ -4867,6 +4898,28 @@
         AccountsServiceResetRequest.prototype.id;
         /** @type {?} */
         AccountsServiceResetRequest.prototype.days;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    AccountsServiceTreeRequest = /** @class */ (function () {
+        function AccountsServiceTreeRequest(id, sensors) {
+            this.id = id;
+            this.sensors = sensors;
+        }
+        return AccountsServiceTreeRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountsServiceTreeRequest.prototype.id;
+        /** @type {?} */
+        AccountsServiceTreeRequest.prototype.sensors;
     }
 
     /**
@@ -16322,25 +16375,6 @@
             return this.rest.put(this.baseUrl + "/" + id + "/geoArea", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
-         * Get default geo location
-         * @Return: EntityResponse<Coordinate> The account location
-         */
-        /**
-         * Get default geo location
-         * \@Return: EntityResponse<Coordinate> The account location
-         * @param {?=} id
-         * @return {?}
-         */
-        SysAccountsService.prototype.getDefaultLocation = /**
-         * Get default geo location
-         * \@Return: EntityResponse<Coordinate> The account location
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
-        };
-        /**
          * Delete account from the system
          * The account is moved to DELETED mode and will be deleted after 90 days
          * Only account marked as SUSPENDED can be deleted
@@ -16498,6 +16532,78 @@
                 params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Get account hierarchy
+         * @Return: EntityResponse<TreeNode>
+         */
+        /**
+         * Get account hierarchy
+         * \@Return: EntityResponse<TreeNode>
+         * @param {?=} id
+         * @param {?=} sensors
+         * @return {?}
+         */
+        SysAccountsService.prototype.tree = /**
+         * Get account hierarchy
+         * \@Return: EntityResponse<TreeNode>
+         * @param {?=} id
+         * @param {?=} sensors
+         * @return {?}
+         */
+        function (id, sensors) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (sensors != null) {
+                params.push("sensors=" + sensors);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/tree"], params));
+        };
+        /**
+         * Find account folders
+         * @Return: QueryResponse<Folder>
+         */
+        /**
+         * Find account folders
+         * \@Return: QueryResponse<Folder>
+         * @param {?=} parentId
+         * @param {?=} search
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        SysAccountsService.prototype.findFolders = /**
+         * Find account folders
+         * \@Return: QueryResponse<Folder>
+         * @param {?=} parentId
+         * @param {?=} search
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        function (parentId, search, sort, page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (parentId != null) {
+                params.push("parentId=" + parentId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/{id}/folders"], params));
         };
         /**
          * Export list of accounts and filter
@@ -19894,8 +20000,10 @@
     exports.AccountsServiceChangeTypeRequest = AccountsServiceChangeTypeRequest;
     exports.AccountsServiceCreateRequest = AccountsServiceCreateRequest;
     exports.AccountsServiceExportRequest = AccountsServiceExportRequest;
+    exports.AccountsServiceFindFoldersRequest = AccountsServiceFindFoldersRequest;
     exports.AccountsServiceFindRequest = AccountsServiceFindRequest;
     exports.AccountsServiceResetRequest = AccountsServiceResetRequest;
+    exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
     exports.Agent = Agent;
