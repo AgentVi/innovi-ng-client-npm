@@ -4461,13 +4461,15 @@ if (false) {
 */
 class AccountsServiceFindFoldersRequest {
     /**
+     * @param {?=} id
      * @param {?=} parentId
      * @param {?=} search
      * @param {?=} sort
      * @param {?=} page
      * @param {?=} pageSize
      */
-    constructor(parentId, search, sort, page, pageSize) {
+    constructor(id, parentId, search, sort, page, pageSize) {
+        this.id = id;
         this.parentId = parentId;
         this.search = search;
         this.sort = sort;
@@ -4476,6 +4478,8 @@ class AccountsServiceFindFoldersRequest {
     }
 }
 if (false) {
+    /** @type {?} */
+    AccountsServiceFindFoldersRequest.prototype.id;
     /** @type {?} */
     AccountsServiceFindFoldersRequest.prototype.parentId;
     /** @type {?} */
@@ -14024,6 +14028,7 @@ class SysAccountsService {
     /**
      * Find account folders
      * \@Return: QueryResponse<Folder>
+     * @param {?=} id
      * @param {?=} parentId
      * @param {?=} search
      * @param {?=} sort
@@ -14031,7 +14036,7 @@ class SysAccountsService {
      * @param {?=} pageSize
      * @return {?}
      */
-    findFolders(parentId, search, sort, page, pageSize) {
+    findFolders(id, parentId, search, sort, page, pageSize) {
         /** @type {?} */
         const params = new Array();
         if (parentId != null) {
@@ -14049,7 +14054,7 @@ class SysAccountsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/{id}/folders`, ...params);
+        return this.rest.get(`${this.baseUrl}/${id}/folders`, ...params);
     }
     /**
      * Export list of accounts and filter

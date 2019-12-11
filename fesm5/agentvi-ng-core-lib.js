@@ -4625,7 +4625,8 @@ if (false) {
 var  /*
 */
 AccountsServiceFindFoldersRequest = /** @class */ (function () {
-    function AccountsServiceFindFoldersRequest(parentId, search, sort, page, pageSize) {
+    function AccountsServiceFindFoldersRequest(id, parentId, search, sort, page, pageSize) {
+        this.id = id;
         this.parentId = parentId;
         this.search = search;
         this.sort = sort;
@@ -4635,6 +4636,8 @@ AccountsServiceFindFoldersRequest = /** @class */ (function () {
     return AccountsServiceFindFoldersRequest;
 }());
 if (false) {
+    /** @type {?} */
+    AccountsServiceFindFoldersRequest.prototype.id;
     /** @type {?} */
     AccountsServiceFindFoldersRequest.prototype.parentId;
     /** @type {?} */
@@ -16370,6 +16373,7 @@ var SysAccountsService = /** @class */ (function () {
     /**
      * Find account folders
      * \@Return: QueryResponse<Folder>
+     * @param {?=} id
      * @param {?=} parentId
      * @param {?=} search
      * @param {?=} sort
@@ -16380,6 +16384,7 @@ var SysAccountsService = /** @class */ (function () {
     SysAccountsService.prototype.findFolders = /**
      * Find account folders
      * \@Return: QueryResponse<Folder>
+     * @param {?=} id
      * @param {?=} parentId
      * @param {?=} search
      * @param {?=} sort
@@ -16387,7 +16392,7 @@ var SysAccountsService = /** @class */ (function () {
      * @param {?=} pageSize
      * @return {?}
      */
-    function (parentId, search, sort, page, pageSize) {
+    function (id, parentId, search, sort, page, pageSize) {
         var _a;
         /** @type {?} */
         var params = new Array();
@@ -16406,7 +16411,7 @@ var SysAccountsService = /** @class */ (function () {
         if (pageSize != null) {
             params.push("pageSize=" + pageSize);
         }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/{id}/folders"], params));
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
     };
     /**
      * Export list of accounts and filter

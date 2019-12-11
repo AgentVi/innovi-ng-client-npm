@@ -4822,7 +4822,8 @@
     var   /*
     */
     AccountsServiceFindFoldersRequest = /** @class */ (function () {
-        function AccountsServiceFindFoldersRequest(parentId, search, sort, page, pageSize) {
+        function AccountsServiceFindFoldersRequest(id, parentId, search, sort, page, pageSize) {
+            this.id = id;
             this.parentId = parentId;
             this.search = search;
             this.sort = sort;
@@ -4832,6 +4833,8 @@
         return AccountsServiceFindFoldersRequest;
     }());
     if (false) {
+        /** @type {?} */
+        AccountsServiceFindFoldersRequest.prototype.id;
         /** @type {?} */
         AccountsServiceFindFoldersRequest.prototype.parentId;
         /** @type {?} */
@@ -16567,6 +16570,7 @@
         /**
          * Find account folders
          * \@Return: QueryResponse<Folder>
+         * @param {?=} id
          * @param {?=} parentId
          * @param {?=} search
          * @param {?=} sort
@@ -16577,6 +16581,7 @@
         SysAccountsService.prototype.findFolders = /**
          * Find account folders
          * \@Return: QueryResponse<Folder>
+         * @param {?=} id
          * @param {?=} parentId
          * @param {?=} search
          * @param {?=} sort
@@ -16584,7 +16589,7 @@
          * @param {?=} pageSize
          * @return {?}
          */
-        function (parentId, search, sort, page, pageSize) {
+        function (id, parentId, search, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -16603,7 +16608,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/{id}/folders"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
         };
         /**
          * Export list of accounts and filter
