@@ -1,6 +1,7 @@
 export declare enum SensorStatusMask {
     SENSOR_OK = 0,
     SENSOR_ERROR = 1,
+    NO_COMM_ERROR = 8,
     SOURCE_ERROR = 16,
     UNSUPPORTED_FORMAT = 32,
     UNSUPPORTED_RESOLUTION = 64,

@@ -4025,6 +4025,8 @@ const SensorStatusMask = {
     SENSOR_OK: 0,
     // [ERROR] General sensor error [0x0000000000000001] 
     SENSOR_ERROR: 1,
+    // [ERROR] Communication error 
+    NO_COMM_ERROR: 8,
     // [ERROR] Sensor can't read video stream or stream is not valid [0x0000000000000010] 
     SOURCE_ERROR: 16,
     // [ERROR] Video stream format is not supported [0x0000000000000020] 
@@ -4046,6 +4048,7 @@ const SensorStatusMask = {
 };
 SensorStatusMask[SensorStatusMask.SENSOR_OK] = 'SENSOR_OK';
 SensorStatusMask[SensorStatusMask.SENSOR_ERROR] = 'SENSOR_ERROR';
+SensorStatusMask[SensorStatusMask.NO_COMM_ERROR] = 'NO_COMM_ERROR';
 SensorStatusMask[SensorStatusMask.SOURCE_ERROR] = 'SOURCE_ERROR';
 SensorStatusMask[SensorStatusMask.UNSUPPORTED_FORMAT] = 'UNSUPPORTED_FORMAT';
 SensorStatusMask[SensorStatusMask.UNSUPPORTED_RESOLUTION] = 'UNSUPPORTED_RESOLUTION';
