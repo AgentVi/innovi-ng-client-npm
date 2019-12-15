@@ -3120,6 +3120,8 @@ if (false) {
     /** @type {?} */
     SensorStatus.prototype.sensorId;
     /** @type {?} */
+    SensorStatus.prototype.accountId;
+    /** @type {?} */
     SensorStatus.prototype.mask;
     /** @type {?} */
     SensorStatus.prototype.status;
