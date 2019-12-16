@@ -42,6 +42,11 @@ export declare class SysAppliancesService {
      */
     delete(id?: string): import("rxjs").Observable<any>;
     /**
+     * Reboot appliance host
+     * @Return: ActionResponse
+     */
+    reboot(id?: string): import("rxjs").Observable<any>;
+    /**
      * Change appliance machine Id (for VIRTUAL device only)
      * @Return: EntityResponse<Appliance> - Updated appliance
      */
