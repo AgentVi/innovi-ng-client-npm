@@ -1,7 +1,6 @@
-import { SensorStatusMask } from '../enums/SensorStatusMask';
 export declare class SensorStatusTimestamped {
-    mask: SensorStatusMask;
+    mask: number;
     timestamp: number;
     label: string;
-    constructor(mask?: SensorStatusMask, timestamp?: number, label?: string);
+    constructor(mask?: number, timestamp?: number, label?: string);
 }

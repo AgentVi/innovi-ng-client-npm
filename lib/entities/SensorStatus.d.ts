@@ -1,10 +1,9 @@
-import { SensorStatusMask } from '../enums/SensorStatusMask';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class SensorStatus extends BaseEntity {
     sensorId: string;
     accountId: string;
-    mask: SensorStatusMask;
+    mask: number;
     status: SensorStatusCode;
     id: string;
     _type: string;
