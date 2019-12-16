@@ -756,6 +756,54 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Distribution series result - keys are long values
+    */
+    var   /*
+       Distribution series result - keys are long values
+    */
+    DistributionOfLong = /** @class */ (function () {
+        function DistributionOfLong(label, data) {
+            this.label = label;
+            this.data = data;
+        }
+        return DistributionOfLong;
+    }());
+    if (false) {
+        /** @type {?} */
+        DistributionOfLong.prototype.label;
+        /** @type {?} */
+        DistributionOfLong.prototype.data;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Distribution series result - keys are long values
+    */
+    var   /*
+       Distribution series result - keys are long values
+    */
+    DistributionOfString = /** @class */ (function () {
+        function DistributionOfString(label, data) {
+            this.label = label;
+            this.data = data;
+        }
+        return DistributionOfString;
+    }());
+    if (false) {
+        /** @type {?} */
+        DistributionOfString.prototype.label;
+        /** @type {?} */
+        DistributionOfString.prototype.data;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Docker registry credentials to connect to docker
        Includes information where to access and get images
     */
@@ -20097,6 +20145,8 @@
     exports.DayOfWeekCode = DayOfWeekCode;
     exports.Dimension = Dimension;
     exports.DiskInfo = DiskInfo;
+    exports.DistributionOfLong = DistributionOfLong;
+    exports.DistributionOfString = DistributionOfString;
     exports.DockerCredentials = DockerCredentials;
     exports.EmptyRequest = EmptyRequest;
     exports.EntitiesResponse = EntitiesResponse;

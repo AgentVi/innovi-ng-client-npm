@@ -16,6 +16,8 @@ export * from './BoundingMap';
 export * from './Coordinate';
 export * from './Dimension';
 export * from './DiskInfo';
+export * from './DistributionOfLong';
+export * from './DistributionOfString';
 export * from './DockerCredentials';
 export * from './EventAction';
 export * from './EventCountDataPoint';
