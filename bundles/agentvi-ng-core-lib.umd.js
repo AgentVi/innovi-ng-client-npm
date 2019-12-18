@@ -4633,11 +4633,14 @@
         SUPPORT: 2,
         // System user - has access to specific accounts with role based access control [4] 
         USER: 4,
+        // Account service - to be used by other systems to perform actions using the API (can't login as a user to the portal)' [5]` 
+        ACCOUNT_SERVICE: 5,
     };
     UserTypeCode[UserTypeCode.UNDEFINED] = 'UNDEFINED';
     UserTypeCode[UserTypeCode.SYSADMIN] = 'SYSADMIN';
     UserTypeCode[UserTypeCode.SUPPORT] = 'SUPPORT';
     UserTypeCode[UserTypeCode.USER] = 'USER';
+    UserTypeCode[UserTypeCode.ACCOUNT_SERVICE] = 'ACCOUNT_SERVICE';
 
     /**
      * @fileoverview added by tsickle
