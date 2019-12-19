@@ -1722,8 +1722,8 @@
        Data point in a series representing a sensor status value in a specific timestamp
     */
     SensorStatusTimestamped = /** @class */ (function () {
-        function SensorStatusTimestamped(mask, timestamp, label) {
-            this.mask = mask;
+        function SensorStatusTimestamped(state, timestamp, label) {
+            this.state = state;
             this.timestamp = timestamp;
             this.label = label;
         }
@@ -1731,7 +1731,7 @@
     }());
     if (false) {
         /** @type {?} */
-        SensorStatusTimestamped.prototype.mask;
+        SensorStatusTimestamped.prototype.state;
         /** @type {?} */
         SensorStatusTimestamped.prototype.timestamp;
         /** @type {?} */
@@ -3356,7 +3356,7 @@
         /** @type {?} */
         Sensor.prototype.status;
         /** @type {?} */
-        Sensor.prototype.statusFlags;
+        Sensor.prototype.state;
         /** @type {?} */
         Sensor.prototype.streamType;
         /** @type {?} */
@@ -3367,8 +3367,6 @@
         Sensor.prototype.metadata;
         /** @type {?} */
         Sensor.prototype.anomalyDetection;
-        /** @type {?} */
-        Sensor.prototype.enabledByUser;
         /** @type {?} */
         Sensor.prototype.alarmInterval;
         /** @type {?} */
@@ -3515,7 +3513,7 @@
         /** @type {?} */
         SensorStatus.prototype.accountId;
         /** @type {?} */
-        SensorStatus.prototype.mask;
+        SensorStatus.prototype.state;
         /** @type {?} */
         SensorStatus.prototype.status;
         /** @type {?} */
@@ -4410,73 +4408,76 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {number} */
-    var SensorStatusCode = {
-        // Undefined [0] 
-        UNDEFINED: 0,
-        // Sensor is running [1] 
-        ACTIVE: 1,
-        // Sensor in Warning state [2] 
-        WARNING: 2,
-        // Sensor in Error state [3] 
-        ERROR: 3,
-        // Sensor is not active [4] 
-        INACTIVE: 4,
-        // Suspended (banned) sensor [5] 
-        SUSPENDED: 5,
-        // Sensor was added but did not establish connection yet [6] 
-        PENDING: 6,
+    var SensorStateMask = {
+        // [OK] No error [0x0] 
+        SENSOR_OK: 0,
+        // [WARNING] Video stream FPS is less than 6 for one minute [0x00000001] 
+        LOW_FRAMERATE_WARN: 1,
+        // [WARNING] Video stream FPS is more than 30 for one minute [0x00000002] 
+        HIGH_FRAMERATE_WARN: 2,
+        // [WARNING] Image from video source is blocked [0x00000004] 
+        IMAGE_BLOCKED_WARN: 4,
+        // [WARNING] Image from video source is saturated [0x00000008] 
+        IMAGE_SATURATED_WARN: 8,
+        // [WARNING] Image from video source is dark [0x00000010] 
+        IMAGE_DARK_WARN: 16,
+        // [ERROR] Communication error [0x00010000] 
+        NO_COMM_ERROR: 65536,
+        // [ERROR] General sensor error [0x00020000] 
+        SENSOR_ERROR: 131072,
+        // [ERROR] Sensor can't read video stream or stream is not valid [0x00040000] 
+        SOURCE_ERROR: 262144,
+        // [ERROR] Video stream format is not supported [0x00080000] 
+        FORMAT_ERROR: 524288,
+        // [ERROR] Video stream resolution is not supported [0x00100000] 
+        RESOLUTION_ERROR: 1048576,
+        // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000400] 
+        CRITICAL_FRAMERATE_ERROR: 2097152,
     };
-    SensorStatusCode[SensorStatusCode.UNDEFINED] = 'UNDEFINED';
-    SensorStatusCode[SensorStatusCode.ACTIVE] = 'ACTIVE';
-    SensorStatusCode[SensorStatusCode.WARNING] = 'WARNING';
-    SensorStatusCode[SensorStatusCode.ERROR] = 'ERROR';
-    SensorStatusCode[SensorStatusCode.INACTIVE] = 'INACTIVE';
-    SensorStatusCode[SensorStatusCode.SUSPENDED] = 'SUSPENDED';
-    SensorStatusCode[SensorStatusCode.PENDING] = 'PENDING';
+    SensorStateMask[SensorStateMask.SENSOR_OK] = 'SENSOR_OK';
+    SensorStateMask[SensorStateMask.LOW_FRAMERATE_WARN] = 'LOW_FRAMERATE_WARN';
+    SensorStateMask[SensorStateMask.HIGH_FRAMERATE_WARN] = 'HIGH_FRAMERATE_WARN';
+    SensorStateMask[SensorStateMask.IMAGE_BLOCKED_WARN] = 'IMAGE_BLOCKED_WARN';
+    SensorStateMask[SensorStateMask.IMAGE_SATURATED_WARN] = 'IMAGE_SATURATED_WARN';
+    SensorStateMask[SensorStateMask.IMAGE_DARK_WARN] = 'IMAGE_DARK_WARN';
+    SensorStateMask[SensorStateMask.NO_COMM_ERROR] = 'NO_COMM_ERROR';
+    SensorStateMask[SensorStateMask.SENSOR_ERROR] = 'SENSOR_ERROR';
+    SensorStateMask[SensorStateMask.SOURCE_ERROR] = 'SOURCE_ERROR';
+    SensorStateMask[SensorStateMask.FORMAT_ERROR] = 'FORMAT_ERROR';
+    SensorStateMask[SensorStateMask.RESOLUTION_ERROR] = 'RESOLUTION_ERROR';
+    SensorStateMask[SensorStateMask.CRITICAL_FRAMERATE_ERROR] = 'CRITICAL_FRAMERATE_ERROR';
 
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {number} */
-    var SensorStatusMask = {
-        // [OK] No error [0x0000000000000000] 
-        SENSOR_OK: 0,
-        // [ERROR] General sensor error [0x0000000000000001] 
-        SENSOR_ERROR: 1,
-        // [ERROR] Communication error 
-        NO_COMM_ERROR: 8,
-        // [ERROR] Sensor can't read video stream or stream is not valid [0x0000000000000010] 
-        SOURCE_ERROR: 16,
-        // [ERROR] Video stream format is not supported [0x0000000000000020] 
-        UNSUPPORTED_FORMAT: 32,
-        // [ERROR] Video stream resolution is not supported [0x0000000000000040] 
-        UNSUPPORTED_RESOLUTION: 64,
-        // [WARNING] Video stream FPS is less than 6 for one minute [0x0000000000000100] 
-        FRAMERATE_LOW: 256,
-        // [WARNING] Video stream FPS is more than 30 for one minute [0x0000000000000200] 
-        FRAMERATE_HIGH: 512,
-        // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000400] 
-        FRAMERATE_CRITICAL: 1024,
-        // [WARNING] Image from video source is blocked [0x0000000000001000] 
-        IMAGE_BLOCKED: 4096,
-        // [WARNING] Image from video source is saturated [0x0000000000002000] 
-        IMAGE_SATURATED: 8192,
-        // [WARNING] Image from video source is dark [0x0000000000004000] 
-        IMAGE_DARK: 16384,
+    var SensorStatusCode = {
+        // Undefined [0] 
+        UNDEFINED: 0,
+        // Sensor was added but did not establish connection yet [1] 
+        PENDING: 1,
+        // Delete sensor command sent to the appliance but it was not confirmed by the agent [2] 
+        PENDING_DELETE: 2,
+        // Suspended (banned) sensor - when it is detached from appliance, the sensor configuration and rules still exists but no real sensor connected to any appliance [3] 
+        SUSPENDED: 3,
+        // Sensor is disabled by user (or by Arm/Disarm command) [4] 
+        INACTIVE: 4,
+        // Sensor is enabled by user and running [5] 
+        ACTIVE: 5,
+        // Sensor is enabled by user and running and in warning state [6] 
+        ACTIVE_WARNING: 6,
+        // Sensor is enabled by user and running and in error state [7] 
+        ACTIVE_ERROR: 7,
     };
-    SensorStatusMask[SensorStatusMask.SENSOR_OK] = 'SENSOR_OK';
-    SensorStatusMask[SensorStatusMask.SENSOR_ERROR] = 'SENSOR_ERROR';
-    SensorStatusMask[SensorStatusMask.NO_COMM_ERROR] = 'NO_COMM_ERROR';
-    SensorStatusMask[SensorStatusMask.SOURCE_ERROR] = 'SOURCE_ERROR';
-    SensorStatusMask[SensorStatusMask.UNSUPPORTED_FORMAT] = 'UNSUPPORTED_FORMAT';
-    SensorStatusMask[SensorStatusMask.UNSUPPORTED_RESOLUTION] = 'UNSUPPORTED_RESOLUTION';
-    SensorStatusMask[SensorStatusMask.FRAMERATE_LOW] = 'FRAMERATE_LOW';
-    SensorStatusMask[SensorStatusMask.FRAMERATE_HIGH] = 'FRAMERATE_HIGH';
-    SensorStatusMask[SensorStatusMask.FRAMERATE_CRITICAL] = 'FRAMERATE_CRITICAL';
-    SensorStatusMask[SensorStatusMask.IMAGE_BLOCKED] = 'IMAGE_BLOCKED';
-    SensorStatusMask[SensorStatusMask.IMAGE_SATURATED] = 'IMAGE_SATURATED';
-    SensorStatusMask[SensorStatusMask.IMAGE_DARK] = 'IMAGE_DARK';
+    SensorStatusCode[SensorStatusCode.UNDEFINED] = 'UNDEFINED';
+    SensorStatusCode[SensorStatusCode.PENDING] = 'PENDING';
+    SensorStatusCode[SensorStatusCode.PENDING_DELETE] = 'PENDING_DELETE';
+    SensorStatusCode[SensorStatusCode.SUSPENDED] = 'SUSPENDED';
+    SensorStatusCode[SensorStatusCode.INACTIVE] = 'INACTIVE';
+    SensorStatusCode[SensorStatusCode.ACTIVE] = 'ACTIVE';
+    SensorStatusCode[SensorStatusCode.ACTIVE_WARNING] = 'ACTIVE_WARNING';
+    SensorStatusCode[SensorStatusCode.ACTIVE_ERROR] = 'ACTIVE_ERROR';
 
     /**
      * @fileoverview added by tsickle
@@ -19988,36 +19989,30 @@
        @WebSocketMessage
        This message is pushed to the client upon any sensor health status change in the registered account
     */
-    SocketSensorStatusNotification = /** @class */ (function (_super) {
-        __extends(SocketSensorStatusNotification, _super);
-        function SocketSensorStatusNotification() {
+    SocketHealthStatusNotification = /** @class */ (function (_super) {
+        __extends(SocketHealthStatusNotification, _super);
+        function SocketHealthStatusNotification() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        return SocketSensorStatusNotification;
+        return SocketHealthStatusNotification;
     }(WebSocketMessageHeader));
     if (false) {
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.code;
+        SocketHealthStatusNotification.prototype.code;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.error;
+        SocketHealthStatusNotification.prototype.error;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.updatedOn;
+        SocketHealthStatusNotification.prototype.sensorStatus;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.sensorId;
+        SocketHealthStatusNotification.prototype.op;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.mask;
+        SocketHealthStatusNotification.prototype.ver;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.status;
+        SocketHealthStatusNotification.prototype.id;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.op;
+        SocketHealthStatusNotification.prototype.cid;
         /** @type {?} */
-        SocketSensorStatusNotification.prototype.ver;
-        /** @type {?} */
-        SocketSensorStatusNotification.prototype.id;
-        /** @type {?} */
-        SocketSensorStatusNotification.prototype.cid;
-        /** @type {?} */
-        SocketSensorStatusNotification.prototype.sid;
+        SocketHealthStatusNotification.prototype.sid;
     }
 
     /**
@@ -20400,9 +20395,9 @@
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorResolutionCode = SensorResolutionCode;
     exports.SensorRule = SensorRule;
+    exports.SensorStateMask = SensorStateMask;
     exports.SensorStatus = SensorStatus;
     exports.SensorStatusCode = SensorStatusCode;
-    exports.SensorStatusMask = SensorStatusMask;
     exports.SensorStatusTimeSeries = SensorStatusTimeSeries;
     exports.SensorStatusTimestamped = SensorStatusTimestamped;
     exports.SensorTypeCode = SensorTypeCode;
@@ -20421,7 +20416,7 @@
     exports.Services = Services;
     exports.SeverityTypeCode = SeverityTypeCode;
     exports.SocketEventNotification = SocketEventNotification;
-    exports.SocketSensorStatusNotification = SocketSensorStatusNotification;
+    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
     exports.StreamResponse = StreamResponse;
     exports.StreamTypeCode = StreamTypeCode;
     exports.StringIntValue = StringIntValue;

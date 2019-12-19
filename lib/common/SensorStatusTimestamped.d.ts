@@ -1,6 +1,6 @@
 export declare class SensorStatusTimestamped {
-    mask: number;
+    state: number;
     timestamp: number;
     label: string;
-    constructor(mask?: number, timestamp?: number, label?: string);
+    constructor(state?: number, timestamp?: number, label?: string);
 }
