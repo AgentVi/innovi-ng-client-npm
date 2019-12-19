@@ -3356,8 +3356,6 @@
         /** @type {?} */
         Sensor.prototype.status;
         /** @type {?} */
-        Sensor.prototype.statusMask;
-        /** @type {?} */
         Sensor.prototype.statusFlags;
         /** @type {?} */
         Sensor.prototype.streamType;
