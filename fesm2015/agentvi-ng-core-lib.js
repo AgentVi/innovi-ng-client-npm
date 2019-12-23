@@ -4139,19 +4139,31 @@ SensorTypeCode[SensorTypeCode.THERMAL] = 'THERMAL';
 const SeverityTypeCode = {
     // Undefined [0] 
     UNDEFINED: 0,
-    // Low severity [1] 
-    LOW: 1,
-    // Medium severity [2] 
-    MEDIUM: 2,
-    // High severity [3] 
-    HIGH: 3,
-    // Critical severity [4] 
-    CRITICAL: 4,
+    // No effect [1] 
+    NO_EFFECT: 1,
+    // Notification only [2] 
+    NOTIFICATION: 2,
+    // Lowest severity [3] 
+    LOWEST: 3,
+    // Low severity [4] 
+    LOW: 4,
+    // Medium severity [5] 
+    MEDIUM: 5,
+    // High severity [6] 
+    HIGH: 6,
+    // Highest severity [7] 
+    HIGHEST: 7,
+    // Critical severity [8] 
+    CRITICAL: 8,
 };
 SeverityTypeCode[SeverityTypeCode.UNDEFINED] = 'UNDEFINED';
+SeverityTypeCode[SeverityTypeCode.NO_EFFECT] = 'NO_EFFECT';
+SeverityTypeCode[SeverityTypeCode.NOTIFICATION] = 'NOTIFICATION';
+SeverityTypeCode[SeverityTypeCode.LOWEST] = 'LOWEST';
 SeverityTypeCode[SeverityTypeCode.LOW] = 'LOW';
 SeverityTypeCode[SeverityTypeCode.MEDIUM] = 'MEDIUM';
 SeverityTypeCode[SeverityTypeCode.HIGH] = 'HIGH';
+SeverityTypeCode[SeverityTypeCode.HIGHEST] = 'HIGHEST';
 SeverityTypeCode[SeverityTypeCode.CRITICAL] = 'CRITICAL';
 
 /**
