@@ -2053,6 +2053,8 @@ if (false) {
     /** @type {?} */
     Appliance.prototype.status;
     /** @type {?} */
+    Appliance.prototype.statusReportedOn;
+    /** @type {?} */
     Appliance.prototype.pairingKey;
     /** @type {?} */
     Appliance.prototype.deletedOn;
@@ -3450,29 +3452,29 @@ ApplianceCommandCode[ApplianceCommandCode.RESET_DEVICE] = 'RESET_DEVICE';
 const ApplianceStatusCode = {
     // Undefined [0] 
     UNDEFINED: 0,
-    // Appliance is running [1] 
-    ACTIVE: 1,
-    // Appliance in Warning state [2] 
-    WARNING: 2,
-    // Appliance in Error state [3] 
-    ERROR: 3,
+    // Appliance was added but did not establish connection yet [1] 
+    PENDING: 1,
+    // Appliance deleted by the user from the system but not confirmation accepted yet [2] 
+    PENDING_DELETE: 2,
+    // Appliance is paired but not registered yet [3] 
+    UNREGISTERED: 3,
     // Appliance is not active [4] 
     INACTIVE: 4,
-    // Appliance was added but did not establish connection yet [5] 
-    PENDING: 5,
-    // Appliance is paired but not registered yet [6] 
-    UNREGISTERED: 6,
-    // Appliance deleted from the system [9] 
-    DELETED: 9,
+    // Appliance is running [5] 
+    ACTIVE: 5,
+    // Appliance is running and in warning state [6] 
+    ACTIVE_WARNING: 6,
+    // Appliance is running and in error state [7] 
+    ACTIVE_ERROR: 7,
 };
 ApplianceStatusCode[ApplianceStatusCode.UNDEFINED] = 'UNDEFINED';
-ApplianceStatusCode[ApplianceStatusCode.ACTIVE] = 'ACTIVE';
-ApplianceStatusCode[ApplianceStatusCode.WARNING] = 'WARNING';
-ApplianceStatusCode[ApplianceStatusCode.ERROR] = 'ERROR';
-ApplianceStatusCode[ApplianceStatusCode.INACTIVE] = 'INACTIVE';
 ApplianceStatusCode[ApplianceStatusCode.PENDING] = 'PENDING';
+ApplianceStatusCode[ApplianceStatusCode.PENDING_DELETE] = 'PENDING_DELETE';
 ApplianceStatusCode[ApplianceStatusCode.UNREGISTERED] = 'UNREGISTERED';
-ApplianceStatusCode[ApplianceStatusCode.DELETED] = 'DELETED';
+ApplianceStatusCode[ApplianceStatusCode.INACTIVE] = 'INACTIVE';
+ApplianceStatusCode[ApplianceStatusCode.ACTIVE] = 'ACTIVE';
+ApplianceStatusCode[ApplianceStatusCode.ACTIVE_WARNING] = 'ACTIVE_WARNING';
+ApplianceStatusCode[ApplianceStatusCode.ACTIVE_ERROR] = 'ACTIVE_ERROR';
 
 /**
  * @fileoverview added by tsickle

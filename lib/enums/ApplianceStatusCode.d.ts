@@ -1,10 +1,10 @@
 export declare enum ApplianceStatusCode {
     UNDEFINED = 0,
-    ACTIVE = 1,
-    WARNING = 2,
-    ERROR = 3,
+    PENDING = 1,
+    PENDING_DELETE = 2,
+    UNREGISTERED = 3,
     INACTIVE = 4,
-    PENDING = 5,
-    UNREGISTERED = 6,
-    DELETED = 9
+    ACTIVE = 5,
+    ACTIVE_WARNING = 6,
+    ACTIVE_ERROR = 7
 }
