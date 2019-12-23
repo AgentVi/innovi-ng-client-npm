@@ -3161,6 +3161,8 @@ if (false) {
     /** @type {?} */
     Sensor.prototype.state;
     /** @type {?} */
+    Sensor.prototype.stateReportedOn;
+    /** @type {?} */
     Sensor.prototype.streamType;
     /** @type {?} */
     Sensor.prototype.imageResolution;
