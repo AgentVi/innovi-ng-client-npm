@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 /**
  * Services for sensor actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -41,4 +41,19 @@ export declare class SysSensorsService {
      * @Return:  EntityResponse<SensorStatusTimeSeries>
      */
     getStatusOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByType(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by stream type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByStream(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByStatus(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
 }

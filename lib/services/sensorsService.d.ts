@@ -114,4 +114,19 @@ export declare class SensorsService {
      * @Return:  EntityResponse<SensorStatusTimeSeries>
      */
     getStatusOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByType(folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by stream type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByStream(folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Aggregate sensors count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getSensorsCountByStatus(folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
 }

@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -114,4 +114,9 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
      */
     getKpiOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Aggregate appliances count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
 }

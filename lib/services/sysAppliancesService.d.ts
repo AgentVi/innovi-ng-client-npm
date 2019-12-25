@@ -103,4 +103,9 @@ export declare class SysAppliancesService {
      * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
      */
     getKpiOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Aggregate appliances count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
 }

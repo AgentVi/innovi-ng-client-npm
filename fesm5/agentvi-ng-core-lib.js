@@ -5068,6 +5068,28 @@ if (false) {
 */
 var  /*
 */
+AppliancesCountRequest = /** @class */ (function () {
+    function AppliancesCountRequest(folderId, subFolders) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+    }
+    return AppliancesCountRequest;
+}());
+if (false) {
+    /** @type {?} */
+    AppliancesCountRequest.prototype.folderId;
+    /** @type {?} */
+    AppliancesCountRequest.prototype.subFolders;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 AppliancesServiceAddSensorRequest = /** @class */ (function () {
     function AppliancesServiceAddSensorRequest(id, body) {
         this.id = id;
@@ -6757,6 +6779,30 @@ if (false) {
     EntityResponseOfCoordinate.prototype.code;
     /** @type {?} */
     EntityResponseOfCoordinate.prototype.error;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+EntityResponseOfDistributionOfLong = /** @class */ (function (_super) {
+    __extends(EntityResponseOfDistributionOfLong, _super);
+    function EntityResponseOfDistributionOfLong() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityResponseOfDistributionOfLong;
+}(EntityResponse));
+if (false) {
+    /** @type {?} */
+    EntityResponseOfDistributionOfLong.prototype.entity;
+    /** @type {?} */
+    EntityResponseOfDistributionOfLong.prototype.code;
+    /** @type {?} */
+    EntityResponseOfDistributionOfLong.prototype.error;
 }
 
 /**
@@ -9758,6 +9804,37 @@ if (false) {
 */
 var  /*
 */
+SensorsCountRequest = /** @class */ (function () {
+    function SensorsCountRequest(folderId, subFolders, sensorType, status, streamType) {
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.sensorType = sensorType;
+        this.status = status;
+        this.streamType = streamType;
+    }
+    return SensorsCountRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SensorsCountRequest.prototype.folderId;
+    /** @type {?} */
+    SensorsCountRequest.prototype.subFolders;
+    /** @type {?} */
+    SensorsCountRequest.prototype.sensorType;
+    /** @type {?} */
+    SensorsCountRequest.prototype.status;
+    /** @type {?} */
+    SensorsCountRequest.prototype.streamType;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
 SensorsServiceChangeFolderRequest = /** @class */ (function () {
     function SensorsServiceChangeFolderRequest(id, folderId) {
         this.id = id;
@@ -10097,6 +10174,31 @@ SysAccountImportRequest = /** @class */ (function () {
 if (false) {
     /** @type {?} */
     SysAccountImportRequest.prototype.password;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+SysAppliancesCountRequest = /** @class */ (function () {
+    function SysAppliancesCountRequest(accountId, folderId, subFolders) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+    }
+    return SysAppliancesCountRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SysAppliancesCountRequest.prototype.accountId;
+    /** @type {?} */
+    SysAppliancesCountRequest.prototype.folderId;
+    /** @type {?} */
+    SysAppliancesCountRequest.prototype.subFolders;
 }
 
 /**
@@ -10540,6 +10642,40 @@ if (false) {
     SysKeysServiceCreateTokenRequest.prototype.userId;
     /** @type {?} */
     SysKeysServiceCreateTokenRequest.prototype.ttl;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+var  /*
+*/
+SysSensorsCountRequest = /** @class */ (function () {
+    function SysSensorsCountRequest(accountId, folderId, subFolders, sensorType, status, streamType) {
+        this.accountId = accountId;
+        this.folderId = folderId;
+        this.subFolders = subFolders;
+        this.sensorType = sensorType;
+        this.status = status;
+        this.streamType = streamType;
+    }
+    return SysSensorsCountRequest;
+}());
+if (false) {
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.accountId;
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.folderId;
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.subFolders;
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.sensorType;
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.status;
+    /** @type {?} */
+    SysSensorsCountRequest.prototype.streamType;
 }
 
 /**
@@ -12530,6 +12666,36 @@ var AppliancesService = /** @class */ (function () {
             params.push("to=" + to);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
+    };
+    /**
+     * Aggregate appliances count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate appliances count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @return {?}
+     */
+    AppliancesService.prototype.getAppliancesCountByStatus = /**
+     * Aggregate appliances count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @return {?}
+     */
+    function (folderId, subFolders) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
     };
     AppliancesService.decorators = [
         { type: Injectable }
@@ -16033,6 +16199,141 @@ var SensorsService = /** @class */ (function () {
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
     };
+    /**
+     * Aggregate sensors count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SensorsService.prototype.getSensorsCountByType = /**
+     * Aggregate sensors count distribution by type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-type"], params));
+    };
+    /**
+     * Aggregate sensors count distribution by stream type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by stream type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SensorsService.prototype.getSensorsCountByStream = /**
+     * Aggregate sensors count distribution by stream type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-stream"], params));
+    };
+    /**
+     * Aggregate sensors count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SensorsService.prototype.getSensorsCountByStatus = /**
+     * Aggregate sensors count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+    };
     SensorsService.decorators = [
         { type: Injectable }
     ];
@@ -16059,6 +16360,586 @@ if (false) {
      * @private
      */
     SensorsService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Services for user registration and login
+ */
+var UserService = /** @class */ (function () {
+    /**
+     * Class constructor
+     */
+    function UserService(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/user';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * @Return: EntityResponse<LoginData>
+     */
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.login = /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * @Return: EntityResponse<LoginData>
+     */
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    UserService.prototype.refreshToken = /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    function () {
+        return this.rest.post(this.baseUrl + "/refresh-token", null);
+    };
+    /**
+     * Verify user by temporary login key
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    UserService.prototype.verifyLoginKey = /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    function (key) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (key != null) {
+            params.push("key=" + key);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+    };
+    /**
+     * Send verification code by email
+     * @Return: ActionResponse
+     */
+    /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.sendVerificationCode = /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Validate verification code and reset password
+     * @Return: ActionResponse
+     */
+    /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    UserService.prototype.resetPassword = /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    function (code) {
+        return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+    };
+    /**
+     * Change password
+     * @Return: ActionResponse
+     */
+    /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changePassword = /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Check if password was used before (according to password policy)
+     * @Return: ActionResponse
+     */
+    /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.checkUnusedPassword = /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change current user name
+     * @Return: ActionResponse
+     */
+    /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changeName = /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change current user mobile
+     * @Return: ActionResponse
+     */
+    /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.changeMobile = /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * @Return: EntityResponse<UserAccountInfo>
+     */
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    UserService.prototype.switchAccount = /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    UserService.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    UserService.ctorParameters = function () { return [
+        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+        { type: RestUtil }
+    ]; };
+    return UserService;
+}());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * List of all user related actions for account administrator only
+ */
+var UsersService = /** @class */ (function () {
+    /**
+     * Class constructor
+     */
+    function UsersService(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/users';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * @Return: ActionResponse
+     */
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.invite = /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    function (body) {
+        return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Resend invitation to an existing user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * @Return: ActionResponse
+     */
+    /**
+     * Resend invitation to an existing user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    UsersService.prototype.reInvite = /**
+     * Resend invitation to an existing user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+    };
+    /**
+     * Update user
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.update = /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user name
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.changeName = /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user mobile
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    UsersService.prototype.changeMobile = /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
+     * Change user type
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    UsersService.prototype.changeType = /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    function (id, type) {
+        return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+    };
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * @Return: ActionResponse
+     */
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    UsersService.prototype.delete = /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.delete(this.baseUrl + "/" + id);
+    };
+    /**
+     * Get single user by id
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    UsersService.prototype.get = /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    function (id) {
+        return this.rest.get(this.baseUrl + "/" + id);
+    };
+    /**
+     * Get single user by email
+     * @Return: EntityResponse<User>
+     */
+    /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    UsersService.prototype.getByEmail = /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    function (email) {
+        return this.rest.get(this.baseUrl + "/byEmail/" + email);
+    };
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * @Return: QueryResponse<User>
+     */
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    UsersService.prototype.find = /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    function (search, type, status, sort, page, pageSize) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (search != null) {
+            params.push("search=" + search);
+        }
+        if (type != null) {
+            params.push("type=" + type);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (sort != null) {
+            params.push("sort=" + sort);
+        }
+        if (page != null) {
+            params.push("page=" + page);
+        }
+        if (pageSize != null) {
+            params.push("pageSize=" + pageSize);
+        }
+        return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+    };
+    /**
+     * Export list of users and filter
+     * @Return: StreamContent
+     */
+    /**
+     * Export list of users and filter
+     * \@Return: StreamContent
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} format
+     * @param {?=} fields
+     * @return {?}
+     */
+    UsersService.prototype.exportFormat = /**
+     * Export list of users and filter
+     * \@Return: StreamContent
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} format
+     * @param {?=} fields
+     * @return {?}
+     */
+    function (search, type, status, sort, format, fields) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (search != null) {
+            params.push("search=" + search);
+        }
+        if (type != null) {
+            params.push("type=" + type);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (sort != null) {
+            params.push("sort=" + sort);
+        }
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        if (fields != null) {
+            params.push("fields=" + fields);
+        }
+        return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
+    };
+    UsersService.decorators = [
+        { type: Injectable }
+    ];
+    /** @nocollapse */
+    UsersService.ctorParameters = function () { return [
+        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+        { type: RestUtil }
+    ]; };
+    return UsersService;
+}());
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.rest;
 }
 
 /**
@@ -17054,6 +17935,36 @@ var SysAppliancesService = /** @class */ (function () {
             params.push("to=" + to);
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
+    };
+    /**
+     * Aggregate appliances count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate appliances count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @return {?}
+     */
+    SysAppliancesService.prototype.getAppliancesCountByStatus = /**
+     * Aggregate appliances count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @return {?}
+     */
+    function (folderId, subFolders) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
     };
     SysAppliancesService.decorators = [
         { type: Injectable }
@@ -18456,6 +19367,156 @@ var SysSensorsService = /** @class */ (function () {
         }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
     };
+    /**
+     * Aggregate sensors count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SysSensorsService.prototype.getSensorsCountByType = /**
+     * Aggregate sensors count distribution by type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (accountId, folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-type"], params));
+    };
+    /**
+     * Aggregate sensors count distribution by stream type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by stream type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SysSensorsService.prototype.getSensorsCountByStream = /**
+     * Aggregate sensors count distribution by stream type
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (accountId, folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-stream"], params));
+    };
+    /**
+     * Aggregate sensors count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    /**
+     * Aggregate sensors count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    SysSensorsService.prototype.getSensorsCountByStatus = /**
+     * Aggregate sensors count distribution by status
+     * \@Return: EntityResponse<DistributionOfLong>
+     * @param {?=} accountId
+     * @param {?=} folderId
+     * @param {?=} subFolders
+     * @param {?=} sensorType
+     * @param {?=} status
+     * @param {?=} streamType
+     * @return {?}
+     */
+    function (accountId, folderId, subFolders, sensorType, status, streamType) {
+        var _a;
+        /** @type {?} */
+        var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
+        if (folderId != null) {
+            params.push("folderId=" + folderId);
+        }
+        if (subFolders != null) {
+            params.push("subFolders=" + subFolders);
+        }
+        if (sensorType != null) {
+            params.push("sensorType=" + sensorType);
+        }
+        if (status != null) {
+            params.push("status=" + status);
+        }
+        if (streamType != null) {
+            params.push("streamType=" + streamType);
+        }
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+    };
     SysSensorsService.decorators = [
         { type: Injectable }
     ];
@@ -19095,600 +20156,8 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-/**
- * Services for user registration and login
- */
-var UserService = /** @class */ (function () {
-    /**
-     * Class constructor
-     */
-    function UserService(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/user';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * @Return: EntityResponse<LoginData>
-     */
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.login = /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * @Return: EntityResponse<LoginData>
-     */
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    UserService.prototype.refreshToken = /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    function () {
-        return this.rest.post(this.baseUrl + "/refresh-token", null);
-    };
-    /**
-     * Verify user by temporary login key
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    UserService.prototype.verifyLoginKey = /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    function (key) {
-        var _a;
-        /** @type {?} */
-        var params = new Array();
-        if (key != null) {
-            params.push("key=" + key);
-        }
-        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-    };
-    /**
-     * Send verification code by email
-     * @Return: ActionResponse
-     */
-    /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.sendVerificationCode = /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Validate verification code and reset password
-     * @Return: ActionResponse
-     */
-    /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    UserService.prototype.resetPassword = /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    function (code) {
-        return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-    };
-    /**
-     * Change password
-     * @Return: ActionResponse
-     */
-    /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changePassword = /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Check if password was used before (according to password policy)
-     * @Return: ActionResponse
-     */
-    /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.checkUnusedPassword = /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Change current user name
-     * @Return: ActionResponse
-     */
-    /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changeName = /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Change current user mobile
-     * @Return: ActionResponse
-     */
-    /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.changeMobile = /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * @Return: EntityResponse<UserAccountInfo>
-     */
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    UserService.prototype.switchAccount = /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    UserService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    UserService.ctorParameters = function () { return [
-        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
-    return UserService;
-}());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * List of all user related actions for account administrator only
- */
-var UsersService = /** @class */ (function () {
-    /**
-     * Class constructor
-     */
-    function UsersService(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/users';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * @Return: ActionResponse
-     */
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.invite = /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
-        return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Resend invitation to an existing user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * @Return: ActionResponse
-     */
-    /**
-     * Resend invitation to an existing user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    UsersService.prototype.reInvite = /**
-     * Resend invitation to an existing user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
-        return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-    };
-    /**
-     * Update user
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.update = /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Change user name
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.changeName = /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Change user mobile
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    UsersService.prototype.changeMobile = /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
-        return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-    };
-    /**
-     * Change user type
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    UsersService.prototype.changeType = /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    function (id, type) {
-        return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-    };
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * @Return: ActionResponse
-     */
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    UsersService.prototype.delete = /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
-        return this.rest.delete(this.baseUrl + "/" + id);
-    };
-    /**
-     * Get single user by id
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    UsersService.prototype.get = /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
-        return this.rest.get(this.baseUrl + "/" + id);
-    };
-    /**
-     * Get single user by email
-     * @Return: EntityResponse<User>
-     */
-    /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    UsersService.prototype.getByEmail = /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    function (email) {
-        return this.rest.get(this.baseUrl + "/byEmail/" + email);
-    };
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * @Return: QueryResponse<User>
-     */
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    UsersService.prototype.find = /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    function (search, type, status, sort, page, pageSize) {
-        var _a;
-        /** @type {?} */
-        var params = new Array();
-        if (search != null) {
-            params.push("search=" + search);
-        }
-        if (type != null) {
-            params.push("type=" + type);
-        }
-        if (status != null) {
-            params.push("status=" + status);
-        }
-        if (sort != null) {
-            params.push("sort=" + sort);
-        }
-        if (page != null) {
-            params.push("page=" + page);
-        }
-        if (pageSize != null) {
-            params.push("pageSize=" + pageSize);
-        }
-        return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-    };
-    /**
-     * Export list of users and filter
-     * @Return: StreamContent
-     */
-    /**
-     * Export list of users and filter
-     * \@Return: StreamContent
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} format
-     * @param {?=} fields
-     * @return {?}
-     */
-    UsersService.prototype.exportFormat = /**
-     * Export list of users and filter
-     * \@Return: StreamContent
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} format
-     * @param {?=} fields
-     * @return {?}
-     */
-    function (search, type, status, sort, format, fields) {
-        var _a;
-        /** @type {?} */
-        var params = new Array();
-        if (search != null) {
-            params.push("search=" + search);
-        }
-        if (type != null) {
-            params.push("type=" + type);
-        }
-        if (status != null) {
-            params.push("status=" + status);
-        }
-        if (sort != null) {
-            params.push("sort=" + sort);
-        }
-        if (format != null) {
-            params.push("format=" + format);
-        }
-        if (fields != null) {
-            params.push("fields=" + fields);
-        }
-        return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
-    };
-    UsersService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    UsersService.ctorParameters = function () { return [
-        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
-    return UsersService;
-}());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 /** @type {?} */
 var Services = [
-    AnomalyService,
-    HealthCheckService,
-    SysAccountsService,
-    SysAppliancesService,
-    SysConfigurationsService,
-    SysEventsService,
-    SysFeaturesGroupsService,
-    SysFeaturesService,
-    SysKeysService,
-    SysSensorsService,
-    SysSystemService,
-    SysUsersService,
     AccountsService,
     AppliancesService,
     AuditLogService,
@@ -19705,6 +20174,18 @@ var Services = [
     SensorsService,
     UserService,
     UsersService,
+    AnomalyService,
+    HealthCheckService,
+    SysAccountsService,
+    SysAppliancesService,
+    SysConfigurationsService,
+    SysEventsService,
+    SysFeaturesGroupsService,
+    SysFeaturesService,
+    SysKeysService,
+    SysSensorsService,
+    SysSystemService,
+    SysUsersService,
 ];
 
 /**
@@ -19892,5 +20373,5 @@ var CoreLibModule = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentIntegration, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoRule, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthSocketServiceOpen, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, RuntimeStatusCode, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchColor, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchResult, SearchResultObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorRule, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketHealthStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentIntegration, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventAction, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoRule, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthSocketServiceOpen, IntegrationAction, IntegrationIdRequest, IntegrationIdsRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, RuntimeStatusCode, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchColor, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchResult, SearchResultObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorRule, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsCountRequest, SensorsService, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketHealthStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsCountRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SysKeysService as ɵba, SysSensorsService as ɵbb, SysSystemService as ɵbc, SysUsersService as ɵbd, AccountsService as ɵc, AppliancesService as ɵd, AuditLogService as ɵe, CalendarsService as ɵf, EventsService as ɵg, FoldersService as ɵh, GeoService as ɵi, IntegrationsService as ɵj, ReportsService as ɵk, RulesService as ɵl, ScheduledReportsService as ɵm, SchedulesService as ɵn, SearchService as ɵo, SensorsService as ɵp, UserService as ɵq, UsersService as ɵr, AnomalyService as ɵs, HealthCheckService as ɵt, SysAccountsService as ɵu, SysAppliancesService as ɵv, SysConfigurationsService as ɵw, SysEventsService as ɵx, SysFeaturesGroupsService as ɵy, SysFeaturesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map
