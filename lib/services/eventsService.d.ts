@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 /**
  * Services for events actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -63,7 +63,7 @@ export declare class EventsService {
      * Find events generated in area using spatial query
      * @Return: QueryResponse<Event>
      */
-    findInArea(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode, behaviorType?: BehaviorTypeCode, severity?: SeverityTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findInArea(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
@@ -78,5 +78,5 @@ export declare class EventsService {
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
      */
-    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, label?: string): import("rxjs").Observable<any>;
+    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], from?: number, to?: number, interval?: TimeUnitCode, label?: string): import("rxjs").Observable<any>;
 }
