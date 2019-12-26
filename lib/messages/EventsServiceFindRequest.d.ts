@@ -10,10 +10,11 @@ export declare class EventsServiceFindRequest {
     behaviorType: BehaviorTypeCode[];
     severity: SeverityTypeCode[];
     status: EventStatusCode[];
+    rule: string[];
     from: number;
     to: number;
     sort: string;
     page: number;
     pageSize: number;
-    constructor(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
+    constructor(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
 }
