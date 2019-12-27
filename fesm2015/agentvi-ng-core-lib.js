@@ -1751,27 +1751,81 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   User Account info (for adding new user to the account)
+   Base entity includes common fields for all entities (persistence objects) in the system
 */
-class UserAccountInfo {
+class BaseEntity {
     /**
-     * @param {?=} accountRole
-     * @param {?=} rootNode
-     * @param {?=} features
+     * @param {?=} id
+     * @param {?=} docType
+     * @param {?=} createdOn
+     * @param {?=} updatedOn
      */
-    constructor(accountRole, rootNode, features) {
-        this.accountRole = accountRole;
-        this.rootNode = rootNode;
-        this.features = features;
+    constructor(id, docType, createdOn, updatedOn) {
+        this.id = id;
+        this._type = docType;
+        this.createdOn = createdOn;
+        this.updatedOn = updatedOn;
     }
 }
 if (false) {
     /** @type {?} */
+    BaseEntity.prototype.id;
+    /** @type {?} */
+    BaseEntity.prototype._type;
+    /** @type {?} */
+    BaseEntity.prototype.createdOn;
+    /** @type {?} */
+    BaseEntity.prototype.updatedOn;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   User Account info (for adding new user to the account)
+*/
+class UserAccountInfo extends BaseEntity {
+}
+if (false) {
+    /** @type {?} */
+    UserAccountInfo.prototype.name;
+    /** @type {?} */
+    UserAccountInfo.prototype.key;
+    /** @type {?} */
+    UserAccountInfo.prototype.type;
+    /** @type {?} */
+    UserAccountInfo.prototype.status;
+    /** @type {?} */
+    UserAccountInfo.prototype.suspendedOn;
+    /** @type {?} */
+    UserAccountInfo.prototype.groups;
+    /** @type {?} */
+    UserAccountInfo.prototype.geoArea;
+    /** @type {?} */
+    UserAccountInfo.prototype.geoLocation;
+    /** @type {?} */
+    UserAccountInfo.prototype.timezone;
+    /** @type {?} */
+    UserAccountInfo.prototype.expiredOn;
+    /** @type {?} */
+    UserAccountInfo.prototype.maxChannels;
+    /** @type {?} */
+    UserAccountInfo.prototype.description;
+    /** @type {?} */
+    UserAccountInfo.prototype.settings;
+    /** @type {?} */
     UserAccountInfo.prototype.accountRole;
     /** @type {?} */
-    UserAccountInfo.prototype.rootNode;
-    /** @type {?} */
     UserAccountInfo.prototype.features;
+    /** @type {?} */
+    UserAccountInfo.prototype.id;
+    /** @type {?} */
+    UserAccountInfo.prototype._type;
+    /** @type {?} */
+    UserAccountInfo.prototype.createdOn;
+    /** @type {?} */
+    UserAccountInfo.prototype.updatedOn;
 }
 
 /**
@@ -1858,38 +1912,6 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
-   Base entity includes common fields for all entities (persistence objects) in the system
-*/
-class BaseEntity {
-    /**
-     * @param {?=} id
-     * @param {?=} docType
-     * @param {?=} createdOn
-     * @param {?=} updatedOn
-     */
-    constructor(id, docType, createdOn, updatedOn) {
-        this.id = id;
-        this._type = docType;
-        this.createdOn = createdOn;
-        this.updatedOn = updatedOn;
-    }
-}
-if (false) {
-    /** @type {?} */
-    BaseEntity.prototype.id;
-    /** @type {?} */
-    BaseEntity.prototype._type;
-    /** @type {?} */
-    BaseEntity.prototype.createdOn;
-    /** @type {?} */
-    BaseEntity.prototype.updatedOn;
-}
 
 /**
  * @fileoverview added by tsickle
