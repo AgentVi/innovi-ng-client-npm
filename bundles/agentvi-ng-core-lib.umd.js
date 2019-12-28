@@ -1878,87 +1878,26 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Base entity includes common fields for all entities (persistence objects) in the system
+       User Account info (returned by switch-account method)
     */
     var   /*
-       Base entity includes common fields for all entities (persistence objects) in the system
+       User Account info (returned by switch-account method)
     */
-    BaseEntity = /** @class */ (function () {
-        function BaseEntity(id, docType, createdOn, updatedOn) {
-            this.id = id;
-            this._type = docType;
-            this.createdOn = createdOn;
-            this.updatedOn = updatedOn;
+    UserAccountInfo = /** @class */ (function () {
+        function UserAccountInfo(account, loginData, features) {
+            this.account = account;
+            this.loginData = loginData;
+            this.features = features;
         }
-        return BaseEntity;
+        return UserAccountInfo;
     }());
     if (false) {
         /** @type {?} */
-        BaseEntity.prototype.id;
+        UserAccountInfo.prototype.account;
         /** @type {?} */
-        BaseEntity.prototype._type;
-        /** @type {?} */
-        BaseEntity.prototype.createdOn;
-        /** @type {?} */
-        BaseEntity.prototype.updatedOn;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
-       User Account info (for adding new user to the account)
-    */
-    var   /*
-       User Account info (for adding new user to the account)
-    */
-    UserAccountInfo = /** @class */ (function (_super) {
-        __extends(UserAccountInfo, _super);
-        function UserAccountInfo() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return UserAccountInfo;
-    }(BaseEntity));
-    if (false) {
-        /** @type {?} */
-        UserAccountInfo.prototype.name;
-        /** @type {?} */
-        UserAccountInfo.prototype.key;
-        /** @type {?} */
-        UserAccountInfo.prototype.type;
-        /** @type {?} */
-        UserAccountInfo.prototype.status;
-        /** @type {?} */
-        UserAccountInfo.prototype.suspendedOn;
-        /** @type {?} */
-        UserAccountInfo.prototype.groups;
-        /** @type {?} */
-        UserAccountInfo.prototype.geoArea;
-        /** @type {?} */
-        UserAccountInfo.prototype.geoLocation;
-        /** @type {?} */
-        UserAccountInfo.prototype.timezone;
-        /** @type {?} */
-        UserAccountInfo.prototype.expiredOn;
-        /** @type {?} */
-        UserAccountInfo.prototype.maxChannels;
-        /** @type {?} */
-        UserAccountInfo.prototype.description;
-        /** @type {?} */
-        UserAccountInfo.prototype.settings;
-        /** @type {?} */
-        UserAccountInfo.prototype.accountRole;
+        UserAccountInfo.prototype.loginData;
         /** @type {?} */
         UserAccountInfo.prototype.features;
-        /** @type {?} */
-        UserAccountInfo.prototype.id;
-        /** @type {?} */
-        UserAccountInfo.prototype._type;
-        /** @type {?} */
-        UserAccountInfo.prototype.createdOn;
-        /** @type {?} */
-        UserAccountInfo.prototype.updatedOn;
     }
 
     /**
@@ -2037,6 +1976,36 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Base entity includes common fields for all entities (persistence objects) in the system
+    */
+    var   /*
+       Base entity includes common fields for all entities (persistence objects) in the system
+    */
+    BaseEntity = /** @class */ (function () {
+        function BaseEntity(id, docType, createdOn, updatedOn) {
+            this.id = id;
+            this._type = docType;
+            this.createdOn = createdOn;
+            this.updatedOn = updatedOn;
+        }
+        return BaseEntity;
+    }());
+    if (false) {
+        /** @type {?} */
+        BaseEntity.prototype.id;
+        /** @type {?} */
+        BaseEntity.prototype._type;
+        /** @type {?} */
+        BaseEntity.prototype.createdOn;
+        /** @type {?} */
+        BaseEntity.prototype.updatedOn;
+    }
 
     /**
      * @fileoverview added by tsickle
