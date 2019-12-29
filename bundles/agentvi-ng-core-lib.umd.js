@@ -2349,6 +2349,29 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Edge appliance ONVIF discovery full report <br>
+       This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
+    */
+    var   /*
+       Edge appliance ONVIF discovery full report <br>
+       This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
+    */
+    ApplianceDiscovery = /** @class */ (function () {
+        function ApplianceDiscovery(channels) {
+            this.channels = channels;
+        }
+        return ApplianceDiscovery;
+    }());
+    if (false) {
+        /** @type {?} */
+        ApplianceDiscovery.prototype.channels;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Appliance status - reported periodically by the appliance
     */
     var   /*
@@ -2990,6 +3013,35 @@
         License.prototype.createdOn;
         /** @type {?} */
         License.prototype.updatedOn;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       ONVIF channel description
+       This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
+    */
+    var   /*
+       ONVIF channel description
+       This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
+    */
+    OnvifChannel = /** @class */ (function () {
+        function OnvifChannel(uUID, name, address) {
+            this.uUID = uUID;
+            this.name = name;
+            this.address = address;
+        }
+        return OnvifChannel;
+    }());
+    if (false) {
+        /** @type {?} */
+        OnvifChannel.prototype.uUID;
+        /** @type {?} */
+        OnvifChannel.prototype.name;
+        /** @type {?} */
+        OnvifChannel.prototype.address;
     }
 
     /**
@@ -3792,12 +3844,14 @@
         RESET_CREDENTIALS: 8,
         // Reboot host (no payload) [9] 
         REBOOT_HOST: 9,
-        // Open SSH tunnel [11] 
+        // Open SSH tunnel [10] 
         OPEN_SSH: 10,
-        // Close SSH tunnel [12] 
+        // Close SSH tunnel [11] 
         CLOSE_SSH: 11,
-        // Reset to factory mode (remove pairing key and all containers except manager) [10] 
+        // Reset to factory mode (remove pairing key and all containers except manager) [12] 
         RESET_DEVICE: 12,
+        // Discovery - discover all network cameras using ONVIF discovery protocol [13] 
+        ONVIF_DISCOVERY: 13,
     };
     ApplianceCommandCode[ApplianceCommandCode.UNDEFINED] = 'UNDEFINED';
     ApplianceCommandCode[ApplianceCommandCode.GET_CAPABILITIES] = 'GET_CAPABILITIES';
@@ -3812,6 +3866,7 @@
     ApplianceCommandCode[ApplianceCommandCode.OPEN_SSH] = 'OPEN_SSH';
     ApplianceCommandCode[ApplianceCommandCode.CLOSE_SSH] = 'CLOSE_SSH';
     ApplianceCommandCode[ApplianceCommandCode.RESET_DEVICE] = 'RESET_DEVICE';
+    ApplianceCommandCode[ApplianceCommandCode.ONVIF_DISCOVERY] = 'ONVIF_DISCOVERY';
 
     /**
      * @fileoverview added by tsickle
@@ -6752,7 +6807,7 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntityResponseOfApplianceAgents;
-    }(EntitiesResponse));
+    }(EntityResponse));
     if (false) {
         /** @type {?} */
         EntityResponseOfApplianceAgents.prototype.entity;
@@ -6760,6 +6815,30 @@
         EntityResponseOfApplianceAgents.prototype.code;
         /** @type {?} */
         EntityResponseOfApplianceAgents.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfApplianceDiscovery = /** @class */ (function (_super) {
+        __extends(EntityResponseOfApplianceDiscovery, _super);
+        function EntityResponseOfApplianceDiscovery() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfApplianceDiscovery;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfApplianceDiscovery.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfApplianceDiscovery.prototype.code;
+        /** @type {?} */
+        EntityResponseOfApplianceDiscovery.prototype.error;
     }
 
     /**
@@ -12645,6 +12724,25 @@
          */
         function (target) {
             return this.rest.get(this.baseUrl + "/configurations/" + target);
+        };
+        /**
+         * Get network channels using ONVIF discovery protocol
+         * @Return: EntitiesResponse<ComponentConfiguration>
+         */
+        /**
+         * Get network channels using ONVIF discovery protocol
+         * \@Return: EntitiesResponse<ComponentConfiguration>
+         * @param {?=} id
+         * @return {?}
+         */
+        AppliancesService.prototype.getOnvifDiscoveryList = /**
+         * Get network channels using ONVIF discovery protocol
+         * \@Return: EntitiesResponse<ComponentConfiguration>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/discovery");
         };
         /**
          * Change appliance name
@@ -20644,6 +20742,7 @@
     exports.ApplianceCommandCode = ApplianceCommandCode;
     exports.ApplianceCommandIdRequest = ApplianceCommandIdRequest;
     exports.ApplianceConfiguration = ApplianceConfiguration;
+    exports.ApplianceDiscovery = ApplianceDiscovery;
     exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
     exports.ApplianceIdRequest = ApplianceIdRequest;
     exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
@@ -20742,6 +20841,7 @@
     exports.EntityResponseOfApiKey = EntityResponseOfApiKey;
     exports.EntityResponseOfAppliance = EntityResponseOfAppliance;
     exports.EntityResponseOfApplianceAgents = EntityResponseOfApplianceAgents;
+    exports.EntityResponseOfApplianceDiscovery = EntityResponseOfApplianceDiscovery;
     exports.EntityResponseOfApplianceKpiTimeSeries = EntityResponseOfApplianceKpiTimeSeries;
     exports.EntityResponseOfApplianceStatusTimeSeries = EntityResponseOfApplianceStatusTimeSeries;
     exports.EntityResponseOfAuditLog = EntityResponseOfAuditLog;
@@ -20853,6 +20953,7 @@
     exports.ObjectInstance = ObjectInstance;
     exports.ObjectTypeCode = ObjectTypeCode;
     exports.ObjectTypeNode = ObjectTypeNode;
+    exports.OnvifChannel = OnvifChannel;
     exports.Point = Point;
     exports.Preset = Preset;
     exports.ProductTypeCode = ProductTypeCode;
