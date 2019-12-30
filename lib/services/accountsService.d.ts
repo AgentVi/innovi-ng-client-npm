@@ -44,4 +44,9 @@ export declare class AccountsService {
      * @Return: EntityResponse<Coordinate> The account location
      */
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get aggregated summary report of total number of sensors and devices with error / warning status
+     * @Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
+     */
+    getAccountHealthSummary(id?: string): import("rxjs").Observable<any>;
 }

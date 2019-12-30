@@ -6393,6 +6393,30 @@
     */
     var   /*
     */
+    EntitiesResponseOfDistributionOfLong = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfDistributionOfLong, _super);
+        function EntitiesResponseOfDistributionOfLong() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfDistributionOfLong;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntitiesResponseOfDistributionOfLong.prototype.list;
+        /** @type {?} */
+        EntitiesResponseOfDistributionOfLong.prototype.code;
+        /** @type {?} */
+        EntitiesResponseOfDistributionOfLong.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     EntitiesResponseOfEvent = /** @class */ (function (_super) {
         __extends(EntitiesResponseOfEvent, _super);
         function EntitiesResponseOfEvent() {
@@ -12134,6 +12158,25 @@
          */
         function (id) {
             return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
+        };
+        /**
+         * Get aggregated summary report of total number of sensors and devices with error / warning status
+         * @Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
+         */
+        /**
+         * Get aggregated summary report of total number of sensors and devices with error / warning status
+         * \@Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
+         * @param {?=} id
+         * @return {?}
+         */
+        AccountsService.prototype.getAccountHealthSummary = /**
+         * Get aggregated summary report of total number of sensors and devices with error / warning status
+         * \@Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/health");
         };
         AccountsService.decorators = [
             { type: core.Injectable }
@@ -20823,6 +20866,7 @@
     exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
     exports.EntitiesResponseOfComponentConfiguration = EntitiesResponseOfComponentConfiguration;
     exports.EntitiesResponseOfConfiguration = EntitiesResponseOfConfiguration;
+    exports.EntitiesResponseOfDistributionOfLong = EntitiesResponseOfDistributionOfLong;
     exports.EntitiesResponseOfEvent = EntitiesResponseOfEvent;
     exports.EntitiesResponseOfFeature = EntitiesResponseOfFeature;
     exports.EntitiesResponseOfFeaturesGroup = EntitiesResponseOfFeaturesGroup;

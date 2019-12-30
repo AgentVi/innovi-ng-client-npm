@@ -65,6 +65,7 @@ export * from './EntitiesResponseOfAuditLog';
 export * from './EntitiesResponseOfCalendar';
 export * from './EntitiesResponseOfComponentConfiguration';
 export * from './EntitiesResponseOfConfiguration';
+export * from './EntitiesResponseOfDistributionOfLong';
 export * from './EntitiesResponseOfEvent';
 export * from './EntitiesResponseOfFeature';
 export * from './EntitiesResponseOfFeaturesGroup';
