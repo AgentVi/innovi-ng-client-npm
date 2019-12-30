@@ -11294,7 +11294,8 @@ if (false) {
 var  /*
 */
 UsersServiceFindRequest = /** @class */ (function () {
-    function UsersServiceFindRequest(search, type, status, sort, page, pageSize) {
+    function UsersServiceFindRequest(accountId, search, type, status, sort, page, pageSize) {
+        this.accountId = accountId;
         this.search = search;
         this.type = type;
         this.status = status;
@@ -11305,6 +11306,8 @@ UsersServiceFindRequest = /** @class */ (function () {
     return UsersServiceFindRequest;
 }());
 if (false) {
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.accountId;
     /** @type {?} */
     UsersServiceFindRequest.prototype.search;
     /** @type {?} */
@@ -19640,6 +19643,7 @@ var SysUsersService = /** @class */ (function () {
     /**
      * Find list of users by filter
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -19651,6 +19655,7 @@ var SysUsersService = /** @class */ (function () {
     SysUsersService.prototype.find = /**
      * Find list of users by filter
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -19659,10 +19664,13 @@ var SysUsersService = /** @class */ (function () {
      * @param {?=} pageSize
      * @return {?}
      */
-    function (search, type, status, sort, page, pageSize) {
+    function (accountId, search, type, status, sort, page, pageSize) {
         var _a;
         /** @type {?} */
         var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
         if (search != null) {
             params.push("search=" + search);
         }
@@ -20219,6 +20227,7 @@ var UsersService = /** @class */ (function () {
      * Find list of users and filter the list
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -20231,6 +20240,7 @@ var UsersService = /** @class */ (function () {
      * Find list of users and filter the list
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -20239,10 +20249,13 @@ var UsersService = /** @class */ (function () {
      * @param {?=} pageSize
      * @return {?}
      */
-    function (search, type, status, sort, page, pageSize) {
+    function (accountId, search, type, status, sort, page, pageSize) {
         var _a;
         /** @type {?} */
         var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
         if (search != null) {
             params.push("search=" + search);
         }

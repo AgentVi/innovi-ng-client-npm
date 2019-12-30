@@ -10839,6 +10839,7 @@ if (false) {
 */
 class UsersServiceFindRequest {
     /**
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -10846,7 +10847,8 @@ class UsersServiceFindRequest {
      * @param {?=} page
      * @param {?=} pageSize
      */
-    constructor(search, type, status, sort, page, pageSize) {
+    constructor(accountId, search, type, status, sort, page, pageSize) {
+        this.accountId = accountId;
         this.search = search;
         this.type = type;
         this.status = status;
@@ -10856,6 +10858,8 @@ class UsersServiceFindRequest {
     }
 }
 if (false) {
+    /** @type {?} */
+    UsersServiceFindRequest.prototype.accountId;
     /** @type {?} */
     UsersServiceFindRequest.prototype.search;
     /** @type {?} */
@@ -16195,6 +16199,7 @@ class SysUsersService {
     /**
      * Find list of users by filter
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -16203,9 +16208,12 @@ class SysUsersService {
      * @param {?=} pageSize
      * @return {?}
      */
-    find(search, type, status, sort, page, pageSize) {
+    find(accountId, search, type, status, sort, page, pageSize) {
         /** @type {?} */
         const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
         if (search != null) {
             params.push(`search=${search}`);
         }
@@ -16541,6 +16549,7 @@ class UsersService {
      * Find list of users and filter the list
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * \@Return: QueryResponse<User>
+     * @param {?=} accountId
      * @param {?=} search
      * @param {?=} type
      * @param {?=} status
@@ -16549,9 +16558,12 @@ class UsersService {
      * @param {?=} pageSize
      * @return {?}
      */
-    find(search, type, status, sort, page, pageSize) {
+    find(accountId, search, type, status, sort, page, pageSize) {
         /** @type {?} */
         const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
         if (search != null) {
             params.push(`search=${search}`);
         }
