@@ -2831,10 +2831,11 @@ var  /*
    This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
 */
 OnvifChannel = /** @class */ (function () {
-    function OnvifChannel(uUID, name, address) {
+    function OnvifChannel(uUID, name, address, sensorId) {
         this.uUID = uUID;
         this.name = name;
         this.address = address;
+        this.sensorId = sensorId;
     }
     return OnvifChannel;
 }());
@@ -2845,6 +2846,8 @@ if (false) {
     OnvifChannel.prototype.name;
     /** @type {?} */
     OnvifChannel.prototype.address;
+    /** @type {?} */
+    OnvifChannel.prototype.sensorId;
 }
 
 /**

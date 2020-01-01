@@ -2765,11 +2765,13 @@ class OnvifChannel {
      * @param {?=} uUID
      * @param {?=} name
      * @param {?=} address
+     * @param {?=} sensorId
      */
-    constructor(uUID, name, address) {
+    constructor(uUID, name, address, sensorId) {
         this.uUID = uUID;
         this.name = name;
         this.address = address;
+        this.sensorId = sensorId;
     }
 }
 if (false) {
@@ -2779,6 +2781,8 @@ if (false) {
     OnvifChannel.prototype.name;
     /** @type {?} */
     OnvifChannel.prototype.address;
+    /** @type {?} */
+    OnvifChannel.prototype.sensorId;
 }
 
 /**
