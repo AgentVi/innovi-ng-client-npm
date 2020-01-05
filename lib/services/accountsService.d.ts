@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
 /**
  * List of account related actions
  */
@@ -33,20 +33,20 @@ export declare class AccountsService {
      * Change account geo-area (polygon)
      * @Return: EntityResponse<Account>
      */
-    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
+    changeGeoArea(body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
      * Change account geo-location (center)
      * @Return: EntityResponse<Account> The changed account
      */
-    changeGeoLocation(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    changeGeoLocation(body?: Coordinate): import("rxjs").Observable<any>;
     /**
      * Get default geo location
      * @Return: EntityResponse<Coordinate> The account location
      */
-    getDefaultLocation(id?: string): import("rxjs").Observable<any>;
+    getDefaultLocation(): import("rxjs").Observable<any>;
     /**
      * Get aggregated summary report of total number of sensors and devices with error / warning status
      * @Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
      */
-    getAccountHealthSummary(id?: string): import("rxjs").Observable<any>;
+    getAccountHealthSummary(): import("rxjs").Observable<any>;
 }

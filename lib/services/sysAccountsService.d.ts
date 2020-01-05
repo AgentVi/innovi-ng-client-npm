@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
+import { Account } from '../entities/Account';
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -51,12 +51,12 @@ export declare class SysAccountsService {
      * Change account geo-location (center)
      * @Return: EntityResponse<Account> The changed account
      */
-    changeGeoLocation(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    changeGeoLocation(body?: Coordinate): import("rxjs").Observable<any>;
     /**
      * Change account geo area
      * @Return: EntityResponse<Account> The changed account
      */
-    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
+    changeGeoArea(body?: Coordinate[]): import("rxjs").Observable<any>;
     /**
      * Delete account from the system
      * The account is moved to DELETED mode and will be deleted after 90 days
