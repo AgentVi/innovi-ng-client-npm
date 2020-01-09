@@ -10153,6 +10153,28 @@
     */
     var   /*
     */
+    SensorsServiceAttachRequest = /** @class */ (function () {
+        function SensorsServiceAttachRequest(id, applianceId) {
+            this.id = id;
+            this.applianceId = applianceId;
+        }
+        return SensorsServiceAttachRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        SensorsServiceAttachRequest.prototype.id;
+        /** @type {?} */
+        SensorsServiceAttachRequest.prototype.applianceId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     SensorsServiceChangeFolderRequest = /** @class */ (function () {
         function SensorsServiceChangeFolderRequest(id, folderId) {
             this.id = id;
@@ -16261,6 +16283,55 @@
             return this.rest.put(this.baseUrl + "/" + id + "/disable", null);
         };
         /**
+         * Attach sensor to a device with the given appliance Id
+         * This action enabled on already detached and SUSPENDED sensor
+         * @Return: EntityResponse<Sensor>
+         */
+        /**
+         * Attach sensor to a device with the given appliance Id
+         * This action enabled on already detached and SUSPENDED sensor
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @param {?=} applianceId
+         * @return {?}
+         */
+        SensorsService.prototype.attach = /**
+         * Attach sensor to a device with the given appliance Id
+         * This action enabled on already detached and SUSPENDED sensor
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @param {?=} applianceId
+         * @return {?}
+         */
+        function (id, applianceId) {
+            return this.rest.put(this.baseUrl + "/" + id + "/attach/" + applianceId, null);
+        };
+        /**
+         * Detach sensor from a device and change it's status to SUSPENDED
+         * This action remove the sensor from the device but keep the sensor and all its configuration and rules in the system
+         * The sensor can be attached later to any other device in the system
+         * @Return: EntityResponse<Sensor>
+         */
+        /**
+         * Detach sensor from a device and change it's status to SUSPENDED
+         * This action remove the sensor from the device but keep the sensor and all its configuration and rules in the system
+         * The sensor can be attached later to any other device in the system
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @return {?}
+         */
+        SensorsService.prototype.detach = /**
+         * Detach sensor from a device and change it's status to SUSPENDED
+         * This action remove the sensor from the device but keep the sensor and all its configuration and rules in the system
+         * The sensor can be attached later to any other device in the system
+         * \@Return: EntityResponse<Sensor>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.put(this.baseUrl + "/" + id + "/detach", null);
+        };
+        /**
          * Delete sensor from the system
          * @Return: ActionResponse
          */
@@ -21096,6 +21167,7 @@
     exports.SensorTypeCode = SensorTypeCode;
     exports.SensorsCountRequest = SensorsCountRequest;
     exports.SensorsService = SensorsService;
+    exports.SensorsServiceAttachRequest = SensorsServiceAttachRequest;
     exports.SensorsServiceChangeFolderRequest = SensorsServiceChangeFolderRequest;
     exports.SensorsServiceChangeFovRequest = SensorsServiceChangeFovRequest;
     exports.SensorsServiceChangeGeoLocationRequest = SensorsServiceChangeGeoLocationRequest;

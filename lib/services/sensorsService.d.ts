@@ -60,6 +60,19 @@ export declare class SensorsService {
      */
     disable(id?: string): import("rxjs").Observable<any>;
     /**
+     * Attach sensor to a device with the given appliance Id
+     * This action enabled on already detached and SUSPENDED sensor
+     * @Return: EntityResponse<Sensor>
+     */
+    attach(id?: string, applianceId?: string): import("rxjs").Observable<any>;
+    /**
+     * Detach sensor from a device and change it's status to SUSPENDED
+     * This action remove the sensor from the device but keep the sensor and all its configuration and rules in the system
+     * The sensor can be attached later to any other device in the system
+     * @Return: EntityResponse<Sensor>
+     */
+    detach(id?: string): import("rxjs").Observable<any>;
+    /**
      * Delete sensor from the system
      * @Return: ActionResponse
      */
