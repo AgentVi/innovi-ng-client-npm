@@ -281,16 +281,20 @@ if (false) {
 class ApplianceKpiTimeSeries {
     /**
      * @param {?=} label
+     * @param {?=} interval
      * @param {?=} data
      */
-    constructor(label, data) {
+    constructor(label, interval, data) {
         this.label = label;
+        this.interval = interval;
         this.data = data;
     }
 }
 if (false) {
     /** @type {?} */
     ApplianceKpiTimeSeries.prototype.label;
+    /** @type {?} */
+    ApplianceKpiTimeSeries.prototype.interval;
     /** @type {?} */
     ApplianceKpiTimeSeries.prototype.data;
 }
@@ -378,16 +382,20 @@ if (false) {
 class ApplianceStatusTimeSeries {
     /**
      * @param {?=} label
+     * @param {?=} interval
      * @param {?=} data
      */
-    constructor(label, data) {
+    constructor(label, interval, data) {
         this.label = label;
+        this.interval = interval;
         this.data = data;
     }
 }
 if (false) {
     /** @type {?} */
     ApplianceStatusTimeSeries.prototype.label;
+    /** @type {?} */
+    ApplianceStatusTimeSeries.prototype.interval;
     /** @type {?} */
     ApplianceStatusTimeSeries.prototype.data;
 }
@@ -744,16 +752,20 @@ if (false) {
 class EventCountTimeSeries {
     /**
      * @param {?=} label
+     * @param {?=} interval
      * @param {?=} data
      */
-    constructor(label, data) {
+    constructor(label, interval, data) {
         this.label = label;
+        this.interval = interval;
         this.data = data;
     }
 }
 if (false) {
     /** @type {?} */
     EventCountTimeSeries.prototype.label;
+    /** @type {?} */
+    EventCountTimeSeries.prototype.interval;
     /** @type {?} */
     EventCountTimeSeries.prototype.data;
 }
@@ -1558,12 +1570,14 @@ class SensorStatusTimeSeries {
      * @param {?=} accountId
      * @param {?=} sensorId
      * @param {?=} label
+     * @param {?=} interval
      * @param {?=} data
      */
-    constructor(accountId, sensorId, label, data) {
+    constructor(accountId, sensorId, label, interval, data) {
         this.accountId = accountId;
         this.sensorId = sensorId;
         this.label = label;
+        this.interval = interval;
         this.data = data;
     }
 }
@@ -1574,6 +1588,8 @@ if (false) {
     SensorStatusTimeSeries.prototype.sensorId;
     /** @type {?} */
     SensorStatusTimeSeries.prototype.label;
+    /** @type {?} */
+    SensorStatusTimeSeries.prototype.interval;
     /** @type {?} */
     SensorStatusTimeSeries.prototype.data;
 }

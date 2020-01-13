@@ -476,8 +476,9 @@
        Appliance KPIs list over time (CPU, RAM, LOAD)
     */
     ApplianceKpiTimeSeries = /** @class */ (function () {
-        function ApplianceKpiTimeSeries(label, data) {
+        function ApplianceKpiTimeSeries(label, interval, data) {
             this.label = label;
+            this.interval = interval;
             this.data = data;
         }
         return ApplianceKpiTimeSeries;
@@ -485,6 +486,8 @@
     if (false) {
         /** @type {?} */
         ApplianceKpiTimeSeries.prototype.label;
+        /** @type {?} */
+        ApplianceKpiTimeSeries.prototype.interval;
         /** @type {?} */
         ApplianceKpiTimeSeries.prototype.data;
     }
@@ -568,8 +571,9 @@
        Appliance status list over time
     */
     ApplianceStatusTimeSeries = /** @class */ (function () {
-        function ApplianceStatusTimeSeries(label, data) {
+        function ApplianceStatusTimeSeries(label, interval, data) {
             this.label = label;
+            this.interval = interval;
             this.data = data;
         }
         return ApplianceStatusTimeSeries;
@@ -577,6 +581,8 @@
     if (false) {
         /** @type {?} */
         ApplianceStatusTimeSeries.prototype.label;
+        /** @type {?} */
+        ApplianceStatusTimeSeries.prototype.interval;
         /** @type {?} */
         ApplianceStatusTimeSeries.prototype.data;
     }
@@ -917,8 +923,9 @@
        Event count time series result
     */
     EventCountTimeSeries = /** @class */ (function () {
-        function EventCountTimeSeries(label, data) {
+        function EventCountTimeSeries(label, interval, data) {
             this.label = label;
+            this.interval = interval;
             this.data = data;
         }
         return EventCountTimeSeries;
@@ -926,6 +933,8 @@
     if (false) {
         /** @type {?} */
         EventCountTimeSeries.prototype.label;
+        /** @type {?} */
+        EventCountTimeSeries.prototype.interval;
         /** @type {?} */
         EventCountTimeSeries.prototype.data;
     }
@@ -1692,10 +1701,11 @@
        Sensor status list over time
     */
     SensorStatusTimeSeries = /** @class */ (function () {
-        function SensorStatusTimeSeries(accountId, sensorId, label, data) {
+        function SensorStatusTimeSeries(accountId, sensorId, label, interval, data) {
             this.accountId = accountId;
             this.sensorId = sensorId;
             this.label = label;
+            this.interval = interval;
             this.data = data;
         }
         return SensorStatusTimeSeries;
@@ -1707,6 +1717,8 @@
         SensorStatusTimeSeries.prototype.sensorId;
         /** @type {?} */
         SensorStatusTimeSeries.prototype.label;
+        /** @type {?} */
+        SensorStatusTimeSeries.prototype.interval;
         /** @type {?} */
         SensorStatusTimeSeries.prototype.data;
     }
