@@ -3559,6 +3559,8 @@ var AccountRoleCode = {
     USER: 8,
     // Installer can only connect device to the system and configure cameras, it can see Administrator and Monitor modules only) [16] 
     INSTALLER: 16,
+    // Identical to USER with no ability to view INVESTIGATION or ANALYTICS module [32] 
+    DEMO: 32,
 };
 AccountRoleCode[AccountRoleCode.UNDEFINED] = 'UNDEFINED';
 AccountRoleCode[AccountRoleCode.ADMIN] = 'ADMIN';
@@ -3566,6 +3568,7 @@ AccountRoleCode[AccountRoleCode.SUPERVISOR] = 'SUPERVISOR';
 AccountRoleCode[AccountRoleCode.OPERATOR] = 'OPERATOR';
 AccountRoleCode[AccountRoleCode.USER] = 'USER';
 AccountRoleCode[AccountRoleCode.INSTALLER] = 'INSTALLER';
+AccountRoleCode[AccountRoleCode.DEMO] = 'DEMO';
 
 /**
  * @fileoverview added by tsickle
