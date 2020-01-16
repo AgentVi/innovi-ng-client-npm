@@ -4361,7 +4361,7 @@
         // Custom Device (Customer provides it's own hardware) [100] 
         CUSTOM: 100,
         // Edge 220 [220] 
-        EDGE_220: 320,
+        EDGE_220: 220,
         // Edge 320 [320] 
         EDGE_320: 320,
         // Edge 500 [500] 
