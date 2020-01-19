@@ -1,0 +1,19 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+import { RulePolygon } from '../common/RulePolygon';
+/*
+   Search definition for Sensors search
+*/
+export class SensorShape extends RulePolygon {
+}
+if (false) {
+    /** @type {?} */
+    SensorShape.prototype.sensorId;
+    /** @type {?} */
+    SensorShape.prototype.lineCrossDir;
+    /** @type {?} */
+    SensorShape.prototype.points;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2Vuc29yU2hhcGUuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9lbnRpdGllcy9TZW5zb3JTaGFwZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7O0FBQUEsT0FBTyxFQUFFLFdBQVcsRUFBRSxNQUFNLHVCQUF1QixDQUFDOzs7O0FBT3BELE1BQU0sT0FBTyxXQUFZLFNBQVEsV0FBVztDQVkzQzs7O0lBVEcsK0JBQXdCOztJQUd4QixtQ0FBNEM7O0lBRzVDLDZCQUF1QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJ1bGVQb2x5Z29uIH0gZnJvbSAnLi4vY29tbW9uL1J1bGVQb2x5Z29uJztcbmltcG9ydCB7IExpbmVDcm9zc0RpcmVjdGlvbkNvZGUgfSBmcm9tICcuLi9lbnVtcy9MaW5lQ3Jvc3NEaXJlY3Rpb25Db2RlJztcbmltcG9ydCB7IFBvaW50IH0gZnJvbSAnLi4vY29tbW9uL1BvaW50JztcblxuLyogXG4gICBTZWFyY2ggZGVmaW5pdGlvbiBmb3IgU2Vuc29ycyBzZWFyY2ggXG4qL1xuZXhwb3J0IGNsYXNzIFNlbnNvclNoYXBlIGV4dGVuZHMgUnVsZVBvbHlnb24ge1xuIFxuICAgIC8vIFNlbnNvciBJZCBcbiAgICBwdWJsaWMgc2Vuc29ySWQ6IHN0cmluZztcbiBcbiAgICAvLyBMaW5lIGNyb3NzaW5nIGRpcmVjdGlvbiAodXNlZCBvbmx5IGluIGNhc2Ugb2YgbGluZS1jcm9zc2luZyBydWxlIHR5cGUpIFxuICAgIHB1YmxpYyBsaW5lQ3Jvc3NEaXI6IExpbmVDcm9zc0RpcmVjdGlvbkNvZGU7XG4gXG4gICAgLy8gUG9seWdvbiBwb2ludHMgXG4gICAgcHVibGljIHBvaW50czogUG9pbnRbXTtcbiBcblxufVxuXG5cbiJdfQ==

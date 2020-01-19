@@ -2862,29 +2862,23 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Rule definition for Geo search
+       Search definition for geo-spatial search
     */
     var   /*
-       Rule definition for Geo search
+       Search definition for geo-spatial search
     */
-    GeoRule = /** @class */ (function () {
-        function GeoRule(behaviorType, dwellTime, maxObjectsInGroup, polygon) {
-            this.behaviorType = behaviorType;
-            this.dwellTime = dwellTime;
-            this.maxObjectsInGroup = maxObjectsInGroup;
-            this.polygon = polygon;
+    GeoShape = /** @class */ (function () {
+        function GeoShape(coordinates, lineCrossDir) {
+            this.coordinates = coordinates;
+            this.lineCrossDir = lineCrossDir;
         }
-        return GeoRule;
+        return GeoShape;
     }());
     if (false) {
         /** @type {?} */
-        GeoRule.prototype.behaviorType;
+        GeoShape.prototype.coordinates;
         /** @type {?} */
-        GeoRule.prototype.dwellTime;
-        /** @type {?} */
-        GeoRule.prototype.maxObjectsInGroup;
-        /** @type {?} */
-        GeoRule.prototype.polygon;
+        GeoShape.prototype.lineCrossDir;
     }
 
     /**
@@ -3292,6 +3286,39 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Search behavior description
+    */
+    var   /*
+       Search behavior description
+    */
+    SearchBehavior = /** @class */ (function () {
+        function SearchBehavior(behaviorType, dwellTime, minObjectsInGroup, sensorShapes, geoShape) {
+            this.behaviorType = behaviorType;
+            this.dwellTime = dwellTime;
+            this.minObjectsInGroup = minObjectsInGroup;
+            this.sensorShapes = sensorShapes;
+            this.geoShape = geoShape;
+        }
+        return SearchBehavior;
+    }());
+    if (false) {
+        /** @type {?} */
+        SearchBehavior.prototype.behaviorType;
+        /** @type {?} */
+        SearchBehavior.prototype.dwellTime;
+        /** @type {?} */
+        SearchBehavior.prototype.minObjectsInGroup;
+        /** @type {?} */
+        SearchBehavior.prototype.sensorShapes;
+        /** @type {?} */
+        SearchBehavior.prototype.geoShape;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Color definitions to search for
     */
     var   /*
@@ -3343,21 +3370,15 @@
         /** @type {?} */
         SearchDefinition.prototype.privateSearch;
         /** @type {?} */
-        SearchDefinition.prototype.objects;
-        /** @type {?} */
-        SearchDefinition.prototype.colors;
+        SearchDefinition.prototype.sourceScope;
         /** @type {?} */
         SearchDefinition.prototype.timeScope;
         /** @type {?} */
         SearchDefinition.prototype.timeFrame;
         /** @type {?} */
-        SearchDefinition.prototype.sourceScope;
+        SearchDefinition.prototype.behavior;
         /** @type {?} */
-        SearchDefinition.prototype.sensorRules;
-        /** @type {?} */
-        SearchDefinition.prototype.geoRule;
-        /** @type {?} */
-        SearchDefinition.prototype.folderIds;
+        SearchDefinition.prototype.objects;
         /** @type {?} */
         SearchDefinition.prototype.id;
         /** @type {?} */
@@ -3379,9 +3400,9 @@
        Object attributes to search for
     */
     SearchObject = /** @class */ (function () {
-        function SearchObject(type, identifier) {
+        function SearchObject(type, colors) {
             this.type = type;
-            this.identifier = identifier;
+            this.colors = colors;
         }
         return SearchObject;
     }());
@@ -3389,7 +3410,7 @@
         /** @type {?} */
         SearchObject.prototype.type;
         /** @type {?} */
-        SearchObject.prototype.identifier;
+        SearchObject.prototype.colors;
     }
 
     /**
@@ -3536,29 +3557,25 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Rule definition for Sensors search
+       Search definition for Sensors search
     */
     var   /*
-       Rule definition for Sensors search
+       Search definition for Sensors search
     */
-    SensorRule = /** @class */ (function (_super) {
-        __extends(SensorRule, _super);
-        function SensorRule() {
+    SensorShape = /** @class */ (function (_super) {
+        __extends(SensorShape, _super);
+        function SensorShape() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        return SensorRule;
-    }(GeoRule));
+        return SensorShape;
+    }(RulePolygon));
     if (false) {
         /** @type {?} */
-        SensorRule.prototype.sensorId;
+        SensorShape.prototype.sensorId;
         /** @type {?} */
-        SensorRule.prototype.behaviorType;
+        SensorShape.prototype.lineCrossDir;
         /** @type {?} */
-        SensorRule.prototype.dwellTime;
-        /** @type {?} */
-        SensorRule.prototype.maxObjectsInGroup;
-        /** @type {?} */
-        SensorRule.prototype.polygon;
+        SensorShape.prototype.points;
     }
 
     /**
@@ -4410,18 +4427,12 @@
         UNDEFINED: 0,
         // Search by sensors [1] 
         SENSORS: 1,
-        // Search by folders [2] 
-        FOLDERS: 2,
-        // Search by circle on map [3] 
-        GEO_CIRCLE: 3,
-        // Search by polygon on map [4] 
-        GEO_POLYGON: 4,
+        // Search by geo area [2] 
+        GEO: 2,
     };
     SearchScopeCode[SearchScopeCode.UNDEFINED] = 'UNDEFINED';
     SearchScopeCode[SearchScopeCode.SENSORS] = 'SENSORS';
-    SearchScopeCode[SearchScopeCode.FOLDERS] = 'FOLDERS';
-    SearchScopeCode[SearchScopeCode.GEO_CIRCLE] = 'GEO_CIRCLE';
-    SearchScopeCode[SearchScopeCode.GEO_POLYGON] = 'GEO_POLYGON';
+    SearchScopeCode[SearchScopeCode.GEO] = 'GEO';
 
     /**
      * @fileoverview added by tsickle
@@ -21067,10 +21078,10 @@
     exports.GeoPolygon = GeoPolygon;
     exports.GeoReferenceData = GeoReferenceData;
     exports.GeoReferenceTest = GeoReferenceTest;
-    exports.GeoRule = GeoRule;
     exports.GeoService = GeoService;
     exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
     exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
+    exports.GeoShape = GeoShape;
     exports.HealthCheckService = HealthCheckService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.IntegrationAction = IntegrationAction;
@@ -21157,6 +21168,7 @@
     exports.SchedulesServiceFindRequest = SchedulesServiceFindRequest;
     exports.SchedulesServiceFolderIdRequest = SchedulesServiceFolderIdRequest;
     exports.SchedulesServiceUpdateRequest = SchedulesServiceUpdateRequest;
+    exports.SearchBehavior = SearchBehavior;
     exports.SearchColor = SearchColor;
     exports.SearchDefinition = SearchDefinition;
     exports.SearchIdRequest = SearchIdRequest;
@@ -21182,7 +21194,7 @@
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorResolutionCode = SensorResolutionCode;
-    exports.SensorRule = SensorRule;
+    exports.SensorShape = SensorShape;
     exports.SensorStateMask = SensorStateMask;
     exports.SensorStatus = SensorStatus;
     exports.SensorStatusCode = SensorStatusCode;
