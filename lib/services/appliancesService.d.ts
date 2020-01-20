@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -67,6 +67,11 @@ export declare class AppliancesService {
      * @Return: EntitiesResponse<ApplianceConfiguration>
      */
     getConfigurations(target?: ProductTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Get appliance configuration for the specific edge model
+     * @Return: EntityResponse<ApplianceConfiguration>
+     */
+    getConfiguration(model?: string): import("rxjs").Observable<any>;
     /**
      * Get network channels using ONVIF discovery protocol
      * @Return: EntitiesResponse<ComponentConfiguration>
