@@ -2862,30 +2862,6 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Search definition for geo-spatial search
-    */
-    var   /*
-       Search definition for geo-spatial search
-    */
-    GeoShape = /** @class */ (function () {
-        function GeoShape(coordinates, lineCrossDir) {
-            this.coordinates = coordinates;
-            this.lineCrossDir = lineCrossDir;
-        }
-        return GeoShape;
-    }());
-    if (false) {
-        /** @type {?} */
-        GeoShape.prototype.coordinates;
-        /** @type {?} */
-        GeoShape.prototype.lineCrossDir;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
        Integration action describes integration protocol and details to execute
     */
     var   /*
@@ -3292,12 +3268,11 @@
        Search behavior description
     */
     SearchBehavior = /** @class */ (function () {
-        function SearchBehavior(behaviorType, dwellTime, minObjectsInGroup, sensorShapes, geoShape) {
+        function SearchBehavior(behaviorType, dwellTime, minObjectsInGroup, shapes) {
             this.behaviorType = behaviorType;
             this.dwellTime = dwellTime;
             this.minObjectsInGroup = minObjectsInGroup;
-            this.sensorShapes = sensorShapes;
-            this.geoShape = geoShape;
+            this.shapes = shapes;
         }
         return SearchBehavior;
     }());
@@ -3309,9 +3284,7 @@
         /** @type {?} */
         SearchBehavior.prototype.minObjectsInGroup;
         /** @type {?} */
-        SearchBehavior.prototype.sensorShapes;
-        /** @type {?} */
-        SearchBehavior.prototype.geoShape;
+        SearchBehavior.prototype.shapes;
     }
 
     /**
@@ -3411,6 +3384,32 @@
         SearchObject.prototype.type;
         /** @type {?} */
         SearchObject.prototype.colors;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       Search shape definition for Sensors or GEO search
+    */
+    var   /*
+       Search shape definition for Sensors or GEO search
+    */
+    SearchShape = /** @class */ (function (_super) {
+        __extends(SearchShape, _super);
+        function SearchShape() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return SearchShape;
+    }(RulePolygon));
+    if (false) {
+        /** @type {?} */
+        SearchShape.prototype.sensorId;
+        /** @type {?} */
+        SearchShape.prototype.lineCrossDir;
+        /** @type {?} */
+        SearchShape.prototype.points;
     }
 
     /**
@@ -3550,32 +3549,6 @@
         SensorDebugInfo.prototype.saveFrames;
         /** @type {?} */
         SensorDebugInfo.prototype.saveEventImages;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
-       Search definition for Sensors search
-    */
-    var   /*
-       Search definition for Sensors search
-    */
-    SensorShape = /** @class */ (function (_super) {
-        __extends(SensorShape, _super);
-        function SensorShape() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return SensorShape;
-    }(RulePolygon));
-    if (false) {
-        /** @type {?} */
-        SensorShape.prototype.sensorId;
-        /** @type {?} */
-        SensorShape.prototype.lineCrossDir;
-        /** @type {?} */
-        SensorShape.prototype.points;
     }
 
     /**
@@ -21081,7 +21054,6 @@
     exports.GeoService = GeoService;
     exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
     exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
-    exports.GeoShape = GeoShape;
     exports.HealthCheckService = HealthCheckService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.IntegrationAction = IntegrationAction;
@@ -21182,6 +21154,7 @@
     exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
     exports.SearchServiceFindRequest = SearchServiceFindRequest;
     exports.SearchServiceUpdateRequest = SearchServiceUpdateRequest;
+    exports.SearchShape = SearchShape;
     exports.SearchTimeCode = SearchTimeCode;
     exports.Sensitivity = Sensitivity;
     exports.Sensor = Sensor;
@@ -21194,7 +21167,6 @@
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorResolutionCode = SensorResolutionCode;
-    exports.SensorShape = SensorShape;
     exports.SensorStateMask = SensorStateMask;
     exports.SensorStatus = SensorStatus;
     exports.SensorStatusCode = SensorStatusCode;

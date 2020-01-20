@@ -1,11 +1,9 @@
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SensorShape } from '../entities/SensorShape';
-import { GeoShape } from '../entities/GeoShape';
+import { SearchShape } from '../entities/SearchShape';
 export declare class SearchBehavior {
     behaviorType: BehaviorTypeCode;
     dwellTime: number;
     minObjectsInGroup: number;
-    sensorShapes: SensorShape[];
-    geoShape: GeoShape;
-    constructor(behaviorType?: BehaviorTypeCode, dwellTime?: number, minObjectsInGroup?: number, sensorShapes?: SensorShape[], geoShape?: GeoShape);
+    shapes: SearchShape[];
+    constructor(behaviorType?: BehaviorTypeCode, dwellTime?: number, minObjectsInGroup?: number, shapes?: SearchShape[]);
 }
