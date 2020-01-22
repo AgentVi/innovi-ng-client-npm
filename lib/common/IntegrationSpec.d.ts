@@ -1,5 +1,5 @@
 import { StringKeyValue } from '../common/StringKeyValue';
-export declare class EventAction {
+export declare class IntegrationSpec {
     protocol: string;
     operation: string;
     host: string;
