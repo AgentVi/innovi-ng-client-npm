@@ -1,10 +1,13 @@
 import { DayOfWeekCode } from '../enums/DayOfWeekCode';
-import { IntegrationSpec } from '../common/IntegrationSpec';
 export declare class Recurrent {
     startTime: string;
     endTime: string;
     period: string;
     daysOfWeek: DayOfWeekCode[];
-    action: IntegrationSpec;
-    constructor(startTime?: string, endTime?: string, period?: string, daysOfWeek?: DayOfWeekCode[], action?: IntegrationSpec);
+    targetId: string;
+    recipients: string[];
+    subject: string;
+    body: string;
+    mimeType: string;
+    constructor(startTime?: string, endTime?: string, period?: string, daysOfWeek?: DayOfWeekCode[], targetId?: string, recipients?: string[], subject?: string, body?: string, mimeType?: string);
 }

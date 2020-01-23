@@ -6,25 +6,28 @@
 const IntegrationTypeCode = {
     // Undefined [0] 
     UNDEFINED: 0,
-    // General SMTP based integration [1] 
-    SMTP: 1,
-    // Immix integration (based on smtp protocol) [2 
-    IMMIX: 2,
-    // Sentinel integration (based on smtp protocol) [3] 
-    SENTINEL: 3,
-    // Web-hook integration (based on http protocol) [4] 
-    WEBHOOK: 4,
-    // Milestone integration (based on http protocol) [5] 
-    MILESTONE: 5,
-    // Genetec integration (based on http protocol) [6] 
-    GENETEC: 6,
+    // General HTTP based integration [1] 
+    HTTP: 1,
+    // General HTTPS based integration [2] 
+    HTTPS: 2,
+    // General SMTP based integration [3] 
+    SMTP: 3,
+    // Internal email service integration [4] 
+    EMAIL: 4,
+    // Internal SMS service integration [5] 
+    SMS: 5,
+    // Immix specific integration (based on smtp protocol) [11] 
+    IMMIX: 11,
+    // Sentinel specific integration (based on smtp protocol) [12] 
+    SENTINEL: 12,
 };
 export { IntegrationTypeCode };
 IntegrationTypeCode[IntegrationTypeCode.UNDEFINED] = 'UNDEFINED';
+IntegrationTypeCode[IntegrationTypeCode.HTTP] = 'HTTP';
+IntegrationTypeCode[IntegrationTypeCode.HTTPS] = 'HTTPS';
 IntegrationTypeCode[IntegrationTypeCode.SMTP] = 'SMTP';
+IntegrationTypeCode[IntegrationTypeCode.EMAIL] = 'EMAIL';
+IntegrationTypeCode[IntegrationTypeCode.SMS] = 'SMS';
 IntegrationTypeCode[IntegrationTypeCode.IMMIX] = 'IMMIX';
 IntegrationTypeCode[IntegrationTypeCode.SENTINEL] = 'SENTINEL';
-IntegrationTypeCode[IntegrationTypeCode.WEBHOOK] = 'WEBHOOK';
-IntegrationTypeCode[IntegrationTypeCode.MILESTONE] = 'MILESTONE';
-IntegrationTypeCode[IntegrationTypeCode.GENETEC] = 'GENETEC';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW50ZWdyYXRpb25UeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL0ludGVncmF0aW9uVHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0lBS0ksaUJBQWlCO0lBQ2pCLFlBQWE7SUFFYixzQ0FBc0M7SUFDdEMsT0FBUTtJQUVSLGlEQUFpRDtJQUNqRCxRQUFTO0lBRVQscURBQXFEO0lBQ3JELFdBQVk7SUFFWixxREFBcUQ7SUFDckQsVUFBVztJQUVYLHNEQUFzRDtJQUN0RCxZQUFhO0lBRWIsb0RBQW9EO0lBQ3BELFVBQVciLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIEludGVncmF0aW9uIHR5cGUgY29kZSBcbiovXG5leHBvcnQgZW51bSBJbnRlZ3JhdGlvblR5cGVDb2RlIHtcbiBcbiAgICAvLyBVbmRlZmluZWQgWzBdIFxuICAgIFVOREVGSU5FRCA9IDAsXG4gXG4gICAgLy8gR2VuZXJhbCBTTVRQIGJhc2VkIGludGVncmF0aW9uIFsxXSBcbiAgICBTTVRQID0gMSxcbiBcbiAgICAvLyBJbW1peCBpbnRlZ3JhdGlvbiAoYmFzZWQgb24gc210cCBwcm90b2NvbCkgWzIgXG4gICAgSU1NSVggPSAyLFxuIFxuICAgIC8vIFNlbnRpbmVsIGludGVncmF0aW9uIChiYXNlZCBvbiBzbXRwIHByb3RvY29sKSBbM10gXG4gICAgU0VOVElORUwgPSAzLFxuIFxuICAgIC8vIFdlYi1ob29rIGludGVncmF0aW9uIChiYXNlZCBvbiBodHRwIHByb3RvY29sKSBbNF0gXG4gICAgV0VCSE9PSyA9IDQsXG4gXG4gICAgLy8gTWlsZXN0b25lIGludGVncmF0aW9uIChiYXNlZCBvbiBodHRwIHByb3RvY29sKSBbNV0gXG4gICAgTUlMRVNUT05FID0gNSxcbiBcbiAgICAvLyBHZW5ldGVjIGludGVncmF0aW9uIChiYXNlZCBvbiBodHRwIHByb3RvY29sKSBbNl0gXG4gICAgR0VORVRFQyA9IDYsXG4gXG59Il19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW50ZWdyYXRpb25UeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL0ludGVncmF0aW9uVHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0lBS0ksaUJBQWlCO0lBQ2pCLFlBQWE7SUFFYixzQ0FBc0M7SUFDdEMsT0FBUTtJQUVSLHVDQUF1QztJQUN2QyxRQUFTO0lBRVQsc0NBQXNDO0lBQ3RDLE9BQVE7SUFFUiwwQ0FBMEM7SUFDMUMsUUFBUztJQUVULHdDQUF3QztJQUN4QyxNQUFPO0lBRVAsNERBQTREO0lBQzVELFNBQVU7SUFFViwrREFBK0Q7SUFDL0QsWUFBYSIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgSW50ZWdyYXRpb24gdHlwZSBjb2RlIFxuKi9cbmV4cG9ydCBlbnVtIEludGVncmF0aW9uVHlwZUNvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBHZW5lcmFsIEhUVFAgYmFzZWQgaW50ZWdyYXRpb24gWzFdIFxuICAgIEhUVFAgPSAxLFxuIFxuICAgIC8vIEdlbmVyYWwgSFRUUFMgYmFzZWQgaW50ZWdyYXRpb24gWzJdIFxuICAgIEhUVFBTID0gMixcbiBcbiAgICAvLyBHZW5lcmFsIFNNVFAgYmFzZWQgaW50ZWdyYXRpb24gWzNdIFxuICAgIFNNVFAgPSAzLFxuIFxuICAgIC8vIEludGVybmFsIGVtYWlsIHNlcnZpY2UgaW50ZWdyYXRpb24gWzRdIFxuICAgIEVNQUlMID0gNCxcbiBcbiAgICAvLyBJbnRlcm5hbCBTTVMgc2VydmljZSBpbnRlZ3JhdGlvbiBbNV0gXG4gICAgU01TID0gNSxcbiBcbiAgICAvLyBJbW1peCBzcGVjaWZpYyBpbnRlZ3JhdGlvbiAoYmFzZWQgb24gc210cCBwcm90b2NvbCkgWzExXSBcbiAgICBJTU1JWCA9IDExLFxuIFxuICAgIC8vIFNlbnRpbmVsIHNwZWNpZmljIGludGVncmF0aW9uIChiYXNlZCBvbiBzbXRwIHByb3RvY29sKSBbMTJdIFxuICAgIFNFTlRJTkVMID0gMTIsXG4gXG59Il19

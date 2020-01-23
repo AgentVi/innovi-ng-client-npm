@@ -1,9 +1,10 @@
 export declare enum IntegrationTypeCode {
     UNDEFINED = 0,
-    SMTP = 1,
-    IMMIX = 2,
-    SENTINEL = 3,
-    WEBHOOK = 4,
-    MILESTONE = 5,
-    GENETEC = 6
+    HTTP = 1,
+    HTTPS = 2,
+    SMTP = 3,
+    EMAIL = 4,
+    SMS = 5,
+    IMMIX = 11,
+    SENTINEL = 12
 }

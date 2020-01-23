@@ -1390,12 +1390,16 @@
        Recurrent time frame
     */
     Recurrent = /** @class */ (function () {
-        function Recurrent(startTime, endTime, period, daysOfWeek, action) {
+        function Recurrent(startTime, endTime, period, daysOfWeek, targetId, recipients, subject, body, mimeType) {
             this.startTime = startTime;
             this.endTime = endTime;
             this.period = period;
             this.daysOfWeek = daysOfWeek;
-            this.action = action;
+            this.targetId = targetId;
+            this.recipients = recipients;
+            this.subject = subject;
+            this.body = body;
+            this.mimeType = mimeType;
         }
         return Recurrent;
     }());
@@ -1409,7 +1413,15 @@
         /** @type {?} */
         Recurrent.prototype.daysOfWeek;
         /** @type {?} */
-        Recurrent.prototype.action;
+        Recurrent.prototype.targetId;
+        /** @type {?} */
+        Recurrent.prototype.recipients;
+        /** @type {?} */
+        Recurrent.prototype.subject;
+        /** @type {?} */
+        Recurrent.prototype.body;
+        /** @type {?} */
+        Recurrent.prototype.mimeType;
     }
 
     /**
@@ -2862,10 +2874,10 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Integration action describes integration protocol and details to execute
+       Integration action describes content details to use for a specific integration target
     */
     var   /*
-       Integration action describes integration protocol and details to execute
+       Integration action describes content details to use for a specific integration target
     */
     IntegrationAction = /** @class */ (function (_super) {
         __extends(IntegrationAction, _super);
@@ -2882,11 +2894,7 @@
         /** @type {?} */
         IntegrationAction.prototype.name;
         /** @type {?} */
-        IntegrationAction.prototype.uri;
-        /** @type {?} */
-        IntegrationAction.prototype.operation;
-        /** @type {?} */
-        IntegrationAction.prototype.headers;
+        IntegrationAction.prototype.targetId;
         /** @type {?} */
         IntegrationAction.prototype.recipients;
         /** @type {?} */
@@ -2895,8 +2903,6 @@
         IntegrationAction.prototype.body;
         /** @type {?} */
         IntegrationAction.prototype.mimeType;
-        /** @type {?} */
-        IntegrationAction.prototype.clipRequired;
         /** @type {?} */
         IntegrationAction.prototype.id;
         /** @type {?} */
@@ -2912,14 +2918,10 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
-       Integration target describes template of the integrated system
-       Definition of target templates is done by the account administrator only
-       Account administrator Supervisor roles can define specific integrations per account / folder base on this template
+       Integration target describes connectivity attributes of the integrated system
     */
     var   /*
-       Integration target describes template of the integrated system
-       Definition of target templates is done by the account administrator only
-       Account administrator Supervisor roles can define specific integrations per account / folder base on this template
+       Integration target describes connectivity attributes of the integrated system
     */
     IntegrationTarget = /** @class */ (function (_super) {
         __extends(IntegrationTarget, _super);
@@ -2934,21 +2936,21 @@
         /** @type {?} */
         IntegrationTarget.prototype.name;
         /** @type {?} */
-        IntegrationTarget.prototype.uri;
+        IntegrationTarget.prototype.type;
+        /** @type {?} */
+        IntegrationTarget.prototype.host;
+        /** @type {?} */
+        IntegrationTarget.prototype.port;
+        /** @type {?} */
+        IntegrationTarget.prototype.user;
+        /** @type {?} */
+        IntegrationTarget.prototype.password;
+        /** @type {?} */
+        IntegrationTarget.prototype.url;
         /** @type {?} */
         IntegrationTarget.prototype.operation;
         /** @type {?} */
         IntegrationTarget.prototype.headers;
-        /** @type {?} */
-        IntegrationTarget.prototype.recipients;
-        /** @type {?} */
-        IntegrationTarget.prototype.subject;
-        /** @type {?} */
-        IntegrationTarget.prototype.body;
-        /** @type {?} */
-        IntegrationTarget.prototype.mimeType;
-        /** @type {?} */
-        IntegrationTarget.prototype.clipRequired;
         /** @type {?} */
         IntegrationTarget.prototype.id;
         /** @type {?} */
@@ -4171,7 +4173,7 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @enum {number} */
-    var IntegrationProtocolCode = {
+    var IntegrationTypeCode = {
         // Undefined [0] 
         UNDEFINED: 0,
         // General HTTP based integration [1] 
@@ -4182,41 +4184,21 @@
         SMTP: 3,
         // Internal email service integration [4] 
         EMAIL: 4,
-    };
-    IntegrationProtocolCode[IntegrationProtocolCode.UNDEFINED] = 'UNDEFINED';
-    IntegrationProtocolCode[IntegrationProtocolCode.HTTP] = 'HTTP';
-    IntegrationProtocolCode[IntegrationProtocolCode.HTTPS] = 'HTTPS';
-    IntegrationProtocolCode[IntegrationProtocolCode.SMTP] = 'SMTP';
-    IntegrationProtocolCode[IntegrationProtocolCode.EMAIL] = 'EMAIL';
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /** @enum {number} */
-    var IntegrationTypeCode = {
-        // Undefined [0] 
-        UNDEFINED: 0,
-        // General SMTP based integration [1] 
-        SMTP: 1,
-        // Immix integration (based on smtp protocol) [2 
-        IMMIX: 2,
-        // Sentinel integration (based on smtp protocol) [3] 
-        SENTINEL: 3,
-        // Web-hook integration (based on http protocol) [4] 
-        WEBHOOK: 4,
-        // Milestone integration (based on http protocol) [5] 
-        MILESTONE: 5,
-        // Genetec integration (based on http protocol) [6] 
-        GENETEC: 6,
+        // Internal SMS service integration [5] 
+        SMS: 5,
+        // Immix specific integration (based on smtp protocol) [11] 
+        IMMIX: 11,
+        // Sentinel specific integration (based on smtp protocol) [12] 
+        SENTINEL: 12,
     };
     IntegrationTypeCode[IntegrationTypeCode.UNDEFINED] = 'UNDEFINED';
+    IntegrationTypeCode[IntegrationTypeCode.HTTP] = 'HTTP';
+    IntegrationTypeCode[IntegrationTypeCode.HTTPS] = 'HTTPS';
     IntegrationTypeCode[IntegrationTypeCode.SMTP] = 'SMTP';
+    IntegrationTypeCode[IntegrationTypeCode.EMAIL] = 'EMAIL';
+    IntegrationTypeCode[IntegrationTypeCode.SMS] = 'SMS';
     IntegrationTypeCode[IntegrationTypeCode.IMMIX] = 'IMMIX';
     IntegrationTypeCode[IntegrationTypeCode.SENTINEL] = 'SENTINEL';
-    IntegrationTypeCode[IntegrationTypeCode.WEBHOOK] = 'WEBHOOK';
-    IntegrationTypeCode[IntegrationTypeCode.MILESTONE] = 'MILESTONE';
-    IntegrationTypeCode[IntegrationTypeCode.GENETEC] = 'GENETEC';
 
     /**
      * @fileoverview added by tsickle
@@ -21149,7 +21131,6 @@
     exports.IntegrationAction = IntegrationAction;
     exports.IntegrationIdRequest = IntegrationIdRequest;
     exports.IntegrationIdsRequest = IntegrationIdsRequest;
-    exports.IntegrationProtocolCode = IntegrationProtocolCode;
     exports.IntegrationSpec = IntegrationSpec;
     exports.IntegrationTarget = IntegrationTarget;
     exports.IntegrationTypeCode = IntegrationTypeCode;

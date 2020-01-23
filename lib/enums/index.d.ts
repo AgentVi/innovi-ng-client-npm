@@ -11,7 +11,6 @@ export * from './CommandStatusCode';
 export * from './DayOfWeekCode';
 export * from './EventStatusCode';
 export * from './FeatureCode';
-export * from './IntegrationProtocolCode';
 export * from './IntegrationTypeCode';
 export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
