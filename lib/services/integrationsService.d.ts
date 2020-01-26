@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { IntegrationTarget } from '../entities/IntegrationTarget';
 import { IntegrationAction } from '../entities/IntegrationAction';
+import { IntegrationTarget } from '../entities/IntegrationTarget';
 /**
  * Services for integrations targets (templates)
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -75,4 +75,9 @@ export declare class IntegrationsService {
      * @Return: EntitiesResponse<IntegrationAction>
      */
     findActions(search?: string): import("rxjs").Observable<any>;
+    /**
+     * Find all integration actions for a specified level in the folder hierarchy
+     * @Return: EntitiesResponse<IntegrationAction>
+     */
+    getFolderActions(folderId?: string): import("rxjs").Observable<any>;
 }

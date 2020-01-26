@@ -1,6 +1,6 @@
+import { BaseEntity } from '../entities/BaseEntity';
 import { IntegrationTypeCode } from '../enums/IntegrationTypeCode';
 import { StringKeyValue } from '../common/StringKeyValue';
-import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationTarget extends BaseEntity {
     accountId: string;
     name: string;

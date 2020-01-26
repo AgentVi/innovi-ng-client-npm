@@ -8725,6 +8725,25 @@
     */
     var   /*
     */
+    IntegrationActionsFolderRequest = /** @class */ (function () {
+        function IntegrationActionsFolderRequest(folderId) {
+            this.folderId = folderId;
+        }
+        return IntegrationActionsFolderRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionsFolderRequest.prototype.folderId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     IntegrationIdRequest = /** @class */ (function () {
         function IntegrationIdRequest(id) {
             this.id = id;
@@ -15255,6 +15274,31 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions"], params));
         };
+        /**
+         * Find all integration actions for a specified level in the folder hierarchy
+         * @Return: EntitiesResponse<IntegrationAction>
+         */
+        /**
+         * Find all integration actions for a specified level in the folder hierarchy
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} folderId
+         * @return {?}
+         */
+        IntegrationsService.prototype.getFolderActions = /**
+         * Find all integration actions for a specified level in the folder hierarchy
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} folderId
+         * @return {?}
+         */
+        function (folderId) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions/folder/{folderId}"], params));
+        };
         IntegrationsService.decorators = [
             { type: core.Injectable }
         ];
@@ -21446,6 +21490,7 @@
     exports.IntegrationActionIdsRequest = IntegrationActionIdsRequest;
     exports.IntegrationActionUpdateRequest = IntegrationActionUpdateRequest;
     exports.IntegrationActionsFindRequest = IntegrationActionsFindRequest;
+    exports.IntegrationActionsFolderRequest = IntegrationActionsFolderRequest;
     exports.IntegrationIdRequest = IntegrationIdRequest;
     exports.IntegrationIdsRequest = IntegrationIdsRequest;
     exports.IntegrationSpec = IntegrationSpec;

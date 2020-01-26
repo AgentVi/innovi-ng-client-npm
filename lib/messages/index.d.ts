@@ -161,6 +161,7 @@ export * from './IntegrationActionIdRequest';
 export * from './IntegrationActionIdsRequest';
 export * from './IntegrationActionUpdateRequest';
 export * from './IntegrationActionsFindRequest';
+export * from './IntegrationActionsFolderRequest';
 export * from './IntegrationIdRequest';
 export * from './IntegrationIdsRequest';
 export * from './IntegrationsServiceCreateRequest';
