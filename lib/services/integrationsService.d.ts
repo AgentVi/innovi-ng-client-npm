@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { IntegrationTarget } from '../entities/IntegrationTarget';
+import { IntegrationAction } from '../entities/IntegrationAction';
 /**
  * Services for integrations targets (templates)
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -44,4 +45,34 @@ export declare class IntegrationsService {
      * @Return: EntitiesResponse<IntegrationTarget>
      */
     find(search?: string, type?: string): import("rxjs").Observable<any>;
+    /**
+     * Create new integration action
+     * @Return: EntityResponse<IntegrationAction>
+     */
+    createAction(body?: IntegrationAction): import("rxjs").Observable<any>;
+    /**
+     * Update integration action
+     * @Return: EntityResponse<IntegrationAction>
+     */
+    updateAction(id?: string, body?: IntegrationAction): import("rxjs").Observable<any>;
+    /**
+     * Delete integration action from the system
+     * @Return: ActionResponse
+     */
+    deleteAction(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get single integration action by id
+     * @Return: EntityResponse<IntegrationAction>
+     */
+    getAction(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get integration actions by list of ids
+     * @Return: EntitiesResponse<IntegrationAction>
+     */
+    listActions(id?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Find integration actions by filters
+     * @Return: EntitiesResponse<IntegrationAction>
+     */
+    findActions(search?: string): import("rxjs").Observable<any>;
 }

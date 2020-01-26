@@ -6573,6 +6573,30 @@
     */
     var   /*
     */
+    EntitiesResponseOfIntegrationAction = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfIntegrationAction, _super);
+        function EntitiesResponseOfIntegrationAction() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfIntegrationAction;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntitiesResponseOfIntegrationAction.prototype.list;
+        /** @type {?} */
+        EntitiesResponseOfIntegrationAction.prototype.code;
+        /** @type {?} */
+        EntitiesResponseOfIntegrationAction.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     EntitiesResponseOfReportDefinition = /** @class */ (function (_super) {
         __extends(EntitiesResponseOfReportDefinition, _super);
         function EntitiesResponseOfReportDefinition() {
@@ -7331,6 +7355,30 @@
         EntityResponseOfIntegration.prototype.code;
         /** @type {?} */
         EntityResponseOfIntegration.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntityResponseOfIntegrationAction = /** @class */ (function (_super) {
+        __extends(EntityResponseOfIntegrationAction, _super);
+        function EntityResponseOfIntegrationAction() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfIntegrationAction;
+    }(EntityResponse));
+    if (false) {
+        /** @type {?} */
+        EntityResponseOfIntegrationAction.prototype.entity;
+        /** @type {?} */
+        EntityResponseOfIntegrationAction.prototype.code;
+        /** @type {?} */
+        EntityResponseOfIntegrationAction.prototype.error;
     }
 
     /**
@@ -8579,6 +8627,104 @@
     */
     var   /*
     */
+    IntegrationActionCreateRequest = /** @class */ (function () {
+        function IntegrationActionCreateRequest(body) {
+            this.body = body;
+        }
+        return IntegrationActionCreateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionCreateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    IntegrationActionIdRequest = /** @class */ (function () {
+        function IntegrationActionIdRequest(id) {
+            this.id = id;
+        }
+        return IntegrationActionIdRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionIdRequest.prototype.id;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    IntegrationActionIdsRequest = /** @class */ (function () {
+        function IntegrationActionIdsRequest(id) {
+            this.id = id;
+        }
+        return IntegrationActionIdsRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionIdsRequest.prototype.id;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    IntegrationActionUpdateRequest = /** @class */ (function () {
+        function IntegrationActionUpdateRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return IntegrationActionUpdateRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionUpdateRequest.prototype.id;
+        /** @type {?} */
+        IntegrationActionUpdateRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    IntegrationActionsFindRequest = /** @class */ (function () {
+        function IntegrationActionsFindRequest(search) {
+            this.search = search;
+        }
+        return IntegrationActionsFindRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        IntegrationActionsFindRequest.prototype.search;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     IntegrationIdRequest = /** @class */ (function () {
         function IntegrationIdRequest(id) {
             this.id = id;
@@ -9108,6 +9254,42 @@
         QueryResponseOfFolder.prototype.queryDef;
         /** @type {?} */
         QueryResponseOfFolder.prototype.docType;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    QueryResponseOfIntegrationAction = /** @class */ (function (_super) {
+        __extends(QueryResponseOfIntegrationAction, _super);
+        function QueryResponseOfIntegrationAction() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfIntegrationAction;
+    }(QueryResponse));
+    if (false) {
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.list;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.code;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.error;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.page;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.pageSize;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.pages;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.total;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.queryDef;
+        /** @type {?} */
+        QueryResponseOfIntegrationAction.prototype.docType;
     }
 
     /**
@@ -14944,6 +15126,134 @@
                 params.push("type=" + type);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Create new integration action
+         * @Return: EntityResponse<IntegrationAction>
+         */
+        /**
+         * Create new integration action
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} body
+         * @return {?}
+         */
+        IntegrationsService.prototype.createAction = /**
+         * Create new integration action
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/actions", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Update integration action
+         * @Return: EntityResponse<IntegrationAction>
+         */
+        /**
+         * Update integration action
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        IntegrationsService.prototype.updateAction = /**
+         * Update integration action
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/actions/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Delete integration action from the system
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete integration action from the system
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        IntegrationsService.prototype.deleteAction = /**
+         * Delete integration action from the system
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/actions/" + id);
+        };
+        /**
+         * Get single integration action by id
+         * @Return: EntityResponse<IntegrationAction>
+         */
+        /**
+         * Get single integration action by id
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} id
+         * @return {?}
+         */
+        IntegrationsService.prototype.getAction = /**
+         * Get single integration action by id
+         * \@Return: EntityResponse<IntegrationAction>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/actions/" + id);
+        };
+        /**
+         * Get integration actions by list of ids
+         * @Return: EntitiesResponse<IntegrationAction>
+         */
+        /**
+         * Get integration actions by list of ids
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} id
+         * @return {?}
+         */
+        IntegrationsService.prototype.listActions = /**
+         * Get integration actions by list of ids
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions/list"], params));
+        };
+        /**
+         * Find integration actions by filters
+         * @Return: EntitiesResponse<IntegrationAction>
+         */
+        /**
+         * Find integration actions by filters
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} search
+         * @return {?}
+         */
+        IntegrationsService.prototype.findActions = /**
+         * Find integration actions by filters
+         * \@Return: EntitiesResponse<IntegrationAction>
+         * @param {?=} search
+         * @return {?}
+         */
+        function (search) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions"], params));
         };
         IntegrationsService.decorators = [
             { type: core.Injectable }
@@ -21024,6 +21334,7 @@
     exports.EntitiesResponseOfFeaturesGroup = EntitiesResponseOfFeaturesGroup;
     exports.EntitiesResponseOfFolder = EntitiesResponseOfFolder;
     exports.EntitiesResponseOfIntegration = EntitiesResponseOfIntegration;
+    exports.EntitiesResponseOfIntegrationAction = EntitiesResponseOfIntegrationAction;
     exports.EntitiesResponseOfReportDefinition = EntitiesResponseOfReportDefinition;
     exports.EntitiesResponseOfRule = EntitiesResponseOfRule;
     exports.EntitiesResponseOfRuleSpec = EntitiesResponseOfRuleSpec;
@@ -21056,6 +21367,7 @@
     exports.EntityResponseOfFolder = EntityResponseOfFolder;
     exports.EntityResponseOfGeoReferenceData = EntityResponseOfGeoReferenceData;
     exports.EntityResponseOfIntegration = EntityResponseOfIntegration;
+    exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
     exports.EntityResponseOfLicense = EntityResponseOfLicense;
     exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
     exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
@@ -21129,6 +21441,11 @@
     exports.HealthCheckService = HealthCheckService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.IntegrationAction = IntegrationAction;
+    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
+    exports.IntegrationActionIdRequest = IntegrationActionIdRequest;
+    exports.IntegrationActionIdsRequest = IntegrationActionIdsRequest;
+    exports.IntegrationActionUpdateRequest = IntegrationActionUpdateRequest;
+    exports.IntegrationActionsFindRequest = IntegrationActionsFindRequest;
     exports.IntegrationIdRequest = IntegrationIdRequest;
     exports.IntegrationIdsRequest = IntegrationIdsRequest;
     exports.IntegrationSpec = IntegrationSpec;
@@ -21165,6 +21482,7 @@
     exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
     exports.QueryResponseOfEvent = QueryResponseOfEvent;
     exports.QueryResponseOfFolder = QueryResponseOfFolder;
+    exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
     exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
     exports.QueryResponseOfObjectInfo = QueryResponseOfObjectInfo;
     exports.QueryResponseOfReportDefinition = QueryResponseOfReportDefinition;
