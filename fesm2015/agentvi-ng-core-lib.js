@@ -4344,9 +4344,9 @@ const UserStatusCode = {
     // Active user in the system [2] 
     ACTIVE: 2,
     // Blocked user (only account system can unblock the user) [4] 
-    BLOCKED: 4,
+    BLOCKED: 3,
     // Suspended user (about to be deleted) [8] 
-    SUSPENDED: 8,
+    SUSPENDED: 4,
 };
 UserStatusCode[UserStatusCode.UNDEFINED] = 'UNDEFINED';
 UserStatusCode[UserStatusCode.PENDING] = 'PENDING';
