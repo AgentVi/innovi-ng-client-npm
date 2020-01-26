@@ -15291,13 +15291,7 @@
          * @return {?}
          */
         function (folderId) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (folderId != null) {
-                params.push("folderId=" + folderId);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions/folder/{folderId}"], params));
+            return this.rest.get(this.baseUrl + "/actions/folder/" + folderId);
         };
         IntegrationsService.decorators = [
             { type: core.Injectable }

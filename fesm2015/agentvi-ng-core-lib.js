@@ -13430,12 +13430,7 @@ class IntegrationsService {
      * @return {?}
      */
     getFolderActions(folderId) {
-        /** @type {?} */
-        const params = new Array();
-        if (folderId != null) {
-            params.push(`folderId=${folderId}`);
-        }
-        return this.rest.get(`${this.baseUrl}/actions/folder/{folderId}`, ...params);
+        return this.rest.get(`${this.baseUrl}/actions/folder/${folderId}`);
     }
 }
 IntegrationsService.decorators = [

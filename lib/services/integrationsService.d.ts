@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { IntegrationAction } from '../entities/IntegrationAction';
 import { IntegrationTarget } from '../entities/IntegrationTarget';
+import { IntegrationAction } from '../entities/IntegrationAction';
 /**
  * Services for integrations targets (templates)
  * @RequestHeader X-API-KEY The key to identify the application (portal)
