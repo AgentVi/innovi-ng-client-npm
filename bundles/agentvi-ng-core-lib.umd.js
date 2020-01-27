@@ -5660,6 +5660,28 @@
     */
     var   /*
     */
+    AppliancesServiceUpdateApplianceRequest = /** @class */ (function () {
+        function AppliancesServiceUpdateApplianceRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return AppliancesServiceUpdateApplianceRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AppliancesServiceUpdateApplianceRequest.prototype.id;
+        /** @type {?} */
+        AppliancesServiceUpdateApplianceRequest.prototype.body;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AuditLogIdRequest = /** @class */ (function () {
         function AuditLogIdRequest(id) {
             this.id = id;
@@ -13066,6 +13088,27 @@
          */
         function (id, name) {
             return this.rest.put(this.baseUrl + "/" + id + "/name/" + name, null);
+        };
+        /**
+         * Update some appliance attributes (name, folder, configuration, integration)
+         * @Return: EntityResponse<Appliance>
+         */
+        /**
+         * Update some appliance attributes (name, folder, configuration, integration)
+         * \@Return: EntityResponse<Appliance>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        AppliancesService.prototype.update = /**
+         * Update some appliance attributes (name, folder, configuration, integration)
+         * \@Return: EntityResponse<Appliance>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Change appliance folder
@@ -21271,6 +21314,7 @@
     exports.AppliancesServiceRegisterApplianceRequest = AppliancesServiceRegisterApplianceRequest;
     exports.AppliancesServiceSetCommandRequest = AppliancesServiceSetCommandRequest;
     exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;
+    exports.AppliancesServiceUpdateApplianceRequest = AppliancesServiceUpdateApplianceRequest;
     exports.AuditLog = AuditLog;
     exports.AuditLogIdRequest = AuditLogIdRequest;
     exports.AuditLogService = AuditLogService;

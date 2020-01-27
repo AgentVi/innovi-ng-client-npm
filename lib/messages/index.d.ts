@@ -34,6 +34,7 @@ export * from './AppliancesServiceGetCommandsRequest';
 export * from './AppliancesServiceRegisterApplianceRequest';
 export * from './AppliancesServiceSetCommandRequest';
 export * from './AppliancesServiceStatusOvertimeRequest';
+export * from './AppliancesServiceUpdateApplianceRequest';
 export * from './AuditLogIdRequest';
 export * from './AuditLogServiceExportRequest';
 export * from './AuditLogServiceFindRequest';

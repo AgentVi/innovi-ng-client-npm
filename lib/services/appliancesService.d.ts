@@ -1,13 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
+import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -82,6 +83,11 @@ export declare class AppliancesService {
      * @Return: EntityResponse<Appliance>
      */
     changeName(id?: string, name?: string): import("rxjs").Observable<any>;
+    /**
+     * Update some appliance attributes (name, folder, configuration, integration)
+     * @Return: EntityResponse<Appliance>
+     */
+    update(id?: string, body?: Appliance): import("rxjs").Observable<any>;
     /**
      * Change appliance folder
      * @Return: EntityResponse<Appliance>
