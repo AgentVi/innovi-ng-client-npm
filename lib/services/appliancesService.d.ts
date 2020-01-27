@@ -1,14 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { Appliance } from '../entities/Appliance';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -104,12 +104,17 @@ export declare class AppliancesService {
      */
     changeConfiguration(id?: string, configId?: string, versionId?: string): import("rxjs").Observable<any>;
     /**
-     * Delete appliance from the system
-     * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is PENDING
+     * Delete appliance from the system and detach all it's related sensors
+     * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
      * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
      * @Return: ActionResponse
      */
     delete(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Delete appliance from the system including all it's related sensors and sensor data (rules, presets, analysis ...)
+     * @Return: ActionResponse
+     */
+    purge(id?: string): import("rxjs").Observable<any>;
     /**
      * Find list of appliance commands and filter
      * @Return: EntitiesResponse<ApplianceCommand> List of appliance commands

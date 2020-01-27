@@ -13176,22 +13176,22 @@
             return this.rest.put(this.baseUrl + "/" + id + "/config/" + configId + "/" + versionId, null);
         };
         /**
-         * Delete appliance from the system
-         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is PENDING
+         * Delete appliance from the system and detach all it's related sensors
+         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
          * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
          * @Return: ActionResponse
          */
         /**
-         * Delete appliance from the system
-         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is PENDING
+         * Delete appliance from the system and detach all it's related sensors
+         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
          * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
          * \@Return: ActionResponse
          * @param {?=} id
          * @return {?}
          */
         AppliancesService.prototype.delete = /**
-         * Delete appliance from the system
-         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is PENDING
+         * Delete appliance from the system and detach all it's related sensors
+         * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
          * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
          * \@Return: ActionResponse
          * @param {?=} id
@@ -13199,6 +13199,25 @@
          */
         function (id) {
             return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Delete appliance from the system including all it's related sensors and sensor data (rules, presets, analysis ...)
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete appliance from the system including all it's related sensors and sensor data (rules, presets, analysis ...)
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        AppliancesService.prototype.purge = /**
+         * Delete appliance from the system including all it's related sensors and sensor data (rules, presets, analysis ...)
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/purge/" + id);
         };
         /**
          * Find list of appliance commands and filter
@@ -17251,6 +17270,591 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /**
+     * Services for user registration and login
+     */
+    var UserService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UserService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/user';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: EntityResponse<LoginData>
+         */
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: EntityResponse<LoginData>
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.login = /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: EntityResponse<LoginData>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<LoginData>
+         */
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<LoginData>
+         * @return {?}
+         */
+        UserService.prototype.refreshToken = /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<LoginData>
+         * @return {?}
+         */
+        function () {
+            return this.rest.post(this.baseUrl + "/refresh-token", null);
+        };
+        /**
+         * Verify user by temporary login key
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Verify user by temporary login key
+         * \@Return: EntityResponse<User>
+         * @param {?=} key
+         * @return {?}
+         */
+        UserService.prototype.verifyLoginKey = /**
+         * Verify user by temporary login key
+         * \@Return: EntityResponse<User>
+         * @param {?=} key
+         * @return {?}
+         */
+        function (key) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (key != null) {
+                params.push("key=" + key);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+        };
+        /**
+         * Send verification code by email
+         * @Return: ActionResponse
+         */
+        /**
+         * Send verification code by email
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.sendVerificationCode = /**
+         * Send verification code by email
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Validate verification code and reset password
+         * @Return: ActionResponse
+         */
+        /**
+         * Validate verification code and reset password
+         * \@Return: ActionResponse
+         * @param {?=} code
+         * @return {?}
+         */
+        UserService.prototype.resetPassword = /**
+         * Validate verification code and reset password
+         * \@Return: ActionResponse
+         * @param {?=} code
+         * @return {?}
+         */
+        function (code) {
+            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+        };
+        /**
+         * Change password
+         * @Return: ActionResponse
+         */
+        /**
+         * Change password
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changePassword = /**
+         * Change password
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Check if password was used before (according to password policy)
+         * @Return: ActionResponse
+         */
+        /**
+         * Check if password was used before (according to password policy)
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.checkUnusedPassword = /**
+         * Check if password was used before (according to password policy)
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user name
+         * @Return: ActionResponse
+         */
+        /**
+         * Change current user name
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changeName = /**
+         * Change current user name
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user mobile
+         * @Return: ActionResponse
+         */
+        /**
+         * Change current user mobile
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.changeMobile = /**
+         * Change current user mobile
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<UserAccountInfo>
+         */
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<UserAccountInfo>
+         * @param {?=} body
+         * @return {?}
+         */
+        UserService.prototype.switchAccount = /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * \@Return: EntityResponse<UserAccountInfo>
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        UserService.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        UserService.ctorParameters = function () { return [
+            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
+            { type: RestUtil }
+        ]; };
+        return UserService;
+    }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.baseUrl;
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.config;
+        /**
+         * @type {?}
+         * @private
+         */
+        UserService.prototype.rest;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
+     * List of all user related actions for account administrator only
+     */
+    var UsersService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UsersService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/users';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: ActionResponse
+         */
+        /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.invite = /**
+         * Send invitation to a new user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} body
+         * @return {?}
+         */
+        function (body) {
+            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: ActionResponse
+         */
+        /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.reInvite = /**
+         * Resend invitation to an existing user for the current account
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+        };
+        /**
+         * Update user
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Update user
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.update = /**
+         * Update user
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user name
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user name
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.changeName = /**
+         * Change user name
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user mobile
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user mobile
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        UsersService.prototype.changeMobile = /**
+         * Change user mobile
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} body
+         * @return {?}
+         */
+        function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user type
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Change user type
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} type
+         * @return {?}
+         */
+        UsersService.prototype.changeType = /**
+         * Change user type
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @param {?=} type
+         * @return {?}
+         */
+        function (id, type) {
+            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+        };
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * @Return: ActionResponse
+         */
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.delete = /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * \@Return: ActionResponse
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by id
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Get single user by id
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @return {?}
+         */
+        UsersService.prototype.get = /**
+         * Get single user by id
+         * \@Return: EntityResponse<User>
+         * @param {?=} id
+         * @return {?}
+         */
+        function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by email
+         * @Return: EntityResponse<User>
+         */
+        /**
+         * Get single user by email
+         * \@Return: EntityResponse<User>
+         * @param {?=} email
+         * @return {?}
+         */
+        UsersService.prototype.getByEmail = /**
+         * Get single user by email
+         * \@Return: EntityResponse<User>
+         * @param {?=} email
+         * @return {?}
+         */
+        function (email) {
+            return this.rest.get(this.baseUrl + "/byEmail/" + email);
+        };
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * @Return: QueryResponse<User>
+         */
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * \@Return: QueryResponse<User>
+         * @param {?=} accountId
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        UsersService.prototype.find = /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * \@Return: QueryResponse<User>
+         * @param {?=} accountId
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} page
+         * @param {?=} pageSize
+         * @return {?}
+         */
+        function (accountId, search, type, status, sort, page, pageSize) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of users and filter
+         * @Return: StreamContent
+         */
+        /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        UsersService.prototype.exportFormat = /**
+         * Export list of users and filter
+         * \@Return: StreamContent
+         * @param {?=} search
+         * @param {?=} type
+         * @param {?=} status
+         * @param {?=} sort
+         * @param {?=} format
+         * @param {?=} fields
+         * @return {?}
+         */
+        function (search, type, status, sort, format, fields) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
+        };
+        UsersService.decorators = [
+            { type: core.Injectable }
+        ];
+        /** @nocollapse */
+        UsersService.ctorParameters = function () { return [
+            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
+            { type: RestUtil }
+        ]; };
+        return UsersService;
+    }());
+    if (false) {
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.baseUrl;
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.config;
+        /**
+         * @type {?}
+         * @private
+         */
+        UsersService.prototype.rest;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /**
      * List of account related actions for system administrator only
      * \@RequestHeader X-API-KEY The key to identify the application (console)
      * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -20461,605 +21065,8 @@
      * @fileoverview added by tsickle
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
-    /**
-     * Services for user registration and login
-     */
-    var UserService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UserService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/user';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: EntityResponse<LoginData>
-         */
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: EntityResponse<LoginData>
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.login = /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: EntityResponse<LoginData>
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<LoginData>
-         */
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<LoginData>
-         * @return {?}
-         */
-        UserService.prototype.refreshToken = /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<LoginData>
-         * @return {?}
-         */
-        function () {
-            return this.rest.post(this.baseUrl + "/refresh-token", null);
-        };
-        /**
-         * Verify user by temporary login key
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Verify user by temporary login key
-         * \@Return: EntityResponse<User>
-         * @param {?=} key
-         * @return {?}
-         */
-        UserService.prototype.verifyLoginKey = /**
-         * Verify user by temporary login key
-         * \@Return: EntityResponse<User>
-         * @param {?=} key
-         * @return {?}
-         */
-        function (key) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (key != null) {
-                params.push("key=" + key);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-        };
-        /**
-         * Send verification code by email
-         * @Return: ActionResponse
-         */
-        /**
-         * Send verification code by email
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.sendVerificationCode = /**
-         * Send verification code by email
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Validate verification code and reset password
-         * @Return: ActionResponse
-         */
-        /**
-         * Validate verification code and reset password
-         * \@Return: ActionResponse
-         * @param {?=} code
-         * @return {?}
-         */
-        UserService.prototype.resetPassword = /**
-         * Validate verification code and reset password
-         * \@Return: ActionResponse
-         * @param {?=} code
-         * @return {?}
-         */
-        function (code) {
-            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-        };
-        /**
-         * Change password
-         * @Return: ActionResponse
-         */
-        /**
-         * Change password
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changePassword = /**
-         * Change password
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Check if password was used before (according to password policy)
-         * @Return: ActionResponse
-         */
-        /**
-         * Check if password was used before (according to password policy)
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.checkUnusedPassword = /**
-         * Check if password was used before (according to password policy)
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user name
-         * @Return: ActionResponse
-         */
-        /**
-         * Change current user name
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changeName = /**
-         * Change current user name
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user mobile
-         * @Return: ActionResponse
-         */
-        /**
-         * Change current user mobile
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.changeMobile = /**
-         * Change current user mobile
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<UserAccountInfo>
-         */
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<UserAccountInfo>
-         * @param {?=} body
-         * @return {?}
-         */
-        UserService.prototype.switchAccount = /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * \@Return: EntityResponse<UserAccountInfo>
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        UserService.decorators = [
-            { type: core.Injectable }
-        ];
-        /** @nocollapse */
-        UserService.ctorParameters = function () { return [
-            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
-            { type: RestUtil }
-        ]; };
-        return UserService;
-    }());
-    if (false) {
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.baseUrl;
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.config;
-        /**
-         * @type {?}
-         * @private
-         */
-        UserService.prototype.rest;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /**
-     * List of all user related actions for account administrator only
-     */
-    var UsersService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UsersService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/users';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: ActionResponse
-         */
-        /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.invite = /**
-         * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} body
-         * @return {?}
-         */
-        function (body) {
-            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: ActionResponse
-         */
-        /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.reInvite = /**
-         * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-        };
-        /**
-         * Update user
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Update user
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.update = /**
-         * Update user
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user name
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user name
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.changeName = /**
-         * Change user name
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user mobile
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user mobile
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        UsersService.prototype.changeMobile = /**
-         * Change user mobile
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} body
-         * @return {?}
-         */
-        function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user type
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Change user type
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} type
-         * @return {?}
-         */
-        UsersService.prototype.changeType = /**
-         * Change user type
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @param {?=} type
-         * @return {?}
-         */
-        function (id, type) {
-            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-        };
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * @Return: ActionResponse
-         */
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.delete = /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * \@Return: ActionResponse
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.delete(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by id
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Get single user by id
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @return {?}
-         */
-        UsersService.prototype.get = /**
-         * Get single user by id
-         * \@Return: EntityResponse<User>
-         * @param {?=} id
-         * @return {?}
-         */
-        function (id) {
-            return this.rest.get(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by email
-         * @Return: EntityResponse<User>
-         */
-        /**
-         * Get single user by email
-         * \@Return: EntityResponse<User>
-         * @param {?=} email
-         * @return {?}
-         */
-        UsersService.prototype.getByEmail = /**
-         * Get single user by email
-         * \@Return: EntityResponse<User>
-         * @param {?=} email
-         * @return {?}
-         */
-        function (email) {
-            return this.rest.get(this.baseUrl + "/byEmail/" + email);
-        };
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * @Return: QueryResponse<User>
-         */
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * \@Return: QueryResponse<User>
-         * @param {?=} accountId
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} page
-         * @param {?=} pageSize
-         * @return {?}
-         */
-        UsersService.prototype.find = /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * \@Return: QueryResponse<User>
-         * @param {?=} accountId
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} page
-         * @param {?=} pageSize
-         * @return {?}
-         */
-        function (accountId, search, type, status, sort, page, pageSize) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (accountId != null) {
-                params.push("accountId=" + accountId);
-            }
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (page != null) {
-                params.push("page=" + page);
-            }
-            if (pageSize != null) {
-                params.push("pageSize=" + pageSize);
-            }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-        };
-        /**
-         * Export list of users and filter
-         * @Return: StreamContent
-         */
-        /**
-         * Export list of users and filter
-         * \@Return: StreamContent
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} format
-         * @param {?=} fields
-         * @return {?}
-         */
-        UsersService.prototype.exportFormat = /**
-         * Export list of users and filter
-         * \@Return: StreamContent
-         * @param {?=} search
-         * @param {?=} type
-         * @param {?=} status
-         * @param {?=} sort
-         * @param {?=} format
-         * @param {?=} fields
-         * @return {?}
-         */
-        function (search, type, status, sort, format, fields) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (format != null) {
-                params.push("format=" + format);
-            }
-            if (fields != null) {
-                params.push("fields=" + fields);
-            }
-            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
-        };
-        UsersService.decorators = [
-            { type: core.Injectable }
-        ];
-        /** @nocollapse */
-        UsersService.ctorParameters = function () { return [
-            { type: CoreConfig, decorators: [{ type: core.Inject, args: ['config',] }] },
-            { type: RestUtil }
-        ]; };
-        return UsersService;
-    }());
-    if (false) {
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.baseUrl;
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.config;
-        /**
-         * @type {?}
-         * @private
-         */
-        UsersService.prototype.rest;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
     /** @type {?} */
     var Services = [
-        AnomalyService,
-        HealthCheckService,
-        SysAccountsService,
-        SysAppliancesService,
-        SysConfigurationsService,
-        SysEventsService,
-        SysFeaturesGroupsService,
-        SysFeaturesService,
-        SysKeysService,
-        SysSensorsService,
-        SysSystemService,
-        SysUsersService,
         AccountsService,
         AppliancesService,
         AuditLogService,
@@ -21076,6 +21083,18 @@
         SensorsService,
         UserService,
         UsersService,
+        AnomalyService,
+        HealthCheckService,
+        SysAccountsService,
+        SysAppliancesService,
+        SysConfigurationsService,
+        SysEventsService,
+        SysFeaturesGroupsService,
+        SysFeaturesService,
+        SysKeysService,
+        SysSensorsService,
+        SysSystemService,
+        SysUsersService,
     ];
 
     /**
@@ -21710,34 +21729,34 @@
     exports.setToken = setToken;
     exports.ɵa = RestUtil;
     exports.ɵb = Services;
-    exports.ɵba = SearchService;
-    exports.ɵbb = SensorsService;
-    exports.ɵbc = UserService;
-    exports.ɵbd = UsersService;
-    exports.ɵc = AnomalyService;
-    exports.ɵd = HealthCheckService;
-    exports.ɵe = SysAccountsService;
-    exports.ɵf = SysAppliancesService;
-    exports.ɵg = SysConfigurationsService;
-    exports.ɵh = SysEventsService;
-    exports.ɵi = SysFeaturesGroupsService;
-    exports.ɵj = SysFeaturesService;
-    exports.ɵk = SysKeysService;
-    exports.ɵl = SysSensorsService;
-    exports.ɵm = SysSystemService;
-    exports.ɵn = SysUsersService;
-    exports.ɵo = AccountsService;
-    exports.ɵp = AppliancesService;
-    exports.ɵq = AuditLogService;
-    exports.ɵr = CalendarsService;
-    exports.ɵs = EventsService;
-    exports.ɵt = FoldersService;
-    exports.ɵu = GeoService;
-    exports.ɵv = IntegrationsService;
-    exports.ɵw = ReportsService;
-    exports.ɵx = RulesService;
-    exports.ɵy = ScheduledReportsService;
-    exports.ɵz = SchedulesService;
+    exports.ɵba = SysKeysService;
+    exports.ɵbb = SysSensorsService;
+    exports.ɵbc = SysSystemService;
+    exports.ɵbd = SysUsersService;
+    exports.ɵc = AccountsService;
+    exports.ɵd = AppliancesService;
+    exports.ɵe = AuditLogService;
+    exports.ɵf = CalendarsService;
+    exports.ɵg = EventsService;
+    exports.ɵh = FoldersService;
+    exports.ɵi = GeoService;
+    exports.ɵj = IntegrationsService;
+    exports.ɵk = ReportsService;
+    exports.ɵl = RulesService;
+    exports.ɵm = ScheduledReportsService;
+    exports.ɵn = SchedulesService;
+    exports.ɵo = SearchService;
+    exports.ɵp = SensorsService;
+    exports.ɵq = UserService;
+    exports.ɵr = UsersService;
+    exports.ɵs = AnomalyService;
+    exports.ɵt = HealthCheckService;
+    exports.ɵu = SysAccountsService;
+    exports.ɵv = SysAppliancesService;
+    exports.ɵw = SysConfigurationsService;
+    exports.ɵx = SysEventsService;
+    exports.ɵy = SysFeaturesGroupsService;
+    exports.ɵz = SysFeaturesService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
