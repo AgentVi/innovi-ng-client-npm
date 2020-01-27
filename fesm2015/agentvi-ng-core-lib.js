@@ -3816,10 +3816,10 @@ FeatureCode[FeatureCode.MODULE_ANALYTICS] = 'MODULE_ANALYTICS';
 const IntegrationTypeCode = {
     // Undefined [0] 
     UNDEFINED: 0,
-    // General HTTP based integration [1] 
+    // General HTTP/HTTPS based integration [1] 
     HTTP: 1,
-    // General HTTPS based integration [2] 
-    HTTPS: 2,
+    // General Web Socket WS/WSS based integration [2] 
+    WS: 2,
     // General SMTP based integration [3] 
     SMTP: 3,
     // Internal email service integration [4] 
@@ -3833,7 +3833,7 @@ const IntegrationTypeCode = {
 };
 IntegrationTypeCode[IntegrationTypeCode.UNDEFINED] = 'UNDEFINED';
 IntegrationTypeCode[IntegrationTypeCode.HTTP] = 'HTTP';
-IntegrationTypeCode[IntegrationTypeCode.HTTPS] = 'HTTPS';
+IntegrationTypeCode[IntegrationTypeCode.WS] = 'WS';
 IntegrationTypeCode[IntegrationTypeCode.SMTP] = 'SMTP';
 IntegrationTypeCode[IntegrationTypeCode.EMAIL] = 'EMAIL';
 IntegrationTypeCode[IntegrationTypeCode.SMS] = 'SMS';
