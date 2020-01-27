@@ -1,6 +1,5 @@
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { ApplianceCapabilities } from '../entities/ApplianceCapabilities';
-import { AgentIntegration } from '../entities/AgentIntegration';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class Appliance extends BaseEntity {
     name: string;
@@ -15,7 +14,8 @@ export declare class Appliance extends BaseEntity {
     configurationId: string;
     configurationVersionId: string;
     capabilities: ApplianceCapabilities;
-    integrations: AgentIntegration[];
+    eventIntegrationId: string;
+    metadataIntegrationId: string;
     id: string;
     _type: string;
     createdOn: number;
