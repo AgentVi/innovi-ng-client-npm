@@ -12054,6 +12054,24 @@ class AppliancesService {
         return this.rest.put(`${this.baseUrl}/${id}/config/${configId}/${versionId}`, null);
     }
     /**
+     * Send get capabilities command to the appliance and wait for response up to 60 seconds
+     * \@Return: EntityResponse<Appliance>
+     * @param {?=} id
+     * @return {?}
+     */
+    getCapabilities(id) {
+        return this.rest.post(`${this.baseUrl}/${id}/capabilities`, null);
+    }
+    /**
+     * Send reset credentials command to the appliance (reset to the factory default password)
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    resetPassword(id) {
+        return this.rest.post(`${this.baseUrl}/${id}/reset-password`, null);
+    }
+    /**
      * Delete appliance from the system and detach all it's related sensors
      * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
      * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device

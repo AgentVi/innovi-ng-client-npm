@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
-import { Appliance } from '../entities/Appliance';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { Appliance } from '../entities/Appliance';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 /**
  * List of appliance related actions
@@ -103,6 +103,16 @@ export declare class AppliancesService {
      * @Return: EntityResponse<Appliance> - Updated appliance
      */
     changeConfiguration(id?: string, configId?: string, versionId?: string): import("rxjs").Observable<any>;
+    /**
+     * Send get capabilities command to the appliance and wait for response up to 60 seconds
+     * @Return:  EntityResponse<Appliance>
+     */
+    getCapabilities(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Send reset credentials command to the appliance (reset to the factory default password)
+     * @Return:  ActionResponse
+     */
+    resetPassword(id?: string): import("rxjs").Observable<any>;
     /**
      * Delete appliance from the system and detach all it's related sensors
      * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
