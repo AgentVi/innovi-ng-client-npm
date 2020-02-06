@@ -1413,84 +1413,31 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
-   Search result item
+   Status of a search session
 */
-class SearchResult {
+class SearchStatus {
     /**
-     * @param {?=} id
-     * @param {?=} sequenceId
-     * @param {?=} timestamp
-     * @param {?=} behaviorType
-     * @param {?=} objectType
-     * @param {?=} description
-     * @param {?=} isGeo
-     * @param {?=} location
-     * @param {?=} objectsInfo
+     * @param {?=} sessionId
+     * @param {?=} isFinished
+     * @param {?=} total
+     * @param {?=} progress
      */
-    constructor(id, sequenceId, timestamp, behaviorType, objectType, description, isGeo, location, objectsInfo) {
-        this.id = id;
-        this.sequenceId = sequenceId;
-        this.timestamp = timestamp;
-        this.behaviorType = behaviorType;
-        this.objectType = objectType;
-        this.description = description;
-        this.isGeo = isGeo;
-        this.location = location;
-        this.objectsInfo = objectsInfo;
+    constructor(sessionId, isFinished, total, progress) {
+        this.sessionId = sessionId;
+        this.isFinished = isFinished;
+        this.total = total;
+        this.progress = progress;
     }
 }
 if (false) {
     /** @type {?} */
-    SearchResult.prototype.id;
+    SearchStatus.prototype.sessionId;
     /** @type {?} */
-    SearchResult.prototype.sequenceId;
+    SearchStatus.prototype.isFinished;
     /** @type {?} */
-    SearchResult.prototype.timestamp;
+    SearchStatus.prototype.total;
     /** @type {?} */
-    SearchResult.prototype.behaviorType;
-    /** @type {?} */
-    SearchResult.prototype.objectType;
-    /** @type {?} */
-    SearchResult.prototype.description;
-    /** @type {?} */
-    SearchResult.prototype.isGeo;
-    /** @type {?} */
-    SearchResult.prototype.location;
-    /** @type {?} */
-    SearchResult.prototype.objectsInfo;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
-   Object description in search result
-   Search result item may refer to several object (example: in a single group there may be several people)
-*/
-class SearchResultObject {
-    /**
-     * @param {?=} objectId
-     * @param {?=} sensorId
-     * @param {?=} boundingBox
-     * @param {?=} objectHistory
-     */
-    constructor(objectId, sensorId, boundingBox, objectHistory) {
-        this.objectId = objectId;
-        this.sensorId = sensorId;
-        this.boundingBox = boundingBox;
-        this.objectHistory = objectHistory;
-    }
-}
-if (false) {
-    /** @type {?} */
-    SearchResultObject.prototype.objectId;
-    /** @type {?} */
-    SearchResultObject.prototype.sensorId;
-    /** @type {?} */
-    SearchResultObject.prototype.boundingBox;
-    /** @type {?} */
-    SearchResultObject.prototype.objectHistory;
+    SearchStatus.prototype.progress;
 }
 
 /**
@@ -3028,6 +2975,56 @@ if (false) {
     SearchDefinition.prototype.createdOn;
     /** @type {?} */
     SearchDefinition.prototype.updatedOn;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+   Search result item of search operation. The data structure is identical to an Event
+*/
+class SearchEvent extends Event {
+}
+if (false) {
+    /** @type {?} */
+    SearchEvent.prototype.sensorId;
+    /** @type {?} */
+    SearchEvent.prototype.accountId;
+    /** @type {?} */
+    SearchEvent.prototype.eventTime;
+    /** @type {?} */
+    SearchEvent.prototype.ruleId;
+    /** @type {?} */
+    SearchEvent.prototype.description;
+    /** @type {?} */
+    SearchEvent.prototype.objectType;
+    /** @type {?} */
+    SearchEvent.prototype.behaviorType;
+    /** @type {?} */
+    SearchEvent.prototype.status;
+    /** @type {?} */
+    SearchEvent.prototype.geoLocation;
+    /** @type {?} */
+    SearchEvent.prototype.imagePath;
+    /** @type {?} */
+    SearchEvent.prototype.clipPath;
+    /** @type {?} */
+    SearchEvent.prototype.severity;
+    /** @type {?} */
+    SearchEvent.prototype.eventImageTime;
+    /** @type {?} */
+    SearchEvent.prototype.eventObjects;
+    /** @type {?} */
+    SearchEvent.prototype.boundingBoxes;
+    /** @type {?} */
+    SearchEvent.prototype.id;
+    /** @type {?} */
+    SearchEvent.prototype._type;
+    /** @type {?} */
+    SearchEvent.prototype.createdOn;
+    /** @type {?} */
+    SearchEvent.prototype.updatedOn;
 }
 
 /**
@@ -6289,6 +6286,23 @@ if (false) {
  */
 /*
 */
+class EntitiesResponseOfSearchEvent extends EntitiesResponse {
+}
+if (false) {
+    /** @type {?} */
+    EntitiesResponseOfSearchEvent.prototype.list;
+    /** @type {?} */
+    EntitiesResponseOfSearchEvent.prototype.code;
+    /** @type {?} */
+    EntitiesResponseOfSearchEvent.prototype.error;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
 class EntitiesResponseOfSensor extends EntitiesResponse {
 }
 if (false) {
@@ -6874,6 +6888,40 @@ if (false) {
  */
 /*
 */
+class EntityResponseOfSearchEvent extends EntityResponse {
+}
+if (false) {
+    /** @type {?} */
+    EntityResponseOfSearchEvent.prototype.entity;
+    /** @type {?} */
+    EntityResponseOfSearchEvent.prototype.code;
+    /** @type {?} */
+    EntityResponseOfSearchEvent.prototype.error;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class EntityResponseOfSearchStatus extends EntityResponse {
+}
+if (false) {
+    /** @type {?} */
+    EntityResponseOfSearchStatus.prototype.entity;
+    /** @type {?} */
+    EntityResponseOfSearchStatus.prototype.code;
+    /** @type {?} */
+    EntityResponseOfSearchStatus.prototype.error;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
 class EntityResponseOfSensor extends EntityResponse {
 }
 if (false) {
@@ -7349,9 +7397,9 @@ class EventsServiceStatisticsRequest {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} label
+     * @param {?=} labelFormat
      */
-    constructor(folderId, sensorId, objectType, behaviorType, severity, status, rule, from, to, interval, label) {
+    constructor(folderId, sensorId, objectType, behaviorType, severity, status, rule, from, to, interval, labelFormat) {
         this.folderId = folderId;
         this.sensorId = sensorId;
         this.objectType = objectType;
@@ -7362,7 +7410,7 @@ class EventsServiceStatisticsRequest {
         this.from = from;
         this.to = to;
         this.interval = interval;
-        this.label = label;
+        this.labelFormat = labelFormat;
     }
 }
 if (false) {
@@ -7387,7 +7435,7 @@ if (false) {
     /** @type {?} */
     EventsServiceStatisticsRequest.prototype.interval;
     /** @type {?} */
-    EventsServiceStatisticsRequest.prototype.label;
+    EventsServiceStatisticsRequest.prototype.labelFormat;
 }
 
 /**
@@ -8605,35 +8653,6 @@ if (false) {
  */
 /*
 */
-class QueryResponseOfObjectInfo extends QueryResponse {
-}
-if (false) {
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.list;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.code;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.error;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.page;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.pageSize;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.pages;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.total;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.queryDef;
-    /** @type {?} */
-    QueryResponseOfObjectInfo.prototype.docType;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*
-*/
 class QueryResponseOfReportDefinition extends QueryResponse {
 }
 if (false) {
@@ -8742,6 +8761,35 @@ if (false) {
     QueryResponseOfSearchDefinition.prototype.queryDef;
     /** @type {?} */
     QueryResponseOfSearchDefinition.prototype.docType;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class QueryResponseOfSearchEvent extends QueryResponse {
+}
+if (false) {
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.list;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.code;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.error;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.page;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.pageSize;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.pages;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.total;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.queryDef;
+    /** @type {?} */
+    QueryResponseOfSearchEvent.prototype.docType;
 }
 
 /**
@@ -9415,6 +9463,189 @@ if (false) {
  */
 /*
 */
+class SearchEventCountRequest {
+    /**
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} interval
+     * @param {?=} labelFormat
+     */
+    constructor(sessionId, sensorId, objectType, from, to, interval, labelFormat) {
+        this.sessionId = sessionId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.from = from;
+        this.to = to;
+        this.interval = interval;
+        this.labelFormat = labelFormat;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchEventCountRequest.prototype.sessionId;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.sensorId;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.objectType;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.from;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.to;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.interval;
+    /** @type {?} */
+    SearchEventCountRequest.prototype.labelFormat;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class SearchEventExportRequest {
+    /**
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} format
+     * @param {?=} fields
+     */
+    constructor(sessionId, sensorId, objectType, from, to, sort, format, fields) {
+        this.sessionId = sessionId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.format = format;
+        this.fields = fields;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchEventExportRequest.prototype.sessionId;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.sensorId;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.objectType;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.from;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.to;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.sort;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.format;
+    /** @type {?} */
+    SearchEventExportRequest.prototype.fields;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class SearchEventFindRequest {
+    /**
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     */
+    constructor(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+        this.sessionId = sessionId;
+        this.sensorId = sensorId;
+        this.objectType = objectType;
+        this.from = from;
+        this.to = to;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchEventFindRequest.prototype.sessionId;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.sensorId;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.objectType;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.from;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.to;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.sort;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.page;
+    /** @type {?} */
+    SearchEventFindRequest.prototype.pageSize;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class SearchEventIdRequest {
+    /**
+     * @param {?=} sessionId
+     * @param {?=} id
+     */
+    constructor(sessionId, id) {
+        this.sessionId = sessionId;
+        this.id = id;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchEventIdRequest.prototype.sessionId;
+    /** @type {?} */
+    SearchEventIdRequest.prototype.id;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class SearchEventIdsRequest {
+    /**
+     * @param {?=} sessionId
+     * @param {?=} id
+     */
+    constructor(sessionId, id) {
+        this.sessionId = sessionId;
+        this.id = id;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchEventIdsRequest.prototype.sessionId;
+    /** @type {?} */
+    SearchEventIdsRequest.prototype.id;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
 class SearchIdRequest {
     /**
      * @param {?=} id
@@ -9537,6 +9768,25 @@ if (false) {
     SearchServiceUpdateRequest.prototype.id;
     /** @type {?} */
     SearchServiceUpdateRequest.prototype.body;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+*/
+class SearchSessionIdRequest {
+    /**
+     * @param {?=} sessionId
+     */
+    constructor(sessionId) {
+        this.sessionId = sessionId;
+    }
+}
+if (false) {
+    /** @type {?} */
+    SearchSessionIdRequest.prototype.sessionId;
 }
 
 /**
@@ -12810,10 +13060,10 @@ class EventsService {
      * @param {?=} from
      * @param {?=} to
      * @param {?=} interval
-     * @param {?=} label
+     * @param {?=} labelFormat
      * @return {?}
      */
-    getEventsCountOvertime(folderId, sensorId, objectType, behaviorType, severity, status, rule, from, to, interval, label) {
+    getEventsCountOvertime(folderId, sensorId, objectType, behaviorType, severity, status, rule, from, to, interval, labelFormat) {
         /** @type {?} */
         const params = new Array();
         if (folderId != null) {
@@ -12846,8 +13096,8 @@ class EventsService {
         if (interval != null) {
             params.push(`interval=${interval}`);
         }
-        if (label != null) {
-            params.push(`label=${label}`);
+        if (labelFormat != null) {
+            params.push(`labelFormat=${labelFormat}`);
         }
         return this.rest.get(`${this.baseUrl}/overtime`, ...params);
     }
@@ -14211,7 +14461,7 @@ class SearchService {
     }
     /**
      * Perform metadata search by the search definition
-     * \@Return: QueryResponse<ObjectInfo> - list of detected objects
+     * \@Return: EntityResponse<SearchStatus>
      * Search image web socket (/ws/search?search=searchId) must be open before this method invocation.
      * Please provide search id to query definition and use the same id for the web socket
      * @param {?=} body
@@ -14222,12 +14472,178 @@ class SearchService {
     }
     /**
      * Perform metadata saved search by the search id
-     * \@Return: QueryResponse<ObjectInfo> - list of detected objects
+     * \@Return: EntityResponse<SearchStatus>
      * @param {?=} id
      * @return {?}
      */
     executeById(id) {
         return this.rest.get(`${this.baseUrl}/execute/${id}`);
+    }
+    /**
+     * Get search session status
+     * \@Return: EntityResponse<SearchStatus>
+     * @param {?=} sessionId
+     * @return {?}
+     */
+    getSearchStatus(sessionId) {
+        return this.rest.get(`${this.baseUrl}/session/${sessionId}/status`);
+    }
+    /**
+     * Cancel search session
+     * \@Return: ActionResponse
+     * @param {?=} sessionId
+     * @return {?}
+     */
+    cancelSearchSession(sessionId) {
+        return this.rest.delete(`${this.baseUrl}/session/${sessionId}`);
+    }
+    /**
+     * Get single search event item by id and sessionId
+     * \@Return: EntityResponse<SearchDefinition>
+     * @param {?=} sessionId
+     * @param {?=} id
+     * @return {?}
+     */
+    getEvent(sessionId, id) {
+        return this.rest.get(`${this.baseUrl}/session/${sessionId}/${id}`);
+    }
+    /**
+     * Get search event image [response content type: image/jpeg]
+     * \@Return: StreamingOutput of the image
+     * @param {?=} sessionId
+     * @param {?=} id
+     * @return {?}
+     */
+    getEventImage(sessionId, id) {
+        return this.rest.download(`search`, `${this.baseUrl}/session/${sessionId}/image/${id}`);
+    }
+    /**
+     * Get multiple search events by list of ids
+     * \@Return: EntitiesResponse<SearchDefinition>
+     * @param {?=} sessionId
+     * @param {?=} id
+     * @return {?}
+     */
+    listEvents(sessionId, id) {
+        /** @type {?} */
+        const params = new Array();
+        if (id != null) {
+            params.push(`id=${id}`);
+        }
+        return this.rest.get(`${this.baseUrl}/session/${sessionId}/list`, ...params);
+    }
+    /**
+     * Find list of search events by filter
+     * \@Return: EntitiesResponse<SearchDefinition>
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    findEvents(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+        /** @type {?} */
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        if (objectType != null) {
+            params.push(`objectType=${objectType}`);
+        }
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        return this.rest.get(`${this.baseUrl}/session/${sessionId}/find`, ...params);
+    }
+    /**
+     * Export list of search events by filter
+     * \@Return: StreamContent
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} sort
+     * @param {?=} format
+     * @param {?=} fields
+     * @return {?}
+     */
+    exportEvents(sessionId, sensorId, objectType, from, to, sort, format, fields) {
+        /** @type {?} */
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        if (objectType != null) {
+            params.push(`objectType=${objectType}`);
+        }
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
+        }
+        return this.rest.download(`search`, `${this.baseUrl}/session/${sessionId}/export`, ...params);
+    }
+    /**
+     * Get events count overtime for all events in the system
+     * \@Return: EntityResponse<EventCountTimeSeries>
+     * @param {?=} sessionId
+     * @param {?=} sensorId
+     * @param {?=} objectType
+     * @param {?=} from
+     * @param {?=} to
+     * @param {?=} interval
+     * @param {?=} labelFormat
+     * @return {?}
+     */
+    getEventsCountOvertime(sessionId, sensorId, objectType, from, to, interval, labelFormat) {
+        /** @type {?} */
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        if (objectType != null) {
+            params.push(`objectType=${objectType}`);
+        }
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        if (interval != null) {
+            params.push(`interval=${interval}`);
+        }
+        if (labelFormat != null) {
+            params.push(`labelFormat=${labelFormat}`);
+        }
+        return this.rest.get(`${this.baseUrl}/session/${sessionId}/overtime`, ...params);
     }
 }
 SearchService.decorators = [
@@ -14686,356 +15102,6 @@ if (false) {
      * @private
      */
     SensorsService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Services for user registration and login
- */
-class UserService {
-    /**
-     * Class constructor
-     * @param {?} config
-     * @param {?} rest
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/user';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Login to the system with user email and password
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: EntityResponse<LoginData>
-     * @param {?=} body
-     * @return {?}
-     */
-    login(body) {
-        return this.rest.post(`${this.baseUrl}/login`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<LoginData>
-     * @return {?}
-     */
-    refreshToken() {
-        return this.rest.post(`${this.baseUrl}/refresh-token`, null);
-    }
-    /**
-     * Verify user by temporary login key
-     * \@Return: EntityResponse<User>
-     * @param {?=} key
-     * @return {?}
-     */
-    verifyLoginKey(key) {
-        /** @type {?} */
-        const params = new Array();
-        if (key != null) {
-            params.push(`key=${key}`);
-        }
-        return this.rest.get(`${this.baseUrl}/login/verify`, ...params);
-    }
-    /**
-     * Send verification code by email
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    sendVerificationCode(body) {
-        return this.rest.post(`${this.baseUrl}/verify`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Validate verification code and reset password
-     * \@Return: ActionResponse
-     * @param {?=} code
-     * @return {?}
-     */
-    resetPassword(code) {
-        return this.rest.post(`${this.baseUrl}/reset-password`, typeof code === 'object' ? JSON.stringify(code) : code);
-    }
-    /**
-     * Change password
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changePassword(body) {
-        return this.rest.post(`${this.baseUrl}/change-password`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Check if password was used before (according to password policy)
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    checkUnusedPassword(body) {
-        return this.rest.post(`${this.baseUrl}/check-password`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change current user name
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changeName(body) {
-        return this.rest.put(`${this.baseUrl}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change current user mobile
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    changeMobile(body) {
-        return this.rest.put(`${this.baseUrl}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Refresh token (set new expiration time) and associate with new account if required
-     * \@Return: EntityResponse<UserAccountInfo>
-     * @param {?=} body
-     * @return {?}
-     */
-    switchAccount(body) {
-        return this.rest.post(`${this.baseUrl}/switch-account`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-}
-UserService.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-UserService.ctorParameters = () => [
-    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-    { type: RestUtil }
-];
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UserService.prototype.rest;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * List of all user related actions for account administrator only
- */
-class UsersService {
-    /**
-     * Class constructor
-     * @param {?} config
-     * @param {?} rest
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/users';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} body
-     * @return {?}
-     */
-    invite(body) {
-        return this.rest.post(`${this.baseUrl}/invite`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Resend invitation to an existing user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    reInvite(id) {
-        return this.rest.post(`${this.baseUrl}/re-invite/${id}`, null);
-    }
-    /**
-     * Update user
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    update(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user name
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    changeName(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user mobile
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    changeMobile(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Change user type
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @param {?=} type
-     * @return {?}
-     */
-    changeType(id, type) {
-        return this.rest.put(`${this.baseUrl}/${id}/type/${type}`, null);
-    }
-    /**
-     * Delete user from the system
-     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    delete(id) {
-        return this.rest.delete(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single user by id
-     * \@Return: EntityResponse<User>
-     * @param {?=} id
-     * @return {?}
-     */
-    get(id) {
-        return this.rest.get(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single user by email
-     * \@Return: EntityResponse<User>
-     * @param {?=} email
-     * @return {?}
-     */
-    getByEmail(email) {
-        return this.rest.get(`${this.baseUrl}/byEmail/${email}`);
-    }
-    /**
-     * Find list of users and filter the list
-     * System user will see all users, Account system will see all users of the account, registered user will get an error.
-     * \@Return: QueryResponse<User>
-     * @param {?=} accountId
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} page
-     * @param {?=} pageSize
-     * @return {?}
-     */
-    find(accountId, search, type, status, sort, page, pageSize) {
-        /** @type {?} */
-        const params = new Array();
-        if (accountId != null) {
-            params.push(`accountId=${accountId}`);
-        }
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (type != null) {
-            params.push(`type=${type}`);
-        }
-        if (status != null) {
-            params.push(`status=${status}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        if (page != null) {
-            params.push(`page=${page}`);
-        }
-        if (pageSize != null) {
-            params.push(`pageSize=${pageSize}`);
-        }
-        return this.rest.get(`${this.baseUrl}`, ...params);
-    }
-    /**
-     * Export list of users and filter
-     * \@Return: StreamContent
-     * @param {?=} search
-     * @param {?=} type
-     * @param {?=} status
-     * @param {?=} sort
-     * @param {?=} format
-     * @param {?=} fields
-     * @return {?}
-     */
-    exportFormat(search, type, status, sort, format, fields) {
-        /** @type {?} */
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (type != null) {
-            params.push(`type=${type}`);
-        }
-        if (status != null) {
-            params.push(`status=${status}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        if (format != null) {
-            params.push(`format=${format}`);
-        }
-        if (fields != null) {
-            params.push(`fields=${fields}`);
-        }
-        return this.rest.download(`users`, `${this.baseUrl}/export`, ...params);
-    }
-}
-UsersService.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-UsersService.ctorParameters = () => [
-    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-    { type: RestUtil }
-];
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    UsersService.prototype.rest;
 }
 
 /**
@@ -17039,8 +17105,370 @@ if (false) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Services for user registration and login
+ */
+class UserService {
+    /**
+     * Class constructor
+     * @param {?} config
+     * @param {?} rest
+     */
+    constructor(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/user';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Login to the system with user email and password
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: EntityResponse<LoginData>
+     * @param {?=} body
+     * @return {?}
+     */
+    login(body) {
+        return this.rest.post(`${this.baseUrl}/login`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<LoginData>
+     * @return {?}
+     */
+    refreshToken() {
+        return this.rest.post(`${this.baseUrl}/refresh-token`, null);
+    }
+    /**
+     * Verify user by temporary login key
+     * \@Return: EntityResponse<User>
+     * @param {?=} key
+     * @return {?}
+     */
+    verifyLoginKey(key) {
+        /** @type {?} */
+        const params = new Array();
+        if (key != null) {
+            params.push(`key=${key}`);
+        }
+        return this.rest.get(`${this.baseUrl}/login/verify`, ...params);
+    }
+    /**
+     * Send verification code by email
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    sendVerificationCode(body) {
+        return this.rest.post(`${this.baseUrl}/verify`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Validate verification code and reset password
+     * \@Return: ActionResponse
+     * @param {?=} code
+     * @return {?}
+     */
+    resetPassword(code) {
+        return this.rest.post(`${this.baseUrl}/reset-password`, typeof code === 'object' ? JSON.stringify(code) : code);
+    }
+    /**
+     * Change password
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changePassword(body) {
+        return this.rest.post(`${this.baseUrl}/change-password`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Check if password was used before (according to password policy)
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    checkUnusedPassword(body) {
+        return this.rest.post(`${this.baseUrl}/check-password`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change current user name
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changeName(body) {
+        return this.rest.put(`${this.baseUrl}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change current user mobile
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    changeMobile(body) {
+        return this.rest.put(`${this.baseUrl}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Refresh token (set new expiration time) and associate with new account if required
+     * \@Return: EntityResponse<UserAccountInfo>
+     * @param {?=} body
+     * @return {?}
+     */
+    switchAccount(body) {
+        return this.rest.post(`${this.baseUrl}/switch-account`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+}
+UserService.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+UserService.ctorParameters = () => [
+    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+    { type: RestUtil }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UserService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * List of all user related actions for account administrator only
+ */
+class UsersService {
+    /**
+     * Class constructor
+     * @param {?} config
+     * @param {?} rest
+     */
+    constructor(config, rest) {
+        this.config = config;
+        this.rest = rest;
+        // URL to web api
+        this.baseUrl = '/users';
+        this.baseUrl = this.config.api + this.baseUrl;
+    }
+    /**
+     * Send invitation to a new user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} body
+     * @return {?}
+     */
+    invite(body) {
+        return this.rest.post(`${this.baseUrl}/invite`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Resend invitation to an existing user for the current account
+     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    reInvite(id) {
+        return this.rest.post(`${this.baseUrl}/re-invite/${id}`, null);
+    }
+    /**
+     * Update user
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    update(id, body) {
+        return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user name
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    changeName(id, body) {
+        return this.rest.put(`${this.baseUrl}/${id}/name`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user mobile
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} body
+     * @return {?}
+     */
+    changeMobile(id, body) {
+        return this.rest.put(`${this.baseUrl}/${id}/mobile`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Change user type
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @param {?=} type
+     * @return {?}
+     */
+    changeType(id, type) {
+        return this.rest.put(`${this.baseUrl}/${id}/type/${type}`, null);
+    }
+    /**
+     * Delete user from the system
+     * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+     * \@Return: ActionResponse
+     * @param {?=} id
+     * @return {?}
+     */
+    delete(id) {
+        return this.rest.delete(`${this.baseUrl}/${id}`);
+    }
+    /**
+     * Get single user by id
+     * \@Return: EntityResponse<User>
+     * @param {?=} id
+     * @return {?}
+     */
+    get(id) {
+        return this.rest.get(`${this.baseUrl}/${id}`);
+    }
+    /**
+     * Get single user by email
+     * \@Return: EntityResponse<User>
+     * @param {?=} email
+     * @return {?}
+     */
+    getByEmail(email) {
+        return this.rest.get(`${this.baseUrl}/byEmail/${email}`);
+    }
+    /**
+     * Find list of users and filter the list
+     * System user will see all users, Account system will see all users of the account, registered user will get an error.
+     * \@Return: QueryResponse<User>
+     * @param {?=} accountId
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} page
+     * @param {?=} pageSize
+     * @return {?}
+     */
+    find(accountId, search, type, status, sort, page, pageSize) {
+        /** @type {?} */
+        const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
+        if (search != null) {
+            params.push(`search=${search}`);
+        }
+        if (type != null) {
+            params.push(`type=${type}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        return this.rest.get(`${this.baseUrl}`, ...params);
+    }
+    /**
+     * Export list of users and filter
+     * \@Return: StreamContent
+     * @param {?=} search
+     * @param {?=} type
+     * @param {?=} status
+     * @param {?=} sort
+     * @param {?=} format
+     * @param {?=} fields
+     * @return {?}
+     */
+    exportFormat(search, type, status, sort, format, fields) {
+        /** @type {?} */
+        const params = new Array();
+        if (search != null) {
+            params.push(`search=${search}`);
+        }
+        if (type != null) {
+            params.push(`type=${type}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
+        }
+        return this.rest.download(`users`, `${this.baseUrl}/export`, ...params);
+    }
+}
+UsersService.decorators = [
+    { type: Injectable }
+];
+/** @nocollapse */
+UsersService.ctorParameters = () => [
+    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
+    { type: RestUtil }
+];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.baseUrl;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.config;
+    /**
+     * @type {?}
+     * @private
+     */
+    UsersService.prototype.rest;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 /** @type {?} */
 const Services = [
+    AnomalyService,
+    HealthCheckService,
+    SysAccountsService,
+    SysAppliancesService,
+    SysConfigurationsService,
+    SysEventsService,
+    SysFeaturesGroupsService,
+    SysFeaturesService,
+    SysKeysService,
+    SysSensorsService,
+    SysSystemService,
+    SysUsersService,
     AccountsService,
     AppliancesService,
     AuditLogService,
@@ -17057,18 +17485,6 @@ const Services = [
     SensorsService,
     UserService,
     UsersService,
-    AnomalyService,
-    HealthCheckService,
-    SysAccountsService,
-    SysAppliancesService,
-    SysConfigurationsService,
-    SysEventsService,
-    SysFeaturesGroupsService,
-    SysFeaturesService,
-    SysKeysService,
-    SysSensorsService,
-    SysSystemService,
-    SysUsersService,
 ];
 
 /**
@@ -17230,5 +17646,5 @@ CoreLibModule.decorators = [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthSocketServiceOpen, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, OnvifChannel, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationTarget, QueryResponseOfObjectInfo, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, RuntimeStatusCode, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchIdRequest, SearchIdsRequest, SearchObject, SearchResult, SearchResultObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchShape, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsCountRequest, SensorsService, SensorsServiceAttachRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketHealthStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsCountRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SysKeysService as ɵba, SysSensorsService as ɵbb, SysSystemService as ɵbc, SysUsersService as ɵbd, AccountsService as ɵc, AppliancesService as ɵd, AuditLogService as ɵe, CalendarsService as ɵf, EventsService as ɵg, FoldersService as ɵh, GeoService as ɵi, IntegrationsService as ɵj, ReportsService as ɵk, RulesService as ɵl, ScheduledReportsService as ɵm, SchedulesService as ɵn, SearchService as ɵo, SensorsService as ɵp, UserService as ɵq, UsersService as ɵr, AnomalyService as ɵs, HealthCheckService as ɵt, SysAccountsService as ɵu, SysAppliancesService as ɵv, SysConfigurationsService as ɵw, SysEventsService as ɵx, SysFeaturesGroupsService as ɵy, SysFeaturesService as ɵz };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, Agent, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfiguration, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderIdRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangePasswordRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EmptyRequest, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSearchEvent, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSearchEvent, EntityResponseOfSearchStatus, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthSocketServiceOpen, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, OnvifChannel, Point, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationTarget, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSearchEvent, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServiceUpdateRequest, RuntimeStatusCode, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderIdRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchEvent, SearchEventCountRequest, SearchEventExportRequest, SearchEventFindRequest, SearchEventIdRequest, SearchEventIdsRequest, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchSessionIdRequest, SearchShape, SearchStatus, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorIdRequest, SensorIdsRequest, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorsCountRequest, SensorsService, SensorsServiceAttachRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, Services, SeverityTypeCode, SocketEventNotification, SocketHealthStatusNotification, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysSensorsCountRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSystemService, SysUsersService, TimeFrame, TimeUnitCode, TokenRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken, RestUtil as ɵa, Services as ɵb, SearchService as ɵba, SensorsService as ɵbb, UserService as ɵbc, UsersService as ɵbd, AnomalyService as ɵc, HealthCheckService as ɵd, SysAccountsService as ɵe, SysAppliancesService as ɵf, SysConfigurationsService as ɵg, SysEventsService as ɵh, SysFeaturesGroupsService as ɵi, SysFeaturesService as ɵj, SysKeysService as ɵk, SysSensorsService as ɵl, SysSystemService as ɵm, SysUsersService as ɵn, AccountsService as ɵo, AppliancesService as ɵp, AuditLogService as ɵq, CalendarsService as ɵr, EventsService as ɵs, FoldersService as ɵt, GeoService as ɵu, IntegrationsService as ɵv, ReportsService as ɵw, RulesService as ɵx, ScheduledReportsService as ɵy, SchedulesService as ɵz };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map

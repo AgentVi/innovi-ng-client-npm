@@ -14,6 +14,6 @@ export declare class EventsServiceStatisticsRequest {
     from: number;
     to: number;
     interval: TimeUnitCode;
-    label: string;
-    constructor(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, interval?: TimeUnitCode, label?: string);
+    labelFormat: string;
+    constructor(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string);
 }

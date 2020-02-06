@@ -1,7 +1,7 @@
-import { ObjectInfo } from '../common/ObjectInfo';
+import { SearchEvent } from '../entities/SearchEvent';
 import { QueryResponse } from '../messages/QueryResponse';
-export declare class QueryResponseOfObjectInfo extends QueryResponse {
-    list: ObjectInfo[];
+export declare class QueryResponseOfSearchEvent extends QueryResponse {
+    list: SearchEvent[];
     code: number;
     error: string;
     page: number;

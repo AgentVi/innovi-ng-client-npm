@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 /**
  * Services for events actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -78,5 +78,5 @@ export declare class EventsService {
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
      */
-    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, interval?: TimeUnitCode, label?: string): import("rxjs").Observable<any>;
+    getEventsCountOvertime(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
 }

@@ -30,6 +30,7 @@ export * from './ScheduledReport';
 export * from './SearchBehavior';
 export * from './SearchColor';
 export * from './SearchDefinition';
+export * from './SearchEvent';
 export * from './SearchObject';
 export * from './SearchShape';
 export * from './Sensor';
