@@ -3270,6 +3270,8 @@
         /** @type {?} */
         SearchDefinition.prototype.timeFrame;
         /** @type {?} */
+        SearchDefinition.prototype.sensorIds;
+        /** @type {?} */
         SearchDefinition.prototype.behavior;
         /** @type {?} */
         SearchDefinition.prototype.objects;
@@ -3299,7 +3301,7 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return SearchEvent;
-    }(Event));
+    }(BaseEntity));
     if (false) {
         /** @type {?} */
         SearchEvent.prototype.sensorId;

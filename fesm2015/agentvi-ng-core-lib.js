@@ -2964,6 +2964,8 @@ if (false) {
     /** @type {?} */
     SearchDefinition.prototype.timeFrame;
     /** @type {?} */
+    SearchDefinition.prototype.sensorIds;
+    /** @type {?} */
     SearchDefinition.prototype.behavior;
     /** @type {?} */
     SearchDefinition.prototype.objects;
@@ -2984,7 +2986,7 @@ if (false) {
 /*
    Search result item of search operation. The data structure is identical to an Event
 */
-class SearchEvent extends Event {
+class SearchEvent extends BaseEntity {
 }
 if (false) {
     /** @type {?} */
