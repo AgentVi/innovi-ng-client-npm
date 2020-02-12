@@ -32,6 +32,7 @@ export * from './SearchColor';
 export * from './SearchDefinition';
 export * from './SearchEvent';
 export * from './SearchObject';
+export * from './SearchSession';
 export * from './SearchShape';
 export * from './Sensor';
 export * from './SensorAnalysisResults';
