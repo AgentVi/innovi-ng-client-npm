@@ -10304,8 +10304,8 @@
     var   /*
     */
     SearchEventCountRequest = /** @class */ (function () {
-        function SearchEventCountRequest(sessionId, sensorId, objectType, from, to, interval, labelFormat) {
-            this.sessionId = sessionId;
+        function SearchEventCountRequest(id, sensorId, objectType, from, to, interval, labelFormat) {
+            this.id = id;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -10317,7 +10317,7 @@
     }());
     if (false) {
         /** @type {?} */
-        SearchEventCountRequest.prototype.sessionId;
+        SearchEventCountRequest.prototype.id;
         /** @type {?} */
         SearchEventCountRequest.prototype.sensorId;
         /** @type {?} */
@@ -10341,8 +10341,8 @@
     var   /*
     */
     SearchEventExportRequest = /** @class */ (function () {
-        function SearchEventExportRequest(sessionId, sensorId, objectType, from, to, sort, format, fields) {
-            this.sessionId = sessionId;
+        function SearchEventExportRequest(id, sensorId, objectType, from, to, sort, format, fields) {
+            this.id = id;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -10355,7 +10355,7 @@
     }());
     if (false) {
         /** @type {?} */
-        SearchEventExportRequest.prototype.sessionId;
+        SearchEventExportRequest.prototype.id;
         /** @type {?} */
         SearchEventExportRequest.prototype.sensorId;
         /** @type {?} */
@@ -10381,8 +10381,8 @@
     var   /*
     */
     SearchEventFindRequest = /** @class */ (function () {
-        function SearchEventFindRequest(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
-            this.sessionId = sessionId;
+        function SearchEventFindRequest(id, sensorId, objectType, from, to, sort, page, pageSize) {
+            this.id = id;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -10395,7 +10395,7 @@
     }());
     if (false) {
         /** @type {?} */
-        SearchEventFindRequest.prototype.sessionId;
+        SearchEventFindRequest.prototype.id;
         /** @type {?} */
         SearchEventFindRequest.prototype.sensorId;
         /** @type {?} */
@@ -10421,39 +10421,17 @@
     var   /*
     */
     SearchEventIdRequest = /** @class */ (function () {
-        function SearchEventIdRequest(sessionId, id) {
-            this.sessionId = sessionId;
+        function SearchEventIdRequest(id, eventId) {
             this.id = id;
+            this.eventId = eventId;
         }
         return SearchEventIdRequest;
     }());
     if (false) {
         /** @type {?} */
-        SearchEventIdRequest.prototype.sessionId;
-        /** @type {?} */
         SearchEventIdRequest.prototype.id;
-    }
-
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    /*
-    */
-    var   /*
-    */
-    SearchEventIdsRequest = /** @class */ (function () {
-        function SearchEventIdsRequest(sessionId, id) {
-            this.sessionId = sessionId;
-            this.id = id;
-        }
-        return SearchEventIdsRequest;
-    }());
-    if (false) {
         /** @type {?} */
-        SearchEventIdsRequest.prototype.sessionId;
-        /** @type {?} */
-        SearchEventIdsRequest.prototype.id;
+        SearchEventIdRequest.prototype.eventId;
     }
 
     /**
@@ -10591,14 +10569,14 @@
     var   /*
     */
     SearchSessionIdRequest = /** @class */ (function () {
-        function SearchSessionIdRequest(sessionId) {
-            this.sessionId = sessionId;
+        function SearchSessionIdRequest(id) {
+            this.id = id;
         }
         return SearchSessionIdRequest;
     }());
     if (false) {
         /** @type {?} */
-        SearchSessionIdRequest.prototype.sessionId;
+        SearchSessionIdRequest.prototype.id;
     }
 
     /**
@@ -16859,17 +16837,17 @@
         /**
          * Get search session status
          * \@Return: EntityResponse<SearchStatus>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @return {?}
          */
         SearchService.prototype.getSearchStatus = /**
          * Get search session status
          * \@Return: EntityResponse<SearchStatus>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @return {?}
          */
-        function (sessionId) {
-            return this.rest.get(this.baseUrl + "/session/" + sessionId + "/status");
+        function (id) {
+            return this.rest.get(this.baseUrl + "/sessions/" + id + "/status");
         };
         /**
          * Cancel search session
@@ -16878,17 +16856,17 @@
         /**
          * Cancel search session
          * \@Return: ActionResponse
-         * @param {?=} sessionId
+         * @param {?=} id
          * @return {?}
          */
         SearchService.prototype.cancelSearchSession = /**
          * Cancel search session
          * \@Return: ActionResponse
-         * @param {?=} sessionId
+         * @param {?=} id
          * @return {?}
          */
-        function (sessionId) {
-            return this.rest.delete(this.baseUrl + "/session/" + sessionId);
+        function (id) {
+            return this.rest.delete(this.baseUrl + "/sessions/" + id);
         };
         /**
          * Get single search event item by id and sessionId
@@ -16897,19 +16875,19 @@
         /**
          * Get single search event item by id and sessionId
          * \@Return: EntityResponse<SearchDefinition>
-         * @param {?=} sessionId
          * @param {?=} id
+         * @param {?=} eventId
          * @return {?}
          */
         SearchService.prototype.getEvent = /**
          * Get single search event item by id and sessionId
          * \@Return: EntityResponse<SearchDefinition>
-         * @param {?=} sessionId
          * @param {?=} id
+         * @param {?=} eventId
          * @return {?}
          */
-        function (sessionId, id) {
-            return this.rest.get(this.baseUrl + "/session/" + sessionId + "/" + id);
+        function (id, eventId) {
+            return this.rest.get(this.baseUrl + "/sessions/" + id + "/event/" + eventId);
         };
         /**
          * Get search event image [response content type: image/jpeg]
@@ -16918,46 +16896,19 @@
         /**
          * Get search event image [response content type: image/jpeg]
          * \@Return: StreamingOutput of the image
-         * @param {?=} sessionId
          * @param {?=} id
+         * @param {?=} eventId
          * @return {?}
          */
         SearchService.prototype.getEventImage = /**
          * Get search event image [response content type: image/jpeg]
          * \@Return: StreamingOutput of the image
-         * @param {?=} sessionId
          * @param {?=} id
+         * @param {?=} eventId
          * @return {?}
          */
-        function (sessionId, id) {
-            return this.rest.download("search", this.baseUrl + "/session/" + sessionId + "/image/" + id);
-        };
-        /**
-         * Get multiple search events by list of ids
-         * @Return: EntitiesResponse<SearchDefinition>
-         */
-        /**
-         * Get multiple search events by list of ids
-         * \@Return: EntitiesResponse<SearchDefinition>
-         * @param {?=} sessionId
-         * @param {?=} id
-         * @return {?}
-         */
-        SearchService.prototype.listEvents = /**
-         * Get multiple search events by list of ids
-         * \@Return: EntitiesResponse<SearchDefinition>
-         * @param {?=} sessionId
-         * @param {?=} id
-         * @return {?}
-         */
-        function (sessionId, id) {
-            var _a;
-            /** @type {?} */
-            var params = new Array();
-            if (id != null) {
-                params.push("id=" + id);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/session/" + sessionId + "/list"], params));
+        function (id, eventId) {
+            return this.rest.download("search", this.baseUrl + "/sessions/" + id + "/image/" + eventId);
         };
         /**
          * Find list of search events by filter
@@ -16966,7 +16917,7 @@
         /**
          * Find list of search events by filter
          * \@Return: EntitiesResponse<SearchDefinition>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -16979,7 +16930,7 @@
         SearchService.prototype.findEvents = /**
          * Find list of search events by filter
          * \@Return: EntitiesResponse<SearchDefinition>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -16989,7 +16940,7 @@
          * @param {?=} pageSize
          * @return {?}
          */
-        function (sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+        function (id, sensorId, objectType, from, to, sort, page, pageSize) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -17014,7 +16965,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/session/" + sessionId + "/find"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/find"], params));
         };
         /**
          * Export list of search events by filter
@@ -17023,7 +16974,7 @@
         /**
          * Export list of search events by filter
          * \@Return: StreamContent
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -17036,7 +16987,7 @@
         SearchService.prototype.exportEvents = /**
          * Export list of search events by filter
          * \@Return: StreamContent
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -17046,7 +16997,7 @@
          * @param {?=} fields
          * @return {?}
          */
-        function (sessionId, sensorId, objectType, from, to, sort, format, fields) {
+        function (id, sensorId, objectType, from, to, sort, format, fields) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -17071,7 +17022,7 @@
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/session/" + sessionId + "/export"], params));
+            return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/sessions/" + id + "/export"], params));
         };
         /**
          * Get events count overtime for all events in the system
@@ -17080,7 +17031,7 @@
         /**
          * Get events count overtime for all events in the system
          * \@Return: EntityResponse<EventCountTimeSeries>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -17092,7 +17043,7 @@
         SearchService.prototype.getEventsCountOvertime = /**
          * Get events count overtime for all events in the system
          * \@Return: EntityResponse<EventCountTimeSeries>
-         * @param {?=} sessionId
+         * @param {?=} id
          * @param {?=} sensorId
          * @param {?=} objectType
          * @param {?=} from
@@ -17101,7 +17052,7 @@
          * @param {?=} labelFormat
          * @return {?}
          */
-        function (sessionId, sensorId, objectType, from, to, interval, labelFormat) {
+        function (id, sensorId, objectType, from, to, interval, labelFormat) {
             var _a;
             /** @type {?} */
             var params = new Array();
@@ -17123,7 +17074,7 @@
             if (labelFormat != null) {
                 params.push("labelFormat=" + labelFormat);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/session/" + sessionId + "/overtime"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/overtime"], params));
         };
         SearchService.decorators = [
             { type: core.Injectable }
@@ -22215,7 +22166,6 @@
     exports.SearchEventExportRequest = SearchEventExportRequest;
     exports.SearchEventFindRequest = SearchEventFindRequest;
     exports.SearchEventIdRequest = SearchEventIdRequest;
-    exports.SearchEventIdsRequest = SearchEventIdsRequest;
     exports.SearchIdRequest = SearchIdRequest;
     exports.SearchIdsRequest = SearchIdsRequest;
     exports.SearchObject = SearchObject;

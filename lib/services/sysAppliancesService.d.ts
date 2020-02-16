@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 /**
  * List of appliance queries for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)

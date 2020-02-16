@@ -62,40 +62,35 @@ export declare class SearchService {
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
      */
-    getSearchStatus(sessionId?: string): import("rxjs").Observable<any>;
+    getSearchStatus(id?: string): import("rxjs").Observable<any>;
     /**
      * Cancel search session
      * @Return: ActionResponse
      */
-    cancelSearchSession(sessionId?: string): import("rxjs").Observable<any>;
+    cancelSearchSession(id?: string): import("rxjs").Observable<any>;
     /**
      * Get single search event item by id and sessionId
      * @Return: EntityResponse<SearchDefinition>
      */
-    getEvent(sessionId?: string, id?: string): import("rxjs").Observable<any>;
+    getEvent(id?: string, eventId?: string): import("rxjs").Observable<any>;
     /**
      * Get search event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(sessionId?: string, id?: string): import("rxjs").Subscription;
-    /**
-     * Get multiple search events by list of ids
-     * @Return: EntitiesResponse<SearchDefinition>
-     */
-    listEvents(sessionId?: string, id?: string[]): import("rxjs").Observable<any>;
+    getEventImage(id?: string, eventId?: string): import("rxjs").Subscription;
     /**
      * Find list of search events by filter
      * @Return: EntitiesResponse<SearchDefinition>
      */
-    findEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
      */
-    getEventsCountOvertime(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
+    getEventsCountOvertime(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
 }

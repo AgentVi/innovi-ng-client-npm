@@ -221,7 +221,6 @@ export * from './SearchEventCountRequest';
 export * from './SearchEventExportRequest';
 export * from './SearchEventFindRequest';
 export * from './SearchEventIdRequest';
-export * from './SearchEventIdsRequest';
 export * from './SearchIdRequest';
 export * from './SearchIdsRequest';
 export * from './SearchServiceCreateRequest';

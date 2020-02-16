@@ -1,6 +1,6 @@
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 export declare class SearchEventExportRequest {
-    sessionId: string;
+    id: string;
     sensorId: string[];
     objectType: ObjectTypeCode[];
     from: number;
@@ -8,5 +8,5 @@ export declare class SearchEventExportRequest {
     sort: string;
     format: string;
     fields: string[];
-    constructor(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]);
+    constructor(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]);
 }
