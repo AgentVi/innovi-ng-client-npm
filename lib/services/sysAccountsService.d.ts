@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
 import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Coordinate } from '../common/Coordinate';
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -109,4 +109,9 @@ export declare class SysAccountsService {
      * @Return: EntitiesResponse<AccountTypeSummary>
      */
     getAccountTypeStatistics(): import("rxjs").Observable<any>;
+    /**
+     * Get account monthly statistics for all accounts in the system
+     * @Return: EntitiesResponse<AccountStatistics>
+     */
+    getAccountMonthStatistics(accountId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
 }

@@ -1,5 +1,6 @@
 export * from './AccountIdRequest';
 export * from './AccountIdsRequest';
+export * from './AccountsMonthStatisticsRequest';
 export * from './AccountsServiceChangeGroupsRequest';
 export * from './AccountsServiceChangeNameRequest';
 export * from './AccountsServiceChangeStatusRequest';
@@ -57,6 +58,7 @@ export * from './ConfigurationVersionIdRequest';
 export * from './EmptyRequest';
 export * from './EntitiesResponse';
 export * from './EntitiesResponseOfAccount';
+export * from './EntitiesResponseOfAccountStatistics';
 export * from './EntitiesResponseOfAccountTypeSummary';
 export * from './EntitiesResponseOfApiKey';
 export * from './EntitiesResponseOfAppliance';

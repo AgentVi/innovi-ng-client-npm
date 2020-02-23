@@ -2043,6 +2043,42 @@
      * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /*
+       Account statistics collect monthly statistics (e.g. number of cameras)
+    */
+    var   /*
+       Account statistics collect monthly statistics (e.g. number of cameras)
+    */
+    AccountStatistics = /** @class */ (function (_super) {
+        __extends(AccountStatistics, _super);
+        function AccountStatistics() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return AccountStatistics;
+    }(BaseEntity));
+    if (false) {
+        /** @type {?} */
+        AccountStatistics.prototype.name;
+        /** @type {?} */
+        AccountStatistics.prototype.accountId;
+        /** @type {?} */
+        AccountStatistics.prototype.monthId;
+        /** @type {?} */
+        AccountStatistics.prototype.sensors;
+        /** @type {?} */
+        AccountStatistics.prototype.id;
+        /** @type {?} */
+        AccountStatistics.prototype._type;
+        /** @type {?} */
+        AccountStatistics.prototype.createdOn;
+        /** @type {?} */
+        AccountStatistics.prototype.updatedOn;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
        Agent represents the new edge analytics pipeline (including former agent + AS + CS in a single process)
        Agent can process video from multiple sensors. Agent is hosted in the edge device (appliance) as single Docker container.
        A single appliance can host multiple agents (container instances of the same Docker image)
@@ -4840,6 +4876,31 @@
     */
     var   /*
     */
+    AccountsMonthStatisticsRequest = /** @class */ (function () {
+        function AccountsMonthStatisticsRequest(accountId, from, to) {
+            this.accountId = accountId;
+            this.from = from;
+            this.to = to;
+        }
+        return AccountsMonthStatisticsRequest;
+    }());
+    if (false) {
+        /** @type {?} */
+        AccountsMonthStatisticsRequest.prototype.accountId;
+        /** @type {?} */
+        AccountsMonthStatisticsRequest.prototype.from;
+        /** @type {?} */
+        AccountsMonthStatisticsRequest.prototype.to;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
     AccountsServiceChangeGroupsRequest = /** @class */ (function () {
         function AccountsServiceChangeGroupsRequest(id, groupId) {
             this.id = id;
@@ -6210,6 +6271,30 @@
         EntitiesResponseOfAccount.prototype.code;
         /** @type {?} */
         EntitiesResponseOfAccount.prototype.error;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+    */
+    var   /*
+    */
+    EntitiesResponseOfAccountStatistics = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfAccountStatistics, _super);
+        function EntitiesResponseOfAccountStatistics() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfAccountStatistics;
+    }(EntitiesResponse));
+    if (false) {
+        /** @type {?} */
+        EntitiesResponseOfAccountStatistics.prototype.list;
+        /** @type {?} */
+        EntitiesResponseOfAccountStatistics.prototype.code;
+        /** @type {?} */
+        EntitiesResponseOfAccountStatistics.prototype.error;
     }
 
     /**
@@ -18314,6 +18399,41 @@
         function () {
             return this.rest.get(this.baseUrl + "/statistics/type");
         };
+        /**
+         * Get account monthly statistics for all accounts in the system
+         * @Return: EntitiesResponse<AccountStatistics>
+         */
+        /**
+         * Get account monthly statistics for all accounts in the system
+         * \@Return: EntitiesResponse<AccountStatistics>
+         * @param {?=} accountId
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        SysAccountsService.prototype.getAccountMonthStatistics = /**
+         * Get account monthly statistics for all accounts in the system
+         * \@Return: EntitiesResponse<AccountStatistics>
+         * @param {?=} accountId
+         * @param {?=} from
+         * @param {?=} to
+         * @return {?}
+         */
+        function (accountId, from, to) {
+            var _a;
+            /** @type {?} */
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/statistics/month"], params));
+        };
         SysAccountsService.decorators = [
             { type: core.Injectable }
         ];
@@ -21835,9 +21955,11 @@
     exports.AccountRole = AccountRole;
     exports.AccountRoleCode = AccountRoleCode;
     exports.AccountSettings = AccountSettings;
+    exports.AccountStatistics = AccountStatistics;
     exports.AccountStatusCode = AccountStatusCode;
     exports.AccountTypeCode = AccountTypeCode;
     exports.AccountTypeSummary = AccountTypeSummary;
+    exports.AccountsMonthStatisticsRequest = AccountsMonthStatisticsRequest;
     exports.AccountsService = AccountsService;
     exports.AccountsServiceChangeGroupsRequest = AccountsServiceChangeGroupsRequest;
     exports.AccountsServiceChangeNameRequest = AccountsServiceChangeNameRequest;
@@ -21941,6 +22063,7 @@
     exports.EmptyRequest = EmptyRequest;
     exports.EntitiesResponse = EntitiesResponse;
     exports.EntitiesResponseOfAccount = EntitiesResponseOfAccount;
+    exports.EntitiesResponseOfAccountStatistics = EntitiesResponseOfAccountStatistics;
     exports.EntitiesResponseOfAccountTypeSummary = EntitiesResponseOfAccountTypeSummary;
     exports.EntitiesResponseOfApiKey = EntitiesResponseOfApiKey;
     exports.EntitiesResponseOfAppliance = EntitiesResponseOfAppliance;
