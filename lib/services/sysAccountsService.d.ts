@@ -114,4 +114,9 @@ export declare class SysAccountsService {
      * @Return: EntitiesResponse<AccountStatistics>
      */
     getAccountMonthStatistics(accountId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Get accounts month report - current channels and devices per account compared to previous month
+     * @Return: EntitiesResponse<AccountStatSummary>
+     */
+    getAccountsMonthReport(): import("rxjs").Observable<any>;
 }

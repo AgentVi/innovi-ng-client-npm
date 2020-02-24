@@ -4,6 +4,7 @@ export declare class AccountStatistics extends BaseEntity {
     accountId: string;
     monthId: number;
     sensors: number;
+    devices: number;
     id: string;
     _type: string;
     createdOn: number;

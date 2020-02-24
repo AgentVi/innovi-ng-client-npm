@@ -58,6 +58,7 @@ export * from './ConfigurationVersionIdRequest';
 export * from './EmptyRequest';
 export * from './EntitiesResponse';
 export * from './EntitiesResponseOfAccount';
+export * from './EntitiesResponseOfAccountStatSummary';
 export * from './EntitiesResponseOfAccountStatistics';
 export * from './EntitiesResponseOfAccountTypeSummary';
 export * from './EntitiesResponseOfApiKey';
