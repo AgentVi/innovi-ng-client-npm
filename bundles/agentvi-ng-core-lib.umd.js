@@ -21900,6 +21900,33 @@
     var   /*
        @WebSocketMessage
     */
+    FilteredEventsSocketServiceOpen = /** @class */ (function () {
+        function FilteredEventsSocketServiceOpen(accountId, sensorId, extSensorId) {
+            this.accountId = accountId;
+            this.sensorId = sensorId;
+            this.extSensorId = extSensorId;
+        }
+        return FilteredEventsSocketServiceOpen;
+    }());
+    if (false) {
+        /** @type {?} */
+        FilteredEventsSocketServiceOpen.prototype.accountId;
+        /** @type {?} */
+        FilteredEventsSocketServiceOpen.prototype.sensorId;
+        /** @type {?} */
+        FilteredEventsSocketServiceOpen.prototype.extSensorId;
+    }
+
+    /**
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+     */
+    /*
+       @WebSocketMessage
+    */
+    var   /*
+       @WebSocketMessage
+    */
     HealthSocketServiceOpen = /** @class */ (function () {
         function HealthSocketServiceOpen(accountId) {
             this.accountId = accountId;
@@ -22252,6 +22279,7 @@
     exports.FeaturesServiceCreateRequest = FeaturesServiceCreateRequest;
     exports.FeaturesServiceFindRequest = FeaturesServiceFindRequest;
     exports.FeaturesServiceUpdateRequest = FeaturesServiceUpdateRequest;
+    exports.FilteredEventsSocketServiceOpen = FilteredEventsSocketServiceOpen;
     exports.Folder = Folder;
     exports.FolderIdRequest = FolderIdRequest;
     exports.FolderIdsRequest = FolderIdsRequest;
