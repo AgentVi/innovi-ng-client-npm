@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { SearchDefinition } from '../entities/SearchDefinition';
 /**
  * Services for metadata search actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
