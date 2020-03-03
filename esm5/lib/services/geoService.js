@@ -1,14 +1,13 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 import { Injectable, Inject } from '@angular/core';
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import * as i0 from "@angular/core";
+import * as i1 from "../../utils/rest-util";
+import * as i2 from "../../config";
 /**
  * List of Geo-spatial utilities
- * \@RequestHeader X-API-KEY The key to identify the application (portal)
- * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+ * @RequestHeader X-API-KEY The key to identify the application (portal)
+ * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
  */
 var GeoService = /** @class */ (function () {
     /**
@@ -29,27 +28,7 @@ var GeoService = /** @class */ (function () {
      * FOV on the image and the map and X,Y factors and offsets for transformation
      * @Return: EntityResponse<GeoReferenceData>
      */
-    /**
-     * Digitize sensor FOV on WGS-84 coordinate system
-     * Each GeoControlPoint in the list composed of point in the FOV and its referenced coordinate.
-     * The point represents the x,y values a normalized scale (each axis is 0 - 10000)
-     * The returned value is a GeoReference data structure describes the contours of the
-     * FOV on the image and the map and X,Y factors and offsets for transformation
-     * \@Return: EntityResponse<GeoReferenceData>
-     * @param {?=} body
-     * @return {?}
-     */
-    GeoService.prototype.geoReference = /**
-     * Digitize sensor FOV on WGS-84 coordinate system
-     * Each GeoControlPoint in the list composed of point in the FOV and its referenced coordinate.
-     * The point represents the x,y values a normalized scale (each axis is 0 - 10000)
-     * The returned value is a GeoReference data structure describes the contours of the
-     * FOV on the image and the map and X,Y factors and offsets for transformation
-     * \@Return: EntityResponse<GeoReferenceData>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
+    GeoService.prototype.geoReference = function (body) {
         return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
@@ -57,49 +36,18 @@ var GeoService = /** @class */ (function () {
      * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
      * @Return: EntityResponse<GeoReferenceData>
      */
-    /**
-     * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
-     * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
-     * \@Return: EntityResponse<GeoReferenceData>
-     * @param {?=} body
-     * @return {?}
-     */
-    GeoService.prototype.transform = /**
-     * Test transformation, provide the transformation coefficients matrix and a list of arbitrary points and return
-     * GeoReferenceData with the transformed coordinates (the number of coordinates is equal to the number of points)
-     * \@Return: EntityResponse<GeoReferenceData>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
+    GeoService.prototype.transform = function (body) {
         return this.rest.post(this.baseUrl + "/transform", typeof body === 'object' ? JSON.stringify(body) : body);
     };
-    GeoService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    GeoService.ctorParameters = function () { return [
-        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
+    /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0.ɵɵinject('config'), i0.ɵɵinject(i1.RestUtil)); };
+    /** @nocollapse */ GeoService.ɵprov = i0.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
     return GeoService;
 }());
 export { GeoService };
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    GeoService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    GeoService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    GeoService.prototype.rest;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2VvU2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL3NlcnZpY2VzL2dlb1NlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ25ELE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSx1QkFBdUIsQ0FBQztBQUNqRCxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sY0FBYyxDQUFDOzs7Ozs7QUFXMUM7SUFNRTs7T0FFRztJQUNILG9CQUFzQyxNQUFrQixFQUFVLElBQWM7UUFBMUMsV0FBTSxHQUFOLE1BQU0sQ0FBWTtRQUFVLFNBQUksR0FBSixJQUFJLENBQVU7O1FBTHhFLFlBQU8sR0FBRyxNQUFNLENBQUM7UUFNdkIsSUFBSSxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDO0lBQ2hELENBQUM7SUFHRDs7Ozs7OztPQU9HOzs7Ozs7Ozs7OztJQUNILGlDQUFZOzs7Ozs7Ozs7O0lBQVosVUFBYSxJQUF1QjtRQUNsQyxPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUcsSUFBSSxDQUFDLE9BQVMsRUFBRSxPQUFPLElBQUksS0FBSyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ25HLENBQUM7SUFFRDs7OztPQUlHOzs7Ozs7OztJQUNILDhCQUFTOzs7Ozs7O0lBQVQsVUFBVSxJQUF1QjtRQUMvQixPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFJLElBQUksQ0FBQyxPQUFPLGVBQVksRUFBRSxPQUFPLElBQUksS0FBSyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQzdHLENBQUM7O2dCQWpDRixVQUFVOzs7O2dCQVhGLFVBQVUsdUJBb0JKLE1BQU0sU0FBQyxRQUFRO2dCQXJCckIsUUFBUTs7SUErQ2pCLGlCQUFDO0NBQUEsQUFuQ0QsSUFtQ0M7U0FsQ1ksVUFBVTs7Ozs7O0lBR3JCLDZCQUF5Qjs7Ozs7SUFLYiw0QkFBNEM7Ozs7O0lBQUUsMEJBQXNCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0YWJsZSwgSW5qZWN0IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBSZXN0VXRpbCB9IGZyb20gJy4uLy4uL3V0aWxzL3Jlc3QtdXRpbCc7XG5pbXBvcnQgeyBDb3JlQ29uZmlnIH0gZnJvbSAnLi4vLi4vY29uZmlnJztcblxuaW1wb3J0IHsgR2VvUmVmZXJlbmNlVGVzdCB9IGZyb20gJy4uL2NvbW1vbi9HZW9SZWZlcmVuY2VUZXN0JztcbmltcG9ydCB7IEdlb0NvbnRyb2xQb2ludHMgfSBmcm9tICcuLi9jb21tb24vR2VvQ29udHJvbFBvaW50cyc7XG5cblxuLyoqXG4gKiBMaXN0IG9mIEdlby1zcGF0aWFsIHV0aWxpdGllc1xuICogQFJlcXVlc3RIZWFkZXIgWC1BUEktS0VZIFRoZSBrZXkgdG8gaWRlbnRpZnkgdGhlIGFwcGxpY2F0aW9uIChwb3J0YWwpXG4gKiBAUmVxdWVzdEhlYWRlciBYLUFDQ0VTUy1UT0tFTiBUaGUgdG9rZW4gdG8gaWRlbnRpZnkgdGhlIGxvZ2dlZC1pbiB1c2VyIFxuICovXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgR2VvU2VydmljZSB7XG5cbiAgLy8gVVJMIHRvIHdlYiBhcGlcbiAgcHJpdmF0ZSBiYXNlVXJsID0gJy9nZW8nO1xuXG4gIC8qKlxuICAgKiBDbGFzcyBjb25zdHJ1Y3RvclxuICAgKi9cbiAgY29uc3RydWN0b3IoQEluamVjdCgnY29uZmlnJykgcHJpdmF0ZSBjb25maWc6IENvcmVDb25maWcsIHByaXZhdGUgcmVzdDogUmVzdFV0aWwpIHtcbiAgICB0aGlzLmJhc2VVcmwgPSB0aGlzLmNvbmZpZy5hcGkgKyB0aGlzLmJhc2VVcmw7XG4gIH1cblxuXG4gIC8qKlxuICAgKiBEaWdpdGl6ZSBzZW5zb3IgRk9WIG9uIFdHUy04NCBjb29yZGluYXRlIHN5c3RlbVxuICAgKiBFYWNoIEdlb0NvbnRyb2xQb2ludCBpbiB0aGUgbGlzdCBjb21wb3NlZCBvZiBwb2ludCBpbiB0aGUgRk9WIGFuZCBpdHMgcmVmZXJlbmNlZCBjb29yZGluYXRlLlxuICAgKiBUaGUgcG9pbnQgcmVwcmVzZW50cyB0aGUgeCx5IHZhbHVlcyBhIG5vcm1hbGl6ZWQgc2NhbGUgKGVhY2ggYXhpcyBpcyAwIC0gMTAwMDApXG4gICAqIFRoZSByZXR1cm5lZCB2YWx1ZSBpcyBhIEdlb1JlZmVyZW5jZSBkYXRhIHN0cnVjdHVyZSBkZXNjcmliZXMgdGhlIGNvbnRvdXJzIG9mIHRoZVxuICAgKiBGT1Ygb24gdGhlIGltYWdlIGFuZCB0aGUgbWFwIGFuZCBYLFkgZmFjdG9ycyBhbmQgb2Zmc2V0cyBmb3IgdHJhbnNmb3JtYXRpb25cbiAgICogQFJldHVybjogRW50aXR5UmVzcG9uc2U8R2VvUmVmZXJlbmNlRGF0YT5cbiAgICovXG4gIGdlb1JlZmVyZW5jZShib2R5PzogR2VvQ29udHJvbFBvaW50cykge1xuICAgIHJldHVybiB0aGlzLnJlc3QucG9zdChgJHt0aGlzLmJhc2VVcmx9YCwgdHlwZW9mIGJvZHkgPT09ICdvYmplY3QnID8gSlNPTi5zdHJpbmdpZnkoYm9keSkgOiBib2R5KTtcbiAgfVxuXG4gIC8qKlxuICAgKiBUZXN0IHRyYW5zZm9ybWF0aW9uLCBwcm92aWRlIHRoZSB0cmFuc2Zvcm1hdGlvbiBjb2VmZmljaWVudHMgbWF0cml4IGFuZCBhIGxpc3Qgb2YgYXJiaXRyYXJ5IHBvaW50cyBhbmQgcmV0dXJuXG4gICAqIEdlb1JlZmVyZW5jZURhdGEgd2l0aCB0aGUgdHJhbnNmb3JtZWQgY29vcmRpbmF0ZXMgKHRoZSBudW1iZXIgb2YgY29vcmRpbmF0ZXMgaXMgZXF1YWwgdG8gdGhlIG51bWJlciBvZiBwb2ludHMpXG4gICAqIEBSZXR1cm46IEVudGl0eVJlc3BvbnNlPEdlb1JlZmVyZW5jZURhdGE+XG4gICAqL1xuICB0cmFuc2Zvcm0oYm9keT86IEdlb1JlZmVyZW5jZVRlc3QpIHtcbiAgICByZXR1cm4gdGhpcy5yZXN0LnBvc3QoYCR7dGhpcy5iYXNlVXJsfS90cmFuc2Zvcm1gLCB0eXBlb2YgYm9keSA9PT0gJ29iamVjdCcgPyBKU09OLnN0cmluZ2lmeShib2R5KSA6IGJvZHkpO1xuICB9XG5cbn1cbiJdfQ==
+/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(GeoService, [{
+        type: Injectable
+    }], function () { return [{ type: i2.CoreConfig, decorators: [{
+                type: Inject,
+                args: ['config']
+            }] }, { type: i1.RestUtil }]; }, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2VvU2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL3NlcnZpY2VzL2dlb1NlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDbkQsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLHVCQUF1QixDQUFDO0FBQ2pELE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxjQUFjLENBQUM7Ozs7QUFNMUM7Ozs7R0FJRztBQUNIO0lBTUU7O09BRUc7SUFDSCxvQkFBc0MsTUFBa0IsRUFBVSxJQUFjO1FBQTFDLFdBQU0sR0FBTixNQUFNLENBQVk7UUFBVSxTQUFJLEdBQUosSUFBSSxDQUFVO1FBTmhGLGlCQUFpQjtRQUNULFlBQU8sR0FBRyxNQUFNLENBQUM7UUFNdkIsSUFBSSxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDLEdBQUcsR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDO0lBQ2hELENBQUM7SUFHRDs7Ozs7OztPQU9HO0lBQ0gsaUNBQVksR0FBWixVQUFhLElBQXVCO1FBQ2xDLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBRyxJQUFJLENBQUMsT0FBUyxFQUFFLE9BQU8sSUFBSSxLQUFLLFFBQVEsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbkcsQ0FBQztJQUVEOzs7O09BSUc7SUFDSCw4QkFBUyxHQUFULFVBQVUsSUFBdUI7UUFDL0IsT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBSSxJQUFJLENBQUMsT0FBTyxlQUFZLEVBQUUsT0FBTyxJQUFJLEtBQUssUUFBUSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUM3RyxDQUFDO3dFQWhDVSxVQUFVLGNBUUQsUUFBUTtzREFSakIsVUFBVSxXQUFWLFVBQVU7cUJBZHZCO0NBZ0RDLEFBbkNELElBbUNDO1NBbENZLFVBQVU7a0RBQVYsVUFBVTtjQUR0QixVQUFVOztzQkFTSSxNQUFNO3VCQUFDLFFBQVEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlLCBJbmplY3QgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFJlc3RVdGlsIH0gZnJvbSAnLi4vLi4vdXRpbHMvcmVzdC11dGlsJztcbmltcG9ydCB7IENvcmVDb25maWcgfSBmcm9tICcuLi8uLi9jb25maWcnO1xuXG5pbXBvcnQgeyBHZW9SZWZlcmVuY2VUZXN0IH0gZnJvbSAnLi4vY29tbW9uL0dlb1JlZmVyZW5jZVRlc3QnO1xuaW1wb3J0IHsgR2VvQ29udHJvbFBvaW50cyB9IGZyb20gJy4uL2NvbW1vbi9HZW9Db250cm9sUG9pbnRzJztcblxuXG4vKipcbiAqIExpc3Qgb2YgR2VvLXNwYXRpYWwgdXRpbGl0aWVzXG4gKiBAUmVxdWVzdEhlYWRlciBYLUFQSS1LRVkgVGhlIGtleSB0byBpZGVudGlmeSB0aGUgYXBwbGljYXRpb24gKHBvcnRhbClcbiAqIEBSZXF1ZXN0SGVhZGVyIFgtQUNDRVNTLVRPS0VOIFRoZSB0b2tlbiB0byBpZGVudGlmeSB0aGUgbG9nZ2VkLWluIHVzZXIgXG4gKi9cbkBJbmplY3RhYmxlKClcbmV4cG9ydCBjbGFzcyBHZW9TZXJ2aWNlIHtcblxuICAvLyBVUkwgdG8gd2ViIGFwaVxuICBwcml2YXRlIGJhc2VVcmwgPSAnL2dlbyc7XG5cbiAgLyoqXG4gICAqIENsYXNzIGNvbnN0cnVjdG9yXG4gICAqL1xuICBjb25zdHJ1Y3RvcihASW5qZWN0KCdjb25maWcnKSBwcml2YXRlIGNvbmZpZzogQ29yZUNvbmZpZywgcHJpdmF0ZSByZXN0OiBSZXN0VXRpbCkge1xuICAgIHRoaXMuYmFzZVVybCA9IHRoaXMuY29uZmlnLmFwaSArIHRoaXMuYmFzZVVybDtcbiAgfVxuXG5cbiAgLyoqXG4gICAqIERpZ2l0aXplIHNlbnNvciBGT1Ygb24gV0dTLTg0IGNvb3JkaW5hdGUgc3lzdGVtXG4gICAqIEVhY2ggR2VvQ29udHJvbFBvaW50IGluIHRoZSBsaXN0IGNvbXBvc2VkIG9mIHBvaW50IGluIHRoZSBGT1YgYW5kIGl0cyByZWZlcmVuY2VkIGNvb3JkaW5hdGUuXG4gICAqIFRoZSBwb2ludCByZXByZXNlbnRzIHRoZSB4LHkgdmFsdWVzIGEgbm9ybWFsaXplZCBzY2FsZSAoZWFjaCBheGlzIGlzIDAgLSAxMDAwMClcbiAgICogVGhlIHJldHVybmVkIHZhbHVlIGlzIGEgR2VvUmVmZXJlbmNlIGRhdGEgc3RydWN0dXJlIGRlc2NyaWJlcyB0aGUgY29udG91cnMgb2YgdGhlXG4gICAqIEZPViBvbiB0aGUgaW1hZ2UgYW5kIHRoZSBtYXAgYW5kIFgsWSBmYWN0b3JzIGFuZCBvZmZzZXRzIGZvciB0cmFuc2Zvcm1hdGlvblxuICAgKiBAUmV0dXJuOiBFbnRpdHlSZXNwb25zZTxHZW9SZWZlcmVuY2VEYXRhPlxuICAgKi9cbiAgZ2VvUmVmZXJlbmNlKGJvZHk/OiBHZW9Db250cm9sUG9pbnRzKSB7XG4gICAgcmV0dXJuIHRoaXMucmVzdC5wb3N0KGAke3RoaXMuYmFzZVVybH1gLCB0eXBlb2YgYm9keSA9PT0gJ29iamVjdCcgPyBKU09OLnN0cmluZ2lmeShib2R5KSA6IGJvZHkpO1xuICB9XG5cbiAgLyoqXG4gICAqIFRlc3QgdHJhbnNmb3JtYXRpb24sIHByb3ZpZGUgdGhlIHRyYW5zZm9ybWF0aW9uIGNvZWZmaWNpZW50cyBtYXRyaXggYW5kIGEgbGlzdCBvZiBhcmJpdHJhcnkgcG9pbnRzIGFuZCByZXR1cm5cbiAgICogR2VvUmVmZXJlbmNlRGF0YSB3aXRoIHRoZSB0cmFuc2Zvcm1lZCBjb29yZGluYXRlcyAodGhlIG51bWJlciBvZiBjb29yZGluYXRlcyBpcyBlcXVhbCB0byB0aGUgbnVtYmVyIG9mIHBvaW50cylcbiAgICogQFJldHVybjogRW50aXR5UmVzcG9uc2U8R2VvUmVmZXJlbmNlRGF0YT5cbiAgICovXG4gIHRyYW5zZm9ybShib2R5PzogR2VvUmVmZXJlbmNlVGVzdCkge1xuICAgIHJldHVybiB0aGlzLnJlc3QucG9zdChgJHt0aGlzLmJhc2VVcmx9L3RyYW5zZm9ybWAsIHR5cGVvZiBib2R5ID09PSAnb2JqZWN0JyA/IEpTT04uc3RyaW5naWZ5KGJvZHkpIDogYm9keSk7XG4gIH1cblxufVxuIl19

@@ -1,8 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -108,4 +109,6 @@ export declare class SysAppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

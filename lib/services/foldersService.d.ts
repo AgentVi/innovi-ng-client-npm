@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { Folder } from '../entities/Folder';
 import { Coordinate } from '../common/Coordinate';
+import * as i0 from "@angular/core";
 /**
  * Services for folders actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -90,4 +91,6 @@ export declare class FoldersService {
      * @Return: EntityResponse<Coordinate> The folder location
      */
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<FoldersService>;
+    static ɵprov: i0.ɵɵInjectableDef<FoldersService>;
 }

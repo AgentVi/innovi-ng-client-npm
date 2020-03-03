@@ -1,5 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import * as i0 from "@angular/core";
 /**
  * Audit log queries for account administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -28,4 +29,6 @@ export declare class AuditLogService {
      * @Return: EntityResponse<Appliance>
      */
     get(id?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<AuditLogService>;
+    static ɵprov: i0.ɵɵInjectableDef<AuditLogService>;
 }

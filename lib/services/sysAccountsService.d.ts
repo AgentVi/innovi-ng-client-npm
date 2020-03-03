@@ -4,6 +4,7 @@ import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
+import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -119,4 +120,6 @@ export declare class SysAccountsService {
      * @Return: EntitiesResponse<AccountStatSummary>
      */
     getAccountsMonthReport(): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysAccountsService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysAccountsService>;
 }

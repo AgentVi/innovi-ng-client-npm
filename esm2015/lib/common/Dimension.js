@@ -1,24 +1,10 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 /*
    Object dimension on FOV
 */
 export class Dimension {
-    /**
-     * @param {?=} width
-     * @param {?=} height
-     */
     constructor(width, height) {
         this.width = width;
         this.height = height;
     }
 }
-if (false) {
-    /** @type {?} */
-    Dimension.prototype.width;
-    /** @type {?} */
-    Dimension.prototype.height;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGltZW5zaW9uLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvY29tbW9uL0RpbWVuc2lvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBSUEsTUFBTSxPQUFPLFNBQVM7Ozs7O0lBUWxCLFlBQVksS0FBYyxFQUFFLE1BQWU7UUFDdkMsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7UUFDbkIsSUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7SUFDekIsQ0FBQztDQUVKOzs7SUFWRywwQkFBcUI7O0lBR3JCLDJCQUFzQiIsInNvdXJjZXNDb250ZW50IjpbIlxuLyogXG4gICBPYmplY3QgZGltZW5zaW9uIG9uIEZPViBcbiovXG5leHBvcnQgY2xhc3MgRGltZW5zaW9uIHtcbiBcbiAgICAvLyBXaWR0aCBcbiAgICBwdWJsaWMgd2lkdGg6IG51bWJlcjtcbiBcbiAgICAvLyBIZWlnaHQgXG4gICAgcHVibGljIGhlaWdodDogbnVtYmVyO1xuIFxuICAgIGNvbnN0cnVjdG9yKHdpZHRoPzogbnVtYmVyLCBoZWlnaHQ/OiBudW1iZXIpIHsgXG4gICAgICAgIHRoaXMud2lkdGggPSB3aWR0aDtcbiAgICAgICAgdGhpcy5oZWlnaHQgPSBoZWlnaHQ7XG4gICAgfVxuXG59XG5cblxuIl19
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGltZW5zaW9uLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvY29tbW9uL0RpbWVuc2lvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTs7RUFFRTtBQUNGLE1BQU0sT0FBTyxTQUFTO0lBUWxCLFlBQVksS0FBYyxFQUFFLE1BQWU7UUFDdkMsSUFBSSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7UUFDbkIsSUFBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7SUFDekIsQ0FBQztDQUVKIiwic291cmNlc0NvbnRlbnQiOlsiXG4vKiBcbiAgIE9iamVjdCBkaW1lbnNpb24gb24gRk9WIFxuKi9cbmV4cG9ydCBjbGFzcyBEaW1lbnNpb24ge1xuIFxuICAgIC8vIFdpZHRoIFxuICAgIHB1YmxpYyB3aWR0aDogbnVtYmVyO1xuIFxuICAgIC8vIEhlaWdodCBcbiAgICBwdWJsaWMgaGVpZ2h0OiBudW1iZXI7XG4gXG4gICAgY29uc3RydWN0b3Iod2lkdGg/OiBudW1iZXIsIGhlaWdodD86IG51bWJlcikgeyBcbiAgICAgICAgdGhpcy53aWR0aCA9IHdpZHRoO1xuICAgICAgICB0aGlzLmhlaWdodCA9IGhlaWdodDtcbiAgICB9XG5cbn1cblxuXG4iXX0=

@@ -1,30 +1,21 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @enum {number} */
-const TimeUnitCode = {
+/*
+   Time unit interval
+*/
+export var TimeUnitCode;
+(function (TimeUnitCode) {
     // Undefined [0] 
-    UNDEFINED: 0,
+    TimeUnitCode[TimeUnitCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Second interval [1] 
-    SECOND: 1,
+    TimeUnitCode[TimeUnitCode["SECOND"] = 1] = "SECOND";
     // Minute interval [2] 
-    MINUTE: 2,
+    TimeUnitCode[TimeUnitCode["MINUTE"] = 2] = "MINUTE";
     // Hour interval [3] 
-    HOUR: 3,
+    TimeUnitCode[TimeUnitCode["HOUR"] = 3] = "HOUR";
     // Day interval [4] 
-    DAY: 4,
+    TimeUnitCode[TimeUnitCode["DAY"] = 4] = "DAY";
     // Week interval [5] 
-    WEEK: 5,
+    TimeUnitCode[TimeUnitCode["WEEK"] = 5] = "WEEK";
     // Month interval [6] 
-    MONTH: 6,
-};
-export { TimeUnitCode };
-TimeUnitCode[TimeUnitCode.UNDEFINED] = 'UNDEFINED';
-TimeUnitCode[TimeUnitCode.SECOND] = 'SECOND';
-TimeUnitCode[TimeUnitCode.MINUTE] = 'MINUTE';
-TimeUnitCode[TimeUnitCode.HOUR] = 'HOUR';
-TimeUnitCode[TimeUnitCode.DAY] = 'DAY';
-TimeUnitCode[TimeUnitCode.WEEK] = 'WEEK';
-TimeUnitCode[TimeUnitCode.MONTH] = 'MONTH';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZVVuaXRDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvVGltZVVuaXRDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztJQUtJLGlCQUFpQjtJQUNqQixZQUFhO0lBRWIsdUJBQXVCO0lBQ3ZCLFNBQVU7SUFFVix1QkFBdUI7SUFDdkIsU0FBVTtJQUVWLHFCQUFxQjtJQUNyQixPQUFRO0lBRVIsb0JBQW9CO0lBQ3BCLE1BQU87SUFFUCxxQkFBcUI7SUFDckIsT0FBUTtJQUVSLHNCQUFzQjtJQUN0QixRQUFTIiwic291cmNlc0NvbnRlbnQiOlsiLyogXG4gICBUaW1lIHVuaXQgaW50ZXJ2YWwgXG4qL1xuZXhwb3J0IGVudW0gVGltZVVuaXRDb2RlIHtcbiBcbiAgICAvLyBVbmRlZmluZWQgWzBdIFxuICAgIFVOREVGSU5FRCA9IDAsXG4gXG4gICAgLy8gU2Vjb25kIGludGVydmFsIFsxXSBcbiAgICBTRUNPTkQgPSAxLFxuIFxuICAgIC8vIE1pbnV0ZSBpbnRlcnZhbCBbMl0gXG4gICAgTUlOVVRFID0gMixcbiBcbiAgICAvLyBIb3VyIGludGVydmFsIFszXSBcbiAgICBIT1VSID0gMyxcbiBcbiAgICAvLyBEYXkgaW50ZXJ2YWwgWzRdIFxuICAgIERBWSA9IDQsXG4gXG4gICAgLy8gV2VlayBpbnRlcnZhbCBbNV0gXG4gICAgV0VFSyA9IDUsXG4gXG4gICAgLy8gTW9udGggaW50ZXJ2YWwgWzZdIFxuICAgIE1PTlRIID0gNixcbiBcbn0iXX0=
+    TimeUnitCode[TimeUnitCode["MONTH"] = 6] = "MONTH";
+})(TimeUnitCode || (TimeUnitCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZVVuaXRDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvVGltZVVuaXRDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFO0FBQ0YsTUFBTSxDQUFOLElBQVksWUF1Qlg7QUF2QkQsV0FBWSxZQUFZO0lBRXBCLGlCQUFpQjtJQUNqQix5REFBYSxDQUFBO0lBRWIsdUJBQXVCO0lBQ3ZCLG1EQUFVLENBQUE7SUFFVix1QkFBdUI7SUFDdkIsbURBQVUsQ0FBQTtJQUVWLHFCQUFxQjtJQUNyQiwrQ0FBUSxDQUFBO0lBRVIsb0JBQW9CO0lBQ3BCLDZDQUFPLENBQUE7SUFFUCxxQkFBcUI7SUFDckIsK0NBQVEsQ0FBQTtJQUVSLHNCQUFzQjtJQUN0QixpREFBUyxDQUFBO0FBRWIsQ0FBQyxFQXZCVyxZQUFZLEtBQVosWUFBWSxRQXVCdkIiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIFRpbWUgdW5pdCBpbnRlcnZhbCBcbiovXG5leHBvcnQgZW51bSBUaW1lVW5pdENvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBTZWNvbmQgaW50ZXJ2YWwgWzFdIFxuICAgIFNFQ09ORCA9IDEsXG4gXG4gICAgLy8gTWludXRlIGludGVydmFsIFsyXSBcbiAgICBNSU5VVEUgPSAyLFxuIFxuICAgIC8vIEhvdXIgaW50ZXJ2YWwgWzNdIFxuICAgIEhPVVIgPSAzLFxuIFxuICAgIC8vIERheSBpbnRlcnZhbCBbNF0gXG4gICAgREFZID0gNCxcbiBcbiAgICAvLyBXZWVrIGludGVydmFsIFs1XSBcbiAgICBXRUVLID0gNSxcbiBcbiAgICAvLyBNb250aCBpbnRlcnZhbCBbNl0gXG4gICAgTU9OVEggPSA2LFxuIFxufSJdfQ==

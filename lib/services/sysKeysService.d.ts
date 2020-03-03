@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ApiKey } from '../entities/ApiKey';
+import * as i0 from "@angular/core";
 /**
  * List of all key (API key + User token) related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -59,4 +60,6 @@ export declare class SysKeysService {
      * @Return: ActionResponse
      */
     createTimedPassword(days?: number, user?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysKeysService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysKeysService>;
 }

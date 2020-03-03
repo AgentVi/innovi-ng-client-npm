@@ -1,15 +1,14 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-import * as tslib_1 from "tslib";
+import { __read, __spread } from "tslib";
 import { Injectable, Inject } from '@angular/core';
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import * as i0 from "@angular/core";
+import * as i1 from "../../utils/rest-util";
+import * as i2 from "../../config";
 /**
  * Services for scheduled reports definition actions
- * \@RequestHeader X-API-KEY The key to identify the application (portal)
- * \@RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+ * @RequestHeader X-API-KEY The key to identify the application (portal)
+ * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
  */
 var ScheduledReportsService = /** @class */ (function () {
     /**
@@ -26,156 +25,63 @@ var ScheduledReportsService = /** @class */ (function () {
      * Create new scheduled report definition
      * @Return: EntityResponse<ScheduledReport>
      */
-    /**
-     * Create new scheduled report definition
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} body
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.create = /**
-     * Create new scheduled report definition
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} body
-     * @return {?}
-     */
-    function (body) {
+    ScheduledReportsService.prototype.create = function (body) {
         return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Update scheduled report definition
      * @Return: EntityResponse<ScheduledReport>
      */
-    /**
-     * Update scheduled report definition
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.update = /**
-     * Update scheduled report definition
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} id
-     * @param {?=} body
-     * @return {?}
-     */
-    function (id, body) {
+    ScheduledReportsService.prototype.update = function (id, body) {
         return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
     };
     /**
      * Delete scheduled report definition from the system
      * @Return: ActionResponse
      */
-    /**
-     * Delete scheduled report definition from the system
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.delete = /**
-     * Delete scheduled report definition from the system
-     * \@Return: ActionResponse
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
+    ScheduledReportsService.prototype.delete = function (id) {
         return this.rest.delete(this.baseUrl + "/" + id);
     };
     /**
      * Get single scheduled report definition by id
      * @Return: EntityResponse<ScheduledReport>
      */
-    /**
-     * Get single scheduled report definition by id
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} id
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.get = /**
-     * Get single scheduled report definition by id
-     * \@Return: EntityResponse<ScheduledReport>
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
+    ScheduledReportsService.prototype.get = function (id) {
         return this.rest.get(this.baseUrl + "/" + id);
     };
     /**
      * Get multiple scheduled report definitions by list of ids
      * @Return: EntitiesResponse<ScheduledReport>
      */
-    /**
-     * Get multiple scheduled report definitions by list of ids
-     * \@Return: EntitiesResponse<ScheduledReport>
-     * @param {?=} id
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.list = /**
-     * Get multiple scheduled report definitions by list of ids
-     * \@Return: EntitiesResponse<ScheduledReport>
-     * @param {?=} id
-     * @return {?}
-     */
-    function (id) {
+    ScheduledReportsService.prototype.list = function (id) {
         var _a;
-        /** @type {?} */
         var params = new Array();
         if (id != null) {
             params.push("id=" + id);
         }
-        return (_a = this.rest).get.apply(_a, tslib_1.__spread([this.baseUrl + "/list"], params));
+        return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
     };
     /**
      * Find scheduled report definitions by filters
      * @Return: QueryResponse<ScheduledReport>
      */
-    /**
-     * Find scheduled report definitions by filters
-     * \@Return: QueryResponse<ScheduledReport>
-     * @param {?=} search
-     * @return {?}
-     */
-    ScheduledReportsService.prototype.find = /**
-     * Find scheduled report definitions by filters
-     * \@Return: QueryResponse<ScheduledReport>
-     * @param {?=} search
-     * @return {?}
-     */
-    function (search) {
+    ScheduledReportsService.prototype.find = function (search) {
         var _a;
-        /** @type {?} */
         var params = new Array();
         if (search != null) {
             params.push("search=" + search);
         }
-        return (_a = this.rest).get.apply(_a, tslib_1.__spread(["" + this.baseUrl], params));
+        return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
     };
-    ScheduledReportsService.decorators = [
-        { type: Injectable }
-    ];
-    /** @nocollapse */
-    ScheduledReportsService.ctorParameters = function () { return [
-        { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-        { type: RestUtil }
-    ]; };
+    /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(i1.RestUtil)); };
+    /** @nocollapse */ ScheduledReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
     return ScheduledReportsService;
 }());
 export { ScheduledReportsService };
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    ScheduledReportsService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    ScheduledReportsService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    ScheduledReportsService.prototype.rest;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZWR1bGVkUmVwb3J0c1NlcnZpY2UuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9zZXJ2aWNlcy9zY2hlZHVsZWRSZXBvcnRzU2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ25ELE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSx1QkFBdUIsQ0FBQztBQUNqRCxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sY0FBYyxDQUFDOzs7Ozs7QUFVMUM7SUFNRTs7T0FFRztJQUNILGlDQUFzQyxNQUFrQixFQUFVLElBQWM7UUFBMUMsV0FBTSxHQUFOLE1BQU0sQ0FBWTtRQUFVLFNBQUksR0FBSixJQUFJLENBQVU7O1FBTHhFLFlBQU8sR0FBRyxvQkFBb0IsQ0FBQztRQU1yQyxJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsR0FBRyxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUM7SUFDaEQsQ0FBQztJQUdEOzs7T0FHRzs7Ozs7OztJQUNILHdDQUFNOzs7Ozs7SUFBTixVQUFPLElBQXNCO1FBQzNCLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsS0FBRyxJQUFJLENBQUMsT0FBUyxFQUFFLE9BQU8sSUFBSSxLQUFLLFFBQVEsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDbkcsQ0FBQztJQUVEOzs7T0FHRzs7Ozs7Ozs7SUFDSCx3Q0FBTTs7Ozs7OztJQUFOLFVBQU8sRUFBVyxFQUFFLElBQXNCO1FBQ3hDLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUksSUFBSSxDQUFDLE9BQU8sU0FBSSxFQUFJLEVBQUUsT0FBTyxJQUFJLEtBQUssUUFBUSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN4RyxDQUFDO0lBRUQ7OztPQUdHOzs7Ozs7O0lBQ0gsd0NBQU07Ozs7OztJQUFOLFVBQU8sRUFBVztRQUNoQixPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFJLElBQUksQ0FBQyxPQUFPLFNBQUksRUFBSSxDQUFDLENBQUM7SUFDbkQsQ0FBQztJQUVEOzs7T0FHRzs7Ozs7OztJQUNILHFDQUFHOzs7Ozs7SUFBSCxVQUFJLEVBQVc7UUFDYixPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFJLElBQUksQ0FBQyxPQUFPLFNBQUksRUFBSSxDQUFDLENBQUM7SUFDaEQsQ0FBQztJQUVEOzs7T0FHRzs7Ozs7OztJQUNILHNDQUFJOzs7Ozs7SUFBSixVQUFLLEVBQWE7OztZQUNWLE1BQU0sR0FBRyxJQUFJLEtBQUssRUFBRTtRQUMxQixJQUFJLEVBQUUsSUFBSSxJQUFJLEVBQUU7WUFBRSxNQUFNLENBQUMsSUFBSSxDQUFDLFFBQU0sRUFBSSxDQUFDLENBQUM7U0FBRTtRQUU5QyxPQUFPLENBQUEsS0FBQSxJQUFJLENBQUMsSUFBSSxDQUFBLENBQUMsR0FBRyw2QkFBSSxJQUFJLENBQUMsT0FBTyxVQUFPLEdBQUssTUFBTSxHQUFFO0lBQ3hELENBQUM7SUFFRDs7O09BR0c7Ozs7Ozs7SUFDSCxzQ0FBSTs7Ozs7O0lBQUosVUFBSyxNQUFlOzs7WUFDWixNQUFNLEdBQUcsSUFBSSxLQUFLLEVBQUU7UUFDMUIsSUFBSSxNQUFNLElBQUksSUFBSSxFQUFFO1lBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyxZQUFVLE1BQVEsQ0FBQyxDQUFDO1NBQUU7UUFFMUQsT0FBTyxDQUFBLEtBQUEsSUFBSSxDQUFDLElBQUksQ0FBQSxDQUFDLEdBQUcsNkJBQUMsS0FBRyxJQUFJLENBQUMsT0FBUyxHQUFLLE1BQU0sR0FBRTtJQUNuRCxDQUFDOztnQkFsRUYsVUFBVTs7OztnQkFWRixVQUFVLHVCQW1CSixNQUFNLFNBQUMsUUFBUTtnQkFwQnJCLFFBQVE7O0lBK0VqQiw4QkFBQztDQUFBLEFBcEVELElBb0VDO1NBbkVZLHVCQUF1Qjs7Ozs7O0lBR2xDLDBDQUF1Qzs7Ozs7SUFLM0IseUNBQTRDOzs7OztJQUFFLHVDQUFzQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUsIEluamVjdCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgUmVzdFV0aWwgfSBmcm9tICcuLi8uLi91dGlscy9yZXN0LXV0aWwnO1xuaW1wb3J0IHsgQ29yZUNvbmZpZyB9IGZyb20gJy4uLy4uL2NvbmZpZyc7XG5cbmltcG9ydCB7IFNjaGVkdWxlZFJlcG9ydCB9IGZyb20gJy4uL2VudGl0aWVzL1NjaGVkdWxlZFJlcG9ydCc7XG5cblxuLyoqXG4gKiBTZXJ2aWNlcyBmb3Igc2NoZWR1bGVkIHJlcG9ydHMgZGVmaW5pdGlvbiBhY3Rpb25zXG4gKiBAUmVxdWVzdEhlYWRlciBYLUFQSS1LRVkgVGhlIGtleSB0byBpZGVudGlmeSB0aGUgYXBwbGljYXRpb24gKHBvcnRhbClcbiAqIEBSZXF1ZXN0SGVhZGVyIFgtQUNDRVNTLVRPS0VOIFRoZSB0b2tlbiB0byBpZGVudGlmeSB0aGUgbG9nZ2VkLWluIHVzZXIgXG4gKi9cbkBJbmplY3RhYmxlKClcbmV4cG9ydCBjbGFzcyBTY2hlZHVsZWRSZXBvcnRzU2VydmljZSB7XG5cbiAgLy8gVVJMIHRvIHdlYiBhcGlcbiAgcHJpdmF0ZSBiYXNlVXJsID0gJy9zY2hlZHVsZWQtcmVwb3J0cyc7XG5cbiAgLyoqXG4gICAqIENsYXNzIGNvbnN0cnVjdG9yXG4gICAqL1xuICBjb25zdHJ1Y3RvcihASW5qZWN0KCdjb25maWcnKSBwcml2YXRlIGNvbmZpZzogQ29yZUNvbmZpZywgcHJpdmF0ZSByZXN0OiBSZXN0VXRpbCkge1xuICAgIHRoaXMuYmFzZVVybCA9IHRoaXMuY29uZmlnLmFwaSArIHRoaXMuYmFzZVVybDtcbiAgfVxuXG5cbiAgLyoqXG4gICAqIENyZWF0ZSBuZXcgc2NoZWR1bGVkIHJlcG9ydCBkZWZpbml0aW9uXG4gICAqIEBSZXR1cm46IEVudGl0eVJlc3BvbnNlPFNjaGVkdWxlZFJlcG9ydD5cbiAgICovXG4gIGNyZWF0ZShib2R5PzogU2NoZWR1bGVkUmVwb3J0KSB7XG4gICAgcmV0dXJuIHRoaXMucmVzdC5wb3N0KGAke3RoaXMuYmFzZVVybH1gLCB0eXBlb2YgYm9keSA9PT0gJ29iamVjdCcgPyBKU09OLnN0cmluZ2lmeShib2R5KSA6IGJvZHkpO1xuICB9XG5cbiAgLyoqXG4gICAqIFVwZGF0ZSBzY2hlZHVsZWQgcmVwb3J0IGRlZmluaXRpb25cbiAgICogQFJldHVybjogRW50aXR5UmVzcG9uc2U8U2NoZWR1bGVkUmVwb3J0PlxuICAgKi9cbiAgdXBkYXRlKGlkPzogc3RyaW5nLCBib2R5PzogU2NoZWR1bGVkUmVwb3J0KSB7XG4gICAgcmV0dXJuIHRoaXMucmVzdC5wdXQoYCR7dGhpcy5iYXNlVXJsfS8ke2lkfWAsIHR5cGVvZiBib2R5ID09PSAnb2JqZWN0JyA/IEpTT04uc3RyaW5naWZ5KGJvZHkpIDogYm9keSk7XG4gIH1cblxuICAvKipcbiAgICogRGVsZXRlIHNjaGVkdWxlZCByZXBvcnQgZGVmaW5pdGlvbiBmcm9tIHRoZSBzeXN0ZW1cbiAgICogQFJldHVybjogQWN0aW9uUmVzcG9uc2VcbiAgICovXG4gIGRlbGV0ZShpZD86IHN0cmluZykge1xuICAgIHJldHVybiB0aGlzLnJlc3QuZGVsZXRlKGAke3RoaXMuYmFzZVVybH0vJHtpZH1gKTtcbiAgfVxuXG4gIC8qKlxuICAgKiBHZXQgc2luZ2xlIHNjaGVkdWxlZCByZXBvcnQgZGVmaW5pdGlvbiBieSBpZFxuICAgKiBAUmV0dXJuOiBFbnRpdHlSZXNwb25zZTxTY2hlZHVsZWRSZXBvcnQ+XG4gICAqL1xuICBnZXQoaWQ/OiBzdHJpbmcpIHtcbiAgICByZXR1cm4gdGhpcy5yZXN0LmdldChgJHt0aGlzLmJhc2VVcmx9LyR7aWR9YCk7XG4gIH1cblxuICAvKipcbiAgICogR2V0IG11bHRpcGxlIHNjaGVkdWxlZCByZXBvcnQgZGVmaW5pdGlvbnMgYnkgbGlzdCBvZiBpZHNcbiAgICogQFJldHVybjogRW50aXRpZXNSZXNwb25zZTxTY2hlZHVsZWRSZXBvcnQ+XG4gICAqL1xuICBsaXN0KGlkPzogc3RyaW5nW10pIHtcbiAgICBjb25zdCBwYXJhbXMgPSBuZXcgQXJyYXkoKTtcdFx0XG4gICAgaWYgKGlkICE9IG51bGwpIHsgcGFyYW1zLnB1c2goYGlkPSR7aWR9YCk7IH1cblxuXHRcdHJldHVybiB0aGlzLnJlc3QuZ2V0KGAke3RoaXMuYmFzZVVybH0vbGlzdGAsIC4uLnBhcmFtcyk7XG4gIH1cblxuICAvKipcbiAgICogRmluZCBzY2hlZHVsZWQgcmVwb3J0IGRlZmluaXRpb25zIGJ5IGZpbHRlcnNcbiAgICogQFJldHVybjogUXVlcnlSZXNwb25zZTxTY2hlZHVsZWRSZXBvcnQ+XG4gICAqL1xuICBmaW5kKHNlYXJjaD86IHN0cmluZykge1xuICAgIGNvbnN0IHBhcmFtcyA9IG5ldyBBcnJheSgpO1x0XHRcbiAgICBpZiAoc2VhcmNoICE9IG51bGwpIHsgcGFyYW1zLnB1c2goYHNlYXJjaD0ke3NlYXJjaH1gKTsgfVxuXG5cdFx0cmV0dXJuIHRoaXMucmVzdC5nZXQoYCR7dGhpcy5iYXNlVXJsfWAsIC4uLnBhcmFtcyk7XG4gIH1cblxufVxuIl19
+/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(ScheduledReportsService, [{
+        type: Injectable
+    }], function () { return [{ type: i2.CoreConfig, decorators: [{
+                type: Inject,
+                args: ['config']
+            }] }, { type: i1.RestUtil }]; }, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NoZWR1bGVkUmVwb3J0c1NlcnZpY2UuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9zZXJ2aWNlcy9zY2hlZHVsZWRSZXBvcnRzU2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDbkQsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLHVCQUF1QixDQUFDO0FBQ2pELE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxjQUFjLENBQUM7Ozs7QUFLMUM7Ozs7R0FJRztBQUNIO0lBTUU7O09BRUc7SUFDSCxpQ0FBc0MsTUFBa0IsRUFBVSxJQUFjO1FBQTFDLFdBQU0sR0FBTixNQUFNLENBQVk7UUFBVSxTQUFJLEdBQUosSUFBSSxDQUFVO1FBTmhGLGlCQUFpQjtRQUNULFlBQU8sR0FBRyxvQkFBb0IsQ0FBQztRQU1yQyxJQUFJLENBQUMsT0FBTyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsR0FBRyxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUM7SUFDaEQsQ0FBQztJQUdEOzs7T0FHRztJQUNILHdDQUFNLEdBQU4sVUFBTyxJQUFzQjtRQUMzQixPQUFPLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLEtBQUcsSUFBSSxDQUFDLE9BQVMsRUFBRSxPQUFPLElBQUksS0FBSyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ25HLENBQUM7SUFFRDs7O09BR0c7SUFDSCx3Q0FBTSxHQUFOLFVBQU8sRUFBVyxFQUFFLElBQXNCO1FBQ3hDLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUksSUFBSSxDQUFDLE9BQU8sU0FBSSxFQUFJLEVBQUUsT0FBTyxJQUFJLEtBQUssUUFBUSxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN4RyxDQUFDO0lBRUQ7OztPQUdHO0lBQ0gsd0NBQU0sR0FBTixVQUFPLEVBQVc7UUFDaEIsT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBSSxJQUFJLENBQUMsT0FBTyxTQUFJLEVBQUksQ0FBQyxDQUFDO0lBQ25ELENBQUM7SUFFRDs7O09BR0c7SUFDSCxxQ0FBRyxHQUFILFVBQUksRUFBVztRQUNiLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUksSUFBSSxDQUFDLE9BQU8sU0FBSSxFQUFJLENBQUMsQ0FBQztJQUNoRCxDQUFDO0lBRUQ7OztPQUdHO0lBQ0gsc0NBQUksR0FBSixVQUFLLEVBQWE7O1FBQ2hCLElBQU0sTUFBTSxHQUFHLElBQUksS0FBSyxFQUFFLENBQUM7UUFDM0IsSUFBSSxFQUFFLElBQUksSUFBSSxFQUFFO1lBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyxRQUFNLEVBQUksQ0FBQyxDQUFDO1NBQUU7UUFFOUMsT0FBTyxDQUFBLEtBQUEsSUFBSSxDQUFDLElBQUksQ0FBQSxDQUFDLEdBQUcscUJBQUksSUFBSSxDQUFDLE9BQU8sVUFBTyxHQUFLLE1BQU0sR0FBRTtJQUN4RCxDQUFDO0lBRUQ7OztPQUdHO0lBQ0gsc0NBQUksR0FBSixVQUFLLE1BQWU7O1FBQ2xCLElBQU0sTUFBTSxHQUFHLElBQUksS0FBSyxFQUFFLENBQUM7UUFDM0IsSUFBSSxNQUFNLElBQUksSUFBSSxFQUFFO1lBQUUsTUFBTSxDQUFDLElBQUksQ0FBQyxZQUFVLE1BQVEsQ0FBQyxDQUFDO1NBQUU7UUFFMUQsT0FBTyxDQUFBLEtBQUEsSUFBSSxDQUFDLElBQUksQ0FBQSxDQUFDLEdBQUcscUJBQUMsS0FBRyxJQUFJLENBQUMsT0FBUyxHQUFLLE1BQU0sR0FBRTtJQUNuRCxDQUFDO2tHQWpFVSx1QkFBdUIsY0FRZCxRQUFRO21FQVJqQix1QkFBdUIsV0FBdkIsdUJBQXVCO2tDQWJwQztDQWdGQyxBQXBFRCxJQW9FQztTQW5FWSx1QkFBdUI7a0RBQXZCLHVCQUF1QjtjQURuQyxVQUFVOztzQkFTSSxNQUFNO3VCQUFDLFFBQVEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlLCBJbmplY3QgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFJlc3RVdGlsIH0gZnJvbSAnLi4vLi4vdXRpbHMvcmVzdC11dGlsJztcbmltcG9ydCB7IENvcmVDb25maWcgfSBmcm9tICcuLi8uLi9jb25maWcnO1xuXG5pbXBvcnQgeyBTY2hlZHVsZWRSZXBvcnQgfSBmcm9tICcuLi9lbnRpdGllcy9TY2hlZHVsZWRSZXBvcnQnO1xuXG5cbi8qKlxuICogU2VydmljZXMgZm9yIHNjaGVkdWxlZCByZXBvcnRzIGRlZmluaXRpb24gYWN0aW9uc1xuICogQFJlcXVlc3RIZWFkZXIgWC1BUEktS0VZIFRoZSBrZXkgdG8gaWRlbnRpZnkgdGhlIGFwcGxpY2F0aW9uIChwb3J0YWwpXG4gKiBAUmVxdWVzdEhlYWRlciBYLUFDQ0VTUy1UT0tFTiBUaGUgdG9rZW4gdG8gaWRlbnRpZnkgdGhlIGxvZ2dlZC1pbiB1c2VyIFxuICovXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgU2NoZWR1bGVkUmVwb3J0c1NlcnZpY2Uge1xuXG4gIC8vIFVSTCB0byB3ZWIgYXBpXG4gIHByaXZhdGUgYmFzZVVybCA9ICcvc2NoZWR1bGVkLXJlcG9ydHMnO1xuXG4gIC8qKlxuICAgKiBDbGFzcyBjb25zdHJ1Y3RvclxuICAgKi9cbiAgY29uc3RydWN0b3IoQEluamVjdCgnY29uZmlnJykgcHJpdmF0ZSBjb25maWc6IENvcmVDb25maWcsIHByaXZhdGUgcmVzdDogUmVzdFV0aWwpIHtcbiAgICB0aGlzLmJhc2VVcmwgPSB0aGlzLmNvbmZpZy5hcGkgKyB0aGlzLmJhc2VVcmw7XG4gIH1cblxuXG4gIC8qKlxuICAgKiBDcmVhdGUgbmV3IHNjaGVkdWxlZCByZXBvcnQgZGVmaW5pdGlvblxuICAgKiBAUmV0dXJuOiBFbnRpdHlSZXNwb25zZTxTY2hlZHVsZWRSZXBvcnQ+XG4gICAqL1xuICBjcmVhdGUoYm9keT86IFNjaGVkdWxlZFJlcG9ydCkge1xuICAgIHJldHVybiB0aGlzLnJlc3QucG9zdChgJHt0aGlzLmJhc2VVcmx9YCwgdHlwZW9mIGJvZHkgPT09ICdvYmplY3QnID8gSlNPTi5zdHJpbmdpZnkoYm9keSkgOiBib2R5KTtcbiAgfVxuXG4gIC8qKlxuICAgKiBVcGRhdGUgc2NoZWR1bGVkIHJlcG9ydCBkZWZpbml0aW9uXG4gICAqIEBSZXR1cm46IEVudGl0eVJlc3BvbnNlPFNjaGVkdWxlZFJlcG9ydD5cbiAgICovXG4gIHVwZGF0ZShpZD86IHN0cmluZywgYm9keT86IFNjaGVkdWxlZFJlcG9ydCkge1xuICAgIHJldHVybiB0aGlzLnJlc3QucHV0KGAke3RoaXMuYmFzZVVybH0vJHtpZH1gLCB0eXBlb2YgYm9keSA9PT0gJ29iamVjdCcgPyBKU09OLnN0cmluZ2lmeShib2R5KSA6IGJvZHkpO1xuICB9XG5cbiAgLyoqXG4gICAqIERlbGV0ZSBzY2hlZHVsZWQgcmVwb3J0IGRlZmluaXRpb24gZnJvbSB0aGUgc3lzdGVtXG4gICAqIEBSZXR1cm46IEFjdGlvblJlc3BvbnNlXG4gICAqL1xuICBkZWxldGUoaWQ/OiBzdHJpbmcpIHtcbiAgICByZXR1cm4gdGhpcy5yZXN0LmRlbGV0ZShgJHt0aGlzLmJhc2VVcmx9LyR7aWR9YCk7XG4gIH1cblxuICAvKipcbiAgICogR2V0IHNpbmdsZSBzY2hlZHVsZWQgcmVwb3J0IGRlZmluaXRpb24gYnkgaWRcbiAgICogQFJldHVybjogRW50aXR5UmVzcG9uc2U8U2NoZWR1bGVkUmVwb3J0PlxuICAgKi9cbiAgZ2V0KGlkPzogc3RyaW5nKSB7XG4gICAgcmV0dXJuIHRoaXMucmVzdC5nZXQoYCR7dGhpcy5iYXNlVXJsfS8ke2lkfWApO1xuICB9XG5cbiAgLyoqXG4gICAqIEdldCBtdWx0aXBsZSBzY2hlZHVsZWQgcmVwb3J0IGRlZmluaXRpb25zIGJ5IGxpc3Qgb2YgaWRzXG4gICAqIEBSZXR1cm46IEVudGl0aWVzUmVzcG9uc2U8U2NoZWR1bGVkUmVwb3J0PlxuICAgKi9cbiAgbGlzdChpZD86IHN0cmluZ1tdKSB7XG4gICAgY29uc3QgcGFyYW1zID0gbmV3IEFycmF5KCk7XHRcdFxuICAgIGlmIChpZCAhPSBudWxsKSB7IHBhcmFtcy5wdXNoKGBpZD0ke2lkfWApOyB9XG5cblx0XHRyZXR1cm4gdGhpcy5yZXN0LmdldChgJHt0aGlzLmJhc2VVcmx9L2xpc3RgLCAuLi5wYXJhbXMpO1xuICB9XG5cbiAgLyoqXG4gICAqIEZpbmQgc2NoZWR1bGVkIHJlcG9ydCBkZWZpbml0aW9ucyBieSBmaWx0ZXJzXG4gICAqIEBSZXR1cm46IFF1ZXJ5UmVzcG9uc2U8U2NoZWR1bGVkUmVwb3J0PlxuICAgKi9cbiAgZmluZChzZWFyY2g/OiBzdHJpbmcpIHtcbiAgICBjb25zdCBwYXJhbXMgPSBuZXcgQXJyYXkoKTtcdFx0XG4gICAgaWYgKHNlYXJjaCAhPSBudWxsKSB7IHBhcmFtcy5wdXNoKGBzZWFyY2g9JHtzZWFyY2h9YCk7IH1cblxuXHRcdHJldHVybiB0aGlzLnJlc3QuZ2V0KGAke3RoaXMuYmFzZVVybH1gLCAuLi5wYXJhbXMpO1xuICB9XG5cbn1cbiJdfQ==

@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { IntegrationTarget } from '../entities/IntegrationTarget';
 import { IntegrationAction } from '../entities/IntegrationAction';
+import * as i0 from "@angular/core";
 /**
  * Services for integrations targets (templates)
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -80,4 +81,6 @@ export declare class IntegrationsService {
      * @Return: EntitiesResponse<IntegrationAction>
      */
     getFolderActions(folderId?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<IntegrationsService>;
+    static ɵprov: i0.ɵɵInjectableDef<IntegrationsService>;
 }

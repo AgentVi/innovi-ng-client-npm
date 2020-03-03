@@ -1,27 +1,19 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @enum {number} */
-var AgentStatusCode = {
+/*
+   Agent (New Pipeline) status code
+*/
+export var AgentStatusCode;
+(function (AgentStatusCode) {
     // Undefined [0] 
-    UNDEFINED: 0,
+    AgentStatusCode[AgentStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Agent is running [1] 
-    ACTIVE: 1,
+    AgentStatusCode[AgentStatusCode["ACTIVE"] = 1] = "ACTIVE";
     // Agent in Warning state [2] 
-    WARNING: 2,
+    AgentStatusCode[AgentStatusCode["WARNING"] = 2] = "WARNING";
     // Agent in Error state [3] 
-    ERROR: 3,
+    AgentStatusCode[AgentStatusCode["ERROR"] = 3] = "ERROR";
     // Agent is not active [4] 
-    INACTIVE: 4,
+    AgentStatusCode[AgentStatusCode["INACTIVE"] = 4] = "INACTIVE";
     // Agent was added but did not establish connection yet [5] 
-    PENDING: 5,
-};
-export { AgentStatusCode };
-AgentStatusCode[AgentStatusCode.UNDEFINED] = 'UNDEFINED';
-AgentStatusCode[AgentStatusCode.ACTIVE] = 'ACTIVE';
-AgentStatusCode[AgentStatusCode.WARNING] = 'WARNING';
-AgentStatusCode[AgentStatusCode.ERROR] = 'ERROR';
-AgentStatusCode[AgentStatusCode.INACTIVE] = 'INACTIVE';
-AgentStatusCode[AgentStatusCode.PENDING] = 'PENDING';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWdlbnRTdGF0dXNDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvQWdlbnRTdGF0dXNDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztJQUtJLGlCQUFpQjtJQUNqQixZQUFhO0lBRWIsd0JBQXdCO0lBQ3hCLFNBQVU7SUFFViw4QkFBOEI7SUFDOUIsVUFBVztJQUVYLDRCQUE0QjtJQUM1QixRQUFTO0lBRVQsMkJBQTJCO0lBQzNCLFdBQVk7SUFFWiw0REFBNEQ7SUFDNUQsVUFBVyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgQWdlbnQgKE5ldyBQaXBlbGluZSkgc3RhdHVzIGNvZGUgXG4qL1xuZXhwb3J0IGVudW0gQWdlbnRTdGF0dXNDb2RlIHtcbiBcbiAgICAvLyBVbmRlZmluZWQgWzBdIFxuICAgIFVOREVGSU5FRCA9IDAsXG4gXG4gICAgLy8gQWdlbnQgaXMgcnVubmluZyBbMV0gXG4gICAgQUNUSVZFID0gMSxcbiBcbiAgICAvLyBBZ2VudCBpbiBXYXJuaW5nIHN0YXRlIFsyXSBcbiAgICBXQVJOSU5HID0gMixcbiBcbiAgICAvLyBBZ2VudCBpbiBFcnJvciBzdGF0ZSBbM10gXG4gICAgRVJST1IgPSAzLFxuIFxuICAgIC8vIEFnZW50IGlzIG5vdCBhY3RpdmUgWzRdIFxuICAgIElOQUNUSVZFID0gNCxcbiBcbiAgICAvLyBBZ2VudCB3YXMgYWRkZWQgYnV0IGRpZCBub3QgZXN0YWJsaXNoIGNvbm5lY3Rpb24geWV0IFs1XSBcbiAgICBQRU5ESU5HID0gNSxcbiBcbn0iXX0=
+    AgentStatusCode[AgentStatusCode["PENDING"] = 5] = "PENDING";
+})(AgentStatusCode || (AgentStatusCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWdlbnRTdGF0dXNDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvQWdlbnRTdGF0dXNDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFO0FBQ0YsTUFBTSxDQUFOLElBQVksZUFvQlg7QUFwQkQsV0FBWSxlQUFlO0lBRXZCLGlCQUFpQjtJQUNqQiwrREFBYSxDQUFBO0lBRWIsd0JBQXdCO0lBQ3hCLHlEQUFVLENBQUE7SUFFViw4QkFBOEI7SUFDOUIsMkRBQVcsQ0FBQTtJQUVYLDRCQUE0QjtJQUM1Qix1REFBUyxDQUFBO0lBRVQsMkJBQTJCO0lBQzNCLDZEQUFZLENBQUE7SUFFWiw0REFBNEQ7SUFDNUQsMkRBQVcsQ0FBQTtBQUVmLENBQUMsRUFwQlcsZUFBZSxLQUFmLGVBQWUsUUFvQjFCIiwic291cmNlc0NvbnRlbnQiOlsiLyogXG4gICBBZ2VudCAoTmV3IFBpcGVsaW5lKSBzdGF0dXMgY29kZSBcbiovXG5leHBvcnQgZW51bSBBZ2VudFN0YXR1c0NvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBBZ2VudCBpcyBydW5uaW5nIFsxXSBcbiAgICBBQ1RJVkUgPSAxLFxuIFxuICAgIC8vIEFnZW50IGluIFdhcm5pbmcgc3RhdGUgWzJdIFxuICAgIFdBUk5JTkcgPSAyLFxuIFxuICAgIC8vIEFnZW50IGluIEVycm9yIHN0YXRlIFszXSBcbiAgICBFUlJPUiA9IDMsXG4gXG4gICAgLy8gQWdlbnQgaXMgbm90IGFjdGl2ZSBbNF0gXG4gICAgSU5BQ1RJVkUgPSA0LFxuIFxuICAgIC8vIEFnZW50IHdhcyBhZGRlZCBidXQgZGlkIG5vdCBlc3RhYmxpc2ggY29ubmVjdGlvbiB5ZXQgWzVdIFxuICAgIFBFTkRJTkcgPSA1LFxuIFxufSJdfQ==

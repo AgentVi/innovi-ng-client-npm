@@ -1,18 +1,13 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @enum {number} */
-const SearchScopeCode = {
+/*
+   Search scope
+*/
+export var SearchScopeCode;
+(function (SearchScopeCode) {
     // Undefined [0] 
-    UNDEFINED: 0,
+    SearchScopeCode[SearchScopeCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Search by sensors [1] 
-    SENSORS: 1,
+    SearchScopeCode[SearchScopeCode["SENSORS"] = 1] = "SENSORS";
     // Search by geo area [2] 
-    GEO: 2,
-};
-export { SearchScopeCode };
-SearchScopeCode[SearchScopeCode.UNDEFINED] = 'UNDEFINED';
-SearchScopeCode[SearchScopeCode.SENSORS] = 'SENSORS';
-SearchScopeCode[SearchScopeCode.GEO] = 'GEO';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhcmNoU2NvcGVDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvU2VhcmNoU2NvcGVDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztJQUtJLGlCQUFpQjtJQUNqQixZQUFhO0lBRWIseUJBQXlCO0lBQ3pCLFVBQVc7SUFFWCwwQkFBMEI7SUFDMUIsTUFBTyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgU2VhcmNoIHNjb3BlIFxuKi9cbmV4cG9ydCBlbnVtIFNlYXJjaFNjb3BlQ29kZSB7XG4gXG4gICAgLy8gVW5kZWZpbmVkIFswXSBcbiAgICBVTkRFRklORUQgPSAwLFxuIFxuICAgIC8vIFNlYXJjaCBieSBzZW5zb3JzIFsxXSBcbiAgICBTRU5TT1JTID0gMSxcbiBcbiAgICAvLyBTZWFyY2ggYnkgZ2VvIGFyZWEgWzJdIFxuICAgIEdFTyA9IDIsXG4gXG59Il19
+    SearchScopeCode[SearchScopeCode["GEO"] = 2] = "GEO";
+})(SearchScopeCode || (SearchScopeCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhcmNoU2NvcGVDb2RlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvU2VhcmNoU2NvcGVDb2RlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztFQUVFO0FBQ0YsTUFBTSxDQUFOLElBQVksZUFXWDtBQVhELFdBQVksZUFBZTtJQUV2QixpQkFBaUI7SUFDakIsK0RBQWEsQ0FBQTtJQUViLHlCQUF5QjtJQUN6QiwyREFBVyxDQUFBO0lBRVgsMEJBQTBCO0lBQzFCLG1EQUFPLENBQUE7QUFFWCxDQUFDLEVBWFcsZUFBZSxLQUFmLGVBQWUsUUFXMUIiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIFNlYXJjaCBzY29wZSBcbiovXG5leHBvcnQgZW51bSBTZWFyY2hTY29wZUNvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBTZWFyY2ggYnkgc2Vuc29ycyBbMV0gXG4gICAgU0VOU09SUyA9IDEsXG4gXG4gICAgLy8gU2VhcmNoIGJ5IGdlbyBhcmVhIFsyXSBcbiAgICBHRU8gPSAyLFxuIFxufSJdfQ==

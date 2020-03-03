@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ReportDefinition } from '../entities/ReportDefinition';
+import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -44,4 +45,6 @@ export declare class ReportsService {
      * @Return: QueryResponse<ReportDefinition>
      */
     find(search?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<ReportsService>;
+    static ɵprov: i0.ɵɵInjectableDef<ReportsService>;
 }

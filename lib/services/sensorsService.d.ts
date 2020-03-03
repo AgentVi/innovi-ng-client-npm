@@ -1,11 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
+import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -142,4 +143,6 @@ export declare class SensorsService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getSensorsCountByStatus(folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SensorsService>;
+    static ɵprov: i0.ɵɵInjectableDef<SensorsService>;
 }

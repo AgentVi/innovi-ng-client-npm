@@ -3,6 +3,7 @@ import { CoreConfig } from '../../config';
 import { LoginParams } from '../common/LoginParams';
 import { ChangePasswordRequest } from '../messages/ChangePasswordRequest';
 import { TokenRequest } from '../messages/TokenRequest';
+import * as i0 from "@angular/core";
 /**
  * Services for user registration and login
  */
@@ -65,4 +66,6 @@ export declare class UserService {
      * @Return: EntityResponse<UserAccountInfo>
      */
     switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<UserService>;
+    static ɵprov: i0.ɵɵInjectableDef<UserService>;
 }

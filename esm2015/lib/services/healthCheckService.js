@@ -1,18 +1,15 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 import { Injectable, Inject } from '@angular/core';
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import * as i0 from "@angular/core";
+import * as i1 from "../../utils/rest-util";
+import * as i2 from "../../config";
 /**
  * Health check service, no X-API-KEY or X-ACCESS-TOKEN are required
  */
 export class HealthCheckService {
     /**
      * Class constructor
-     * @param {?} config
-     * @param {?} rest
      */
     constructor(config, rest) {
         this.config = config;
@@ -23,36 +20,18 @@ export class HealthCheckService {
     }
     /**
      * Health check to test service availability
-     * \@Return: ActionResponse - with version info
-     * @return {?}
+     * @Return: ActionResponse - with version info
      */
     health() {
         return this.rest.get(`${this.baseUrl}`);
     }
 }
-HealthCheckService.decorators = [
-    { type: Injectable }
-];
-/** @nocollapse */
-HealthCheckService.ctorParameters = () => [
-    { type: CoreConfig, decorators: [{ type: Inject, args: ['config',] }] },
-    { type: RestUtil }
-];
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    HealthCheckService.prototype.baseUrl;
-    /**
-     * @type {?}
-     * @private
-     */
-    HealthCheckService.prototype.config;
-    /**
-     * @type {?}
-     * @private
-     */
-    HealthCheckService.prototype.rest;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaGVhbHRoQ2hlY2tTZXJ2aWNlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvc2VydmljZXMvaGVhbHRoQ2hlY2tTZXJ2aWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUNuRCxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sdUJBQXVCLENBQUM7QUFDakQsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLGNBQWMsQ0FBQzs7OztBQVExQyxNQUFNLE9BQU8sa0JBQWtCOzs7Ozs7SUFRN0IsWUFBc0MsTUFBa0IsRUFBVSxJQUFjO1FBQTFDLFdBQU0sR0FBTixNQUFNLENBQVk7UUFBVSxTQUFJLEdBQUosSUFBSSxDQUFVOztRQUx4RSxZQUFPLEdBQUcsU0FBUyxDQUFDO1FBTTFCLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDLE1BQU0sQ0FBQyxHQUFHLEdBQUcsSUFBSSxDQUFDLE9BQU8sQ0FBQztJQUNoRCxDQUFDOzs7Ozs7SUFPRCxNQUFNO1FBQ0osT0FBTyxJQUFJLENBQUMsSUFBSSxDQUFDLEdBQUcsQ0FBQyxHQUFHLElBQUksQ0FBQyxPQUFPLEVBQUUsQ0FBQyxDQUFDO0lBQzFDLENBQUM7OztZQXBCRixVQUFVOzs7O1lBUEYsVUFBVSx1QkFnQkosTUFBTSxTQUFDLFFBQVE7WUFqQnJCLFFBQVE7Ozs7Ozs7SUFZZixxQ0FBNEI7Ozs7O0lBS2hCLG9DQUE0Qzs7Ozs7SUFBRSxrQ0FBc0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlLCBJbmplY3QgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFJlc3RVdGlsIH0gZnJvbSAnLi4vLi4vdXRpbHMvcmVzdC11dGlsJztcbmltcG9ydCB7IENvcmVDb25maWcgfSBmcm9tICcuLi8uLi9jb25maWcnO1xuXG5cblxuLyoqXG4gKiBIZWFsdGggY2hlY2sgc2VydmljZSwgbm8gWC1BUEktS0VZIG9yIFgtQUNDRVNTLVRPS0VOIGFyZSByZXF1aXJlZCBcbiAqL1xuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIEhlYWx0aENoZWNrU2VydmljZSB7XG5cbiAgLy8gVVJMIHRvIHdlYiBhcGlcbiAgcHJpdmF0ZSBiYXNlVXJsID0gJy9oZWFsdGgnO1xuXG4gIC8qKlxuICAgKiBDbGFzcyBjb25zdHJ1Y3RvclxuICAgKi9cbiAgY29uc3RydWN0b3IoQEluamVjdCgnY29uZmlnJykgcHJpdmF0ZSBjb25maWc6IENvcmVDb25maWcsIHByaXZhdGUgcmVzdDogUmVzdFV0aWwpIHtcbiAgICB0aGlzLmJhc2VVcmwgPSB0aGlzLmNvbmZpZy5hcGkgKyB0aGlzLmJhc2VVcmw7XG4gIH1cblxuXG4gIC8qKlxuICAgKiBIZWFsdGggY2hlY2sgdG8gdGVzdCBzZXJ2aWNlIGF2YWlsYWJpbGl0eVxuICAgKiBAUmV0dXJuOiBBY3Rpb25SZXNwb25zZSAtIHdpdGggdmVyc2lvbiBpbmZvXG4gICAqL1xuICBoZWFsdGgoKSB7XG4gICAgcmV0dXJuIHRoaXMucmVzdC5nZXQoYCR7dGhpcy5iYXNlVXJsfWApO1xuICB9XG5cbn1cbiJdfQ==
+/** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0.ɵɵinject('config'), i0.ɵɵinject(i1.RestUtil)); };
+/** @nocollapse */ HealthCheckService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
+/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(HealthCheckService, [{
+        type: Injectable
+    }], function () { return [{ type: i2.CoreConfig, decorators: [{
+                type: Inject,
+                args: ['config']
+            }] }, { type: i1.RestUtil }]; }, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaGVhbHRoQ2hlY2tTZXJ2aWNlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvc2VydmljZXMvaGVhbHRoQ2hlY2tTZXJ2aWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ25ELE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSx1QkFBdUIsQ0FBQztBQUNqRCxPQUFPLEVBQUUsVUFBVSxFQUFFLE1BQU0sY0FBYyxDQUFDOzs7O0FBSTFDOztHQUVHO0FBRUgsTUFBTSxPQUFPLGtCQUFrQjtJQUs3Qjs7T0FFRztJQUNILFlBQXNDLE1BQWtCLEVBQVUsSUFBYztRQUExQyxXQUFNLEdBQU4sTUFBTSxDQUFZO1FBQVUsU0FBSSxHQUFKLElBQUksQ0FBVTtRQU5oRixpQkFBaUI7UUFDVCxZQUFPLEdBQUcsU0FBUyxDQUFDO1FBTTFCLElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDLE1BQU0sQ0FBQyxHQUFHLEdBQUcsSUFBSSxDQUFDLE9BQU8sQ0FBQztJQUNoRCxDQUFDO0lBR0Q7OztPQUdHO0lBQ0gsTUFBTTtRQUNKLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsR0FBRyxJQUFJLENBQUMsT0FBTyxFQUFFLENBQUMsQ0FBQztJQUMxQyxDQUFDOztvRkFuQlUsa0JBQWtCLGNBUVQsUUFBUTswREFSakIsa0JBQWtCLFdBQWxCLGtCQUFrQjtrREFBbEIsa0JBQWtCO2NBRDlCLFVBQVU7O3NCQVNJLE1BQU07dUJBQUMsUUFBUSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGFibGUsIEluamVjdCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgUmVzdFV0aWwgfSBmcm9tICcuLi8uLi91dGlscy9yZXN0LXV0aWwnO1xuaW1wb3J0IHsgQ29yZUNvbmZpZyB9IGZyb20gJy4uLy4uL2NvbmZpZyc7XG5cblxuXG4vKipcbiAqIEhlYWx0aCBjaGVjayBzZXJ2aWNlLCBubyBYLUFQSS1LRVkgb3IgWC1BQ0NFU1MtVE9LRU4gYXJlIHJlcXVpcmVkIFxuICovXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgSGVhbHRoQ2hlY2tTZXJ2aWNlIHtcblxuICAvLyBVUkwgdG8gd2ViIGFwaVxuICBwcml2YXRlIGJhc2VVcmwgPSAnL2hlYWx0aCc7XG5cbiAgLyoqXG4gICAqIENsYXNzIGNvbnN0cnVjdG9yXG4gICAqL1xuICBjb25zdHJ1Y3RvcihASW5qZWN0KCdjb25maWcnKSBwcml2YXRlIGNvbmZpZzogQ29yZUNvbmZpZywgcHJpdmF0ZSByZXN0OiBSZXN0VXRpbCkge1xuICAgIHRoaXMuYmFzZVVybCA9IHRoaXMuY29uZmlnLmFwaSArIHRoaXMuYmFzZVVybDtcbiAgfVxuXG5cbiAgLyoqXG4gICAqIEhlYWx0aCBjaGVjayB0byB0ZXN0IHNlcnZpY2UgYXZhaWxhYmlsaXR5XG4gICAqIEBSZXR1cm46IEFjdGlvblJlc3BvbnNlIC0gd2l0aCB2ZXJzaW9uIGluZm9cbiAgICovXG4gIGhlYWx0aCgpIHtcbiAgICByZXR1cm4gdGhpcy5yZXN0LmdldChgJHt0aGlzLmJhc2VVcmx9YCk7XG4gIH1cblxufVxuIl19

@@ -1,9 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
-import { UserInvitation } from '../common/UserInvitation';
+import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
  */
@@ -74,4 +75,6 @@ export declare class UsersService {
      * @Return: StreamContent
      */
     exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    static ɵfac: i0.ɵɵFactoryDef<UsersService>;
+    static ɵprov: i0.ɵɵInjectableDef<UsersService>;
 }

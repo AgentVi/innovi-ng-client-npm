@@ -1,8 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { Rule } from '../entities/Rule';
+import * as i0 from "@angular/core";
 /**
  * Services for rules actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -71,4 +72,6 @@ export declare class RulesService {
      * @Return: EntitiesResponse<RuleSpec>
      */
     getSpecs(): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<RulesService>;
+    static ɵprov: i0.ɵɵInjectableDef<RulesService>;
 }

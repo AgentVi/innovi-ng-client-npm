@@ -1,14 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { Appliance } from '../entities/Appliance';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { Appliance } from '../entities/Appliance';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -150,4 +151,6 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<AppliancesService>;
+    static ɵprov: i0.ɵɵInjectableDef<AppliancesService>;
 }

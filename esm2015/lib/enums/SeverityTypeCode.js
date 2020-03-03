@@ -1,36 +1,25 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @enum {number} */
-const SeverityTypeCode = {
+/*
+   Severity type (level) code
+*/
+export var SeverityTypeCode;
+(function (SeverityTypeCode) {
     // Undefined [0] 
-    UNDEFINED: 0,
+    SeverityTypeCode[SeverityTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
     // No effect [1] 
-    NO_EFFECT: 1,
+    SeverityTypeCode[SeverityTypeCode["NO_EFFECT"] = 1] = "NO_EFFECT";
     // Notification only [2] 
-    NOTIFICATION: 2,
+    SeverityTypeCode[SeverityTypeCode["NOTIFICATION"] = 2] = "NOTIFICATION";
     // Lowest severity [3] 
-    LOWEST: 3,
+    SeverityTypeCode[SeverityTypeCode["LOWEST"] = 3] = "LOWEST";
     // Low severity [4] 
-    LOW: 4,
+    SeverityTypeCode[SeverityTypeCode["LOW"] = 4] = "LOW";
     // Medium severity [5] 
-    MEDIUM: 5,
+    SeverityTypeCode[SeverityTypeCode["MEDIUM"] = 5] = "MEDIUM";
     // High severity [6] 
-    HIGH: 6,
+    SeverityTypeCode[SeverityTypeCode["HIGH"] = 6] = "HIGH";
     // Highest severity [7] 
-    HIGHEST: 7,
+    SeverityTypeCode[SeverityTypeCode["HIGHEST"] = 7] = "HIGHEST";
     // Critical severity [8] 
-    CRITICAL: 8,
-};
-export { SeverityTypeCode };
-SeverityTypeCode[SeverityTypeCode.UNDEFINED] = 'UNDEFINED';
-SeverityTypeCode[SeverityTypeCode.NO_EFFECT] = 'NO_EFFECT';
-SeverityTypeCode[SeverityTypeCode.NOTIFICATION] = 'NOTIFICATION';
-SeverityTypeCode[SeverityTypeCode.LOWEST] = 'LOWEST';
-SeverityTypeCode[SeverityTypeCode.LOW] = 'LOW';
-SeverityTypeCode[SeverityTypeCode.MEDIUM] = 'MEDIUM';
-SeverityTypeCode[SeverityTypeCode.HIGH] = 'HIGH';
-SeverityTypeCode[SeverityTypeCode.HIGHEST] = 'HIGHEST';
-SeverityTypeCode[SeverityTypeCode.CRITICAL] = 'CRITICAL';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2V2ZXJpdHlUeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL1NldmVyaXR5VHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0lBS0ksaUJBQWlCO0lBQ2pCLFlBQWE7SUFFYixpQkFBaUI7SUFDakIsWUFBYTtJQUViLHlCQUF5QjtJQUN6QixlQUFnQjtJQUVoQix1QkFBdUI7SUFDdkIsU0FBVTtJQUVWLG9CQUFvQjtJQUNwQixNQUFPO0lBRVAsdUJBQXVCO0lBQ3ZCLFNBQVU7SUFFVixxQkFBcUI7SUFDckIsT0FBUTtJQUVSLHdCQUF3QjtJQUN4QixVQUFXO0lBRVgseUJBQXlCO0lBQ3pCLFdBQVkiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIFNldmVyaXR5IHR5cGUgKGxldmVsKSBjb2RlIFxuKi9cbmV4cG9ydCBlbnVtIFNldmVyaXR5VHlwZUNvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBObyBlZmZlY3QgWzFdIFxuICAgIE5PX0VGRkVDVCA9IDEsXG4gXG4gICAgLy8gTm90aWZpY2F0aW9uIG9ubHkgWzJdIFxuICAgIE5PVElGSUNBVElPTiA9IDIsXG4gXG4gICAgLy8gTG93ZXN0IHNldmVyaXR5IFszXSBcbiAgICBMT1dFU1QgPSAzLFxuIFxuICAgIC8vIExvdyBzZXZlcml0eSBbNF0gXG4gICAgTE9XID0gNCxcbiBcbiAgICAvLyBNZWRpdW0gc2V2ZXJpdHkgWzVdIFxuICAgIE1FRElVTSA9IDUsXG4gXG4gICAgLy8gSGlnaCBzZXZlcml0eSBbNl0gXG4gICAgSElHSCA9IDYsXG4gXG4gICAgLy8gSGlnaGVzdCBzZXZlcml0eSBbN10gXG4gICAgSElHSEVTVCA9IDcsXG4gXG4gICAgLy8gQ3JpdGljYWwgc2V2ZXJpdHkgWzhdIFxuICAgIENSSVRJQ0FMID0gOCxcbiBcbn0iXX0=
+    SeverityTypeCode[SeverityTypeCode["CRITICAL"] = 8] = "CRITICAL";
+})(SeverityTypeCode || (SeverityTypeCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2V2ZXJpdHlUeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL1NldmVyaXR5VHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUU7QUFDRixNQUFNLENBQU4sSUFBWSxnQkE2Qlg7QUE3QkQsV0FBWSxnQkFBZ0I7SUFFeEIsaUJBQWlCO0lBQ2pCLGlFQUFhLENBQUE7SUFFYixpQkFBaUI7SUFDakIsaUVBQWEsQ0FBQTtJQUViLHlCQUF5QjtJQUN6Qix1RUFBZ0IsQ0FBQTtJQUVoQix1QkFBdUI7SUFDdkIsMkRBQVUsQ0FBQTtJQUVWLG9CQUFvQjtJQUNwQixxREFBTyxDQUFBO0lBRVAsdUJBQXVCO0lBQ3ZCLDJEQUFVLENBQUE7SUFFVixxQkFBcUI7SUFDckIsdURBQVEsQ0FBQTtJQUVSLHdCQUF3QjtJQUN4Qiw2REFBVyxDQUFBO0lBRVgseUJBQXlCO0lBQ3pCLCtEQUFZLENBQUE7QUFFaEIsQ0FBQyxFQTdCVyxnQkFBZ0IsS0FBaEIsZ0JBQWdCLFFBNkIzQiIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgU2V2ZXJpdHkgdHlwZSAobGV2ZWwpIGNvZGUgXG4qL1xuZXhwb3J0IGVudW0gU2V2ZXJpdHlUeXBlQ29kZSB7XG4gXG4gICAgLy8gVW5kZWZpbmVkIFswXSBcbiAgICBVTkRFRklORUQgPSAwLFxuIFxuICAgIC8vIE5vIGVmZmVjdCBbMV0gXG4gICAgTk9fRUZGRUNUID0gMSxcbiBcbiAgICAvLyBOb3RpZmljYXRpb24gb25seSBbMl0gXG4gICAgTk9USUZJQ0FUSU9OID0gMixcbiBcbiAgICAvLyBMb3dlc3Qgc2V2ZXJpdHkgWzNdIFxuICAgIExPV0VTVCA9IDMsXG4gXG4gICAgLy8gTG93IHNldmVyaXR5IFs0XSBcbiAgICBMT1cgPSA0LFxuIFxuICAgIC8vIE1lZGl1bSBzZXZlcml0eSBbNV0gXG4gICAgTUVESVVNID0gNSxcbiBcbiAgICAvLyBIaWdoIHNldmVyaXR5IFs2XSBcbiAgICBISUdIID0gNixcbiBcbiAgICAvLyBIaWdoZXN0IHNldmVyaXR5IFs3XSBcbiAgICBISUdIRVNUID0gNyxcbiBcbiAgICAvLyBDcml0aWNhbCBzZXZlcml0eSBbOF0gXG4gICAgQ1JJVElDQUwgPSA4LFxuIFxufSJdfQ==

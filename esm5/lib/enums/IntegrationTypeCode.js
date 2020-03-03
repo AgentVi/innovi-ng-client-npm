@@ -1,33 +1,23 @@
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @enum {number} */
-var IntegrationTypeCode = {
+/*
+   Integration type code
+*/
+export var IntegrationTypeCode;
+(function (IntegrationTypeCode) {
     // Undefined [0] 
-    UNDEFINED: 0,
+    IntegrationTypeCode[IntegrationTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
     // General HTTP/HTTPS based integration [1] 
-    HTTP: 1,
+    IntegrationTypeCode[IntegrationTypeCode["HTTP"] = 1] = "HTTP";
     // General Web Socket WS/WSS based integration [2] 
-    WS: 2,
+    IntegrationTypeCode[IntegrationTypeCode["WS"] = 2] = "WS";
     // General SMTP based integration [3] 
-    SMTP: 3,
+    IntegrationTypeCode[IntegrationTypeCode["SMTP"] = 3] = "SMTP";
     // Internal email service integration [4] 
-    EMAIL: 4,
+    IntegrationTypeCode[IntegrationTypeCode["EMAIL"] = 4] = "EMAIL";
     // Internal SMS service integration [5] 
-    SMS: 5,
+    IntegrationTypeCode[IntegrationTypeCode["SMS"] = 5] = "SMS";
     // Immix specific integration (based on smtp protocol) [11] 
-    IMMIX: 11,
+    IntegrationTypeCode[IntegrationTypeCode["IMMIX"] = 11] = "IMMIX";
     // Sentinel specific integration (based on smtp protocol) [12] 
-    SENTINEL: 12,
-};
-export { IntegrationTypeCode };
-IntegrationTypeCode[IntegrationTypeCode.UNDEFINED] = 'UNDEFINED';
-IntegrationTypeCode[IntegrationTypeCode.HTTP] = 'HTTP';
-IntegrationTypeCode[IntegrationTypeCode.WS] = 'WS';
-IntegrationTypeCode[IntegrationTypeCode.SMTP] = 'SMTP';
-IntegrationTypeCode[IntegrationTypeCode.EMAIL] = 'EMAIL';
-IntegrationTypeCode[IntegrationTypeCode.SMS] = 'SMS';
-IntegrationTypeCode[IntegrationTypeCode.IMMIX] = 'IMMIX';
-IntegrationTypeCode[IntegrationTypeCode.SENTINEL] = 'SENTINEL';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW50ZWdyYXRpb25UeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL0ludGVncmF0aW9uVHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0lBS0ksaUJBQWlCO0lBQ2pCLFlBQWE7SUFFYiw0Q0FBNEM7SUFDNUMsT0FBUTtJQUVSLG1EQUFtRDtJQUNuRCxLQUFNO0lBRU4sc0NBQXNDO0lBQ3RDLE9BQVE7SUFFUiwwQ0FBMEM7SUFDMUMsUUFBUztJQUVULHdDQUF3QztJQUN4QyxNQUFPO0lBRVAsNERBQTREO0lBQzVELFNBQVU7SUFFViwrREFBK0Q7SUFDL0QsWUFBYSIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgSW50ZWdyYXRpb24gdHlwZSBjb2RlIFxuKi9cbmV4cG9ydCBlbnVtIEludGVncmF0aW9uVHlwZUNvZGUge1xuIFxuICAgIC8vIFVuZGVmaW5lZCBbMF0gXG4gICAgVU5ERUZJTkVEID0gMCxcbiBcbiAgICAvLyBHZW5lcmFsIEhUVFAvSFRUUFMgYmFzZWQgaW50ZWdyYXRpb24gWzFdIFxuICAgIEhUVFAgPSAxLFxuIFxuICAgIC8vIEdlbmVyYWwgV2ViIFNvY2tldCBXUy9XU1MgYmFzZWQgaW50ZWdyYXRpb24gWzJdIFxuICAgIFdTID0gMixcbiBcbiAgICAvLyBHZW5lcmFsIFNNVFAgYmFzZWQgaW50ZWdyYXRpb24gWzNdIFxuICAgIFNNVFAgPSAzLFxuIFxuICAgIC8vIEludGVybmFsIGVtYWlsIHNlcnZpY2UgaW50ZWdyYXRpb24gWzRdIFxuICAgIEVNQUlMID0gNCxcbiBcbiAgICAvLyBJbnRlcm5hbCBTTVMgc2VydmljZSBpbnRlZ3JhdGlvbiBbNV0gXG4gICAgU01TID0gNSxcbiBcbiAgICAvLyBJbW1peCBzcGVjaWZpYyBpbnRlZ3JhdGlvbiAoYmFzZWQgb24gc210cCBwcm90b2NvbCkgWzExXSBcbiAgICBJTU1JWCA9IDExLFxuIFxuICAgIC8vIFNlbnRpbmVsIHNwZWNpZmljIGludGVncmF0aW9uIChiYXNlZCBvbiBzbXRwIHByb3RvY29sKSBbMTJdIFxuICAgIFNFTlRJTkVMID0gMTIsXG4gXG59Il19
+    IntegrationTypeCode[IntegrationTypeCode["SENTINEL"] = 12] = "SENTINEL";
+})(IntegrationTypeCode || (IntegrationTypeCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSW50ZWdyYXRpb25UeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL0ludGVncmF0aW9uVHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUU7QUFDRixNQUFNLENBQU4sSUFBWSxtQkEwQlg7QUExQkQsV0FBWSxtQkFBbUI7SUFFM0IsaUJBQWlCO0lBQ2pCLHVFQUFhLENBQUE7SUFFYiw0Q0FBNEM7SUFDNUMsNkRBQVEsQ0FBQTtJQUVSLG1EQUFtRDtJQUNuRCx5REFBTSxDQUFBO0lBRU4sc0NBQXNDO0lBQ3RDLDZEQUFRLENBQUE7SUFFUiwwQ0FBMEM7SUFDMUMsK0RBQVMsQ0FBQTtJQUVULHdDQUF3QztJQUN4QywyREFBTyxDQUFBO0lBRVAsNERBQTREO0lBQzVELGdFQUFVLENBQUE7SUFFViwrREFBK0Q7SUFDL0Qsc0VBQWEsQ0FBQTtBQUVqQixDQUFDLEVBMUJXLG1CQUFtQixLQUFuQixtQkFBbUIsUUEwQjlCIiwic291cmNlc0NvbnRlbnQiOlsiLyogXG4gICBJbnRlZ3JhdGlvbiB0eXBlIGNvZGUgXG4qL1xuZXhwb3J0IGVudW0gSW50ZWdyYXRpb25UeXBlQ29kZSB7XG4gXG4gICAgLy8gVW5kZWZpbmVkIFswXSBcbiAgICBVTkRFRklORUQgPSAwLFxuIFxuICAgIC8vIEdlbmVyYWwgSFRUUC9IVFRQUyBiYXNlZCBpbnRlZ3JhdGlvbiBbMV0gXG4gICAgSFRUUCA9IDEsXG4gXG4gICAgLy8gR2VuZXJhbCBXZWIgU29ja2V0IFdTL1dTUyBiYXNlZCBpbnRlZ3JhdGlvbiBbMl0gXG4gICAgV1MgPSAyLFxuIFxuICAgIC8vIEdlbmVyYWwgU01UUCBiYXNlZCBpbnRlZ3JhdGlvbiBbM10gXG4gICAgU01UUCA9IDMsXG4gXG4gICAgLy8gSW50ZXJuYWwgZW1haWwgc2VydmljZSBpbnRlZ3JhdGlvbiBbNF0gXG4gICAgRU1BSUwgPSA0LFxuIFxuICAgIC8vIEludGVybmFsIFNNUyBzZXJ2aWNlIGludGVncmF0aW9uIFs1XSBcbiAgICBTTVMgPSA1LFxuIFxuICAgIC8vIEltbWl4IHNwZWNpZmljIGludGVncmF0aW9uIChiYXNlZCBvbiBzbXRwIHByb3RvY29sKSBbMTFdIFxuICAgIElNTUlYID0gMTEsXG4gXG4gICAgLy8gU2VudGluZWwgc3BlY2lmaWMgaW50ZWdyYXRpb24gKGJhc2VkIG9uIHNtdHAgcHJvdG9jb2wpIFsxMl0gXG4gICAgU0VOVElORUwgPSAxMixcbiBcbn0iXX0=

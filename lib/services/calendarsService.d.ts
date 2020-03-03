@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { Calendar } from '../entities/Calendar';
+import * as i0 from "@angular/core";
 /**
  * Services for calendars (holidays) actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -60,4 +61,6 @@ export declare class CalendarsService {
      * @Return: ActionResponse
      */
     importUrl(folderId?: string, body?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<CalendarsService>;
+    static ɵprov: i0.ɵɵInjectableDef<CalendarsService>;
 }

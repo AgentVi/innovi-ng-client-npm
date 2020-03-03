@@ -4,6 +4,7 @@ import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
 import { ConfigurationTemplate } from '../entities/ConfigurationTemplate';
+import * as i0 from "@angular/core";
 /**
  * List of configurations related actions for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -103,4 +104,6 @@ export declare class SysConfigurationsService {
      * @Return: QueryResponse<ConfigurationTemplate>
      */
     findTemplates(page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysConfigurationsService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysConfigurationsService>;
 }

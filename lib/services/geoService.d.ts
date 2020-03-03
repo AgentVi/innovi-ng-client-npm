@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { GeoReferenceTest } from '../common/GeoReferenceTest';
 import { GeoControlPoints } from '../common/GeoControlPoints';
+import * as i0 from "@angular/core";
 /**
  * List of Geo-spatial utilities
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -30,4 +31,6 @@ export declare class GeoService {
      * @Return: EntityResponse<GeoReferenceData>
      */
     transform(body?: GeoReferenceTest): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<GeoService>;
+    static ɵprov: i0.ɵɵInjectableDef<GeoService>;
 }

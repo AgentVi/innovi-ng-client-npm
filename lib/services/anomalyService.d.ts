@@ -4,6 +4,7 @@ import { AnalysisResult } from '../common/AnalysisResult';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
+import * as i0 from "@angular/core";
 /**
  * List of anomaly related actions for the anomaly detection service
  * @RequestHeader X-API-KEY The key to identify the application (console)
@@ -63,4 +64,6 @@ export declare class AnomalyService {
      * @return EntityResponse<Event>
      */
     createDummyEvent(body?: Event): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<AnomalyService>;
+    static ɵprov: i0.ɵɵInjectableDef<AnomalyService>;
 }

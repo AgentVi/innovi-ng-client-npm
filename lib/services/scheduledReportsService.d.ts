@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ScheduledReport } from '../entities/ScheduledReport';
+import * as i0 from "@angular/core";
 /**
  * Services for scheduled reports definition actions
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -44,4 +45,6 @@ export declare class ScheduledReportsService {
      * @Return: QueryResponse<ScheduledReport>
      */
     find(search?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<ScheduledReportsService>;
+    static ɵprov: i0.ɵɵInjectableDef<ScheduledReportsService>;
 }

@@ -1,5 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import * as i0 from "@angular/core";
 /**
  * List of general system configuration actions for system administrator only
  */
@@ -56,4 +57,6 @@ export declare class SysSystemService {
      * @Return: ActionResponse
      */
     restoreSystem(): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysSystemService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysSystemService>;
 }

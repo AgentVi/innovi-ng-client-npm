@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { FeaturesGroup } from '../entities/FeaturesGroup';
+import * as i0 from "@angular/core";
 /**
  * Features groups services for system administrator only
  * @RequestHeader X-API-KEY The key to identify the application (portal)
@@ -39,4 +40,6 @@ export declare class SysFeaturesGroupsService {
      * @Return: QueryResponse<FeaturesGroup>
      */
     find(search?: string, sort?: string): import("rxjs").Observable<any>;
+    static ɵfac: i0.ɵɵFactoryDef<SysFeaturesGroupsService>;
+    static ɵprov: i0.ɵɵInjectableDef<SysFeaturesGroupsService>;
 }

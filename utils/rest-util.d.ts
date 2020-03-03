@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import * as i0 from "@angular/core";
 /**
  * Utility class for all REST services with common functions
  */
@@ -41,4 +42,6 @@ export declare class RestUtil {
      * Error handling
      */
     private handleError;
+    static ɵfac: i0.ɵɵFactoryDef<RestUtil>;
+    static ɵprov: i0.ɵɵInjectableDef<RestUtil>;
 }
