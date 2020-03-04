@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { GeoReferenceTest } from '../common/GeoReferenceTest';
 import { GeoControlPoints } from '../common/GeoControlPoints';
+import { GeoReferenceTest } from '../common/GeoReferenceTest';
 import * as i0 from "@angular/core";
 /**
  * List of Geo-spatial utilities
