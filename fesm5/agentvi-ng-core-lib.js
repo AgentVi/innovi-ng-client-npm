@@ -2074,8 +2074,10 @@ var UserTypeCode;
     UserTypeCode[UserTypeCode["SYSADMIN"] = 1] = "SYSADMIN";
     // Support user has view permissions only for all accounts that enabled option Enable Support [2] 
     UserTypeCode[UserTypeCode["SUPPORT"] = 2] = "SUPPORT";
-    // System user - has access to specific accounts with role based access control [4] 
-    UserTypeCode[UserTypeCode["USER"] = 4] = "USER";
+    // Presale user has access to all accounts of type DEMO and TRAIL and permissions to perform all actions on these accounts [3] 
+    UserTypeCode[UserTypeCode["PRESALE"] = 3] = "PRESALE";
+    // Account user - has access to specific accounts with role based access control [4] 
+    UserTypeCode[UserTypeCode["ACCOUNT_USER"] = 4] = "ACCOUNT_USER";
     // Account service - to be used by other systems to perform actions using the API (can't login as a user to the portal)' [5]` 
     UserTypeCode[UserTypeCode["ACCOUNT_SERVICE"] = 5] = "ACCOUNT_SERVICE";
 })(UserTypeCode || (UserTypeCode = {}));
