@@ -37,7 +37,6 @@ export * from './SearchSession';
 export * from './SearchShape';
 export * from './Sensor';
 export * from './SensorAnalysisResults';
-export * from './SensorDebugInfo';
 export * from './SensorStatus';
 export * from './UpdateStatus';
 export * from './User';

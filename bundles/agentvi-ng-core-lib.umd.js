@@ -871,6 +871,44 @@
     }());
 
     /*
+       Sensor debug information
+    */
+    var SensorDebugInfo = /** @class */ (function () {
+        function SensorDebugInfo(saveCrops, saveFrames, saveEventImages) {
+            this.saveCrops = saveCrops;
+            this.saveFrames = saveFrames;
+            this.saveEventImages = saveEventImages;
+        }
+        return SensorDebugInfo;
+    }());
+
+    /*
+       Sensor configuration info
+    */
+    var SensorInfo = /** @class */ (function () {
+        function SensorInfo(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo) {
+            this.name = name;
+            this.type = type;
+            this.streamType = streamType;
+            this.imageResolution = imageResolution;
+            this.recording = recording;
+            this.metadata = metadata;
+            this.anomalyDetection = anomalyDetection;
+            this.alarmInterval = alarmInterval;
+            this.maxBBoxPerFrame = maxBBoxPerFrame;
+            this.maxFrameRate = maxFrameRate;
+            this.streamUri = streamUri;
+            this.geoLocation = geoLocation;
+            this.azimuth = azimuth;
+            this.fovAttributes = fovAttributes;
+            this.externalId = externalId;
+            this.tags = tags;
+            this.debugInfo = debugInfo;
+        }
+        return SensorInfo;
+    }());
+
+    /*
        Sensor status list over time
     */
     var SensorStatusTimeSeries = /** @class */ (function () {
@@ -894,6 +932,20 @@
             this.label = label;
         }
         return SensorStatusTimestamped;
+    }());
+
+    /*
+       Group of sensor data with common attributes
+    */
+    var SensorsGroup = /** @class */ (function () {
+        function SensorsGroup(accountId, folderId, applianceId, agentId, sensors) {
+            this.accountId = accountId;
+            this.folderId = folderId;
+            this.applianceId = applianceId;
+            this.agentId = agentId;
+            this.sensors = sensors;
+        }
+        return SensorsGroup;
     }());
 
     /*
@@ -1047,9 +1099,10 @@
     }(BaseEntity));
 
     /*
-       API Key is used per application (e.g. Portal, Console, Mobile App) or service (e.g. Health Service, Search Service ...) for identifying the consumer.
+       API Key is used per application (e.g. Portal, Console, Mobile App) or service to identify the consumer.
        The access to sets of REST endpoints is restricted according the API key.
        API key also dictates the default session TTL per application (e.g. 20 minutes for Portal or Console, 30 days for Mobile app)
+       The application/system name is the Entity Id, the API key itself is not stored in the DB but generated on the fly.
     */
     var ApiKey = /** @class */ (function (_super) {
         __extends(ApiKey, _super);
@@ -1464,18 +1517,6 @@
         }
         return SensorAnalysisResults;
     }(BaseEntity));
-
-    /*
-       Sensor debug information
-    */
-    var SensorDebugInfo = /** @class */ (function () {
-        function SensorDebugInfo(saveCrops, saveFrames, saveEventImages) {
-            this.saveCrops = saveCrops;
-            this.saveFrames = saveFrames;
-            this.saveEventImages = saveEventImages;
-        }
-        return SensorDebugInfo;
-    }());
 
     /*
        Sensor health status
@@ -1980,6 +2021,8 @@
         ProductTypeCode[ProductTypeCode["EDGE_250"] = 250] = "EDGE_250";
         // Edge 320 [320] 
         ProductTypeCode[ProductTypeCode["EDGE_320"] = 320] = "EDGE_320";
+        // Edge 325 [325] 
+        ProductTypeCode[ProductTypeCode["EDGE_325"] = 325] = "EDGE_325";
         // Edge 500 [500] 
         ProductTypeCode[ProductTypeCode["EDGE_500"] = 500] = "EDGE_500";
     })(exports.ProductTypeCode || (exports.ProductTypeCode = {}));
@@ -4758,6 +4801,15 @@
             this.applianceId = applianceId;
         }
         return SensorsServiceAttachRequest;
+    }());
+
+    /*
+    */
+    var SensorsServiceBulkCreateRequest = /** @class */ (function () {
+        function SensorsServiceBulkCreateRequest(body) {
+            this.body = body;
+        }
+        return SensorsServiceBulkCreateRequest;
     }());
 
     /*
@@ -7738,6 +7790,13 @@
             return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
+         * Create bulk of sensors with the same account Id, appliance Id and agent Id
+         * @Return: EntitiesResponse<Sensor>
+         */
+        SensorsService.prototype.createBulk = function (body) {
+            return this.rest.post(this.baseUrl + "/bulk", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
          * Update sensor parameters
          * @Return: EntityResponse<Sensor>
          */
@@ -10213,12 +10272,15 @@
     exports.SensorDebugInfo = SensorDebugInfo;
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
+    exports.SensorInfo = SensorInfo;
     exports.SensorStatus = SensorStatus;
     exports.SensorStatusTimeSeries = SensorStatusTimeSeries;
     exports.SensorStatusTimestamped = SensorStatusTimestamped;
     exports.SensorsCountRequest = SensorsCountRequest;
+    exports.SensorsGroup = SensorsGroup;
     exports.SensorsService = SensorsService;
     exports.SensorsServiceAttachRequest = SensorsServiceAttachRequest;
+    exports.SensorsServiceBulkCreateRequest = SensorsServiceBulkCreateRequest;
     exports.SensorsServiceChangeFolderRequest = SensorsServiceChangeFolderRequest;
     exports.SensorsServiceChangeFovRequest = SensorsServiceChangeFovRequest;
     exports.SensorsServiceChangeGeoLocationRequest = SensorsServiceChangeGeoLocationRequest;

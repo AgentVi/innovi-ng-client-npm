@@ -236,6 +236,7 @@ export * from './SensorIdRequest';
 export * from './SensorIdsRequest';
 export * from './SensorsCountRequest';
 export * from './SensorsServiceAttachRequest';
+export * from './SensorsServiceBulkCreateRequest';
 export * from './SensorsServiceChangeFolderRequest';
 export * from './SensorsServiceChangeFovRequest';
 export * from './SensorsServiceChangeGeoLocationRequest';

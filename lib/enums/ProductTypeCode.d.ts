@@ -6,5 +6,6 @@ export declare enum ProductTypeCode {
     EDGE_220 = 220,
     EDGE_250 = 250,
     EDGE_320 = 320,
+    EDGE_325 = 325,
     EDGE_500 = 500
 }

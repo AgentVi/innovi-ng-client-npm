@@ -1,11 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
+import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -25,6 +26,11 @@ export declare class SensorsService {
      * @Return: EntityResponse<Sensor>
      */
     create(body?: Sensor): import("rxjs").Observable<any>;
+    /**
+     * Create bulk of sensors with the same account Id, appliance Id and agent Id
+     * @Return: EntitiesResponse<Sensor>
+     */
+    createBulk(body?: SensorsGroup): import("rxjs").Observable<any>;
     /**
      * Update sensor parameters
      * @Return: EntityResponse<Sensor>
