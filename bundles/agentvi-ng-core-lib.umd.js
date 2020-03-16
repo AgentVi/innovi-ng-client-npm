@@ -4970,6 +4970,18 @@
 
     /*
     */
+    var SysApplianceGetLogsRequest = /** @class */ (function () {
+        function SysApplianceGetLogsRequest(id, componentId, from, to) {
+            this.id = id;
+            this.componentId = componentId;
+            this.from = from;
+            this.to = to;
+        }
+        return SysApplianceGetLogsRequest;
+    }());
+
+    /*
+    */
     var SysAppliancesCountRequest = /** @class */ (function () {
         function SysAppliancesCountRequest(accountId, folderId, subFolders) {
             this.accountId = accountId;
@@ -8574,6 +8586,31 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
         };
+        /**
+         * Send get capabilities command to the appliance and wait for response up to 60 seconds
+         * @Return:  EntityResponse<Appliance>
+         */
+        SysAppliancesService.prototype.getCapabilities = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/capabilities", null);
+        };
+        /**
+         * Send get logs command to the appliance
+         * @Return:  ActionResponse
+         */
+        SysAppliancesService.prototype.getLogs = function (id, componentId, from, to) {
+            var _a;
+            var params = new Array();
+            if (componentId != null) {
+                params.push("componentId=" + componentId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
+        };
         /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
         /** @nocollapse */ SysAppliancesService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
         return SysAppliancesService;
@@ -10303,6 +10340,7 @@
     exports.SysAccountExportRequest = SysAccountExportRequest;
     exports.SysAccountImportRequest = SysAccountImportRequest;
     exports.SysAccountsService = SysAccountsService;
+    exports.SysApplianceGetLogsRequest = SysApplianceGetLogsRequest;
     exports.SysAppliancesCountRequest = SysAppliancesCountRequest;
     exports.SysAppliancesService = SysAppliancesService;
     exports.SysAppliancesServiceFindRequest = SysAppliancesServiceFindRequest;

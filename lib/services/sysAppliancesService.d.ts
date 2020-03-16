@@ -109,6 +109,16 @@ export declare class SysAppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    /**
+     * Send get capabilities command to the appliance and wait for response up to 60 seconds
+     * @Return:  EntityResponse<Appliance>
+     */
+    getCapabilities(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Send get logs command to the appliance
+     * @Return:  ActionResponse
+     */
+    getLogs(id?: string, componentId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

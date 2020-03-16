@@ -251,6 +251,7 @@ export * from './SensorsServiceUpdateRequest';
 export * from './StreamResponse';
 export * from './SysAccountExportRequest';
 export * from './SysAccountImportRequest';
+export * from './SysApplianceGetLogsRequest';
 export * from './SysAppliancesCountRequest';
 export * from './SysAppliancesServiceFindRequest';
 export * from './SysAppliancesServiceGetCommandsRequest';
