@@ -197,6 +197,7 @@ export * from './QueryResponseOfSensor';
 export * from './QueryResponseOfSensorAnalysisResults';
 export * from './QueryResponseOfTreeItem';
 export * from './QueryResponseOfUser';
+export * from './RegisterServiceAccountRequest';
 export * from './ReportIdRequest';
 export * from './ReportIdsRequest';
 export * from './ReportsServiceCreateRequest';

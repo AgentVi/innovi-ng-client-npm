@@ -8,6 +8,7 @@ export declare enum FeatureCode {
     RULE_GROUPING = 2064,
     RULE_IGNORE_MASK = 2080,
     RULE_ANOMALY = 2112,
+    RULE_UNATTENDED_OBJECT = 2176,
     MODULE_MONITOR = 4096,
     MAP_GOOGLE = 4097,
     MAP_LEAFLET = 4098,

@@ -949,6 +949,18 @@
     }());
 
     /*
+       Service Account registration data model
+    */
+    var ServiceAccountRegistration = /** @class */ (function () {
+        function ServiceAccountRegistration(name, email, description) {
+            this.name = name;
+            this.email = email;
+            this.description = description;
+        }
+        return ServiceAccountRegistration;
+    }());
+
+    /*
        String Int Value tuple
     */
     var StringIntValue = /** @class */ (function () {
@@ -1709,11 +1721,13 @@
         BehaviorTypeCode[BehaviorTypeCode["INNOVI_STOPPED"] = 65796] = "INNOVI_STOPPED";
         // Occupancy 65800 
         BehaviorTypeCode[BehaviorTypeCode["INNOVI_OCCUPANCY"] = 65800] = "INNOVI_OCCUPANCY";
-        // Grouping 65808 
-        BehaviorTypeCode[BehaviorTypeCode["INNOVI_GROUPING"] = 65808] = "INNOVI_GROUPING";
-        // Ignore mask 66049 
+        // Grouping 65824 
+        BehaviorTypeCode[BehaviorTypeCode["INNOVI_GROUPING"] = 65824] = "INNOVI_GROUPING";
+        // Unattended Object 65808 
+        BehaviorTypeCode[BehaviorTypeCode["INNOVI_UNATTENDED_OBJECT"] = 65808] = "INNOVI_UNATTENDED_OBJECT";
+        // Ignore Mask 66049 
         BehaviorTypeCode[BehaviorTypeCode["INNOVI_MASK_IGNORE"] = 66049] = "INNOVI_MASK_IGNORE";
-        // Shutdown mask 66050 
+        // Shutdown Mask 66050 
         BehaviorTypeCode[BehaviorTypeCode["INNOVI_MASK_SHUTDOWN"] = 66050] = "INNOVI_MASK_SHUTDOWN";
         // General Anomaly 66560 
         BehaviorTypeCode[BehaviorTypeCode["INNOVI_ANOMALY"] = 66560] = "INNOVI_ANOMALY";
@@ -1863,6 +1877,8 @@
         FeatureCode[FeatureCode["RULE_IGNORE_MASK"] = 2080] = "RULE_IGNORE_MASK";
         // Anomaly detection rule [2112] 
         FeatureCode[FeatureCode["RULE_ANOMALY"] = 2112] = "RULE_ANOMALY";
+        // Unattended object detection rule [2176] 
+        FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
         // Monitor (real time events) module [4096] 
         FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
         // Google maps support module [4097] 
@@ -1946,6 +1962,8 @@
         ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_VEGETATION"] = 16843264] = "INNOVI_UNKNOWNS_VEGETATION";
         // Cloud 16843776 
         ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_CLOUD"] = 16843776] = "INNOVI_UNKNOWNS_CLOUD";
+        // Object 16844800 
+        ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT"] = 16844800] = "INNOVI_UNKNOWNS_OBJECT";
         // Abstract group of people 16908288 
         ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE"] = 16908288] = "INNOVI_PEOPLE";
         // Person standing upright 16908544 
@@ -4395,6 +4413,15 @@
         }
         return QueryResponseOfUser;
     }(QueryResponse));
+
+    /*
+    */
+    var RegisterServiceAccountRequest = /** @class */ (function () {
+        function RegisterServiceAccountRequest(body) {
+            this.body = body;
+        }
+        return RegisterServiceAccountRequest;
+    }());
 
     /*
     */
@@ -9719,8 +9746,14 @@
             this.baseUrl = this.config.api + this.baseUrl;
         }
         /**
+         * Create service account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.registerServiceAccount = function (body) {
+            return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
          * Send invitation to a new user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
          * @Return: ActionResponse
          */
         UsersService.prototype.invite = function (body) {
@@ -9728,7 +9761,6 @@
         };
         /**
          * Resend invitation to an existing user for the current account
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
          * @Return: ActionResponse
          */
         UsersService.prototype.reInvite = function (id) {
@@ -10247,6 +10279,7 @@
     exports.QueryResponseOfUser = QueryResponseOfUser;
     exports.Recurrent = Recurrent;
     exports.RecurrentTimeFrame = RecurrentTimeFrame;
+    exports.RegisterServiceAccountRequest = RegisterServiceAccountRequest;
     exports.ReportDefinition = ReportDefinition;
     exports.ReportIdRequest = ReportIdRequest;
     exports.ReportIdsRequest = ReportIdsRequest;
@@ -10331,6 +10364,7 @@
     exports.SensorsServiceSetRefImageRequest = SensorsServiceSetRefImageRequest;
     exports.SensorsServiceStatusOvertimeRequest = SensorsServiceStatusOvertimeRequest;
     exports.SensorsServiceUpdateRequest = SensorsServiceUpdateRequest;
+    exports.ServiceAccountRegistration = ServiceAccountRegistration;
     exports.Services = Services;
     exports.SocketEventNotification = SocketEventNotification;
     exports.SocketHealthStatusNotification = SocketHealthStatusNotification;

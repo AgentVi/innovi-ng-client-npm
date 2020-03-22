@@ -52,6 +52,7 @@ export * from './SensorInfo';
 export * from './SensorStatusTimeSeries';
 export * from './SensorStatusTimestamped';
 export * from './SensorsGroup';
+export * from './ServiceAccountRegistration';
 export * from './StringIntValue';
 export * from './StringKeyValue';
 export * from './TimeFrame';

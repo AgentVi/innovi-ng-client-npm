@@ -1,9 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
+import { UserInvitation } from '../common/UserInvitation';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
-import { UserInvitation } from '../common/UserInvitation';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -17,14 +18,17 @@ export declare class UsersService {
      */
     constructor(config: CoreConfig, rest: RestUtil);
     /**
+     * Create service account
+     * @Return: ActionResponse
+     */
+    registerServiceAccount(body?: ServiceAccountRegistration): import("rxjs").Observable<any>;
+    /**
      * Send invitation to a new user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
      * @Return: ActionResponse
      */
     invite(body?: UserInvitation): import("rxjs").Observable<any>;
     /**
      * Resend invitation to an existing user for the current account
-     * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
      * @Return: ActionResponse
      */
     reInvite(id?: string): import("rxjs").Observable<any>;
