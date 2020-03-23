@@ -21,6 +21,11 @@ export declare class SysKeysService {
      */
     create(body?: ApiKey): import("rxjs").Observable<any>;
     /**
+     * Update API key for specific application name
+     * @Return: EntityResponse<ApiKey>
+     */
+    update(body?: ApiKey): import("rxjs").Observable<any>;
+    /**
      * Change API Key version (rotate key)
      * @Return: EntityResponse<ApiKey>
      */
@@ -60,6 +65,11 @@ export declare class SysKeysService {
      * @Return: ActionResponse
      */
     createTimedPassword(days?: number, user?: string): import("rxjs").Observable<any>;
+    /**
+     * Get list of all resources
+     * @Return: EntitiesResponse<StringKeyValue>
+     */
+    getResources(): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysKeysService>;
     static ɵprov: i0.ɵɵInjectableDef<SysKeysService>;
 }

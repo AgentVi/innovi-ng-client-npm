@@ -86,6 +86,7 @@ export * from './EntitiesResponseOfSearchDefinition';
 export * from './EntitiesResponseOfSearchEvent';
 export * from './EntitiesResponseOfSensor';
 export * from './EntitiesResponseOfSensorStatus';
+export * from './EntitiesResponseOfStringKeyValue';
 export * from './EntityResponse';
 export * from './EntityResponseOfAccount';
 export * from './EntityResponseOfApiKey';
