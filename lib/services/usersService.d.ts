@@ -79,6 +79,11 @@ export declare class UsersService {
      * @Return: StreamContent
      */
     exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    /**
+     * Get access token for user
+     * @Return: ActionResponse
+     */
+    getUserToken(id?: string, exp?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<UsersService>;
     static ɵprov: i0.ɵɵInjectableDef<UsersService>;
 }

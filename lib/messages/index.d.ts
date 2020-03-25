@@ -287,6 +287,7 @@ export * from './UserServiceResetPasswordRequest';
 export * from './UserServiceSendVerificationRequest';
 export * from './UserServiceSwitchAccountRequest';
 export * from './UserServiceVerifyLoginRequest';
+export * from './UserTokenRequest';
 export * from './UsersServiceChangeDefaultAccountRequest';
 export * from './UsersServiceChangeMobileRequest';
 export * from './UsersServiceChangeNameRequest';

@@ -5375,6 +5375,16 @@
 
     /*
     */
+    var UserTokenRequest = /** @class */ (function () {
+        function UserTokenRequest(id, exp) {
+            this.id = id;
+            this.exp = exp;
+        }
+        return UserTokenRequest;
+    }());
+
+    /*
+    */
     var UsersServiceChangeDefaultAccountRequest = /** @class */ (function () {
         function UsersServiceChangeDefaultAccountRequest(id, accountId) {
             this.id = id;
@@ -9898,6 +9908,13 @@
             }
             return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
         };
+        /**
+         * Get access token for user
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.getUserToken = function (id, exp) {
+            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+        };
         /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
         /** @nocollapse */ UsersService.ɵprov = core["ɵɵdefineInjectable"]({ token: UsersService, factory: UsersService.ɵfac });
         return UsersService;
@@ -10451,6 +10468,7 @@
     exports.UserServiceSendVerificationRequest = UserServiceSendVerificationRequest;
     exports.UserServiceSwitchAccountRequest = UserServiceSwitchAccountRequest;
     exports.UserServiceVerifyLoginRequest = UserServiceVerifyLoginRequest;
+    exports.UserTokenRequest = UserTokenRequest;
     exports.UsersService = UsersService;
     exports.UsersServiceChangeDefaultAccountRequest = UsersServiceChangeDefaultAccountRequest;
     exports.UsersServiceChangeMobileRequest = UsersServiceChangeMobileRequest;
