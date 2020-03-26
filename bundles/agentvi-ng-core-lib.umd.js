@@ -5223,6 +5223,15 @@
 
     /*
     */
+    var SysKeysServiceUpdateBulkRequest = /** @class */ (function () {
+        function SysKeysServiceUpdateBulkRequest(body) {
+            this.body = body;
+        }
+        return SysKeysServiceUpdateBulkRequest;
+    }());
+
+    /*
+    */
     var SysSensorsCountRequest = /** @class */ (function () {
         function SysSensorsCountRequest(accountId, folderId, subFolders, sensorType, status, streamType) {
             this.accountId = accountId;
@@ -9124,6 +9133,13 @@
             return this.rest.put(this.baseUrl + "/api-keys", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
+         * Update Bulk of API keys
+         * @Return: ActionResponse
+         */
+        SysKeysService.prototype.updateBulk = function (body) {
+            return this.rest.put(this.baseUrl + "/api-keys/bulk", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
          * Change API Key version (rotate key)
          * @Return: EntityResponse<ApiKey>
          */
@@ -10441,6 +10457,7 @@
     exports.SysKeysServiceCreateApiKeyRequest = SysKeysServiceCreateApiKeyRequest;
     exports.SysKeysServiceCreatePasswordRequest = SysKeysServiceCreatePasswordRequest;
     exports.SysKeysServiceCreateTokenRequest = SysKeysServiceCreateTokenRequest;
+    exports.SysKeysServiceUpdateBulkRequest = SysKeysServiceUpdateBulkRequest;
     exports.SysSensorsCountRequest = SysSensorsCountRequest;
     exports.SysSensorsService = SysSensorsService;
     exports.SysSensorsServiceFindRequest = SysSensorsServiceFindRequest;

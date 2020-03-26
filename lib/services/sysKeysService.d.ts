@@ -26,6 +26,11 @@ export declare class SysKeysService {
      */
     update(body?: ApiKey): import("rxjs").Observable<any>;
     /**
+     * Update Bulk of API keys
+     * @Return: ActionResponse
+     */
+    updateBulk(body?: ApiKey[]): import("rxjs").Observable<any>;
+    /**
      * Change API Key version (rotate key)
      * @Return: EntityResponse<ApiKey>
      */
