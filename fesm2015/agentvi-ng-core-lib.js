@@ -7376,8 +7376,11 @@ class SysAppliancesService {
      * Aggregate appliances count distribution by status
      * @Return:  EntityResponse<DistributionOfLong>
      */
-    getAppliancesCountByStatus(folderId, subFolders) {
+    getAppliancesCountByStatus(accountId, folderId, subFolders) {
         const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
         }

@@ -8417,9 +8417,12 @@ var SysAppliancesService = /** @class */ (function () {
      * Aggregate appliances count distribution by status
      * @Return:  EntityResponse<DistributionOfLong>
      */
-    SysAppliancesService.prototype.getAppliancesCountByStatus = function (folderId, subFolders) {
+    SysAppliancesService.prototype.getAppliancesCountByStatus = function (accountId, folderId, subFolders) {
         var _a;
         var params = new Array();
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
+        }
         if (folderId != null) {
             params.push("folderId=" + folderId);
         }

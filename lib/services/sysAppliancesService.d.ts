@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
@@ -108,7 +108,7 @@ export declare class SysAppliancesService {
      * Aggregate appliances count distribution by status
      * @Return:  EntityResponse<DistributionOfLong>
      */
-    getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    getAppliancesCountByStatus(accountId?: string, folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
     /**
      * Send get capabilities command to the appliance and wait for response up to 60 seconds
      * @Return:  EntityResponse<Appliance>
