@@ -8920,7 +8920,7 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + accountId + "/"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + accountId], params));
         };
         /**
          * Get events count overtime for all events in the system

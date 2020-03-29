@@ -7658,7 +7658,7 @@ class SysEventsService {
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/${accountId}/`, ...params);
+        return this.rest.get(`${this.baseUrl}/${accountId}`, ...params);
     }
     /**
      * Get events count overtime for all events in the system
