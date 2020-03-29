@@ -7160,6 +7160,13 @@ class SysAccountsService {
     getAccountsMonthReport() {
         return this.rest.get(`${this.baseUrl}/statistics/month/report`);
     }
+    /**
+     * Get default geo location
+     * @Return: EntityResponse<Coordinate> The account location
+     */
+    getDefaultLocation(id) {
+        return this.rest.get(`${this.baseUrl}/${id}/geoLocation`);
+    }
 }
 /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysAccountsService.ɵprov = ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });

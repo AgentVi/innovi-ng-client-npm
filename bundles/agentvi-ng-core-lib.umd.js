@@ -8409,6 +8409,13 @@
         SysAccountsService.prototype.getAccountsMonthReport = function () {
             return this.rest.get(this.baseUrl + "/statistics/month/report");
         };
+        /**
+         * Get default geo location
+         * @Return: EntityResponse<Coordinate> The account location
+         */
+        SysAccountsService.prototype.getDefaultLocation = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
+        };
         /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
         /** @nocollapse */ SysAccountsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
         return SysAccountsService;
