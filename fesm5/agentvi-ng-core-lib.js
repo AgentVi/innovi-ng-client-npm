@@ -9465,6 +9465,20 @@ var SysUsersService = /** @class */ (function () {
         }
         return (_a = this.rest).download.apply(_a, __spread(["sys-users", this.baseUrl + "/export"], params));
     };
+    /**
+     * Aggregate users count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    SysUsersService.prototype.getUsersCountByType = function () {
+        return this.rest.get(this.baseUrl + "/count/by-type");
+    };
+    /**
+     * Aggregate users count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    SysUsersService.prototype.getUsersCountByStatus = function () {
+        return this.rest.get(this.baseUrl + "/count/by-status");
+    };
     /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
     /** @nocollapse */ SysUsersService.ɵprov = ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
     return SysUsersService;

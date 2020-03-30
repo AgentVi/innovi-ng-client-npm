@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { UserRegistration } from '../common/UserRegistration';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
-import { AccountRoleCode } from '../enums/AccountRoleCode';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -90,6 +90,16 @@ export declare class SysUsersService {
      * @Return: StreamContent
      */
     exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    /**
+     * Aggregate users count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getUsersCountByType(): import("rxjs").Observable<any>;
+    /**
+     * Aggregate users count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getUsersCountByStatus(): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysUsersService>;
     static ɵprov: i0.ɵɵInjectableDef<SysUsersService>;
 }

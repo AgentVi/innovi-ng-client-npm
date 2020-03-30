@@ -8398,6 +8398,20 @@ class SysUsersService {
         }
         return this.rest.download(`sys-users`, `${this.baseUrl}/export`, ...params);
     }
+    /**
+     * Aggregate users count distribution by type
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getUsersCountByType() {
+        return this.rest.get(`${this.baseUrl}/count/by-type`);
+    }
+    /**
+     * Aggregate users count distribution by status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getUsersCountByStatus() {
+        return this.rest.get(`${this.baseUrl}/count/by-status`);
+    }
 }
 /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysUsersService.ɵprov = ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
