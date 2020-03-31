@@ -114,6 +114,7 @@ export * from './EntityResponseOfIntegration';
 export * from './EntityResponseOfIntegrationAction';
 export * from './EntityResponseOfLicense';
 export * from './EntityResponseOfLoginData';
+export * from './EntityResponseOfPreset';
 export * from './EntityResponseOfReportDefinition';
 export * from './EntityResponseOfRule';
 export * from './EntityResponseOfSchedule';

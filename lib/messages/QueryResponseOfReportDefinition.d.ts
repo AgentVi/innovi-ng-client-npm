@@ -1,5 +1,5 @@
-import { ReportDefinition } from '../entities/ReportDefinition';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ReportDefinition } from '../entities/ReportDefinition';
 export declare class QueryResponseOfReportDefinition extends QueryResponse {
     list: ReportDefinition[];
     code: number;

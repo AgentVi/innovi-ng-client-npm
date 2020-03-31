@@ -3551,6 +3551,16 @@
 
     /*
     */
+    var EntityResponseOfPreset = /** @class */ (function (_super) {
+        __extends(EntityResponseOfPreset, _super);
+        function EntityResponseOfPreset() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfPreset;
+    }(EntityResponse));
+
+    /*
+    */
     var EntityResponseOfReportDefinition = /** @class */ (function (_super) {
         __extends(EntityResponseOfReportDefinition, _super);
         function EntityResponseOfReportDefinition() {
@@ -8036,6 +8046,13 @@
             return (_a = this.rest).download.apply(_a, __spread(["sensors", this.baseUrl + "/export"], params));
         };
         /**
+         * Get single sensor preset data by id
+         * @Return: EntityResponse<Preset>
+         */
+        SensorsService.prototype.getPreset = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id + "/preset");
+        };
+        /**
          * Get sensor reference image [response content type: image/jpeg]
          * @Return: StreamingOutput of the reference image
          */
@@ -10239,6 +10256,7 @@
     exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
     exports.EntityResponseOfLicense = EntityResponseOfLicense;
     exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
+    exports.EntityResponseOfPreset = EntityResponseOfPreset;
     exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
     exports.EntityResponseOfRule = EntityResponseOfRule;
     exports.EntityResponseOfSchedule = EntityResponseOfSchedule;
