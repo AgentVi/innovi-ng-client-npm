@@ -6160,6 +6160,13 @@
             return this.rest.post(this.baseUrl + "/" + id + "/reset-password", null);
         };
         /**
+         * Reboot appliance host
+         * @Return: ActionResponse
+         */
+        AppliancesService.prototype.reboot = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/reboot", null);
+        };
+        /**
          * Delete appliance from the system and detach all it's related sensors
          * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED
          * Unregistered cameras keeps all their settings and rules and they can be assigned later to another device
