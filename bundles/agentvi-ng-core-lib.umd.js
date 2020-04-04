@@ -1184,6 +1184,17 @@
     }());
 
     /*
+       Appliance Profile entity describes custom device profile to override package configuration variables for specific use cases
+    */
+    var ApplianceProfile = /** @class */ (function (_super) {
+        __extends(ApplianceProfile, _super);
+        function ApplianceProfile() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return ApplianceProfile;
+    }(BaseEntity));
+
+    /*
        Appliance status - reported periodically by the appliance
     */
     var ApplianceStatus = /** @class */ (function (_super) {
@@ -1230,6 +1241,17 @@
             this.status = status;
         }
         return ComponentConfiguration;
+    }());
+
+    /*
+       SW Component variables
+    */
+    var ComponentVariables = /** @class */ (function () {
+        function ComponentVariables(component, variables) {
+            this.component = component;
+            this.variables = variables;
+        }
+        return ComponentVariables;
     }());
 
     /*
@@ -2594,6 +2616,52 @@
 
     /*
     */
+    var ApplianceProfileCreateRequest = /** @class */ (function () {
+        function ApplianceProfileCreateRequest(body) {
+            this.body = body;
+        }
+        return ApplianceProfileCreateRequest;
+    }());
+
+    /*
+    */
+    var ApplianceProfileFindRequest = /** @class */ (function () {
+        function ApplianceProfileFindRequest(search) {
+            this.search = search;
+        }
+        return ApplianceProfileFindRequest;
+    }());
+
+    /*
+    */
+    var ApplianceProfileIdRequest = /** @class */ (function () {
+        function ApplianceProfileIdRequest(id) {
+            this.id = id;
+        }
+        return ApplianceProfileIdRequest;
+    }());
+
+    /*
+    */
+    var ApplianceProfileIdsRequest = /** @class */ (function () {
+        function ApplianceProfileIdsRequest(id) {
+            this.id = id;
+        }
+        return ApplianceProfileIdsRequest;
+    }());
+
+    /*
+    */
+    var ApplianceProfileUpdateRequest = /** @class */ (function () {
+        function ApplianceProfileUpdateRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return ApplianceProfileUpdateRequest;
+    }());
+
+    /*
+    */
     var ApplianceServiceDeleteCommandRequest = /** @class */ (function () {
         function ApplianceServiceDeleteCommandRequest(id, commandId) {
             this.id = id;
@@ -3078,6 +3146,16 @@
 
     /*
     */
+    var EntitiesResponseOfApplianceProfile = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfApplianceProfile, _super);
+        function EntitiesResponseOfApplianceProfile() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfApplianceProfile;
+    }(EntitiesResponse));
+
+    /*
+    */
     var EntitiesResponseOfAuditLog = /** @class */ (function (_super) {
         __extends(EntitiesResponseOfAuditLog, _super);
         function EntitiesResponseOfAuditLog() {
@@ -3365,6 +3443,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntityResponseOfApplianceKpiTimeSeries;
+    }(EntityResponse));
+
+    /*
+    */
+    var EntityResponseOfApplianceProfile = /** @class */ (function (_super) {
+        __extends(EntityResponseOfApplianceProfile, _super);
+        function EntityResponseOfApplianceProfile() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfApplianceProfile;
     }(EntityResponse));
 
     /*
@@ -5943,6 +6031,73 @@
         return AnomalyService;
     }());
     /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](AnomalyService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * Services for custom appliance profiles actions
+     * @RequestHeader X-API-KEY The key to identify the application (portal)
+     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+     */
+    var ApplianceProfilesService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function ApplianceProfilesService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/appliance-profiles';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Create new custom appliance profile
+         * @Return: EntityResponse<ApplianceProfile>
+         */
+        ApplianceProfilesService.prototype.create = function (body) {
+            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Update custom appliance profile
+         * @Return: EntityResponse<ApplianceProfile>
+         */
+        ApplianceProfilesService.prototype.update = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Delete custom appliance profile from the system
+         * @Return: ActionResponse
+         */
+        ApplianceProfilesService.prototype.delete = function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single profile by id
+         * @Return: EntityResponse<ApplianceProfile>
+         */
+        ApplianceProfilesService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Find calendars by filters
+         * @Return: EntitiesResponse<ApplianceProfile>
+         */
+        ApplianceProfilesService.prototype.find = function (search) {
+            var _a;
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
+        /** @nocollapse */ ApplianceProfilesService.ɵprov = core["ɵɵdefineInjectable"]({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
+        return ApplianceProfilesService;
+    }());
+    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](ApplianceProfilesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -10012,6 +10167,7 @@
         SysSystemService,
         SysUsersService,
         AccountsService,
+        ApplianceProfilesService,
         AppliancesService,
         AuditLogService,
         CalendarsService,
@@ -10184,6 +10340,13 @@
     exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
     exports.ApplianceKpiTimeSeries = ApplianceKpiTimeSeries;
     exports.ApplianceKpiTimestamped = ApplianceKpiTimestamped;
+    exports.ApplianceProfile = ApplianceProfile;
+    exports.ApplianceProfileCreateRequest = ApplianceProfileCreateRequest;
+    exports.ApplianceProfileFindRequest = ApplianceProfileFindRequest;
+    exports.ApplianceProfileIdRequest = ApplianceProfileIdRequest;
+    exports.ApplianceProfileIdsRequest = ApplianceProfileIdsRequest;
+    exports.ApplianceProfileUpdateRequest = ApplianceProfileUpdateRequest;
+    exports.ApplianceProfilesService = ApplianceProfilesService;
     exports.ApplianceRegistration = ApplianceRegistration;
     exports.ApplianceServiceDeleteCommandRequest = ApplianceServiceDeleteCommandRequest;
     exports.ApplianceStatus = ApplianceStatus;
@@ -10226,6 +10389,7 @@
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
     exports.ChangePasswordRequest = ChangePasswordRequest;
     exports.ComponentConfiguration = ComponentConfiguration;
+    exports.ComponentVariables = ComponentVariables;
     exports.Configuration = Configuration;
     exports.ConfigurationIdRequest = ConfigurationIdRequest;
     exports.ConfigurationModelRequest = ConfigurationModelRequest;
@@ -10254,6 +10418,7 @@
     exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
     exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
     exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
+    exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
     exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
     exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
     exports.EntitiesResponseOfComponentConfiguration = EntitiesResponseOfComponentConfiguration;
@@ -10283,6 +10448,7 @@
     exports.EntityResponseOfApplianceConfiguration = EntityResponseOfApplianceConfiguration;
     exports.EntityResponseOfApplianceDiscovery = EntityResponseOfApplianceDiscovery;
     exports.EntityResponseOfApplianceKpiTimeSeries = EntityResponseOfApplianceKpiTimeSeries;
+    exports.EntityResponseOfApplianceProfile = EntityResponseOfApplianceProfile;
     exports.EntityResponseOfApplianceStatusTimeSeries = EntityResponseOfApplianceStatusTimeSeries;
     exports.EntityResponseOfAuditLog = EntityResponseOfAuditLog;
     exports.EntityResponseOfCalendar = EntityResponseOfCalendar;

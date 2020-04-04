@@ -16,6 +16,7 @@ export declare class Appliance extends BaseEntity {
     capabilities: ApplianceCapabilities;
     eventIntegrationId: string;
     metadataIntegrationId: string;
+    customProfile: string;
     id: string;
     _type: string;
     createdOn: number;
