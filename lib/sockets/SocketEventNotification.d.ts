@@ -1,13 +1,6 @@
-import { WebSocketMessageHeader } from '../messages/WebSocketMessageHeader';
-export declare class SocketEventNotification extends WebSocketMessageHeader {
-    code: number;
-    error: string;
-    accountId: string;
-    sensorId: string;
-    eventId: string;
+import { SocketHealthStatusNotificationPayload } from '../sockets/SocketHealthStatusNotificationPayload';
+export declare class SocketEventNotification {
     op: number;
-    ver: number;
-    id: number;
-    cid: number;
-    sid: string;
+    payload: SocketHealthStatusNotificationPayload;
+    constructor(op?: number, payload?: SocketHealthStatusNotificationPayload);
 }

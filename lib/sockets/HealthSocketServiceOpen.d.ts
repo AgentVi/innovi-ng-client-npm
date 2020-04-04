@@ -1,4 +1,4 @@
 export declare class HealthSocketServiceOpen {
-    accountId: string;
-    constructor(accountId?: string);
+    token: string;
+    constructor(token?: string);
 }

@@ -2968,6 +2968,14 @@
     }());
 
     /*
+    */
+    var EmptyResponse = /** @class */ (function () {
+        function EmptyResponse() {
+        }
+        return EmptyResponse;
+    }());
+
+    /*
        Entities response message returned for read operation on multiple entities
     */
     var EntitiesResponse = /** @class */ (function () {
@@ -10025,8 +10033,8 @@
        @WebSocketMessage
     */
     var EventsSocketServiceOpen = /** @class */ (function () {
-        function EventsSocketServiceOpen(accountId) {
-            this.accountId = accountId;
+        function EventsSocketServiceOpen(token) {
+            this.token = token;
         }
         return EventsSocketServiceOpen;
     }());
@@ -10034,21 +10042,9 @@
     /*
        @WebSocketMessage
     */
-    var FilteredEventsSocketServiceOpen = /** @class */ (function () {
-        function FilteredEventsSocketServiceOpen(accountId, sensorId, extSensorId) {
-            this.accountId = accountId;
-            this.sensorId = sensorId;
-            this.extSensorId = extSensorId;
-        }
-        return FilteredEventsSocketServiceOpen;
-    }());
-
-    /*
-       @WebSocketMessage
-    */
     var HealthSocketServiceOpen = /** @class */ (function () {
-        function HealthSocketServiceOpen(accountId) {
-            this.accountId = accountId;
+        function HealthSocketServiceOpen(token) {
+            this.token = token;
         }
         return HealthSocketServiceOpen;
     }());
@@ -10057,25 +10053,67 @@
        @WebSocketMessage
        This message is pushed to the client upon any new event in the registered account
     */
-    var SocketEventNotification = /** @class */ (function (_super) {
-        __extends(SocketEventNotification, _super);
-        function SocketEventNotification() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    var SocketEventNotification = /** @class */ (function () {
+        function SocketEventNotification(op, payload) {
+            this.op = op;
+            this.payload = payload;
         }
         return SocketEventNotification;
-    }(WebSocketMessageHeader));
+    }());
+
+    /*
+       @WebSocketMessage
+       Payload for event notification socket message
+    */
+    var SocketEventNotificationPayload = /** @class */ (function () {
+        function SocketEventNotificationPayload(code, error, event) {
+            this.code = code;
+            this.error = error;
+            this.event = event;
+        }
+        return SocketEventNotificationPayload;
+    }());
+
+    /*
+       @WebSocketMessage
+       This message is sent to the server to set filter criteria for the events
+    */
+    var SocketEventsFilter = /** @class */ (function () {
+        function SocketEventsFilter(op, payload) {
+            this.op = op;
+            this.payload = payload;
+        }
+        return SocketEventsFilter;
+    }());
+
+    /*
+       @WebSocketMessage
+       Payload for events filter socket message
+    */
+    var SocketEventsFilterPayload = /** @class */ (function () {
+        function SocketEventsFilterPayload(sensorIds, extSensorIds, ruleIds, extRuleIds, objectTypes, behaviorTypes) {
+            this.sensorIds = sensorIds;
+            this.extSensorIds = extSensorIds;
+            this.ruleIds = ruleIds;
+            this.extRuleIds = extRuleIds;
+            this.objectTypes = objectTypes;
+            this.behaviorTypes = behaviorTypes;
+        }
+        return SocketEventsFilterPayload;
+    }());
 
     /*
        @WebSocketMessage
        This message is pushed to the client upon any sensor health status change in the registered account
     */
-    var SocketHealthStatusNotification = /** @class */ (function (_super) {
-        __extends(SocketHealthStatusNotification, _super);
-        function SocketHealthStatusNotification() {
-            return _super !== null && _super.apply(this, arguments) || this;
+    var SocketHealthStatusNotificationPayload = /** @class */ (function () {
+        function SocketHealthStatusNotificationPayload(code, error, sensorStatus) {
+            this.code = code;
+            this.error = error;
+            this.sensorStatus = sensorStatus;
         }
-        return SocketHealthStatusNotification;
-    }(WebSocketMessageHeader));
+        return SocketHealthStatusNotificationPayload;
+    }());
 
     var CoreLibModule = /** @class */ (function () {
         function CoreLibModule() {
@@ -10205,6 +10243,7 @@
     exports.DistributionOfString = DistributionOfString;
     exports.DockerCredentials = DockerCredentials;
     exports.EmptyRequest = EmptyRequest;
+    exports.EmptyResponse = EmptyResponse;
     exports.EntitiesResponse = EntitiesResponse;
     exports.EntitiesResponseOfAccount = EntitiesResponseOfAccount;
     exports.EntitiesResponseOfAccountStatSummary = EntitiesResponseOfAccountStatSummary;
@@ -10309,7 +10348,6 @@
     exports.FeaturesServiceCreateRequest = FeaturesServiceCreateRequest;
     exports.FeaturesServiceFindRequest = FeaturesServiceFindRequest;
     exports.FeaturesServiceUpdateRequest = FeaturesServiceUpdateRequest;
-    exports.FilteredEventsSocketServiceOpen = FilteredEventsSocketServiceOpen;
     exports.Folder = Folder;
     exports.FolderIdRequest = FolderIdRequest;
     exports.FolderIdsRequest = FolderIdsRequest;
@@ -10474,7 +10512,10 @@
     exports.ServiceAccountRegistration = ServiceAccountRegistration;
     exports.Services = Services;
     exports.SocketEventNotification = SocketEventNotification;
-    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
+    exports.SocketEventNotificationPayload = SocketEventNotificationPayload;
+    exports.SocketEventsFilter = SocketEventsFilter;
+    exports.SocketEventsFilterPayload = SocketEventsFilterPayload;
+    exports.SocketHealthStatusNotificationPayload = SocketHealthStatusNotificationPayload;
     exports.StreamResponse = StreamResponse;
     exports.StringIntValue = StringIntValue;
     exports.StringKeyValue = StringKeyValue;

@@ -56,6 +56,7 @@ export * from './ConfigurationTargetRequest';
 export * from './ConfigurationTemplateIdRequest';
 export * from './ConfigurationVersionIdRequest';
 export * from './EmptyRequest';
+export * from './EmptyResponse';
 export * from './EntitiesResponse';
 export * from './EntitiesResponseOfAccount';
 export * from './EntitiesResponseOfAccountStatSummary';
