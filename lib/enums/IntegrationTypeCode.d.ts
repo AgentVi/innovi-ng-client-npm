@@ -6,5 +6,7 @@ export declare enum IntegrationTypeCode {
     EMAIL = 4,
     SMS = 5,
     IMMIX = 11,
-    SENTINEL = 12
+    SENTINEL = 12,
+    MILESTONE = 13,
+    GENETEC = 14
 }

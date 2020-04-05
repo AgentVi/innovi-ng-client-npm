@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
-import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Coordinate } from '../common/Coordinate';
+import { Account } from '../entities/Account';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only

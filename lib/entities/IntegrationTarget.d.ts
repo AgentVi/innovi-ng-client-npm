@@ -12,6 +12,7 @@ export declare class IntegrationTarget extends BaseEntity {
     url: string;
     operation: string;
     headers: StringKeyValue[];
+    enabled: boolean;
     id: string;
     _type: string;
     createdOn: number;

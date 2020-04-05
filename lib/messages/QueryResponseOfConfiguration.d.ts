@@ -1,5 +1,5 @@
-import { Configuration } from '../entities/Configuration';
 import { QueryResponse } from '../messages/QueryResponse';
+import { Configuration } from '../entities/Configuration';
 export declare class QueryResponseOfConfiguration extends QueryResponse {
     list: Configuration[];
     code: number;
