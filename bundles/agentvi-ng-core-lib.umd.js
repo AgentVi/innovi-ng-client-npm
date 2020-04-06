@@ -809,13 +809,14 @@
        Rule specification describe rule parameters
     */
     var RuleSpec = /** @class */ (function () {
-        function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, peopleInGroup, objectHierarchy) {
+        function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, peopleInGroup, clusterDistance, objectHierarchy) {
             this.behaviorType = behaviorType;
             this.ruleTypeName = ruleTypeName;
             this.objectTypes = objectTypes;
             this.isLineDrawing = isLineDrawing;
             this.dwellTime = dwellTime;
             this.peopleInGroup = peopleInGroup;
+            this.clusterDistance = clusterDistance;
             this.objectHierarchy = objectHierarchy;
         }
         return RuleSpec;
@@ -1903,6 +1904,8 @@
         FeatureCode[FeatureCode["RULE_ANOMALY"] = 2112] = "RULE_ANOMALY";
         // Unattended object detection rule [2176] 
         FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
+        // Asset protection (missing object detection) rule [2304] 
+        FeatureCode[FeatureCode["RULE_ASSET_PROTECTION"] = 2304] = "RULE_ASSET_PROTECTION";
         // Monitor (real time events) module [4096] 
         FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
         // Google maps support module [4097] 
