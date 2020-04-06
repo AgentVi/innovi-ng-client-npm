@@ -25,6 +25,7 @@ export * from './ApplianceProfileCreateRequest';
 export * from './ApplianceProfileFindRequest';
 export * from './ApplianceProfileIdRequest';
 export * from './ApplianceProfileIdsRequest';
+export * from './ApplianceProfileUpdateBulkRequest';
 export * from './ApplianceProfileUpdateRequest';
 export * from './ApplianceServiceDeleteCommandRequest';
 export * from './AppliancesCountRequest';

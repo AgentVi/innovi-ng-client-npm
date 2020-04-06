@@ -26,6 +26,11 @@ export declare class ApplianceProfilesService {
      */
     update(id?: string, body?: ApplianceProfile): import("rxjs").Observable<any>;
     /**
+     * Update Bulk of custom appliance profiles
+     * @Return: ActionResponse
+     */
+    updateBulk(body?: ApplianceProfile[]): import("rxjs").Observable<any>;
+    /**
      * Delete custom appliance profile from the system
      * @Return: ActionResponse
      */

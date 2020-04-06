@@ -2661,6 +2661,15 @@
 
     /*
     */
+    var ApplianceProfileUpdateBulkRequest = /** @class */ (function () {
+        function ApplianceProfileUpdateBulkRequest(body) {
+            this.body = body;
+        }
+        return ApplianceProfileUpdateBulkRequest;
+    }());
+
+    /*
+    */
     var ApplianceProfileUpdateRequest = /** @class */ (function () {
         function ApplianceProfileUpdateRequest(id, body) {
             this.id = id;
@@ -6075,6 +6084,13 @@
          */
         ApplianceProfilesService.prototype.update = function (id, body) {
             return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Update Bulk of custom appliance profiles
+         * @Return: ActionResponse
+         */
+        ApplianceProfilesService.prototype.updateBulk = function (body) {
+            return this.rest.put(this.baseUrl + "/bulk", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Delete custom appliance profile from the system
@@ -10354,6 +10370,7 @@
     exports.ApplianceProfileFindRequest = ApplianceProfileFindRequest;
     exports.ApplianceProfileIdRequest = ApplianceProfileIdRequest;
     exports.ApplianceProfileIdsRequest = ApplianceProfileIdsRequest;
+    exports.ApplianceProfileUpdateBulkRequest = ApplianceProfileUpdateBulkRequest;
     exports.ApplianceProfileUpdateRequest = ApplianceProfileUpdateRequest;
     exports.ApplianceProfilesService = ApplianceProfilesService;
     exports.ApplianceRegistration = ApplianceRegistration;
