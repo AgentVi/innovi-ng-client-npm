@@ -1674,9 +1674,9 @@ var FeatureCode;
     // Undefined [0] 
     FeatureCode[FeatureCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Record sensor metadata feature [10] 
-    FeatureCode[FeatureCode["FEAT_SENSOR_METADATA"] = 10] = "FEAT_SENSOR_METADATA";
+    FeatureCode[FeatureCode["FEATURE_SENSOR_METADATA"] = 10] = "FEATURE_SENSOR_METADATA";
     // Record sensor frames feature [11] 
-    FeatureCode[FeatureCode["FEAT_SENSOR_RECORDING"] = 11] = "FEAT_SENSOR_RECORDING";
+    FeatureCode[FeatureCode["FEATURE_SENSOR_RECORDING"] = 11] = "FEATURE_SENSOR_RECORDING";
     // Account administrator module [2048] 
     FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
     // Crossing a line rule [2049] 
