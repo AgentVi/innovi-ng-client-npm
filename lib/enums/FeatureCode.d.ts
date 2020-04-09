@@ -1,5 +1,7 @@
 export declare enum FeatureCode {
     UNDEFINED = 0,
+    FEAT_SENSOR_METADATA = 10,
+    FEAT_SENSOR_RECORDING = 11,
     MODULE_ADMIN = 2048,
     RULE_CROSSING = 2049,
     RULE_MOVING = 2051,
