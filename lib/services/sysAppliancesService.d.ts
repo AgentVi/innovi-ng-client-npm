@@ -119,6 +119,6 @@ export declare class SysAppliancesService {
      * @Return:  ActionResponse
      */
     getLogs(id?: string, componentId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

@@ -61,6 +61,6 @@ export declare class CalendarsService {
      * @Return: ActionResponse
      */
     importUrl(folderId?: string, body?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<CalendarsService>;
+    static ɵfac: i0.ɵɵFactoryDef<CalendarsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<CalendarsService>;
 }

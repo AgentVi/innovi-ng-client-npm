@@ -5812,11 +5812,11 @@
             }
             return Promise.reject(error.message || error);
         };
-        /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(core["ɵɵinject"](http.HttpClient)); };
-        /** @nocollapse */ RestUtil.ɵprov = core["ɵɵdefineInjectable"]({ token: RestUtil, factory: RestUtil.ɵfac });
+        /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(core.ɵɵinject(http.HttpClient)); };
+        /** @nocollapse */ RestUtil.ɵprov = core.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
         return RestUtil;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](RestUtil, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(RestUtil, [{
             type: core.Injectable
         }], function () { return [{ type: http.HttpClient }]; }, null); })();
 
@@ -5929,11 +5929,11 @@
         AccountsService.prototype.getAccountHealthSummary = function () {
             return this.rest.get(this.baseUrl + "/health");
         };
-        /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ AccountsService.ɵprov = core["ɵɵdefineInjectable"]({ token: AccountsService, factory: AccountsService.ɵfac });
+        /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ AccountsService.ɵprov = core.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
         return AccountsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](AccountsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AccountsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6050,11 +6050,11 @@
         AnomalyService.prototype.createDummyEvent = function (body) {
             return this.rest.post(this.baseUrl + "/event", typeof body === 'object' ? JSON.stringify(body) : body);
         };
-        /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ AnomalyService.ɵprov = core["ɵɵdefineInjectable"]({ token: AnomalyService, factory: AnomalyService.ɵfac });
+        /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ AnomalyService.ɵprov = core.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
         return AnomalyService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](AnomalyService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AnomalyService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6124,11 +6124,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
-        /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ ApplianceProfilesService.ɵprov = core["ɵɵdefineInjectable"]({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
+        /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ ApplianceProfilesService.ɵprov = core.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
         return ApplianceProfilesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](ApplianceProfilesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(ApplianceProfilesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6449,11 +6449,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
         };
-        /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ AppliancesService.ɵprov = core["ɵɵdefineInjectable"]({ token: AppliancesService, factory: AppliancesService.ɵfac });
+        /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ AppliancesService.ɵprov = core.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
         return AppliancesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](AppliancesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AppliancesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6543,11 +6543,11 @@
         AuditLogService.prototype.get = function (id) {
             return this.rest.get(this.baseUrl + "/" + id);
         };
-        /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ AuditLogService.ɵprov = core["ɵɵdefineInjectable"]({ token: AuditLogService, factory: AuditLogService.ɵfac });
+        /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ AuditLogService.ɵprov = core.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
         return AuditLogService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](AuditLogService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AuditLogService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6666,11 +6666,11 @@
             }
             return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/importUrl", typeof body === 'object' ? JSON.stringify(body) : body], params));
         };
-        /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ CalendarsService.ɵprov = core["ɵɵdefineInjectable"]({ token: CalendarsService, factory: CalendarsService.ɵfac });
+        /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ CalendarsService.ɵprov = core.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
         return CalendarsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](CalendarsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(CalendarsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -6937,11 +6937,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/overtime"], params));
         };
-        /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ EventsService.ɵprov = core["ɵɵdefineInjectable"]({ token: EventsService, factory: EventsService.ɵfac });
+        /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ EventsService.ɵprov = core.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
         return EventsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](EventsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(EventsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7147,11 +7147,11 @@
         FoldersService.prototype.getDefaultLocation = function (id) {
             return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
         };
-        /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ FoldersService.ɵprov = core["ɵɵdefineInjectable"]({ token: FoldersService, factory: FoldersService.ɵfac });
+        /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ FoldersService.ɵprov = core.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
         return FoldersService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](FoldersService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(FoldersService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7193,11 +7193,11 @@
         GeoService.prototype.transform = function (body) {
             return this.rest.post(this.baseUrl + "/transform", typeof body === 'object' ? JSON.stringify(body) : body);
         };
-        /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ GeoService.ɵprov = core["ɵɵdefineInjectable"]({ token: GeoService, factory: GeoService.ɵfac });
+        /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ GeoService.ɵprov = core.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
         return GeoService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](GeoService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(GeoService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7225,11 +7225,11 @@
         HealthCheckService.prototype.health = function () {
             return this.rest.get("" + this.baseUrl);
         };
-        /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ HealthCheckService.ɵprov = core["ɵɵdefineInjectable"]({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
+        /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ HealthCheckService.ɵprov = core.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
         return HealthCheckService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](HealthCheckService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(HealthCheckService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7366,11 +7366,11 @@
         IntegrationsService.prototype.getFolderActions = function (folderId) {
             return this.rest.get(this.baseUrl + "/actions/folder/" + folderId);
         };
-        /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ IntegrationsService.ɵprov = core["ɵɵdefineInjectable"]({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
+        /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ IntegrationsService.ɵprov = core.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
         return IntegrationsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](IntegrationsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(IntegrationsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7445,11 +7445,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
-        /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ ReportsService.ɵprov = core["ɵɵdefineInjectable"]({ token: ReportsService, factory: ReportsService.ɵfac });
+        /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ ReportsService.ɵprov = core.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
         return ReportsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](ReportsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(ReportsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7639,11 +7639,11 @@
         RulesService.prototype.getSpecs = function () {
             return this.rest.get(this.baseUrl + "/spec");
         };
-        /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ RulesService.ɵprov = core["ɵɵdefineInjectable"]({ token: RulesService, factory: RulesService.ɵfac });
+        /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ RulesService.ɵprov = core.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
         return RulesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](RulesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(RulesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7718,11 +7718,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
-        /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ ScheduledReportsService.ɵprov = core["ɵɵdefineInjectable"]({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
+        /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ ScheduledReportsService.ɵprov = core.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
         return ScheduledReportsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](ScheduledReportsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(ScheduledReportsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -7817,11 +7817,11 @@
         SchedulesService.prototype.getFolderSchedules = function (folderId) {
             return this.rest.get(this.baseUrl + "/folder/" + folderId);
         };
-        /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SchedulesService.ɵprov = core["ɵɵdefineInjectable"]({ token: SchedulesService, factory: SchedulesService.ɵfac });
+        /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SchedulesService.ɵprov = core.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
         return SchedulesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SchedulesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SchedulesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -8066,11 +8066,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/overtime"], params));
         };
-        /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SearchService.ɵprov = core["ɵɵdefineInjectable"]({ token: SearchService, factory: SearchService.ɵfac });
+        /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SearchService.ɵprov = core.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
         return SearchService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SearchService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SearchService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -8405,273 +8405,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
         };
-        /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SensorsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SensorsService, factory: SensorsService.ɵfac });
+        /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SensorsService.ɵprov = core.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
         return SensorsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SensorsService, [{
-            type: core.Injectable
-        }], function () { return [{ type: CoreConfig, decorators: [{
-                    type: core.Inject,
-                    args: ['config']
-                }] }, { type: RestUtil }]; }, null); })();
-
-    /**
-     * Services for user registration and login
-     */
-    var UserService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UserService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/user';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: EntityResponse<LoginData>
-         */
-        UserService.prototype.login = function (body) {
-            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<LoginData>
-         */
-        UserService.prototype.refreshToken = function () {
-            return this.rest.post(this.baseUrl + "/refresh-token", null);
-        };
-        /**
-         * Verify user by temporary login key
-         * @Return: EntityResponse<User>
-         */
-        UserService.prototype.verifyLoginKey = function (key) {
-            var _a;
-            var params = new Array();
-            if (key != null) {
-                params.push("key=" + key);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-        };
-        /**
-         * Send verification code by email
-         * @Return: ActionResponse
-         */
-        UserService.prototype.sendVerificationCode = function (body) {
-            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Validate verification code and reset password
-         * @Return: ActionResponse
-         */
-        UserService.prototype.resetPassword = function (code) {
-            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-        };
-        /**
-         * Change password
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changePassword = function (body) {
-            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Check if password was used before (according to password policy)
-         * @Return: ActionResponse
-         */
-        UserService.prototype.checkUnusedPassword = function (body) {
-            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user name
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changeName = function (body) {
-            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user mobile
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changeMobile = function (body) {
-            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<UserAccountInfo>
-         */
-        UserService.prototype.switchAccount = function (body) {
-            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ UserService.ɵprov = core["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac });
-        return UserService;
-    }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](UserService, [{
-            type: core.Injectable
-        }], function () { return [{ type: CoreConfig, decorators: [{
-                    type: core.Inject,
-                    args: ['config']
-                }] }, { type: RestUtil }]; }, null); })();
-
-    /**
-     * List of all user related actions for account administrator only
-     */
-    var UsersService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UsersService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/users';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Create service account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.registerServiceAccount = function (body) {
-            return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Send invitation to a new user for the current account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.invite = function (body) {
-            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Resend invitation to an existing user for the current account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.reInvite = function (id) {
-            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-        };
-        /**
-         * Update user
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.update = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user name
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeName = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user mobile
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeMobile = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user type
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeType = function (id, type) {
-            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-        };
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.delete = function (id) {
-            return this.rest.delete(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by id
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.get = function (id) {
-            return this.rest.get(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by email
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.getByEmail = function (email) {
-            return this.rest.get(this.baseUrl + "/byEmail/" + email);
-        };
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * @Return: QueryResponse<User>
-         */
-        UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
-            var _a;
-            var params = new Array();
-            if (accountId != null) {
-                params.push("accountId=" + accountId);
-            }
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (page != null) {
-                params.push("page=" + page);
-            }
-            if (pageSize != null) {
-                params.push("pageSize=" + pageSize);
-            }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-        };
-        /**
-         * Export list of users and filter
-         * @Return: StreamContent
-         */
-        UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields) {
-            var _a;
-            var params = new Array();
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (format != null) {
-                params.push("format=" + format);
-            }
-            if (fields != null) {
-                params.push("fields=" + fields);
-            }
-            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
-        };
-        /**
-         * Get access token for user
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.getUserToken = function (id, exp) {
-            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
-        };
-        /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ UsersService.ɵprov = core["ɵɵdefineInjectable"]({ token: UsersService, factory: UsersService.ɵfac });
-        return UsersService;
-    }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](UsersService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SensorsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -8926,11 +8664,11 @@
         SysAccountsService.prototype.getDefaultLocation = function (id) {
             return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
         };
-        /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysAccountsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
+        /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysAccountsService.ɵprov = core.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
         return SysAccountsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysAccountsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysAccountsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9187,11 +8925,11 @@
             }
             return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
         };
-        /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysAppliancesService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
+        /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysAppliancesService.ɵprov = core.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
         return SysAppliancesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysAppliancesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysAppliancesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9359,11 +9097,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/templates"], params));
         };
-        /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysConfigurationsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
+        /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysConfigurationsService.ɵprov = core.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
         return SysConfigurationsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysConfigurationsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysConfigurationsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9468,11 +9206,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + accountId + "/overtime"], params));
         };
-        /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysEventsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysEventsService, factory: SysEventsService.ɵfac });
+        /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysEventsService.ɵprov = core.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
         return SysEventsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysEventsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysEventsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9538,11 +9276,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
-        /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysFeaturesGroupsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
+        /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysFeaturesGroupsService.ɵprov = core.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
         return SysFeaturesGroupsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysFeaturesGroupsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysFeaturesGroupsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9611,11 +9349,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
         };
-        /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysFeaturesService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
+        /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysFeaturesService.ɵprov = core.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
         return SysFeaturesService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysFeaturesService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysFeaturesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9741,11 +9479,11 @@
         SysKeysService.prototype.getResources = function () {
             return this.rest.get(this.baseUrl + "/api-keys/resources");
         };
-        /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysKeysService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysKeysService, factory: SysKeysService.ɵfac });
+        /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysKeysService.ɵprov = core.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
         return SysKeysService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysKeysService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysKeysService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -9924,11 +9662,11 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
         };
-        /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysSensorsService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
+        /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysSensorsService.ɵprov = core.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
         return SysSensorsService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysSensorsService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysSensorsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -10020,11 +9758,11 @@
         SysSystemService.prototype.restoreSystem = function () {
             return this.rest.post(this.baseUrl + "/restore", null);
         };
-        /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysSystemService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysSystemService, factory: SysSystemService.ɵfac });
+        /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysSystemService.ɵprov = core.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
         return SysSystemService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysSystemService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysSystemService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -10203,11 +9941,273 @@
         SysUsersService.prototype.getUsersCountByStatus = function () {
             return this.rest.get(this.baseUrl + "/count/by-status");
         };
-        /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(core["ɵɵinject"]('config'), core["ɵɵinject"](RestUtil)); };
-        /** @nocollapse */ SysUsersService.ɵprov = core["ɵɵdefineInjectable"]({ token: SysUsersService, factory: SysUsersService.ɵfac });
+        /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysUsersService.ɵprov = core.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
         return SysUsersService;
     }());
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](SysUsersService, [{
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysUsersService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * Services for user registration and login
+     */
+    var UserService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UserService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/user';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: EntityResponse<LoginData>
+         */
+        UserService.prototype.login = function (body) {
+            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<LoginData>
+         */
+        UserService.prototype.refreshToken = function () {
+            return this.rest.post(this.baseUrl + "/refresh-token", null);
+        };
+        /**
+         * Verify user by temporary login key
+         * @Return: EntityResponse<User>
+         */
+        UserService.prototype.verifyLoginKey = function (key) {
+            var _a;
+            var params = new Array();
+            if (key != null) {
+                params.push("key=" + key);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+        };
+        /**
+         * Send verification code by email
+         * @Return: ActionResponse
+         */
+        UserService.prototype.sendVerificationCode = function (body) {
+            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Validate verification code and reset password
+         * @Return: ActionResponse
+         */
+        UserService.prototype.resetPassword = function (code) {
+            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+        };
+        /**
+         * Change password
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changePassword = function (body) {
+            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Check if password was used before (according to password policy)
+         * @Return: ActionResponse
+         */
+        UserService.prototype.checkUnusedPassword = function (body) {
+            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user name
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changeName = function (body) {
+            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user mobile
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changeMobile = function (body) {
+            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<UserAccountInfo>
+         */
+        UserService.prototype.switchAccount = function (body) {
+            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ UserService.ɵprov = core.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+        return UserService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UserService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * List of all user related actions for account administrator only
+     */
+    var UsersService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UsersService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/users';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Create service account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.registerServiceAccount = function (body) {
+            return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Send invitation to a new user for the current account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.invite = function (body) {
+            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Resend invitation to an existing user for the current account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.reInvite = function (id) {
+            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+        };
+        /**
+         * Update user
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.update = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user name
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeName = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user mobile
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeMobile = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user type
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeType = function (id, type) {
+            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+        };
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.delete = function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by id
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by email
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.getByEmail = function (email) {
+            return this.rest.get(this.baseUrl + "/byEmail/" + email);
+        };
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * @Return: QueryResponse<User>
+         */
+        UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of users and filter
+         * @Return: StreamContent
+         */
+        UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields) {
+            var _a;
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
+        };
+        /**
+         * Get access token for user
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.getUserToken = function (id, exp) {
+            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+        };
+        /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ UsersService.ɵprov = core.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+        return UsersService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UsersService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -10215,6 +10215,18 @@
                 }] }, { type: RestUtil }]; }, null); })();
 
     var Services = [
+        AnomalyService,
+        HealthCheckService,
+        SysAccountsService,
+        SysAppliancesService,
+        SysConfigurationsService,
+        SysEventsService,
+        SysFeaturesGroupsService,
+        SysFeaturesService,
+        SysKeysService,
+        SysSensorsService,
+        SysSystemService,
+        SysUsersService,
         AccountsService,
         ApplianceProfilesService,
         AppliancesService,
@@ -10232,18 +10244,6 @@
         SensorsService,
         UserService,
         UsersService,
-        AnomalyService,
-        HealthCheckService,
-        SysAccountsService,
-        SysAppliancesService,
-        SysConfigurationsService,
-        SysEventsService,
-        SysFeaturesGroupsService,
-        SysFeaturesService,
-        SysKeysService,
-        SysSensorsService,
-        SysSystemService,
-        SysUsersService,
     ];
 
     /*
@@ -10345,12 +10345,12 @@
                 ], Services)
             };
         };
-        /** @nocollapse */ CoreLibModule.ɵmod = core["ɵɵdefineNgModule"]({ type: CoreLibModule });
-        /** @nocollapse */ CoreLibModule.ɵinj = core["ɵɵdefineInjector"]({ factory: function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); }, imports: [[common.CommonModule, http.HttpClientModule]] });
+        /** @nocollapse */ CoreLibModule.ɵmod = core.ɵɵdefineNgModule({ type: CoreLibModule });
+        /** @nocollapse */ CoreLibModule.ɵinj = core.ɵɵdefineInjector({ factory: function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); }, imports: [[common.CommonModule, http.HttpClientModule]] });
         return CoreLibModule;
     }());
-    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && core["ɵɵsetNgModuleScope"](CoreLibModule, { imports: [common.CommonModule, http.HttpClientModule] }); })();
-    /*@__PURE__*/ (function () { core["ɵsetClassMetadata"](CoreLibModule, [{
+    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && core.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, http.HttpClientModule] }); })();
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(CoreLibModule, [{
             type: core.NgModule,
             args: [{
                     imports: [common.CommonModule, http.HttpClientModule]

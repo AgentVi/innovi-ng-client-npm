@@ -64,6 +64,6 @@ export declare class AnomalyService {
      * @return EntityResponse<Event>
      */
     createDummyEvent(body?: Event): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AnomalyService>;
+    static ɵfac: i0.ɵɵFactoryDef<AnomalyService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AnomalyService>;
 }

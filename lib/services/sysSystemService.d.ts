@@ -57,6 +57,6 @@ export declare class SysSystemService {
      * @Return: ActionResponse
      */
     restoreSystem(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysSystemService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysSystemService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysSystemService>;
 }

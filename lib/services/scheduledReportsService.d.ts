@@ -45,6 +45,6 @@ export declare class ScheduledReportsService {
      * @Return: QueryResponse<ScheduledReport>
      */
     find(search?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<ScheduledReportsService>;
+    static ɵfac: i0.ɵɵFactoryDef<ScheduledReportsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<ScheduledReportsService>;
 }

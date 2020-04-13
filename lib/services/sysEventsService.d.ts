@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for event queries for system administrator only
@@ -33,6 +33,6 @@ export declare class SysEventsService {
      * @Return: EntityResponse<EventCountTimeSeries>
      */
     getEventsCountOvertime(accountId?: string, folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, format?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysEventsService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysEventsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysEventsService>;
 }

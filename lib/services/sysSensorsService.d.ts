@@ -57,6 +57,6 @@ export declare class SysSensorsService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getSensorsCountByStatus(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysSensorsService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysSensorsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysSensorsService>;
 }
