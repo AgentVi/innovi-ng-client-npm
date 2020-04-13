@@ -81,9 +81,14 @@ export declare class SearchService {
     getEventImage(id?: string, eventId?: string): import("rxjs").Subscription;
     /**
      * Find list of search events by filter
-     * @Return: EntitiesResponse<SearchDefinition>
+     * @Return: QueryResponse<SearchDefinition>
      */
     findEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Get total search events count by filter
+     * @Return: QueryResponse<SearchDefinition> entities list is null
+     */
+    totalEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of search events by filter
      * @Return: StreamContent

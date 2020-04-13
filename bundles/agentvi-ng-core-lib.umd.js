@@ -7950,7 +7950,7 @@
         };
         /**
          * Find list of search events by filter
-         * @Return: EntitiesResponse<SearchDefinition>
+         * @Return: QueryResponse<SearchDefinition>
          */
         SearchService.prototype.findEvents = function (id, sensorId, objectType, from, to, sort, page, pageSize) {
             var _a;
@@ -7977,6 +7977,36 @@
                 params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/find"], params));
+        };
+        /**
+         * Get total search events count by filter
+         * @Return: QueryResponse<SearchDefinition> entities list is null
+         */
+        SearchService.prototype.totalEvents = function (id, sensorId, objectType, from, to, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (objectType != null) {
+                params.push("objectType=" + objectType);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/total"], params));
         };
         /**
          * Export list of search events by filter

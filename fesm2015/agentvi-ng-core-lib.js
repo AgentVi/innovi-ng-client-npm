@@ -6691,7 +6691,7 @@ class SearchService {
     }
     /**
      * Find list of search events by filter
-     * @Return: EntitiesResponse<SearchDefinition>
+     * @Return: QueryResponse<SearchDefinition>
      */
     findEvents(id, sensorId, objectType, from, to, sort, page, pageSize) {
         const params = new Array();
@@ -6717,6 +6717,35 @@ class SearchService {
             params.push(`pageSize=${pageSize}`);
         }
         return this.rest.get(`${this.baseUrl}/sessions/${id}/find`, ...params);
+    }
+    /**
+     * Get total search events count by filter
+     * @Return: QueryResponse<SearchDefinition> entities list is null
+     */
+    totalEvents(id, sensorId, objectType, from, to, sort, page, pageSize) {
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        if (objectType != null) {
+            params.push(`objectType=${objectType}`);
+        }
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        return this.rest.get(`${this.baseUrl}/sessions/${id}/total`, ...params);
     }
     /**
      * Export list of search events by filter
