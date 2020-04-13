@@ -66,6 +66,6 @@ export declare class UserService {
      * @Return: EntityResponse<UserAccountInfo>
      */
     switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<UserService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<UserService>;
     static ɵprov: i0.ɵɵInjectableDef<UserService>;
 }

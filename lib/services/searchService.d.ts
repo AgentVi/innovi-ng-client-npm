@@ -99,6 +99,6 @@ export declare class SearchService {
      * @Return: EntityResponse<EventCountTimeSeries>
      */
     getEventsCountOvertime(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<SearchService>;
     static ɵprov: i0.ɵɵInjectableDef<SearchService>;
 }

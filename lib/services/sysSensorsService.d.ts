@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions for system administrator only
@@ -57,6 +57,6 @@ export declare class SysSensorsService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getSensorsCountByStatus(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysSensorsService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<SysSensorsService>;
     static ɵprov: i0.ɵɵInjectableDef<SysSensorsService>;
 }

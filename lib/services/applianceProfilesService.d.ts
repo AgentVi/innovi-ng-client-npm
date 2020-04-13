@@ -45,6 +45,6 @@ export declare class ApplianceProfilesService {
      * @Return: EntitiesResponse<ApplianceProfile>
      */
     find(search?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<ApplianceProfilesService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<ApplianceProfilesService>;
     static ɵprov: i0.ɵɵInjectableDef<ApplianceProfilesService>;
 }

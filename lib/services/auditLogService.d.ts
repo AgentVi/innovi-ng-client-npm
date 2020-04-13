@@ -29,6 +29,6 @@ export declare class AuditLogService {
      * @Return: EntityResponse<Appliance>
      */
     get(id?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AuditLogService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<AuditLogService>;
     static ɵprov: i0.ɵɵInjectableDef<AuditLogService>;
 }

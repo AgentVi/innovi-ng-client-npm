@@ -17,6 +17,6 @@ export declare class HealthCheckService {
      * @Return: ActionResponse - with version info
      */
     health(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<HealthCheckService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<HealthCheckService>;
     static ɵprov: i0.ɵɵInjectableDef<HealthCheckService>;
 }

@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
@@ -119,6 +119,6 @@ export declare class SysAppliancesService {
      * @Return:  ActionResponse
      */
     getLogs(id?: string, componentId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

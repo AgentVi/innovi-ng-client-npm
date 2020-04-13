@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
-import { Account } from '../entities/Account';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only
@@ -125,6 +125,6 @@ export declare class SysAccountsService {
      * @Return: EntityResponse<Coordinate> The account location
      */
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAccountsService, never>;
+    static ɵfac: i0.ɵɵFactoryDef<SysAccountsService>;
     static ɵprov: i0.ɵɵInjectableDef<SysAccountsService>;
 }
