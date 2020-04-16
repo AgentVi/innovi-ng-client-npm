@@ -4638,16 +4638,6 @@
 
     /*
     */
-    var RulesServiceCropImageRequest = /** @class */ (function () {
-        function RulesServiceCropImageRequest(id, body) {
-            this.id = id;
-            this.body = body;
-        }
-        return RulesServiceCropImageRequest;
-    }());
-
-    /*
-    */
     var RulesServiceExportRequest = /** @class */ (function () {
         function RulesServiceExportRequest(folderId, sensorId, search, behaviorType, severity, sort, format, fields) {
             this.folderId = folderId;
@@ -5049,6 +5039,16 @@
             this.body = body;
         }
         return SensorsServiceCreateRequest;
+    }());
+
+    /*
+    */
+    var SensorsServiceCropImageRequest = /** @class */ (function () {
+        function SensorsServiceCropImageRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return SensorsServiceCropImageRequest;
     }());
 
     /*
@@ -7643,13 +7643,6 @@
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/anomaly"], params));
         };
         /**
-         * Return a cropped Jpeg image out of sensor reference image for Asset Protection rule
-         * @Return: ActionResponse - the encoded jpeg as base64 is in the data key
-         */
-        RulesService.prototype.cropImage = function (id, body) {
-            return this.rest.post(this.baseUrl + "/" + id + "/crop", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
          * Get rules specifications available by account features
          * @Return: EntitiesResponse<RuleSpec>
          */
@@ -8313,6 +8306,13 @@
          */
         SensorsService.prototype.setRefImage = function (id, body) {
             return this.rest.put(this.baseUrl + "/" + id + "/ref-image", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Return a cropped Jpeg image out of sensor reference image for Asset Protection rule
+         * @Return: ActionResponse - the encoded jpeg as base64 is in the data key
+         */
+        SensorsService.prototype.cropImage = function (id, body) {
+            return this.rest.post(this.baseUrl + "/" + id + "/crop", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Get default geo location
@@ -10686,7 +10686,6 @@
     exports.RuleSpec = RuleSpec;
     exports.RulesService = RulesService;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
-    exports.RulesServiceCropImageRequest = RulesServiceCropImageRequest;
     exports.RulesServiceExportRequest = RulesServiceExportRequest;
     exports.RulesServiceFindAnomalyRequest = RulesServiceFindAnomalyRequest;
     exports.RulesServiceFindRequest = RulesServiceFindRequest;
@@ -10750,6 +10749,7 @@
     exports.SensorsServiceChangeNameRequest = SensorsServiceChangeNameRequest;
     exports.SensorsServiceChangeStatusRequest = SensorsServiceChangeStatusRequest;
     exports.SensorsServiceCreateRequest = SensorsServiceCreateRequest;
+    exports.SensorsServiceCropImageRequest = SensorsServiceCropImageRequest;
     exports.SensorsServiceExportRequest = SensorsServiceExportRequest;
     exports.SensorsServiceFindRequest = SensorsServiceFindRequest;
     exports.SensorsServiceSetRefImageRequest = SensorsServiceSetRefImageRequest;
