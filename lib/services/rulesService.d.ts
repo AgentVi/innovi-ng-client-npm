@@ -1,8 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { RulePolygon } from '../common/RulePolygon';
 import * as i0 from "@angular/core";
 /**
  * Services for rules actions
@@ -67,6 +68,11 @@ export declare class RulesService {
      * @Return: QueryResponse<Rule>
      */
     findAnomalyRules(folderId?: string, sensorId?: string, search?: string, severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Return a cropped Jpeg image out of sensor reference image for Asset Protection rule
+     * @Return: ActionResponse - the encoded jpeg as base64 is in the data key
+     */
+    cropImage(id?: string, body?: RulePolygon): import("rxjs").Observable<any>;
     /**
      * Get rules specifications available by account features
      * @Return: EntitiesResponse<RuleSpec>

@@ -217,6 +217,7 @@ export * from './ReportsServiceUpdateRequest';
 export * from './RuleIdRequest';
 export * from './RuleIdsRequest';
 export * from './RulesServiceCreateRequest';
+export * from './RulesServiceCropImageRequest';
 export * from './RulesServiceExportRequest';
 export * from './RulesServiceFindAnomalyRequest';
 export * from './RulesServiceFindRequest';
