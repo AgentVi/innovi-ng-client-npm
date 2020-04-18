@@ -72,6 +72,6 @@ export declare class RulesService {
      * @Return: EntitiesResponse<RuleSpec>
      */
     getSpecs(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<RulesService>;
+    static ɵfac: i0.ɵɵFactoryDef<RulesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<RulesService>;
 }

@@ -40,6 +40,6 @@ export declare class SysFeaturesGroupsService {
      * @Return: QueryResponse<FeaturesGroup>
      */
     find(search?: string, sort?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysFeaturesGroupsService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysFeaturesGroupsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysFeaturesGroupsService>;
 }

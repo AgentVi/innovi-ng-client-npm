@@ -51,6 +51,6 @@ export declare class SchedulesService {
      * @Return: EntitiesResponse<Schedule>
      */
     getFolderSchedules(folderId?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SchedulesService>;
+    static ɵfac: i0.ɵɵFactoryDef<SchedulesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SchedulesService>;
 }

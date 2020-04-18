@@ -45,6 +45,6 @@ export declare class ReportsService {
      * @Return: QueryResponse<ReportDefinition>
      */
     find(search?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<ReportsService>;
+    static ɵfac: i0.ɵɵFactoryDef<ReportsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<ReportsService>;
 }

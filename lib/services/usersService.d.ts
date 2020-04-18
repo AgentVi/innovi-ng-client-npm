@@ -84,6 +84,6 @@ export declare class UsersService {
      * @Return: ActionResponse
      */
     getUserToken(id?: string, exp?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<UsersService>;
+    static ɵfac: i0.ɵɵFactoryDef<UsersService, never>;
     static ɵprov: i0.ɵɵInjectableDef<UsersService>;
 }

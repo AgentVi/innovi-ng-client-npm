@@ -50,6 +50,6 @@ export declare class AccountsService {
      * @Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
      */
     getAccountHealthSummary(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AccountsService>;
+    static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
 }

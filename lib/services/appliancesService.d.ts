@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { Appliance } from '../entities/Appliance';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import * as i0 from "@angular/core";
@@ -156,6 +156,6 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AppliancesService>;
+    static ɵfac: i0.ɵɵFactoryDef<AppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AppliancesService>;
 }

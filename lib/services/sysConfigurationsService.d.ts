@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Configuration } from '../entities/Configuration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
 import { ConfigurationTemplate } from '../entities/ConfigurationTemplate';
-import { Configuration } from '../entities/Configuration';
 import * as i0 from "@angular/core";
 /**
  * List of configurations related actions for system administrator only
@@ -104,6 +104,6 @@ export declare class SysConfigurationsService {
      * @Return: QueryResponse<ConfigurationTemplate>
      */
     findTemplates(page?: number, pageSize?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysConfigurationsService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysConfigurationsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysConfigurationsService>;
 }

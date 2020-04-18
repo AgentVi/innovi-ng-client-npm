@@ -100,6 +100,6 @@ export declare class SysUsersService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getUsersCountByStatus(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysUsersService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysUsersService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysUsersService>;
 }
