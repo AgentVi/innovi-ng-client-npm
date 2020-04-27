@@ -1455,10 +1455,11 @@
        Search behavior description
     */
     var SearchBehavior = /** @class */ (function () {
-        function SearchBehavior(behaviorType, dwellTime, minObjectsInGroup, shapes) {
+        function SearchBehavior(behaviorType, dwellTime, minObjectsInGroup, clusterDistance, shapes) {
             this.behaviorType = behaviorType;
             this.dwellTime = dwellTime;
             this.minObjectsInGroup = minObjectsInGroup;
+            this.clusterDistance = clusterDistance;
             this.shapes = shapes;
         }
         return SearchBehavior;

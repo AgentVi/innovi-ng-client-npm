@@ -1041,10 +1041,11 @@ class ScheduledReport extends BaseEntity {
    Search behavior description
 */
 class SearchBehavior {
-    constructor(behaviorType, dwellTime, minObjectsInGroup, shapes) {
+    constructor(behaviorType, dwellTime, minObjectsInGroup, clusterDistance, shapes) {
         this.behaviorType = behaviorType;
         this.dwellTime = dwellTime;
         this.minObjectsInGroup = minObjectsInGroup;
+        this.clusterDistance = clusterDistance;
         this.shapes = shapes;
     }
 }
