@@ -56,6 +56,7 @@ export * from './CalendarsServiceUpdateRequest';
 export * from './ChangeGeoAreaRequest';
 export * from './ChangeGeoLocationRequest';
 export * from './ChangePasswordRequest';
+export * from './ChangeTimezoneRequest';
 export * from './ConfigurationIdRequest';
 export * from './ConfigurationModelRequest';
 export * from './ConfigurationTargetRequest';

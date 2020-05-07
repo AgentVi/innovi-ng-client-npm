@@ -3008,6 +3008,15 @@
 
     /*
     */
+    var ChangeTimezoneRequest = /** @class */ (function () {
+        function ChangeTimezoneRequest(body) {
+            this.body = body;
+        }
+        return ChangeTimezoneRequest;
+    }());
+
+    /*
+    */
     var ConfigurationIdRequest = /** @class */ (function () {
         function ConfigurationIdRequest(id) {
             this.id = id;
@@ -5921,10 +5930,17 @@
         };
         /**
          * Change account geo-location (center)
-         * @Return: EntityResponse<Account> The changed account
+         * @Return: EntityResponse<Account>
          */
         AccountsService.prototype.changeGeoLocation = function (body) {
             return this.rest.put(this.baseUrl + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change account timezone
+         * @Return: EntityResponse<Account>
+         */
+        AccountsService.prototype.changeTimezone = function (body) {
+            return this.rest.put(this.baseUrl + "/timezone", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Get default geo location
@@ -10468,6 +10484,7 @@
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
     exports.ChangePasswordRequest = ChangePasswordRequest;
+    exports.ChangeTimezoneRequest = ChangeTimezoneRequest;
     exports.ComponentConfiguration = ComponentConfiguration;
     exports.ComponentVariables = ComponentVariables;
     exports.Configuration = Configuration;
