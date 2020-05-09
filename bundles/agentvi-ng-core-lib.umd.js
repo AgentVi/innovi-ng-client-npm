@@ -325,14 +325,25 @@
     }());
 
     /*
+       Appliance configuration version
+    */
+    var ApplianceConfigVersion = /** @class */ (function () {
+        function ApplianceConfigVersion(versionId, description) {
+            this.versionId = versionId;
+            this.description = description;
+        }
+        return ApplianceConfigVersion;
+    }());
+
+    /*
        SW Configuration for appliance
     */
     var ApplianceConfiguration = /** @class */ (function () {
-        function ApplianceConfiguration(configurationId, description, currentVersion, versions) {
+        function ApplianceConfiguration(configurationId, description, currentVersion, applianceConfigVersion) {
             this.configurationId = configurationId;
             this.description = description;
             this.currentVersion = currentVersion;
-            this.versions = versions;
+            this.applianceConfigVersion = applianceConfigVersion;
         }
         return ApplianceConfiguration;
     }());
@@ -10429,6 +10440,7 @@
     exports.ApplianceCapabilities = ApplianceCapabilities;
     exports.ApplianceCommand = ApplianceCommand;
     exports.ApplianceCommandIdRequest = ApplianceCommandIdRequest;
+    exports.ApplianceConfigVersion = ApplianceConfigVersion;
     exports.ApplianceConfiguration = ApplianceConfiguration;
     exports.ApplianceDiscovery = ApplianceDiscovery;
     exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
