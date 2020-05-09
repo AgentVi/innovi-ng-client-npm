@@ -116,11 +116,11 @@ class ApplianceConfigVersion {
    SW Configuration for appliance
 */
 class ApplianceConfiguration {
-    constructor(configurationId, description, currentVersion, applianceConfigVersion) {
+    constructor(configurationId, description, currentVersion, versions) {
         this.configurationId = configurationId;
         this.description = description;
         this.currentVersion = currentVersion;
-        this.applianceConfigVersion = applianceConfigVersion;
+        this.versions = versions;
     }
 }
 

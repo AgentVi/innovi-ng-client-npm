@@ -339,11 +339,11 @@
        SW Configuration for appliance
     */
     var ApplianceConfiguration = /** @class */ (function () {
-        function ApplianceConfiguration(configurationId, description, currentVersion, applianceConfigVersion) {
+        function ApplianceConfiguration(configurationId, description, currentVersion, versions) {
             this.configurationId = configurationId;
             this.description = description;
             this.currentVersion = currentVersion;
-            this.applianceConfigVersion = applianceConfigVersion;
+            this.versions = versions;
         }
         return ApplianceConfiguration;
     }());
