@@ -918,9 +918,10 @@ class ComponentConfiguration {
    SW Component variables
 */
 class ComponentVariables {
-    constructor(component, variables) {
+    constructor(component, variables, mounts) {
         this.component = component;
         this.variables = variables;
+        this.mounts = mounts;
     }
 }
 

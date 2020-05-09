@@ -1250,9 +1250,10 @@
        SW Component variables
     */
     var ComponentVariables = /** @class */ (function () {
-        function ComponentVariables(component, variables) {
+        function ComponentVariables(component, variables, mounts) {
             this.component = component;
             this.variables = variables;
+            this.mounts = mounts;
         }
         return ComponentVariables;
     }());
