@@ -12,6 +12,8 @@ export declare class ApplianceCommand extends BaseEntity {
     components: ComponentConfiguration[];
     componentIds: string[];
     timeFrame: TimeFrame;
+    configurationId: string;
+    versionId: string;
     id: string;
     _type: string;
     createdOn: number;
