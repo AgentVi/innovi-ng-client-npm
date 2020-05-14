@@ -1648,8 +1648,8 @@ var ProductTypeCode;
     ProductTypeCode[ProductTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Virtual Edge (Pipeline running as Kubernetes deployment with no actual edge device) [1] 
     ProductTypeCode[ProductTypeCode["VIRTUAL"] = 1] = "VIRTUAL";
-    // Custom Device (Customer provides it's own hardware) [100] 
-    ProductTypeCode[ProductTypeCode["CUSTOM"] = 100] = "CUSTOM";
+    // Custom Device (Customer provides it's own hardware) [2] 
+    ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
     // Edge 200 [200] 
     ProductTypeCode[ProductTypeCode["EDGE_200"] = 200] = "EDGE_200";
     // Edge 220 [220] 
@@ -1662,6 +1662,8 @@ var ProductTypeCode;
     ProductTypeCode[ProductTypeCode["EDGE_325"] = 325] = "EDGE_325";
     // Edge 500 [500] 
     ProductTypeCode[ProductTypeCode["EDGE_500"] = 500] = "EDGE_500";
+    // Edge 550 [550] 
+    ProductTypeCode[ProductTypeCode["EDGE_550"] = 550] = "EDGE_550";
 })(ProductTypeCode || (ProductTypeCode = {}));
 
 /*
