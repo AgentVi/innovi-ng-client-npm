@@ -1874,6 +1874,43 @@
     })(exports.DayOfWeekCode || (exports.DayOfWeekCode = {}));
 
     /*
+       Entity type code (represent entity type in the system)
+    */
+
+    (function (EntityTypeCode) {
+        // Undefined [0] 
+        EntityTypeCode[EntityTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+        // Account [1] 
+        EntityTypeCode[EntityTypeCode["ACCOUNT"] = 1] = "ACCOUNT";
+        // User [2] 
+        EntityTypeCode[EntityTypeCode["USER"] = 2] = "USER";
+        // Appliance / Edge device [3] 
+        EntityTypeCode[EntityTypeCode["APPLIANCE"] = 3] = "APPLIANCE";
+        // Agent [4] 
+        EntityTypeCode[EntityTypeCode["AGENT"] = 4] = "AGENT";
+        // Sensor [5] 
+        EntityTypeCode[EntityTypeCode["SENSOR"] = 5] = "SENSOR";
+        // Folder [6] 
+        EntityTypeCode[EntityTypeCode["FOLDER"] = 6] = "FOLDER";
+        // Rule [7] 
+        EntityTypeCode[EntityTypeCode["RULE"] = 7] = "RULE";
+        // Detection Event [8] 
+        EntityTypeCode[EntityTypeCode["EVENT"] = 8] = "EVENT";
+        // Health Event [9] 
+        EntityTypeCode[EntityTypeCode["HEALTH_EVENT"] = 9] = "HEALTH_EVENT";
+        // Sensor Status [10] 
+        EntityTypeCode[EntityTypeCode["SENSOR_STATUS"] = 10] = "SENSOR_STATUS";
+        // Agent Status [11] 
+        EntityTypeCode[EntityTypeCode["AGENT_STATUE"] = 11] = "AGENT_STATUE";
+        // Appliance Status [12] 
+        EntityTypeCode[EntityTypeCode["APPLIANCE_STATUS"] = 12] = "APPLIANCE_STATUS";
+        // Calendar [13] 
+        EntityTypeCode[EntityTypeCode["CALENDAR"] = 13] = "CALENDAR";
+        // Schedule [14] 
+        EntityTypeCode[EntityTypeCode["SCHEDULE"] = 14] = "SCHEDULE";
+    })(exports.EntityTypeCode || (exports.EntityTypeCode = {}));
+
+    /*
        Event status code
     */
 

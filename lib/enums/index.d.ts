@@ -9,6 +9,7 @@ export * from './ColorCode';
 export * from './ColorTypeCode';
 export * from './CommandStatusCode';
 export * from './DayOfWeekCode';
+export * from './EntityTypeCode';
 export * from './EventStatusCode';
 export * from './FeatureCode';
 export * from './IntegrationTypeCode';

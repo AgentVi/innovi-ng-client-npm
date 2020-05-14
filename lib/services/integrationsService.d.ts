@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { IntegrationTarget } from '../entities/IntegrationTarget';
 import { IntegrationAction } from '../entities/IntegrationAction';
+import { IntegrationTarget } from '../entities/IntegrationTarget';
 import * as i0 from "@angular/core";
 /**
  * Services for integrations targets (templates)
