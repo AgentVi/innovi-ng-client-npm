@@ -1297,6 +1297,10 @@ var BehaviorTypeCode;
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_UNATTENDED_OBJECT"] = 65824] = "INNOVI_UNATTENDED_OBJECT";
     // Asset protection 65856 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_ASSET_PROTECTION"] = 65856] = "INNOVI_ASSET_PROTECTION";
+    // Traffic statistics report 65857 
+    BehaviorTypeCode[BehaviorTypeCode["INNOVI_TRAFFIC_STATISTICS"] = 65857] = "INNOVI_TRAFFIC_STATISTICS";
+    // Count statistics report 65858 
+    BehaviorTypeCode[BehaviorTypeCode["INNOVI_COUNT_STATISTICS"] = 65858] = "INNOVI_COUNT_STATISTICS";
     // Ignore Mask 66049 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_MASK_IGNORE"] = 66049] = "INNOVI_MASK_IGNORE";
     // Shutdown Mask 66050 
@@ -1494,6 +1498,10 @@ var FeatureCode;
     FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
     // Asset protection (missing object detection) rule [2304] 
     FeatureCode[FeatureCode["RULE_ASSET_PROTECTION"] = 2304] = "RULE_ASSET_PROTECTION";
+    // Traffic statistics rule [2560] 
+    FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
+    // Count statistics rule [3072] 
+    FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
     // Monitor (real time events) module [4096] 
     FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
     // Google maps support module [4097] 
