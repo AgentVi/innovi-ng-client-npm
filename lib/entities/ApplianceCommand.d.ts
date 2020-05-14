@@ -1,8 +1,8 @@
-import { TimeFrame } from '../common/TimeFrame';
-import { BaseEntity } from '../entities/BaseEntity';
 import { ApplianceCommandCode } from '../enums/ApplianceCommandCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ComponentConfiguration } from '../entities/ComponentConfiguration';
+import { TimeFrame } from '../common/TimeFrame';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class ApplianceCommand extends BaseEntity {
     accountId: string;
     applianceId: string;
@@ -12,6 +12,7 @@ export declare class ApplianceCommand extends BaseEntity {
     components: ComponentConfiguration[];
     componentIds: string[];
     timeFrame: TimeFrame;
+    logLevel: string;
     configurationId: string;
     versionId: string;
     id: string;
