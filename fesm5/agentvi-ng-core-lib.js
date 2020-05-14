@@ -607,7 +607,7 @@ var RulePolygon = /** @class */ (function () {
    Rule specification describe rule parameters
 */
 var RuleSpec = /** @class */ (function () {
-    function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, peopleInGroup, clusterDistance, referenceCrop, objectHierarchy) {
+    function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy) {
         this.behaviorType = behaviorType;
         this.ruleTypeName = ruleTypeName;
         this.objectTypes = objectTypes;
@@ -615,6 +615,7 @@ var RuleSpec = /** @class */ (function () {
         this.dwellTime = dwellTime;
         this.peopleInGroup = peopleInGroup;
         this.clusterDistance = clusterDistance;
+        this.intervalTime = intervalTime;
         this.referenceCrop = referenceCrop;
         this.objectHierarchy = objectHierarchy;
     }
