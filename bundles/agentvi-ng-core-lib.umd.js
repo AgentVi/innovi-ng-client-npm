@@ -7470,8 +7470,8 @@
          * Test integration action
          * @Return: EntityResponse<IntegrationAction>
          */
-        IntegrationsService.prototype.testAction = function (id) {
-            return this.rest.post(this.baseUrl + "/actions/" + id + "/test", null);
+        IntegrationsService.prototype.testAction = function (body) {
+            return this.rest.post(this.baseUrl + "/actions/test", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ IntegrationsService.ɵprov = core.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });

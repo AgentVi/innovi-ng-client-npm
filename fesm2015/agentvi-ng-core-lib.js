@@ -6226,8 +6226,8 @@ class IntegrationsService {
      * Test integration action
      * @Return: EntityResponse<IntegrationAction>
      */
-    testAction(id) {
-        return this.rest.post(`${this.baseUrl}/actions/${id}/test`, null);
+    testAction(body) {
+        return this.rest.post(`${this.baseUrl}/actions/test`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
 }
 /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
