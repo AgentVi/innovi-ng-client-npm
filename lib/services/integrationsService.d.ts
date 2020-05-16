@@ -81,6 +81,11 @@ export declare class IntegrationsService {
      * @Return: EntitiesResponse<IntegrationAction>
      */
     getFolderActions(folderId?: string): import("rxjs").Observable<any>;
+    /**
+     * Test integration action
+     * @Return: EntityResponse<IntegrationAction>
+     */
+    testAction(id?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<IntegrationsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<IntegrationsService>;
 }
