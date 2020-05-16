@@ -22,6 +22,7 @@ export * from './Feature';
 export * from './FeaturesGroup';
 export * from './Folder';
 export * from './IntegrationAction';
+export * from './IntegrationActionFilter';
 export * from './IntegrationTarget';
 export * from './License';
 export * from './OnvifChannel';

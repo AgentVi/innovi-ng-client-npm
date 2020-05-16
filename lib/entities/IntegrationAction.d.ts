@@ -1,3 +1,4 @@
+import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationAction extends BaseEntity {
     accountId: string;
@@ -8,6 +9,8 @@ export declare class IntegrationAction extends BaseEntity {
     subject: string;
     body: string;
     mimeType: string;
+    enabled: boolean;
+    filter: IntegrationActionFilter;
     id: string;
     _type: string;
     createdOn: number;
