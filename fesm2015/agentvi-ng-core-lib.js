@@ -163,7 +163,7 @@ class ApplianceKpiTimestamped {
    This model is used when a user registers new appliance in the system
 */
 class ApplianceRegistration {
-    constructor(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId, customProfile) {
+    constructor(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId, deviceProfileId) {
         this.name = name;
         this.accountId = accountId;
         this.folderId = folderId;
@@ -171,7 +171,7 @@ class ApplianceRegistration {
         this.productType = productType;
         this.configurationId = configurationId;
         this.configurationVersionId = configurationVersionId;
-        this.customProfile = customProfile;
+        this.deviceProfileId = deviceProfileId;
     }
 }
 

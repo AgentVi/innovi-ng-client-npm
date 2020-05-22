@@ -390,7 +390,7 @@
        This model is used when a user registers new appliance in the system
     */
     var ApplianceRegistration = /** @class */ (function () {
-        function ApplianceRegistration(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId, customProfile) {
+        function ApplianceRegistration(name, accountId, folderId, machineId, productType, configurationId, configurationVersionId, deviceProfileId) {
             this.name = name;
             this.accountId = accountId;
             this.folderId = folderId;
@@ -398,7 +398,7 @@
             this.productType = productType;
             this.configurationId = configurationId;
             this.configurationVersionId = configurationVersionId;
-            this.customProfile = customProfile;
+            this.deviceProfileId = deviceProfileId;
         }
         return ApplianceRegistration;
     }());
