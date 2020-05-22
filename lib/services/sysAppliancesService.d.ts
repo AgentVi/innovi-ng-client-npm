@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
