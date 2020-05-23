@@ -22,6 +22,11 @@ export declare class FoldersService {
      */
     create(body?: Folder): import("rxjs").Observable<any>;
     /**
+     * Update folder info
+     * @Return: EntityResponse<Folder>
+     */
+    update(body?: Folder): import("rxjs").Observable<any>;
+    /**
      * Change folder name
      * @Return: EntityResponse<Folder>
      */
