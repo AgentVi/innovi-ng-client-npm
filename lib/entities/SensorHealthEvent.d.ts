@@ -1,7 +1,7 @@
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationStatusCode } from '../enums/IntegrationStatusCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BaseEntity } from '../entities/BaseEntity';
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class SensorHealthEvent extends BaseEntity {
     source: EntityTypeCode;
     accountId: string;

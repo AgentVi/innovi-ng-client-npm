@@ -3161,6 +3161,15 @@
     }());
 
     /*
+    */
+    var ChangeHealthThresholdsRequest = /** @class */ (function () {
+        function ChangeHealthThresholdsRequest(body) {
+            this.body = body;
+        }
+        return ChangeHealthThresholdsRequest;
+    }());
+
+    /*
        Change Password request message
     */
     var ChangePasswordRequest = /** @class */ (function () {
@@ -4315,6 +4324,16 @@
             this.parentId = parentId;
         }
         return FoldersServiceChangeParentRequest;
+    }());
+
+    /*
+    */
+    var FoldersServiceChangeThresholdsRequest = /** @class */ (function () {
+        function FoldersServiceChangeThresholdsRequest(id, body) {
+            this.id = id;
+            this.body = body;
+        }
+        return FoldersServiceChangeThresholdsRequest;
     }());
 
     /*
@@ -6102,6 +6121,13 @@
             return this.rest.put(this.baseUrl + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
+         * Change account health thresholds
+         * @Return: EntityResponse<Account>
+         */
+        AccountsService.prototype.changeHealthThresholds = function (body) {
+            return this.rest.put(this.baseUrl + "/health-thresholds", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
          * Change account timezone
          * @Return: EntityResponse<Account>
          */
@@ -7198,6 +7224,13 @@
          */
         FoldersService.prototype.changeGeoLocation = function (id, body) {
             return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change folder health thresholds
+         * @Return: EntityResponse<Folder>
+         */
+        FoldersService.prototype.changeHealthThresholds = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/health-thresholds", typeof body === 'object' ? JSON.stringify(body) : body);
         };
         /**
          * Change folder timezone
@@ -10665,6 +10698,7 @@
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
+    exports.ChangeHealthThresholdsRequest = ChangeHealthThresholdsRequest;
     exports.ChangePasswordRequest = ChangePasswordRequest;
     exports.ChangeTimezoneRequest = ChangeTimezoneRequest;
     exports.ComponentConfiguration = ComponentConfiguration;
@@ -10801,6 +10835,7 @@
     exports.FoldersServiceChangeGeoLocationRequest = FoldersServiceChangeGeoLocationRequest;
     exports.FoldersServiceChangeNameRequest = FoldersServiceChangeNameRequest;
     exports.FoldersServiceChangeParentRequest = FoldersServiceChangeParentRequest;
+    exports.FoldersServiceChangeThresholdsRequest = FoldersServiceChangeThresholdsRequest;
     exports.FoldersServiceChangeTimezoneRequest = FoldersServiceChangeTimezoneRequest;
     exports.FoldersServiceCreateRequest = FoldersServiceCreateRequest;
     exports.FoldersServiceExportRequest = FoldersServiceExportRequest;

@@ -1,5 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { HealthThresholds } from '../common/HealthThresholds';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
@@ -40,6 +41,11 @@ export declare class AccountsService {
      * @Return: EntityResponse<Account>
      */
     changeGeoLocation(body?: Coordinate): import("rxjs").Observable<any>;
+    /**
+     * Change account health thresholds
+     * @Return: EntityResponse<Account>
+     */
+    changeHealthThresholds(body?: HealthThresholds): import("rxjs").Observable<any>;
     /**
      * Change account timezone
      * @Return: EntityResponse<Account>

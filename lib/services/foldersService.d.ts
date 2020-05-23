@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { Folder } from '../entities/Folder';
 import { Coordinate } from '../common/Coordinate';
+import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * Services for folders actions
@@ -46,6 +47,11 @@ export declare class FoldersService {
      * @Return: EntityResponse<Folder>
      */
     changeGeoLocation(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
+    /**
+     * Change folder health thresholds
+     * @Return: EntityResponse<Folder>
+     */
+    changeHealthThresholds(id?: string, body?: HealthThresholds): import("rxjs").Observable<any>;
     /**
      * Change folder timezone
      * @Return: EntityResponse<Folder>
