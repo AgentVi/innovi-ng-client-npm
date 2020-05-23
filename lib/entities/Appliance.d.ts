@@ -1,5 +1,6 @@
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { ApplianceCapabilities } from '../entities/ApplianceCapabilities';
+import { Thresholds } from '../common/Thresholds';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class Appliance extends BaseEntity {
     name: string;
@@ -17,6 +18,8 @@ export declare class Appliance extends BaseEntity {
     eventIntegrationId: string;
     metadataIntegrationId: string;
     deviceProfileId: string;
+    path: string;
+    healthThresholds: Thresholds;
     id: string;
     _type: string;
     createdOn: number;
