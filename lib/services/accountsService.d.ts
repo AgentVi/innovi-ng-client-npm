@@ -1,9 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { HealthThresholds } from '../common/HealthThresholds';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Account } from '../entities/Account';
 import { Coordinate } from '../common/Coordinate';
+import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
@@ -31,6 +32,11 @@ export declare class AccountsService {
      * @Return: EntityResponse<Account>
      */
     get(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Update existing account in the system (only with user-enabled fields)
+     * @Return: EntityResponse<Account>
+     */
+    update(id?: string, body?: Account): import("rxjs").Observable<any>;
     /**
      * Change account geo-area (polygon)
      * @Return: EntityResponse<Account>

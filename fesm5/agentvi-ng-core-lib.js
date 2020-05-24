@@ -5893,6 +5893,13 @@ var AccountsService = /** @class */ (function () {
         return this.rest.get(this.baseUrl + "/" + id);
     };
     /**
+     * Update existing account in the system (only with user-enabled fields)
+     * @Return: EntityResponse<Account>
+     */
+    AccountsService.prototype.update = function (id, body) {
+        return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+    };
+    /**
      * Change account geo-area (polygon)
      * @Return: EntityResponse<Account>
      */

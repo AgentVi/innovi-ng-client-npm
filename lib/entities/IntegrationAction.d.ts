@@ -1,5 +1,5 @@
-import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
 import { BaseEntity } from '../entities/BaseEntity';
+import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
 export declare class IntegrationAction extends BaseEntity {
     accountId: string;
     folderId: string;
