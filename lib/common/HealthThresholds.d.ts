@@ -1,7 +1,7 @@
 import { Thresholds } from '../common/Thresholds';
 export declare class HealthThresholds {
-    isEmpty: boolean;
+    isActive: boolean;
     sensorsThresholds: Thresholds;
     applianceThresholds: Thresholds;
-    constructor(isEmpty?: boolean, sensorsThresholds?: Thresholds, applianceThresholds?: Thresholds);
+    constructor(isActive?: boolean, sensorsThresholds?: Thresholds, applianceThresholds?: Thresholds);
 }
