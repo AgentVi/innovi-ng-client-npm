@@ -8325,6 +8325,13 @@ var SensorsService = /** @class */ (function () {
         return this.rest.download("sensors", this.baseUrl + "/" + id + "/ref-image");
     };
     /**
+     * Get sensor reference image Url suffix
+     * @Return: ActionResponse key is sensor Id and data is the URL suffix
+     */
+    SensorsService.prototype.getRefImageUrl = function (id) {
+        return this.rest.get(this.baseUrl + "/" + id + "/ref-image-url");
+    };
+    /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
      * @Return: ActionResponse
      */

@@ -7242,6 +7242,13 @@ class SensorsService {
         return this.rest.download(`sensors`, `${this.baseUrl}/${id}/ref-image`);
     }
     /**
+     * Get sensor reference image Url suffix
+     * @Return: ActionResponse key is sensor Id and data is the URL suffix
+     */
+    getRefImageUrl(id) {
+        return this.rest.get(`${this.baseUrl}/${id}/ref-image-url`);
+    }
+    /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
      * @Return: ActionResponse
      */

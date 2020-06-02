@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -115,6 +115,11 @@ export declare class SensorsService {
      * @Return: StreamingOutput of the reference image
      */
     getRefImage(id?: string): import("rxjs").Subscription;
+    /**
+     * Get sensor reference image Url suffix
+     * @Return: ActionResponse key is sensor Id and data is the URL suffix
+     */
+    getRefImageUrl(id?: string): import("rxjs").Observable<any>;
     /**
      * Set sensor reference image [put binary image in body with content type: image/jpeg]
      * @Return: ActionResponse
