@@ -1,3 +1,4 @@
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationAction extends BaseEntity {
@@ -5,6 +6,7 @@ export declare class IntegrationAction extends BaseEntity {
     folderId: string;
     name: string;
     targetId: string;
+    entityType: EntityTypeCode;
     recipients: string[];
     subject: string;
     body: string;

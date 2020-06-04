@@ -1,5 +1,5 @@
-import { ComponentVariables } from '../entities/ComponentVariables';
 import { BaseEntity } from '../entities/BaseEntity';
+import { ComponentVariables } from '../entities/ComponentVariables';
 export declare class ApplianceProfile extends BaseEntity {
     name: string;
     accountId: string;
