@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
-import { HealthThresholds } from '../common/HealthThresholds';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
+import { Coordinate } from '../common/Coordinate';
+import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
@@ -67,6 +67,18 @@ export declare class AccountsService {
      * @Return: EntitiesResponse<DistributionOfLong> The list of health status distribution
      */
     getAccountHealthSummary(): import("rxjs").Observable<any>;
+    /**
+     * Get account logical tree hierarchy (account -> folders -> sensors) - starting from the account level as root
+     * A logical tree is a representation of cameras-folders hierarchy as defined by the user
+     * @Return: EntityResponse<TreeNode>
+     */
+    getLogicalTree(): import("rxjs").Observable<any>;
+    /**
+     * Get account physical tree hierarchy (account -> folders -> devices -> sensors) - starting from the account level as root
+     * A Physical tree is a representation of cameras-devices-folders hierarchy as defined by the network topology
+     * @Return: EntityResponse<TreeNode>
+     */
+    getPhysicalTree(): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
 }
