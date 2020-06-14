@@ -1161,6 +1161,17 @@
     }(BaseEntity));
 
     /*
+       Agent status - reported periodically by the agent
+    */
+    var AgentStatus = /** @class */ (function (_super) {
+        __extends(AgentStatus, _super);
+        function AgentStatus() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return AgentStatus;
+    }(BaseEntity));
+
+    /*
        API Key is used per application (e.g. Portal, Console, Mobile App) or service to identify the consumer.
        The access to sets of REST endpoints is restricted according the API key.
        API key also dictates the default session TTL per application (e.g. 20 minutes for Portal or Console, 30 days for Mobile app)
@@ -10663,6 +10674,7 @@
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
     exports.Agent = Agent;
+    exports.AgentStatus = AgentStatus;
     exports.AnalysisResult = AnalysisResult;
     exports.AnomalyEventInfo = AnomalyEventInfo;
     exports.AnomalyService = AnomalyService;
