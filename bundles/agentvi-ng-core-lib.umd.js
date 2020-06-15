@@ -1770,6 +1770,23 @@
     })(exports.AccountTypeCode || (exports.AccountTypeCode = {}));
 
     /*
+       Agent state mask - the bit mask represents the actual state of the agent as reported by the agent proxy
+       Bit mask range:
+       OK:		0
+       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+    */
+
+    (function (AgentStateMask) {
+        // [OK] Agent is connected and active [0x0] 
+        AgentStateMask[AgentStateMask["AGENT_OK"] = 0] = "AGENT_OK";
+        // [WARNING] Network high latency (over 2000 ms) for 1 minute or more [0x00000001] 
+        AgentStateMask[AgentStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+        // [ERROR] Communication error [0x00010000] 
+        AgentStateMask[AgentStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+    })(exports.AgentStateMask || (exports.AgentStateMask = {}));
+
+    /*
        Agent (New Pipeline) status code
     */
 
@@ -1823,6 +1840,27 @@
         // Discovery - discover all network cameras using ONVIF discovery protocol [13] 
         ApplianceCommandCode[ApplianceCommandCode["ONVIF_DISCOVERY"] = 13] = "ONVIF_DISCOVERY";
     })(exports.ApplianceCommandCode || (exports.ApplianceCommandCode = {}));
+
+    /*
+       Appliance (device) state mask - the bit mask represents the actual state of the appliance as reported by the device proxy
+       Bit mask range:
+       OK:		0
+       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+    */
+
+    (function (ApplianceStateMask) {
+        // [OK] No error [0x0] 
+        ApplianceStateMask[ApplianceStateMask["APPLIANCE_OK"] = 0] = "APPLIANCE_OK";
+        // [WARNING] Network high latency (over 2000 ms) for 1 minute or more [0x00000001] 
+        ApplianceStateMask[ApplianceStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+        // [WARNING] CPU is over 85% for 5 minutes or more [0x00000002] 
+        ApplianceStateMask[ApplianceStateMask["HIGH_CPU_WARN"] = 2] = "HIGH_CPU_WARN";
+        // [WARNING] RAM consumption is over 85% for 5 minutes or more [0x00000004] 
+        ApplianceStateMask[ApplianceStateMask["HIGH_RAM_WARN"] = 4] = "HIGH_RAM_WARN";
+        // [ERROR] Communication error [0x00010000] 
+        ApplianceStateMask[ApplianceStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+    })(exports.ApplianceStateMask || (exports.ApplianceStateMask = {}));
 
     /*
        Appliance status code

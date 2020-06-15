@@ -7,6 +7,7 @@ export declare class Appliance extends BaseEntity {
     accountId: string;
     folderId: string;
     status: ApplianceStatusCode;
+    state: number;
     statusReportedOn: number;
     pairingKey: string;
     deletedOn: number;
