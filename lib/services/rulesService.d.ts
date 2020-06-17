@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for rules actions
@@ -56,7 +56,7 @@ export declare class RulesService {
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */
-    find(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, physical?: boolean, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of rules and filter
      * @Return: StreamContent
@@ -66,7 +66,7 @@ export declare class RulesService {
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>
      */
-    findAnomalyRules(folderId?: string, sensorId?: string, search?: string, severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findAnomalyRules(folderId?: string, physical?: boolean, sensorId?: string, search?: string, severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get rules specifications available by account features
      * @Return: EntitiesResponse<RuleSpec>

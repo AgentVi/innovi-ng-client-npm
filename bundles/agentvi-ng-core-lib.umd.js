@@ -4904,8 +4904,9 @@
     /*
     */
     var RulesServiceFindAnomalyRequest = /** @class */ (function () {
-        function RulesServiceFindAnomalyRequest(folderId, sensorId, search, severity, sort, page, pageSize) {
+        function RulesServiceFindAnomalyRequest(folderId, physical, sensorId, search, severity, sort, page, pageSize) {
             this.folderId = folderId;
+            this.physical = physical;
             this.sensorId = sensorId;
             this.search = search;
             this.severity = severity;
@@ -4919,8 +4920,9 @@
     /*
     */
     var RulesServiceFindRequest = /** @class */ (function () {
-        function RulesServiceFindRequest(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+        function RulesServiceFindRequest(folderId, physical, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             this.folderId = folderId;
+            this.physical = physical;
             this.sensorId = sensorId;
             this.search = search;
             this.behaviorType = behaviorType;
@@ -5320,9 +5322,10 @@
     /*
     */
     var SensorsServiceFindRequest = /** @class */ (function () {
-        function SensorsServiceFindRequest(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        function SensorsServiceFindRequest(folderId, subFolders, physical, search, type, status, stream, sort, page, pageSize) {
             this.folderId = folderId;
             this.subFolders = subFolders;
+            this.physical = physical;
             this.search = search;
             this.type = type;
             this.status = status;
@@ -7857,11 +7860,14 @@
          * Find rules by filters
          * @Return: QueryResponse<Rule>
          */
-        RulesService.prototype.find = function (folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+        RulesService.prototype.find = function (folderId, physical, sensorId, search, behaviorType, severity, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (folderId != null) {
                 params.push("folderId=" + folderId);
+            }
+            if (physical != null) {
+                params.push("physical=" + physical);
             }
             if (sensorId != null) {
                 params.push("sensorId=" + sensorId);
@@ -7923,11 +7929,14 @@
          * Find anomaly rules by filters
          * @Return: QueryResponse<Rule>
          */
-        RulesService.prototype.findAnomalyRules = function (folderId, sensorId, search, severity, sort, page, pageSize) {
+        RulesService.prototype.findAnomalyRules = function (folderId, physical, sensorId, search, severity, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (folderId != null) {
                 params.push("folderId=" + folderId);
+            }
+            if (physical != null) {
+                params.push("physical=" + physical);
             }
             if (sensorId != null) {
                 params.push("sensorId=" + sensorId);
@@ -8525,7 +8534,7 @@
          * Find sensors by filters
          * @Return: QueryResponse<Sensor>
          */
-        SensorsService.prototype.find = function (folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+        SensorsService.prototype.find = function (folderId, subFolders, physical, search, type, status, stream, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (folderId != null) {
@@ -8533,6 +8542,9 @@
             }
             if (subFolders != null) {
                 params.push("subFolders=" + subFolders);
+            }
+            if (physical != null) {
+                params.push("physical=" + physical);
             }
             if (search != null) {
                 params.push("search=" + search);

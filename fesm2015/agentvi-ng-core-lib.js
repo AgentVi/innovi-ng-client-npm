@@ -3800,8 +3800,9 @@ class RulesServiceExportRequest {
 /*
 */
 class RulesServiceFindAnomalyRequest {
-    constructor(folderId, sensorId, search, severity, sort, page, pageSize) {
+    constructor(folderId, physical, sensorId, search, severity, sort, page, pageSize) {
         this.folderId = folderId;
+        this.physical = physical;
         this.sensorId = sensorId;
         this.search = search;
         this.severity = severity;
@@ -3814,8 +3815,9 @@ class RulesServiceFindAnomalyRequest {
 /*
 */
 class RulesServiceFindRequest {
-    constructor(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    constructor(folderId, physical, sensorId, search, behaviorType, severity, sort, page, pageSize) {
         this.folderId = folderId;
+        this.physical = physical;
         this.sensorId = sensorId;
         this.search = search;
         this.behaviorType = behaviorType;
@@ -4177,9 +4179,10 @@ class SensorsServiceExportRequest {
 /*
 */
 class SensorsServiceFindRequest {
-    constructor(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    constructor(folderId, subFolders, physical, search, type, status, stream, sort, page, pageSize) {
         this.folderId = folderId;
         this.subFolders = subFolders;
+        this.physical = physical;
         this.search = search;
         this.type = type;
         this.status = status;
@@ -6576,10 +6579,13 @@ class RulesService {
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */
-    find(folderId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+    find(folderId, physical, sensorId, search, behaviorType, severity, sort, page, pageSize) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
+        }
+        if (physical != null) {
+            params.push(`physical=${physical}`);
         }
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
@@ -6640,10 +6646,13 @@ class RulesService {
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>
      */
-    findAnomalyRules(folderId, sensorId, search, severity, sort, page, pageSize) {
+    findAnomalyRules(folderId, physical, sensorId, search, severity, sort, page, pageSize) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
+        }
+        if (physical != null) {
+            params.push(`physical=${physical}`);
         }
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
@@ -7225,13 +7234,16 @@ class SensorsService {
      * Find sensors by filters
      * @Return: QueryResponse<Sensor>
      */
-    find(folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
+    find(folderId, subFolders, physical, search, type, status, stream, sort, page, pageSize) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
         }
         if (subFolders != null) {
             params.push(`subFolders=${subFolders}`);
+        }
+        if (physical != null) {
+            params.push(`physical=${physical}`);
         }
         if (search != null) {
             params.push(`search=${search}`);

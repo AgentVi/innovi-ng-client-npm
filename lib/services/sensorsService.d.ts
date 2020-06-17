@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Coordinate } from '../common/Coordinate';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
+import { Coordinate } from '../common/Coordinate';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -99,7 +99,7 @@ export declare class SensorsService {
      * Find sensors by filters
      * @Return: QueryResponse<Sensor>
      */
-    find(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, physical?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of sensors and filter
      * @Return: StreamContent
