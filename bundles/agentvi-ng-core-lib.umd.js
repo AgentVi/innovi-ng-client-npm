@@ -1256,6 +1256,17 @@
     }(BaseEntity));
 
     /*
+       Appliance log entry represents a single log line in a container logs
+    */
+    var ApplianceLog = /** @class */ (function (_super) {
+        __extends(ApplianceLog, _super);
+        function ApplianceLog() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return ApplianceLog;
+    }(BaseEntity));
+
+    /*
        Appliance Profile entity describes custom device profile to override package configuration variables for specific use cases
     */
     var ApplianceProfile = /** @class */ (function (_super) {
@@ -10747,6 +10758,7 @@
     exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
     exports.ApplianceKpiTimeSeries = ApplianceKpiTimeSeries;
     exports.ApplianceKpiTimestamped = ApplianceKpiTimestamped;
+    exports.ApplianceLog = ApplianceLog;
     exports.ApplianceProfile = ApplianceProfile;
     exports.ApplianceProfileCreateRequest = ApplianceProfileCreateRequest;
     exports.ApplianceProfileFindRequest = ApplianceProfileFindRequest;
