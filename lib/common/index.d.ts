@@ -10,6 +10,7 @@ export * from './ApplianceConfiguration';
 export * from './ApplianceKpiDataPoint';
 export * from './ApplianceKpiTimeSeries';
 export * from './ApplianceKpiTimestamped';
+export * from './ApplianceLogBatch';
 export * from './ApplianceRegistration';
 export * from './ApplianceStatusTimeSeries';
 export * from './ApplianceStatusTimestamped';

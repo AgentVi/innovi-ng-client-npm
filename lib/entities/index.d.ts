@@ -8,7 +8,6 @@ export * from './ApplianceCapabilities';
 export * from './ApplianceCommand';
 export * from './ApplianceDiscovery';
 export * from './ApplianceHealthEvent';
-export * from './ApplianceLog';
 export * from './ApplianceProfile';
 export * from './ApplianceStatus';
 export * from './AuditLog';

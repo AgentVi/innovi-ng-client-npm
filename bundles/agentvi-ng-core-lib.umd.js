@@ -386,6 +386,25 @@
     }());
 
     /*
+       Flatten appliance log entry to store as a single document in the elastic search
+    */
+    var ApplianceLogBatch = /** @class */ (function () {
+        function ApplianceLogBatch(id, accountId, applianceId, containerId, containerName, containerTag, versionId, severity, timestamp, textPayload) {
+            this.id = id;
+            this.accountId = accountId;
+            this.applianceId = applianceId;
+            this.containerId = containerId;
+            this.containerName = containerName;
+            this.containerTag = containerTag;
+            this.versionId = versionId;
+            this.severity = severity;
+            this.timestamp = timestamp;
+            this.textPayload = textPayload;
+        }
+        return ApplianceLogBatch;
+    }());
+
+    /*
        Appliance registration info
        This model is used when a user registers new appliance in the system
     */
@@ -1253,17 +1272,6 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return ApplianceHealthEvent;
-    }(BaseEntity));
-
-    /*
-       Appliance log entry represents a single log line in a container logs
-    */
-    var ApplianceLog = /** @class */ (function (_super) {
-        __extends(ApplianceLog, _super);
-        function ApplianceLog() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return ApplianceLog;
     }(BaseEntity));
 
     /*
@@ -10758,7 +10766,7 @@
     exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
     exports.ApplianceKpiTimeSeries = ApplianceKpiTimeSeries;
     exports.ApplianceKpiTimestamped = ApplianceKpiTimestamped;
-    exports.ApplianceLog = ApplianceLog;
+    exports.ApplianceLogBatch = ApplianceLogBatch;
     exports.ApplianceProfile = ApplianceProfile;
     exports.ApplianceProfileCreateRequest = ApplianceProfileCreateRequest;
     exports.ApplianceProfileFindRequest = ApplianceProfileFindRequest;
