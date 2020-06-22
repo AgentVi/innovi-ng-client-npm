@@ -1,6 +1,7 @@
 export declare enum IntegrationStatusCode {
     UNDEFINED = 0,
-    PARTIAL = 1,
-    SUCCESS = 2,
-    FAILED = 3
+    PENDING = 1,
+    PARTIAL = 2,
+    SUCCESS = 3,
+    FAILED = 4
 }

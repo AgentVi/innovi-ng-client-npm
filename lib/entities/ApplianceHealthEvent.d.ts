@@ -10,6 +10,7 @@ export declare class ApplianceHealthEvent extends BaseEntity {
     applianceId: string;
     extSensorId: string;
     status: ApplianceStatusCode;
+    state: number;
     id: string;
     _type: string;
     createdOn: number;
