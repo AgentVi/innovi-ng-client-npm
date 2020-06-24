@@ -15,6 +15,7 @@ export declare class ApplianceCommand extends BaseEntity {
     logLevel: string;
     configurationId: string;
     versionId: string;
+    profileId: string;
     id: string;
     _type: string;
     createdOn: number;
