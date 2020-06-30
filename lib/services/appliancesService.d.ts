@@ -1,14 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { Sensor } from '../entities/Sensor';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { Appliance } from '../entities/Appliance';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Sensor } from '../entities/Sensor';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -119,6 +119,11 @@ export declare class AppliancesService {
      * @Return: ActionResponse
      */
     reboot(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get container logs appliance host
+     * @Return: ActionResponse
+     */
+    getLogs(id?: string, from?: number, to?: number, component?: string[]): import("rxjs").Observable<any>;
     /**
      * Delete appliance from the system and detach all it's related sensors
      * If the appliance has connected cameras, they will all be converted to unregistered - meaning they are not attached to any device and their status is SUSPENDED

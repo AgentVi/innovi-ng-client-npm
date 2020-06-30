@@ -3061,6 +3061,18 @@
 
     /*
     */
+    var AppliancesServiceGetLogsRequest = /** @class */ (function () {
+        function AppliancesServiceGetLogsRequest(id, from, to, component) {
+            this.id = id;
+            this.from = from;
+            this.to = to;
+            this.component = component;
+        }
+        return AppliancesServiceGetLogsRequest;
+    }());
+
+    /*
+    */
     var AppliancesServiceRegisterApplianceRequest = /** @class */ (function () {
         function AppliancesServiceRegisterApplianceRequest(id, body) {
             this.id = id;
@@ -6680,6 +6692,24 @@
          */
         AppliancesService.prototype.reboot = function (id) {
             return this.rest.post(this.baseUrl + "/" + id + "/reboot", null);
+        };
+        /**
+         * Get container logs appliance host
+         * @Return: ActionResponse
+         */
+        AppliancesService.prototype.getLogs = function (id, from, to, component) {
+            var _a;
+            var params = new Array();
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (component != null) {
+                params.push("component=" + component);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
         };
         /**
          * Delete appliance from the system and detach all it's related sensors
@@ -10794,6 +10824,7 @@
     exports.AppliancesServiceFindRequest = AppliancesServiceFindRequest;
     exports.AppliancesServiceFindSensorsRequest = AppliancesServiceFindSensorsRequest;
     exports.AppliancesServiceGetCommandsRequest = AppliancesServiceGetCommandsRequest;
+    exports.AppliancesServiceGetLogsRequest = AppliancesServiceGetLogsRequest;
     exports.AppliancesServiceRegisterApplianceRequest = AppliancesServiceRegisterApplianceRequest;
     exports.AppliancesServiceSetCommandRequest = AppliancesServiceSetCommandRequest;
     exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;
