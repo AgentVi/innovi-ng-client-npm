@@ -45,6 +45,16 @@ export declare class ReportsService {
      * @Return: QueryResponse<ReportDefinition>
      */
     find(search?: string): import("rxjs").Observable<any>;
+    /**
+     * Generate people counting report and stream it as CSV
+     * @Return: StreamContent
+     */
+    getPeopleCountingReport(sensorId?: string[], folderId?: string[], from?: number, to?: number): import("rxjs").Subscription;
+    /**
+     * Generate traffic analysis report and stream it as CSV
+     * @Return: StreamContent
+     */
+    getTrafficAnalysisReport(sensorId?: string[], folderId?: string[], from?: number, to?: number): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<ReportsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<ReportsService>;
 }

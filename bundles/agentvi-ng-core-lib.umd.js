@@ -4633,6 +4633,18 @@
     }());
 
     /*
+    */
+    var PeopleCountingReportRequest = /** @class */ (function () {
+        function PeopleCountingReportRequest(sensorId, folderId, from, to) {
+            this.sensorId = sensorId;
+            this.folderId = folderId;
+            this.from = from;
+            this.to = to;
+        }
+        return PeopleCountingReportRequest;
+    }());
+
+    /*
        Query response message returned for find operation (with pagination) on multiple entities
     */
     var QueryResponse = /** @class */ (function () {
@@ -5730,6 +5742,18 @@
             this.accountId = accountId;
         }
         return TokenRequest;
+    }());
+
+    /*
+    */
+    var TrafficAnalysisReportRequest = /** @class */ (function () {
+        function TrafficAnalysisReportRequest(sensorId, folderId, from, to) {
+            this.sensorId = sensorId;
+            this.folderId = folderId;
+            this.from = from;
+            this.to = to;
+        }
+        return TrafficAnalysisReportRequest;
     }());
 
     /*
@@ -7848,6 +7872,48 @@
                 params.push("search=" + search);
             }
             return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Generate people counting report and stream it as CSV
+         * @Return: StreamContent
+         */
+        ReportsService.prototype.getPeopleCountingReport = function (sensorId, folderId, from, to) {
+            var _a;
+            var params = new Array();
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/statistics/people-counting"], params));
+        };
+        /**
+         * Generate traffic analysis report and stream it as CSV
+         * @Return: StreamContent
+         */
+        ReportsService.prototype.getTrafficAnalysisReport = function (sensorId, folderId, from, to) {
+            var _a;
+            var params = new Array();
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/statistics/traffic-analysis"], params));
         };
         /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ ReportsService.ɵprov = core.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
@@ -11065,6 +11131,7 @@
     exports.ObjectTypeNode = ObjectTypeNode;
     exports.ObjectTypeReport = ObjectTypeReport;
     exports.OnvifChannel = OnvifChannel;
+    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
     exports.Point = Point;
     exports.Preset = Preset;
     exports.QueryResponse = QueryResponse;
@@ -11228,6 +11295,7 @@
     exports.Thresholds = Thresholds;
     exports.TimeFrame = TimeFrame;
     exports.TokenRequest = TokenRequest;
+    exports.TrafficAnalysisReportRequest = TrafficAnalysisReportRequest;
     exports.TreeItem = TreeItem;
     exports.TreeNode = TreeNode;
     exports.UpdateStatus = UpdateStatus;
