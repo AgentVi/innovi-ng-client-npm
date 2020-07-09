@@ -4956,6 +4956,18 @@
 
     /*
     */
+    var RulesServiceArmDisarmRequest = /** @class */ (function () {
+        function RulesServiceArmDisarmRequest(folderId, folderExtId, sensorId, sensorExtId) {
+            this.folderId = folderId;
+            this.folderExtId = folderExtId;
+            this.sensorId = sensorId;
+            this.sensorExtId = sensorExtId;
+        }
+        return RulesServiceArmDisarmRequest;
+    }());
+
+    /*
+    */
     var RulesServiceCreateRequest = /** @class */ (function () {
         function RulesServiceCreateRequest(body) {
             this.body = body;
@@ -7979,6 +7991,48 @@
                 params.push("id=" + id);
             }
             return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/disable", null], params));
+        };
+        /**
+         * Arm (Enable analytics rules) on group of sensors or all sensors in site (folder)
+         * @Return: ActionResponse
+         */
+        RulesService.prototype.arm = function (folderId, folderExtId, sensorId, sensorExtId) {
+            var _a;
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (folderExtId != null) {
+                params.push("folderExtId=" + folderExtId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (sensorExtId != null) {
+                params.push("sensorExtId=" + sensorExtId);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/arm", null], params));
+        };
+        /**
+         * Disarm (Disable analytics rules) on group of sensors or all sensors in site (folder)
+         * @Return: ActionResponse
+         */
+        RulesService.prototype.disarm = function (folderId, folderExtId, sensorId, sensorExtId) {
+            var _a;
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (folderExtId != null) {
+                params.push("folderExtId=" + folderExtId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (sensorExtId != null) {
+                params.push("sensorExtId=" + sensorExtId);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/disarm", null], params));
         };
         /**
          * Delete rule from the system
@@ -11175,6 +11229,7 @@
     exports.RulePolygon = RulePolygon;
     exports.RuleSpec = RuleSpec;
     exports.RulesService = RulesService;
+    exports.RulesServiceArmDisarmRequest = RulesServiceArmDisarmRequest;
     exports.RulesServiceCreateRequest = RulesServiceCreateRequest;
     exports.RulesServiceExportRequest = RulesServiceExportRequest;
     exports.RulesServiceFindAnomalyRequest = RulesServiceFindAnomalyRequest;

@@ -221,6 +221,7 @@ export * from './ReportsServiceFindRequest';
 export * from './ReportsServiceUpdateRequest';
 export * from './RuleIdRequest';
 export * from './RuleIdsRequest';
+export * from './RulesServiceArmDisarmRequest';
 export * from './RulesServiceCreateRequest';
 export * from './RulesServiceExportRequest';
 export * from './RulesServiceFindAnomalyRequest';

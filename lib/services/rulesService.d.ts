@@ -38,6 +38,16 @@ export declare class RulesService {
      */
     disable(id?: string[]): import("rxjs").Observable<any>;
     /**
+     * Arm (Enable analytics rules) on group of sensors or all sensors in site (folder)
+     * @Return: ActionResponse
+     */
+    arm(folderId?: string, folderExtId?: string, sensorId?: string[], sensorExtId?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Disarm (Disable analytics rules) on group of sensors or all sensors in site (folder)
+     * @Return: ActionResponse
+     */
+    disarm(folderId?: string, folderExtId?: string, sensorId?: string[], sensorExtId?: string[]): import("rxjs").Observable<any>;
+    /**
      * Delete rule from the system
      * @Return: ActionResponse
      */
