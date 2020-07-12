@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Coordinate } from '../common/Coordinate';
+import { HealthThresholds } from '../common/HealthThresholds';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
-import { Coordinate } from '../common/Coordinate';
-import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions

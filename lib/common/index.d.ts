@@ -11,6 +11,7 @@ export * from './ApplianceKpiDataPoint';
 export * from './ApplianceKpiTimeSeries';
 export * from './ApplianceKpiTimestamped';
 export * from './ApplianceLogBatch';
+export * from './ApplianceLogEntry';
 export * from './ApplianceRegistration';
 export * from './ApplianceStatusTimeSeries';
 export * from './ApplianceStatusTimestamped';
