@@ -6,9 +6,9 @@ export declare class ApplianceHealthEvent extends BaseEntity {
     source: EntityTypeCode;
     accountId: string;
     startedOn: number;
+    closedOn: number;
     integrationStatus: IntegrationStatusCode;
     applianceId: string;
-    extSensorId: string;
     status: ApplianceStatusCode;
     state: number;
     id: string;

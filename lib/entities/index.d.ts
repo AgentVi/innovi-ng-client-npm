@@ -1,6 +1,7 @@
 export * from './Account';
 export * from './AccountStatistics';
 export * from './Agent';
+export * from './AgentHealthEvent';
 export * from './AgentStatus';
 export * from './ApiKey';
 export * from './Appliance';

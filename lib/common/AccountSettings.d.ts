@@ -4,5 +4,6 @@ export declare class AccountSettings {
     objectColors: LongTuple[];
     ruleColor: number;
     maskColor: number;
-    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number);
+    enableAnomalyByDefault: boolean;
+    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number, enableAnomalyByDefault?: boolean);
 }
