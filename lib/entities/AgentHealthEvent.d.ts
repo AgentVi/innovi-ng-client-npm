@@ -1,7 +1,7 @@
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationStatusCode } from '../enums/IntegrationStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { BaseEntity } from '../entities/BaseEntity';
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class AgentHealthEvent extends BaseEntity {
     source: EntityTypeCode;
     accountId: string;
