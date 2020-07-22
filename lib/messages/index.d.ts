@@ -9,6 +9,7 @@ export * from './AccountsServiceCreateRequest';
 export * from './AccountsServiceExportRequest';
 export * from './AccountsServiceFindFoldersRequest';
 export * from './AccountsServiceFindRequest';
+export * from './AccountsServiceLogicalTreeRequest';
 export * from './AccountsServiceResetRequest';
 export * from './AccountsServiceTreeRequest';
 export * from './AccountsServiceUpdateRequest';

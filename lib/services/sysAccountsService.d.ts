@@ -1,9 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { AccountStatusCode } from '../enums/AccountStatusCode';
-import { Coordinate } from '../common/Coordinate';
 import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
+import { AccountStatusCode } from '../enums/AccountStatusCode';
+import { Coordinate } from '../common/Coordinate';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only
@@ -94,7 +96,7 @@ export declare class SysAccountsService {
      * Get account hierarchy
      * @Return: EntityResponse<TreeNode>
      */
-    tree(id?: string, sensors?: boolean): import("rxjs").Observable<any>;
+    tree(id?: string, sensors?: boolean, status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[]): import("rxjs").Observable<any>;
     /**
      * Find account folders
      * @Return: QueryResponse<Folder>

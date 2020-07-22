@@ -2807,6 +2807,16 @@
 
     /*
     */
+    var AccountsServiceLogicalTreeRequest = /** @class */ (function () {
+        function AccountsServiceLogicalTreeRequest(status, behaviorType) {
+            this.status = status;
+            this.behaviorType = behaviorType;
+        }
+        return AccountsServiceLogicalTreeRequest;
+    }());
+
+    /*
+    */
     var AccountsServiceResetRequest = /** @class */ (function () {
         function AccountsServiceResetRequest(id, days) {
             this.id = id;
@@ -2818,9 +2828,11 @@
     /*
     */
     var AccountsServiceTreeRequest = /** @class */ (function () {
-        function AccountsServiceTreeRequest(id, sensors) {
+        function AccountsServiceTreeRequest(id, sensors, status, behaviorType) {
             this.id = id;
             this.sensors = sensors;
+            this.status = status;
+            this.behaviorType = behaviorType;
         }
         return AccountsServiceTreeRequest;
     }());
@@ -6346,8 +6358,16 @@
          * A logical tree is a representation of cameras-folders hierarchy as defined by the user
          * @Return: EntityResponse<TreeNode>
          */
-        AccountsService.prototype.getLogicalTree = function () {
-            return this.rest.get(this.baseUrl + "/logical-tree");
+        AccountsService.prototype.getLogicalTree = function (status, behaviorType) {
+            var _a;
+            var params = new Array();
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (behaviorType != null) {
+                params.push("behaviorType=" + behaviorType);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/logical-tree"], params));
         };
         /**
          * Get account physical tree hierarchy (account -> folders -> devices -> sensors) - starting from the account level as root
@@ -9140,11 +9160,17 @@
          * Get account hierarchy
          * @Return: EntityResponse<TreeNode>
          */
-        SysAccountsService.prototype.tree = function (id, sensors) {
+        SysAccountsService.prototype.tree = function (id, sensors, status, behaviorType) {
             var _a;
             var params = new Array();
             if (sensors != null) {
                 params.push("sensors=" + sensors);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (behaviorType != null) {
+                params.push("behaviorType=" + behaviorType);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/tree"], params));
         };
@@ -10950,6 +10976,7 @@
     exports.AccountsServiceExportRequest = AccountsServiceExportRequest;
     exports.AccountsServiceFindFoldersRequest = AccountsServiceFindFoldersRequest;
     exports.AccountsServiceFindRequest = AccountsServiceFindRequest;
+    exports.AccountsServiceLogicalTreeRequest = AccountsServiceLogicalTreeRequest;
     exports.AccountsServiceResetRequest = AccountsServiceResetRequest;
     exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
