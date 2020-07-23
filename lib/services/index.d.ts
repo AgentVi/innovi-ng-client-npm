@@ -8,6 +8,7 @@ export * from './eventsService';
 export * from './foldersService';
 export * from './geoService';
 export * from './healthCheckService';
+export * from './healthEventsService';
 export * from './integrationsService';
 export * from './reportsService';
 export * from './rulesService';

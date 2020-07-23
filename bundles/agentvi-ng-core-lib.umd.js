@@ -1227,17 +1227,6 @@
     }(BaseEntity));
 
     /*
-       Agent Health event type
-    */
-    var AgentHealthEvent = /** @class */ (function (_super) {
-        __extends(AgentHealthEvent, _super);
-        function AgentHealthEvent() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return AgentHealthEvent;
-    }(BaseEntity));
-
-    /*
        Agent status - reported periodically by the agent
     */
     var AgentStatus = /** @class */ (function (_super) {
@@ -1322,17 +1311,6 @@
         }
         return ApplianceDiscovery;
     }());
-
-    /*
-       Appliance Health event type
-    */
-    var ApplianceHealthEvent = /** @class */ (function (_super) {
-        __extends(ApplianceHealthEvent, _super);
-        function ApplianceHealthEvent() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return ApplianceHealthEvent;
-    }(BaseEntity));
 
     /*
        Appliance Profile entity describes custom device profile to override package configuration variables for specific use cases
@@ -1738,17 +1716,6 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return SensorAnalysisResults;
-    }(BaseEntity));
-
-    /*
-       Sensor Health event type
-    */
-    var SensorHealthEvent = /** @class */ (function (_super) {
-        __extends(SensorHealthEvent, _super);
-        function SensorHealthEvent() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return SensorHealthEvent;
     }(BaseEntity));
 
     /*
@@ -3975,6 +3942,16 @@
 
     /*
     */
+    var EntityResponseOfHealthEvent = /** @class */ (function (_super) {
+        __extends(EntityResponseOfHealthEvent, _super);
+        function EntityResponseOfHealthEvent() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfHealthEvent;
+    }(EntityResponse));
+
+    /*
+    */
     var EntityResponseOfIntegration = /** @class */ (function (_super) {
         __extends(EntityResponseOfIntegration, _super);
         function EntityResponseOfIntegration() {
@@ -4571,6 +4548,31 @@
 
     /*
     */
+    var HealthEventFindRequest = /** @class */ (function () {
+        function HealthEventFindRequest(folderId, from, to, source, entityId, sort, page, pageSize) {
+            this.folderId = folderId;
+            this.from = from;
+            this.to = to;
+            this.source = source;
+            this.entityId = entityId;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return HealthEventFindRequest;
+    }());
+
+    /*
+    */
+    var HealthEventIdRequest = /** @class */ (function () {
+        function HealthEventIdRequest(id) {
+            this.id = id;
+        }
+        return HealthEventIdRequest;
+    }());
+
+    /*
+    */
     var IntegrationActionCreateRequest = /** @class */ (function () {
         function IntegrationActionCreateRequest(body) {
             this.body = body;
@@ -4808,6 +4810,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return QueryResponseOfFolder;
+    }(QueryResponse));
+
+    /*
+    */
+    var QueryResponseOfHealthEvent = /** @class */ (function (_super) {
+        __extends(QueryResponseOfHealthEvent, _super);
+        function QueryResponseOfHealthEvent() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfHealthEvent;
     }(QueryResponse));
 
     /*
@@ -7727,6 +7739,67 @@
         return HealthCheckService;
     }());
     /*@__PURE__*/ (function () { core.ɵsetClassMetadata(HealthCheckService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * Services for health events queries
+     * @RequestHeader X-API-KEY The key to identify the application (portal)
+     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+     */
+    var HealthEventsService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function HealthEventsService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/health-events';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Get single health event by id
+         * @Return: EntityResponse<HealthEvent>
+         */
+        HealthEventsService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Find health events by filters
+         * @Return: QueryResponse<HealthEvent>
+         */
+        HealthEventsService.prototype.find = function (folderId, from, to, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ HealthEventsService.ɵprov = core.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
+        return HealthEventsService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(HealthEventsService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -10888,6 +10961,7 @@
         EventsService,
         FoldersService,
         GeoService,
+        HealthEventsService,
         IntegrationsService,
         ReportsService,
         RulesService,
@@ -11035,7 +11109,6 @@
     exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
     exports.ActionResponse = ActionResponse;
     exports.Agent = Agent;
-    exports.AgentHealthEvent = AgentHealthEvent;
     exports.AgentStatus = AgentStatus;
     exports.AnalysisResult = AnalysisResult;
     exports.AnomalyEventInfo = AnomalyEventInfo;
@@ -11053,7 +11126,6 @@
     exports.ApplianceConfigVersion = ApplianceConfigVersion;
     exports.ApplianceConfiguration = ApplianceConfiguration;
     exports.ApplianceDiscovery = ApplianceDiscovery;
-    exports.ApplianceHealthEvent = ApplianceHealthEvent;
     exports.ApplianceIdAgentIdRequest = ApplianceIdAgentIdRequest;
     exports.ApplianceIdRequest = ApplianceIdRequest;
     exports.ApplianceKpiDataPoint = ApplianceKpiDataPoint;
@@ -11189,6 +11261,7 @@
     exports.EntityResponseOfFeaturesGroup = EntityResponseOfFeaturesGroup;
     exports.EntityResponseOfFolder = EntityResponseOfFolder;
     exports.EntityResponseOfGeoReferenceData = EntityResponseOfGeoReferenceData;
+    exports.EntityResponseOfHealthEvent = EntityResponseOfHealthEvent;
     exports.EntityResponseOfIntegration = EntityResponseOfIntegration;
     exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
     exports.EntityResponseOfLicense = EntityResponseOfLicense;
@@ -11265,6 +11338,9 @@
     exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
     exports.HealthCheckService = HealthCheckService;
     exports.HealthEvent = HealthEvent;
+    exports.HealthEventFindRequest = HealthEventFindRequest;
+    exports.HealthEventIdRequest = HealthEventIdRequest;
+    exports.HealthEventsService = HealthEventsService;
     exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
     exports.HealthThresholds = HealthThresholds;
     exports.IntegrationAction = IntegrationAction;
@@ -11309,6 +11385,7 @@
     exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
     exports.QueryResponseOfEvent = QueryResponseOfEvent;
     exports.QueryResponseOfFolder = QueryResponseOfFolder;
+    exports.QueryResponseOfHealthEvent = QueryResponseOfHealthEvent;
     exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
     exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
     exports.QueryResponseOfReportDefinition = QueryResponseOfReportDefinition;
@@ -11386,7 +11463,6 @@
     exports.SensorAnomalyInfo = SensorAnomalyInfo;
     exports.SensorAnomalyRuleInfo = SensorAnomalyRuleInfo;
     exports.SensorDebugInfo = SensorDebugInfo;
-    exports.SensorHealthEvent = SensorHealthEvent;
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorInfo = SensorInfo;

@@ -1,0 +1,13 @@
+import { __extends } from "tslib";
+import { EntityResponse } from '../messages/EntityResponse';
+/*
+*/
+var EntityResponseOfHealthEvent = /** @class */ (function (_super) {
+    __extends(EntityResponseOfHealthEvent, _super);
+    function EntityResponseOfHealthEvent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityResponseOfHealthEvent;
+}(EntityResponse));
+export { EntityResponseOfHealthEvent };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRW50aXR5UmVzcG9uc2VPZkhlYWx0aEV2ZW50LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvRW50aXR5UmVzcG9uc2VPZkhlYWx0aEV2ZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sNEJBQTRCLENBQUM7QUFFNUQ7RUFDRTtBQUNGO0lBQWlELCtDQUFjO0lBQS9EOztJQVlBLENBQUM7SUFBRCxrQ0FBQztBQUFELENBQUMsQUFaRCxDQUFpRCxjQUFjLEdBWTlEIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSGVhbHRoRXZlbnQgfSBmcm9tICcuLi9lbnRpdGllcy9IZWFsdGhFdmVudCc7XG5pbXBvcnQgeyBFbnRpdHlSZXNwb25zZSB9IGZyb20gJy4uL21lc3NhZ2VzL0VudGl0eVJlc3BvbnNlJztcblxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBFbnRpdHlSZXNwb25zZU9mSGVhbHRoRXZlbnQgZXh0ZW5kcyBFbnRpdHlSZXNwb25zZSB7XG4gXG4gICAgLy8gSGVhbHRoIEV2ZW50IFxuICAgIHB1YmxpYyBlbnRpdHk6IEhlYWx0aEV2ZW50O1xuIFxuICAgIC8vIEVycm9yIGNvZGUgKDAgZm9yIHN1Y2Nlc3MpIFxuICAgIHB1YmxpYyBjb2RlOiBudW1iZXI7XG4gXG4gICAgLy8gRXJyb3IgbWVzc2FnZSBcbiAgICBwdWJsaWMgZXJyb3I6IHN0cmluZztcbiBcblxufVxuXG5cbiJdfQ==

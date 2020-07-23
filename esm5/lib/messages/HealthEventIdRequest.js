@@ -1,0 +1,10 @@
+/*
+*/
+var HealthEventIdRequest = /** @class */ (function () {
+    function HealthEventIdRequest(id) {
+        this.id = id;
+    }
+    return HealthEventIdRequest;
+}());
+export { HealthEventIdRequest };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVhbHRoRXZlbnRJZFJlcXVlc3QuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9AYWdlbnR2aS9uZy1jb3JlLWxpYi8iLCJzb3VyY2VzIjpbImxpYi9tZXNzYWdlcy9IZWFsdGhFdmVudElkUmVxdWVzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFO0FBQ0Y7SUFLSSw4QkFBWSxFQUFXO1FBQ25CLElBQUksQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDO0lBQ2pCLENBQUM7SUFFTCwyQkFBQztBQUFELENBQUMsQUFURCxJQVNDIiwic291cmNlc0NvbnRlbnQiOlsiXG4vKiAgXG4qL1xuZXhwb3J0IGNsYXNzIEhlYWx0aEV2ZW50SWRSZXF1ZXN0IHtcbiBcbiAgICAvLyBIZWFsdGggRXZlbnQgSWQgXG4gICAgcHVibGljIGlkOiBzdHJpbmc7XG4gXG4gICAgY29uc3RydWN0b3IoaWQ/OiBzdHJpbmcpIHsgXG4gICAgICAgIHRoaXMuaWQgPSBpZDtcbiAgICB9XG5cbn1cblxuXG4iXX0=
