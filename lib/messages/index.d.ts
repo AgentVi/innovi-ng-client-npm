@@ -292,6 +292,7 @@ export * from './SysKeysServiceCreatePasswordRequest';
 export * from './SysKeysServiceCreateTokenRequest';
 export * from './SysKeysServiceUpdateBulkRequest';
 export * from './SysSensorsCountRequest';
+export * from './SysSensorsFetchObjectsCropsRequest';
 export * from './SysSensorsServiceFindRequest';
 export * from './TokenRequest';
 export * from './TrafficAnalysisReportRequest';

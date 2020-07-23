@@ -3,6 +3,7 @@ import { CoreConfig } from '../../config';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions for system administrator only
@@ -57,6 +58,11 @@ export declare class SysSensorsService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getSensorsCountByStatus(accountId?: string, folderId?: string, subFolders?: boolean, sensorType?: SensorTypeCode, status?: SensorStatusCode, streamType?: StreamTypeCode): import("rxjs").Observable<any>;
+    /**
+     * Collect object crops from agents based on the query parameters
+     * @Return:  ActionResponse
+     */
+    fetchObjectsCrops(from?: number, to?: number, accountId?: string[], sensorId?: string[], objectType?: ObjectTypeCode[], objectId?: string[], minConf?: number, maxConf?: number, bucketFolder?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysSensorsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysSensorsService>;
 }

@@ -5767,6 +5767,23 @@
 
     /*
     */
+    var SysSensorsFetchObjectsCropsRequest = /** @class */ (function () {
+        function SysSensorsFetchObjectsCropsRequest(from, to, accountId, sensorId, objectType, objectId, minConf, maxConf, bucketFolder) {
+            this.from = from;
+            this.to = to;
+            this.accountId = accountId;
+            this.sensorId = sensorId;
+            this.objectType = objectType;
+            this.objectId = objectId;
+            this.minConf = minConf;
+            this.maxConf = maxConf;
+            this.bucketFolder = bucketFolder;
+        }
+        return SysSensorsFetchObjectsCropsRequest;
+    }());
+
+    /*
+    */
     var SysSensorsServiceFindRequest = /** @class */ (function () {
         function SysSensorsServiceFindRequest(accountId, folderId, subFolders, search, type, status, stream, sort, page, pageSize) {
             this.accountId = accountId;
@@ -10262,6 +10279,42 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
         };
+        /**
+         * Collect object crops from agents based on the query parameters
+         * @Return:  ActionResponse
+         */
+        SysSensorsService.prototype.fetchObjectsCrops = function (from, to, accountId, sensorId, objectType, objectId, minConf, maxConf, bucketFolder) {
+            var _a;
+            var params = new Array();
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (sensorId != null) {
+                params.push("sensorId=" + sensorId);
+            }
+            if (objectType != null) {
+                params.push("objectType=" + objectType);
+            }
+            if (objectId != null) {
+                params.push("objectId=" + objectId);
+            }
+            if (minConf != null) {
+                params.push("minConf=" + minConf);
+            }
+            if (maxConf != null) {
+                params.push("maxConf=" + maxConf);
+            }
+            if (bucketFolder != null) {
+                params.push("bucketFolder=" + bucketFolder);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/fetch-objects-crops", null], params));
+        };
         /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SysSensorsService.ɵprov = core.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
         return SysSensorsService;
@@ -11398,6 +11451,7 @@
     exports.SysKeysServiceCreateTokenRequest = SysKeysServiceCreateTokenRequest;
     exports.SysKeysServiceUpdateBulkRequest = SysKeysServiceUpdateBulkRequest;
     exports.SysSensorsCountRequest = SysSensorsCountRequest;
+    exports.SysSensorsFetchObjectsCropsRequest = SysSensorsFetchObjectsCropsRequest;
     exports.SysSensorsService = SysSensorsService;
     exports.SysSensorsServiceFindRequest = SysSensorsServiceFindRequest;
     exports.SysSystemService = SysSystemService;
