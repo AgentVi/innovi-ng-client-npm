@@ -1,0 +1,11 @@
+/*
+   Edge Metadata message body
+*/
+var EdgeMetadataBody = /** @class */ (function () {
+    function EdgeMetadataBody(md) {
+        this.md = md;
+    }
+    return EdgeMetadataBody;
+}());
+export { EdgeMetadataBody };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRWRnZU1ldGFkYXRhQm9keS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2NvbW1vbi9FZGdlTWV0YWRhdGFCb2R5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBOztFQUVFO0FBQ0Y7SUFLSSwwQkFBWSxFQUFtQjtRQUMzQixJQUFJLENBQUMsRUFBRSxHQUFHLEVBQUUsQ0FBQztJQUNqQixDQUFDO0lBRUwsdUJBQUM7QUFBRCxDQUFDLEFBVEQsSUFTQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEVkZ2VNZXRhZGF0YSB9IGZyb20gJy4uL2NvbW1vbi9FZGdlTWV0YWRhdGEnO1xuXG4vKiBcbiAgIEVkZ2UgTWV0YWRhdGEgbWVzc2FnZSBib2R5IFxuKi9cbmV4cG9ydCBjbGFzcyBFZGdlTWV0YWRhdGFCb2R5IHtcbiBcbiAgICAvLyBBcnJheSBvZiBtZXRhZGF0YSBpdGVtcyBcbiAgICBwdWJsaWMgbWQ6IEVkZ2VNZXRhZGF0YVtdO1xuIFxuICAgIGNvbnN0cnVjdG9yKG1kPzogRWRnZU1ldGFkYXRhW10pIHsgXG4gICAgICAgIHRoaXMubWQgPSBtZDtcbiAgICB9XG5cbn1cblxuXG4iXX0=

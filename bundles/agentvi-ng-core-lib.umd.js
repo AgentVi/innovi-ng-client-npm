@@ -559,6 +559,110 @@
     }());
 
     /*
+       Edge Event Image
+    */
+    var EdgeEventImage = /** @class */ (function () {
+        function EdgeEventImage(jpg, ts) {
+            this.jpg = jpg;
+            this.ts = ts;
+        }
+        return EdgeEventImage;
+    }());
+
+    /*
+       Edge Event Info
+    */
+    var EdgeEventInfo = /** @class */ (function () {
+        function EdgeEventInfo(behaviorType, clipPeriod, description, eventBboxes, eventId, eventImageTime, eventObjects, eventTime, eventType, externalId, jpegBuffers, objectType, ruleId, sensorId, severity) {
+            this.behaviorType = behaviorType;
+            this.clipPeriod = clipPeriod;
+            this.description = description;
+            this.eventBboxes = eventBboxes;
+            this.eventId = eventId;
+            this.eventImageTime = eventImageTime;
+            this.eventObjects = eventObjects;
+            this.eventTime = eventTime;
+            this.eventType = eventType;
+            this.externalId = externalId;
+            this.jpegBuffers = jpegBuffers;
+            this.objectType = objectType;
+            this.ruleId = ruleId;
+            this.sensorId = sensorId;
+            this.severity = severity;
+        }
+        return EdgeEventInfo;
+    }());
+
+    /*
+       Edge Event Info message body
+    */
+    var EdgeEventInfoBody = /** @class */ (function () {
+        function EdgeEventInfoBody(eventInfo) {
+            this.eventInfo = eventInfo;
+        }
+        return EdgeEventInfoBody;
+    }());
+
+    /*
+       Edge Raw event info message
+    */
+    var EdgeEventInfoMessage = /** @class */ (function () {
+        function EdgeEventInfoMessage(id, op, ver, body) {
+            this.id = id;
+            this.op = op;
+            this.ver = ver;
+            this.body = body;
+        }
+        return EdgeEventInfoMessage;
+    }());
+
+    /*
+       Edge Event Object
+    */
+    var EdgeEventObject = /** @class */ (function () {
+        function EdgeEventObject(objectId, objectHistory) {
+            this.objectId = objectId;
+            this.objectHistory = objectHistory;
+        }
+        return EdgeEventObject;
+    }());
+
+    /*
+       Edge Metadata
+    */
+    var EdgeMetadata = /** @class */ (function () {
+        function EdgeMetadata(accountId, sensorId, objects) {
+            this.accountId = accountId;
+            this.sensorId = sensorId;
+            this.objects = objects;
+        }
+        return EdgeMetadata;
+    }());
+
+    /*
+       Edge Metadata message body
+    */
+    var EdgeMetadataBody = /** @class */ (function () {
+        function EdgeMetadataBody(md) {
+            this.md = md;
+        }
+        return EdgeMetadataBody;
+    }());
+
+    /*
+       Edge Metadata message
+    */
+    var EdgeMetadataMessage = /** @class */ (function () {
+        function EdgeMetadataMessage(id, op, ver, body) {
+            this.id = id;
+            this.op = op;
+            this.ver = ver;
+            this.body = body;
+        }
+        return EdgeMetadataMessage;
+    }());
+
+    /*
        Event count time series data point
     */
     var EventCountDataPoint = /** @class */ (function () {
@@ -11203,6 +11307,14 @@
     exports.DistributionOfLong = DistributionOfLong;
     exports.DistributionOfString = DistributionOfString;
     exports.DockerCredentials = DockerCredentials;
+    exports.EdgeEventImage = EdgeEventImage;
+    exports.EdgeEventInfo = EdgeEventInfo;
+    exports.EdgeEventInfoBody = EdgeEventInfoBody;
+    exports.EdgeEventInfoMessage = EdgeEventInfoMessage;
+    exports.EdgeEventObject = EdgeEventObject;
+    exports.EdgeMetadata = EdgeMetadata;
+    exports.EdgeMetadataBody = EdgeMetadataBody;
+    exports.EdgeMetadataMessage = EdgeMetadataMessage;
     exports.EmptyRequest = EmptyRequest;
     exports.EmptyResponse = EmptyResponse;
     exports.EntitiesResponse = EntitiesResponse;

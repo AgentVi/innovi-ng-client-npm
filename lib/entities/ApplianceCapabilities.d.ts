@@ -1,7 +1,7 @@
-import { ConfigurationVersion } from '../entities/ConfigurationVersion';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { DiskInfo } from '../common/DiskInfo';
 import { DockerCredentials } from '../common/DockerCredentials';
+import { ConfigurationVersion } from '../entities/ConfigurationVersion';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 export declare class ApplianceCapabilities {
     productType: ProductTypeCode;
     serialNumber: string;
