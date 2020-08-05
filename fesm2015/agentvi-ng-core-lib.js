@@ -4695,15 +4695,11 @@ class SysSensorsCountRequest {
 /*
 */
 class SysSensorsFetchObjectsCropsRequest {
-    constructor(from, to, accountId, sensorId, objectType, objectId, minConf, maxConf, bucketFolder) {
-        this.from = from;
-        this.to = to;
+    constructor(accountId, sensorId, ts, objectId, bucketFolder) {
         this.accountId = accountId;
         this.sensorId = sensorId;
-        this.objectType = objectType;
+        this.ts = ts;
         this.objectId = objectId;
-        this.minConf = minConf;
-        this.maxConf = maxConf;
         this.bucketFolder = bucketFolder;
     }
 }
@@ -9091,31 +9087,19 @@ class SysSensorsService {
      * Collect object crops from agents based on the query parameters
      * @Return:  ActionResponse
      */
-    fetchObjectsCrops(from, to, accountId, sensorId, objectType, objectId, minConf, maxConf, bucketFolder) {
+    fetchObjectsCrops(accountId, sensorId, ts, objectId, bucketFolder) {
         const params = new Array();
-        if (from != null) {
-            params.push(`from=${from}`);
-        }
-        if (to != null) {
-            params.push(`to=${to}`);
-        }
         if (accountId != null) {
             params.push(`accountId=${accountId}`);
         }
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
         }
-        if (objectType != null) {
-            params.push(`objectType=${objectType}`);
+        if (ts != null) {
+            params.push(`ts=${ts}`);
         }
         if (objectId != null) {
             params.push(`objectId=${objectId}`);
-        }
-        if (minConf != null) {
-            params.push(`minConf=${minConf}`);
-        }
-        if (maxConf != null) {
-            params.push(`maxConf=${maxConf}`);
         }
         if (bucketFolder != null) {
             params.push(`bucketFolder=${bucketFolder}`);
