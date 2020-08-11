@@ -1,10 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
-import { UserInvitation } from '../common/UserInvitation';
-import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
+import { UserInvitation } from '../common/UserInvitation';
+import { UserRegistration } from '../common/UserRegistration';
+import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
+import { User } from '../entities/User';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -18,15 +19,20 @@ export declare class UsersService {
      */
     constructor(config: CoreConfig, rest: RestUtil);
     /**
-     * Create service account
-     * @Return: ActionResponse
-     */
-    registerServiceAccount(body?: ServiceAccountRegistration): import("rxjs").Observable<any>;
-    /**
      * Send invitation to a new user for the current account
      * @Return: ActionResponse
      */
     invite(body?: UserInvitation): import("rxjs").Observable<any>;
+    /**
+     * Register user for the account, it a user already exists, an invitation to the new account will be sent
+     * @Return: EntityResponse<User>
+     */
+    register(body?: UserRegistration): import("rxjs").Observable<any>;
+    /**
+     * Create service account
+     * @Return: ActionResponse
+     */
+    registerServiceAccount(body?: ServiceAccountRegistration): import("rxjs").Observable<any>;
     /**
      * Resend invitation to an existing user for the current account
      * @Return: ActionResponse

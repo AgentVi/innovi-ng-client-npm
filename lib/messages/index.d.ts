@@ -323,6 +323,7 @@ export * from './UsersServiceCreateRequest';
 export * from './UsersServiceExportRequest';
 export * from './UsersServiceFindRequest';
 export * from './UsersServiceInviteRequest';
+export * from './UsersServiceRegisterRequest';
 export * from './UsersServiceSetRolesRequest';
 export * from './UsersServiceUpdateRequest';
 export * from './WebSocketMessageHeader';
