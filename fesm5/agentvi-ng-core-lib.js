@@ -8087,6 +8087,13 @@ var RulesService = /** @class */ (function () {
         return this.rest.get(this.baseUrl + "/" + id);
     };
     /**
+     * Export single rule as Json stream
+     * @Return: Rule Json as StreamContent
+     */
+    RulesService.prototype.exportRule = function (id) {
+        return this.rest.download("rules", this.baseUrl + "/" + id + "/export");
+    };
+    /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
      */
@@ -8853,6 +8860,13 @@ var SensorsService = /** @class */ (function () {
      */
     SensorsService.prototype.getPreset = function (id) {
         return this.rest.get(this.baseUrl + "/" + id + "/preset");
+    };
+    /**
+     * Export single sensor preset (including calibration) as Json stream
+     * @Return: Sensor preset Json as StreamContent
+     */
+    SensorsService.prototype.exportPreset = function (id) {
+        return this.rest.download("sensors", this.baseUrl + "/" + id + "/preset/export");
     };
     /**
      * Get sensor reference image [response content type: image/jpeg]

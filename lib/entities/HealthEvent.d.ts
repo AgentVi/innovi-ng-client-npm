@@ -6,6 +6,7 @@ export declare class HealthEvent extends BaseEntity {
     source: EntityTypeCode;
     entityId: string;
     entityExtId: string;
+    entityName: string;
     startedOn: number;
     closedOn: number;
     status: number;

@@ -6992,6 +6992,13 @@ class RulesService {
         return this.rest.get(`${this.baseUrl}/${id}`);
     }
     /**
+     * Export single rule as Json stream
+     * @Return: Rule Json as StreamContent
+     */
+    exportRule(id) {
+        return this.rest.download(`rules`, `${this.baseUrl}/${id}/export`);
+    }
+    /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
      */
@@ -7736,6 +7743,13 @@ class SensorsService {
      */
     getPreset(id) {
         return this.rest.get(`${this.baseUrl}/${id}/preset`);
+    }
+    /**
+     * Export single sensor preset (including calibration) as Json stream
+     * @Return: Sensor preset Json as StreamContent
+     */
+    exportPreset(id) {
+        return this.rest.download(`sensors`, `${this.baseUrl}/${id}/preset/export`);
     }
     /**
      * Get sensor reference image [response content type: image/jpeg]

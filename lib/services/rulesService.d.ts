@@ -58,6 +58,11 @@ export declare class RulesService {
      */
     get(id?: string): import("rxjs").Observable<any>;
     /**
+     * Export single rule as Json stream
+     * @Return: Rule Json as StreamContent
+     */
+    exportRule(id?: string): import("rxjs").Subscription;
+    /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
      */
