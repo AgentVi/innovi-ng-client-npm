@@ -1,14 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { Appliance } from '../entities/Appliance';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -38,6 +38,11 @@ export declare class AppliancesService {
      * @Return: EntityResponse<Appliance>
      */
     get(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get single appliance by machine id (accros all system accounts)
+     * @Return: EntityResponse<Appliance>
+     */
+    getByMachineId(machineId?: string): import("rxjs").Observable<any>;
     /**
      * Get all sensors assigned to the appliance (getSensors)
      * @Return: QueryResponse<Sensor>

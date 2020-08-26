@@ -193,6 +193,7 @@ export * from './IntegrationIdsRequest';
 export * from './IntegrationsServiceCreateRequest';
 export * from './IntegrationsServiceFindRequest';
 export * from './IntegrationsServiceUpdateRequest';
+export * from './MachineIdRequest';
 export * from './PeopleCountingReportRequest';
 export * from './QueryResponse';
 export * from './QueryResponseOfAccount';

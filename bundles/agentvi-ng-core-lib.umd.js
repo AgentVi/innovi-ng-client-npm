@@ -4779,6 +4779,15 @@
 
     /*
     */
+    var MachineIdRequest = /** @class */ (function () {
+        function MachineIdRequest(machineId) {
+            this.machineId = machineId;
+        }
+        return MachineIdRequest;
+    }());
+
+    /*
+    */
     var PeopleCountingReportRequest = /** @class */ (function () {
         function PeopleCountingReportRequest(sensorId, folderId, from, to) {
             this.sensorId = sensorId;
@@ -6803,6 +6812,13 @@
          */
         AppliancesService.prototype.get = function (id) {
             return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single appliance by machine id (accros all system accounts)
+         * @Return: EntityResponse<Appliance>
+         */
+        AppliancesService.prototype.getByMachineId = function (machineId) {
+            return this.rest.get(this.baseUrl + "/machine/" + machineId);
         };
         /**
          * Get all sensors assigned to the appliance (getSensors)
@@ -11496,6 +11512,7 @@
     exports.LoginData = LoginData;
     exports.LoginParams = LoginParams;
     exports.LongTuple = LongTuple;
+    exports.MachineIdRequest = MachineIdRequest;
     exports.ObjectColor = ObjectColor;
     exports.ObjectInfo = ObjectInfo;
     exports.ObjectInstance = ObjectInstance;
