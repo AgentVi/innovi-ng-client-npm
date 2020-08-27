@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { Rule } from '../entities/Rule';
 import * as i0 from "@angular/core";
 /**
  * Services for rules actions
@@ -87,6 +87,16 @@ export declare class RulesService {
      * @Return: EntitiesResponse<RuleSpec>
      */
     getSpecs(): import("rxjs").Observable<any>;
+    /**
+     * Pause analytics detections on site (folder) for a specified time frame
+     * @Return: ActionResponse
+     */
+    pause(folderId?: string, folderExtId?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Resume analytics on site (folder) that was paused
+     * @Return: ActionResponse
+     */
+    resume(folderId?: string, folderExtId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<RulesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<RulesService>;
 }

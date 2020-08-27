@@ -232,6 +232,8 @@ export * from './RulesServiceCreateRequest';
 export * from './RulesServiceExportRequest';
 export * from './RulesServiceFindAnomalyRequest';
 export * from './RulesServiceFindRequest';
+export * from './RulesServicePauseRequest';
+export * from './RulesServiceResumeRequest';
 export * from './RulesServiceUpdateRequest';
 export * from './ScheduleIdRequest';
 export * from './ScheduleIdsRequest';

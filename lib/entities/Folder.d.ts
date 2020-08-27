@@ -1,6 +1,6 @@
+import { HealthThresholds } from '../common/HealthThresholds';
 import { BaseEntity } from '../entities/BaseEntity';
 import { Coordinate } from '../common/Coordinate';
-import { HealthThresholds } from '../common/HealthThresholds';
 export declare class Folder extends BaseEntity {
     parentId: string;
     accountId: string;
