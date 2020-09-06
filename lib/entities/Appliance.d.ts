@@ -1,13 +1,16 @@
+import { BaseEntity } from '../entities/BaseEntity';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { ApplianceCapabilities } from '../entities/ApplianceCapabilities';
 import { Thresholds } from '../common/Thresholds';
-import { BaseEntity } from '../entities/BaseEntity';
 export declare class Appliance extends BaseEntity {
     name: string;
     accountId: string;
     folderId: string;
     status: ApplianceStatusCode;
     state: number;
+    agentStatus: AgentStatusCode;
+    agentState: number;
     statusReportedOn: number;
     pairingKey: string;
     deletedOn: number;
