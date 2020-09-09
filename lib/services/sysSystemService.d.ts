@@ -13,6 +13,11 @@ export declare class SysSystemService {
      */
     constructor(config: CoreConfig, rest: RestUtil);
     /**
+     * Get cluster id (for licensing)
+     * @Return: ActionResponse (cluster id is in the key)
+     */
+    getClusterId(): import("rxjs").Observable<any>;
+    /**
      * Get system license
      * @Return: EntityResponse<License>
      */
