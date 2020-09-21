@@ -1003,11 +1003,13 @@ var TimeFrame = /** @class */ (function () {
    Tree item for account hierarchy tree
 */
 var TreeItem = /** @class */ (function () {
-    function TreeItem(itemId, type, name, typeName) {
+    function TreeItem(itemId, type, name, typeName, status, shunt) {
         this.itemId = itemId;
         this.type = type;
         this.name = name;
         this.typeName = typeName;
+        this.status = status;
+        this.shunt = shunt;
     }
     return TreeItem;
 }());

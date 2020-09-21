@@ -928,11 +928,13 @@ class TimeFrame {
    Tree item for account hierarchy tree
 */
 class TreeItem {
-    constructor(itemId, type, name, typeName) {
+    constructor(itemId, type, name, typeName, status, shunt) {
         this.itemId = itemId;
         this.type = type;
         this.name = name;
         this.typeName = typeName;
+        this.status = status;
+        this.shunt = shunt;
     }
 }
 
