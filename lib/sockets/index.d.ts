@@ -4,4 +4,4 @@ export * from './SocketEventNotification';
 export * from './SocketEventNotificationPayload';
 export * from './SocketEventsFilter';
 export * from './SocketEventsFilterPayload';
-export * from './SocketHealthStatusNotificationPayload';
+export * from './SocketHealthStatusNotification';

@@ -11287,15 +11287,17 @@
 
     /*
        @WebSocketMessage
-       This message is pushed to the client upon any sensor health status change in the registered account
+       This message is pushed to the client upon any new event in the registered account
     */
-    var SocketHealthStatusNotificationPayload = /** @class */ (function () {
-        function SocketHealthStatusNotificationPayload(code, error, sensorStatus) {
-            this.code = code;
+    var SocketHealthStatusNotification = /** @class */ (function () {
+        function SocketHealthStatusNotification(op, error, sensorStatus, agentStatus, applianceStatus) {
+            this.op = op;
             this.error = error;
             this.sensorStatus = sensorStatus;
+            this.agentStatus = agentStatus;
+            this.applianceStatus = applianceStatus;
         }
-        return SocketHealthStatusNotificationPayload;
+        return SocketHealthStatusNotification;
     }());
 
     var CoreLibModule = /** @class */ (function () {
@@ -11742,7 +11744,7 @@
     exports.SocketEventNotificationPayload = SocketEventNotificationPayload;
     exports.SocketEventsFilter = SocketEventsFilter;
     exports.SocketEventsFilterPayload = SocketEventsFilterPayload;
-    exports.SocketHealthStatusNotificationPayload = SocketHealthStatusNotificationPayload;
+    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
     exports.StatisticReport = StatisticReport;
     exports.StreamResponse = StreamResponse;
     exports.StringIntValue = StringIntValue;
