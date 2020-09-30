@@ -5949,6 +5949,15 @@
     }());
 
     /*
+    */
+    var SysSystemBackupRequest = /** @class */ (function () {
+        function SysSystemBackupRequest(filter) {
+            this.filter = filter;
+        }
+        return SysSystemBackupRequest;
+    }());
+
+    /*
        Token request message
     */
     var TokenRequest = /** @class */ (function () {
@@ -10689,10 +10698,16 @@
         };
         /**
          * Backup entire system (configurations, users and accounts)
+         * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
          * @Return: StreamingOutput of the content (zip)
          */
-        SysSystemService.prototype.backupSystem = function () {
-            return this.rest.download("sys-system", this.baseUrl + "/backup");
+        SysSystemService.prototype.backupSystem = function (filter) {
+            var _a;
+            var params = new Array();
+            if (filter != null) {
+                params.push("filter=" + filter);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["sys-system", this.baseUrl + "/backup"], params));
         };
         /**
          * Restore entire system (zip content)
@@ -11765,6 +11780,7 @@
     exports.SysSensorsFetchObjectsCropsRequest = SysSensorsFetchObjectsCropsRequest;
     exports.SysSensorsService = SysSensorsService;
     exports.SysSensorsServiceFindRequest = SysSensorsServiceFindRequest;
+    exports.SysSystemBackupRequest = SysSystemBackupRequest;
     exports.SysSystemService = SysSystemService;
     exports.SysUsersService = SysUsersService;
     exports.Threshold = Threshold;

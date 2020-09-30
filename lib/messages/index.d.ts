@@ -301,6 +301,7 @@ export * from './SysKeysServiceUpdateBulkRequest';
 export * from './SysSensorsCountRequest';
 export * from './SysSensorsFetchObjectsCropsRequest';
 export * from './SysSensorsServiceFindRequest';
+export * from './SysSystemBackupRequest';
 export * from './TokenRequest';
 export * from './TrafficAnalysisReportRequest';
 export * from './UserByEmailRequest';
