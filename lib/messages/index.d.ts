@@ -51,7 +51,7 @@ export * from './CalendarIdRequest';
 export * from './CalendarIdsRequest';
 export * from './CalendarsServiceCreateRequest';
 export * from './CalendarsServiceFindRequest';
-export * from './CalendarsServiceFolderIdRequest';
+export * from './CalendarsServiceFolderRequest';
 export * from './CalendarsServiceImportRequest';
 export * from './CalendarsServiceImportUrlRequest';
 export * from './CalendarsServiceUpdateRequest';

@@ -3337,11 +3337,14 @@
 
     /*
     */
-    var CalendarsServiceFolderIdRequest = /** @class */ (function () {
-        function CalendarsServiceFolderIdRequest(folderId) {
+    var CalendarsServiceFolderRequest = /** @class */ (function () {
+        function CalendarsServiceFolderRequest(folderId, sort, page, pageSize) {
             this.folderId = folderId;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
         }
-        return CalendarsServiceFolderIdRequest;
+        return CalendarsServiceFolderRequest;
     }());
 
     /*
@@ -7281,10 +7284,24 @@
         /**
          * Find all calendars for a specified level in the folder hierarchy
          * This method returns all the calendars of the current folder and all parent folders
-         * @Return: EntitiesResponse<Calendar>
+         * @Return: QueryResponse<Calendar>
          */
-        CalendarsService.prototype.getFolderCalendars = function (folderId) {
-            return this.rest.get(this.baseUrl + "/folder/" + folderId);
+        CalendarsService.prototype.getFolderCalendars = function (folderId, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/folder"], params));
         };
         /**
          * Import calendar from outlook CSV, ICS or iCal file
@@ -11383,7 +11400,7 @@
     exports.CalendarsService = CalendarsService;
     exports.CalendarsServiceCreateRequest = CalendarsServiceCreateRequest;
     exports.CalendarsServiceFindRequest = CalendarsServiceFindRequest;
-    exports.CalendarsServiceFolderIdRequest = CalendarsServiceFolderIdRequest;
+    exports.CalendarsServiceFolderRequest = CalendarsServiceFolderRequest;
     exports.CalendarsServiceImportRequest = CalendarsServiceImportRequest;
     exports.CalendarsServiceImportUrlRequest = CalendarsServiceImportUrlRequest;
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;

@@ -48,9 +48,9 @@ export declare class CalendarsService {
     /**
      * Find all calendars for a specified level in the folder hierarchy
      * This method returns all the calendars of the current folder and all parent folders
-     * @Return: EntitiesResponse<Calendar>
+     * @Return: QueryResponse<Calendar>
      */
-    getFolderCalendars(folderId?: string): import("rxjs").Observable<any>;
+    getFolderCalendars(folderId?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Import calendar from outlook CSV, ICS or iCal file
      * @Return: ActionResponse
