@@ -2141,17 +2141,17 @@ var StreamTypeCode;
 (function (StreamTypeCode) {
     // Undefined [0] 
     StreamTypeCode[StreamTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
-    // RTSP stream [1] 
+    // RTSP stream [1] (streamUrl schema: rtsp://) 
     StreamTypeCode[StreamTypeCode["RTSP"] = 1] = "RTSP";
-    // ONVIF stream [2] 
+    // ONVIF stream [2] (streamUrl schema: onvif://) 
     StreamTypeCode[StreamTypeCode["ONVIF"] = 2] = "ONVIF";
-    // Video clip from file [3] 
+    // Video clip from file [3] (streamUrl schema: file:///) 
     StreamTypeCode[StreamTypeCode["CLIP"] = 3] = "CLIP";
-    // RTP stream [4] 
+    // RTP stream [4] (streamUrl schema: rtp://) 
     StreamTypeCode[StreamTypeCode["RTP"] = 4] = "RTP";
-    // MULTICAST stream [5] 
+    // MULTICAST stream [5] (streamUrl schema: mcast://) 
     StreamTypeCode[StreamTypeCode["MULTICAST"] = 5] = "MULTICAST";
-    // Download clip from http(s) [6] 
+    // Download clip from http(s) [6] (streamUrl schema: http://  or https://) 
     StreamTypeCode[StreamTypeCode["HTTP"] = 6] = "HTTP";
 })(StreamTypeCode || (StreamTypeCode = {}));
 
