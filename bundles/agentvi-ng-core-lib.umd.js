@@ -1885,8 +1885,6 @@
         AccountRoleCode[AccountRoleCode["USER"] = 8] = "USER";
         // Installer can only connect device to the system and configure cameras, it can see Administrator and Monitor modules only) [16] 
         AccountRoleCode[AccountRoleCode["INSTALLER"] = 16] = "INSTALLER";
-        // Identical to USER with no ability to view INVESTIGATION or ANALYTICS module [32] 
-        AccountRoleCode[AccountRoleCode["DEMO"] = 32] = "DEMO";
     })(exports.AccountRoleCode || (exports.AccountRoleCode = {}));
 
     /*
