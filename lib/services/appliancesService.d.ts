@@ -1,14 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { Appliance } from '../entities/Appliance';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -27,12 +28,12 @@ export declare class AppliancesService {
      * Find list of appliances and filter
      * @Return: QueryResponse<Appliance>
      */
-    find(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>

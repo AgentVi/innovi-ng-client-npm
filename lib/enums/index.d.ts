@@ -11,6 +11,7 @@ export * from './ColorCode';
 export * from './ColorTypeCode';
 export * from './CommandStatusCode';
 export * from './DayOfWeekCode';
+export * from './DigitalIOStatusCode';
 export * from './EntityTypeCode';
 export * from './EventStatusCode';
 export * from './FeatureCode';

@@ -2,6 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
@@ -31,12 +32,12 @@ export declare class SysAppliancesService {
      * Find list of appliances and filter
      * @Return: QueryResponse<Appliance>
      */
-    find(accountId?: string, search?: string, status?: ApplianceStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(accountId?: string, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Delete appliance from the system
      * @Return: ActionResponse

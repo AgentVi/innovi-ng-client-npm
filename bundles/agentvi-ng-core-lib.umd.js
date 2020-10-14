@@ -1524,6 +1524,17 @@
     }(BaseEntity));
 
     /*
+       Digital IO type
+    */
+    var DigitalIO = /** @class */ (function (_super) {
+        __extends(DigitalIO, _super);
+        function DigitalIO() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return DigitalIO;
+    }(BaseEntity));
+
+    /*
        Detection event type
     */
     var Event = /** @class */ (function (_super) {
@@ -1658,6 +1669,20 @@
             this.sensorId = sensorId;
         }
         return OnvifChannel;
+    }());
+
+    /*
+       Mapping description of digital IO port
+    */
+    var PortMapping = /** @class */ (function () {
+        function PortMapping(port, isOutput, ruleId, activate, enabled) {
+            this.port = port;
+            this.isOutput = isOutput;
+            this.ruleId = ruleId;
+            this.activate = activate;
+            this.enabled = enabled;
+        }
+        return PortMapping;
     }());
 
     /*
@@ -2168,6 +2193,25 @@
         // Saturday [6] 
         DayOfWeekCode[DayOfWeekCode["SAT"] = 6] = "SAT";
     })(exports.DayOfWeekCode || (exports.DayOfWeekCode = {}));
+
+    /*
+       DigitalIO device status code
+    */
+
+    (function (DigitalIOStatusCode) {
+        // Undefined [0] 
+        DigitalIOStatusCode[DigitalIOStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
+        // DigitalIO device gateway is connected to the proxy and to the device [1] 
+        DigitalIOStatusCode[DigitalIOStatusCode["ACTIVE"] = 1] = "ACTIVE";
+        // DigitalIO device gateway in warning state (high latency) [2] 
+        DigitalIOStatusCode[DigitalIOStatusCode["WARNING"] = 2] = "WARNING";
+        // DigitalIO device gateway not connected [3] 
+        DigitalIOStatusCode[DigitalIOStatusCode["ERROR"] = 3] = "ERROR";
+        // DigitalIO device gateway has no connection to the physical device [4] 
+        DigitalIOStatusCode[DigitalIOStatusCode["INACTIVE"] = 4] = "INACTIVE";
+        // DigitalIO device gateway is configured but not yet connected [5] 
+        DigitalIOStatusCode[DigitalIOStatusCode["PENDING"] = 5] = "PENDING";
+    })(exports.DigitalIOStatusCode || (exports.DigitalIOStatusCode = {}));
 
     /*
        Entity type code (represent entity type in the system)
@@ -3143,11 +3187,12 @@
     /*
     */
     var AppliancesServiceExportRequest = /** @class */ (function () {
-        function AppliancesServiceExportRequest(folderId, subFolders, search, status, sort, format, fields) {
+        function AppliancesServiceExportRequest(folderId, subFolders, search, status, agentStatus, sort, format, fields) {
             this.folderId = folderId;
             this.subFolders = subFolders;
             this.search = search;
             this.status = status;
+            this.agentStatus = agentStatus;
             this.sort = sort;
             this.format = format;
             this.fields = fields;
@@ -3158,11 +3203,12 @@
     /*
     */
     var AppliancesServiceFindRequest = /** @class */ (function () {
-        function AppliancesServiceFindRequest(folderId, subFolders, search, status, sort, page, pageSize) {
+        function AppliancesServiceFindRequest(folderId, subFolders, search, status, agentStatus, sort, page, pageSize) {
             this.folderId = folderId;
             this.subFolders = subFolders;
             this.search = search;
             this.status = status;
+            this.agentStatus = agentStatus;
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
@@ -5702,10 +5748,11 @@
     /*
     */
     var SysAppliancesServiceFindRequest = /** @class */ (function () {
-        function SysAppliancesServiceFindRequest(accountId, search, status, sort, page, pageSize) {
+        function SysAppliancesServiceFindRequest(accountId, search, status, agentStatus, sort, page, pageSize) {
             this.accountId = accountId;
             this.search = search;
             this.status = status;
+            this.agentStatus = agentStatus;
             this.sort = sort;
             this.page = page;
             this.pageSize = pageSize;
@@ -6784,7 +6831,7 @@
          * Find list of appliances and filter
          * @Return: QueryResponse<Appliance>
          */
-        AppliancesService.prototype.find = function (folderId, subFolders, search, status, sort, page, pageSize) {
+        AppliancesService.prototype.find = function (folderId, subFolders, search, status, agentStatus, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (folderId != null) {
@@ -6798,6 +6845,9 @@
             }
             if (status != null) {
                 params.push("status=" + status);
+            }
+            if (agentStatus != null) {
+                params.push("agentStatus=" + agentStatus);
             }
             if (sort != null) {
                 params.push("sort=" + sort);
@@ -6814,7 +6864,7 @@
          * Export list of appliances and filter
          * @Return: StreamContent
          */
-        AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, sort, format, fields) {
+        AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields) {
             var _a;
             var params = new Array();
             if (folderId != null) {
@@ -6828,6 +6878,9 @@
             }
             if (status != null) {
                 params.push("status=" + status);
+            }
+            if (agentStatus != null) {
+                params.push("agentStatus=" + agentStatus);
             }
             if (sort != null) {
                 params.push("sort=" + sort);
@@ -9628,7 +9681,7 @@
          * Find list of appliances and filter
          * @Return: QueryResponse<Appliance>
          */
-        SysAppliancesService.prototype.find = function (accountId, search, status, sort, page, pageSize) {
+        SysAppliancesService.prototype.find = function (accountId, search, status, agentStatus, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (accountId != null) {
@@ -9639,6 +9692,9 @@
             }
             if (status != null) {
                 params.push("status=" + status);
+            }
+            if (agentStatus != null) {
+                params.push("agentStatus=" + agentStatus);
             }
             if (sort != null) {
                 params.push("sort=" + sort);
@@ -9655,7 +9711,7 @@
          * Export list of appliances and filter
          * @Return: StreamContent
          */
-        SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, sort, format, fields) {
+        SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields) {
             var _a;
             var params = new Array();
             if (folderId != null) {
@@ -9669,6 +9725,9 @@
             }
             if (status != null) {
                 params.push("status=" + status);
+            }
+            if (agentStatus != null) {
+                params.push("agentStatus=" + agentStatus);
             }
             if (sort != null) {
                 params.push("sort=" + sort);
@@ -11437,6 +11496,7 @@
     exports.Coordinate = Coordinate;
     exports.CoreConfig = CoreConfig;
     exports.CoreLibModule = CoreLibModule;
+    exports.DigitalIO = DigitalIO;
     exports.Dimension = Dimension;
     exports.DiskInfo = DiskInfo;
     exports.DistributionOfLong = DistributionOfLong;
@@ -11620,6 +11680,7 @@
     exports.OnvifChannel = OnvifChannel;
     exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
     exports.Point = Point;
+    exports.PortMapping = PortMapping;
     exports.Preset = Preset;
     exports.QueryResponse = QueryResponse;
     exports.QueryResponseOfAccount = QueryResponseOfAccount;
