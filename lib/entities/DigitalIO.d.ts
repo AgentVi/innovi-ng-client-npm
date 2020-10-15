@@ -5,6 +5,7 @@ export declare class DigitalIO extends BaseEntity {
     accountId: string;
     applianceId: string;
     name: string;
+    deviceType: string;
     deviceUri: string;
     status: DigitalIOStatusCode;
     portMapping: PortMapping[];

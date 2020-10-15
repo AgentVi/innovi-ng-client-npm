@@ -1249,10 +1249,11 @@ class OnvifChannel {
    Mapping description of digital IO port
 */
 class PortMapping {
-    constructor(port, isOutput, ruleId, activate, enabled) {
+    constructor(port, isOutput, entityType, entityId, activate, enabled) {
         this.port = port;
         this.isOutput = isOutput;
-        this.ruleId = ruleId;
+        this.entityType = entityType;
+        this.entityId = entityId;
         this.activate = activate;
         this.enabled = enabled;
     }
@@ -1696,16 +1697,16 @@ var DigitalIOStatusCode;
 (function (DigitalIOStatusCode) {
     // Undefined [0] 
     DigitalIOStatusCode[DigitalIOStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
-    // DigitalIO device gateway is connected to the proxy and to the device [1] 
-    DigitalIOStatusCode[DigitalIOStatusCode["ACTIVE"] = 1] = "ACTIVE";
-    // DigitalIO device gateway in warning state (high latency) [2] 
-    DigitalIOStatusCode[DigitalIOStatusCode["WARNING"] = 2] = "WARNING";
-    // DigitalIO device gateway not connected [3] 
-    DigitalIOStatusCode[DigitalIOStatusCode["ERROR"] = 3] = "ERROR";
-    // DigitalIO device gateway has no connection to the physical device [4] 
-    DigitalIOStatusCode[DigitalIOStatusCode["INACTIVE"] = 4] = "INACTIVE";
-    // DigitalIO device gateway is configured but not yet connected [5] 
-    DigitalIOStatusCode[DigitalIOStatusCode["PENDING"] = 5] = "PENDING";
+    // DigitalIO device gateway is configured but not yet connected [1] 
+    DigitalIOStatusCode[DigitalIOStatusCode["PENDING"] = 1] = "PENDING";
+    // DigitalIO device gateway is connected to the proxy and to the device [2] 
+    DigitalIOStatusCode[DigitalIOStatusCode["ACTIVE"] = 2] = "ACTIVE";
+    // DigitalIO device gateway in warning state (high latency) [3] 
+    DigitalIOStatusCode[DigitalIOStatusCode["WARNING"] = 3] = "WARNING";
+    // DigitalIO device gateway not connected [4] 
+    DigitalIOStatusCode[DigitalIOStatusCode["ERROR_NO_COMM"] = 4] = "ERROR_NO_COMM";
+    // DigitalIO device gateway has no connection to the physical device [5] 
+    DigitalIOStatusCode[DigitalIOStatusCode["ERROR_NO_DEVICE"] = 5] = "ERROR_NO_DEVICE";
 })(DigitalIOStatusCode || (DigitalIOStatusCode = {}));
 
 /*

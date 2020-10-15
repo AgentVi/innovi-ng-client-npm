@@ -1,5 +1,5 @@
-import { Folder } from '../entities/Folder';
 import { QueryResponse } from '../messages/QueryResponse';
+import { Folder } from '../entities/Folder';
 export declare class QueryResponseOfFolder extends QueryResponse {
     list: Folder[];
     code: number;
