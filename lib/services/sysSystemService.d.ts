@@ -63,6 +63,11 @@ export declare class SysSystemService {
      * @Return: ActionResponse
      */
     restoreSystem(): import("rxjs").Observable<any>;
+    /**
+     * Publish message to all services to change their log level
+     * @Return: ActionResponse
+     */
+    setLogLevel(level?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysSystemService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysSystemService>;
 }
