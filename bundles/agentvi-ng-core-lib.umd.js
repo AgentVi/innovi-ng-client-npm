@@ -5358,11 +5358,14 @@
 
     /*
     */
-    var SchedulesServiceFolderIdRequest = /** @class */ (function () {
-        function SchedulesServiceFolderIdRequest(folderId) {
+    var SchedulesServiceFolderParamsRequest = /** @class */ (function () {
+        function SchedulesServiceFolderParamsRequest(folderId, sort, page, pageSize) {
             this.folderId = folderId;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
         }
-        return SchedulesServiceFolderIdRequest;
+        return SchedulesServiceFolderParamsRequest;
     }());
 
     /*
@@ -8774,10 +8777,24 @@
         /**
          * Find all schedules for a specified level in the folder hierarchy
          * This method returns all the schedules of the current folder and all parent folders
-         * @Return: EntitiesResponse<Schedule>
+         * @Return: QueryResponse<Schedule>
          */
-        SchedulesService.prototype.getFolderSchedules = function (folderId) {
-            return this.rest.get(this.baseUrl + "/folder/" + folderId);
+        SchedulesService.prototype.getFolderSchedules = function (folderId, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (folderId != null) {
+                params.push("folderId=" + folderId);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/folder"], params));
         };
         /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SchedulesService.ɵprov = core.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
@@ -11784,7 +11801,7 @@
     exports.SchedulesService = SchedulesService;
     exports.SchedulesServiceCreateRequest = SchedulesServiceCreateRequest;
     exports.SchedulesServiceFindRequest = SchedulesServiceFindRequest;
-    exports.SchedulesServiceFolderIdRequest = SchedulesServiceFolderIdRequest;
+    exports.SchedulesServiceFolderParamsRequest = SchedulesServiceFolderParamsRequest;
     exports.SchedulesServiceUpdateRequest = SchedulesServiceUpdateRequest;
     exports.SearchBehavior = SearchBehavior;
     exports.SearchColor = SearchColor;

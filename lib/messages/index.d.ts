@@ -244,7 +244,7 @@ export * from './ScheduledReportsServiceFindRequest';
 export * from './ScheduledReportsServiceUpdateRequest';
 export * from './SchedulesServiceCreateRequest';
 export * from './SchedulesServiceFindRequest';
-export * from './SchedulesServiceFolderIdRequest';
+export * from './SchedulesServiceFolderParamsRequest';
 export * from './SchedulesServiceUpdateRequest';
 export * from './SearchEventCountRequest';
 export * from './SearchEventExportRequest';

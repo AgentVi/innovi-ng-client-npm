@@ -48,9 +48,9 @@ export declare class SchedulesService {
     /**
      * Find all schedules for a specified level in the folder hierarchy
      * This method returns all the schedules of the current folder and all parent folders
-     * @Return: EntitiesResponse<Schedule>
+     * @Return: QueryResponse<Schedule>
      */
-    getFolderSchedules(folderId?: string): import("rxjs").Observable<any>;
+    getFolderSchedules(folderId?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SchedulesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SchedulesService>;
 }
