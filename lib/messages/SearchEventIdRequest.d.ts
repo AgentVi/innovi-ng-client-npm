@@ -1,5 +1,5 @@
 export declare class SearchEventIdRequest {
-    id: string;
+    sessionId: string;
     eventId: string;
-    constructor(id?: string, eventId?: string);
+    constructor(sessionId?: string, eventId?: string);
 }

@@ -5378,8 +5378,8 @@
     /*
     */
     var SearchEventCountRequest = /** @class */ (function () {
-        function SearchEventCountRequest(id, sensorId, objectType, from, to, interval, labelFormat) {
-            this.id = id;
+        function SearchEventCountRequest(sessionId, sensorId, objectType, from, to, interval, labelFormat) {
+            this.sessionId = sessionId;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -5393,8 +5393,8 @@
     /*
     */
     var SearchEventExportRequest = /** @class */ (function () {
-        function SearchEventExportRequest(id, sensorId, objectType, from, to, sort, format, fields) {
-            this.id = id;
+        function SearchEventExportRequest(sessionId, sensorId, objectType, from, to, sort, format, fields) {
+            this.sessionId = sessionId;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -5409,8 +5409,8 @@
     /*
     */
     var SearchEventFindRequest = /** @class */ (function () {
-        function SearchEventFindRequest(id, sensorId, objectType, from, to, sort, page, pageSize) {
-            this.id = id;
+        function SearchEventFindRequest(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+            this.sessionId = sessionId;
             this.sensorId = sensorId;
             this.objectType = objectType;
             this.from = from;
@@ -5425,11 +5425,21 @@
     /*
     */
     var SearchEventIdRequest = /** @class */ (function () {
-        function SearchEventIdRequest(id, eventId) {
-            this.id = id;
+        function SearchEventIdRequest(sessionId, eventId) {
+            this.sessionId = sessionId;
             this.eventId = eventId;
         }
         return SearchEventIdRequest;
+    }());
+
+    /*
+    */
+    var SearchEventListRequest = /** @class */ (function () {
+        function SearchEventListRequest(sessionId, eventId) {
+            this.sessionId = sessionId;
+            this.eventId = eventId;
+        }
+        return SearchEventListRequest;
     }());
 
     /*
@@ -5493,8 +5503,8 @@
     /*
     */
     var SearchSessionIdRequest = /** @class */ (function () {
-        function SearchSessionIdRequest(id) {
-            this.id = id;
+        function SearchSessionIdRequest(sessionId) {
+            this.sessionId = sessionId;
         }
         return SearchSessionIdRequest;
     }());
@@ -8877,35 +8887,47 @@
          * Get search session status
          * @Return: EntityResponse<SearchStatus>
          */
-        SearchService.prototype.getSearchStatus = function (id) {
-            return this.rest.get(this.baseUrl + "/sessions/" + id + "/status");
+        SearchService.prototype.getSearchStatus = function (sessionId) {
+            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/status");
         };
         /**
          * Cancel search session
          * @Return: ActionResponse
          */
-        SearchService.prototype.cancelSearchSession = function (id) {
-            return this.rest.delete(this.baseUrl + "/sessions/" + id);
+        SearchService.prototype.cancelSearchSession = function (sessionId) {
+            return this.rest.delete(this.baseUrl + "/sessions/" + sessionId);
         };
         /**
          * Get single search event item by id and sessionId
          * @Return: EntityResponse<SearchDefinition>
          */
-        SearchService.prototype.getEvent = function (id, eventId) {
-            return this.rest.get(this.baseUrl + "/sessions/" + id + "/event/" + eventId);
+        SearchService.prototype.getEvent = function (sessionId, eventId) {
+            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/event/" + eventId);
         };
         /**
          * Get search event image [response content type: image/jpeg]
          * @Return: StreamingOutput of the image
          */
-        SearchService.prototype.getEventImage = function (id, eventId) {
-            return this.rest.download("search", this.baseUrl + "/sessions/" + id + "/image/" + eventId);
+        SearchService.prototype.getEventImage = function (sessionId, eventId) {
+            return this.rest.download("search", this.baseUrl + "/sessions/" + sessionId + "/image/" + eventId);
+        };
+        /**
+         * Get multiple search events by list of ids
+         * @Return: EntitiesResponse<SearchDefinition>
+         */
+        SearchService.prototype.listEvents = function (sessionId, eventId) {
+            var _a;
+            var params = new Array();
+            if (eventId != null) {
+                params.push("eventId=" + eventId);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/list"], params));
         };
         /**
          * Find list of search events by filter
          * @Return: QueryResponse<SearchDefinition>
          */
-        SearchService.prototype.findEvents = function (id, sensorId, objectType, from, to, sort, page, pageSize) {
+        SearchService.prototype.findEvents = function (sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (sensorId != null) {
@@ -8929,13 +8951,13 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/find"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/find"], params));
         };
         /**
          * Get total search events count by filter
          * @Return: QueryResponse<SearchDefinition> entities list is null
          */
-        SearchService.prototype.totalEvents = function (id, sensorId, objectType, from, to, sort, page, pageSize) {
+        SearchService.prototype.totalEvents = function (sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (sensorId != null) {
@@ -8959,13 +8981,13 @@
             if (pageSize != null) {
                 params.push("pageSize=" + pageSize);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/total"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/total"], params));
         };
         /**
          * Export list of search events by filter
          * @Return: StreamContent
          */
-        SearchService.prototype.exportEvents = function (id, sensorId, objectType, from, to, sort, format, fields) {
+        SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, from, to, sort, format, fields) {
             var _a;
             var params = new Array();
             if (sensorId != null) {
@@ -8989,13 +9011,13 @@
             if (fields != null) {
                 params.push("fields=" + fields);
             }
-            return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/sessions/" + id + "/export"], params));
+            return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/sessions/" + sessionId + "/export"], params));
         };
         /**
          * Get events count overtime for all events in the system
          * @Return: EntityResponse<EventCountTimeSeries>
          */
-        SearchService.prototype.getEventsCountOvertime = function (id, sensorId, objectType, from, to, interval, labelFormat) {
+        SearchService.prototype.getEventsCountOvertime = function (sessionId, sensorId, objectType, from, to, interval, labelFormat) {
             var _a;
             var params = new Array();
             if (sensorId != null) {
@@ -9016,7 +9038,7 @@
             if (labelFormat != null) {
                 params.push("labelFormat=" + labelFormat);
             }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + id + "/overtime"], params));
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/overtime"], params));
         };
         /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SearchService.ɵprov = core.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
@@ -9386,275 +9408,6 @@
         return SensorsService;
     }());
     /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SensorsService, [{
-            type: core.Injectable
-        }], function () { return [{ type: CoreConfig, decorators: [{
-                    type: core.Inject,
-                    args: ['config']
-                }] }, { type: RestUtil }]; }, null); })();
-
-    /**
-     * Services for user registration and login
-     */
-    var UserService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UserService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/user';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Login to the system with user email and password
-         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-         * @Return: EntityResponse<LoginData>
-         */
-        UserService.prototype.login = function (body) {
-            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<LoginData>
-         */
-        UserService.prototype.refreshToken = function () {
-            return this.rest.post(this.baseUrl + "/refresh-token", null);
-        };
-        /**
-         * Verify user by temporary login key
-         * @Return: EntityResponse<User>
-         */
-        UserService.prototype.verifyLoginKey = function (key) {
-            var _a;
-            var params = new Array();
-            if (key != null) {
-                params.push("key=" + key);
-            }
-            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
-        };
-        /**
-         * Send verification code by email
-         * @Return: ActionResponse
-         */
-        UserService.prototype.sendVerificationCode = function (body) {
-            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Validate verification code and reset password
-         * @Return: ActionResponse
-         */
-        UserService.prototype.resetPassword = function (code) {
-            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-        };
-        /**
-         * Change password
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changePassword = function (body) {
-            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Check if password was used before (according to password policy)
-         * @Return: ActionResponse
-         */
-        UserService.prototype.checkUnusedPassword = function (body) {
-            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user name
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changeName = function (body) {
-            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change current user mobile
-         * @Return: ActionResponse
-         */
-        UserService.prototype.changeMobile = function (body) {
-            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Refresh token (set new expiration time) and associate with new account if required
-         * @Return: EntityResponse<UserAccountInfo>
-         */
-        UserService.prototype.switchAccount = function (body) {
-            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
-        /** @nocollapse */ UserService.ɵprov = core.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-        return UserService;
-    }());
-    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UserService, [{
-            type: core.Injectable
-        }], function () { return [{ type: CoreConfig, decorators: [{
-                    type: core.Inject,
-                    args: ['config']
-                }] }, { type: RestUtil }]; }, null); })();
-
-    /**
-     * List of all user related actions for account administrator only
-     */
-    var UsersService = /** @class */ (function () {
-        /**
-         * Class constructor
-         */
-        function UsersService(config, rest) {
-            this.config = config;
-            this.rest = rest;
-            // URL to web api
-            this.baseUrl = '/users';
-            this.baseUrl = this.config.api + this.baseUrl;
-        }
-        /**
-         * Send invitation to a new user for the current account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.invite = function (body) {
-            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Register user for the account, it a user already exists, an invitation to the new account will be sent
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.register = function (body) {
-            return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Create service account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.registerServiceAccount = function (body) {
-            return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Resend invitation to an existing user for the current account
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.reInvite = function (id) {
-            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-        };
-        /**
-         * Update user
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.update = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user name
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeName = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user mobile
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeMobile = function (id, body) {
-            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-        };
-        /**
-         * Change user type
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.changeType = function (id, type) {
-            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-        };
-        /**
-         * Delete user from the system
-         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.delete = function (id) {
-            return this.rest.delete(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by id
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.get = function (id) {
-            return this.rest.get(this.baseUrl + "/" + id);
-        };
-        /**
-         * Get single user by email
-         * @Return: EntityResponse<User>
-         */
-        UsersService.prototype.getByEmail = function (email) {
-            return this.rest.get(this.baseUrl + "/byEmail/" + email);
-        };
-        /**
-         * Find list of users and filter the list
-         * System user will see all users, Account system will see all users of the account, registered user will get an error.
-         * @Return: QueryResponse<User>
-         */
-        UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
-            var _a;
-            var params = new Array();
-            if (accountId != null) {
-                params.push("accountId=" + accountId);
-            }
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (page != null) {
-                params.push("page=" + page);
-            }
-            if (pageSize != null) {
-                params.push("pageSize=" + pageSize);
-            }
-            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
-        };
-        /**
-         * Export list of users and filter
-         * @Return: StreamContent
-         */
-        UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields) {
-            var _a;
-            var params = new Array();
-            if (search != null) {
-                params.push("search=" + search);
-            }
-            if (type != null) {
-                params.push("type=" + type);
-            }
-            if (status != null) {
-                params.push("status=" + status);
-            }
-            if (sort != null) {
-                params.push("sort=" + sort);
-            }
-            if (format != null) {
-                params.push("format=" + format);
-            }
-            if (fields != null) {
-                params.push("fields=" + fields);
-            }
-            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
-        };
-        /**
-         * Get access token for user
-         * @Return: ActionResponse
-         */
-        UsersService.prototype.getUserToken = function (id, exp) {
-            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
-        };
-        /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
-        /** @nocollapse */ UsersService.ɵprov = core.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-        return UsersService;
-    }());
-    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UsersService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -11253,7 +11006,288 @@
                     args: ['config']
                 }] }, { type: RestUtil }]; }, null); })();
 
+    /**
+     * Services for user registration and login
+     */
+    var UserService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UserService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/user';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Login to the system with user email and password
+         * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+         * @Return: EntityResponse<LoginData>
+         */
+        UserService.prototype.login = function (body) {
+            return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<LoginData>
+         */
+        UserService.prototype.refreshToken = function () {
+            return this.rest.post(this.baseUrl + "/refresh-token", null);
+        };
+        /**
+         * Verify user by temporary login key
+         * @Return: EntityResponse<User>
+         */
+        UserService.prototype.verifyLoginKey = function (key) {
+            var _a;
+            var params = new Array();
+            if (key != null) {
+                params.push("key=" + key);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+        };
+        /**
+         * Send verification code by email
+         * @Return: ActionResponse
+         */
+        UserService.prototype.sendVerificationCode = function (body) {
+            return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Validate verification code and reset password
+         * @Return: ActionResponse
+         */
+        UserService.prototype.resetPassword = function (code) {
+            return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+        };
+        /**
+         * Change password
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changePassword = function (body) {
+            return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Check if password was used before (according to password policy)
+         * @Return: ActionResponse
+         */
+        UserService.prototype.checkUnusedPassword = function (body) {
+            return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user name
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changeName = function (body) {
+            return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change current user mobile
+         * @Return: ActionResponse
+         */
+        UserService.prototype.changeMobile = function (body) {
+            return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Refresh token (set new expiration time) and associate with new account if required
+         * @Return: EntityResponse<UserAccountInfo>
+         */
+        UserService.prototype.switchAccount = function (body) {
+            return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ UserService.ɵprov = core.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+        return UserService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UserService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * List of all user related actions for account administrator only
+     */
+    var UsersService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function UsersService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/users';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Send invitation to a new user for the current account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.invite = function (body) {
+            return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Register user for the account, it a user already exists, an invitation to the new account will be sent
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.register = function (body) {
+            return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Create service account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.registerServiceAccount = function (body) {
+            return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Resend invitation to an existing user for the current account
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.reInvite = function (id) {
+            return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+        };
+        /**
+         * Update user
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.update = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user name
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeName = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user mobile
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeMobile = function (id, body) {
+            return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Change user type
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.changeType = function (id, type) {
+            return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+        };
+        /**
+         * Delete user from the system
+         * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.delete = function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by id
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single user by email
+         * @Return: EntityResponse<User>
+         */
+        UsersService.prototype.getByEmail = function (email) {
+            return this.rest.get(this.baseUrl + "/byEmail/" + email);
+        };
+        /**
+         * Find list of users and filter the list
+         * System user will see all users, Account system will see all users of the account, registered user will get an error.
+         * @Return: QueryResponse<User>
+         */
+        UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of users and filter
+         * @Return: StreamContent
+         */
+        UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields) {
+            var _a;
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (type != null) {
+                params.push("type=" + type);
+            }
+            if (status != null) {
+                params.push("status=" + status);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
+        };
+        /**
+         * Get access token for user
+         * @Return: ActionResponse
+         */
+        UsersService.prototype.getUserToken = function (id, exp) {
+            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+        };
+        /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ UsersService.ɵprov = core.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+        return UsersService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(UsersService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
     var Services = [
+        AnomalyService,
+        HealthCheckService,
+        SysAccountsService,
+        SysAppliancesService,
+        SysConfigurationsService,
+        SysEventsService,
+        SysFeaturesGroupsService,
+        SysFeaturesService,
+        SysKeysService,
+        SysSensorsService,
+        SysSystemService,
+        SysUsersService,
         AccountsService,
         ApplianceProfilesService,
         AppliancesService,
@@ -11272,18 +11306,6 @@
         SensorsService,
         UserService,
         UsersService,
-        AnomalyService,
-        HealthCheckService,
-        SysAccountsService,
-        SysAppliancesService,
-        SysConfigurationsService,
-        SysEventsService,
-        SysFeaturesGroupsService,
-        SysFeaturesService,
-        SysKeysService,
-        SysSensorsService,
-        SysSystemService,
-        SysUsersService,
     ];
 
     /*
@@ -11772,6 +11794,7 @@
     exports.SearchEventExportRequest = SearchEventExportRequest;
     exports.SearchEventFindRequest = SearchEventFindRequest;
     exports.SearchEventIdRequest = SearchEventIdRequest;
+    exports.SearchEventListRequest = SearchEventListRequest;
     exports.SearchIdRequest = SearchIdRequest;
     exports.SearchIdsRequest = SearchIdsRequest;
     exports.SearchObject = SearchObject;

@@ -250,6 +250,7 @@ export * from './SearchEventCountRequest';
 export * from './SearchEventExportRequest';
 export * from './SearchEventFindRequest';
 export * from './SearchEventIdRequest';
+export * from './SearchEventListRequest';
 export * from './SearchIdRequest';
 export * from './SearchIdsRequest';
 export * from './SearchServiceCreateRequest';

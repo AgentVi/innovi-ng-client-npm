@@ -1,4 +1,4 @@
 export declare class SearchSessionIdRequest {
-    id: string;
-    constructor(id?: string);
+    sessionId: string;
+    constructor(sessionId?: string);
 }

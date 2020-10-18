@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -63,42 +63,47 @@ export declare class SearchService {
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
      */
-    getSearchStatus(id?: string): import("rxjs").Observable<any>;
+    getSearchStatus(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Cancel search session
      * @Return: ActionResponse
      */
-    cancelSearchSession(id?: string): import("rxjs").Observable<any>;
+    cancelSearchSession(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Get single search event item by id and sessionId
      * @Return: EntityResponse<SearchDefinition>
      */
-    getEvent(id?: string, eventId?: string): import("rxjs").Observable<any>;
+    getEvent(sessionId?: string, eventId?: string): import("rxjs").Observable<any>;
     /**
      * Get search event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(id?: string, eventId?: string): import("rxjs").Subscription;
+    getEventImage(sessionId?: string, eventId?: string): import("rxjs").Subscription;
+    /**
+     * Get multiple search events by list of ids
+     * @Return: EntitiesResponse<SearchDefinition>
+     */
+    listEvents(sessionId?: string, eventId?: string[]): import("rxjs").Observable<any>;
     /**
      * Find list of search events by filter
      * @Return: QueryResponse<SearchDefinition>
      */
-    findEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get total search events count by filter
      * @Return: QueryResponse<SearchDefinition> entities list is null
      */
-    totalEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    totalEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
      */
-    getEventsCountOvertime(id?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
+    getEventsCountOvertime(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SearchService>;
 }
