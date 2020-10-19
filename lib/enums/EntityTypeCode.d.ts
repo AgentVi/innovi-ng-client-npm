@@ -13,6 +13,7 @@ export declare enum EntityTypeCode {
     APPLIANCE_STATUS = 11,
     CALENDAR = 12,
     SCHEDULE = 13,
+    DIGITAL_IO = 14,
     FEATURE = 18,
     FEATURES_GROUP = 19,
     USER = 20

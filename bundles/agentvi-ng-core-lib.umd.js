@@ -2247,6 +2247,8 @@
         EntityTypeCode[EntityTypeCode["CALENDAR"] = 12] = "CALENDAR";
         // Schedule [13] 
         EntityTypeCode[EntityTypeCode["SCHEDULE"] = 13] = "SCHEDULE";
+        // Digital IO device [14] 
+        EntityTypeCode[EntityTypeCode["DIGITAL_IO"] = 14] = "DIGITAL_IO";
         // Feature [18] 
         EntityTypeCode[EntityTypeCode["FEATURE"] = 18] = "FEATURE";
         // Features Group[19] 
