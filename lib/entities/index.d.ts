@@ -48,4 +48,5 @@ export * from './SensorAnalysisResults';
 export * from './SensorStatus';
 export * from './UpdateStatus';
 export * from './User';
+export * from './VMSGateway';
 export * from './Verification';

@@ -1,0 +1,19 @@
+/*
+   VMS Gateway state mask - the bit mask represents the actual state of the service as reported by the core-api
+   Bit mask range:
+   OK:			0
+   WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+   ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+*/
+export var VMSGatewayStateMask;
+(function (VMSGatewayStateMask) {
+    // [OK] VMS Gateway is connected and active [0x0] 
+    VMSGatewayStateMask[VMSGatewayStateMask["VMS_OK"] = 0] = "VMS_OK";
+    // [WARNING] Network high latency [0x00000001] 
+    VMSGatewayStateMask[VMSGatewayStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+    // [ERROR] VMS Gateway not connected to the core [0x00010000] 
+    VMSGatewayStateMask[VMSGatewayStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+    // [ERROR] VMS Gateway has no connection to the VMS [0x00011000] 
+    VMSGatewayStateMask[VMSGatewayStateMask["NO_VMS_ERROR"] = 69632] = "NO_VMS_ERROR";
+})(VMSGatewayStateMask || (VMSGatewayStateMask = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVk1TR2F0ZXdheVN0YXRlTWFzay5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL2VudW1zL1ZNU0dhdGV3YXlTdGF0ZU1hc2sudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OztFQU1FO0FBQ0YsTUFBTSxDQUFOLElBQVksbUJBY1g7QUFkRCxXQUFZLG1CQUFtQjtJQUUzQixrREFBa0Q7SUFDbEQsaUVBQVUsQ0FBQTtJQUVWLCtDQUErQztJQUMvQyx1RkFBcUIsQ0FBQTtJQUVyQiw4REFBOEQ7SUFDOUQsbUZBQXFCLENBQUE7SUFFckIsaUVBQWlFO0lBQ2pFLGlGQUFvQixDQUFBO0FBRXhCLENBQUMsRUFkVyxtQkFBbUIsS0FBbkIsbUJBQW1CLFFBYzlCIiwic291cmNlc0NvbnRlbnQiOlsiLyogXG4gICBWTVMgR2F0ZXdheSBzdGF0ZSBtYXNrIC0gdGhlIGJpdCBtYXNrIHJlcHJlc2VudHMgdGhlIGFjdHVhbCBzdGF0ZSBvZiB0aGUgc2VydmljZSBhcyByZXBvcnRlZCBieSB0aGUgY29yZS1hcGlcbiAgIEJpdCBtYXNrIHJhbmdlOlxuICAgT0s6XHRcdFx0MFxuICAgV0FSTklORzpcdFsweDAwMDAxIC0gMHgwMDAwRkZGRl1cdFx0MSAtIDY1NTM1XG4gICBFUlJPUjpcdFx0WzB4MTAwMDAgLSAweEZGRkZGRkZGXVx0XHQ2NTUzNiAtIE1heEludCBcbiovXG5leHBvcnQgZW51bSBWTVNHYXRld2F5U3RhdGVNYXNrIHtcbiBcbiAgICAvLyBbT0tdIFZNUyBHYXRld2F5IGlzIGNvbm5lY3RlZCBhbmQgYWN0aXZlIFsweDBdIFxuICAgIFZNU19PSyA9IDAsXG4gXG4gICAgLy8gW1dBUk5JTkddIE5ldHdvcmsgaGlnaCBsYXRlbmN5IFsweDAwMDAwMDAxXSBcbiAgICBISUdIX0xBVEVOQ1lfV0FSTiA9IDEsXG4gXG4gICAgLy8gW0VSUk9SXSBWTVMgR2F0ZXdheSBub3QgY29ubmVjdGVkIHRvIHRoZSBjb3JlIFsweDAwMDEwMDAwXSBcbiAgICBOT19DT01NX0VSUk9SID0gNjU1MzYsXG4gXG4gICAgLy8gW0VSUk9SXSBWTVMgR2F0ZXdheSBoYXMgbm8gY29ubmVjdGlvbiB0byB0aGUgVk1TIFsweDAwMDExMDAwXSBcbiAgICBOT19WTVNfRVJST1IgPSA2OTYzMixcbiBcbn0iXX0=

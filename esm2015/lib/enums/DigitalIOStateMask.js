@@ -1,0 +1,19 @@
+/*
+   Digital IO state mask - the bit mask represents the actual state of the device as reported by the device proxy
+   Bit mask range:
+   OK:			0
+   WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+   ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+*/
+export var DigitalIOStateMask;
+(function (DigitalIOStateMask) {
+    // [OK] Digital IO device is connected and active' [0x0] 
+    DigitalIOStateMask[DigitalIOStateMask["DEVICE_OK"] = 0] = "DEVICE_OK";
+    // [WARNING] Network high latency [0x00000001] 
+    DigitalIOStateMask[DigitalIOStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+    // [ERROR] DigitalIO device gateway not connected [0x00010000] 
+    DigitalIOStateMask[DigitalIOStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+    // [ERROR] DigitalIO device gateway has no connection to the physical device [0x00011000] 
+    DigitalIOStateMask[DigitalIOStateMask["NO_DEVICE_ERROR"] = 69632] = "NO_DEVICE_ERROR";
+})(DigitalIOStateMask || (DigitalIOStateMask = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGlnaXRhbElPU3RhdGVNYXNrLmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvZW51bXMvRGlnaXRhbElPU3RhdGVNYXNrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7RUFNRTtBQUNGLE1BQU0sQ0FBTixJQUFZLGtCQWNYO0FBZEQsV0FBWSxrQkFBa0I7SUFFMUIseURBQXlEO0lBQ3pELHFFQUFhLENBQUE7SUFFYiwrQ0FBK0M7SUFDL0MscUZBQXFCLENBQUE7SUFFckIsK0RBQStEO0lBQy9ELGlGQUFxQixDQUFBO0lBRXJCLDBGQUEwRjtJQUMxRixxRkFBdUIsQ0FBQTtBQUUzQixDQUFDLEVBZFcsa0JBQWtCLEtBQWxCLGtCQUFrQixRQWM3QiIsInNvdXJjZXNDb250ZW50IjpbIi8qIFxuICAgRGlnaXRhbCBJTyBzdGF0ZSBtYXNrIC0gdGhlIGJpdCBtYXNrIHJlcHJlc2VudHMgdGhlIGFjdHVhbCBzdGF0ZSBvZiB0aGUgZGV2aWNlIGFzIHJlcG9ydGVkIGJ5IHRoZSBkZXZpY2UgcHJveHlcbiAgIEJpdCBtYXNrIHJhbmdlOlxuICAgT0s6XHRcdFx0MFxuICAgV0FSTklORzpcdFsweDAwMDAxIC0gMHgwMDAwRkZGRl1cdFx0MSAtIDY1NTM1XG4gICBFUlJPUjpcdFx0WzB4MTAwMDAgLSAweEZGRkZGRkZGXVx0XHQ2NTUzNiAtIE1heEludCBcbiovXG5leHBvcnQgZW51bSBEaWdpdGFsSU9TdGF0ZU1hc2sge1xuIFxuICAgIC8vIFtPS10gRGlnaXRhbCBJTyBkZXZpY2UgaXMgY29ubmVjdGVkIGFuZCBhY3RpdmUnIFsweDBdIFxuICAgIERFVklDRV9PSyA9IDAsXG4gXG4gICAgLy8gW1dBUk5JTkddIE5ldHdvcmsgaGlnaCBsYXRlbmN5IFsweDAwMDAwMDAxXSBcbiAgICBISUdIX0xBVEVOQ1lfV0FSTiA9IDEsXG4gXG4gICAgLy8gW0VSUk9SXSBEaWdpdGFsSU8gZGV2aWNlIGdhdGV3YXkgbm90IGNvbm5lY3RlZCBbMHgwMDAxMDAwMF0gXG4gICAgTk9fQ09NTV9FUlJPUiA9IDY1NTM2LFxuIFxuICAgIC8vIFtFUlJPUl0gRGlnaXRhbElPIGRldmljZSBnYXRld2F5IGhhcyBubyBjb25uZWN0aW9uIHRvIHRoZSBwaHlzaWNhbCBkZXZpY2UgWzB4MDAwMTEwMDBdIFxuICAgIE5PX0RFVklDRV9FUlJPUiA9IDY5NjMyLFxuIFxufSJdfQ==

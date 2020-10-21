@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class Agent extends BaseEntity {
     accountId: string;
     applianceId: string;

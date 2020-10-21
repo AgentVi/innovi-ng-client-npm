@@ -1525,6 +1525,7 @@
 
     /*
        Digital IO type
+       Digital IO connection URI should be in the RFC-6570 format which includes schema, credentials, host, port and additional parameters as query string params
     */
     var DigitalIO = /** @class */ (function (_super) {
         __extends(DigitalIO, _super);
@@ -1884,6 +1885,18 @@
     }(BaseEntity));
 
     /*
+       VMS Gateway type
+       VMS connection URI should be in the RFC-6570 format which includes schema, credentials, host, port and additional parameters as query string params
+    */
+    var VMSGateway = /** @class */ (function (_super) {
+        __extends(VMSGateway, _super);
+        function VMSGateway() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return VMSGateway;
+    }(BaseEntity));
+
+    /*
        Verification type used to verify user with a temporary code
     */
     var Verification = /** @class */ (function (_super) {
@@ -2196,6 +2209,25 @@
     })(exports.DayOfWeekCode || (exports.DayOfWeekCode = {}));
 
     /*
+       Digital IO state mask - the bit mask represents the actual state of the device as reported by the device proxy
+       Bit mask range:
+       OK:			0
+       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+    */
+
+    (function (DigitalIOStateMask) {
+        // [OK] Digital IO device is connected and active' [0x0] 
+        DigitalIOStateMask[DigitalIOStateMask["DEVICE_OK"] = 0] = "DEVICE_OK";
+        // [WARNING] Network high latency [0x00000001] 
+        DigitalIOStateMask[DigitalIOStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+        // [ERROR] DigitalIO device gateway not connected [0x00010000] 
+        DigitalIOStateMask[DigitalIOStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+        // [ERROR] DigitalIO device gateway has no connection to the physical device [0x00011000] 
+        DigitalIOStateMask[DigitalIOStateMask["NO_DEVICE_ERROR"] = 69632] = "NO_DEVICE_ERROR";
+    })(exports.DigitalIOStateMask || (exports.DigitalIOStateMask = {}));
+
+    /*
        DigitalIO device status code
     */
 
@@ -2208,10 +2240,8 @@
         DigitalIOStatusCode[DigitalIOStatusCode["ACTIVE"] = 2] = "ACTIVE";
         // DigitalIO device gateway in warning state (high latency) [3] 
         DigitalIOStatusCode[DigitalIOStatusCode["WARNING"] = 3] = "WARNING";
-        // DigitalIO device gateway not connected [4] 
-        DigitalIOStatusCode[DigitalIOStatusCode["ERROR_NO_COMM"] = 4] = "ERROR_NO_COMM";
-        // DigitalIO device gateway has no connection to the physical device [5] 
-        DigitalIOStatusCode[DigitalIOStatusCode["ERROR_NO_DEVICE"] = 5] = "ERROR_NO_DEVICE";
+        // DigitalIO device gateway in error state [4] 
+        DigitalIOStatusCode[DigitalIOStatusCode["ERROR"] = 4] = "ERROR";
     })(exports.DigitalIOStatusCode || (exports.DigitalIOStatusCode = {}));
 
     /*
@@ -2249,6 +2279,8 @@
         EntityTypeCode[EntityTypeCode["SCHEDULE"] = 13] = "SCHEDULE";
         // Digital IO device [14] 
         EntityTypeCode[EntityTypeCode["DIGITAL_IO"] = 14] = "DIGITAL_IO";
+        // VMS Gateway Service [15] 
+        EntityTypeCode[EntityTypeCode["VMS_GATEWAY"] = 15] = "VMS_GATEWAY";
         // Feature [18] 
         EntityTypeCode[EntityTypeCode["FEATURE"] = 18] = "FEATURE";
         // Features Group[19] 
@@ -2770,6 +2802,42 @@
         // Account service - to be used by other systems to perform actions using the API (can't login as a user to the portal)' [5]` 
         UserTypeCode[UserTypeCode["ACCOUNT_SERVICE"] = 5] = "ACCOUNT_SERVICE";
     })(exports.UserTypeCode || (exports.UserTypeCode = {}));
+
+    /*
+       VMS Gateway state mask - the bit mask represents the actual state of the service as reported by the core-api
+       Bit mask range:
+       OK:			0
+       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
+       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
+    */
+
+    (function (VMSGatewayStateMask) {
+        // [OK] VMS Gateway is connected and active [0x0] 
+        VMSGatewayStateMask[VMSGatewayStateMask["VMS_OK"] = 0] = "VMS_OK";
+        // [WARNING] Network high latency [0x00000001] 
+        VMSGatewayStateMask[VMSGatewayStateMask["HIGH_LATENCY_WARN"] = 1] = "HIGH_LATENCY_WARN";
+        // [ERROR] VMS Gateway not connected to the core [0x00010000] 
+        VMSGatewayStateMask[VMSGatewayStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
+        // [ERROR] VMS Gateway has no connection to the VMS [0x00011000] 
+        VMSGatewayStateMask[VMSGatewayStateMask["NO_VMS_ERROR"] = 69632] = "NO_VMS_ERROR";
+    })(exports.VMSGatewayStateMask || (exports.VMSGatewayStateMask = {}));
+
+    /*
+       VMS Gateway status code
+    */
+
+    (function (VMSGatewayStatusCode) {
+        // Undefined [0] 
+        VMSGatewayStatusCode[VMSGatewayStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
+        // VMS gateway is configured but not yet connected [1] 
+        VMSGatewayStatusCode[VMSGatewayStatusCode["PENDING"] = 1] = "PENDING";
+        // VMS gateway is connected to the system and to the VMS [2] 
+        VMSGatewayStatusCode[VMSGatewayStatusCode["ACTIVE"] = 2] = "ACTIVE";
+        // VMS gateway in warning state (high latency) [3] 
+        VMSGatewayStatusCode[VMSGatewayStatusCode["WARNING"] = 3] = "WARNING";
+        // VMS gateway in error state [4] 
+        VMSGatewayStatusCode[VMSGatewayStatusCode["ERROR"] = 4] = "ERROR";
+    })(exports.VMSGatewayStatusCode || (exports.VMSGatewayStatusCode = {}));
 
     /*
        Sensor visual quality code
@@ -11944,6 +12012,7 @@
     exports.UsersServiceRegisterRequest = UsersServiceRegisterRequest;
     exports.UsersServiceSetRolesRequest = UsersServiceSetRolesRequest;
     exports.UsersServiceUpdateRequest = UsersServiceUpdateRequest;
+    exports.VMSGateway = VMSGateway;
     exports.Verification = Verification;
     exports.WebSocketMessageHeader = WebSocketMessageHeader;
     exports.getToken = getToken;
