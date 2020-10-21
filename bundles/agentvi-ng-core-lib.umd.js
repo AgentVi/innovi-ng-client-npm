@@ -3383,10 +3383,11 @@
     /*
     */
     var AuditLogServiceExportRequest = /** @class */ (function () {
-        function AuditLogServiceExportRequest(userId, from, to, itemType, sort, format, fields) {
+        function AuditLogServiceExportRequest(userId, from, to, item, itemType, sort, format, fields) {
             this.userId = userId;
             this.from = from;
             this.to = to;
+            this.item = item;
             this.itemType = itemType;
             this.sort = sort;
             this.format = format;
@@ -3398,10 +3399,11 @@
     /*
     */
     var AuditLogServiceFindRequest = /** @class */ (function () {
-        function AuditLogServiceFindRequest(userId, from, to, itemType, sort, page, pageSize) {
+        function AuditLogServiceFindRequest(userId, from, to, item, itemType, sort, page, pageSize) {
             this.userId = userId;
             this.from = from;
             this.to = to;
+            this.item = item;
             this.itemType = itemType;
             this.sort = sort;
             this.page = page;
@@ -5857,6 +5859,40 @@
 
     /*
     */
+    var SysAuditLogServiceExportRequest = /** @class */ (function () {
+        function SysAuditLogServiceExportRequest(accountId, userId, from, to, item, itemType, sort, format, fields) {
+            this.accountId = accountId;
+            this.userId = userId;
+            this.from = from;
+            this.to = to;
+            this.item = item;
+            this.itemType = itemType;
+            this.sort = sort;
+            this.format = format;
+            this.fields = fields;
+        }
+        return SysAuditLogServiceExportRequest;
+    }());
+
+    /*
+    */
+    var SysAuditLogServiceFindRequest = /** @class */ (function () {
+        function SysAuditLogServiceFindRequest(accountId, userId, from, to, item, itemType, sort, page, pageSize) {
+            this.accountId = accountId;
+            this.userId = userId;
+            this.from = from;
+            this.to = to;
+            this.item = item;
+            this.itemType = itemType;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return SysAuditLogServiceFindRequest;
+    }());
+
+    /*
+    */
     var SysConfigurationsServiceCreateRequest = /** @class */ (function () {
         function SysConfigurationsServiceCreateRequest(body) {
             this.body = body;
@@ -7280,7 +7316,7 @@
          * Find list of audit log entries and filter
          * @Return: QueryResponse<AuditLog>
          */
-        AuditLogService.prototype.find = function (userId, from, to, itemType, sort, page, pageSize) {
+        AuditLogService.prototype.find = function (userId, from, to, item, itemType, sort, page, pageSize) {
             var _a;
             var params = new Array();
             if (userId != null) {
@@ -7291,6 +7327,9 @@
             }
             if (to != null) {
                 params.push("to=" + to);
+            }
+            if (item != null) {
+                params.push("item=" + item);
             }
             if (itemType != null) {
                 params.push("itemType=" + itemType);
@@ -7310,7 +7349,7 @@
          * Export list of audit log entries and filter
          * @Return: StreamContent
          */
-        AuditLogService.prototype.exportFormat = function (userId, from, to, itemType, sort, format, fields) {
+        AuditLogService.prototype.exportFormat = function (userId, from, to, item, itemType, sort, format, fields) {
             var _a;
             var params = new Array();
             if (userId != null) {
@@ -7321,6 +7360,9 @@
             }
             if (to != null) {
                 params.push("to=" + to);
+            }
+            if (item != null) {
+                params.push("item=" + item);
             }
             if (itemType != null) {
                 params.push("itemType=" + itemType);
@@ -11094,6 +11136,112 @@
                 }] }, { type: RestUtil }]; }, null); })();
 
     /**
+     * Audit log queries for account administrator only
+     * @RequestHeader X-API-KEY The key to identify the application (portal)
+     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+     */
+    var SysAuditLogService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function SysAuditLogService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/sys/auditlog';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Find list of audit log entries and filter
+         * @Return: QueryResponse<AuditLog>
+         */
+        SysAuditLogService.prototype.find = function (accountId, userId, from, to, item, itemType, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (userId != null) {
+                params.push("userId=" + userId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (item != null) {
+                params.push("item=" + item);
+            }
+            if (itemType != null) {
+                params.push("itemType=" + itemType);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Export list of audit log entries and filter
+         * @Return: StreamContent
+         */
+        SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields) {
+            var _a;
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (userId != null) {
+                params.push("userId=" + userId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (item != null) {
+                params.push("item=" + item);
+            }
+            if (itemType != null) {
+                params.push("itemType=" + itemType);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (format != null) {
+                params.push("format=" + format);
+            }
+            if (fields != null) {
+                params.push("fields=" + fields);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["auditlog", this.baseUrl + "/export"], params));
+        };
+        /**
+         * Get single audit log entry by id
+         * @Return: EntityResponse<Appliance>
+         */
+        SysAuditLogService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ SysAuditLogService.ɵprov = core.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+        return SysAuditLogService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(SysAuditLogService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
      * Services for user registration and login
      */
     var UserService = /** @class */ (function () {
@@ -11375,6 +11523,7 @@
         SysSensorsService,
         SysSystemService,
         SysUsersService,
+        SysAuditLogService,
         AccountsService,
         ApplianceProfilesService,
         AppliancesService,
@@ -11943,6 +12092,9 @@
     exports.SysAppliancesService = SysAppliancesService;
     exports.SysAppliancesServiceFindRequest = SysAppliancesServiceFindRequest;
     exports.SysAppliancesServiceGetCommandsRequest = SysAppliancesServiceGetCommandsRequest;
+    exports.SysAuditLogService = SysAuditLogService;
+    exports.SysAuditLogServiceExportRequest = SysAuditLogServiceExportRequest;
+    exports.SysAuditLogServiceFindRequest = SysAuditLogServiceFindRequest;
     exports.SysConfigurationsService = SysConfigurationsService;
     exports.SysConfigurationsServiceCreateRequest = SysConfigurationsServiceCreateRequest;
     exports.SysConfigurationsServiceCreateTemplateRequest = SysConfigurationsServiceCreateTemplateRequest;

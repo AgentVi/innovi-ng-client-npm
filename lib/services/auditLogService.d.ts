@@ -18,12 +18,12 @@ export declare class AuditLogService {
      * Find list of audit log entries and filter
      * @Return: QueryResponse<AuditLog>
      */
-    find(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(userId?: string, from?: number, to?: number, item?: string, itemType?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of audit log entries and filter
      * @Return: StreamContent
      */
-    exportFormat(userId?: string, from?: number, to?: number, itemType?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(userId?: string, from?: number, to?: number, item?: string, itemType?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single audit log entry by id
      * @Return: EntityResponse<Appliance>

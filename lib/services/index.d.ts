@@ -19,6 +19,7 @@ export * from './sensorsService';
 export * from './services.export';
 export * from './sysAccountsService';
 export * from './sysAppliancesService';
+export * from './sysAuditLogService';
 export * from './sysConfigurationsService';
 export * from './sysEventsService';
 export * from './sysFeaturesGroupsService';

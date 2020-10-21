@@ -283,6 +283,8 @@ export * from './SysApplianceGetLogsRequest';
 export * from './SysAppliancesCountRequest';
 export * from './SysAppliancesServiceFindRequest';
 export * from './SysAppliancesServiceGetCommandsRequest';
+export * from './SysAuditLogServiceExportRequest';
+export * from './SysAuditLogServiceFindRequest';
 export * from './SysConfigurationsServiceCreateRequest';
 export * from './SysConfigurationsServiceCreateTemplateRequest';
 export * from './SysConfigurationsServiceCreateVersionRequest';
