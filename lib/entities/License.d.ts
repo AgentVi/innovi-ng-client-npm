@@ -8,6 +8,7 @@ export declare class License extends BaseEntity {
     channelsLimit: number;
     devicesLimit: number;
     features: string[];
+    encoded: string;
     id: string;
     _type: string;
     createdOn: number;
