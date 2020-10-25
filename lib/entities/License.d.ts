@@ -4,6 +4,7 @@ export declare class License extends BaseEntity {
     customerName: string;
     deploymentId: string;
     deploymentName: string;
+    importedOn: number;
     expiration: number;
     channelsLimit: number;
     devicesLimit: number;

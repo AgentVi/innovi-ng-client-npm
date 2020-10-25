@@ -3544,6 +3544,15 @@
 
     /*
     */
+    var ClusterIdRequest = /** @class */ (function () {
+        function ClusterIdRequest(id) {
+            this.id = id;
+        }
+        return ClusterIdRequest;
+    }());
+
+    /*
+    */
     var ConfigurationIdRequest = /** @class */ (function () {
         function ConfigurationIdRequest(id) {
             this.id = id;
@@ -3823,6 +3832,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntitiesResponseOfIntegrationAction;
+    }(EntitiesResponse));
+
+    /*
+    */
+    var EntitiesResponseOfLicense = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfLicense, _super);
+        function EntitiesResponseOfLicense() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfLicense;
     }(EntitiesResponse));
 
     /*
@@ -4897,6 +4916,15 @@
             this.body = body;
         }
         return IntegrationsServiceUpdateRequest;
+    }());
+
+    /*
+    */
+    var LicenseIdRequest = /** @class */ (function () {
+        function LicenseIdRequest(id) {
+            this.id = id;
+        }
+        return LicenseIdRequest;
     }());
 
     /*
@@ -8322,6 +8350,75 @@
                 }] }, { type: RestUtil }]; }, null); })();
 
     /**
+     * List of license related actions
+     * @RequestHeader X-API-KEY The key to identify the application (portal)
+     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+     */
+    var LicensesService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function LicensesService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/licenses';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Get cluster id
+         * @Return: ActionResponse
+         */
+        LicensesService.prototype.getClusterId = function () {
+            return this.rest.get(this.baseUrl + "/cluster/id");
+        };
+        /**
+         * Get active license (combined license from all licenses)
+         * @Return: EntityResponse<License>
+         */
+        LicensesService.prototype.getActive = function () {
+            return this.rest.get(this.baseUrl + "/active");
+        };
+        /**
+         * Get single license by Id
+         * @Return: EntityResponse<License>
+         */
+        LicensesService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Delete license from the system
+         * @Return: ActionResponse
+         */
+        LicensesService.prototype.delete = function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get all licenses
+         * @Return: EntitiesResponse<License>
+         */
+        LicensesService.prototype.getAll = function () {
+            return this.rest.get("" + this.baseUrl);
+        };
+        /**
+         * Import license data from file
+         * @Return: ActionResponse
+         */
+        LicensesService.prototype.import = function () {
+            return this.rest.post(this.baseUrl + "/import", null);
+        };
+        /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ LicensesService.ɵprov = core.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
+        return LicensesService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(LicensesService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
      * Services for reports definition actions
      * @RequestHeader X-API-KEY The key to identify the application (portal)
      * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -10851,27 +10948,6 @@
             this.baseUrl = this.config.api + this.baseUrl;
         }
         /**
-         * Get cluster id (for licensing)
-         * @Return: ActionResponse (cluster id is in the key)
-         */
-        SysSystemService.prototype.getClusterId = function () {
-            return this.rest.get(this.baseUrl + "/cluster/id");
-        };
-        /**
-         * Get system license
-         * @Return: EntityResponse<License>
-         */
-        SysSystemService.prototype.getLicense = function () {
-            return this.rest.get(this.baseUrl + "/license");
-        };
-        /**
-         * Import license data from file
-         * @Return: ActionResponse
-         */
-        SysSystemService.prototype.importLicense = function () {
-            return this.rest.post(this.baseUrl + "/license", null);
-        };
-        /**
          * Get system version
          * @Return: ActionResponse
          */
@@ -11534,6 +11610,7 @@
         GeoService,
         HealthEventsService,
         IntegrationsService,
+        LicensesService,
         ReportsService,
         RulesService,
         ScheduledReportsService,
@@ -11758,6 +11835,7 @@
     exports.ChangeHealthThresholdsRequest = ChangeHealthThresholdsRequest;
     exports.ChangePasswordRequest = ChangePasswordRequest;
     exports.ChangeTimezoneRequest = ChangeTimezoneRequest;
+    exports.ClusterIdRequest = ClusterIdRequest;
     exports.ComponentConfiguration = ComponentConfiguration;
     exports.ComponentVariables = ComponentVariables;
     exports.Configuration = Configuration;
@@ -11809,6 +11887,7 @@
     exports.EntitiesResponseOfFolder = EntitiesResponseOfFolder;
     exports.EntitiesResponseOfIntegration = EntitiesResponseOfIntegration;
     exports.EntitiesResponseOfIntegrationAction = EntitiesResponseOfIntegrationAction;
+    exports.EntitiesResponseOfLicense = EntitiesResponseOfLicense;
     exports.EntitiesResponseOfReportDefinition = EntitiesResponseOfReportDefinition;
     exports.EntitiesResponseOfRule = EntitiesResponseOfRule;
     exports.EntitiesResponseOfRuleSpec = EntitiesResponseOfRuleSpec;
@@ -11943,6 +12022,8 @@
     exports.IntegrationsServiceFindRequest = IntegrationsServiceFindRequest;
     exports.IntegrationsServiceUpdateRequest = IntegrationsServiceUpdateRequest;
     exports.License = License;
+    exports.LicenseIdRequest = LicenseIdRequest;
+    exports.LicensesService = LicensesService;
     exports.LoginData = LoginData;
     exports.LoginParams = LoginParams;
     exports.LongTuple = LongTuple;
