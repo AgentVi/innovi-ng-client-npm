@@ -6,5 +6,6 @@ export declare class PortMapping {
     entityId: string;
     activate: boolean;
     enabled: boolean;
-    constructor(port?: string, isOutput?: boolean, entityType?: EntityTypeCode, entityId?: string, activate?: boolean, enabled?: boolean);
+    isActive: boolean;
+    constructor(port?: string, isOutput?: boolean, entityType?: EntityTypeCode, entityId?: string, activate?: boolean, enabled?: boolean, isActive?: boolean);
 }

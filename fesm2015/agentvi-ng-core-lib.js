@@ -1250,13 +1250,14 @@ class OnvifChannel {
    Mapping description of digital IO port
 */
 class PortMapping {
-    constructor(port, isOutput, entityType, entityId, activate, enabled) {
+    constructor(port, isOutput, entityType, entityId, activate, enabled, isActive) {
         this.port = port;
         this.isOutput = isOutput;
         this.entityType = entityType;
         this.entityId = entityId;
         this.activate = activate;
         this.enabled = enabled;
+        this.isActive = isActive;
     }
 }
 
