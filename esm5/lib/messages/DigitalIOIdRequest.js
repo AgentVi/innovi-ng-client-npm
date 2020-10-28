@@ -1,0 +1,10 @@
+/*
+*/
+var DigitalIOIdRequest = /** @class */ (function () {
+    function DigitalIOIdRequest(id) {
+        this.id = id;
+    }
+    return DigitalIOIdRequest;
+}());
+export { DigitalIOIdRequest };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGlnaXRhbElPSWRSZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvRGlnaXRhbElPSWRSZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0U7QUFDRjtJQUtJLDRCQUFZLEVBQVc7UUFDbkIsSUFBSSxDQUFDLEVBQUUsR0FBRyxFQUFFLENBQUM7SUFDakIsQ0FBQztJQUVMLHlCQUFDO0FBQUQsQ0FBQyxBQVRELElBU0MiLCJzb3VyY2VzQ29udGVudCI6WyJcbi8qICBcbiovXG5leHBvcnQgY2xhc3MgRGlnaXRhbElPSWRSZXF1ZXN0IHtcbiBcbiAgICAvLyBEaWdpdGFsIElPIGRldmljZSBJZCBcbiAgICBwdWJsaWMgaWQ6IHN0cmluZztcbiBcbiAgICBjb25zdHJ1Y3RvcihpZD86IHN0cmluZykgeyBcbiAgICAgICAgdGhpcy5pZCA9IGlkO1xuICAgIH1cblxufVxuXG5cbiJdfQ==

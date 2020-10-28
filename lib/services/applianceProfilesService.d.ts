@@ -41,7 +41,7 @@ export declare class ApplianceProfilesService {
      */
     get(id?: string): import("rxjs").Observable<any>;
     /**
-     * Find calendars by filters
+     * Find profiles by filters
      * @Return: EntitiesResponse<ApplianceProfile>
      */
     find(search?: string): import("rxjs").Observable<any>;

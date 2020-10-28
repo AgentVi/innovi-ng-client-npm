@@ -1,5 +1,6 @@
 export * from './accountsService';
 export * from './anomalyService';
+export * from './applianceDigitalIOService';
 export * from './applianceProfilesService';
 export * from './appliancesService';
 export * from './auditLogService';
