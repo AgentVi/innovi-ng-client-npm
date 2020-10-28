@@ -1716,6 +1716,8 @@ var DigitalIOStateMask;
     DigitalIOStateMask[DigitalIOStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
     // [ERROR] DigitalIO device gateway has no connection to the physical device [0x00011000] 
     DigitalIOStateMask[DigitalIOStateMask["NO_DEVICE_ERROR"] = 69632] = "NO_DEVICE_ERROR";
+    // [ERROR] DigitalIO device configuration error [0x00011100] 
+    DigitalIOStateMask[DigitalIOStateMask["DEVICE_CONFIG_ERROR"] = 69888] = "DEVICE_CONFIG_ERROR";
 })(DigitalIOStateMask || (DigitalIOStateMask = {}));
 
 /*
