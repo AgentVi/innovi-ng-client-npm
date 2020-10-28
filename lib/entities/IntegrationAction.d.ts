@@ -1,6 +1,6 @@
+import { BaseEntity } from '../entities/BaseEntity';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
-import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationAction extends BaseEntity {
     accountId: string;
     folderId: string;

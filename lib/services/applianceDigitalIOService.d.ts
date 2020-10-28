@@ -39,7 +39,7 @@ export declare class ApplianceDigitalIOService {
      * Find digital IO device configurations
      * @Return: EntitiesResponse<DigitalIO>
      */
-    find(search?: string): import("rxjs").Observable<any>;
+    find(applianceId?: string, search?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<ApplianceDigitalIOService, never>;
     static ɵprov: i0.ɵɵInjectableDef<ApplianceDigitalIOService>;
 }
