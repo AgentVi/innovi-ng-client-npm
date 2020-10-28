@@ -7767,11 +7767,18 @@ class SearchService {
         return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/status`);
     }
     /**
-     * Cancel search session
+     * Cancel search session and drop results
      * @Return: ActionResponse
      */
     cancelSearchSession(sessionId) {
         return this.rest.delete(`${this.baseUrl}/sessions/${sessionId}`);
+    }
+    /**
+     * Stop search session
+     * @Return: ActionResponse
+     */
+    stopSearchSession(sessionId) {
+        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/stop`, null);
     }
     /**
      * Get single search event item by id and sessionId

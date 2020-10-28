@@ -65,10 +65,15 @@ export declare class SearchService {
      */
     getSearchStatus(sessionId?: string): import("rxjs").Observable<any>;
     /**
-     * Cancel search session
+     * Cancel search session and drop results
      * @Return: ActionResponse
      */
     cancelSearchSession(sessionId?: string): import("rxjs").Observable<any>;
+    /**
+     * Stop search session
+     * @Return: ActionResponse
+     */
+    stopSearchSession(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Get single search event item by id and sessionId
      * @Return: EntityResponse<SearchDefinition>

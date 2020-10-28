@@ -8906,11 +8906,18 @@ var SearchService = /** @class */ (function () {
         return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/status");
     };
     /**
-     * Cancel search session
+     * Cancel search session and drop results
      * @Return: ActionResponse
      */
     SearchService.prototype.cancelSearchSession = function (sessionId) {
         return this.rest.delete(this.baseUrl + "/sessions/" + sessionId);
+    };
+    /**
+     * Stop search session
+     * @Return: ActionResponse
+     */
+    SearchService.prototype.stopSearchSession = function (sessionId) {
+        return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/stop", null);
     };
     /**
      * Get single search event item by id and sessionId
