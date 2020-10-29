@@ -1676,14 +1676,13 @@
        Mapping description of digital IO port
     */
     var PortMapping = /** @class */ (function () {
-        function PortMapping(port, isOutput, entityType, entityId, activate, enabled, isActive) {
+        function PortMapping(port, isOutput, entityType, entityId, activate, status) {
             this.port = port;
             this.isOutput = isOutput;
             this.entityType = entityType;
             this.entityId = entityId;
             this.activate = activate;
-            this.enabled = enabled;
-            this.isActive = isActive;
+            this.status = status;
         }
         return PortMapping;
     }());
@@ -1960,6 +1959,19 @@
     })(exports.AccountTypeCode || (exports.AccountTypeCode = {}));
 
     /*
+       Active code
+    */
+
+    (function (ActiveCode) {
+        // Undefined [0] 
+        ActiveCode[ActiveCode["UNDEFINED"] = 0] = "UNDEFINED";
+        // Active | True | High signal [1] 
+        ActiveCode[ActiveCode["ACTIVE"] = 1] = "ACTIVE";
+        // Inactive | False |  Low signal  [2] 
+        ActiveCode[ActiveCode["INACTIVE"] = 2] = "INACTIVE";
+    })(exports.ActiveCode || (exports.ActiveCode = {}));
+
+    /*
        Agent state mask - the bit mask represents the actual state of the agent as reported by the agent proxy
        Bit mask range:
        OK:		0
@@ -2178,14 +2190,16 @@
     (function (CommandStatusCode) {
         // Undefined [0] 
         CommandStatusCode[CommandStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
-        // Pending command [1] 
+        // Command is pending in the device command list  [1] 
         CommandStatusCode[CommandStatusCode["PENDING"] = 1] = "PENDING";
-        // Command in progress [2] 
+        // Command was accepted by the device manager [2] 
         CommandStatusCode[CommandStatusCode["EXECUTING"] = 2] = "EXECUTING";
-        // Command completed successfully [3] 
+        // Command executed successfully [3] 
         CommandStatusCode[CommandStatusCode["COMPLETED"] = 3] = "COMPLETED";
-        // Command failed [4] 
+        // Command execution failed [4] 
         CommandStatusCode[CommandStatusCode["FAILED"] = 4] = "FAILED";
+        // Command was sent from the command queue to the device manager [5] 
+        CommandStatusCode[CommandStatusCode["SENT"] = 5] = "SENT";
     })(exports.CommandStatusCode || (exports.CommandStatusCode = {}));
 
     /*
