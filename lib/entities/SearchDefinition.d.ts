@@ -1,9 +1,9 @@
+import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { SearchTimeCode } from '../enums/SearchTimeCode';
 import { TimeFrame } from '../common/TimeFrame';
 import { SearchBehavior } from '../entities/SearchBehavior';
 import { SearchObject } from '../entities/SearchObject';
 import { BaseEntity } from '../entities/BaseEntity';
-import { SearchScopeCode } from '../enums/SearchScopeCode';
-import { SearchTimeCode } from '../enums/SearchTimeCode';
 export declare class SearchDefinition extends BaseEntity {
     accountId: string;
     userId: string;
@@ -17,6 +17,7 @@ export declare class SearchDefinition extends BaseEntity {
     sensorIds: string[];
     behavior: SearchBehavior;
     objects: SearchObject[];
+    limit: number;
     id: string;
     _type: string;
     createdOn: number;
