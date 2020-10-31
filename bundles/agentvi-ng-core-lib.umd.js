@@ -2122,44 +2122,586 @@
     })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
     /*
-       Detected color of object (or partial object)
+       List of system error codes
     */
 
     (function (ColorCode) {
-        // Undefined [0] 
-        ColorCode[ColorCode["UNDEFINED"] = 0] = "UNDEFINED";
-        // No color [1] 
-        ColorCode[ColorCode["NONE"] = 1] = "NONE";
-        // Unknown color [2] 
-        ColorCode[ColorCode["UNKNOWN"] = 2] = "UNKNOWN";
-        // Multiple colors [4] 
-        ColorCode[ColorCode["MULTICOLORED"] = 4] = "MULTICOLORED";
-        // White [8] 
-        ColorCode[ColorCode["WHITE"] = 8] = "WHITE";
-        // Black [16] 
-        ColorCode[ColorCode["BLACK"] = 16] = "BLACK";
-        // Gray [32] 
-        ColorCode[ColorCode["GRAY"] = 32] = "GRAY";
-        // Blue [64] 
-        ColorCode[ColorCode["BLUE"] = 64] = "BLUE";
-        // Brown [128] 
-        ColorCode[ColorCode["BROWN"] = 128] = "BROWN";
-        // Green [256] 
-        ColorCode[ColorCode["GREEN"] = 256] = "GREEN";
-        // Yellow [512] 
-        ColorCode[ColorCode["YELLOW"] = 512] = "YELLOW";
-        // Orange [1024] 
-        ColorCode[ColorCode["ORANGE"] = 1024] = "ORANGE";
-        // Red [2048] 
-        ColorCode[ColorCode["RED"] = 2048] = "RED";
-        // Pink [4096] 
-        ColorCode[ColorCode["PINK"] = 4096] = "PINK";
-        // Purple [8192] 
-        ColorCode[ColorCode["PURPLE"] = 8192] = "PURPLE";
-        // Cyan [16384] 
-        ColorCode[ColorCode["CYAN"] = 16384] = "CYAN";
-        // Silver [32768] 
-        ColorCode[ColorCode["SILVER"] = 32768] = "SILVER";
+        // Success (No Error) 
+        ColorCode[ColorCode["SUCCESS"] = 0] = "SUCCESS";
+        // Unexpected general error 
+        ColorCode[ColorCode["UnexpectedError"] = 1] = "UnexpectedError";
+        // Not Implemented 
+        ColorCode[ColorCode["NotImplementedError"] = 2] = "NotImplementedError";
+        // 
+        ColorCode[ColorCode["DbErrConnectionFailed"] = 105] = "DbErrConnectionFailed";
+        // 
+        ColorCode[ColorCode["DbErr"] = 100] = "DbErr";
+        // 
+        ColorCode[ColorCode["DbErrNoRowsFetched"] = 101] = "DbErrNoRowsFetched";
+        // 
+        ColorCode[ColorCode["DbErrNoRowsAffected"] = 102] = "DbErrNoRowsAffected";
+        // 
+        ColorCode[ColorCode["DbErrDuplicateKey"] = 103] = "DbErrDuplicateKey";
+        // 
+        ColorCode[ColorCode["DbAppErrEmptyEntityIdPassed"] = 104] = "DbAppErrEmptyEntityIdPassed";
+        // 
+        ColorCode[ColorCode["ElasticConnectionFailed"] = 120] = "ElasticConnectionFailed";
+        // 
+        ColorCode[ColorCode["ElasticErr"] = 121] = "ElasticErr";
+        // 
+        ColorCode[ColorCode["RedisErr"] = 200] = "RedisErr";
+        // 
+        ColorCode[ColorCode["RedisErrConnectionFailed"] = 201] = "RedisErrConnectionFailed";
+        // 
+        ColorCode[ColorCode["RedisErrHSet"] = 202] = "RedisErrHSet";
+        // 
+        ColorCode[ColorCode["RedisErrHGet"] = 203] = "RedisErrHGet";
+        // 
+        ColorCode[ColorCode["RedisErrPing"] = 204] = "RedisErrPing";
+        // 
+        ColorCode[ColorCode["RedisErrHSetWithExp"] = 205] = "RedisErrHSetWithExp";
+        // 
+        ColorCode[ColorCode["RedisErrHDel"] = 206] = "RedisErrHDel";
+        // 
+        ColorCode[ColorCode["RedisErrRPop"] = 207] = "RedisErrRPop";
+        // 
+        ColorCode[ColorCode["RedisErrRPush"] = 208] = "RedisErrRPush";
+        // 
+        ColorCode[ColorCode["RedisErrPublish"] = 209] = "RedisErrPublish";
+        // 
+        ColorCode[ColorCode["RedisErrHGetAll"] = 210] = "RedisErrHGetAll";
+        // 
+        ColorCode[ColorCode["RedisErrFlushAll"] = 211] = "RedisErrFlushAll";
+        // 
+        ColorCode[ColorCode["RedisErrBRPop"] = 212] = "RedisErrBRPop";
+        // 
+        ColorCode[ColorCode["RedisErrSetKey"] = 213] = "RedisErrSetKey";
+        // 
+        ColorCode[ColorCode["RedisErrGetKey"] = 214] = "RedisErrGetKey";
+        // 
+        ColorCode[ColorCode["RedisErrDelKey"] = 215] = "RedisErrDelKey";
+        // 
+        ColorCode[ColorCode["RedisErrMGetKey"] = 216] = "RedisErrMGetKey";
+        // 
+        ColorCode[ColorCode["RedisErrExistsKey"] = 217] = "RedisErrExistsKey";
+        // 
+        ColorCode[ColorCode["RedisErrHExistsKey"] = 218] = "RedisErrHExistsKey";
+        // 
+        ColorCode[ColorCode["RedisErrHSetNXKey"] = 219] = "RedisErrHSetNXKey";
+        // 
+        ColorCode[ColorCode["RedisErrHKeysKey"] = 220] = "RedisErrHKeysKey";
+        // 
+        ColorCode[ColorCode["MailUriError"] = 230] = "MailUriError";
+        // 
+        ColorCode[ColorCode["MailRestSendError"] = 238] = "MailRestSendError";
+        // 
+        ColorCode[ColorCode["MailSmtpSendError"] = 239] = "MailSmtpSendError";
+        // 
+        ColorCode[ColorCode["WebSocketError"] = 240] = "WebSocketError";
+        // 
+        ColorCode[ColorCode["ExportFormatError"] = 250] = "ExportFormatError";
+        // 
+        ColorCode[ColorCode["ExportJsonError"] = 251] = "ExportJsonError";
+        // 
+        ColorCode[ColorCode["ExportCsvError"] = 252] = "ExportCsvError";
+        // 
+        ColorCode[ColorCode["ExportXmlError"] = 253] = "ExportXmlError";
+        // 
+        ColorCode[ColorCode["AwsKenesisErr"] = 300] = "AwsKenesisErr";
+        // 
+        ColorCode[ColorCode["AwsS3NotInitialized"] = 400] = "AwsS3NotInitialized";
+        // 
+        ColorCode[ColorCode["AwsCreateSessionErr"] = 401] = "AwsCreateSessionErr";
+        // 
+        ColorCode[ColorCode["AwsS3Err"] = 410] = "AwsS3Err";
+        // 
+        ColorCode[ColorCode["AwsS3NoNameProvidedErr"] = 411] = "AwsS3NoNameProvidedErr";
+        // 
+        ColorCode[ColorCode["AwsS3NoRegionProvidedErr"] = 412] = "AwsS3NoRegionProvidedErr";
+        // 
+        ColorCode[ColorCode["AwsS3CredentialsErr"] = 413] = "AwsS3CredentialsErr";
+        // 
+        ColorCode[ColorCode["AwsFailToPresignUrlError"] = 414] = "AwsFailToPresignUrlError";
+        // 
+        ColorCode[ColorCode["JsonErr"] = 500] = "JsonErr";
+        // 
+        ColorCode[ColorCode["XmlErr"] = 501] = "XmlErr";
+        // 
+        ColorCode[ColorCode["BadInput"] = 509] = "BadInput";
+        // 
+        ColorCode[ColorCode["Base64ECodecErr"] = 510] = "Base64ECodecErr";
+        // 
+        ColorCode[ColorCode["ZlibErr"] = 520] = "ZlibErr";
+        // 
+        ColorCode[ColorCode["IoErr"] = 530] = "IoErr";
+        // 
+        ColorCode[ColorCode["UrlParseErr"] = 540] = "UrlParseErr";
+        // 
+        ColorCode[ColorCode["AESEncryptErr"] = 541] = "AESEncryptErr";
+        // 
+        ColorCode[ColorCode["WsNoMessageFactoryFound"] = 542] = "WsNoMessageFactoryFound";
+        // 
+        ColorCode[ColorCode["OsFileSystemErr"] = 600] = "OsFileSystemErr";
+        // 
+        ColorCode[ColorCode["UnknownStorageSpecified"] = 601] = "UnknownStorageSpecified";
+        // 
+        ColorCode[ColorCode["NoObjectStorageSpecified"] = 602] = "NoObjectStorageSpecified";
+        // 
+        ColorCode[ColorCode["OpenTempFileForEventImageError"] = 603] = "OpenTempFileForEventImageError";
+        // 
+        ColorCode[ColorCode["WriteTempFileForEventImageError"] = 604] = "WriteTempFileForEventImageError";
+        // 
+        ColorCode[ColorCode["FileNotFound"] = 605] = "FileNotFound";
+        // 
+        ColorCode[ColorCode["OpenFileError"] = 606] = "OpenFileError";
+        // 
+        ColorCode[ColorCode["WriteFileError"] = 607] = "WriteFileError";
+        // 
+        ColorCode[ColorCode["SecurityTokenError"] = 700] = "SecurityTokenError";
+        // 
+        ColorCode[ColorCode["NoSecurityTokenFound"] = 701] = "NoSecurityTokenFound";
+        // 
+        ColorCode[ColorCode["EmptySecurityToken"] = 702] = "EmptySecurityToken";
+        // 
+        ColorCode[ColorCode["ErrorCreateApiKey"] = 710] = "ErrorCreateApiKey";
+        // 
+        ColorCode[ColorCode["InvalidPairingKeyVerification"] = -102] = "InvalidPairingKeyVerification";
+        // 
+        ColorCode[ColorCode["InvalidDevicePairingKey"] = 750] = "InvalidDevicePairingKey";
+        // 
+        ColorCode[ColorCode["DevicePairingInProgress"] = -701] = "DevicePairingInProgress";
+        // 
+        ColorCode[ColorCode["DevicePairingRejected"] = -702] = "DevicePairingRejected";
+        // 
+        ColorCode[ColorCode["NotVirtualDevice"] = 753] = "NotVirtualDevice";
+        // 
+        ColorCode[ColorCode["DeviceHasAssociatedSensors"] = 754] = "DeviceHasAssociatedSensors";
+        // 
+        ColorCode[ColorCode["StreamConnectError"] = 800] = "StreamConnectError";
+        // 
+        ColorCode[ColorCode["StreamTopicError"] = 801] = "StreamTopicError";
+        // 
+        ColorCode[ColorCode["StreamSubscriberError"] = 802] = "StreamSubscriberError";
+        // 
+        ColorCode[ColorCode["StreamNoProviderUriSpecified"] = 803] = "StreamNoProviderUriSpecified";
+        // 
+        ColorCode[ColorCode["StreamPutDataError"] = 850] = "StreamPutDataError";
+        // 
+        ColorCode[ColorCode["KafkaCreateProducerError"] = 880] = "KafkaCreateProducerError";
+        // 
+        ColorCode[ColorCode["KafkaCreateConsumerError"] = 881] = "KafkaCreateConsumerError";
+        // 
+        ColorCode[ColorCode["KafkaGetMetadataError"] = 882] = "KafkaGetMetadataError";
+        // 
+        ColorCode[ColorCode["KafkaReadMessageError"] = 883] = "KafkaReadMessageError";
+        // 
+        ColorCode[ColorCode["KafkaReadMessageTimeout"] = 884] = "KafkaReadMessageTimeout";
+        // 
+        ColorCode[ColorCode["ImagingDecodeToJpegYUVError"] = 900] = "ImagingDecodeToJpegYUVError";
+        // 
+        ColorCode[ColorCode["ImagingCreateImageFileError"] = 901] = "ImagingCreateImageFileError";
+        // 
+        ColorCode[ColorCode["ImagingEncodeJpegError"] = 902] = "ImagingEncodeJpegError";
+        // 
+        ColorCode[ColorCode["ImagingNoBoundingBoxes"] = 903] = "ImagingNoBoundingBoxes";
+        // 
+        ColorCode[ColorCode["ClipErrPrepareFrames"] = 904] = "ClipErrPrepareFrames";
+        // 
+        ColorCode[ColorCode["ClipErrEventHasNoFrames"] = 905] = "ClipErrEventHasNoFrames";
+        // 
+        ColorCode[ColorCode["ImagingHorizontalLineError"] = 906] = "ImagingHorizontalLineError";
+        // 
+        ColorCode[ColorCode["ImagingVerticalineError"] = 907] = "ImagingVerticalineError";
+        // 
+        ColorCode[ColorCode["PostWebhookError"] = 921] = "PostWebhookError";
+        // 
+        ColorCode[ColorCode["CreateHttpRequestError"] = 922] = "CreateHttpRequestError";
+        // 
+        ColorCode[ColorCode["SendHttpRequestError"] = 923] = "SendHttpRequestError";
+        // 
+        ColorCode[ColorCode["CanRetryIntegrationError"] = 924] = "CanRetryIntegrationError";
+        // 
+        ColorCode[ColorCode["IllegalEventMessageError"] = 925] = "IllegalEventMessageError";
+        // 
+        ColorCode[ColorCode["SmtpSendMailError"] = 930] = "SmtpSendMailError";
+        // 
+        ColorCode[ColorCode["AppErrInvalidLoginKey"] = 20111] = "AppErrInvalidLoginKey";
+        // 
+        ColorCode[ColorCode["AppErrAgentDoesntExist"] = 20112] = "AppErrAgentDoesntExist";
+        // 
+        ColorCode[ColorCode["AppErrEmptyLoginKey"] = 20113] = "AppErrEmptyLoginKey";
+        // 
+        ColorCode[ColorCode["AppErrEmptyAgentId"] = 20114] = "AppErrEmptyAgentId";
+        // 
+        ColorCode[ColorCode["AppErrEmptyAccountId"] = 20115] = "AppErrEmptyAccountId";
+        // 
+        ColorCode[ColorCode["AppErrEmptySensorId"] = 20116] = "AppErrEmptySensorId";
+        // 
+        ColorCode[ColorCode["AppErrGetSensorInfo"] = 20117] = "AppErrGetSensorInfo";
+        // 
+        ColorCode[ColorCode["AppErrGetAccountInfo"] = 20118] = "AppErrGetAccountInfo";
+        // 
+        ColorCode[ColorCode["AppErrGetFolderInfo"] = 20119] = "AppErrGetFolderInfo";
+        // 
+        ColorCode[ColorCode["AppErrGetRuleInfo"] = 20120] = "AppErrGetRuleInfo";
+        // 
+        ColorCode[ColorCode["EntityNotFound"] = 10000] = "EntityNotFound";
+        // 
+        ColorCode[ColorCode["LoginErrInvalidUid"] = 10001] = "LoginErrInvalidUid";
+        // 
+        ColorCode[ColorCode["LoginErrInvalidAid"] = 10002] = "LoginErrInvalidAid";
+        // 
+        ColorCode[ColorCode["LoginKeyExpired"] = 10003] = "LoginKeyExpired";
+        // 
+        ColorCode[ColorCode["InvalidVerification"] = 10004] = "InvalidVerification";
+        // 
+        ColorCode[ColorCode["InvalidEmailAddress"] = 10005] = "InvalidEmailAddress";
+        // 
+        ColorCode[ColorCode["SuspendedUser"] = 10006] = "SuspendedUser";
+        // 
+        ColorCode[ColorCode["BlockedUser"] = 10007] = "BlockedUser";
+        // 
+        ColorCode[ColorCode["DeleteSysAdmin"] = 10008] = "DeleteSysAdmin";
+        // 
+        ColorCode[ColorCode["AccessDenied"] = 10009] = "AccessDenied";
+        // 
+        ColorCode[ColorCode["EmailAddressExists"] = 10010] = "EmailAddressExists";
+        // 
+        ColorCode[ColorCode["InvalidAccessToken"] = 10011] = "InvalidAccessToken";
+        // 
+        ColorCode[ColorCode["TokenError"] = 10020] = "TokenError";
+        // 
+        ColorCode[ColorCode["ImportLicenseFailed"] = 10031] = "ImportLicenseFailed";
+        // 
+        ColorCode[ColorCode["VerifyLicenseFailed"] = 10032] = "VerifyLicenseFailed";
+        // 
+        ColorCode[ColorCode["VerifyDeploymentFailed"] = 10033] = "VerifyDeploymentFailed";
+        // 
+        ColorCode[ColorCode["LicenseNotFound"] = 10034] = "LicenseNotFound";
+        // 
+        ColorCode[ColorCode["EncodeLicenseFailed"] = 10035] = "EncodeLicenseFailed";
+        // 
+        ColorCode[ColorCode["LicenseSearchFailed"] = 10036] = "LicenseSearchFailed";
+        // 
+        ColorCode[ColorCode["LicenseNotDeleted"] = 10037] = "LicenseNotDeleted";
+        // 
+        ColorCode[ColorCode["UserNotFound"] = 10040] = "UserNotFound";
+        // 
+        ColorCode[ColorCode["UserNotCreated"] = 10041] = "UserNotCreated";
+        // 
+        ColorCode[ColorCode["UserNotUpdated"] = 10042] = "UserNotUpdated";
+        // 
+        ColorCode[ColorCode["UserNotDeleted"] = 10043] = "UserNotDeleted";
+        // 
+        ColorCode[ColorCode["UserSearchFailed"] = 10044] = "UserSearchFailed";
+        // 
+        ColorCode[ColorCode["UserWithoutRole"] = 10045] = "UserWithoutRole";
+        // 
+        ColorCode[ColorCode["UserInvitationFailed"] = 10046] = "UserInvitationFailed";
+        // 
+        ColorCode[ColorCode["ServiceAccountNotCreated"] = 10051] = "ServiceAccountNotCreated";
+        // 
+        ColorCode[ColorCode["AccountNotFound"] = 10100] = "AccountNotFound";
+        // 
+        ColorCode[ColorCode["AccountNotCreated"] = 10101] = "AccountNotCreated";
+        // 
+        ColorCode[ColorCode["AccountNotUpdated"] = 10102] = "AccountNotUpdated";
+        // 
+        ColorCode[ColorCode["AccountNotDeleted"] = 10103] = "AccountNotDeleted";
+        // 
+        ColorCode[ColorCode["WrongAccountName"] = 10104] = "WrongAccountName";
+        // 
+        ColorCode[ColorCode["WrongAccountType"] = 10105] = "WrongAccountType";
+        // 
+        ColorCode[ColorCode["WrongAccountStatus"] = 10106] = "WrongAccountStatus";
+        // 
+        ColorCode[ColorCode["AccountSearchFailed"] = 10109] = "AccountSearchFailed";
+        // 
+        ColorCode[ColorCode["InaccessibleAccount"] = 10110] = "InaccessibleAccount";
+        // 
+        ColorCode[ColorCode["UnmatchingAccount"] = 10111] = "UnmatchingAccount";
+        // 
+        ColorCode[ColorCode["ExpiredAccount"] = 10112] = "ExpiredAccount";
+        // 
+        ColorCode[ColorCode["AccountExists"] = 10113] = "AccountExists";
+        // 
+        ColorCode[ColorCode["EmptyAccountName"] = 10114] = "EmptyAccountName";
+        // 
+        ColorCode[ColorCode["DeleteSuspendedAccount"] = 10115] = "DeleteSuspendedAccount";
+        // 
+        ColorCode[ColorCode["DeleteAccountWithContent"] = 10116] = "DeleteAccountWithContent";
+        // 
+        ColorCode[ColorCode["PendingDeletedAccount"] = 10117] = "PendingDeletedAccount";
+        // 
+        ColorCode[ColorCode["FolderNotFound"] = 10120] = "FolderNotFound";
+        // 
+        ColorCode[ColorCode["FolderNotCreated"] = 10121] = "FolderNotCreated";
+        // 
+        ColorCode[ColorCode["FolderNotUpdated"] = 10122] = "FolderNotUpdated";
+        // 
+        ColorCode[ColorCode["FolderNotDeleted"] = 10123] = "FolderNotDeleted";
+        // 
+        ColorCode[ColorCode["FolderSearchFailed"] = 10124] = "FolderSearchFailed";
+        // 
+        ColorCode[ColorCode["DeleteFolderWithContent"] = 10125] = "DeleteFolderWithContent";
+        // 
+        ColorCode[ColorCode["GeoTransformationError"] = 10128] = "GeoTransformationError";
+        // 
+        ColorCode[ColorCode["LoadTransformationError"] = 10129] = "LoadTransformationError";
+        // 
+        ColorCode[ColorCode["GroupNotFound"] = 10140] = "GroupNotFound";
+        // 
+        ColorCode[ColorCode["GroupNotCreated"] = 10141] = "GroupNotCreated";
+        // 
+        ColorCode[ColorCode["GroupNotUpdated"] = 10142] = "GroupNotUpdated";
+        // 
+        ColorCode[ColorCode["GroupNotDeleted"] = 10143] = "GroupNotDeleted";
+        // 
+        ColorCode[ColorCode["GroupSearchFailed"] = 10144] = "GroupSearchFailed";
+        // 
+        ColorCode[ColorCode["GroupInUseByAccount"] = 10145] = "GroupInUseByAccount";
+        // 
+        ColorCode[ColorCode["FeatureNotFound"] = 10146] = "FeatureNotFound";
+        // 
+        ColorCode[ColorCode["DeviceNotFound"] = 10160] = "DeviceNotFound";
+        // 
+        ColorCode[ColorCode["DeviceNotCreated"] = 10161] = "DeviceNotCreated";
+        // 
+        ColorCode[ColorCode["DeviceNotUpdated"] = 10162] = "DeviceNotUpdated";
+        // 
+        ColorCode[ColorCode["DeviceNotDeleted"] = 10163] = "DeviceNotDeleted";
+        // 
+        ColorCode[ColorCode["DeviceSearchFailed"] = 10164] = "DeviceSearchFailed";
+        // 
+        ColorCode[ColorCode["MissingDeviceManager"] = 10167] = "MissingDeviceManager";
+        // 
+        ColorCode[ColorCode["MoreThanOneDeviceManager"] = 10168] = "MoreThanOneDeviceManager";
+        // 
+        ColorCode[ColorCode["VirtualDeviceReboot"] = 10169] = "VirtualDeviceReboot";
+        // 
+        ColorCode[ColorCode["CommandNotFound"] = 10170] = "CommandNotFound";
+        // 
+        ColorCode[ColorCode["CommandFailed"] = 10171] = "CommandFailed";
+        // 
+        ColorCode[ColorCode["AgentNotFound"] = 10180] = "AgentNotFound";
+        // 
+        ColorCode[ColorCode["AgentNotCreated"] = 10181] = "AgentNotCreated";
+        // 
+        ColorCode[ColorCode["AgentNotUpdated"] = 10182] = "AgentNotUpdated";
+        // 
+        ColorCode[ColorCode["AgentNotDeleted"] = 10183] = "AgentNotDeleted";
+        // 
+        ColorCode[ColorCode["AgentFindFailed"] = 10184] = "AgentFindFailed";
+        // 
+        ColorCode[ColorCode["DigitalIONotFound"] = 10190] = "DigitalIONotFound";
+        // 
+        ColorCode[ColorCode["DigitalIONotCreated"] = 10191] = "DigitalIONotCreated";
+        // 
+        ColorCode[ColorCode["DigitalIONotUpdated"] = 10192] = "DigitalIONotUpdated";
+        // 
+        ColorCode[ColorCode["DigitalIONotDeleted"] = 10193] = "DigitalIONotDeleted";
+        // 
+        ColorCode[ColorCode["DigitalIOSearchFailed"] = 10194] = "DigitalIOSearchFailed";
+        // 
+        ColorCode[ColorCode["SensorNotFound"] = 10200] = "SensorNotFound";
+        // 
+        ColorCode[ColorCode["SensorNotCreated"] = 10201] = "SensorNotCreated";
+        // 
+        ColorCode[ColorCode["SensorNotUpdated"] = 10202] = "SensorNotUpdated";
+        // 
+        ColorCode[ColorCode["SensorNotDeleted"] = 10203] = "SensorNotDeleted";
+        // 
+        ColorCode[ColorCode["SensorSearchFailed"] = 10204] = "SensorSearchFailed";
+        // 
+        ColorCode[ColorCode["DeleteNonPendingSensor"] = 10205] = "DeleteNonPendingSensor";
+        // 
+        ColorCode[ColorCode["ExceedMaxLicenseChannels"] = 10207] = "ExceedMaxLicenseChannels";
+        // 
+        ColorCode[ColorCode["ExceedMaxAccountChannels"] = 10208] = "ExceedMaxAccountChannels";
+        // 
+        ColorCode[ColorCode["SensorAlreadyAttached"] = 10209] = "SensorAlreadyAttached";
+        // 
+        ColorCode[ColorCode["SensorIsNotSuspended"] = 10210] = "SensorIsNotSuspended";
+        // 
+        ColorCode[ColorCode["SensorIsNotRecording"] = 10211] = "SensorIsNotRecording";
+        // 
+        ColorCode[ColorCode["RuleNotFound"] = 10220] = "RuleNotFound";
+        // 
+        ColorCode[ColorCode["RuleNotCreated"] = 10221] = "RuleNotCreated";
+        // 
+        ColorCode[ColorCode["RuleNotUpdated"] = 10222] = "RuleNotUpdated";
+        // 
+        ColorCode[ColorCode["RuleNotDeleted"] = 10223] = "RuleNotDeleted";
+        // 
+        ColorCode[ColorCode["RuleSearchFailed"] = 10224] = "RuleSearchFailed";
+        // 
+        ColorCode[ColorCode["RuleEnableFailed"] = 10225] = "RuleEnableFailed";
+        // 
+        ColorCode[ColorCode["RulePauseFailed"] = 10226] = "RulePauseFailed";
+        // 
+        ColorCode[ColorCode["RuleResumeFailed"] = 10227] = "RuleResumeFailed";
+        // 
+        ColorCode[ColorCode["CalendarNotFound"] = 10300] = "CalendarNotFound";
+        // 
+        ColorCode[ColorCode["CalendarNotCreated"] = 10301] = "CalendarNotCreated";
+        // 
+        ColorCode[ColorCode["CalendarNotUpdated"] = 10302] = "CalendarNotUpdated";
+        // 
+        ColorCode[ColorCode["CalendarNotDeleted"] = 10303] = "CalendarNotDeleted";
+        // 
+        ColorCode[ColorCode["CalendarSearchFailed"] = 10304] = "CalendarSearchFailed";
+        // 
+        ColorCode[ColorCode["ImportCalendarFailed"] = 10305] = "ImportCalendarFailed";
+        // 
+        ColorCode[ColorCode["ScheduleNotFound"] = 10320] = "ScheduleNotFound";
+        // 
+        ColorCode[ColorCode["ScheduleNotCreated"] = 10321] = "ScheduleNotCreated";
+        // 
+        ColorCode[ColorCode["ScheduleNotUpdated"] = 10322] = "ScheduleNotUpdated";
+        // 
+        ColorCode[ColorCode["ScheduleNotDeleted"] = 10323] = "ScheduleNotDeleted";
+        // 
+        ColorCode[ColorCode["ScheduleSearchFailed"] = 10324] = "ScheduleSearchFailed";
+        // 
+        ColorCode[ColorCode["ScheduleLinkedToRules"] = 10325] = "ScheduleLinkedToRules";
+        // 
+        ColorCode[ColorCode["ReportNotFound"] = 10330] = "ReportNotFound";
+        // 
+        ColorCode[ColorCode["ReportNotCreated"] = 10331] = "ReportNotCreated";
+        // 
+        ColorCode[ColorCode["ReportNotUpdated"] = 10332] = "ReportNotUpdated";
+        // 
+        ColorCode[ColorCode["ReportNotDeleted"] = 10333] = "ReportNotDeleted";
+        // 
+        ColorCode[ColorCode["ReportSearchFailed"] = 10334] = "ReportSearchFailed";
+        // 
+        ColorCode[ColorCode["ReportPeopleCountingFailed"] = 10335] = "ReportPeopleCountingFailed";
+        // 
+        ColorCode[ColorCode["ReportTrafficAnalysisFailed"] = 10336] = "ReportTrafficAnalysisFailed";
+        // 
+        ColorCode[ColorCode["ScheduledReportNotFound"] = 10340] = "ScheduledReportNotFound";
+        // 
+        ColorCode[ColorCode["ScheduledReportNotCreated"] = 10341] = "ScheduledReportNotCreated";
+        // 
+        ColorCode[ColorCode["ScheduledReportNotUpdated"] = 10342] = "ScheduledReportNotUpdated";
+        // 
+        ColorCode[ColorCode["ScheduledReportNotDeleted"] = 10343] = "ScheduledReportNotDeleted";
+        // 
+        ColorCode[ColorCode["ScheduledReportSearchFailed"] = 10344] = "ScheduledReportSearchFailed";
+        // 
+        ColorCode[ColorCode["ConfigurationNotFound"] = 10360] = "ConfigurationNotFound";
+        // 
+        ColorCode[ColorCode["ConfigurationNotCreated"] = 10361] = "ConfigurationNotCreated";
+        // 
+        ColorCode[ColorCode["ConfigurationNotUpdated"] = 10362] = "ConfigurationNotUpdated";
+        // 
+        ColorCode[ColorCode["ConfigurationNotDeleted"] = 10363] = "ConfigurationNotDeleted";
+        // 
+        ColorCode[ColorCode["ConfigurationSearchFailed"] = 10364] = "ConfigurationSearchFailed";
+        // 
+        ColorCode[ColorCode["ConfigVersionNotFound"] = 10370] = "ConfigVersionNotFound";
+        // 
+        ColorCode[ColorCode["ConfigVersionNotCreated"] = 10371] = "ConfigVersionNotCreated";
+        // 
+        ColorCode[ColorCode["ConfigVersionNotUpdated"] = 10372] = "ConfigVersionNotUpdated";
+        // 
+        ColorCode[ColorCode["ConfigVersionNotDeleted"] = 10373] = "ConfigVersionNotDeleted";
+        // 
+        ColorCode[ColorCode["ConfigVersionSearchFailed"] = 10374] = "ConfigVersionSearchFailed";
+        // 
+        ColorCode[ColorCode["ConfigTemplateNotFound"] = 10380] = "ConfigTemplateNotFound";
+        // 
+        ColorCode[ColorCode["ConfigTemplateNotCreated"] = 10381] = "ConfigTemplateNotCreated";
+        // 
+        ColorCode[ColorCode["ConfigTemplateNotUpdated"] = 10382] = "ConfigTemplateNotUpdated";
+        // 
+        ColorCode[ColorCode["ConfigTemplateNotDeleted"] = 10383] = "ConfigTemplateNotDeleted";
+        // 
+        ColorCode[ColorCode["ConfigTemplateSearchFailed"] = 10384] = "ConfigTemplateSearchFailed";
+        // 
+        ColorCode[ColorCode["EventNotFound"] = 10400] = "EventNotFound";
+        // 
+        ColorCode[ColorCode["EventNotCreated"] = 10401] = "EventNotCreated";
+        // 
+        ColorCode[ColorCode["EventNotUpdated"] = 10402] = "EventNotUpdated";
+        // 
+        ColorCode[ColorCode["EventNotDeleted"] = 10403] = "EventNotDeleted";
+        // 
+        ColorCode[ColorCode["EventSearchFailed"] = 10404] = "EventSearchFailed";
+        // 
+        ColorCode[ColorCode["EventStatusNotUpdated"] = 10405] = "EventStatusNotUpdated";
+        // 
+        ColorCode[ColorCode["EventImagePathNotUpdated"] = 10406] = "EventImagePathNotUpdated";
+        // 
+        ColorCode[ColorCode["EventClipPathNotUpdated"] = 10407] = "EventClipPathNotUpdated";
+        // 
+        ColorCode[ColorCode["EventOpenImageError"] = 10408] = "EventOpenImageError";
+        // 
+        ColorCode[ColorCode["EventOpenClipError"] = 10409] = "EventOpenClipError";
+        // 
+        ColorCode[ColorCode["EventCountError"] = 10410] = "EventCountError";
+        // 
+        ColorCode[ColorCode["HealthEventNotFound"] = 10420] = "HealthEventNotFound";
+        // 
+        ColorCode[ColorCode["HealthEventNotCreated"] = 10421] = "HealthEventNotCreated";
+        // 
+        ColorCode[ColorCode["HealthEventNotUpdated"] = 10422] = "HealthEventNotUpdated";
+        // 
+        ColorCode[ColorCode["HealthEventNotDeleted"] = 10423] = "HealthEventNotDeleted";
+        // 
+        ColorCode[ColorCode["HealthEventSearchFailed"] = 10424] = "HealthEventSearchFailed";
+        // 
+        ColorCode[ColorCode["SensorStatusNotFound"] = 10430] = "SensorStatusNotFound";
+        // 
+        ColorCode[ColorCode["SensorStatusNotCreated"] = 10431] = "SensorStatusNotCreated";
+        // 
+        ColorCode[ColorCode["SensorStatusSearchFailed"] = 10433] = "SensorStatusSearchFailed";
+        // 
+        ColorCode[ColorCode["IntegrationTargetNotFound"] = 10500] = "IntegrationTargetNotFound";
+        // 
+        ColorCode[ColorCode["IntegrationTargetNotCreated"] = 10501] = "IntegrationTargetNotCreated";
+        // 
+        ColorCode[ColorCode["IntegrationTargetNotUpdated"] = 10502] = "IntegrationTargetNotUpdated";
+        // 
+        ColorCode[ColorCode["IntegrationTargetNotDeleted"] = 10503] = "IntegrationTargetNotDeleted";
+        // 
+        ColorCode[ColorCode["IntegrationTargetSearchFailed"] = 10504] = "IntegrationTargetSearchFailed";
+        // 
+        ColorCode[ColorCode["IntegrationTargetHasActions"] = 10505] = "IntegrationTargetHasActions";
+        // 
+        ColorCode[ColorCode["IntegrationTargetNotSupported"] = 10506] = "IntegrationTargetNotSupported";
+        // 
+        ColorCode[ColorCode["IntegrationActionNotFound"] = 10510] = "IntegrationActionNotFound";
+        // 
+        ColorCode[ColorCode["IntegrationActionNotCreated"] = 10511] = "IntegrationActionNotCreated";
+        // 
+        ColorCode[ColorCode["IntegrationActionNotUpdated"] = 10512] = "IntegrationActionNotUpdated";
+        // 
+        ColorCode[ColorCode["IntegrationActionNotDeleted"] = 10513] = "IntegrationActionNotDeleted";
+        // 
+        ColorCode[ColorCode["IntegrationActionSearchFailed"] = 10514] = "IntegrationActionSearchFailed";
+        // 
+        ColorCode[ColorCode["ApiKeyNotFound"] = 10520] = "ApiKeyNotFound";
+        // 
+        ColorCode[ColorCode["ApiKeyNotCreated"] = 10521] = "ApiKeyNotCreated";
+        // 
+        ColorCode[ColorCode["ApiKeyNotUpdated"] = 10522] = "ApiKeyNotUpdated";
+        // 
+        ColorCode[ColorCode["ApiKeyNotDeleted"] = 10523] = "ApiKeyNotDeleted";
+        // 
+        ColorCode[ColorCode["ApiKeySearchFailed"] = 10524] = "ApiKeySearchFailed";
+        // 
+        ColorCode[ColorCode["SearchServiceFetchNotStarted"] = 10600] = "SearchServiceFetchNotStarted";
+        // 
+        ColorCode[ColorCode["SearchServiceFetchInProgress"] = 10601] = "SearchServiceFetchInProgress";
+        // 
+        ColorCode[ColorCode["SearchServiceImageNotFound"] = 10602] = "SearchServiceImageNotFound";
+        // 
+        ColorCode[ColorCode["SearchServiceDisconnected"] = 10603] = "SearchServiceDisconnected";
+        // 
+        ColorCode[ColorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
+        // 
+        ColorCode[ColorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
     })(exports.ColorCode || (exports.ColorCode = {}));
 
     /*
