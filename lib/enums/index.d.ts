@@ -15,6 +15,7 @@ export * from './DayOfWeekCode';
 export * from './DigitalIOStateMask';
 export * from './DigitalIOStatusCode';
 export * from './EntityTypeCode';
+export * from './ErrorCode';
 export * from './EventStatusCode';
 export * from './FeatureCode';
 export * from './IntegrationStatusCode';
