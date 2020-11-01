@@ -39,7 +39,6 @@ export declare enum ColorCode {
     ExportJsonError = 251,
     ExportCsvError = 252,
     ExportXmlError = 253,
-    AwsKenesisErr = 300,
     AwsS3NotInitialized = 400,
     AwsCreateSessionErr = 401,
     AwsS3Err = 410,

@@ -1918,575 +1918,573 @@ var ColorCode;
     ColorCode[ColorCode["UnexpectedError"] = 1] = "UnexpectedError";
     // Not Implemented 
     ColorCode[ColorCode["NotImplementedError"] = 2] = "NotImplementedError";
-    // 
+    // Database connection failed 
     ColorCode[ColorCode["DbErrConnectionFailed"] = 105] = "DbErrConnectionFailed";
-    // 
+    // Database general error 
     ColorCode[ColorCode["DbErr"] = 100] = "DbErr";
-    // 
+    // No records fetched 
     ColorCode[ColorCode["DbErrNoRowsFetched"] = 101] = "DbErrNoRowsFetched";
-    // 
+    // No records affected 
     ColorCode[ColorCode["DbErrNoRowsAffected"] = 102] = "DbErrNoRowsAffected";
-    // 
+    // Trying to insert record with duplicate key 
     ColorCode[ColorCode["DbErrDuplicateKey"] = 103] = "DbErrDuplicateKey";
-    // 
+    // Trying to save entity with empty Id 
     ColorCode[ColorCode["DbAppErrEmptyEntityIdPassed"] = 104] = "DbAppErrEmptyEntityIdPassed";
-    // 
+    // Elasticsearch connection failed 
     ColorCode[ColorCode["ElasticConnectionFailed"] = 120] = "ElasticConnectionFailed";
-    // 
+    // Elasticsearch general error 
     ColorCode[ColorCode["ElasticErr"] = 121] = "ElasticErr";
-    // 
+    // Redis general error 
     ColorCode[ColorCode["RedisErr"] = 200] = "RedisErr";
-    // 
+    // Redis connection failed 
     ColorCode[ColorCode["RedisErrConnectionFailed"] = 201] = "RedisErrConnectionFailed";
-    // 
+    // HSet key operation error 
     ColorCode[ColorCode["RedisErrHSet"] = 202] = "RedisErrHSet";
-    // 
+    // HGet key operation error 
     ColorCode[ColorCode["RedisErrHGet"] = 203] = "RedisErrHGet";
-    // 
+    // No ping to Redis 
     ColorCode[ColorCode["RedisErrPing"] = 204] = "RedisErrPing";
-    // 
+    // HSet with expiration error 
     ColorCode[ColorCode["RedisErrHSetWithExp"] = 205] = "RedisErrHSetWithExp";
-    // 
+    // HDel operation error 
     ColorCode[ColorCode["RedisErrHDel"] = 206] = "RedisErrHDel";
-    // 
+    // RPop operation error 
     ColorCode[ColorCode["RedisErrRPop"] = 207] = "RedisErrRPop";
-    // 
+    // RPush operation error 
     ColorCode[ColorCode["RedisErrRPush"] = 208] = "RedisErrRPush";
-    // 
+    // Publish operation error 
     ColorCode[ColorCode["RedisErrPublish"] = 209] = "RedisErrPublish";
-    // 
+    // Get All operation error 
     ColorCode[ColorCode["RedisErrHGetAll"] = 210] = "RedisErrHGetAll";
-    // 
+    // Flush All operation error 
     ColorCode[ColorCode["RedisErrFlushAll"] = 211] = "RedisErrFlushAll";
-    // 
+    // BRPop operation error 
     ColorCode[ColorCode["RedisErrBRPop"] = 212] = "RedisErrBRPop";
-    // 
+    // Set Key operation error 
     ColorCode[ColorCode["RedisErrSetKey"] = 213] = "RedisErrSetKey";
-    // 
+    // Get key operation error 
     ColorCode[ColorCode["RedisErrGetKey"] = 214] = "RedisErrGetKey";
-    // 
+    // Del key operation error 
     ColorCode[ColorCode["RedisErrDelKey"] = 215] = "RedisErrDelKey";
-    // 
+    // MGet Key operation error 
     ColorCode[ColorCode["RedisErrMGetKey"] = 216] = "RedisErrMGetKey";
-    // 
+    // Key already exists 
     ColorCode[ColorCode["RedisErrExistsKey"] = 217] = "RedisErrExistsKey";
-    // 
+    // HKey already exists 
     ColorCode[ColorCode["RedisErrHExistsKey"] = 218] = "RedisErrHExistsKey";
-    // 
+    // HSet NX operation error 
     ColorCode[ColorCode["RedisErrHSetNXKey"] = 219] = "RedisErrHSetNXKey";
-    // 
+    // HKeys operation error 
     ColorCode[ColorCode["RedisErrHKeysKey"] = 220] = "RedisErrHKeysKey";
-    // 
+    // Mail URI error 
     ColorCode[ColorCode["MailUriError"] = 230] = "MailUriError";
-    // 
+    // Rest mail client error 
     ColorCode[ColorCode["MailRestSendError"] = 238] = "MailRestSendError";
-    // 
+    // SMTP mail client error 
     ColorCode[ColorCode["MailSmtpSendError"] = 239] = "MailSmtpSendError";
-    // 
+    // Web socket error 
     ColorCode[ColorCode["WebSocketError"] = 240] = "WebSocketError";
-    // 
+    // Export format error (not supported) 
     ColorCode[ColorCode["ExportFormatError"] = 250] = "ExportFormatError";
-    // 
+    // Export to JSON error 
     ColorCode[ColorCode["ExportJsonError"] = 251] = "ExportJsonError";
-    // 
+    // Export to CSV error 
     ColorCode[ColorCode["ExportCsvError"] = 252] = "ExportCsvError";
-    // 
+    // Export to XML error 
     ColorCode[ColorCode["ExportXmlError"] = 253] = "ExportXmlError";
-    // 
-    ColorCode[ColorCode["AwsKenesisErr"] = 300] = "AwsKenesisErr";
-    // 
+    // AWS S3 connection error 
     ColorCode[ColorCode["AwsS3NotInitialized"] = 400] = "AwsS3NotInitialized";
-    // 
+    // AWS failed to create session 
     ColorCode[ColorCode["AwsCreateSessionErr"] = 401] = "AwsCreateSessionErr";
-    // 
+    // AWS S3 general error 
     ColorCode[ColorCode["AwsS3Err"] = 410] = "AwsS3Err";
-    // 
+    // AWS S3 bucket name not provided 
     ColorCode[ColorCode["AwsS3NoNameProvidedErr"] = 411] = "AwsS3NoNameProvidedErr";
-    // 
+    // AWS S3 region not provided 
     ColorCode[ColorCode["AwsS3NoRegionProvidedErr"] = 412] = "AwsS3NoRegionProvidedErr";
-    // 
+    // AWS S3 wrong credentials 
     ColorCode[ColorCode["AwsS3CredentialsErr"] = 413] = "AwsS3CredentialsErr";
-    // 
+    // AWS fail to create pre-signed URL 
     ColorCode[ColorCode["AwsFailToPresignUrlError"] = 414] = "AwsFailToPresignUrlError";
-    // 
+    // General Json marshal error 
     ColorCode[ColorCode["JsonErr"] = 500] = "JsonErr";
-    // 
+    // General XML error 
     ColorCode[ColorCode["XmlErr"] = 501] = "XmlErr";
-    // 
+    // Input parameters error 
     ColorCode[ColorCode["BadInput"] = 509] = "BadInput";
-    // 
+    // Error encoding to Base64 
     ColorCode[ColorCode["Base64ECodecErr"] = 510] = "Base64ECodecErr";
-    // 
+    // Zlib error 
     ColorCode[ColorCode["ZlibErr"] = 520] = "ZlibErr";
-    // 
+    // General IO error 
     ColorCode[ColorCode["IoErr"] = 530] = "IoErr";
-    // 
+    // Can't parse URL 
     ColorCode[ColorCode["UrlParseErr"] = 540] = "UrlParseErr";
-    // 
+    // AES encryption error 
     ColorCode[ColorCode["AESEncryptErr"] = 541] = "AESEncryptErr";
-    // 
+    // No message factory provided 
     ColorCode[ColorCode["WsNoMessageFactoryFound"] = 542] = "WsNoMessageFactoryFound";
-    // 
+    // General OS file system error 
     ColorCode[ColorCode["OsFileSystemErr"] = 600] = "OsFileSystemErr";
-    // 
+    // Unknown (unsupported) storage type 
     ColorCode[ColorCode["UnknownStorageSpecified"] = 601] = "UnknownStorageSpecified";
-    // 
+    // Unknown (unsupported) object storage type 
     ColorCode[ColorCode["NoObjectStorageSpecified"] = 602] = "NoObjectStorageSpecified";
-    // 
+    // Can't open temp file 
     ColorCode[ColorCode["OpenTempFileForEventImageError"] = 603] = "OpenTempFileForEventImageError";
-    // 
+    // Can't write temp file 
     ColorCode[ColorCode["WriteTempFileForEventImageError"] = 604] = "WriteTempFileForEventImageError";
-    // 
+    // File not found 
     ColorCode[ColorCode["FileNotFound"] = 605] = "FileNotFound";
-    // 
+    // Can't open file 
     ColorCode[ColorCode["OpenFileError"] = 606] = "OpenFileError";
-    // 
+    // Can't write file 
     ColorCode[ColorCode["WriteFileError"] = 607] = "WriteFileError";
-    // 
+    // Security token error 
     ColorCode[ColorCode["SecurityTokenError"] = 700] = "SecurityTokenError";
-    // 
+    // Security token not provided 
     ColorCode[ColorCode["NoSecurityTokenFound"] = 701] = "NoSecurityTokenFound";
-    // 
+    // Empty security token 
     ColorCode[ColorCode["EmptySecurityToken"] = 702] = "EmptySecurityToken";
-    // 
+    // Error creating API key 
     ColorCode[ColorCode["ErrorCreateApiKey"] = 710] = "ErrorCreateApiKey";
-    // 
+    // Pairing key (for device) not verified 
     ColorCode[ColorCode["InvalidPairingKeyVerification"] = -102] = "InvalidPairingKeyVerification";
-    // 
+    // Invalid device pairing key 
     ColorCode[ColorCode["InvalidDevicePairingKey"] = 750] = "InvalidDevicePairingKey";
-    // 
+    // Pairing device in progress 
     ColorCode[ColorCode["DevicePairingInProgress"] = -701] = "DevicePairingInProgress";
-    // 
+    // Pairing key rejected 
     ColorCode[ColorCode["DevicePairingRejected"] = -702] = "DevicePairingRejected";
-    // 
+    // Not a virtual device 
     ColorCode[ColorCode["NotVirtualDevice"] = 753] = "NotVirtualDevice";
-    // 
+    // Device has attached sensors 
     ColorCode[ColorCode["DeviceHasAssociatedSensors"] = 754] = "DeviceHasAssociatedSensors";
-    // 
+    // Streaming connection error 
     ColorCode[ColorCode["StreamConnectError"] = 800] = "StreamConnectError";
-    // 
+    // Streaming topic error 
     ColorCode[ColorCode["StreamTopicError"] = 801] = "StreamTopicError";
-    // 
+    // Streaming subscriber error 
     ColorCode[ColorCode["StreamSubscriberError"] = 802] = "StreamSubscriberError";
-    // 
+    // Streaming URI not provided 
     ColorCode[ColorCode["StreamNoProviderUriSpecified"] = 803] = "StreamNoProviderUriSpecified";
-    // 
+    // Stream PUT error 
     ColorCode[ColorCode["StreamPutDataError"] = 850] = "StreamPutDataError";
-    // 
+    // Kafka create producer error 
     ColorCode[ColorCode["KafkaCreateProducerError"] = 880] = "KafkaCreateProducerError";
-    // 
+    // Kafka create consumer error 
     ColorCode[ColorCode["KafkaCreateConsumerError"] = 881] = "KafkaCreateConsumerError";
-    // 
+    // Kafka get metadata error 
     ColorCode[ColorCode["KafkaGetMetadataError"] = 882] = "KafkaGetMetadataError";
-    // 
+    // Kafka read message error 
     ColorCode[ColorCode["KafkaReadMessageError"] = 883] = "KafkaReadMessageError";
-    // 
+    // Kafka read message timeout 
     ColorCode[ColorCode["KafkaReadMessageTimeout"] = 884] = "KafkaReadMessageTimeout";
-    // 
+    // Decode to JPEG YUV failed 
     ColorCode[ColorCode["ImagingDecodeToJpegYUVError"] = 900] = "ImagingDecodeToJpegYUVError";
-    // 
+    // Create image file error 
     ColorCode[ColorCode["ImagingCreateImageFileError"] = 901] = "ImagingCreateImageFileError";
-    // 
+    // Encode JPEG error 
     ColorCode[ColorCode["ImagingEncodeJpegError"] = 902] = "ImagingEncodeJpegError";
-    // 
+    // Bounding boxes missing 
     ColorCode[ColorCode["ImagingNoBoundingBoxes"] = 903] = "ImagingNoBoundingBoxes";
-    // 
+    // Prepare frame for clip error 
     ColorCode[ColorCode["ClipErrPrepareFrames"] = 904] = "ClipErrPrepareFrames";
-    // 
+    // Event has no frames 
     ColorCode[ColorCode["ClipErrEventHasNoFrames"] = 905] = "ClipErrEventHasNoFrames";
-    // 
+    // Horizontal line error 
     ColorCode[ColorCode["ImagingHorizontalLineError"] = 906] = "ImagingHorizontalLineError";
-    // 
+    // Vertical line error 
     ColorCode[ColorCode["ImagingVerticalineError"] = 907] = "ImagingVerticalineError";
-    // 
+    // Post web-hook integration error 
     ColorCode[ColorCode["PostWebhookError"] = 921] = "PostWebhookError";
-    // 
+    // Create HTTP request failed 
     ColorCode[ColorCode["CreateHttpRequestError"] = 922] = "CreateHttpRequestError";
-    // 
+    // Send HTTP request failed 
     ColorCode[ColorCode["SendHttpRequestError"] = 923] = "SendHttpRequestError";
-    // 
+    // Retry integration error 
     ColorCode[ColorCode["CanRetryIntegrationError"] = 924] = "CanRetryIntegrationError";
-    // 
+    // Illegal event message 
     ColorCode[ColorCode["IllegalEventMessageError"] = 925] = "IllegalEventMessageError";
-    // 
+    // Fail to send SMTP message 
     ColorCode[ColorCode["SmtpSendMailError"] = 930] = "SmtpSendMailError";
-    // 
+    // Invalid agent login key 
     ColorCode[ColorCode["AppErrInvalidLoginKey"] = 20111] = "AppErrInvalidLoginKey";
-    // 
+    // Agent does not exist 
     ColorCode[ColorCode["AppErrAgentDoesntExist"] = 20112] = "AppErrAgentDoesntExist";
-    // 
+    // Empty agent login key 
     ColorCode[ColorCode["AppErrEmptyLoginKey"] = 20113] = "AppErrEmptyLoginKey";
-    // 
+    // Empty agent Id 
     ColorCode[ColorCode["AppErrEmptyAgentId"] = 20114] = "AppErrEmptyAgentId";
-    // 
+    // Empty account Id 
     ColorCode[ColorCode["AppErrEmptyAccountId"] = 20115] = "AppErrEmptyAccountId";
-    // 
+    // Empty sensor Id 
     ColorCode[ColorCode["AppErrEmptySensorId"] = 20116] = "AppErrEmptySensorId";
-    // 
+    // Get sensor info failed 
     ColorCode[ColorCode["AppErrGetSensorInfo"] = 20117] = "AppErrGetSensorInfo";
-    // 
+    // Get account info failed 
     ColorCode[ColorCode["AppErrGetAccountInfo"] = 20118] = "AppErrGetAccountInfo";
-    // 
+    // Get folder Info failed 
     ColorCode[ColorCode["AppErrGetFolderInfo"] = 20119] = "AppErrGetFolderInfo";
-    // 
+    // Get rule info failed 
     ColorCode[ColorCode["AppErrGetRuleInfo"] = 20120] = "AppErrGetRuleInfo";
-    // 
+    // Entity not found 
     ColorCode[ColorCode["EntityNotFound"] = 10000] = "EntityNotFound";
-    // 
+    // Login error (invalid user Identity) 
     ColorCode[ColorCode["LoginErrInvalidUid"] = 10001] = "LoginErrInvalidUid";
-    // 
+    // Login error (invalid device identity) 
     ColorCode[ColorCode["LoginErrInvalidAid"] = 10002] = "LoginErrInvalidAid";
-    // 
+    // Login key expired 
     ColorCode[ColorCode["LoginKeyExpired"] = 10003] = "LoginKeyExpired";
-    // 
+    // Invalid verification 
     ColorCode[ColorCode["InvalidVerification"] = 10004] = "InvalidVerification";
-    // 
+    // Invalid email address 
     ColorCode[ColorCode["InvalidEmailAddress"] = 10005] = "InvalidEmailAddress";
-    // 
+    // User is suspended 
     ColorCode[ColorCode["SuspendedUser"] = 10006] = "SuspendedUser";
-    // 
+    // User is blocked 
     ColorCode[ColorCode["BlockedUser"] = 10007] = "BlockedUser";
-    // 
+    // Can't delete System Administrator 
     ColorCode[ColorCode["DeleteSysAdmin"] = 10008] = "DeleteSysAdmin";
-    // 
+    // Access denied 
     ColorCode[ColorCode["AccessDenied"] = 10009] = "AccessDenied";
-    // 
+    // Email address already exists 
     ColorCode[ColorCode["EmailAddressExists"] = 10010] = "EmailAddressExists";
-    // 
+    // Invalid access token 
     ColorCode[ColorCode["InvalidAccessToken"] = 10011] = "InvalidAccessToken";
-    // 
+    // General token error 
     ColorCode[ColorCode["TokenError"] = 10020] = "TokenError";
-    // 
+    // Import license operation failed 
     ColorCode[ColorCode["ImportLicenseFailed"] = 10031] = "ImportLicenseFailed";
-    // 
+    // Verify license failed 
     ColorCode[ColorCode["VerifyLicenseFailed"] = 10032] = "VerifyLicenseFailed";
-    // 
+    // Verify deployment Id failed 
     ColorCode[ColorCode["VerifyDeploymentFailed"] = 10033] = "VerifyDeploymentFailed";
-    // 
+    // License not found 
     ColorCode[ColorCode["LicenseNotFound"] = 10034] = "LicenseNotFound";
-    // 
+    // Encode license failed 
     ColorCode[ColorCode["EncodeLicenseFailed"] = 10035] = "EncodeLicenseFailed";
-    // 
+    // License search failed 
     ColorCode[ColorCode["LicenseSearchFailed"] = 10036] = "LicenseSearchFailed";
-    // 
+    // License delete failed 
     ColorCode[ColorCode["LicenseNotDeleted"] = 10037] = "LicenseNotDeleted";
-    // 
+    // User not found 
     ColorCode[ColorCode["UserNotFound"] = 10040] = "UserNotFound";
-    // 
+    // User create failed 
     ColorCode[ColorCode["UserNotCreated"] = 10041] = "UserNotCreated";
-    // 
+    // User update failed 
     ColorCode[ColorCode["UserNotUpdated"] = 10042] = "UserNotUpdated";
-    // 
+    // User delete failed 
     ColorCode[ColorCode["UserNotDeleted"] = 10043] = "UserNotDeleted";
-    // 
+    // User search failed 
     ColorCode[ColorCode["UserSearchFailed"] = 10044] = "UserSearchFailed";
-    // 
+    // User without role 
     ColorCode[ColorCode["UserWithoutRole"] = 10045] = "UserWithoutRole";
-    // 
+    // User invitation failed 
     ColorCode[ColorCode["UserInvitationFailed"] = 10046] = "UserInvitationFailed";
-    // 
+    // Service Account create failed 
     ColorCode[ColorCode["ServiceAccountNotCreated"] = 10051] = "ServiceAccountNotCreated";
-    // 
+    // Account not found 
     ColorCode[ColorCode["AccountNotFound"] = 10100] = "AccountNotFound";
-    // 
+    // Account create failed 
     ColorCode[ColorCode["AccountNotCreated"] = 10101] = "AccountNotCreated";
-    // 
+    // Account update failed 
     ColorCode[ColorCode["AccountNotUpdated"] = 10102] = "AccountNotUpdated";
-    // 
+    // Account delete failed 
     ColorCode[ColorCode["AccountNotDeleted"] = 10103] = "AccountNotDeleted";
-    // 
+    // Wrong Account name 
     ColorCode[ColorCode["WrongAccountName"] = 10104] = "WrongAccountName";
-    // 
+    // Wrong Account type 
     ColorCode[ColorCode["WrongAccountType"] = 10105] = "WrongAccountType";
-    // 
+    // Wrong Account status 
     ColorCode[ColorCode["WrongAccountStatus"] = 10106] = "WrongAccountStatus";
-    // 
+    // Account search failed 
     ColorCode[ColorCode["AccountSearchFailed"] = 10109] = "AccountSearchFailed";
-    // 
+    // Account not accessible 
     ColorCode[ColorCode["InaccessibleAccount"] = 10110] = "InaccessibleAccount";
-    // 
+    // Wrong Account 
     ColorCode[ColorCode["UnmatchingAccount"] = 10111] = "UnmatchingAccount";
-    // 
+    // Account license expired 
     ColorCode[ColorCode["ExpiredAccount"] = 10112] = "ExpiredAccount";
-    // 
+    // Account already exists 
     ColorCode[ColorCode["AccountExists"] = 10113] = "AccountExists";
-    // 
+    // Account name is empty 
     ColorCode[ColorCode["EmptyAccountName"] = 10114] = "EmptyAccountName";
-    // 
+    // Can't delete SUSPENDED account 
     ColorCode[ColorCode["DeleteSuspendedAccount"] = 10115] = "DeleteSuspendedAccount";
-    // 
+    // Can't delete account  with content 
     ColorCode[ColorCode["DeleteAccountWithContent"] = 10116] = "DeleteAccountWithContent";
-    // 
+    // Can't delete PENDING account 
     ColorCode[ColorCode["PendingDeletedAccount"] = 10117] = "PendingDeletedAccount";
-    // 
+    // Folder not found 
     ColorCode[ColorCode["FolderNotFound"] = 10120] = "FolderNotFound";
-    // 
+    // Folder create failed 
     ColorCode[ColorCode["FolderNotCreated"] = 10121] = "FolderNotCreated";
-    // 
+    // Folder update failed 
     ColorCode[ColorCode["FolderNotUpdated"] = 10122] = "FolderNotUpdated";
-    // 
+    // Folder delete failed 
     ColorCode[ColorCode["FolderNotDeleted"] = 10123] = "FolderNotDeleted";
-    // 
+    // Folder search failed 
     ColorCode[ColorCode["FolderSearchFailed"] = 10124] = "FolderSearchFailed";
-    // 
+    // Can't delete folder with content 
     ColorCode[ColorCode["DeleteFolderWithContent"] = 10125] = "DeleteFolderWithContent";
-    // 
+    // Geo-transformation error 
     ColorCode[ColorCode["GeoTransformationError"] = 10128] = "GeoTransformationError";
-    // 
+    // Load geo-transformation failed 
     ColorCode[ColorCode["LoadTransformationError"] = 10129] = "LoadTransformationError";
-    // 
+    // Features group not found 
     ColorCode[ColorCode["GroupNotFound"] = 10140] = "GroupNotFound";
-    // 
+    // Features group create failed 
     ColorCode[ColorCode["GroupNotCreated"] = 10141] = "GroupNotCreated";
-    // 
+    // Features group update failed 
     ColorCode[ColorCode["GroupNotUpdated"] = 10142] = "GroupNotUpdated";
-    // 
+    // Features group delete failed 
     ColorCode[ColorCode["GroupNotDeleted"] = 10143] = "GroupNotDeleted";
-    // 
+    // Features group search failed 
     ColorCode[ColorCode["GroupSearchFailed"] = 10144] = "GroupSearchFailed";
-    // 
+    // Features group already in use and can't be deleted 
     ColorCode[ColorCode["GroupInUseByAccount"] = 10145] = "GroupInUseByAccount";
-    // 
+    // Feature not found 
     ColorCode[ColorCode["FeatureNotFound"] = 10146] = "FeatureNotFound";
-    // 
+    // Device not found 
     ColorCode[ColorCode["DeviceNotFound"] = 10160] = "DeviceNotFound";
-    // 
+    // Device create failed 
     ColorCode[ColorCode["DeviceNotCreated"] = 10161] = "DeviceNotCreated";
-    // 
+    // Device update failed 
     ColorCode[ColorCode["DeviceNotUpdated"] = 10162] = "DeviceNotUpdated";
-    // 
+    // Device delete failed 
     ColorCode[ColorCode["DeviceNotDeleted"] = 10163] = "DeviceNotDeleted";
-    // 
+    // Device search failed 
     ColorCode[ColorCode["DeviceSearchFailed"] = 10164] = "DeviceSearchFailed";
-    // 
+    // No device manager 
     ColorCode[ColorCode["MissingDeviceManager"] = 10167] = "MissingDeviceManager";
-    // 
+    // More than one device manager 
     ColorCode[ColorCode["MoreThanOneDeviceManager"] = 10168] = "MoreThanOneDeviceManager";
-    // 
+    // Virtual device reboot is not allowed 
     ColorCode[ColorCode["VirtualDeviceReboot"] = 10169] = "VirtualDeviceReboot";
-    // 
+    // Command not found 
     ColorCode[ColorCode["CommandNotFound"] = 10170] = "CommandNotFound";
-    // 
+    // Command failed 
     ColorCode[ColorCode["CommandFailed"] = 10171] = "CommandFailed";
-    // 
+    // Agent not found 
     ColorCode[ColorCode["AgentNotFound"] = 10180] = "AgentNotFound";
-    // 
+    // Agent create failed 
     ColorCode[ColorCode["AgentNotCreated"] = 10181] = "AgentNotCreated";
-    // 
+    // Agent update failed 
     ColorCode[ColorCode["AgentNotUpdated"] = 10182] = "AgentNotUpdated";
-    // 
+    // Agent delete failed 
     ColorCode[ColorCode["AgentNotDeleted"] = 10183] = "AgentNotDeleted";
-    // 
+    // Agent search failed 
     ColorCode[ColorCode["AgentFindFailed"] = 10184] = "AgentFindFailed";
-    // 
+    // Digital IO device not found 
     ColorCode[ColorCode["DigitalIONotFound"] = 10190] = "DigitalIONotFound";
-    // 
+    // Digital IO device create failed 
     ColorCode[ColorCode["DigitalIONotCreated"] = 10191] = "DigitalIONotCreated";
-    // 
+    // Digital IO device update failed 
     ColorCode[ColorCode["DigitalIONotUpdated"] = 10192] = "DigitalIONotUpdated";
-    // 
+    // Digital IO device delete failed 
     ColorCode[ColorCode["DigitalIONotDeleted"] = 10193] = "DigitalIONotDeleted";
-    // 
+    // Digital IO device search failed 
     ColorCode[ColorCode["DigitalIOSearchFailed"] = 10194] = "DigitalIOSearchFailed";
-    // 
+    // Sensor not found 
     ColorCode[ColorCode["SensorNotFound"] = 10200] = "SensorNotFound";
-    // 
+    // Sensor create failed 
     ColorCode[ColorCode["SensorNotCreated"] = 10201] = "SensorNotCreated";
-    // 
+    // Sensor update failed 
     ColorCode[ColorCode["SensorNotUpdated"] = 10202] = "SensorNotUpdated";
-    // 
+    // Sensor delete failed 
     ColorCode[ColorCode["SensorNotDeleted"] = 10203] = "SensorNotDeleted";
-    // 
+    // Sensor search failed 
     ColorCode[ColorCode["SensorSearchFailed"] = 10204] = "SensorSearchFailed";
-    // 
+    // Can't delete sensor not in PENDING DELETE state 
     ColorCode[ColorCode["DeleteNonPendingSensor"] = 10205] = "DeleteNonPendingSensor";
-    // 
+    // Sensors exceeded license limit 
     ColorCode[ColorCode["ExceedMaxLicenseChannels"] = 10207] = "ExceedMaxLicenseChannels";
-    // 
+    // Sensors exceeded account limit 
     ColorCode[ColorCode["ExceedMaxAccountChannels"] = 10208] = "ExceedMaxAccountChannels";
-    // 
+    // Sensor already attached to a device 
     ColorCode[ColorCode["SensorAlreadyAttached"] = 10209] = "SensorAlreadyAttached";
-    // 
+    // Sensor is not in suspended state 
     ColorCode[ColorCode["SensorIsNotSuspended"] = 10210] = "SensorIsNotSuspended";
-    // 
+    // Sensor is not recording 
     ColorCode[ColorCode["SensorIsNotRecording"] = 10211] = "SensorIsNotRecording";
-    // 
+    // Rule not found 
     ColorCode[ColorCode["RuleNotFound"] = 10220] = "RuleNotFound";
-    // 
+    // Rule create failed 
     ColorCode[ColorCode["RuleNotCreated"] = 10221] = "RuleNotCreated";
-    // 
+    // Rule update failed 
     ColorCode[ColorCode["RuleNotUpdated"] = 10222] = "RuleNotUpdated";
-    // 
+    // Rule delete failed 
     ColorCode[ColorCode["RuleNotDeleted"] = 10223] = "RuleNotDeleted";
-    // 
+    // Rule search failed 
     ColorCode[ColorCode["RuleSearchFailed"] = 10224] = "RuleSearchFailed";
-    // 
+    // Rule enable/disable operation failed 
     ColorCode[ColorCode["RuleEnableFailed"] = 10225] = "RuleEnableFailed";
-    // 
+    // Rule pause analytics operation failed 
     ColorCode[ColorCode["RulePauseFailed"] = 10226] = "RulePauseFailed";
-    // 
+    // Rule resume analytics operation failed 
     ColorCode[ColorCode["RuleResumeFailed"] = 10227] = "RuleResumeFailed";
-    // 
+    // Calendar not found 
     ColorCode[ColorCode["CalendarNotFound"] = 10300] = "CalendarNotFound";
-    // 
+    // Calendar create failed 
     ColorCode[ColorCode["CalendarNotCreated"] = 10301] = "CalendarNotCreated";
-    // 
+    // Calendar update failed 
     ColorCode[ColorCode["CalendarNotUpdated"] = 10302] = "CalendarNotUpdated";
-    // 
+    // Calendar delete failed 
     ColorCode[ColorCode["CalendarNotDeleted"] = 10303] = "CalendarNotDeleted";
-    // 
+    // Calendar search failed 
     ColorCode[ColorCode["CalendarSearchFailed"] = 10304] = "CalendarSearchFailed";
-    // 
+    // Calendar import operation failed 
     ColorCode[ColorCode["ImportCalendarFailed"] = 10305] = "ImportCalendarFailed";
-    // 
+    // Schedule not found 
     ColorCode[ColorCode["ScheduleNotFound"] = 10320] = "ScheduleNotFound";
-    // 
+    // Schedule create failed 
     ColorCode[ColorCode["ScheduleNotCreated"] = 10321] = "ScheduleNotCreated";
-    // 
+    // Schedule update failed 
     ColorCode[ColorCode["ScheduleNotUpdated"] = 10322] = "ScheduleNotUpdated";
-    // 
+    // Schedule delete failed 
     ColorCode[ColorCode["ScheduleNotDeleted"] = 10323] = "ScheduleNotDeleted";
-    // 
+    // Schedule search failed 
     ColorCode[ColorCode["ScheduleSearchFailed"] = 10324] = "ScheduleSearchFailed";
-    // 
+    // Schedule linked to existing rules and can't be deleted 
     ColorCode[ColorCode["ScheduleLinkedToRules"] = 10325] = "ScheduleLinkedToRules";
-    // 
+    // Report not found 
     ColorCode[ColorCode["ReportNotFound"] = 10330] = "ReportNotFound";
-    // 
+    // Report create failed 
     ColorCode[ColorCode["ReportNotCreated"] = 10331] = "ReportNotCreated";
-    // 
+    // Report update failed 
     ColorCode[ColorCode["ReportNotUpdated"] = 10332] = "ReportNotUpdated";
-    // 
+    // Report delete failed 
     ColorCode[ColorCode["ReportNotDeleted"] = 10333] = "ReportNotDeleted";
-    // 
+    // Report search failed 
     ColorCode[ColorCode["ReportSearchFailed"] = 10334] = "ReportSearchFailed";
-    // 
+    // People counting report failed 
     ColorCode[ColorCode["ReportPeopleCountingFailed"] = 10335] = "ReportPeopleCountingFailed";
-    // 
+    // Traffic analysis report failed 
     ColorCode[ColorCode["ReportTrafficAnalysisFailed"] = 10336] = "ReportTrafficAnalysisFailed";
-    // 
+    // Scheduled Report not found 
     ColorCode[ColorCode["ScheduledReportNotFound"] = 10340] = "ScheduledReportNotFound";
-    // 
+    // Scheduled Report create failed 
     ColorCode[ColorCode["ScheduledReportNotCreated"] = 10341] = "ScheduledReportNotCreated";
-    // 
+    // Scheduled Report update failed 
     ColorCode[ColorCode["ScheduledReportNotUpdated"] = 10342] = "ScheduledReportNotUpdated";
-    // 
+    // Scheduled Report delete failed 
     ColorCode[ColorCode["ScheduledReportNotDeleted"] = 10343] = "ScheduledReportNotDeleted";
-    // 
+    // Scheduled Report search failed 
     ColorCode[ColorCode["ScheduledReportSearchFailed"] = 10344] = "ScheduledReportSearchFailed";
-    // 
+    // Configuration not found 
     ColorCode[ColorCode["ConfigurationNotFound"] = 10360] = "ConfigurationNotFound";
-    // 
+    // Configuration create failed 
     ColorCode[ColorCode["ConfigurationNotCreated"] = 10361] = "ConfigurationNotCreated";
-    // 
+    // Configuration update failed 
     ColorCode[ColorCode["ConfigurationNotUpdated"] = 10362] = "ConfigurationNotUpdated";
-    // 
+    // Configuration delete failed 
     ColorCode[ColorCode["ConfigurationNotDeleted"] = 10363] = "ConfigurationNotDeleted";
-    // 
+    // Configuration search failed 
     ColorCode[ColorCode["ConfigurationSearchFailed"] = 10364] = "ConfigurationSearchFailed";
-    // 
+    // Configuration version not found 
     ColorCode[ColorCode["ConfigVersionNotFound"] = 10370] = "ConfigVersionNotFound";
-    // 
+    // Configuration version create failed 
     ColorCode[ColorCode["ConfigVersionNotCreated"] = 10371] = "ConfigVersionNotCreated";
-    // 
+    // Configuration version update failed 
     ColorCode[ColorCode["ConfigVersionNotUpdated"] = 10372] = "ConfigVersionNotUpdated";
-    // 
+    // Configuration version delete failed 
     ColorCode[ColorCode["ConfigVersionNotDeleted"] = 10373] = "ConfigVersionNotDeleted";
-    // 
+    // Configuration version search failed 
     ColorCode[ColorCode["ConfigVersionSearchFailed"] = 10374] = "ConfigVersionSearchFailed";
-    // 
+    // Configuration template not found 
     ColorCode[ColorCode["ConfigTemplateNotFound"] = 10380] = "ConfigTemplateNotFound";
-    // 
+    // Configuration template create failed 
     ColorCode[ColorCode["ConfigTemplateNotCreated"] = 10381] = "ConfigTemplateNotCreated";
-    // 
+    // Configuration template update failed 
     ColorCode[ColorCode["ConfigTemplateNotUpdated"] = 10382] = "ConfigTemplateNotUpdated";
-    // 
+    // Configuration template delete failed 
     ColorCode[ColorCode["ConfigTemplateNotDeleted"] = 10383] = "ConfigTemplateNotDeleted";
-    // 
+    // Configuration template search failed 
     ColorCode[ColorCode["ConfigTemplateSearchFailed"] = 10384] = "ConfigTemplateSearchFailed";
-    // 
+    // Event not found 
     ColorCode[ColorCode["EventNotFound"] = 10400] = "EventNotFound";
-    // 
+    // Event create failed 
     ColorCode[ColorCode["EventNotCreated"] = 10401] = "EventNotCreated";
-    // 
+    // Event update failed 
     ColorCode[ColorCode["EventNotUpdated"] = 10402] = "EventNotUpdated";
-    // 
+    // Event delete failed 
     ColorCode[ColorCode["EventNotDeleted"] = 10403] = "EventNotDeleted";
-    // 
+    // Event search failed 
     ColorCode[ColorCode["EventSearchFailed"] = 10404] = "EventSearchFailed";
-    // 
+    // Event status update failed 
     ColorCode[ColorCode["EventStatusNotUpdated"] = 10405] = "EventStatusNotUpdated";
-    // 
+    // Event image path update failed 
     ColorCode[ColorCode["EventImagePathNotUpdated"] = 10406] = "EventImagePathNotUpdated";
-    // 
+    // Event clip path update failed 
     ColorCode[ColorCode["EventClipPathNotUpdated"] = 10407] = "EventClipPathNotUpdated";
-    // 
+    // Event image open failed 
     ColorCode[ColorCode["EventOpenImageError"] = 10408] = "EventOpenImageError";
-    // 
+    // Event clip open failed 
     ColorCode[ColorCode["EventOpenClipError"] = 10409] = "EventOpenClipError";
-    // 
+    // Event count error 
     ColorCode[ColorCode["EventCountError"] = 10410] = "EventCountError";
-    // 
+    // Health event not found 
     ColorCode[ColorCode["HealthEventNotFound"] = 10420] = "HealthEventNotFound";
-    // 
+    // Health event create failed 
     ColorCode[ColorCode["HealthEventNotCreated"] = 10421] = "HealthEventNotCreated";
-    // 
+    // Health event update failed 
     ColorCode[ColorCode["HealthEventNotUpdated"] = 10422] = "HealthEventNotUpdated";
-    // 
+    // Health event delete failed 
     ColorCode[ColorCode["HealthEventNotDeleted"] = 10423] = "HealthEventNotDeleted";
-    // 
+    // Health event search failed 
     ColorCode[ColorCode["HealthEventSearchFailed"] = 10424] = "HealthEventSearchFailed";
-    // 
+    // Sensor status not found 
     ColorCode[ColorCode["SensorStatusNotFound"] = 10430] = "SensorStatusNotFound";
-    // 
+    // Sensor status create failed 
     ColorCode[ColorCode["SensorStatusNotCreated"] = 10431] = "SensorStatusNotCreated";
-    // 
+    // Sensor status search failed 
     ColorCode[ColorCode["SensorStatusSearchFailed"] = 10433] = "SensorStatusSearchFailed";
-    // 
+    // Integration target not found 
     ColorCode[ColorCode["IntegrationTargetNotFound"] = 10500] = "IntegrationTargetNotFound";
-    // 
+    // Integration target create failed 
     ColorCode[ColorCode["IntegrationTargetNotCreated"] = 10501] = "IntegrationTargetNotCreated";
-    // 
+    // Integration target update failed 
     ColorCode[ColorCode["IntegrationTargetNotUpdated"] = 10502] = "IntegrationTargetNotUpdated";
-    // 
+    // Integration target delete failed 
     ColorCode[ColorCode["IntegrationTargetNotDeleted"] = 10503] = "IntegrationTargetNotDeleted";
-    // 
+    // Integration target search failed 
     ColorCode[ColorCode["IntegrationTargetSearchFailed"] = 10504] = "IntegrationTargetSearchFailed";
-    // 
+    // Integration target has actions 
     ColorCode[ColorCode["IntegrationTargetHasActions"] = 10505] = "IntegrationTargetHasActions";
-    // 
+    // Integration target type not supported 
     ColorCode[ColorCode["IntegrationTargetNotSupported"] = 10506] = "IntegrationTargetNotSupported";
-    // 
+    // Integration action not found 
     ColorCode[ColorCode["IntegrationActionNotFound"] = 10510] = "IntegrationActionNotFound";
-    // 
+    // Integration action create failed 
     ColorCode[ColorCode["IntegrationActionNotCreated"] = 10511] = "IntegrationActionNotCreated";
-    // 
+    // Integration action update failed 
     ColorCode[ColorCode["IntegrationActionNotUpdated"] = 10512] = "IntegrationActionNotUpdated";
-    // 
+    // Integration action delete failed 
     ColorCode[ColorCode["IntegrationActionNotDeleted"] = 10513] = "IntegrationActionNotDeleted";
-    // 
+    // Integration action search failed 
     ColorCode[ColorCode["IntegrationActionSearchFailed"] = 10514] = "IntegrationActionSearchFailed";
-    // 
+    // API Key not found 
     ColorCode[ColorCode["ApiKeyNotFound"] = 10520] = "ApiKeyNotFound";
-    // 
+    // API Key create failed 
     ColorCode[ColorCode["ApiKeyNotCreated"] = 10521] = "ApiKeyNotCreated";
-    // 
+    // API Key update failed 
     ColorCode[ColorCode["ApiKeyNotUpdated"] = 10522] = "ApiKeyNotUpdated";
-    // 
+    // API Key delete failed 
     ColorCode[ColorCode["ApiKeyNotDeleted"] = 10523] = "ApiKeyNotDeleted";
-    // 
+    // API Key search failed 
     ColorCode[ColorCode["ApiKeySearchFailed"] = 10524] = "ApiKeySearchFailed";
-    // 
+    // Search fetch process not started 
     ColorCode[ColorCode["SearchServiceFetchNotStarted"] = 10600] = "SearchServiceFetchNotStarted";
-    // 
+    // Search fetch process in progress 
     ColorCode[ColorCode["SearchServiceFetchInProgress"] = 10601] = "SearchServiceFetchInProgress";
-    // 
+    // Search image not found 
     ColorCode[ColorCode["SearchServiceImageNotFound"] = 10602] = "SearchServiceImageNotFound";
-    // 
+    // Search service disconnected 
     ColorCode[ColorCode["SearchServiceDisconnected"] = 10603] = "SearchServiceDisconnected";
-    // 
+    // Search service request error 
     ColorCode[ColorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
-    // 
+    // Search service response error 
     ColorCode[ColorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
 })(ColorCode || (ColorCode = {}));
 
