@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { IntegrationTarget } from '../entities/IntegrationTarget';
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationAction } from '../entities/IntegrationAction';
 import * as i0 from "@angular/core";
 /**
@@ -46,6 +47,11 @@ export declare class IntegrationsService {
      * @Return: EntitiesResponse<IntegrationTarget>
      */
     find(search?: string, type?: string): import("rxjs").Observable<any>;
+    /**
+     * Find all integration status
+     * @Return: EntitiesResponse<IntegrationStatus>
+     */
+    findStatus(source?: EntityTypeCode, entityId?: string, integrationTargetId?: string, integrationActionId?: string): import("rxjs").Observable<any>;
     /**
      * Create new integration action
      * @Return: EntityResponse<IntegrationAction>
