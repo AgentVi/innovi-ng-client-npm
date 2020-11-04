@@ -1214,6 +1214,17 @@
     }());
 
     /*
+       Image of frame or crop with timestamp
+    */
+    var TimestampedImage = /** @class */ (function () {
+        function TimestampedImage(timestamp, jpeg) {
+            this.timestamp = timestamp;
+            this.jpeg = jpeg;
+        }
+        return TimestampedImage;
+    }());
+
+    /*
        Tree item for account hierarchy tree
     */
     var TreeItem = /** @class */ (function () {
@@ -12993,6 +13004,7 @@
     exports.Threshold = Threshold;
     exports.Thresholds = Thresholds;
     exports.TimeFrame = TimeFrame;
+    exports.TimestampedImage = TimestampedImage;
     exports.TokenRequest = TokenRequest;
     exports.TrafficAnalysisReportRequest = TrafficAnalysisReportRequest;
     exports.TreeItem = TreeItem;

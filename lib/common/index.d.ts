@@ -72,6 +72,7 @@ export * from './StringKeyValue';
 export * from './Threshold';
 export * from './Thresholds';
 export * from './TimeFrame';
+export * from './TimestampedImage';
 export * from './TreeItem';
 export * from './TreeNode';
 export * from './UserAccountInfo';
