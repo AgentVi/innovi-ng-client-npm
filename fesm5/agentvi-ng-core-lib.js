@@ -2350,6 +2350,12 @@ var ErrorCode;
     ErrorCode[ErrorCode["InvalidAccessToken"] = 10011] = "InvalidAccessToken";
     // General token error 
     ErrorCode[ErrorCode["TokenError"] = 10020] = "TokenError";
+    // Generate deployment Id error 
+    ErrorCode[ErrorCode["DeploymentIdError"] = 10021] = "DeploymentIdError";
+    // License does not match the current deployment 
+    ErrorCode[ErrorCode["WrongDeploymentId"] = 10022] = "WrongDeploymentId";
+    // License expired 
+    ErrorCode[ErrorCode["LicenseExpired"] = 10030] = "LicenseExpired";
     // Import license operation failed 
     ErrorCode[ErrorCode["ImportLicenseFailed"] = 10031] = "ImportLicenseFailed";
     // Verify license failed 
