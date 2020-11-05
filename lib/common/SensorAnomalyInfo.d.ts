@@ -1,5 +1,5 @@
-import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { AnalysisResult } from '../common/AnalysisResult';
+import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 export declare class SensorAnomalyInfo {
     sensorId: string;
     results: AnalysisResult[];

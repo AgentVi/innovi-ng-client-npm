@@ -1,5 +1,5 @@
-import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 export declare class AccountsServiceTreeRequest {
     id: string;
     sensors: boolean;

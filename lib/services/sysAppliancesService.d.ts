@@ -49,6 +49,11 @@ export declare class SysAppliancesService {
      */
     reboot(id?: string): import("rxjs").Observable<any>;
     /**
+     * Rebuild appliance configuration and deploy the configuration to the device manager
+     * @Return: ActionResponse
+     */
+    redeploy(id?: string): import("rxjs").Observable<any>;
+    /**
      * Change appliance machine Id (for VIRTUAL device only)
      * @Return: EntityResponse<Appliance> - Updated appliance
      */
@@ -120,6 +125,16 @@ export declare class SysAppliancesService {
      * @Return:  ActionResponse
      */
     getLogs(id?: string, componentId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Send get logs command to the appliance
+     * @Return:  EntitiesResponse<UpdateStatus>
+     */
+    batchUpgrade(configId?: string, versionId?: string, id?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Find list of device update status entries by filter
+     * @Return:  QueryResponse<UpdateStatus>
+     */
+    findUpgradeStatus(accountId?: string, applianceId?: string, userId?: string, commandId?: string, batchId?: string, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

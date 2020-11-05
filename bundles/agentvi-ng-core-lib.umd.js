@@ -2678,10 +2678,12 @@
         ErrorCode[ErrorCode["MoreThanOneDeviceManager"] = 10168] = "MoreThanOneDeviceManager";
         // Virtual device reboot is not allowed 
         ErrorCode[ErrorCode["VirtualDeviceReboot"] = 10169] = "VirtualDeviceReboot";
+        // Virtual device redeploy is not allowed 
+        ErrorCode[ErrorCode["VirtualDeviceRedeploy"] = 10170] = "VirtualDeviceRedeploy";
         // Command not found 
-        ErrorCode[ErrorCode["CommandNotFound"] = 10170] = "CommandNotFound";
+        ErrorCode[ErrorCode["CommandNotFound"] = 10175] = "CommandNotFound";
         // Command failed 
-        ErrorCode[ErrorCode["CommandFailed"] = 10171] = "CommandFailed";
+        ErrorCode[ErrorCode["CommandFailed"] = 10176] = "CommandFailed";
         // Agent not found 
         ErrorCode[ErrorCode["AgentNotFound"] = 10180] = "AgentNotFound";
         // Agent create failed 
@@ -4629,6 +4631,16 @@
 
     /*
     */
+    var EntitiesResponseOfUpdateStatus = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfUpdateStatus, _super);
+        function EntitiesResponseOfUpdateStatus() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfUpdateStatus;
+    }(EntityResponse));
+
+    /*
+    */
     var EntityResponseOfAccount = /** @class */ (function (_super) {
         __extends(EntityResponseOfAccount, _super);
         function EntityResponseOfAccount() {
@@ -5881,6 +5893,16 @@
 
     /*
     */
+    var QueryResponseOfUpdateStatus = /** @class */ (function (_super) {
+        __extends(QueryResponseOfUpdateStatus, _super);
+        function QueryResponseOfUpdateStatus() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfUpdateStatus;
+    }(QueryResponse));
+
+    /*
+    */
     var QueryResponseOfUser = /** @class */ (function (_super) {
         __extends(QueryResponseOfUser, _super);
         function QueryResponseOfUser() {
@@ -6528,6 +6550,35 @@
             this.password = password;
         }
         return SysAccountImportRequest;
+    }());
+
+    /*
+    */
+    var SysApplianceBatchUpgradeFindRequest = /** @class */ (function () {
+        function SysApplianceBatchUpgradeFindRequest(accountId, applianceId, userId, commandId, batchId, from, to, sort, page, pageSize) {
+            this.accountId = accountId;
+            this.applianceId = applianceId;
+            this.userId = userId;
+            this.commandId = commandId;
+            this.batchId = batchId;
+            this.from = from;
+            this.to = to;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return SysApplianceBatchUpgradeFindRequest;
+    }());
+
+    /*
+    */
+    var SysApplianceBatchUpgradeRequest = /** @class */ (function () {
+        function SysApplianceBatchUpgradeRequest(configId, versionId, id) {
+            this.configId = configId;
+            this.versionId = versionId;
+            this.id = id;
+        }
+        return SysApplianceBatchUpgradeRequest;
     }());
 
     /*
@@ -7969,6 +8020,13 @@
          */
         AppliancesService.prototype.reboot = function (id) {
             return this.rest.post(this.baseUrl + "/" + id + "/reboot", null);
+        };
+        /**
+         * Rebuild appliance configuration and deploy the configuration to the device manager
+         * @Return: ActionResponse
+         */
+        AppliancesService.prototype.redeploy = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/redeploy", null);
         };
         /**
          * Get container logs appliance host
@@ -10805,6 +10863,13 @@
             return this.rest.post(this.baseUrl + "/" + id + "/reboot", null);
         };
         /**
+         * Rebuild appliance configuration and deploy the configuration to the device manager
+         * @Return: ActionResponse
+         */
+        SysAppliancesService.prototype.redeploy = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/redeploy", null);
+        };
+        /**
          * Change appliance machine Id (for VIRTUAL device only)
          * @Return: EntityResponse<Appliance> - Updated appliance
          */
@@ -10952,6 +11017,57 @@
                 params.push("to=" + to);
             }
             return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
+        };
+        /**
+         * Send get logs command to the appliance
+         * @Return:  EntitiesResponse<UpdateStatus>
+         */
+        SysAppliancesService.prototype.batchUpgrade = function (configId, versionId, id) {
+            var _a;
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/config/" + configId + "/" + versionId + "/batch-upgrade", null], params));
+        };
+        /**
+         * Find list of device update status entries by filter
+         * @Return:  QueryResponse<UpdateStatus>
+         */
+        SysAppliancesService.prototype.findUpgradeStatus = function (accountId, applianceId, userId, commandId, batchId, from, to, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (accountId != null) {
+                params.push("accountId=" + accountId);
+            }
+            if (applianceId != null) {
+                params.push("applianceId=" + applianceId);
+            }
+            if (userId != null) {
+                params.push("userId=" + userId);
+            }
+            if (commandId != null) {
+                params.push("commandId=" + commandId);
+            }
+            if (batchId != null) {
+                params.push("batchId=" + batchId);
+            }
+            if (from != null) {
+                params.push("from=" + from);
+            }
+            if (to != null) {
+                params.push("to=" + to);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/batch-upgrade"], params));
         };
         /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SysAppliancesService.ɵprov = core.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
@@ -12698,6 +12814,7 @@
     exports.EntitiesResponseOfSensor = EntitiesResponseOfSensor;
     exports.EntitiesResponseOfSensorStatus = EntitiesResponseOfSensorStatus;
     exports.EntitiesResponseOfStringKeyValue = EntitiesResponseOfStringKeyValue;
+    exports.EntitiesResponseOfUpdateStatus = EntitiesResponseOfUpdateStatus;
     exports.EntityResponse = EntityResponse;
     exports.EntityResponseOfAccount = EntityResponseOfAccount;
     exports.EntityResponseOfApiKey = EntityResponseOfApiKey;
@@ -12863,6 +12980,7 @@
     exports.QueryResponseOfSensor = QueryResponseOfSensor;
     exports.QueryResponseOfSensorAnalysisResults = QueryResponseOfSensorAnalysisResults;
     exports.QueryResponseOfTreeItem = QueryResponseOfTreeItem;
+    exports.QueryResponseOfUpdateStatus = QueryResponseOfUpdateStatus;
     exports.QueryResponseOfUser = QueryResponseOfUser;
     exports.Recurrent = Recurrent;
     exports.RecurrentTimeFrame = RecurrentTimeFrame;
@@ -12970,6 +13088,8 @@
     exports.SysAccountExportRequest = SysAccountExportRequest;
     exports.SysAccountImportRequest = SysAccountImportRequest;
     exports.SysAccountsService = SysAccountsService;
+    exports.SysApplianceBatchUpgradeFindRequest = SysApplianceBatchUpgradeFindRequest;
+    exports.SysApplianceBatchUpgradeRequest = SysApplianceBatchUpgradeRequest;
     exports.SysApplianceGetLogsRequest = SysApplianceGetLogsRequest;
     exports.SysAppliancesCountRequest = SysAppliancesCountRequest;
     exports.SysAppliancesService = SysAppliancesService;
