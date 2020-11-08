@@ -1,8 +1,8 @@
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { StringKeyValue } from '../common/StringKeyValue';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Coordinate } from '../common/Coordinate';
 import { Thresholds } from '../common/Thresholds';
@@ -36,6 +36,9 @@ export declare class Sensor extends BaseEntity {
     healthThresholds: Thresholds;
     debugInfo: SensorDebugInfo;
     syncTimeToStream: boolean;
+    codec: string;
+    resolution: string;
+    framerate: number;
     id: string;
     _type: string;
     createdOn: number;
