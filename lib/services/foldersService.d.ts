@@ -73,6 +73,11 @@ export declare class FoldersService {
      */
     list(id?: string[]): import("rxjs").Observable<any>;
     /**
+     * Get folders Ids by list of external ids
+     * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=FolderId)
+     */
+    mapExternalIds(id?: string[]): import("rxjs").Observable<any>;
+    /**
      * Find folders by filters
      * @Return: QueryResponse<Folder>
      */

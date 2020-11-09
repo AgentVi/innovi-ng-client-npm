@@ -68,6 +68,11 @@ export declare class RulesService {
      */
     list(id?: string[]): import("rxjs").Observable<any>;
     /**
+     * Get rules Ids by list of external ids
+     * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=RuleId)
+     */
+    mapExternalIds(id?: string[]): import("rxjs").Observable<any>;
+    /**
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */

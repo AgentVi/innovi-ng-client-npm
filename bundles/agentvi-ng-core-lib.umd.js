@@ -5345,6 +5345,15 @@
 
     /*
     */
+    var FolderExtIdsRequest = /** @class */ (function () {
+        function FolderExtIdsRequest(id) {
+            this.id = id;
+        }
+        return FolderExtIdsRequest;
+    }());
+
+    /*
+    */
     var FolderIdRequest = /** @class */ (function () {
         function FolderIdRequest(id) {
             this.id = id;
@@ -5968,6 +5977,15 @@
 
     /*
     */
+    var RuleExtIdsRequest = /** @class */ (function () {
+        function RuleExtIdsRequest(id) {
+            this.id = id;
+        }
+        return RuleExtIdsRequest;
+    }());
+
+    /*
+    */
     var RuleIdRequest = /** @class */ (function () {
         function RuleIdRequest(id) {
             this.id = id;
@@ -6335,6 +6353,15 @@
             this.sensorId = sensorId;
         }
         return SensorAnalysisIdRequest;
+    }());
+
+    /*
+    */
+    var SensorExtIdsRequest = /** @class */ (function () {
+        function SensorExtIdsRequest(id) {
+            this.id = id;
+        }
+        return SensorExtIdsRequest;
     }());
 
     /*
@@ -8753,6 +8780,18 @@
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
         };
         /**
+         * Get folders Ids by list of external ids
+         * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=FolderId)
+         */
+        FoldersService.prototype.mapExternalIds = function (id) {
+            var _a;
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
+        };
+        /**
          * Find folders by filters
          * @Return: QueryResponse<Folder>
          */
@@ -9512,6 +9551,18 @@
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
         };
         /**
+         * Get rules Ids by list of external ids
+         * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=RuleId)
+         */
+        RulesService.prototype.mapExternalIds = function (id) {
+            var _a;
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
+        };
+        /**
          * Find rules by filters
          * @Return: QueryResponse<Rule>
          */
@@ -10253,6 +10304,18 @@
                 params.push("id=" + id);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+        };
+        /**
+         * Get sensors Ids by list of external ids
+         * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=SensorId)
+         */
+        SensorsService.prototype.mapExternalIds = function (id) {
+            var _a;
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
         };
         /**
          * Find sensors by filters
@@ -12892,6 +12955,7 @@
     exports.FeaturesServiceFindRequest = FeaturesServiceFindRequest;
     exports.FeaturesServiceUpdateRequest = FeaturesServiceUpdateRequest;
     exports.Folder = Folder;
+    exports.FolderExtIdsRequest = FolderExtIdsRequest;
     exports.FolderIdRequest = FolderIdRequest;
     exports.FolderIdsRequest = FolderIdsRequest;
     exports.FoldersService = FoldersService;
@@ -12995,6 +13059,7 @@
     exports.RestUtil = RestUtil;
     exports.Rule = Rule;
     exports.RuleDefault = RuleDefault;
+    exports.RuleExtIdsRequest = RuleExtIdsRequest;
     exports.RuleIdRequest = RuleIdRequest;
     exports.RuleIdsRequest = RuleIdsRequest;
     exports.RulePolygon = RulePolygon;
@@ -13051,6 +13116,7 @@
     exports.SensorAnomalyInfo = SensorAnomalyInfo;
     exports.SensorAnomalyRuleInfo = SensorAnomalyRuleInfo;
     exports.SensorDebugInfo = SensorDebugInfo;
+    exports.SensorExtIdsRequest = SensorExtIdsRequest;
     exports.SensorIdRequest = SensorIdRequest;
     exports.SensorIdsRequest = SensorIdsRequest;
     exports.SensorInfo = SensorInfo;
