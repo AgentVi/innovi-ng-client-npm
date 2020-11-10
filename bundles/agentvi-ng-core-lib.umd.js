@@ -4084,8 +4084,8 @@
     /*
     */
     var CalendarsServiceImportRequest = /** @class */ (function () {
-        function CalendarsServiceImportRequest(content, folderId) {
-            this.content = content;
+        function CalendarsServiceImportRequest(icsFile, folderId) {
+            this.icsFile = icsFile;
             this.folderId = folderId;
         }
         return CalendarsServiceImportRequest;
@@ -5644,6 +5644,15 @@
 
     /*
     */
+    var LicenseImportRequest = /** @class */ (function () {
+        function LicenseImportRequest(licenseFile) {
+            this.licenseFile = licenseFile;
+        }
+        return LicenseImportRequest;
+    }());
+
+    /*
+    */
     var MachineIdRequest = /** @class */ (function () {
         function MachineIdRequest(machineId) {
             this.machineId = machineId;
@@ -6573,7 +6582,8 @@
     /*
     */
     var SysAccountImportRequest = /** @class */ (function () {
-        function SysAccountImportRequest(password) {
+        function SysAccountImportRequest(zipFile, password) {
+            this.zipFile = zipFile;
             this.password = password;
         }
         return SysAccountImportRequest;
@@ -6689,6 +6699,15 @@
             this.pageSize = pageSize;
         }
         return SysAuditLogServiceFindRequest;
+    }());
+
+    /*
+    */
+    var SysConfigImportRequest = /** @class */ (function () {
+        function SysConfigImportRequest(zipFile) {
+            this.zipFile = zipFile;
+        }
+        return SysConfigImportRequest;
     }());
 
     /*
@@ -6929,6 +6948,15 @@
             this.filter = filter;
         }
         return SysSystemBackupRequest;
+    }());
+
+    /*
+    */
+    var SysSystemRestoreRequest = /** @class */ (function () {
+        function SysSystemRestoreRequest(zipFile) {
+            this.zipFile = zipFile;
+        }
+        return SysSystemRestoreRequest;
     }());
 
     /*
@@ -7249,6 +7277,23 @@
             // Set headers
             this.headers = new http.HttpHeaders().set('Content-Type', 'application/json');
         }
+        /**
+         * Upload is HTTP POST action but the body is File object
+         */
+        RestUtil.prototype.upload = function (file, url) {
+            var params = [];
+            for (var _i = 2; _i < arguments.length; _i++) {
+                params[_i - 2] = arguments[_i];
+            }
+            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+            var formData = new FormData();
+            formData.append('fileKey', file, file.name);
+            var req = new http.HttpRequest('POST', resourceUrl, formData, {
+                reportProgress: false,
+                responseType: 'json',
+            });
+            return this.http.request(req);
+        };
         /**
          * Download is HTTP GET action but the content is blob
          */
@@ -8379,13 +8424,13 @@
          * Import calendar from outlook CSV, ICS or iCal file
          * @Return: ActionResponse
          */
-        CalendarsService.prototype.import = function (folderId) {
+        CalendarsService.prototype.import = function (folderId, icsFile) {
             var _a;
             var params = new Array();
             if (folderId != null) {
                 params.push("folderId=" + folderId);
             }
-            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/import", null], params));
+            return (_a = this.rest).upload.apply(_a, __spread([icsFile, this.baseUrl + "/import"], params));
         };
         /**
          * Import calendar from Url (ICS or iCal formats)
@@ -9286,8 +9331,8 @@
          * Import license data from file
          * @Return: ActionResponse
          */
-        LicensesService.prototype.import = function () {
-            return this.rest.post(this.baseUrl + "/import", null);
+        LicensesService.prototype.import = function (licenseFile) {
+            return this.rest.upload(licenseFile, this.baseUrl + "/import");
         };
         /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ LicensesService.ɵprov = core.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
@@ -11082,7 +11127,7 @@
             return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
         };
         /**
-         * Send get logs command to the appliance
+         * Upgrade batch of appliances
          * @Return:  EntitiesResponse<UpdateStatus>
          */
         SysAppliancesService.prototype.batchUpgrade = function (configId, versionId, id) {
@@ -11944,8 +11989,13 @@
          * Import account configuration data from byte array (zip content)
          * @Return: ActionResponse
          */
-        SysSystemService.prototype.importAccountData = function () {
-            return this.rest.post(this.baseUrl + "/accounts/import", null);
+        SysSystemService.prototype.importAccountData = function (password, zipFile) {
+            var _a;
+            var params = new Array();
+            if (password != null) {
+                params.push("password=" + password);
+            }
+            return (_a = this.rest).upload.apply(_a, __spread([zipFile, this.baseUrl + "/accounts/import"], params));
         };
         /**
          * Export SW package configurations data
@@ -11958,8 +12008,8 @@
          * Import SW package configurations data from byte array (zip content)
          * @Return: ActionResponse
          */
-        SysSystemService.prototype.importConfigurations = function () {
-            return this.rest.post(this.baseUrl + "/configurations/import", null);
+        SysSystemService.prototype.importConfigurations = function (zipFile) {
+            return this.rest.upload(zipFile, this.baseUrl + "/configurations/import");
         };
         /**
          * Backup entire system (configurations, users and accounts)
@@ -11978,8 +12028,8 @@
          * Restore entire system (zip content)
          * @Return: ActionResponse
          */
-        SysSystemService.prototype.restoreSystem = function () {
-            return this.rest.post(this.baseUrl + "/restore", null);
+        SysSystemService.prototype.restoreSystem = function (zipFile) {
+            return this.rest.upload(zipFile, this.baseUrl + "/restore");
         };
         /**
          * Publish message to all services to change their log level
@@ -13006,6 +13056,7 @@
     exports.IntegrationsServiceUpdateRequest = IntegrationsServiceUpdateRequest;
     exports.License = License;
     exports.LicenseIdRequest = LicenseIdRequest;
+    exports.LicenseImportRequest = LicenseImportRequest;
     exports.LicensesService = LicensesService;
     exports.LoginData = LoginData;
     exports.LoginParams = LoginParams;
@@ -13164,6 +13215,7 @@
     exports.SysAuditLogService = SysAuditLogService;
     exports.SysAuditLogServiceExportRequest = SysAuditLogServiceExportRequest;
     exports.SysAuditLogServiceFindRequest = SysAuditLogServiceFindRequest;
+    exports.SysConfigImportRequest = SysConfigImportRequest;
     exports.SysConfigurationsService = SysConfigurationsService;
     exports.SysConfigurationsServiceCreateRequest = SysConfigurationsServiceCreateRequest;
     exports.SysConfigurationsServiceCreateTemplateRequest = SysConfigurationsServiceCreateTemplateRequest;
@@ -13191,6 +13243,7 @@
     exports.SysSensorsServiceFindRequest = SysSensorsServiceFindRequest;
     exports.SysSetLogLevelRequest = SysSetLogLevelRequest;
     exports.SysSystemBackupRequest = SysSystemBackupRequest;
+    exports.SysSystemRestoreRequest = SysSystemRestoreRequest;
     exports.SysSystemService = SysSystemService;
     exports.SysUsersService = SysUsersService;
     exports.Threshold = Threshold;

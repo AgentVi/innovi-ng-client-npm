@@ -11,6 +11,10 @@ export declare class RestUtil {
      */
     constructor(http: HttpClient);
     /**
+     * Upload is HTTP POST action but the body is File object
+     */
+    upload(file: File, url: string, ...params: string[]): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
+    /**
      * Download is HTTP GET action but the content is blob
      */
     download(fileName: string, url: string, ...params: string[]): import("rxjs").Subscription;

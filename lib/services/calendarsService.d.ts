@@ -55,7 +55,7 @@ export declare class CalendarsService {
      * Import calendar from outlook CSV, ICS or iCal file
      * @Return: ActionResponse
      */
-    import(folderId?: string): import("rxjs").Observable<any>;
+    import(folderId?: string, icsFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Import calendar from Url (ICS or iCal formats)
      * @Return: ActionResponse

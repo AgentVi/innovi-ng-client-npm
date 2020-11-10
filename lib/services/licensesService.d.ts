@@ -43,7 +43,7 @@ export declare class LicensesService {
      * Import license data from file
      * @Return: ActionResponse
      */
-    import(): import("rxjs").Observable<any>;
+    import(licenseFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     static ɵfac: i0.ɵɵFactoryDef<LicensesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<LicensesService>;
 }

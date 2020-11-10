@@ -126,7 +126,7 @@ export declare class SysAppliancesService {
      */
     getLogs(id?: string, componentId?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
     /**
-     * Send get logs command to the appliance
+     * Upgrade batch of appliances
      * @Return:  EntitiesResponse<UpdateStatus>
      */
     batchUpgrade(configId?: string, versionId?: string, id?: string[]): import("rxjs").Observable<any>;

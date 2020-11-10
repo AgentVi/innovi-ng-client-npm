@@ -1,4 +1,4 @@
 export declare class StreamResponse {
-    content: string;
-    constructor(content?: string);
+    content: File;
+    constructor(content?: File);
 }

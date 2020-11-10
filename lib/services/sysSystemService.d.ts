@@ -26,7 +26,7 @@ export declare class SysSystemService {
      * Import account configuration data from byte array (zip content)
      * @Return: ActionResponse
      */
-    importAccountData(): import("rxjs").Observable<any>;
+    importAccountData(password?: string, zipFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Export SW package configurations data
      * @Return: StreamingOutput of the content (zip)
@@ -36,7 +36,7 @@ export declare class SysSystemService {
      * Import SW package configurations data from byte array (zip content)
      * @Return: ActionResponse
      */
-    importConfigurations(): import("rxjs").Observable<any>;
+    importConfigurations(zipFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Backup entire system (configurations, users and accounts)
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
@@ -47,7 +47,7 @@ export declare class SysSystemService {
      * Restore entire system (zip content)
      * @Return: ActionResponse
      */
-    restoreSystem(): import("rxjs").Observable<any>;
+    restoreSystem(zipFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Publish message to all services to change their log level
      * @Return: ActionResponse

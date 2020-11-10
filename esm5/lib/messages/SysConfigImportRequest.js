@@ -1,0 +1,10 @@
+/*
+*/
+var SysConfigImportRequest = /** @class */ (function () {
+    function SysConfigImportRequest(zipFile) {
+        this.zipFile = zipFile;
+    }
+    return SysConfigImportRequest;
+}());
+export { SysConfigImportRequest };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3lzQ29uZmlnSW1wb3J0UmVxdWVzdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL21lc3NhZ2VzL1N5c0NvbmZpZ0ltcG9ydFJlcXVlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRTtBQUNGO0lBS0ksZ0NBQVksT0FBYztRQUN0QixJQUFJLENBQUMsT0FBTyxHQUFHLE9BQU8sQ0FBQztJQUMzQixDQUFDO0lBRUwsNkJBQUM7QUFBRCxDQUFDLEFBVEQsSUFTQyIsInNvdXJjZXNDb250ZW50IjpbIlxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBTeXNDb25maWdJbXBvcnRSZXF1ZXN0IHtcbiBcbiAgICAvLyBDb25maWd1cmF0aW9uIGZpbGUgKHppcCkgdG8gaW1wb3J0IFxuICAgIHB1YmxpYyB6aXBGaWxlOiBGaWxlO1xuIFxuICAgIGNvbnN0cnVjdG9yKHppcEZpbGU/OiBGaWxlKSB7IFxuICAgICAgICB0aGlzLnppcEZpbGUgPSB6aXBGaWxlO1xuICAgIH1cblxufVxuXG5cbiJdfQ==

@@ -1,5 +1,5 @@
 export declare class CalendarsServiceImportRequest {
-    content: string;
+    icsFile: File;
     folderId: string;
-    constructor(content?: string, folderId?: string);
+    constructor(icsFile?: File, folderId?: string);
 }
