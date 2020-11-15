@@ -1,6 +1,6 @@
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { TimeFrame } from '../common/TimeFrame';
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class TreeItem {
     itemId: string;
     type: EntityTypeCode;

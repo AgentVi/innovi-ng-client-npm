@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -109,6 +109,11 @@ export declare class SearchService {
      * @Return: EntityResponse<EventCountTimeSeries>
      */
     getEventsCountOvertime(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
+    /**
+     * Get search event object crops (for animation)
+     * @Return: EntitiesResponse<TimestampedImage>
+     */
+    getEventObjectCrops(eventId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SearchService>;
 }

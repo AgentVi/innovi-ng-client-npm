@@ -5061,6 +5061,16 @@
 
     /*
     */
+    var EntityResponseOfTimestampedImage = /** @class */ (function (_super) {
+        __extends(EntityResponseOfTimestampedImage, _super);
+        function EntityResponseOfTimestampedImage() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfTimestampedImage;
+    }(EntitiesResponse));
+
+    /*
+    */
     var EntityResponseOfTreeNode = /** @class */ (function (_super) {
         __extends(EntityResponseOfTreeNode, _super);
         function EntityResponseOfTreeNode() {
@@ -6234,6 +6244,15 @@
             this.labelFormat = labelFormat;
         }
         return SearchEventCountRequest;
+    }());
+
+    /*
+    */
+    var SearchEventCropsRequest = /** @class */ (function () {
+        function SearchEventCropsRequest(eventId) {
+            this.eventId = eventId;
+        }
+        return SearchEventCropsRequest;
     }());
 
     /*
@@ -10212,6 +10231,13 @@
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/overtime"], params));
         };
+        /**
+         * Get search event object crops (for animation)
+         * @Return: EntitiesResponse<TimestampedImage>
+         */
+        SearchService.prototype.getEventObjectCrops = function (eventId) {
+            return this.rest.get(this.baseUrl + "/events/" + eventId + "/crops");
+        };
         /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SearchService.ɵprov = core.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
         return SearchService;
@@ -12971,6 +12997,7 @@
     exports.EntityResponseOfSensorAnomalyInfo = EntityResponseOfSensorAnomalyInfo;
     exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
     exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
+    exports.EntityResponseOfTimestampedImage = EntityResponseOfTimestampedImage;
     exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
     exports.EntityResponseOfUser = EntityResponseOfUser;
     exports.EntityResponseOfUserAccountInfo = EntityResponseOfUserAccountInfo;
@@ -13144,6 +13171,7 @@
     exports.SearchDefinition = SearchDefinition;
     exports.SearchEvent = SearchEvent;
     exports.SearchEventCountRequest = SearchEventCountRequest;
+    exports.SearchEventCropsRequest = SearchEventCropsRequest;
     exports.SearchEventExportRequest = SearchEventExportRequest;
     exports.SearchEventFindRequest = SearchEventFindRequest;
     exports.SearchEventIdRequest = SearchEventIdRequest;
