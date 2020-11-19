@@ -6294,7 +6294,7 @@ class AccountsService {
      * @Return: EntityResponse<UsageReport>
      */
     getUsageReport(year, month) {
-        return this.rest.get(`${this.baseUrl}/usage-report`);
+        return this.rest.get(`${this.baseUrl}/usage-report/${year}/${month}`);
     }
 }
 /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };

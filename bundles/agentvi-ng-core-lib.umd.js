@@ -7635,7 +7635,7 @@
          * @Return: EntityResponse<UsageReport>
          */
         AccountsService.prototype.getUsageReport = function (year, month) {
-            return this.rest.get(this.baseUrl + "/usage-report");
+            return this.rest.get(this.baseUrl + "/usage-report/" + year + "/" + month);
         };
         /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ AccountsService.ɵprov = core.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });

@@ -7421,7 +7421,7 @@ var AccountsService = /** @class */ (function () {
      * @Return: EntityResponse<UsageReport>
      */
     AccountsService.prototype.getUsageReport = function (year, month) {
-        return this.rest.get(this.baseUrl + "/usage-report");
+        return this.rest.get(this.baseUrl + "/usage-report/" + year + "/" + month);
     };
     /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
     /** @nocollapse */ AccountsService.ɵprov = ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
