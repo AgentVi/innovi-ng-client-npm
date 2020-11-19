@@ -1,0 +1,11 @@
+/*
+*/
+var UsageReportRequest = /** @class */ (function () {
+    function UsageReportRequest(year, month) {
+        this.year = year;
+        this.month = month;
+    }
+    return UsageReportRequest;
+}());
+export { UsageReportRequest };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVXNhZ2VSZXBvcnRSZXF1ZXN0LmpzIiwic291cmNlUm9vdCI6Im5nOi8vQGFnZW50dmkvbmctY29yZS1saWIvIiwic291cmNlcyI6WyJsaWIvbWVzc2FnZXMvVXNhZ2VSZXBvcnRSZXF1ZXN0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0U7QUFDRjtJQVFJLDRCQUFZLElBQWEsRUFBRSxLQUFjO1FBQ3JDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO1FBQ2pCLElBQUksQ0FBQyxLQUFLLEdBQUcsS0FBSyxDQUFDO0lBQ3ZCLENBQUM7SUFFTCx5QkFBQztBQUFELENBQUMsQUFiRCxJQWFDIiwic291cmNlc0NvbnRlbnQiOlsiXG4vKiAgXG4qL1xuZXhwb3J0IGNsYXNzIFVzYWdlUmVwb3J0UmVxdWVzdCB7XG4gXG4gICAgLy8gWWVhciBcbiAgICBwdWJsaWMgeWVhcjogbnVtYmVyO1xuIFxuICAgIC8vIE1vbnRoIFxuICAgIHB1YmxpYyBtb250aDogbnVtYmVyO1xuIFxuICAgIGNvbnN0cnVjdG9yKHllYXI/OiBudW1iZXIsIG1vbnRoPzogbnVtYmVyKSB7IFxuICAgICAgICB0aGlzLnllYXIgPSB5ZWFyO1xuICAgICAgICB0aGlzLm1vbnRoID0gbW9udGg7XG4gICAgfVxuXG59XG5cblxuIl19

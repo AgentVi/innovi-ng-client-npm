@@ -81,6 +81,12 @@ export declare class AccountsService {
      * @Return: EntityResponse<TreeNode>
      */
     getPhysicalTree(): import("rxjs").Observable<any>;
+    /**
+     * Get account usage report (for billing)
+     * List of sensor with total active time (minutes) and total of billable sensors
+     * @Return: EntityResponse<UsageReport>
+     */
+    getUsageReport(year?: number, month?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
 }

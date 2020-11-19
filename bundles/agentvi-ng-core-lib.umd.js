@@ -1885,6 +1885,17 @@
     }(BaseEntity));
 
     /*
+       Sensor usage report type for billing
+    */
+    var UsageReport = /** @class */ (function (_super) {
+        __extends(UsageReport, _super);
+        function UsageReport() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return UsageReport;
+    }(BaseEntity));
+
+    /*
        User type
     */
     var User = /** @class */ (function (_super) {
@@ -5101,6 +5112,16 @@
 
     /*
     */
+    var EntityResponseUsageReport = /** @class */ (function (_super) {
+        __extends(EntityResponseUsageReport, _super);
+        function EntityResponseUsageReport() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseUsageReport;
+    }(EntityResponse));
+
+    /*
+    */
     var EventIdRequest = /** @class */ (function () {
         function EventIdRequest(id) {
             this.id = id;
@@ -7004,6 +7025,16 @@
 
     /*
     */
+    var UsageReportRequest = /** @class */ (function () {
+        function UsageReportRequest(year, month) {
+            this.year = year;
+            this.month = month;
+        }
+        return UsageReportRequest;
+    }());
+
+    /*
+    */
     var UserByEmailRequest = /** @class */ (function () {
         function UserByEmailRequest(email) {
             this.email = email;
@@ -7597,6 +7628,14 @@
          */
         AccountsService.prototype.getPhysicalTree = function () {
             return this.rest.get(this.baseUrl + "/physical-tree");
+        };
+        /**
+         * Get account usage report (for billing)
+         * List of sensor with total active time (minutes) and total of billable sensors
+         * @Return: EntityResponse<UsageReport>
+         */
+        AccountsService.prototype.getUsageReport = function (year, month) {
+            return this.rest.get(this.baseUrl + "/usage-report");
         };
         /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ AccountsService.ɵprov = core.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
@@ -13001,6 +13040,7 @@
     exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
     exports.EntityResponseOfUser = EntityResponseOfUser;
     exports.EntityResponseOfUserAccountInfo = EntityResponseOfUserAccountInfo;
+    exports.EntityResponseUsageReport = EntityResponseUsageReport;
     exports.Event = Event;
     exports.EventCountDataPoint = EventCountDataPoint;
     exports.EventCountTimeSeries = EventCountTimeSeries;
@@ -13283,6 +13323,8 @@
     exports.TreeItem = TreeItem;
     exports.TreeNode = TreeNode;
     exports.UpdateStatus = UpdateStatus;
+    exports.UsageReport = UsageReport;
+    exports.UsageReportRequest = UsageReportRequest;
     exports.User = User;
     exports.UserAccountInfo = UserAccountInfo;
     exports.UserByEmailRequest = UserByEmailRequest;
