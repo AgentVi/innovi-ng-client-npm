@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Account } from '../entities/Account';
-import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { Account } from '../entities/Account';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only
@@ -127,6 +127,12 @@ export declare class SysAccountsService {
      * @Return: EntityResponse<Coordinate> The account location
      */
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Get account usage report (for billing)
+     * List of sensor with total active time (minutes) and total of billable sensors
+     * @Return: EntityResponse<UsageReport>
+     */
+    getUsageReport(id?: string, year?: number, month?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SysAccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAccountsService>;
 }

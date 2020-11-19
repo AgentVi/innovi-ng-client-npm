@@ -7000,6 +7000,17 @@
     }());
 
     /*
+    */
+    var SysUsageReportRequest = /** @class */ (function () {
+        function SysUsageReportRequest(id, year, month) {
+            this.id = id;
+            this.year = year;
+            this.month = month;
+        }
+        return SysUsageReportRequest;
+    }());
+
+    /*
        Token request message
     */
     var TokenRequest = /** @class */ (function () {
@@ -10917,6 +10928,14 @@
         SysAccountsService.prototype.getDefaultLocation = function (id) {
             return this.rest.get(this.baseUrl + "/" + id + "/geoLocation");
         };
+        /**
+         * Get account usage report (for billing)
+         * List of sensor with total active time (minutes) and total of billable sensors
+         * @Return: EntityResponse<UsageReport>
+         */
+        SysAccountsService.prototype.getUsageReport = function (id, year, month) {
+            return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
+        };
         /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ SysAccountsService.ɵprov = core.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
         return SysAccountsService;
@@ -13313,6 +13332,7 @@
     exports.SysSystemBackupRequest = SysSystemBackupRequest;
     exports.SysSystemRestoreRequest = SysSystemRestoreRequest;
     exports.SysSystemService = SysSystemService;
+    exports.SysUsageReportRequest = SysUsageReportRequest;
     exports.SysUsersService = SysUsersService;
     exports.Threshold = Threshold;
     exports.Thresholds = Thresholds;

@@ -330,6 +330,7 @@ export * from './SysSensorsServiceFindRequest';
 export * from './SysSetLogLevelRequest';
 export * from './SysSystemBackupRequest';
 export * from './SysSystemRestoreRequest';
+export * from './SysUsageReportRequest';
 export * from './TokenRequest';
 export * from './TrafficAnalysisReportRequest';
 export * from './UsageReportRequest';
