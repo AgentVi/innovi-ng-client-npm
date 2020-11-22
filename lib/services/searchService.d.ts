@@ -113,7 +113,7 @@ export declare class SearchService {
      * Get search event object crops (for animation)
      * @Return: EntitiesResponse<TimestampedImage>
      */
-    getEventObjectCrops(eventId?: string): import("rxjs").Observable<any>;
+    getEventObjectCrops(sessionId?: string, eventId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SearchService>;
 }
