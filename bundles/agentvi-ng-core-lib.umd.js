@@ -1687,12 +1687,13 @@
        Mapping description of digital IO port
     */
     var PortMapping = /** @class */ (function () {
-        function PortMapping(port, isOutput, entityType, entityId, activate, status) {
+        function PortMapping(port, isOutput, entityType, entityId, onHigh, onLow, status) {
             this.port = port;
             this.isOutput = isOutput;
             this.entityType = entityType;
             this.entityId = entityId;
-            this.activate = activate;
+            this.onHigh = onHigh;
+            this.onLow = onLow;
             this.status = status;
         }
         return PortMapping;
