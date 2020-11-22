@@ -1,5 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Audit log queries for account administrator only
@@ -18,12 +19,12 @@ export declare class SysAuditLogService {
      * Find list of audit log entries and filter
      * @Return: QueryResponse<AuditLog>
      */
-    find(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: EntityTypeCode, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of audit log entries and filter
      * @Return: StreamContent
      */
-    exportFormat(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: string, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: EntityTypeCode, sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single audit log entry by id
      * @Return: EntityResponse<Appliance>

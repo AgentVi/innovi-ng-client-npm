@@ -1,11 +1,12 @@
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class AuditLogServiceExportRequest {
     userId: string;
     from: number;
     to: number;
     item: string;
-    itemType: string;
+    itemType: EntityTypeCode;
     sort: string;
     format: string;
     fields: string[];
-    constructor(userId?: string, from?: number, to?: number, item?: string, itemType?: string, sort?: string, format?: string, fields?: string[]);
+    constructor(userId?: string, from?: number, to?: number, item?: string, itemType?: EntityTypeCode, sort?: string, format?: string, fields?: string[]);
 }
