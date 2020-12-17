@@ -151,6 +151,7 @@ export * from './EntityResponseOfSensorAnalysisResults';
 export * from './EntityResponseOfSensorAnomalyInfo';
 export * from './EntityResponseOfSensorStatus';
 export * from './EntityResponseOfSensorStatusTimeSeries';
+export * from './EntityResponseOfTimestampedCrop';
 export * from './EntityResponseOfTimestampedImage';
 export * from './EntityResponseOfTreeNode';
 export * from './EntityResponseOfUser';

@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { ApplianceCommand } from '../entities/ApplianceCommand';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class UpdateStatus extends BaseEntity {
     timestamp: number;
     batchId: string;
