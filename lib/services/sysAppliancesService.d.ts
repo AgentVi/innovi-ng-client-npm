@@ -135,6 +135,16 @@ export declare class SysAppliancesService {
      * @Return:  QueryResponse<UpdateStatus>
      */
     findUpgradeStatus(accountId?: string, applianceId?: string, userId?: string, commandId?: string, batchId?: string, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Find list of devices configurations (configured vs. actual)
+     * @Return:  EntityResponse<ApplianceConfigReport>
+     */
+    findDevicesConfigurations(account?: string, format?: string): import("rxjs").Observable<any>;
+    /**
+     * Export list of devices configurations (configured vs. actual)
+     * @Return:  StreamingOutput of the report file
+     */
+    exportDevicesConfigurations(account?: string, format?: string): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

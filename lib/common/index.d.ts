@@ -5,6 +5,7 @@ export * from './AccountStatSummary';
 export * from './AccountTypeSummary';
 export * from './AnalysisResult';
 export * from './AnomalyEventInfo';
+export * from './ApplianceConfigReport';
 export * from './ApplianceConfigVersion';
 export * from './ApplianceConfiguration';
 export * from './ApplianceKpiDataPoint';
