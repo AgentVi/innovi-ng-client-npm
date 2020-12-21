@@ -4440,27 +4440,6 @@
     }(EntitiesResponse));
 
     /*
-       Entity response message returned for read operation on a single entity
-    */
-    var EntityResponse = /** @class */ (function () {
-        function EntityResponse(code, error) {
-            this.code = code;
-            this.error = error;
-        }
-        return EntityResponse;
-    }());
-
-    /*
-    */
-    var EntitiesResponseOfApplianceConfigReport = /** @class */ (function (_super) {
-        __extends(EntitiesResponseOfApplianceConfigReport, _super);
-        function EntitiesResponseOfApplianceConfigReport() {
-            return _super !== null && _super.apply(this, arguments) || this;
-        }
-        return EntitiesResponseOfApplianceConfigReport;
-    }(EntityResponse));
-
-    /*
     */
     var EntitiesResponseOfApplianceConfiguration = /** @class */ (function (_super) {
         __extends(EntitiesResponseOfApplianceConfiguration, _super);
@@ -4719,6 +4698,17 @@
         }
         return EntitiesResponseOfStringKeyValue;
     }(EntitiesResponse));
+
+    /*
+       Entity response message returned for read operation on a single entity
+    */
+    var EntityResponse = /** @class */ (function () {
+        function EntityResponse(code, error) {
+            this.code = code;
+            this.error = error;
+        }
+        return EntityResponse;
+    }());
 
     /*
     */
@@ -5842,6 +5832,16 @@
 
     /*
     */
+    var QueryResponseOfApplianceConfigReport = /** @class */ (function (_super) {
+        __extends(QueryResponseOfApplianceConfigReport, _super);
+        function QueryResponseOfApplianceConfigReport() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfApplianceConfigReport;
+    }(QueryResponse));
+
+    /*
+    */
     var QueryResponseOfAuditLog = /** @class */ (function (_super) {
         __extends(QueryResponseOfAuditLog, _super);
         function QueryResponseOfAuditLog() {
@@ -6751,10 +6751,29 @@
 
     /*
     */
-    var SysApplianceConfigReportRequest = /** @class */ (function () {
-        function SysApplianceConfigReportRequest(account, format) {
+    var SysApplianceConfigExportRequest = /** @class */ (function () {
+        function SysApplianceConfigExportRequest(account, search, configId, versionId, unmatched, format, page, pageSize) {
             this.account = account;
+            this.search = search;
+            this.configId = configId;
+            this.versionId = versionId;
+            this.unmatched = unmatched;
             this.format = format;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return SysApplianceConfigExportRequest;
+    }());
+
+    /*
+    */
+    var SysApplianceConfigReportRequest = /** @class */ (function () {
+        function SysApplianceConfigReportRequest(account, search, configId, versionId, unmatched) {
+            this.account = account;
+            this.search = search;
+            this.configId = configId;
+            this.versionId = versionId;
+            this.unmatched = unmatched;
         }
         return SysApplianceConfigReportRequest;
     }());
@@ -11366,14 +11385,23 @@
          * Find list of devices configurations (configured vs. actual)
          * @Return:  EntityResponse<ApplianceConfigReport>
          */
-        SysAppliancesService.prototype.findDevicesConfigurations = function (account, format) {
+        SysAppliancesService.prototype.findDevicesConfigurations = function (account, search, configId, versionId, unmatched) {
             var _a;
             var params = new Array();
             if (account != null) {
                 params.push("account=" + account);
             }
-            if (format != null) {
-                params.push("format=" + format);
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (configId != null) {
+                params.push("configId=" + configId);
+            }
+            if (versionId != null) {
+                params.push("versionId=" + versionId);
+            }
+            if (unmatched != null) {
+                params.push("unmatched=" + unmatched);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actual-config"], params));
         };
@@ -11381,14 +11409,32 @@
          * Export list of devices configurations (configured vs. actual)
          * @Return:  StreamingOutput of the report file
          */
-        SysAppliancesService.prototype.exportDevicesConfigurations = function (account, format) {
+        SysAppliancesService.prototype.exportDevicesConfigurations = function (account, search, configId, versionId, unmatched, format, page, pageSize) {
             var _a;
             var params = new Array();
             if (account != null) {
                 params.push("account=" + account);
             }
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (configId != null) {
+                params.push("configId=" + configId);
+            }
+            if (versionId != null) {
+                params.push("versionId=" + versionId);
+            }
+            if (unmatched != null) {
+                params.push("unmatched=" + unmatched);
+            }
             if (format != null) {
                 params.push("format=" + format);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
             }
             return (_a = this.rest).download.apply(_a, __spread(["sys-appliances", this.baseUrl + "/actual-config/export"], params));
         };
@@ -13117,7 +13163,6 @@
     exports.EntitiesResponseOfAppliance = EntitiesResponseOfAppliance;
     exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
     exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
-    exports.EntitiesResponseOfApplianceConfigReport = EntitiesResponseOfApplianceConfigReport;
     exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
     exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
     exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
@@ -13296,6 +13341,7 @@
     exports.QueryResponseOfAccount = QueryResponseOfAccount;
     exports.QueryResponseOfAnomalyEventInfo = QueryResponseOfAnomalyEventInfo;
     exports.QueryResponseOfAppliance = QueryResponseOfAppliance;
+    exports.QueryResponseOfApplianceConfigReport = QueryResponseOfApplianceConfigReport;
     exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
     exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
     exports.QueryResponseOfComponentConfiguration = QueryResponseOfComponentConfiguration;
@@ -13428,6 +13474,7 @@
     exports.SysAccountsService = SysAccountsService;
     exports.SysApplianceBatchUpgradeFindRequest = SysApplianceBatchUpgradeFindRequest;
     exports.SysApplianceBatchUpgradeRequest = SysApplianceBatchUpgradeRequest;
+    exports.SysApplianceConfigExportRequest = SysApplianceConfigExportRequest;
     exports.SysApplianceConfigReportRequest = SysApplianceConfigReportRequest;
     exports.SysApplianceGetLogsRequest = SysApplianceGetLogsRequest;
     exports.SysAppliancesCountRequest = SysAppliancesCountRequest;

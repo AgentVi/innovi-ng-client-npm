@@ -1,5 +1,8 @@
 export declare class SysApplianceConfigReportRequest {
     account: string;
-    format: string;
-    constructor(account?: string, format?: string);
+    search: string;
+    configId: string;
+    versionId: string;
+    unmatched: boolean;
+    constructor(account?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean);
 }

@@ -139,12 +139,12 @@ export declare class SysAppliancesService {
      * Find list of devices configurations (configured vs. actual)
      * @Return:  EntityResponse<ApplianceConfigReport>
      */
-    findDevicesConfigurations(account?: string, format?: string): import("rxjs").Observable<any>;
+    findDevicesConfigurations(account?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean): import("rxjs").Observable<any>;
     /**
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    exportDevicesConfigurations(account?: string, format?: string): import("rxjs").Subscription;
+    exportDevicesConfigurations(account?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean, format?: string, page?: number, pageSize?: number): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }
