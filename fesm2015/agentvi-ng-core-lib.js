@@ -5497,8 +5497,8 @@ class SysApplianceBatchUpgradeRequest {
 /*
 */
 class SysApplianceConfigExportRequest {
-    constructor(account, search, configId, versionId, unmatched, format) {
-        this.account = account;
+    constructor(accountId, search, configId, versionId, unmatched, format) {
+        this.accountId = accountId;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
@@ -5510,8 +5510,8 @@ class SysApplianceConfigExportRequest {
 /*
 */
 class SysApplianceConfigReportRequest {
-    constructor(account, search, configId, versionId, unmatched, page, pageSize) {
-        this.account = account;
+    constructor(accountId, search, configId, versionId, unmatched, page, pageSize) {
+        this.accountId = accountId;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
@@ -9919,10 +9919,10 @@ class SysAppliancesService {
      * Find list of devices configurations (configured vs. actual)
      * @Return:  EntityResponse<ApplianceConfigReport>
      */
-    findDevicesConfigurations(account, search, configId, versionId, unmatched, page, pageSize) {
+    findDevicesConfigurations(accountId, search, configId, versionId, unmatched, page, pageSize) {
         const params = new Array();
-        if (account != null) {
-            params.push(`account=${account}`);
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
         }
         if (search != null) {
             params.push(`search=${search}`);
@@ -9948,10 +9948,10 @@ class SysAppliancesService {
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    exportDevicesConfigurations(account, search, configId, versionId, unmatched, format) {
+    exportDevicesConfigurations(accountId, search, configId, versionId, unmatched, format) {
         const params = new Array();
-        if (account != null) {
-            params.push(`account=${account}`);
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
         }
         if (search != null) {
             params.push(`search=${search}`);

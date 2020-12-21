@@ -6538,8 +6538,8 @@ var SysApplianceBatchUpgradeRequest = /** @class */ (function () {
 /*
 */
 var SysApplianceConfigExportRequest = /** @class */ (function () {
-    function SysApplianceConfigExportRequest(account, search, configId, versionId, unmatched, format) {
-        this.account = account;
+    function SysApplianceConfigExportRequest(accountId, search, configId, versionId, unmatched, format) {
+        this.accountId = accountId;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
@@ -6552,8 +6552,8 @@ var SysApplianceConfigExportRequest = /** @class */ (function () {
 /*
 */
 var SysApplianceConfigReportRequest = /** @class */ (function () {
-    function SysApplianceConfigReportRequest(account, search, configId, versionId, unmatched, page, pageSize) {
-        this.account = account;
+    function SysApplianceConfigReportRequest(accountId, search, configId, versionId, unmatched, page, pageSize) {
+        this.accountId = accountId;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
@@ -11171,11 +11171,11 @@ var SysAppliancesService = /** @class */ (function () {
      * Find list of devices configurations (configured vs. actual)
      * @Return:  EntityResponse<ApplianceConfigReport>
      */
-    SysAppliancesService.prototype.findDevicesConfigurations = function (account, search, configId, versionId, unmatched, page, pageSize) {
+    SysAppliancesService.prototype.findDevicesConfigurations = function (accountId, search, configId, versionId, unmatched, page, pageSize) {
         var _a;
         var params = new Array();
-        if (account != null) {
-            params.push("account=" + account);
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
         }
         if (search != null) {
             params.push("search=" + search);
@@ -11201,11 +11201,11 @@ var SysAppliancesService = /** @class */ (function () {
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    SysAppliancesService.prototype.exportDevicesConfigurations = function (account, search, configId, versionId, unmatched, format) {
+    SysAppliancesService.prototype.exportDevicesConfigurations = function (accountId, search, configId, versionId, unmatched, format) {
         var _a;
         var params = new Array();
-        if (account != null) {
-            params.push("account=" + account);
+        if (accountId != null) {
+            params.push("accountId=" + accountId);
         }
         if (search != null) {
             params.push("search=" + search);
