@@ -4,5 +4,7 @@ export declare class SysApplianceConfigReportRequest {
     configId: string;
     versionId: string;
     unmatched: boolean;
-    constructor(account?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean);
+    page: number;
+    pageSize: number;
+    constructor(account?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean, page?: number, pageSize?: number);
 }

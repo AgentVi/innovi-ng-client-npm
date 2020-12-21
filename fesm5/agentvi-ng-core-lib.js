@@ -6538,15 +6538,13 @@ var SysApplianceBatchUpgradeRequest = /** @class */ (function () {
 /*
 */
 var SysApplianceConfigExportRequest = /** @class */ (function () {
-    function SysApplianceConfigExportRequest(account, search, configId, versionId, unmatched, format, page, pageSize) {
+    function SysApplianceConfigExportRequest(account, search, configId, versionId, unmatched, format) {
         this.account = account;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
         this.unmatched = unmatched;
         this.format = format;
-        this.page = page;
-        this.pageSize = pageSize;
     }
     return SysApplianceConfigExportRequest;
 }());
@@ -6554,12 +6552,14 @@ var SysApplianceConfigExportRequest = /** @class */ (function () {
 /*
 */
 var SysApplianceConfigReportRequest = /** @class */ (function () {
-    function SysApplianceConfigReportRequest(account, search, configId, versionId, unmatched) {
+    function SysApplianceConfigReportRequest(account, search, configId, versionId, unmatched, page, pageSize) {
         this.account = account;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
         this.unmatched = unmatched;
+        this.page = page;
+        this.pageSize = pageSize;
     }
     return SysApplianceConfigReportRequest;
 }());
@@ -11171,7 +11171,7 @@ var SysAppliancesService = /** @class */ (function () {
      * Find list of devices configurations (configured vs. actual)
      * @Return:  EntityResponse<ApplianceConfigReport>
      */
-    SysAppliancesService.prototype.findDevicesConfigurations = function (account, search, configId, versionId, unmatched) {
+    SysAppliancesService.prototype.findDevicesConfigurations = function (account, search, configId, versionId, unmatched, page, pageSize) {
         var _a;
         var params = new Array();
         if (account != null) {
@@ -11189,13 +11189,19 @@ var SysAppliancesService = /** @class */ (function () {
         if (unmatched != null) {
             params.push("unmatched=" + unmatched);
         }
+        if (page != null) {
+            params.push("page=" + page);
+        }
+        if (pageSize != null) {
+            params.push("pageSize=" + pageSize);
+        }
         return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actual-config"], params));
     };
     /**
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    SysAppliancesService.prototype.exportDevicesConfigurations = function (account, search, configId, versionId, unmatched, format, page, pageSize) {
+    SysAppliancesService.prototype.exportDevicesConfigurations = function (account, search, configId, versionId, unmatched, format) {
         var _a;
         var params = new Array();
         if (account != null) {
@@ -11215,12 +11221,6 @@ var SysAppliancesService = /** @class */ (function () {
         }
         if (format != null) {
             params.push("format=" + format);
-        }
-        if (page != null) {
-            params.push("page=" + page);
-        }
-        if (pageSize != null) {
-            params.push("pageSize=" + pageSize);
         }
         return (_a = this.rest).download.apply(_a, __spread(["sys-appliances", this.baseUrl + "/actual-config/export"], params));
     };

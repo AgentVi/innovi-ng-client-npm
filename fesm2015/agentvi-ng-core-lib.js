@@ -5497,27 +5497,27 @@ class SysApplianceBatchUpgradeRequest {
 /*
 */
 class SysApplianceConfigExportRequest {
-    constructor(account, search, configId, versionId, unmatched, format, page, pageSize) {
+    constructor(account, search, configId, versionId, unmatched, format) {
         this.account = account;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
         this.unmatched = unmatched;
         this.format = format;
-        this.page = page;
-        this.pageSize = pageSize;
     }
 }
 
 /*
 */
 class SysApplianceConfigReportRequest {
-    constructor(account, search, configId, versionId, unmatched) {
+    constructor(account, search, configId, versionId, unmatched, page, pageSize) {
         this.account = account;
         this.search = search;
         this.configId = configId;
         this.versionId = versionId;
         this.unmatched = unmatched;
+        this.page = page;
+        this.pageSize = pageSize;
     }
 }
 
@@ -9919,7 +9919,7 @@ class SysAppliancesService {
      * Find list of devices configurations (configured vs. actual)
      * @Return:  EntityResponse<ApplianceConfigReport>
      */
-    findDevicesConfigurations(account, search, configId, versionId, unmatched) {
+    findDevicesConfigurations(account, search, configId, versionId, unmatched, page, pageSize) {
         const params = new Array();
         if (account != null) {
             params.push(`account=${account}`);
@@ -9936,13 +9936,19 @@ class SysAppliancesService {
         if (unmatched != null) {
             params.push(`unmatched=${unmatched}`);
         }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
         return this.rest.get(`${this.baseUrl}/actual-config`, ...params);
     }
     /**
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    exportDevicesConfigurations(account, search, configId, versionId, unmatched, format, page, pageSize) {
+    exportDevicesConfigurations(account, search, configId, versionId, unmatched, format) {
         const params = new Array();
         if (account != null) {
             params.push(`account=${account}`);
@@ -9961,12 +9967,6 @@ class SysAppliancesService {
         }
         if (format != null) {
             params.push(`format=${format}`);
-        }
-        if (page != null) {
-            params.push(`page=${page}`);
-        }
-        if (pageSize != null) {
-            params.push(`pageSize=${pageSize}`);
         }
         return this.rest.download(`sys-appliances`, `${this.baseUrl}/actual-config/export`, ...params);
     }
