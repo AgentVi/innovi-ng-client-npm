@@ -3319,16 +3319,32 @@
         SensorStateMask[SensorStateMask["IMAGE_DARK_WARN"] = 16] = "IMAGE_DARK_WARN";
         // [ERROR] Communication error [0x00010000] 
         SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
-        // [ERROR] General sensor error [0x00020000] 
+        // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 
         SensorStateMask[SensorStateMask["SENSOR_ERROR"] = 131072] = "SENSOR_ERROR";
-        // [ERROR] Sensor can't read video stream or stream is not valid [0x00040000] 
+        // [ERROR] Internal stream error, contact Agent Vi support [0x00040000] 
         SensorStateMask[SensorStateMask["SOURCE_ERROR"] = 262144] = "SOURCE_ERROR";
-        // [ERROR] Video stream format is not supported [0x00080000] 
+        // [ERROR] Unsupported video codec, change the source stream configuration [0x00080000] 
         SensorStateMask[SensorStateMask["FORMAT_ERROR"] = 524288] = "FORMAT_ERROR";
-        // [ERROR] Video stream resolution is not supported [0x00100000] 
+        // [ERROR] Unsupported video resolution, change the source stream configuration [0x00100000] 
         SensorStateMask[SensorStateMask["RESOLUTION_ERROR"] = 1048576] = "RESOLUTION_ERROR";
-        // [ERROR] Video stream FPS is 0 for one minute [0x0000000000000400] 
+        // [ERROR] Framerate is 0 for 1 min [0x0000000000000400] 
         SensorStateMask[SensorStateMask["CRITICAL_FRAMERATE_ERROR"] = 2097152] = "CRITICAL_FRAMERATE_ERROR";
+        // [ERROR] RTSP timeout, try toggling the multicast support setting [0x00400000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_RTSP_TIMEOUT"] = 4194304] = "SOURCE_ERROR_RTSP_TIMEOUT";
+        // [ERROR] Failed to download clip, check the path [0x01000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_CANT_DOWNLOAD_CLIP"] = 16777216] = "SOURCE_ERROR_CANT_DOWNLOAD_CLIP";
+        // [ERROR] RTSP host not reachable, check the host and port address, try toggling the multicast support setting [0x02000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_RTSP_HOST_NOT_REACHABLE"] = 33554432] = "SOURCE_ERROR_RTSP_HOST_NOT_REACHABLE";
+        // [ERROR] RTSP authentication error, check the user and password [0x04000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_AUTHENTICATION"] = 67108864] = "SOURCE_ERROR_AUTHENTICATION";
+        // [ERROR] ONVIF host not reachable, check the address and user\password [0x08000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_ONVIF_NO_RTSP_URL"] = 134217728] = "SOURCE_ERROR_ONVIF_NO_RTSP_URL";
+        // [ERROR] ONVIF error, contact Agent Vi support [0x10000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_ONVIF_INVALID_RTSP_URL"] = 268435456] = "SOURCE_ERROR_ONVIF_INVALID_RTSP_URL";
+        // [ERROR] Unsupported URI, contact Agent Vi support [0x20000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_BAD_URI"] = 536870912] = "SOURCE_ERROR_BAD_URI";
+        // [ERROR] Large time gap in stream, check the source stream [0x40000000] 
+        SensorStateMask[SensorStateMask["SOURCE_ERROR_LARGE_FRAME_GAP"] = 1073741824] = "SOURCE_ERROR_LARGE_FRAME_GAP";
     })(exports.SensorStateMask || (exports.SensorStateMask = {}));
 
     /*
