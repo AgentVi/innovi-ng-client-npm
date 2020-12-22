@@ -111,7 +111,7 @@ export declare class SearchService {
     getEventsCountOvertime(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, interval?: TimeUnitCode, labelFormat?: string): import("rxjs").Observable<any>;
     /**
      * Get search event object crops (for animation)
-     * @Return: EntitiesResponse<TimestampedCrop>
+     * @Return: EntityResponse<TimestampedCrops>
      */
     getEventObjectCrops(sessionId?: string, eventId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;

@@ -12,6 +12,7 @@ export * from './ApplianceStatus';
 export * from './AuditLog';
 export * from './BaseEntity';
 export * from './Calendar';
+export * from './CaseInfo';
 export * from './ComponentConfiguration';
 export * from './ComponentVariables';
 export * from './Configuration';

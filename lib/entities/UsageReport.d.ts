@@ -1,6 +1,6 @@
+import { TimeFrame } from '../common/TimeFrame';
 import { StringIntValue } from '../common/StringIntValue';
 import { BaseEntity } from '../entities/BaseEntity';
-import { TimeFrame } from '../common/TimeFrame';
 export declare class UsageReport extends BaseEntity {
     accountId: string;
     period: TimeFrame;

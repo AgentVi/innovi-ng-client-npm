@@ -1233,15 +1233,28 @@
     }());
 
     /*
-       Cropped image with timestamp and bounding box
+       Cropped object image with timestamp and bounding box
     */
     var TimestampedCrop = /** @class */ (function () {
-        function TimestampedCrop(timestamp, boundingBox, jpeg) {
+        function TimestampedCrop(objectId, timestamp, boundingBox, jpeg) {
+            this.objectId = objectId;
             this.timestamp = timestamp;
             this.boundingBox = boundingBox;
             this.jpeg = jpeg;
         }
         return TimestampedCrop;
+    }());
+
+    /*
+       List of timestamped crops with background image
+    */
+    var TimestampedCrops = /** @class */ (function () {
+        function TimestampedCrops(sensorId, bg, crops) {
+            this.sensorId = sensorId;
+            this.bg = bg;
+            this.crops = crops;
+        }
+        return TimestampedCrops;
     }());
 
     /*
@@ -1503,6 +1516,17 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return Calendar;
+    }(BaseEntity));
+
+    /*
+       Case entity represents investigation case to collect related search events
+    */
+    var CaseInfo = /** @class */ (function (_super) {
+        __extends(CaseInfo, _super);
+        function CaseInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return CaseInfo;
     }(BaseEntity));
 
     /*
@@ -5142,12 +5166,12 @@
 
     /*
     */
-    var EntityResponseOfTimestampedCrop = /** @class */ (function (_super) {
-        __extends(EntityResponseOfTimestampedCrop, _super);
-        function EntityResponseOfTimestampedCrop() {
+    var EntityResponseOfTimestampedCrops = /** @class */ (function (_super) {
+        __extends(EntityResponseOfTimestampedCrops, _super);
+        function EntityResponseOfTimestampedCrops() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        return EntityResponseOfTimestampedCrop;
+        return EntityResponseOfTimestampedCrops;
     }(EntitiesResponse));
 
     /*
@@ -10403,7 +10427,7 @@
         };
         /**
          * Get search event object crops (for animation)
-         * @Return: EntitiesResponse<TimestampedCrop>
+         * @Return: EntityResponse<TimestampedCrops>
          */
         SearchService.prototype.getEventObjectCrops = function (sessionId, eventId) {
             return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/events/" + eventId + "/crops");
@@ -13115,6 +13139,7 @@
     exports.CalendarsServiceImportRequest = CalendarsServiceImportRequest;
     exports.CalendarsServiceImportUrlRequest = CalendarsServiceImportUrlRequest;
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;
+    exports.CaseInfo = CaseInfo;
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
     exports.ChangeHealthThresholdsRequest = ChangeHealthThresholdsRequest;
@@ -13233,7 +13258,7 @@
     exports.EntityResponseOfSensorAnomalyInfo = EntityResponseOfSensorAnomalyInfo;
     exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
     exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
-    exports.EntityResponseOfTimestampedCrop = EntityResponseOfTimestampedCrop;
+    exports.EntityResponseOfTimestampedCrops = EntityResponseOfTimestampedCrops;
     exports.EntityResponseOfTimestampedImage = EntityResponseOfTimestampedImage;
     exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
     exports.EntityResponseOfUser = EntityResponseOfUser;
@@ -13520,6 +13545,7 @@
     exports.Thresholds = Thresholds;
     exports.TimeFrame = TimeFrame;
     exports.TimestampedCrop = TimestampedCrop;
+    exports.TimestampedCrops = TimestampedCrops;
     exports.TimestampedImage = TimestampedImage;
     exports.TokenRequest = TokenRequest;
     exports.TrafficAnalysisReportRequest = TrafficAnalysisReportRequest;
