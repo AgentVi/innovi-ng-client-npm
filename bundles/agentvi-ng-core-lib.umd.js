@@ -329,9 +329,10 @@
        A single entry in appliance configuration report that lists all the devices in the system with their desired vs. actual configuration
     */
     var ApplianceConfigReport = /** @class */ (function () {
-        function ApplianceConfigReport(accountId, accountName, applianceId, applianceName, machineId, groups, configId, versionId, actualConfigId, actualVersionId) {
+        function ApplianceConfigReport(accountId, accountName, accountType, applianceId, applianceName, machineId, groups, configId, versionId, actualConfigId, actualVersionId) {
             this.accountId = accountId;
             this.accountName = accountName;
+            this.accountType = accountType;
             this.applianceId = applianceId;
             this.applianceName = applianceName;
             this.machineId = machineId;

@@ -107,9 +107,10 @@ class AnomalyEventInfo {
    A single entry in appliance configuration report that lists all the devices in the system with their desired vs. actual configuration
 */
 class ApplianceConfigReport {
-    constructor(accountId, accountName, applianceId, applianceName, machineId, groups, configId, versionId, actualConfigId, actualVersionId) {
+    constructor(accountId, accountName, accountType, applianceId, applianceName, machineId, groups, configId, versionId, actualConfigId, actualVersionId) {
         this.accountId = accountId;
         this.accountName = accountName;
+        this.accountType = accountType;
         this.applianceId = applianceId;
         this.applianceName = applianceName;
         this.machineId = machineId;
