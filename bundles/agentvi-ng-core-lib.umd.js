@@ -1791,6 +1791,17 @@
     }(BaseEntity));
 
     /*
+       SSH Information for OPEN_SSH command
+    */
+    var SSHInfo = /** @class */ (function () {
+        function SSHInfo(targetUri, privateKey) {
+            this.targetUri = targetUri;
+            this.privateKey = privateKey;
+        }
+        return SSHInfo;
+    }());
+
+    /*
        Schedule is a list of recurrent time frames to specify active analytics
        Schedule is associated with account and optionally with folder and multiple schedules can be specified.
        When defining a rule, it can be scheduled by one of the schedules associated with the sensor's folder, it's parent folder, it's parent's parent folder and so on up to the account
@@ -11200,6 +11211,20 @@
             return this.rest.post(this.baseUrl + "/" + id + "/reboot", null);
         };
         /**
+         * Open reverse SSH tunnel (for 60 minutes)
+         * @Return: ActionResponse
+         */
+        SysAppliancesService.prototype.openSsh = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/open-ssh", null);
+        };
+        /**
+         * Close reverse SSH tunnel
+         * @Return: ActionResponse
+         */
+        SysAppliancesService.prototype.closeSsh = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/close-ssh", null);
+        };
+        /**
          * Rebuild appliance configuration and deploy the configuration to the device manager
          * @Return: ActionResponse
          */
@@ -13416,6 +13441,7 @@
     exports.RulesServicePauseRequest = RulesServicePauseRequest;
     exports.RulesServiceResumeRequest = RulesServiceResumeRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
+    exports.SSHInfo = SSHInfo;
     exports.Schedule = Schedule;
     exports.ScheduleIdRequest = ScheduleIdRequest;
     exports.ScheduleIdsRequest = ScheduleIdsRequest;

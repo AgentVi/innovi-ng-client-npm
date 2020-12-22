@@ -35,6 +35,7 @@ export * from './PortMapping';
 export * from './Preset';
 export * from './ReportDefinition';
 export * from './Rule';
+export * from './SSHInfo';
 export * from './Schedule';
 export * from './ScheduledReport';
 export * from './SearchBehavior';

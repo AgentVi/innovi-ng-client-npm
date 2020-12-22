@@ -1,8 +1,9 @@
-import { TimeFrame } from '../common/TimeFrame';
-import { BaseEntity } from '../entities/BaseEntity';
 import { ApplianceCommandCode } from '../enums/ApplianceCommandCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ComponentConfiguration } from '../entities/ComponentConfiguration';
+import { TimeFrame } from '../common/TimeFrame';
+import { SSHInfo } from '../entities/SSHInfo';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class ApplianceCommand extends BaseEntity {
     accountId: string;
     applianceId: string;
@@ -16,6 +17,7 @@ export declare class ApplianceCommand extends BaseEntity {
     configurationId: string;
     versionId: string;
     profileId: string;
+    sshInfo: SSHInfo;
     id: string;
     _type: string;
     createdOn: number;

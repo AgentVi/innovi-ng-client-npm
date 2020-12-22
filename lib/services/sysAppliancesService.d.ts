@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
@@ -48,6 +48,16 @@ export declare class SysAppliancesService {
      * @Return: ActionResponse
      */
     reboot(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Open reverse SSH tunnel (for 60 minutes)
+     * @Return: ActionResponse
+     */
+    openSsh(id?: string): import("rxjs").Observable<any>;
+    /**
+     * Close reverse SSH tunnel
+     * @Return: ActionResponse
+     */
+    closeSsh(id?: string): import("rxjs").Observable<any>;
     /**
      * Rebuild appliance configuration and deploy the configuration to the device manager
      * @Return: ActionResponse
