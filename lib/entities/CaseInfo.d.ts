@@ -5,7 +5,6 @@ export declare class CaseInfo extends BaseEntity {
     name: string;
     description: string;
     userId: string;
-    userName: string;
     tag: string;
     isPrivate: boolean;
     events: SearchEvent[];

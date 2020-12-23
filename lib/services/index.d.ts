@@ -5,6 +5,7 @@ export * from './applianceProfilesService';
 export * from './appliancesService';
 export * from './auditLogService';
 export * from './calendarsService';
+export * from './casesService';
 export * from './eventsService';
 export * from './foldersService';
 export * from './geoService';

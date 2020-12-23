@@ -4230,6 +4230,65 @@
 
     /*
     */
+    var CaseIdRequest = /** @class */ (function () {
+        function CaseIdRequest(id) {
+            this.id = id;
+        }
+        return CaseIdRequest;
+    }());
+
+    /*
+    */
+    var CasesServiceAddEventsRequest = /** @class */ (function () {
+        function CasesServiceAddEventsRequest(id, eventId) {
+            this.id = id;
+            this.eventId = eventId;
+        }
+        return CasesServiceAddEventsRequest;
+    }());
+
+    /*
+    */
+    var CasesServiceCreateRequest = /** @class */ (function () {
+        function CasesServiceCreateRequest(body) {
+            this.body = body;
+        }
+        return CasesServiceCreateRequest;
+    }());
+
+    /*
+    */
+    var CasesServiceDeleteEventsRequest = /** @class */ (function () {
+        function CasesServiceDeleteEventsRequest(id, eventId) {
+            this.id = id;
+            this.eventId = eventId;
+        }
+        return CasesServiceDeleteEventsRequest;
+    }());
+
+    /*
+    */
+    var CasesServiceFindRequest = /** @class */ (function () {
+        function CasesServiceFindRequest(search, sort, page, pageSize) {
+            this.search = search;
+            this.sort = sort;
+            this.page = page;
+            this.pageSize = pageSize;
+        }
+        return CasesServiceFindRequest;
+    }());
+
+    /*
+    */
+    var CasesServiceUpdateRequest = /** @class */ (function () {
+        function CasesServiceUpdateRequest(body) {
+            this.body = body;
+        }
+        return CasesServiceUpdateRequest;
+    }());
+
+    /*
+    */
     var ChangeGeoAreaRequest = /** @class */ (function () {
         function ChangeGeoAreaRequest(body) {
             this.body = body;
@@ -4513,6 +4572,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntitiesResponseOfCalendar;
+    }(EntitiesResponse));
+
+    /*
+    */
+    var EntitiesResponseOfCaseInfo = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfCaseInfo, _super);
+        function EntitiesResponseOfCaseInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfCaseInfo;
     }(EntitiesResponse));
 
     /*
@@ -4864,6 +4933,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntityResponseOfCalendar;
+    }(EntityResponse));
+
+    /*
+    */
+    var EntityResponseOfCaseInfo = /** @class */ (function (_super) {
+        __extends(EntityResponseOfCaseInfo, _super);
+        function EntityResponseOfCaseInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfCaseInfo;
     }(EntityResponse));
 
     /*
@@ -5894,6 +5973,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return QueryResponseOfCalendar;
+    }(QueryResponse));
+
+    /*
+    */
+    var QueryResponseOfCaseInfo = /** @class */ (function (_super) {
+        __extends(QueryResponseOfCaseInfo, _super);
+        function QueryResponseOfCaseInfo() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return QueryResponseOfCaseInfo;
     }(QueryResponse));
 
     /*
@@ -8674,6 +8763,106 @@
         return CalendarsService;
     }());
     /*@__PURE__*/ (function () { core.ɵsetClassMetadata(CalendarsService, [{
+            type: core.Injectable
+        }], function () { return [{ type: CoreConfig, decorators: [{
+                    type: core.Inject,
+                    args: ['config']
+                }] }, { type: RestUtil }]; }, null); })();
+
+    /**
+     * Services for case management actions
+     * @RequestHeader X-API-KEY The key to identify the application (portal)
+     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+     */
+    var CasesService = /** @class */ (function () {
+        /**
+         * Class constructor
+         */
+        function CasesService(config, rest) {
+            this.config = config;
+            this.rest = rest;
+            // URL to web api
+            this.baseUrl = '/cases';
+            this.baseUrl = this.config.api + this.baseUrl;
+        }
+        /**
+         * Create new case
+         * @Return: EntityResponse<CaseInfo>
+         */
+        CasesService.prototype.create = function (body) {
+            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Update case
+         * @Return: EntityResponse<CaseInfo>
+         */
+        CasesService.prototype.update = function (body) {
+            return this.rest.put("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+        };
+        /**
+         * Delete case from the system
+         * @Return: ActionResponse
+         */
+        CasesService.prototype.delete = function (id) {
+            return this.rest.delete(this.baseUrl + "/" + id);
+        };
+        /**
+         * Get single case by id
+         * @Return: EntityResponse<CaseInfo>
+         */
+        CasesService.prototype.get = function (id) {
+            return this.rest.get(this.baseUrl + "/" + id);
+        };
+        /**
+         * Find list of all public cases and user owned private cases
+         * @Return: QueryResponse<CaseInfo>
+         */
+        CasesService.prototype.find = function (search, sort, page, pageSize) {
+            var _a;
+            var params = new Array();
+            if (search != null) {
+                params.push("search=" + search);
+            }
+            if (sort != null) {
+                params.push("sort=" + sort);
+            }
+            if (page != null) {
+                params.push("page=" + page);
+            }
+            if (pageSize != null) {
+                params.push("pageSize=" + pageSize);
+            }
+            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+        };
+        /**
+         * Add bulk of search events to the case
+         * @Return: EntityResponse<CaseInfo>
+         */
+        CasesService.prototype.addSearchEvents = function (id, eventId) {
+            var _a;
+            var params = new Array();
+            if (eventId != null) {
+                params.push("eventId=" + eventId);
+            }
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/events", null], params));
+        };
+        /**
+         * Remove bulk of search events from the case
+         * @Return: EntityResponse<CaseInfo>
+         */
+        CasesService.prototype.removeSearchEvents = function (id, eventId) {
+            var _a;
+            var params = new Array();
+            if (eventId != null) {
+                params.push("eventId=" + eventId);
+            }
+            return (_a = this.rest).delete.apply(_a, __spread([this.baseUrl + "/" + id + "/events"], params));
+        };
+        /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
+        /** @nocollapse */ CasesService.ɵprov = core.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
+        return CasesService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(CasesService, [{
             type: core.Injectable
         }], function () { return [{ type: CoreConfig, decorators: [{
                     type: core.Inject,
@@ -12938,6 +13127,7 @@
         AppliancesService,
         AuditLogService,
         CalendarsService,
+        CasesService,
         EventsService,
         FoldersService,
         GeoService,
@@ -13165,7 +13355,14 @@
     exports.CalendarsServiceImportRequest = CalendarsServiceImportRequest;
     exports.CalendarsServiceImportUrlRequest = CalendarsServiceImportUrlRequest;
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;
+    exports.CaseIdRequest = CaseIdRequest;
     exports.CaseInfo = CaseInfo;
+    exports.CasesService = CasesService;
+    exports.CasesServiceAddEventsRequest = CasesServiceAddEventsRequest;
+    exports.CasesServiceCreateRequest = CasesServiceCreateRequest;
+    exports.CasesServiceDeleteEventsRequest = CasesServiceDeleteEventsRequest;
+    exports.CasesServiceFindRequest = CasesServiceFindRequest;
+    exports.CasesServiceUpdateRequest = CasesServiceUpdateRequest;
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
     exports.ChangeHealthThresholdsRequest = ChangeHealthThresholdsRequest;
@@ -13218,6 +13415,7 @@
     exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
     exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
     exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
+    exports.EntitiesResponseOfCaseInfo = EntitiesResponseOfCaseInfo;
     exports.EntitiesResponseOfComponentConfiguration = EntitiesResponseOfComponentConfiguration;
     exports.EntitiesResponseOfConfiguration = EntitiesResponseOfConfiguration;
     exports.EntitiesResponseOfDigitalIO = EntitiesResponseOfDigitalIO;
@@ -13253,6 +13451,7 @@
     exports.EntityResponseOfApplianceStatusTimeSeries = EntityResponseOfApplianceStatusTimeSeries;
     exports.EntityResponseOfAuditLog = EntityResponseOfAuditLog;
     exports.EntityResponseOfCalendar = EntityResponseOfCalendar;
+    exports.EntityResponseOfCaseInfo = EntityResponseOfCaseInfo;
     exports.EntityResponseOfComponentConfiguration = EntityResponseOfComponentConfiguration;
     exports.EntityResponseOfConfiguration = EntityResponseOfConfiguration;
     exports.EntityResponseOfConfigurationTemplate = EntityResponseOfConfigurationTemplate;
@@ -13395,6 +13594,7 @@
     exports.QueryResponseOfApplianceConfigReport = QueryResponseOfApplianceConfigReport;
     exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
     exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
+    exports.QueryResponseOfCaseInfo = QueryResponseOfCaseInfo;
     exports.QueryResponseOfComponentConfiguration = QueryResponseOfComponentConfiguration;
     exports.QueryResponseOfConfiguration = QueryResponseOfConfiguration;
     exports.QueryResponseOfConfigurationTemplate = QueryResponseOfConfigurationTemplate;
