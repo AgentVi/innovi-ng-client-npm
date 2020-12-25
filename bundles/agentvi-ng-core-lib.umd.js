@@ -4066,6 +4066,16 @@
 
     /*
     */
+    var AppliancesServiceImportRequest = /** @class */ (function () {
+        function AppliancesServiceImportRequest(id, csvFile) {
+            this.id = id;
+            this.csvFile = csvFile;
+        }
+        return AppliancesServiceImportRequest;
+    }());
+
+    /*
+    */
     var AppliancesServiceRegisterApplianceRequest = /** @class */ (function () {
         function AppliancesServiceRegisterApplianceRequest(id, body) {
             this.id = id;
@@ -8300,6 +8310,23 @@
                 params.push("fields=" + fields);
             }
             return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
+        };
+        /**
+         * Import sensors from CSV file
+         * The file must include header with the columns:
+         * POST /{id}/sensors/import
+         * @return ActionResponse
+         */
+        AppliancesService.prototype.importSensors = function (id, csvFile) {
+            return this.rest.upload(csvFile, "" + this.baseUrl);
+        };
+        /**
+         * Export appliance sensors to CSV file
+         * GET /appliances/{id}/sensors/import
+         * @return Stream of CSV
+         */
+        AppliancesService.prototype.exportSensors = function (id) {
+            return this.rest.download("appliances", "" + this.baseUrl, null);
         };
         /**
          * Get all appliance agents
@@ -13333,6 +13360,7 @@
     exports.AppliancesServiceFindSensorsRequest = AppliancesServiceFindSensorsRequest;
     exports.AppliancesServiceGetCommandsRequest = AppliancesServiceGetCommandsRequest;
     exports.AppliancesServiceGetLogsRequest = AppliancesServiceGetLogsRequest;
+    exports.AppliancesServiceImportRequest = AppliancesServiceImportRequest;
     exports.AppliancesServiceRegisterApplianceRequest = AppliancesServiceRegisterApplianceRequest;
     exports.AppliancesServiceSetCommandRequest = AppliancesServiceSetCommandRequest;
     exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;

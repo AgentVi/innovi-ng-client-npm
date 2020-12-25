@@ -40,6 +40,7 @@ export * from './AppliancesServiceFindRequest';
 export * from './AppliancesServiceFindSensorsRequest';
 export * from './AppliancesServiceGetCommandsRequest';
 export * from './AppliancesServiceGetLogsRequest';
+export * from './AppliancesServiceImportRequest';
 export * from './AppliancesServiceRegisterApplianceRequest';
 export * from './AppliancesServiceSetCommandRequest';
 export * from './AppliancesServiceStatusOvertimeRequest';

@@ -1,5 +1,5 @@
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class IntegrationStatus extends BaseEntity {
     source: EntityTypeCode;
     accountId: string;
