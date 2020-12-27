@@ -6882,7 +6882,7 @@ class AppliancesService {
         return this.rest.get(`${this.baseUrl}/${id}`);
     }
     /**
-     * Get single appliance by machine id (accros all system accounts)
+     * Get single appliance by machine id (across all system accounts)
      * @Return: EntityResponse<Appliance>
      */
     getByMachineId(machineId) {
@@ -6926,23 +6926,17 @@ class AppliancesService {
     /**
      * Import sensors from CSV file
      * The file must include header with the columns:
-     * POST /{id}/sensors/import
      * @return ActionResponse
      */
     importSensors(id, csvFile) {
-        return this.rest.upload(csvFile, `${this.baseUrl}`);
+        return this.rest.upload(csvFile, `${this.baseUrl}/${id}/sensors/import`);
     }
     /**
      * Export appliance sensors to CSV file
-     * GET /sensors/export
      * @return StreamContent
      */
     exportSensors(id) {
-        const params = new Array();
-        if (id != null) {
-            params.push(`id=${id}`);
-        }
-        return this.rest.download(`appliances`, `${this.baseUrl}`, null, ...params);
+        return this.rest.download(`appliances`, `${this.baseUrl}/${id}/sensors/export     *`);
     }
     /**
      * Get all appliance agents

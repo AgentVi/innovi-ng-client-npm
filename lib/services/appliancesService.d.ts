@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { Sensor } from '../entities/Sensor';
 import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -40,7 +40,7 @@ export declare class AppliancesService {
      */
     get(id?: string): import("rxjs").Observable<any>;
     /**
-     * Get single appliance by machine id (accros all system accounts)
+     * Get single appliance by machine id (across all system accounts)
      * @Return: EntityResponse<Appliance>
      */
     getByMachineId(machineId?: string): import("rxjs").Observable<any>;
@@ -52,13 +52,11 @@ export declare class AppliancesService {
     /**
      * Import sensors from CSV file
      * The file must include header with the columns:
-     * POST /{id}/sensors/import
      * @return ActionResponse
      */
     importSensors(id?: string, csvFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Export appliance sensors to CSV file
-     * GET /sensors/export
      * @return StreamContent
      */
     exportSensors(id?: string): import("rxjs").Subscription;

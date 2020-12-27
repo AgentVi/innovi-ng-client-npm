@@ -8278,7 +8278,7 @@
             return this.rest.get(this.baseUrl + "/" + id);
         };
         /**
-         * Get single appliance by machine id (accros all system accounts)
+         * Get single appliance by machine id (across all system accounts)
          * @Return: EntityResponse<Appliance>
          */
         AppliancesService.prototype.getByMachineId = function (machineId) {
@@ -8323,24 +8323,17 @@
         /**
          * Import sensors from CSV file
          * The file must include header with the columns:
-         * POST /{id}/sensors/import
          * @return ActionResponse
          */
         AppliancesService.prototype.importSensors = function (id, csvFile) {
-            return this.rest.upload(csvFile, "" + this.baseUrl);
+            return this.rest.upload(csvFile, this.baseUrl + "/" + id + "/sensors/import");
         };
         /**
          * Export appliance sensors to CSV file
-         * GET /sensors/export
          * @return StreamContent
          */
         AppliancesService.prototype.exportSensors = function (id) {
-            var _a;
-            var params = new Array();
-            if (id != null) {
-                params.push("id=" + id);
-            }
-            return (_a = this.rest).download.apply(_a, __spread(["appliances", "" + this.baseUrl, null], params));
+            return this.rest.download("appliances", this.baseUrl + "/" + id + "/sensors/export     *");
         };
         /**
          * Get all appliance agents
