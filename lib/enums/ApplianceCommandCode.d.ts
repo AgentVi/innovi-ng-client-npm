@@ -12,5 +12,6 @@ export declare enum ApplianceCommandCode {
     OPEN_SSH = 10,
     CLOSE_SSH = 11,
     RESET_DEVICE = 12,
-    ONVIF_DISCOVERY = 13
+    ONVIF_DISCOVERY = 13,
+    SPEED_TEST = 14
 }

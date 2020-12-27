@@ -2134,6 +2134,8 @@
         ApplianceCommandCode[ApplianceCommandCode["RESET_DEVICE"] = 12] = "RESET_DEVICE";
         // Discovery - discover all network cameras using ONVIF discovery protocol [13] 
         ApplianceCommandCode[ApplianceCommandCode["ONVIF_DISCOVERY"] = 13] = "ONVIF_DISCOVERY";
+        // Start network bandwidth speed test 
+        ApplianceCommandCode[ApplianceCommandCode["SPEED_TEST"] = 14] = "SPEED_TEST";
     })(exports.ApplianceCommandCode || (exports.ApplianceCommandCode = {}));
 
     /*
@@ -8429,6 +8431,13 @@
          */
         AppliancesService.prototype.getCapabilities = function (id) {
             return this.rest.post(this.baseUrl + "/" + id + "/capabilities", null);
+        };
+        /**
+         * Send get network bandwidth speed test command to the appliance
+         * @Return:  EntityResponse<Appliance>
+         */
+        AppliancesService.prototype.getSpeedTest = function (id) {
+            return this.rest.post(this.baseUrl + "/" + id + "/speed-test", null);
         };
         /**
          * Send reset credentials command to the appliance (reset to the factory default password)
