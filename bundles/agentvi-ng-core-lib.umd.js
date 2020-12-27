@@ -4007,6 +4007,15 @@
 
     /*
     */
+    var AppliancesServiceExportSensorsRequest = /** @class */ (function () {
+        function AppliancesServiceExportSensorsRequest(id) {
+            this.id = id;
+        }
+        return AppliancesServiceExportSensorsRequest;
+    }());
+
+    /*
+    */
     var AppliancesServiceFindRequest = /** @class */ (function () {
         function AppliancesServiceFindRequest(folderId, subFolders, search, status, agentStatus, sort, page, pageSize) {
             this.folderId = folderId;
@@ -4066,12 +4075,12 @@
 
     /*
     */
-    var AppliancesServiceImportRequest = /** @class */ (function () {
-        function AppliancesServiceImportRequest(id, csvFile) {
+    var AppliancesServiceImportSensorsRequest = /** @class */ (function () {
+        function AppliancesServiceImportSensorsRequest(id, csvFile) {
             this.id = id;
             this.csvFile = csvFile;
         }
-        return AppliancesServiceImportRequest;
+        return AppliancesServiceImportSensorsRequest;
     }());
 
     /*
@@ -8326,7 +8335,12 @@
          * @return StreamContent
          */
         AppliancesService.prototype.exportSensors = function (id) {
-            return this.rest.download("appliances", "" + this.baseUrl, null);
+            var _a;
+            var params = new Array();
+            if (id != null) {
+                params.push("id=" + id);
+            }
+            return (_a = this.rest).download.apply(_a, __spread(["appliances", "" + this.baseUrl, null], params));
         };
         /**
          * Get all appliance agents
@@ -13356,11 +13370,12 @@
     exports.AppliancesServiceChangeMachineIdRequest = AppliancesServiceChangeMachineIdRequest;
     exports.AppliancesServiceChangeNameRequest = AppliancesServiceChangeNameRequest;
     exports.AppliancesServiceExportRequest = AppliancesServiceExportRequest;
+    exports.AppliancesServiceExportSensorsRequest = AppliancesServiceExportSensorsRequest;
     exports.AppliancesServiceFindRequest = AppliancesServiceFindRequest;
     exports.AppliancesServiceFindSensorsRequest = AppliancesServiceFindSensorsRequest;
     exports.AppliancesServiceGetCommandsRequest = AppliancesServiceGetCommandsRequest;
     exports.AppliancesServiceGetLogsRequest = AppliancesServiceGetLogsRequest;
-    exports.AppliancesServiceImportRequest = AppliancesServiceImportRequest;
+    exports.AppliancesServiceImportSensorsRequest = AppliancesServiceImportSensorsRequest;
     exports.AppliancesServiceRegisterApplianceRequest = AppliancesServiceRegisterApplianceRequest;
     exports.AppliancesServiceSetCommandRequest = AppliancesServiceSetCommandRequest;
     exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;

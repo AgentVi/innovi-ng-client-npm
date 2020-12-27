@@ -1,0 +1,10 @@
+/*
+*/
+var AppliancesServiceExportSensorsRequest = /** @class */ (function () {
+    function AppliancesServiceExportSensorsRequest(id) {
+        this.id = id;
+    }
+    return AppliancesServiceExportSensorsRequest;
+}());
+export { AppliancesServiceExportSensorsRequest };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQXBwbGlhbmNlc1NlcnZpY2VFeHBvcnRTZW5zb3JzUmVxdWVzdC5qcyIsInNvdXJjZVJvb3QiOiJuZzovL0BhZ2VudHZpL25nLWNvcmUtbGliLyIsInNvdXJjZXMiOlsibGliL21lc3NhZ2VzL0FwcGxpYW5jZXNTZXJ2aWNlRXhwb3J0U2Vuc29yc1JlcXVlc3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRTtBQUNGO0lBS0ksK0NBQVksRUFBVztRQUNuQixJQUFJLENBQUMsRUFBRSxHQUFHLEVBQUUsQ0FBQztJQUNqQixDQUFDO0lBRUwsNENBQUM7QUFBRCxDQUFDLEFBVEQsSUFTQyIsInNvdXJjZXNDb250ZW50IjpbIlxuLyogIFxuKi9cbmV4cG9ydCBjbGFzcyBBcHBsaWFuY2VzU2VydmljZUV4cG9ydFNlbnNvcnNSZXF1ZXN0IHtcbiBcbiAgICAvLyBBcHBsaWFuY2UgSWQgXG4gICAgcHVibGljIGlkOiBzdHJpbmc7XG4gXG4gICAgY29uc3RydWN0b3IoaWQ/OiBzdHJpbmcpIHsgXG4gICAgICAgIHRoaXMuaWQgPSBpZDtcbiAgICB9XG5cbn1cblxuXG4iXX0=
