@@ -8119,7 +8119,7 @@ var AppliancesService = /** @class */ (function () {
      * @return StreamContent
      */
     AppliancesService.prototype.exportSensors = function (id) {
-        return this.rest.download("appliances", this.baseUrl + "/" + id + "/sensors/export     *");
+        return this.rest.download("appliances", this.baseUrl + "/" + id + "/sensors/export");
     };
     /**
      * Get all appliance agents
