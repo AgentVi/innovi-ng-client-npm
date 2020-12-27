@@ -6934,7 +6934,7 @@ class AppliancesService {
     }
     /**
      * Export appliance sensors to CSV file
-     * GET /{id}/sensors/export
+     * GET /sensors/export
      * @return StreamContent
      */
     exportSensors(id) {

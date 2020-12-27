@@ -8331,7 +8331,7 @@
         };
         /**
          * Export appliance sensors to CSV file
-         * GET /{id}/sensors/export
+         * GET /sensors/export
          * @return StreamContent
          */
         AppliancesService.prototype.exportSensors = function (id) {
