@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { Sensor } from '../entities/Sensor';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { Appliance } from '../entities/Appliance';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { Sensor } from '../entities/Sensor';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { Appliance } from '../entities/Appliance';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -58,8 +58,8 @@ export declare class AppliancesService {
     importSensors(id?: string, csvFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
     /**
      * Export appliance sensors to CSV file
-     * GET /{id}/sensors/import
-     * @return Stream of CSV
+     * GET /{id}/sensors/export
+     * @return StreamContent
      */
     exportSensors(id?: string): import("rxjs").Subscription;
     /**

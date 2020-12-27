@@ -1,5 +1,5 @@
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 export declare class SocketEventsFilterPayload {
     sensorIds: string[];
     extSensorIds: string[];

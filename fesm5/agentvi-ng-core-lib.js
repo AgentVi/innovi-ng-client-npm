@@ -8108,8 +8108,8 @@ var AppliancesService = /** @class */ (function () {
     };
     /**
      * Export appliance sensors to CSV file
-     * GET /{id}/sensors/import
-     * @return Stream of CSV
+     * GET /{id}/sensors/export
+     * @return StreamContent
      */
     AppliancesService.prototype.exportSensors = function (id) {
         return this.rest.download("appliances", "" + this.baseUrl, null);

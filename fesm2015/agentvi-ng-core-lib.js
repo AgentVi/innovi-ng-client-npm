@@ -6926,8 +6926,8 @@ class AppliancesService {
     }
     /**
      * Export appliance sensors to CSV file
-     * GET /{id}/sensors/import
-     * @return Stream of CSV
+     * GET /{id}/sensors/export
+     * @return StreamContent
      */
     exportSensors(id) {
         return this.rest.download(`appliances`, `${this.baseUrl}`, null);
