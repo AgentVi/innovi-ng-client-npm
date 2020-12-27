@@ -1101,7 +1101,7 @@ class Appliance extends BaseEntity {
    Some fields represents the device configuration (report intervals, docker credentials, components versions etc) and they are provided by the backend on device registration.
 */
 class ApplianceCapabilities {
-    constructor(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion, profileId, errors) {
+    constructor(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion, profileId, errors, uploadSpeed, downloadSpeed, speedTestedOn) {
         this.productType = productType;
         this.serialNumber = serialNumber;
         this.deviceModel = deviceModel;
@@ -1119,6 +1119,9 @@ class ApplianceCapabilities {
         this.configurationVersion = configurationVersion;
         this.profileId = profileId;
         this.errors = errors;
+        this.uploadSpeed = uploadSpeed;
+        this.downloadSpeed = downloadSpeed;
+        this.speedTestedOn = speedTestedOn;
     }
 }
 

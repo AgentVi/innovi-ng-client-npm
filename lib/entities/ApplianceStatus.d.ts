@@ -9,6 +9,9 @@ export declare class ApplianceStatus extends BaseEntity {
     cpuMax: number;
     ram: number;
     loadAvg: number;
+    uploadSpeed: string;
+    downloadSpeed: string;
+    speedTestedOn: number;
     id: string;
     _type: string;
     createdOn: number;
