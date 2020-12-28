@@ -3799,8 +3799,9 @@ var AppliancesServiceExportRequest = /** @class */ (function () {
 /*
 */
 var AppliancesServiceExportSensorsRequest = /** @class */ (function () {
-    function AppliancesServiceExportSensorsRequest(id) {
+    function AppliancesServiceExportSensorsRequest(id, format) {
         this.id = id;
+        this.format = format;
     }
     return AppliancesServiceExportSensorsRequest;
 }());
@@ -8123,8 +8124,13 @@ var AppliancesService = /** @class */ (function () {
      * Export appliance sensors to CSV file
      * @return StreamContent
      */
-    AppliancesService.prototype.exportSensors = function (id) {
-        return this.rest.download("appliances", this.baseUrl + "/" + id + "/sensors/export");
+    AppliancesService.prototype.exportSensors = function (id, format) {
+        var _a;
+        var params = new Array();
+        if (format != null) {
+            params.push("format=" + format);
+        }
+        return (_a = this.rest).download.apply(_a, __spread(["appliances", this.baseUrl + "/" + id + "/sensors/export"], params));
     };
     /**
      * Get all appliance agents

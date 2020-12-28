@@ -3450,8 +3450,9 @@ class AppliancesServiceExportRequest {
 /*
 */
 class AppliancesServiceExportSensorsRequest {
-    constructor(id) {
+    constructor(id, format) {
         this.id = id;
+        this.format = format;
     }
 }
 
@@ -6940,8 +6941,12 @@ class AppliancesService {
      * Export appliance sensors to CSV file
      * @return StreamContent
      */
-    exportSensors(id) {
-        return this.rest.download(`appliances`, `${this.baseUrl}/${id}/sensors/export`);
+    exportSensors(id, format) {
+        const params = new Array();
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        return this.rest.download(`appliances`, `${this.baseUrl}/${id}/sensors/export`, ...params);
     }
     /**
      * Get all appliance agents
