@@ -50,6 +50,11 @@ export declare class CasesService {
      * @Return: EntityResponse<CaseInfo>
      */
     removeSearchEvents(id?: string, eventId?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Get all timestamped objects of the provided case event
+     * @Return: EntityResponse<TimestampedCrop>
+     */
+    getEventObjects(id?: string, eventId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<CasesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<CasesService>;
 }

@@ -1523,6 +1523,17 @@
     }(BaseEntity));
 
     /*
+       Case event objects is extended Search Event with the list of all the event objects timestamped crops
+    */
+    var CaseEventObjects = /** @class */ (function (_super) {
+        __extends(CaseEventObjects, _super);
+        function CaseEventObjects() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return CaseEventObjects;
+    }(BaseEntity));
+
+    /*
        Case entity represents investigation case to collect related search events
     */
     var CaseInfo = /** @class */ (function (_super) {
@@ -4305,6 +4316,16 @@
 
     /*
     */
+    var CasesServiceGetEventCropsRequest = /** @class */ (function () {
+        function CasesServiceGetEventCropsRequest(id, eventId) {
+            this.id = id;
+            this.eventId = eventId;
+        }
+        return CasesServiceGetEventCropsRequest;
+    }());
+
+    /*
+    */
     var CasesServiceUpdateRequest = /** @class */ (function () {
         function CasesServiceUpdateRequest(body) {
             this.body = body;
@@ -4827,6 +4848,16 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return EntitiesResponseOfStringKeyValue;
+    }(EntitiesResponse));
+
+    /*
+    */
+    var EntitiesResponseOfTimestampedCrop = /** @class */ (function (_super) {
+        __extends(EntitiesResponseOfTimestampedCrop, _super);
+        function EntitiesResponseOfTimestampedCrop() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntitiesResponseOfTimestampedCrop;
     }(EntitiesResponse));
 
     /*
@@ -8909,6 +8940,13 @@
                 params.push("eventId=" + eventId);
             }
             return (_a = this.rest).delete.apply(_a, __spread([this.baseUrl + "/" + id + "/events"], params));
+        };
+        /**
+         * Get all timestamped objects of the provided case event
+         * @Return: EntityResponse<TimestampedCrop>
+         */
+        CasesService.prototype.getEventObjects = function (id, eventId) {
+            return this.rest.get(this.baseUrl + "/" + id + "/events/" + eventId);
         };
         /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ CasesService.ɵprov = core.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
@@ -13409,6 +13447,7 @@
     exports.CalendarsServiceImportRequest = CalendarsServiceImportRequest;
     exports.CalendarsServiceImportUrlRequest = CalendarsServiceImportUrlRequest;
     exports.CalendarsServiceUpdateRequest = CalendarsServiceUpdateRequest;
+    exports.CaseEventObjects = CaseEventObjects;
     exports.CaseIdRequest = CaseIdRequest;
     exports.CaseInfo = CaseInfo;
     exports.CasesService = CasesService;
@@ -13416,6 +13455,7 @@
     exports.CasesServiceCreateRequest = CasesServiceCreateRequest;
     exports.CasesServiceDeleteEventsRequest = CasesServiceDeleteEventsRequest;
     exports.CasesServiceFindRequest = CasesServiceFindRequest;
+    exports.CasesServiceGetEventCropsRequest = CasesServiceGetEventCropsRequest;
     exports.CasesServiceUpdateRequest = CasesServiceUpdateRequest;
     exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
     exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
@@ -13492,6 +13532,7 @@
     exports.EntitiesResponseOfSensor = EntitiesResponseOfSensor;
     exports.EntitiesResponseOfSensorStatus = EntitiesResponseOfSensorStatus;
     exports.EntitiesResponseOfStringKeyValue = EntitiesResponseOfStringKeyValue;
+    exports.EntitiesResponseOfTimestampedCrop = EntitiesResponseOfTimestampedCrop;
     exports.EntitiesResponseOfUpdateStatus = EntitiesResponseOfUpdateStatus;
     exports.EntityResponse = EntityResponse;
     exports.EntityResponseOfAccount = EntityResponseOfAccount;
