@@ -7,4 +7,5 @@ export declare class SensorAnalysisResults extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

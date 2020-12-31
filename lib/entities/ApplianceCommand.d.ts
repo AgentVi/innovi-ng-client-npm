@@ -22,4 +22,5 @@ export declare class ApplianceCommand extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

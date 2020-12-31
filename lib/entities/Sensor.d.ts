@@ -1,12 +1,12 @@
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { SensorResolutionCode } from '../enums/SensorResolutionCode';
+import { Coordinate } from '../common/Coordinate';
+import { Thresholds } from '../common/Thresholds';
 import { SensorDebugInfo } from '../common/SensorDebugInfo';
+import { BaseEntity } from '../entities/BaseEntity';
+import { StringKeyValue } from '../common/StringKeyValue';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StringKeyValue } from '../common/StringKeyValue';
-import { Thresholds } from '../common/Thresholds';
-import { BaseEntity } from '../entities/BaseEntity';
-import { Coordinate } from '../common/Coordinate';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 export declare class Sensor extends BaseEntity {
     accountId: string;
@@ -32,7 +32,6 @@ export declare class Sensor extends BaseEntity {
     fovAttributes: FovGeoAttributes;
     externalId: string;
     tags: StringKeyValue[];
-    path: string;
     healthThresholds: Thresholds;
     debugInfo: SensorDebugInfo;
     syncTimeToStream: boolean;
@@ -43,4 +42,5 @@ export declare class Sensor extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

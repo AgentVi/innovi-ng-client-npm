@@ -1344,11 +1344,12 @@
        Base entity includes common fields for all entities (persistence objects) in the system
     */
     var BaseEntity = /** @class */ (function () {
-        function BaseEntity(id, docType, createdOn, updatedOn) {
+        function BaseEntity(id, docType, createdOn, updatedOn, path) {
             this.id = id;
             this._type = docType;
             this.createdOn = createdOn;
             this.updatedOn = updatedOn;
+            this.path = path;
         }
         return BaseEntity;
     }());

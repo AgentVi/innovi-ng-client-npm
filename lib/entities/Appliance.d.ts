@@ -22,10 +22,10 @@ export declare class Appliance extends BaseEntity {
     eventIntegrationId: string;
     metadataIntegrationId: string;
     deviceProfileId: string;
-    path: string;
     healthThresholds: Thresholds;
     id: string;
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

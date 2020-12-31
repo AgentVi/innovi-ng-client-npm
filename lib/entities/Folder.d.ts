@@ -1,14 +1,13 @@
-import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { TimeFrame } from '../common/TimeFrame';
 import { BaseEntity } from '../entities/BaseEntity';
+import { Coordinate } from '../common/Coordinate';
 export declare class Folder extends BaseEntity {
     parentId: string;
     accountId: string;
     name: string;
     externalId: string;
     depth: number;
-    path: string;
     geoArea: Coordinate[];
     geoLocation: Coordinate;
     timezone: string;
@@ -18,4 +17,5 @@ export declare class Folder extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

@@ -11,4 +11,5 @@ export declare class VMSGateway extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

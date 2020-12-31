@@ -17,4 +17,5 @@ export declare class AuditLog extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

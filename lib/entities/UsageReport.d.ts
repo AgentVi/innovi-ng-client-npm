@@ -10,4 +10,5 @@ export declare class UsageReport extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

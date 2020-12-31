@@ -9,4 +9,5 @@ export declare class Feature extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }

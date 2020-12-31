@@ -9,4 +9,5 @@ export declare class AccountStatistics extends BaseEntity {
     _type: string;
     createdOn: number;
     updatedOn: number;
+    path: string;
 }
