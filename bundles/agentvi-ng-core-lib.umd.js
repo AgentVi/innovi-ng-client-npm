@@ -4276,8 +4276,9 @@
     /*
     */
     var CasesServiceAddEventsRequest = /** @class */ (function () {
-        function CasesServiceAddEventsRequest(id, eventId) {
+        function CasesServiceAddEventsRequest(id, sessionId, eventId) {
             this.id = id;
+            this.sessionId = sessionId;
             this.eventId = eventId;
         }
         return CasesServiceAddEventsRequest;
@@ -8921,13 +8922,13 @@
          * Add bulk of search events to the case
          * @Return: EntityResponse<CaseInfo>
          */
-        CasesService.prototype.addSearchEvents = function (id, eventId) {
+        CasesService.prototype.addSearchEvents = function (id, sessionId, eventId) {
             var _a;
             var params = new Array();
             if (eventId != null) {
                 params.push("eventId=" + eventId);
             }
-            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/events", null], params));
+            return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/sessions/" + sessionId + "/events", null], params));
         };
         /**
          * Remove bulk of search events from the case

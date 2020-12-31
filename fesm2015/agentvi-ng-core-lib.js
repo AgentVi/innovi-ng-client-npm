@@ -3686,8 +3686,9 @@ class CaseIdRequest {
 /*
 */
 class CasesServiceAddEventsRequest {
-    constructor(id, eventId) {
+    constructor(id, sessionId, eventId) {
         this.id = id;
+        this.sessionId = sessionId;
         this.eventId = eventId;
     }
 }
@@ -7496,12 +7497,12 @@ class CasesService {
      * Add bulk of search events to the case
      * @Return: EntityResponse<CaseInfo>
      */
-    addSearchEvents(id, eventId) {
+    addSearchEvents(id, sessionId, eventId) {
         const params = new Array();
         if (eventId != null) {
             params.push(`eventId=${eventId}`);
         }
-        return this.rest.post(`${this.baseUrl}/${id}/events`, null, ...params);
+        return this.rest.post(`${this.baseUrl}/${id}/sessions/${sessionId}/events`, null, ...params);
     }
     /**
      * Remove bulk of search events from the case

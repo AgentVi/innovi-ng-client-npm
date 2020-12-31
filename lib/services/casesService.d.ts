@@ -44,7 +44,7 @@ export declare class CasesService {
      * Add bulk of search events to the case
      * @Return: EntityResponse<CaseInfo>
      */
-    addSearchEvents(id?: string, eventId?: string[]): import("rxjs").Observable<any>;
+    addSearchEvents(id?: string, sessionId?: string, eventId?: string[]): import("rxjs").Observable<any>;
     /**
      * Remove bulk of search events from the case
      * @Return: EntityResponse<CaseInfo>
