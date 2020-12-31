@@ -5315,6 +5315,16 @@
 
     /*
     */
+    var EntityResponseOfTimestampedCrop = /** @class */ (function (_super) {
+        __extends(EntityResponseOfTimestampedCrop, _super);
+        function EntityResponseOfTimestampedCrop() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return EntityResponseOfTimestampedCrop;
+    }(EntityResponse));
+
+    /*
+    */
     var EntityResponseOfTimestampedCrops = /** @class */ (function (_super) {
         __extends(EntityResponseOfTimestampedCrops, _super);
         function EntityResponseOfTimestampedCrops() {
@@ -8949,6 +8959,13 @@
          */
         CasesService.prototype.getEventObjects = function (id, eventId) {
             return this.rest.get(this.baseUrl + "/" + id + "/events/" + eventId);
+        };
+        /**
+         * Get single timestamped object of the provided case event
+         * @Return: EntityResponse<TimestampedCrop>
+         */
+        CasesService.prototype.getEventObject = function (id, eventId) {
+            return this.rest.get(this.baseUrl + "/" + id + "/event/" + eventId);
         };
         /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };
         /** @nocollapse */ CasesService.ɵprov = core.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
@@ -13580,6 +13597,7 @@
     exports.EntityResponseOfSensorAnomalyInfo = EntityResponseOfSensorAnomalyInfo;
     exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
     exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
+    exports.EntityResponseOfTimestampedCrop = EntityResponseOfTimestampedCrop;
     exports.EntityResponseOfTimestampedCrops = EntityResponseOfTimestampedCrops;
     exports.EntityResponseOfTimestampedImage = EntityResponseOfTimestampedImage;
     exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
