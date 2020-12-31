@@ -8957,14 +8957,14 @@
          * Get all timestamped objects of the provided case event
          * @Return: EntityResponse<TimestampedCrop>
          */
-        CasesService.prototype.getEventObjects = function (id, eventId) {
+        CasesService.prototype.getEventObjectCrops = function (id, eventId) {
             return this.rest.get(this.baseUrl + "/" + id + "/events/" + eventId);
         };
         /**
          * Get single timestamped object of the provided case event
          * @Return: EntityResponse<TimestampedCrop>
          */
-        CasesService.prototype.getEventObject = function (id, eventId) {
+        CasesService.prototype.getMainEventObjectCrop = function (id, eventId) {
             return this.rest.get(this.baseUrl + "/" + id + "/event/" + eventId);
         };
         /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(core.ɵɵinject('config'), core.ɵɵinject(RestUtil)); };

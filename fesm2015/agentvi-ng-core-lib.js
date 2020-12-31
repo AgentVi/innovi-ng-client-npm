@@ -7525,14 +7525,14 @@ class CasesService {
      * Get all timestamped objects of the provided case event
      * @Return: EntityResponse<TimestampedCrop>
      */
-    getEventObjects(id, eventId) {
+    getEventObjectCrops(id, eventId) {
         return this.rest.get(`${this.baseUrl}/${id}/events/${eventId}`);
     }
     /**
      * Get single timestamped object of the provided case event
      * @Return: EntityResponse<TimestampedCrop>
      */
-    getEventObject(id, eventId) {
+    getMainEventObjectCrop(id, eventId) {
         return this.rest.get(`${this.baseUrl}/${id}/event/${eventId}`);
     }
 }

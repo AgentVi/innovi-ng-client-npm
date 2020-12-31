@@ -54,12 +54,12 @@ export declare class CasesService {
      * Get all timestamped objects of the provided case event
      * @Return: EntityResponse<TimestampedCrop>
      */
-    getEventObjects(id?: string, eventId?: string): import("rxjs").Observable<any>;
+    getEventObjectCrops(id?: string, eventId?: string): import("rxjs").Observable<any>;
     /**
      * Get single timestamped object of the provided case event
      * @Return: EntityResponse<TimestampedCrop>
      */
-    getEventObject(id?: string, eventId?: string): import("rxjs").Observable<any>;
+    getMainEventObjectCrop(id?: string, eventId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<CasesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<CasesService>;
 }
