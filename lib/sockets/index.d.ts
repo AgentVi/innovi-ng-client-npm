@@ -1,5 +1,7 @@
 export * from './EventsSocketServiceOpen';
 export * from './HealthSocketServiceOpen';
+export * from './SSHSocketOutputResponse';
+export * from './SSHSocketServiceOpen';
 export * from './SocketEventNotification';
 export * from './SocketEventNotificationPayload';
 export * from './SocketEventsFilter';

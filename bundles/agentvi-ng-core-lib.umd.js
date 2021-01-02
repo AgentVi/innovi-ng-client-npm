@@ -13275,6 +13275,29 @@
 
     /*
        @WebSocketMessage
+       This message is pushed to the client upon any new output text from remote SSH
+    */
+    var SSHSocketOutputResponse = /** @class */ (function () {
+        function SSHSocketOutputResponse(op, error, payload) {
+            this.op = op;
+            this.error = error;
+            this.payload = payload;
+        }
+        return SSHSocketOutputResponse;
+    }());
+
+    /*
+       @WebSocketMessage
+    */
+    var SSHSocketServiceOpen = /** @class */ (function () {
+        function SSHSocketServiceOpen(token) {
+            this.token = token;
+        }
+        return SSHSocketServiceOpen;
+    }());
+
+    /*
+       @WebSocketMessage
        This message is pushed to the client upon any new event in the registered account
     */
     var SocketEventNotification = /** @class */ (function () {
@@ -13757,6 +13780,8 @@
     exports.RulesServiceResumeRequest = RulesServiceResumeRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
     exports.SSHInfo = SSHInfo;
+    exports.SSHSocketOutputResponse = SSHSocketOutputResponse;
+    exports.SSHSocketServiceOpen = SSHSocketServiceOpen;
     exports.Schedule = Schedule;
     exports.ScheduleIdRequest = ScheduleIdRequest;
     exports.ScheduleIdsRequest = ScheduleIdsRequest;
