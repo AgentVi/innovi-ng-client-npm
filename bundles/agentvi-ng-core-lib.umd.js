@@ -13275,6 +13275,45 @@
 
     /*
        @WebSocketMessage
+       This message is sent from the client to close ssh session using the ssh uri provided in the payload
+    */
+    var SSHSocketCloseRequest = /** @class */ (function () {
+        function SSHSocketCloseRequest(op, error, payload) {
+            this.op = op;
+            this.error = error;
+            this.payload = payload;
+        }
+        return SSHSocketCloseRequest;
+    }());
+
+    /*
+       @WebSocketMessage
+       This message is sent from the client to send the command in the payload to the remote message
+    */
+    var SSHSocketInputRequest = /** @class */ (function () {
+        function SSHSocketInputRequest(op, error, payload) {
+            this.op = op;
+            this.error = error;
+            this.payload = payload;
+        }
+        return SSHSocketInputRequest;
+    }());
+
+    /*
+       @WebSocketMessage
+       This message is sent from the client to open ssh session using the ssh uri provided in the payload
+    */
+    var SSHSocketOpenRequest = /** @class */ (function () {
+        function SSHSocketOpenRequest(op, error, payload) {
+            this.op = op;
+            this.error = error;
+            this.payload = payload;
+        }
+        return SSHSocketOpenRequest;
+    }());
+
+    /*
+       @WebSocketMessage
        This message is pushed to the client upon any new output text from remote SSH
     */
     var SSHSocketOutputResponse = /** @class */ (function () {
@@ -13780,6 +13819,9 @@
     exports.RulesServiceResumeRequest = RulesServiceResumeRequest;
     exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
     exports.SSHInfo = SSHInfo;
+    exports.SSHSocketCloseRequest = SSHSocketCloseRequest;
+    exports.SSHSocketInputRequest = SSHSocketInputRequest;
+    exports.SSHSocketOpenRequest = SSHSocketOpenRequest;
     exports.SSHSocketOutputResponse = SSHSocketOutputResponse;
     exports.SSHSocketServiceOpen = SSHSocketServiceOpen;
     exports.Schedule = Schedule;
