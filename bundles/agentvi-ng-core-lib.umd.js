@@ -13278,9 +13278,8 @@
        This message is sent from the client to close ssh session using the ssh uri provided in the payload
     */
     var SSHSocketCloseRequest = /** @class */ (function () {
-        function SSHSocketCloseRequest(op, error, payload) {
+        function SSHSocketCloseRequest(op, payload) {
             this.op = op;
-            this.error = error;
             this.payload = payload;
         }
         return SSHSocketCloseRequest;
@@ -13291,9 +13290,8 @@
        This message is sent from the client to send the command in the payload to the remote message
     */
     var SSHSocketInputRequest = /** @class */ (function () {
-        function SSHSocketInputRequest(op, error, payload) {
+        function SSHSocketInputRequest(op, payload) {
             this.op = op;
-            this.error = error;
             this.payload = payload;
         }
         return SSHSocketInputRequest;
@@ -13304,9 +13302,8 @@
        This message is sent from the client to open ssh session using the ssh uri provided in the payload
     */
     var SSHSocketOpenRequest = /** @class */ (function () {
-        function SSHSocketOpenRequest(op, error, payload) {
+        function SSHSocketOpenRequest(op, payload) {
             this.op = op;
-            this.error = error;
             this.payload = payload;
         }
         return SSHSocketOpenRequest;

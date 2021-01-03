@@ -11721,9 +11721,8 @@ class HealthSocketServiceOpen {
    This message is sent from the client to close ssh session using the ssh uri provided in the payload
 */
 class SSHSocketCloseRequest {
-    constructor(op, error, payload) {
+    constructor(op, payload) {
         this.op = op;
-        this.error = error;
         this.payload = payload;
     }
 }
@@ -11733,9 +11732,8 @@ class SSHSocketCloseRequest {
    This message is sent from the client to send the command in the payload to the remote message
 */
 class SSHSocketInputRequest {
-    constructor(op, error, payload) {
+    constructor(op, payload) {
         this.op = op;
-        this.error = error;
         this.payload = payload;
     }
 }
@@ -11745,9 +11743,8 @@ class SSHSocketInputRequest {
    This message is sent from the client to open ssh session using the ssh uri provided in the payload
 */
 class SSHSocketOpenRequest {
-    constructor(op, error, payload) {
+    constructor(op, payload) {
         this.op = op;
-        this.error = error;
         this.payload = payload;
     }
 }
