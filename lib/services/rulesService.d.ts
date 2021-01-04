@@ -61,7 +61,7 @@ export declare class RulesService {
      * Export single rule as Json stream
      * @Return: Rule Json as StreamContent
      */
-    exportRule(id?: string, fileName?: string): import("rxjs").Subscription;
+    exportRule(id?: string): import("rxjs").Subscription;
     /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>

@@ -9,5 +9,6 @@ export declare class SysAuditLogServiceExportRequest {
     sort: string;
     format: string;
     fields: string[];
-    constructor(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: EntityTypeCode, sort?: string, format?: string, fields?: string[]);
+    fileName: string;
+    constructor(accountId?: string, userId?: string, from?: number, to?: number, item?: string, itemType?: EntityTypeCode, sort?: string, format?: string, fields?: string[], fileName?: string);
 }

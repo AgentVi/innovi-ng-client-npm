@@ -1,5 +1,5 @@
 import { TimestampedCrop } from '../common/TimestampedCrop';
-export declare class TimestampedCrops {
+export declare class TimestampedCropsData {
     sensorId: string;
     bg: string;
     crops: TimestampedCrop[];

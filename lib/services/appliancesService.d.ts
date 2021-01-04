@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { Appliance } from '../entities/Appliance';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { Sensor } from '../entities/Sensor';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { Appliance } from '../entities/Appliance';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -33,7 +33,7 @@ export declare class AppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
@@ -48,7 +48,7 @@ export declare class AppliancesService {
      * Get all sensors assigned to the appliance (getSensors)
      * @Return: QueryResponse<Sensor>
      */
-    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[]): import("rxjs").Observable<any>;
+    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<any>;
     /**
      * Import sensors from CSV file
      * The file must include header with the columns:

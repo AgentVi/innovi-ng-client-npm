@@ -7,5 +7,6 @@ export declare class UsersServiceExportRequest {
     sort: string;
     format: string;
     fields: string[];
-    constructor(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[]);
+    fileName: string;
+    constructor(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string);
 }

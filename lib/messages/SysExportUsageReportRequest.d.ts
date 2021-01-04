@@ -3,5 +3,6 @@ export declare class SysExportUsageReportRequest {
     year: number;
     month: number;
     format: string;
-    constructor(id?: string, year?: number, month?: number, format?: string);
+    fileName: string;
+    constructor(id?: string, year?: number, month?: number, format?: string, fileName?: string);
 }

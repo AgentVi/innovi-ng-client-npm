@@ -1035,13 +1035,13 @@
    /*
       List of timestamped crops with background image
    */
-   var TimestampedCrops = /** @class */ (function () {
-       function TimestampedCrops(sensorId, bg, crops) {
+   var TimestampedCropsData = /** @class */ (function () {
+       function TimestampedCropsData(sensorId, bg, crops) {
            this.sensorId = sensorId;
            this.bg = bg;
            this.crops = crops;
        }
-       return TimestampedCrops;
+       return TimestampedCropsData;
    }());
 
    /*
@@ -3746,13 +3746,14 @@
    /*
    */
    var AccountsServiceExportRequest = /** @class */ (function () {
-       function AccountsServiceExportRequest(name, type, status, sort, format, fields) {
+       function AccountsServiceExportRequest(name, type, status, sort, format, fields, fileName) {
            this.name = name;
            this.type = type;
            this.status = status;
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return AccountsServiceExportRequest;
    }());
@@ -4068,9 +4069,10 @@
    /*
    */
    var AppliancesServiceExportSensorsRequest = /** @class */ (function () {
-       function AppliancesServiceExportSensorsRequest(id, format) {
+       function AppliancesServiceExportSensorsRequest(id, format, fileName) {
            this.id = id;
            this.format = format;
+           this.fileName = fileName;
        }
        return AppliancesServiceExportSensorsRequest;
    }());
@@ -4094,7 +4096,7 @@
    /*
    */
    var AppliancesServiceFindSensorsRequest = /** @class */ (function () {
-       function AppliancesServiceFindSensorsRequest(id, search, type, status, stream, sort, page, pageSize, format, fields) {
+       function AppliancesServiceFindSensorsRequest(id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
            this.id = id;
            this.search = search;
            this.type = type;
@@ -4105,6 +4107,7 @@
            this.pageSize = pageSize;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return AppliancesServiceFindSensorsRequest;
    }());
@@ -4197,7 +4200,7 @@
    /*
    */
    var AuditLogServiceExportRequest = /** @class */ (function () {
-       function AuditLogServiceExportRequest(userId, from, to, item, itemType, sort, format, fields) {
+       function AuditLogServiceExportRequest(userId, from, to, item, itemType, sort, format, fields, fileName) {
            this.userId = userId;
            this.from = from;
            this.to = to;
@@ -4206,6 +4209,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return AuditLogServiceExportRequest;
    }());
@@ -5368,12 +5372,12 @@
 
    /*
    */
-   var EntityResponseOfTimestampedCrops = /** @class */ (function (_super) {
-       __extends(EntityResponseOfTimestampedCrops, _super);
-       function EntityResponseOfTimestampedCrops() {
+   var EntityResponseOfTimestampedCropsData = /** @class */ (function (_super) {
+       __extends(EntityResponseOfTimestampedCropsData, _super);
+       function EntityResponseOfTimestampedCropsData() {
            return _super !== null && _super.apply(this, arguments) || this;
        }
-       return EntityResponseOfTimestampedCrops;
+       return EntityResponseOfTimestampedCropsData;
    }(EntitiesResponse));
 
    /*
@@ -5456,7 +5460,7 @@
    /*
    */
    var EventsServiceExportRequest = /** @class */ (function () {
-       function EventsServiceExportRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields) {
+       function EventsServiceExportRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.sensorId = sensorId;
@@ -5470,6 +5474,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return EventsServiceExportRequest;
    }());
@@ -5568,10 +5573,11 @@
    /*
    */
    var ExportUsageReportRequest = /** @class */ (function () {
-       function ExportUsageReportRequest(year, month, format) {
+       function ExportUsageReportRequest(year, month, format, fileName) {
            this.year = year;
            this.month = month;
            this.format = format;
+           this.fileName = fileName;
        }
        return ExportUsageReportRequest;
    }());
@@ -5790,13 +5796,14 @@
    /*
    */
    var FoldersServiceExportRequest = /** @class */ (function () {
-       function FoldersServiceExportRequest(id, search, parentId, sort, format, fields) {
+       function FoldersServiceExportRequest(id, search, parentId, sort, format, fields, fileName) {
            this.id = id;
            this.search = search;
            this.parentId = parentId;
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return FoldersServiceExportRequest;
    }());
@@ -6403,7 +6410,7 @@
    /*
    */
    var RulesServiceExportRequest = /** @class */ (function () {
-       function RulesServiceExportRequest(folderId, sensorId, search, behaviorType, severity, sort, format, fields) {
+       function RulesServiceExportRequest(folderId, sensorId, search, behaviorType, severity, sort, format, fields, fileName) {
            this.folderId = folderId;
            this.sensorId = sensorId;
            this.search = search;
@@ -6412,6 +6419,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return RulesServiceExportRequest;
    }());
@@ -6617,7 +6625,7 @@
    /*
    */
    var SearchEventExportRequest = /** @class */ (function () {
-       function SearchEventExportRequest(sessionId, sensorId, objectType, from, to, sort, format, fields) {
+       function SearchEventExportRequest(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
            this.sessionId = sessionId;
            this.sensorId = sensorId;
            this.objectType = objectType;
@@ -6626,6 +6634,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return SearchEventExportRequest;
    }());
@@ -6874,7 +6883,7 @@
    /*
    */
    var SensorsServiceExportRequest = /** @class */ (function () {
-       function SensorsServiceExportRequest(folderId, subFolders, search, type, status, stream, sort, format, fields) {
+       function SensorsServiceExportRequest(folderId, subFolders, search, type, status, stream, sort, format, fields, fileName) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.search = search;
@@ -6884,6 +6893,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return SensorsServiceExportRequest;
    }());
@@ -6999,13 +7009,14 @@
    /*
    */
    var SysApplianceConfigExportRequest = /** @class */ (function () {
-       function SysApplianceConfigExportRequest(accountId, search, configId, versionId, unmatched, format) {
+       function SysApplianceConfigExportRequest(accountId, search, configId, versionId, unmatched, format, fileName) {
            this.accountId = accountId;
            this.search = search;
            this.configId = configId;
            this.versionId = versionId;
            this.unmatched = unmatched;
            this.format = format;
+           this.fileName = fileName;
        }
        return SysApplianceConfigExportRequest;
    }());
@@ -7077,7 +7088,7 @@
    /*
    */
    var SysAuditLogServiceExportRequest = /** @class */ (function () {
-       function SysAuditLogServiceExportRequest(accountId, userId, from, to, item, itemType, sort, format, fields) {
+       function SysAuditLogServiceExportRequest(accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
            this.accountId = accountId;
            this.userId = userId;
            this.from = from;
@@ -7087,6 +7098,7 @@
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return SysAuditLogServiceExportRequest;
    }());
@@ -7258,11 +7270,12 @@
    /*
    */
    var SysExportUsageReportRequest = /** @class */ (function () {
-       function SysExportUsageReportRequest(id, year, month, format) {
+       function SysExportUsageReportRequest(id, year, month, format, fileName) {
            this.id = id;
            this.year = year;
            this.month = month;
            this.format = format;
+           this.fileName = fileName;
        }
        return SysExportUsageReportRequest;
    }());
@@ -7613,13 +7626,14 @@
    /*
    */
    var UsersServiceExportRequest = /** @class */ (function () {
-       function UsersServiceExportRequest(search, type, status, sort, format, fields) {
+       function UsersServiceExportRequest(search, type, status, sort, format, fields, fileName) {
            this.search = search;
            this.type = type;
            this.status = status;
            this.sort = sort;
            this.format = format;
            this.fields = fields;
+           this.fileName = fileName;
        }
        return UsersServiceExportRequest;
    }());
@@ -7743,8 +7757,9 @@
                params[_i - 2] = arguments[_i];
            }
            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
-           // extract format
+           // extract format and file name
            var ext = 'json';
+           var fn = null;
            params.forEach(function (p) {
                var arr = p.split('=');
                if (arr.length > 1) {
@@ -7752,7 +7767,7 @@
                        ext = arr[1];
                    }
                    if (arr[0].toLowerCase() === 'filename') {
-                       fileName = arr[1];
+                       fn = arr[1];
                    }
                }
            });
@@ -7761,7 +7776,9 @@
                var downloadURL = window.URL.createObjectURL(data);
                var link = document.createElement('a');
                link.href = downloadURL;
-               link.download = downloadLink;
+               if (fn) {
+                   link.download = downloadLink;
+               }
                link.click();
            });
        };
@@ -7943,6 +7960,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["accounts", this.baseUrl + "/export"], params));
        };
        /**
@@ -8042,6 +8062,9 @@
            var params = new Array();
            if (format != null) {
                params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["accounts", this.baseUrl + "/export-usage-report/" + year + "/" + month], params));
        };
@@ -8390,7 +8413,7 @@
         * Export list of appliances and filter
         * @Return: StreamContent
         */
-       AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
+       AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -8437,7 +8460,7 @@
         * Get all sensors assigned to the appliance (getSensors)
         * @Return: QueryResponse<Sensor>
         */
-       AppliancesService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields) {
+       AppliancesService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (search != null) {
@@ -8467,6 +8490,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
        };
        /**
@@ -8486,6 +8512,9 @@
            var params = new Array();
            if (format != null) {
                params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["appliances", this.baseUrl + "/" + id + "/sensors/export"], params));
        };
@@ -8810,6 +8839,9 @@
            }
            if (fields != null) {
                params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["auditlog", this.baseUrl + "/export"], params));
        };
@@ -9251,6 +9283,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "/export"], params));
        };
        /**
@@ -9302,14 +9337,14 @@
         * Get event image [response content type: image/jpeg]
         * @Return: StreamingOutput of the image
         */
-       EventsService.prototype.getEventImage = function (id, fileName) {
+       EventsService.prototype.getEventImage = function (id) {
            return this.rest.download("events", this.baseUrl + "/" + id + "/image");
        };
        /**
         * Get event clip [response content type: video/mp4]
         * @Return: StreamingOutput of the clip
         */
-       EventsService.prototype.getEventClip = function (id, fileName) {
+       EventsService.prototype.getEventClip = function (id) {
            return this.rest.download("events", this.baseUrl + "/" + id + "/clip");
        };
        /**
@@ -9524,6 +9559,9 @@
            }
            if (fields != null) {
                params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["folders", this.baseUrl + "/export"], params));
        };
@@ -10084,7 +10122,7 @@
         * Generate people counting report and stream it as CSV
         * @Return: StreamContent
         */
-       ReportsService.prototype.getPeopleCountingReport = function (sensorId, folderId, from, to, fileName) {
+       ReportsService.prototype.getPeopleCountingReport = function (sensorId, folderId, from, to) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -10105,7 +10143,7 @@
         * Generate traffic analysis report and stream it as CSV
         * @Return: StreamContent
         */
-       ReportsService.prototype.getTrafficAnalysisReport = function (sensorId, folderId, from, to, fileName) {
+       ReportsService.prototype.getTrafficAnalysisReport = function (sensorId, folderId, from, to) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -10251,7 +10289,7 @@
         * Export single rule as Json stream
         * @Return: Rule Json as StreamContent
         */
-       RulesService.prototype.exportRule = function (id, fileName) {
+       RulesService.prototype.exportRule = function (id) {
            return this.rest.download("rules", this.baseUrl + "/" + id + "/export");
        };
        /**
@@ -10344,6 +10382,9 @@
            }
            if (fields != null) {
                params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["rules", this.baseUrl + "/export"], params));
        };
@@ -10763,7 +10804,7 @@
         * Get search event image [response content type: image/jpeg]
         * @Return: StreamingOutput of the image
         */
-       SearchService.prototype.getEventImage = function (sessionId, eventId, fileName) {
+       SearchService.prototype.getEventImage = function (sessionId, eventId) {
            return this.rest.download("search", this.baseUrl + "/sessions/" + sessionId + "/image/" + eventId);
        };
        /**
@@ -10866,6 +10907,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/sessions/" + sessionId + "/export"], params));
        };
        /**
@@ -10897,7 +10941,7 @@
        };
        /**
         * Get search event object crops (for animation)
-        * @Return: EntityResponse<TimestampedCrops>
+        * @Return: EntityResponse<TimestampedCropsData>
         */
        SearchService.prototype.getEventObjectCrops = function (sessionId, eventId) {
            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/events/" + eventId + "/crops");
@@ -11129,6 +11173,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["sensors", this.baseUrl + "/export"], params));
        };
        /**
@@ -11142,14 +11189,14 @@
         * Export single sensor preset (including calibration) as Json stream
         * @Return: Sensor preset Json as StreamContent
         */
-       SensorsService.prototype.exportPreset = function (id, fileName) {
+       SensorsService.prototype.exportPreset = function (id) {
            return this.rest.download("sensors", this.baseUrl + "/" + id + "/preset/export");
        };
        /**
         * Get sensor reference image [response content type: image/jpeg]
         * @Return: StreamingOutput of the reference image
         */
-       SensorsService.prototype.getRefImage = function (id, fileName) {
+       SensorsService.prototype.getRefImage = function (id) {
            return this.rest.download("sensors", this.baseUrl + "/" + id + "/ref-image");
        };
        /**
@@ -11509,6 +11556,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["sys-accounts", this.baseUrl + "/export"], params));
        };
        /**
@@ -11567,6 +11617,9 @@
            var params = new Array();
            if (format != null) {
                params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["sys-accounts", this.baseUrl + "/" + id + "/export-usage-report/" + year + "/" + month], params));
        };
@@ -11649,7 +11702,7 @@
         * Export list of appliances and filter
         * @Return: StreamContent
         */
-       SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
+       SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -11967,6 +12020,9 @@
            }
            if (format != null) {
                params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["sys-appliances", this.baseUrl + "/actual-config/export"], params));
        };
@@ -12795,7 +12851,7 @@
         * Export account configuration data
         * @Return: StreamingOutput of the content (gzip)
         */
-       SysSystemService.prototype.exportAccountData = function (accountId, password, fileName) {
+       SysSystemService.prototype.exportAccountData = function (accountId, password) {
            var _a;
            var params = new Array();
            if (accountId != null) {
@@ -12822,7 +12878,7 @@
         * Export SW package configurations data
         * @Return: StreamingOutput of the content (zip)
         */
-       SysSystemService.prototype.exportConfigurations = function (fileName) {
+       SysSystemService.prototype.exportConfigurations = function () {
            return this.rest.download("sys-system", this.baseUrl + "/configurations/export");
        };
        /**
@@ -12837,7 +12893,7 @@
         * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
         * @Return: StreamingOutput of the content (zip)
         */
-       SysSystemService.prototype.backupSystem = function (filter, fileName) {
+       SysSystemService.prototype.backupSystem = function (filter) {
            var _a;
            var params = new Array();
            if (filter != null) {
@@ -13030,6 +13086,9 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
            return (_a = this.rest).download.apply(_a, __spread(["sys-users", this.baseUrl + "/export"], params));
        };
        /**
@@ -13146,6 +13205,9 @@
            }
            if (fields != null) {
                params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["auditlog", this.baseUrl + "/export"], params));
        };
@@ -13423,6 +13485,9 @@
            }
            if (fields != null) {
                params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
        };
@@ -13897,7 +13962,7 @@
    exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
    exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
    exports.EntityResponseOfTimestampedCrop = EntityResponseOfTimestampedCrop;
-   exports.EntityResponseOfTimestampedCrops = EntityResponseOfTimestampedCrops;
+   exports.EntityResponseOfTimestampedCropsData = EntityResponseOfTimestampedCropsData;
    exports.EntityResponseOfTimestampedImage = EntityResponseOfTimestampedImage;
    exports.EntityResponseOfTreeNode = EntityResponseOfTreeNode;
    exports.EntityResponseOfUser = EntityResponseOfUser;
@@ -14193,7 +14258,7 @@
    exports.Thresholds = Thresholds;
    exports.TimeFrame = TimeFrame;
    exports.TimestampedCrop = TimestampedCrop;
-   exports.TimestampedCrops = TimestampedCrops;
+   exports.TimestampedCropsData = TimestampedCropsData;
    exports.TimestampedImage = TimestampedImage;
    exports.TokenRequest = TokenRequest;
    exports.TrafficAnalysisReportRequest = TrafficAnalysisReportRequest;

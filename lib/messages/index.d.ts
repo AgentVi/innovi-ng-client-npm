@@ -164,7 +164,7 @@ export * from './EntityResponseOfSensorAnomalyInfo';
 export * from './EntityResponseOfSensorStatus';
 export * from './EntityResponseOfSensorStatusTimeSeries';
 export * from './EntityResponseOfTimestampedCrop';
-export * from './EntityResponseOfTimestampedCrops';
+export * from './EntityResponseOfTimestampedCropsData';
 export * from './EntityResponseOfTimestampedImage';
 export * from './EntityResponseOfTreeNode';
 export * from './EntityResponseOfUser';

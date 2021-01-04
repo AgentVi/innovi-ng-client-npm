@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -69,12 +69,12 @@ export declare class EventsService {
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(id?: string, fileName?: string): import("rxjs").Subscription;
+    getEventImage(id?: string): import("rxjs").Subscription;
     /**
      * Get event clip [response content type: video/mp4]
      * @Return: StreamingOutput of the clip
      */
-    getEventClip(id?: string, fileName?: string): import("rxjs").Subscription;
+    getEventClip(id?: string): import("rxjs").Subscription;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>

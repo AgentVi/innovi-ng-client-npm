@@ -9,5 +9,6 @@ export declare class RulesServiceExportRequest {
     sort: string;
     format: string;
     fields: string[];
-    constructor(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[]);
+    fileName: string;
+    constructor(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string);
 }

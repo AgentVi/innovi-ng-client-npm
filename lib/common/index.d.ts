@@ -74,7 +74,7 @@ export * from './Threshold';
 export * from './Thresholds';
 export * from './TimeFrame';
 export * from './TimestampedCrop';
-export * from './TimestampedCrops';
+export * from './TimestampedCropsData';
 export * from './TimestampedImage';
 export * from './TreeItem';
 export * from './TreeNode';
