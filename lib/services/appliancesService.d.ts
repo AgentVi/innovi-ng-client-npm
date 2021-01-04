@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Sensor } from '../entities/Sensor';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { Appliance } from '../entities/Appliance';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { Sensor } from '../entities/Sensor';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -33,7 +33,7 @@ export declare class AppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
@@ -59,7 +59,7 @@ export declare class AppliancesService {
      * Export appliance sensors to CSV file
      * @return StreamContent
      */
-    exportSensors(id?: string, format?: string): import("rxjs").Subscription;
+    exportSensors(id?: string, format?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
     /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>

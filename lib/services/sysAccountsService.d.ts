@@ -106,7 +106,7 @@ export declare class SysAccountsService {
      * Export list of accounts and filter
      * @Return: StreamContent
      */
-    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
     /**
      * Get account types statistics for all accounts in the system
      * @Return: EntitiesResponse<AccountTypeSummary>
@@ -137,7 +137,7 @@ export declare class SysAccountsService {
      * Export account usage report to a file (for billing)
      * @Return: StreamContent
      */
-    exportUsageReport(id?: string, year?: number, month?: number, format?: string): import("rxjs").Subscription;
+    exportUsageReport(id?: string, year?: number, month?: number, format?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<SysAccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAccountsService>;
 }
