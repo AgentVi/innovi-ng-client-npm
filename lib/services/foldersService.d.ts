@@ -86,7 +86,7 @@ export declare class FoldersService {
      * Export list of folders and filter
      * @Return: StreamContent
      */
-    exportFormat(id?: string, search?: string, parentId?: string, sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportFormat(id?: string, search?: string, parentId?: string, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Find and filter list of folders
      * @Return: QueryResponse<Folder>

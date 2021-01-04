@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { RulePolygon } from '../common/RulePolygon';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -109,7 +109,7 @@ export declare class SensorsService {
      * Export list of sensors and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Get single sensor preset data by id
      * @Return: EntityResponse<Preset>
@@ -119,12 +119,12 @@ export declare class SensorsService {
      * Export single sensor preset (including calibration) as Json stream
      * @Return: Sensor preset Json as StreamContent
      */
-    exportPreset(id?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportPreset(id?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image
      */
-    getRefImage(id?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    getRefImage(id?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Get sensor reference image Url suffix
      * @Return: ActionResponse key is sensor Id and data is the URL suffix

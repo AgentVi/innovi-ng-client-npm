@@ -7743,12 +7743,16 @@
                params[_i - 2] = arguments[_i];
            }
            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           // extract format
            var ext = 'json';
            params.forEach(function (p) {
                var arr = p.split('=');
                if (arr.length > 1) {
                    if (arr[0].toLowerCase() === 'format') {
                        ext = arr[1];
+                   }
+                   if (arr[0].toLowerCase() === 'filename') {
+                       fileName = arr[1];
                    }
                }
            });
@@ -7757,7 +7761,7 @@
                var downloadURL = window.URL.createObjectURL(data);
                var link = document.createElement('a');
                link.href = downloadURL;
-               //link.download = downloadLink;
+               link.download = downloadLink;
                link.click();
            });
        };
@@ -7918,7 +7922,7 @@
         * Export list of accounts and filter
         * @Return: StreamContent
         */
-       AccountsService.prototype.exportFormat = function (name, type, status, sort, format, fields, fileName, mimeType) {
+       AccountsService.prototype.exportFormat = function (name, type, status, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (name != null) {
@@ -8033,7 +8037,7 @@
         * Export account usage report to a file (for billing)
         * @Return: StreamContent
         */
-       AccountsService.prototype.exportUsageReport = function (year, month, format, fileName, mimeType) {
+       AccountsService.prototype.exportUsageReport = function (year, month, format, fileName) {
            var _a;
            var params = new Array();
            if (format != null) {
@@ -8386,7 +8390,7 @@
         * Export list of appliances and filter
         * @Return: StreamContent
         */
-       AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName, mimeType) {
+       AppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -8477,7 +8481,7 @@
         * Export appliance sensors to CSV file
         * @return StreamContent
         */
-       AppliancesService.prototype.exportSensors = function (id, format, fileName, mimeType) {
+       AppliancesService.prototype.exportSensors = function (id, format, fileName) {
            var _a;
            var params = new Array();
            if (format != null) {
@@ -8780,7 +8784,7 @@
         * Export list of audit log entries and filter
         * @Return: StreamContent
         */
-       AuditLogService.prototype.exportFormat = function (userId, from, to, item, itemType, sort, format, fields, fileName, mimeType) {
+       AuditLogService.prototype.exportFormat = function (userId, from, to, item, itemType, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (userId != null) {
@@ -9205,7 +9209,7 @@
         * Export list of events and filter
         * @Return: StreamContent
         */
-       EventsService.prototype.exportFormat = function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName, mimeType) {
+       EventsService.prototype.exportFormat = function (folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -9298,14 +9302,14 @@
         * Get event image [response content type: image/jpeg]
         * @Return: StreamingOutput of the image
         */
-       EventsService.prototype.getEventImage = function (id, fileName, mimeType) {
+       EventsService.prototype.getEventImage = function (id, fileName) {
            return this.rest.download("events", this.baseUrl + "/" + id + "/image");
        };
        /**
         * Get event clip [response content type: video/mp4]
         * @Return: StreamingOutput of the clip
         */
-       EventsService.prototype.getEventClip = function (id, fileName, mimeType) {
+       EventsService.prototype.getEventClip = function (id, fileName) {
            return this.rest.download("events", this.baseUrl + "/" + id + "/clip");
        };
        /**
@@ -9503,7 +9507,7 @@
         * Export list of folders and filter
         * @Return: StreamContent
         */
-       FoldersService.prototype.exportFormat = function (id, search, parentId, sort, format, fields, fileName, mimeType) {
+       FoldersService.prototype.exportFormat = function (id, search, parentId, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (search != null) {
@@ -10080,7 +10084,7 @@
         * Generate people counting report and stream it as CSV
         * @Return: StreamContent
         */
-       ReportsService.prototype.getPeopleCountingReport = function (sensorId, folderId, from, to, fileName, mimeType) {
+       ReportsService.prototype.getPeopleCountingReport = function (sensorId, folderId, from, to, fileName) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -10101,7 +10105,7 @@
         * Generate traffic analysis report and stream it as CSV
         * @Return: StreamContent
         */
-       ReportsService.prototype.getTrafficAnalysisReport = function (sensorId, folderId, from, to, fileName, mimeType) {
+       ReportsService.prototype.getTrafficAnalysisReport = function (sensorId, folderId, from, to, fileName) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -10247,7 +10251,7 @@
         * Export single rule as Json stream
         * @Return: Rule Json as StreamContent
         */
-       RulesService.prototype.exportRule = function (id, fileName, mimeType) {
+       RulesService.prototype.exportRule = function (id, fileName) {
            return this.rest.download("rules", this.baseUrl + "/" + id + "/export");
        };
        /**
@@ -10314,7 +10318,7 @@
         * Export list of rules and filter
         * @Return: StreamContent
         */
-       RulesService.prototype.exportFormat = function (folderId, sensorId, search, behaviorType, severity, sort, format, fields, fileName, mimeType) {
+       RulesService.prototype.exportFormat = function (folderId, sensorId, search, behaviorType, severity, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -10759,7 +10763,7 @@
         * Get search event image [response content type: image/jpeg]
         * @Return: StreamingOutput of the image
         */
-       SearchService.prototype.getEventImage = function (sessionId, eventId, fileName, mimeType) {
+       SearchService.prototype.getEventImage = function (sessionId, eventId, fileName) {
            return this.rest.download("search", this.baseUrl + "/sessions/" + sessionId + "/image/" + eventId);
        };
        /**
@@ -10838,7 +10842,7 @@
         * Export list of search events by filter
         * @Return: StreamContent
         */
-       SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, from, to, sort, format, fields, fileName, mimeType) {
+       SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -11095,7 +11099,7 @@
         * Export list of sensors and filter
         * @Return: StreamContent
         */
-       SensorsService.prototype.exportFormat = function (folderId, subFolders, search, type, status, stream, sort, format, fields, fileName, mimeType) {
+       SensorsService.prototype.exportFormat = function (folderId, subFolders, search, type, status, stream, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -11138,14 +11142,14 @@
         * Export single sensor preset (including calibration) as Json stream
         * @Return: Sensor preset Json as StreamContent
         */
-       SensorsService.prototype.exportPreset = function (id, fileName, mimeType) {
+       SensorsService.prototype.exportPreset = function (id, fileName) {
            return this.rest.download("sensors", this.baseUrl + "/" + id + "/preset/export");
        };
        /**
         * Get sensor reference image [response content type: image/jpeg]
         * @Return: StreamingOutput of the reference image
         */
-       SensorsService.prototype.getRefImage = function (id, fileName, mimeType) {
+       SensorsService.prototype.getRefImage = function (id, fileName) {
            return this.rest.download("sensors", this.baseUrl + "/" + id + "/ref-image");
        };
        /**
@@ -11484,7 +11488,7 @@
         * Export list of accounts and filter
         * @Return: StreamContent
         */
-       SysAccountsService.prototype.exportFormat = function (name, type, status, sort, format, fields, fileName, mimeType) {
+       SysAccountsService.prototype.exportFormat = function (name, type, status, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (name != null) {
@@ -11558,7 +11562,7 @@
         * Export account usage report to a file (for billing)
         * @Return: StreamContent
         */
-       SysAccountsService.prototype.exportUsageReport = function (id, year, month, format, fileName, mimeType) {
+       SysAccountsService.prototype.exportUsageReport = function (id, year, month, format, fileName) {
            var _a;
            var params = new Array();
            if (format != null) {
@@ -11645,7 +11649,7 @@
         * Export list of appliances and filter
         * @Return: StreamContent
         */
-       SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName, mimeType) {
+       SysAppliancesService.prototype.exportFormat = function (folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -11943,7 +11947,7 @@
         * Export list of devices configurations (configured vs. actual)
         * @Return:  StreamingOutput of the report file
         */
-       SysAppliancesService.prototype.exportDevicesConfigurations = function (accountId, search, configId, versionId, unmatched, format, fileName, mimeType) {
+       SysAppliancesService.prototype.exportDevicesConfigurations = function (accountId, search, configId, versionId, unmatched, format, fileName) {
            var _a;
            var params = new Array();
            if (accountId != null) {
@@ -12791,7 +12795,7 @@
         * Export account configuration data
         * @Return: StreamingOutput of the content (gzip)
         */
-       SysSystemService.prototype.exportAccountData = function (accountId, password, fileName, mimeType) {
+       SysSystemService.prototype.exportAccountData = function (accountId, password, fileName) {
            var _a;
            var params = new Array();
            if (accountId != null) {
@@ -12818,7 +12822,7 @@
         * Export SW package configurations data
         * @Return: StreamingOutput of the content (zip)
         */
-       SysSystemService.prototype.exportConfigurations = function (fileName, mimeType) {
+       SysSystemService.prototype.exportConfigurations = function (fileName) {
            return this.rest.download("sys-system", this.baseUrl + "/configurations/export");
        };
        /**
@@ -12833,7 +12837,7 @@
         * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
         * @Return: StreamingOutput of the content (zip)
         */
-       SysSystemService.prototype.backupSystem = function (filter, fileName, mimeType) {
+       SysSystemService.prototype.backupSystem = function (filter, fileName) {
            var _a;
            var params = new Array();
            if (filter != null) {
@@ -13005,7 +13009,7 @@
         * Export list of users and filter
         * @Return: StreamContent
         */
-       SysUsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName, mimeType) {
+       SysUsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (search != null) {
@@ -13113,7 +13117,7 @@
         * Export list of audit log entries and filter
         * @Return: StreamContent
         */
-       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName, mimeType) {
+       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (accountId != null) {
@@ -13399,7 +13403,7 @@
         * Export list of users and filter
         * @Return: StreamContent
         */
-       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName, mimeType) {
+       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (search != null) {

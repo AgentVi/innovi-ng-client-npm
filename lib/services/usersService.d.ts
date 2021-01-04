@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { UserRegistration } from '../common/UserRegistration';
-import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
 import { User } from '../entities/User';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { UserInvitation } from '../common/UserInvitation';
+import { UserRegistration } from '../common/UserRegistration';
+import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -84,7 +84,7 @@ export declare class UsersService {
      * Export list of users and filter
      * @Return: StreamContent
      */
-    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Get access token for user
      * @Return: ActionResponse

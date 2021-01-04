@@ -6327,12 +6327,16 @@ class RestUtil {
      */
     download(fileName, url, ...params) {
         const resourceUrl = this.buildUrl(url, ...params);
+        // extract format
         let ext = 'json';
         params.forEach(p => {
             let arr = p.split('=');
             if (arr.length > 1) {
                 if (arr[0].toLowerCase() === 'format') {
                     ext = arr[1];
+                }
+                if (arr[0].toLowerCase() === 'filename') {
+                    fileName = arr[1];
                 }
             }
         });
@@ -6341,7 +6345,7 @@ class RestUtil {
             const downloadURL = window.URL.createObjectURL(data);
             const link = document.createElement('a');
             link.href = downloadURL;
-            //link.download = downloadLink;
+            link.download = downloadLink;
             link.click();
         });
     }
@@ -6471,7 +6475,7 @@ class AccountsService {
      * Export list of accounts and filter
      * @Return: StreamContent
      */
-    exportFormat(name, type, status, sort, format, fields, fileName, mimeType) {
+    exportFormat(name, type, status, sort, format, fields, fileName) {
         const params = new Array();
         if (name != null) {
             params.push(`name=${name}`);
@@ -6584,7 +6588,7 @@ class AccountsService {
      * Export account usage report to a file (for billing)
      * @Return: StreamContent
      */
-    exportUsageReport(year, month, format, fileName, mimeType) {
+    exportUsageReport(year, month, format, fileName) {
         const params = new Array();
         if (format != null) {
             params.push(`format=${format}`);
@@ -6911,7 +6915,7 @@ class AppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName, mimeType) {
+    exportFormat(folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -7000,7 +7004,7 @@ class AppliancesService {
      * Export appliance sensors to CSV file
      * @return StreamContent
      */
-    exportSensors(id, format, fileName, mimeType) {
+    exportSensors(id, format, fileName) {
         const params = new Array();
         if (format != null) {
             params.push(`format=${format}`);
@@ -7291,7 +7295,7 @@ class AuditLogService {
      * Export list of audit log entries and filter
      * @Return: StreamContent
      */
-    exportFormat(userId, from, to, item, itemType, sort, format, fields, fileName, mimeType) {
+    exportFormat(userId, from, to, item, itemType, sort, format, fields, fileName) {
         const params = new Array();
         if (userId != null) {
             params.push(`userId=${userId}`);
@@ -7690,7 +7694,7 @@ class EventsService {
      * Export list of events and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName, mimeType) {
+    exportFormat(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -7781,14 +7785,14 @@ class EventsService {
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(id, fileName, mimeType) {
+    getEventImage(id, fileName) {
         return this.rest.download(`events`, `${this.baseUrl}/${id}/image`);
     }
     /**
      * Get event clip [response content type: video/mp4]
      * @Return: StreamingOutput of the clip
      */
-    getEventClip(id, fileName, mimeType) {
+    getEventClip(id, fileName) {
         return this.rest.download(`events`, `${this.baseUrl}/${id}/clip`);
     }
     /**
@@ -7977,7 +7981,7 @@ class FoldersService {
      * Export list of folders and filter
      * @Return: StreamContent
      */
-    exportFormat(id, search, parentId, sort, format, fields, fileName, mimeType) {
+    exportFormat(id, search, parentId, sort, format, fields, fileName) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);
@@ -8512,7 +8516,7 @@ class ReportsService {
      * Generate people counting report and stream it as CSV
      * @Return: StreamContent
      */
-    getPeopleCountingReport(sensorId, folderId, from, to, fileName, mimeType) {
+    getPeopleCountingReport(sensorId, folderId, from, to, fileName) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
@@ -8532,7 +8536,7 @@ class ReportsService {
      * Generate traffic analysis report and stream it as CSV
      * @Return: StreamContent
      */
-    getTrafficAnalysisReport(sensorId, folderId, from, to, fileName, mimeType) {
+    getTrafficAnalysisReport(sensorId, folderId, from, to, fileName) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
@@ -8668,7 +8672,7 @@ class RulesService {
      * Export single rule as Json stream
      * @Return: Rule Json as StreamContent
      */
-    exportRule(id, fileName, mimeType) {
+    exportRule(id, fileName) {
         return this.rest.download(`rules`, `${this.baseUrl}/${id}/export`);
     }
     /**
@@ -8732,7 +8736,7 @@ class RulesService {
      * Export list of rules and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId, sensorId, search, behaviorType, severity, sort, format, fields, fileName, mimeType) {
+    exportFormat(folderId, sensorId, search, behaviorType, severity, sort, format, fields, fileName) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -9151,7 +9155,7 @@ class SearchService {
      * Get search event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(sessionId, eventId, fileName, mimeType) {
+    getEventImage(sessionId, eventId, fileName) {
         return this.rest.download(`search`, `${this.baseUrl}/sessions/${sessionId}/image/${eventId}`);
     }
     /**
@@ -9227,7 +9231,7 @@ class SearchService {
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName, mimeType) {
+    exportEvents(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
@@ -9473,7 +9477,7 @@ class SensorsService {
      * Export list of sensors and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId, subFolders, search, type, status, stream, sort, format, fields, fileName, mimeType) {
+    exportFormat(folderId, subFolders, search, type, status, stream, sort, format, fields, fileName) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -9515,14 +9519,14 @@ class SensorsService {
      * Export single sensor preset (including calibration) as Json stream
      * @Return: Sensor preset Json as StreamContent
      */
-    exportPreset(id, fileName, mimeType) {
+    exportPreset(id, fileName) {
         return this.rest.download(`sensors`, `${this.baseUrl}/${id}/preset/export`);
     }
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image
      */
-    getRefImage(id, fileName, mimeType) {
+    getRefImage(id, fileName) {
         return this.rest.download(`sensors`, `${this.baseUrl}/${id}/ref-image`);
     }
     /**
@@ -9847,7 +9851,7 @@ class SysAccountsService {
      * Export list of accounts and filter
      * @Return: StreamContent
      */
-    exportFormat(name, type, status, sort, format, fields, fileName, mimeType) {
+    exportFormat(name, type, status, sort, format, fields, fileName) {
         const params = new Array();
         if (name != null) {
             params.push(`name=${name}`);
@@ -9919,7 +9923,7 @@ class SysAccountsService {
      * Export account usage report to a file (for billing)
      * @Return: StreamContent
      */
-    exportUsageReport(id, year, month, format, fileName, mimeType) {
+    exportUsageReport(id, year, month, format, fileName) {
         const params = new Array();
         if (format != null) {
             params.push(`format=${format}`);
@@ -9999,7 +10003,7 @@ class SysAppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName, mimeType) {
+    exportFormat(folderId, subFolders, search, status, agentStatus, sort, format, fields, fileName) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -10288,7 +10292,7 @@ class SysAppliancesService {
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    exportDevicesConfigurations(accountId, search, configId, versionId, unmatched, format, fileName, mimeType) {
+    exportDevicesConfigurations(accountId, search, configId, versionId, unmatched, format, fileName) {
         const params = new Array();
         if (accountId != null) {
             params.push(`accountId=${accountId}`);
@@ -11086,7 +11090,7 @@ class SysSystemService {
      * Export account configuration data
      * @Return: StreamingOutput of the content (gzip)
      */
-    exportAccountData(accountId, password, fileName, mimeType) {
+    exportAccountData(accountId, password, fileName) {
         const params = new Array();
         if (accountId != null) {
             params.push(`accountId=${accountId}`);
@@ -11111,7 +11115,7 @@ class SysSystemService {
      * Export SW package configurations data
      * @Return: StreamingOutput of the content (zip)
      */
-    exportConfigurations(fileName, mimeType) {
+    exportConfigurations(fileName) {
         return this.rest.download(`sys-system`, `${this.baseUrl}/configurations/export`);
     }
     /**
@@ -11126,7 +11130,7 @@ class SysSystemService {
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
      * @Return: StreamingOutput of the content (zip)
      */
-    backupSystem(filter, fileName, mimeType) {
+    backupSystem(filter, fileName) {
         const params = new Array();
         if (filter != null) {
             params.push(`filter=${filter}`);
@@ -11291,7 +11295,7 @@ class SysUsersService {
      * Export list of users and filter
      * @Return: StreamContent
      */
-    exportFormat(search, type, status, sort, format, fields, fileName, mimeType) {
+    exportFormat(search, type, status, sort, format, fields, fileName) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);
@@ -11392,7 +11396,7 @@ class SysAuditLogService {
      * Export list of audit log entries and filter
      * @Return: StreamContent
      */
-    exportFormat(accountId, userId, from, to, item, itemType, sort, format, fields, fileName, mimeType) {
+    exportFormat(accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
         const params = new Array();
         if (accountId != null) {
             params.push(`accountId=${accountId}`);
@@ -11665,7 +11669,7 @@ class UsersService {
      * Export list of users and filter
      * @Return: StreamContent
      */
-    exportFormat(search, type, status, sort, format, fields, fileName, mimeType) {
+    exportFormat(search, type, status, sort, format, fields, fileName) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);

@@ -61,7 +61,7 @@ export declare class RulesService {
      * Export single rule as Json stream
      * @Return: Rule Json as StreamContent
      */
-    exportRule(id?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportRule(id?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
@@ -81,7 +81,7 @@ export declare class RulesService {
      * Export list of rules and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>

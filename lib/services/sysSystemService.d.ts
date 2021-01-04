@@ -21,7 +21,7 @@ export declare class SysSystemService {
      * Export account configuration data
      * @Return: StreamingOutput of the content (gzip)
      */
-    exportAccountData(accountId?: string, password?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportAccountData(accountId?: string, password?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Import account configuration data from byte array (zip content)
      * @Return: ActionResponse
@@ -31,7 +31,7 @@ export declare class SysSystemService {
      * Export SW package configurations data
      * @Return: StreamingOutput of the content (zip)
      */
-    exportConfigurations(fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportConfigurations(fileName?: string): import("rxjs").Subscription;
     /**
      * Import SW package configurations data from byte array (zip content)
      * @Return: ActionResponse
@@ -42,7 +42,7 @@ export declare class SysSystemService {
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
      * @Return: StreamingOutput of the content (zip)
      */
-    backupSystem(filter?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    backupSystem(filter?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Restore entire system (zip content)
      * @Return: ActionResponse

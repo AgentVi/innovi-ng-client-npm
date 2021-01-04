@@ -49,12 +49,12 @@ export declare class ReportsService {
      * Generate people counting report and stream it as CSV
      * @Return: StreamContent
      */
-    getPeopleCountingReport(sensorId?: string[], folderId?: string[], from?: number, to?: number, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    getPeopleCountingReport(sensorId?: string[], folderId?: string[], from?: number, to?: number, fileName?: string): import("rxjs").Subscription;
     /**
      * Generate traffic analysis report and stream it as CSV
      * @Return: StreamContent
      */
-    getTrafficAnalysisReport(sensorId?: string[], folderId?: string[], from?: number, to?: number, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    getTrafficAnalysisReport(sensorId?: string[], folderId?: string[], from?: number, to?: number, fileName?: string): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<ReportsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<ReportsService>;
 }

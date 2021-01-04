@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { SearchDefinition } from '../entities/SearchDefinition';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -83,7 +83,7 @@ export declare class SearchService {
      * Get search event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(sessionId?: string, eventId?: string, fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    getEventImage(sessionId?: string, eventId?: string, fileName?: string): import("rxjs").Subscription;
     /**
      * Get multiple search events by list of ids
      * @Return: EntitiesResponse<SearchDefinition>
@@ -103,7 +103,7 @@ export declare class SearchService {
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string, mimeType?: string): import("rxjs").Subscription;
+    exportEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>
