@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
 import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
@@ -87,6 +87,11 @@ export declare class AccountsService {
      * @Return: EntityResponse<UsageReport>
      */
     getUsageReport(year?: number, month?: number): import("rxjs").Observable<any>;
+    /**
+     * Export account usage report to a file (for billing)
+     * @Return: StreamContent
+     */
+    exportUsageReport(year?: number, month?: number, format?: string): import("rxjs").Subscription;
     static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
 }
