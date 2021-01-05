@@ -6343,7 +6343,7 @@ class RestUtil {
         const resourceUrl = this.buildUrl(url, ...params);
         // extract format and file name
         let ext = 'json';
-        let fn = null;
+        let fn = fileName;
         params.forEach(p => {
             let arr = p.split('=');
             if (arr.length > 1) {
@@ -6355,7 +6355,7 @@ class RestUtil {
                 }
             }
         });
-        const downloadLink = fileName + '.' + ext;
+        const downloadLink = fn + '.' + ext;
         return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe((data) => {
             const downloadURL = window.URL.createObjectURL(data);
             const link = document.createElement('a');

@@ -7759,7 +7759,7 @@
            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
            // extract format and file name
            var ext = 'json';
-           var fn = null;
+           var fn = fileName;
            params.forEach(function (p) {
                var arr = p.split('=');
                if (arr.length > 1) {
@@ -7771,7 +7771,7 @@
                    }
                }
            });
-           var downloadLink = fileName + '.' + ext;
+           var downloadLink = fn + '.' + ext;
            return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe(function (data) {
                var downloadURL = window.URL.createObjectURL(data);
                var link = document.createElement('a');
