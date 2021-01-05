@@ -7619,9 +7619,9 @@ class CasesService {
     }
     /**
      * Get all timestamped objects of the provided case event
-     * @Return: EntityResponse<TimestampedCrop>
+     * @Return: EntityResponse<TimestampedCropsData>
      */
-    getEventObjectCrops(id, eventId) {
+    getEventObjectCropsData(id, eventId) {
         return this.rest.get(`${this.baseUrl}/${id}/events/${eventId}`);
     }
     /**
@@ -9358,7 +9358,7 @@ class SearchService {
      * Get search event object crops (for animation)
      * @Return: EntityResponse<TimestampedCropsData>
      */
-    getEventObjectCrops(sessionId, eventId) {
+    getEventObjectCropsData(sessionId, eventId) {
         return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/events/${eventId}/crops`);
     }
 }

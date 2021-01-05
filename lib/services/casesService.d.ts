@@ -52,9 +52,9 @@ export declare class CasesService {
     removeSearchEvents(id?: string, eventId?: string[]): import("rxjs").Observable<any>;
     /**
      * Get all timestamped objects of the provided case event
-     * @Return: EntityResponse<TimestampedCrop>
+     * @Return: EntityResponse<TimestampedCropsData>
      */
-    getEventObjectCrops(id?: string, eventId?: string): import("rxjs").Observable<any>;
+    getEventObjectCropsData(id?: string, eventId?: string): import("rxjs").Observable<any>;
     /**
      * Get single timestamped object of the provided case event
      * @Return: EntityResponse<TimestampedCrop>

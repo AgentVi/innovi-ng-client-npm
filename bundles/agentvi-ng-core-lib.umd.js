@@ -9129,9 +9129,9 @@
        };
        /**
         * Get all timestamped objects of the provided case event
-        * @Return: EntityResponse<TimestampedCrop>
+        * @Return: EntityResponse<TimestampedCropsData>
         */
-       CasesService.prototype.getEventObjectCrops = function (id, eventId) {
+       CasesService.prototype.getEventObjectCropsData = function (id, eventId) {
            return this.rest.get(this.baseUrl + "/" + id + "/events/" + eventId);
        };
        /**
@@ -10973,7 +10973,7 @@
         * Get search event object crops (for animation)
         * @Return: EntityResponse<TimestampedCropsData>
         */
-       SearchService.prototype.getEventObjectCrops = function (sessionId, eventId) {
+       SearchService.prototype.getEventObjectCropsData = function (sessionId, eventId) {
            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/events/" + eventId + "/crops");
        };
        return SearchService;
