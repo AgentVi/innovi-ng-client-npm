@@ -6780,6 +6780,17 @@
 
    /*
    */
+   var SensorUsageReportRequest = /** @class */ (function () {
+       function SensorUsageReportRequest(sensorId, year, month) {
+           this.sensorId = sensorId;
+           this.year = year;
+           this.month = month;
+       }
+       return SensorUsageReportRequest;
+   }());
+
+   /*
+   */
    var SensorsCountRequest = /** @class */ (function () {
        function SensorsCountRequest(folderId, subFolders, sensorType, status, streamType) {
            this.folderId = folderId;
@@ -7317,6 +7328,18 @@
            this.body = body;
        }
        return SysKeysServiceUpdateBulkRequest;
+   }());
+
+   /*
+   */
+   var SysSensorUsageReportRequest = /** @class */ (function () {
+       function SysSensorUsageReportRequest(id, sensorId, year, month) {
+           this.id = id;
+           this.sensorId = sensorId;
+           this.year = year;
+           this.month = month;
+       }
+       return SysSensorUsageReportRequest;
    }());
 
    /*
@@ -8052,6 +8075,13 @@
         */
        AccountsService.prototype.getUsageReport = function (year, month) {
            return this.rest.get(this.baseUrl + "/usage-report/" + year + "/" + month);
+       };
+       /**
+        * Get sensor usage report (for billing)
+        * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
+        */
+       AccountsService.prototype.getSensorUsageReport = function (sensorId, year, month) {
+           return this.rest.get(this.baseUrl + "/sensor-usage-report/" + year + "/" + month);
        };
        /**
         * Export account usage report to a file (for billing)
@@ -11609,6 +11639,13 @@
            return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
        };
        /**
+        * Get sensor usage report (for billing)
+        * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
+        */
+       SysAccountsService.prototype.getSensorUsageReport = function (id, sensorId, year, month) {
+           return this.rest.get(this.baseUrl + "/" + id + "/sensor-usage-report/" + year + "/" + month);
+       };
+       /**
         * Export account usage report to a file (for billing)
         * @Return: StreamContent
         */
@@ -14178,6 +14215,7 @@
    exports.SensorStatus = SensorStatus;
    exports.SensorStatusTimeSeries = SensorStatusTimeSeries;
    exports.SensorStatusTimestamped = SensorStatusTimestamped;
+   exports.SensorUsageReportRequest = SensorUsageReportRequest;
    exports.SensorsCountRequest = SensorsCountRequest;
    exports.SensorsGroup = SensorsGroup;
    exports.SensorsService = SensorsService;
@@ -14244,6 +14282,7 @@
    exports.SysKeysServiceCreatePasswordRequest = SysKeysServiceCreatePasswordRequest;
    exports.SysKeysServiceCreateTokenRequest = SysKeysServiceCreateTokenRequest;
    exports.SysKeysServiceUpdateBulkRequest = SysKeysServiceUpdateBulkRequest;
+   exports.SysSensorUsageReportRequest = SysSensorUsageReportRequest;
    exports.SysSensorsCountRequest = SysSensorsCountRequest;
    exports.SysSensorsFetchObjectsCropsRequest = SysSensorsFetchObjectsCropsRequest;
    exports.SysSensorsService = SysSensorsService;
