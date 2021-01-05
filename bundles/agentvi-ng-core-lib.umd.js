@@ -8081,7 +8081,7 @@
         * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
         */
        AccountsService.prototype.getSensorUsageReport = function (sensorId, year, month) {
-           return this.rest.get(this.baseUrl + "/sensor-usage-report/" + year + "/" + month);
+           return this.rest.get(this.baseUrl + "/sensor-usage-report/" + sensorId + "/" + year + "/" + month);
        };
        /**
         * Export account usage report to a file (for billing)
@@ -11643,7 +11643,7 @@
         * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
         */
        SysAccountsService.prototype.getSensorUsageReport = function (id, sensorId, year, month) {
-           return this.rest.get(this.baseUrl + "/" + id + "/sensor-usage-report/" + year + "/" + month);
+           return this.rest.get(this.baseUrl + "/" + id + "/sensor-usage-report/" + sensorId + "/" + year + "/" + month);
        };
        /**
         * Export account usage report to a file (for billing)

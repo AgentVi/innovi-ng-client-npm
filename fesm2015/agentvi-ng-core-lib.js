@@ -6630,7 +6630,7 @@ class AccountsService {
      * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
      */
     getSensorUsageReport(sensorId, year, month) {
-        return this.rest.get(`${this.baseUrl}/sensor-usage-report/${year}/${month}`);
+        return this.rest.get(`${this.baseUrl}/sensor-usage-report/${sensorId}/${year}/${month}`);
     }
     /**
      * Export account usage report to a file (for billing)
@@ -10002,7 +10002,7 @@ class SysAccountsService {
      * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
      */
     getSensorUsageReport(id, sensorId, year, month) {
-        return this.rest.get(`${this.baseUrl}/${id}/sensor-usage-report/${year}/${month}`);
+        return this.rest.get(`${this.baseUrl}/${id}/sensor-usage-report/${sensorId}/${year}/${month}`);
     }
     /**
      * Export account usage report to a file (for billing)
