@@ -49,6 +49,7 @@ export * from './SearchShape';
 export * from './Sensor';
 export * from './SensorAnalysisResults';
 export * from './SensorStatus';
+export * from './SensorUsage';
 export * from './UpdateStatus';
 export * from './UsageReport';
 export * from './User';
