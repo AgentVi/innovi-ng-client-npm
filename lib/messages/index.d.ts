@@ -63,6 +63,7 @@ export * from './CasesServiceCreateRequest';
 export * from './CasesServiceDeleteEventsRequest';
 export * from './CasesServiceFindRequest';
 export * from './CasesServiceGetEventCropsRequest';
+export * from './CasesServiceUpdateEventDescriptionRequest';
 export * from './CasesServiceUpdateRequest';
 export * from './ChangeGeoAreaRequest';
 export * from './ChangeGeoLocationRequest';

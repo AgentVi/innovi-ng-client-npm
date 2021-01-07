@@ -4343,10 +4343,11 @@
    /*
    */
    var CasesServiceAddEventsRequest = /** @class */ (function () {
-       function CasesServiceAddEventsRequest(id, sessionId, eventId) {
+       function CasesServiceAddEventsRequest(id, sessionId, eventId, description) {
            this.id = id;
            this.sessionId = sessionId;
            this.eventId = eventId;
+           this.description = description;
        }
        return CasesServiceAddEventsRequest;
    }());
@@ -4390,6 +4391,17 @@
            this.eventId = eventId;
        }
        return CasesServiceGetEventCropsRequest;
+   }());
+
+   /*
+   */
+   var CasesServiceUpdateEventDescriptionRequest = /** @class */ (function () {
+       function CasesServiceUpdateEventDescriptionRequest(id, eventId, description) {
+           this.id = id;
+           this.eventId = eventId;
+           this.description = description;
+       }
+       return CasesServiceUpdateEventDescriptionRequest;
    }());
 
    /*
@@ -9126,13 +9138,25 @@
         * Add bulk of search events to the case
         * @Return: EntityResponse<CaseInfo>
         */
-       CasesService.prototype.addSearchEvents = function (id, sessionId, eventId) {
+       CasesService.prototype.addSearchEvents = function (id, sessionId, eventId, description) {
            var _a;
            var params = new Array();
            if (eventId != null) {
                params.push("eventId=" + eventId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/sessions/" + sessionId + "/events", null], params));
+           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/sessions/" + sessionId + "/events", typeof description === 'object' ? JSON.stringify(description) : description], params));
+       };
+       /**
+        * Update event description
+        * @Return: EntityResponse<CaseInfo>
+        */
+       CasesService.prototype.updateEventDescription = function (id, eventId, description) {
+           var _a;
+           var params = new Array();
+           if (eventId != null) {
+               params.push("eventId=" + eventId);
+           }
+           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/events/{eventId}/description", typeof description === 'object' ? JSON.stringify(description) : description], params));
        };
        /**
         * Remove bulk of search events from the case
@@ -13895,6 +13919,7 @@
    exports.CasesServiceDeleteEventsRequest = CasesServiceDeleteEventsRequest;
    exports.CasesServiceFindRequest = CasesServiceFindRequest;
    exports.CasesServiceGetEventCropsRequest = CasesServiceGetEventCropsRequest;
+   exports.CasesServiceUpdateEventDescriptionRequest = CasesServiceUpdateEventDescriptionRequest;
    exports.CasesServiceUpdateRequest = CasesServiceUpdateRequest;
    exports.ChangeGeoAreaRequest = ChangeGeoAreaRequest;
    exports.ChangeGeoLocationRequest = ChangeGeoLocationRequest;
