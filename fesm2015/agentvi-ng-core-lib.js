@@ -7628,11 +7628,7 @@ class CasesService {
      * @Return: EntityResponse<CaseInfo>
      */
     updateEventDescription(id, eventId, description) {
-        const params = new Array();
-        if (eventId != null) {
-            params.push(`eventId=${eventId}`);
-        }
-        return this.rest.put(`${this.baseUrl}/${id}/events/{eventId}/description`, typeof description === 'object' ? JSON.stringify(description) : description, ...params);
+        return this.rest.put(`${this.baseUrl}/${id}/events/${eventId}/description`, typeof description === 'object' ? JSON.stringify(description) : description);
     }
     /**
      * Remove bulk of search events from the case

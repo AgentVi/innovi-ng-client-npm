@@ -9151,12 +9151,7 @@
         * @Return: EntityResponse<CaseInfo>
         */
        CasesService.prototype.updateEventDescription = function (id, eventId, description) {
-           var _a;
-           var params = new Array();
-           if (eventId != null) {
-               params.push("eventId=" + eventId);
-           }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/events/{eventId}/description", typeof description === 'object' ? JSON.stringify(description) : description], params));
+           return this.rest.put(this.baseUrl + "/" + id + "/events/" + eventId + "/description", typeof description === 'object' ? JSON.stringify(description) : description);
        };
        /**
         * Remove bulk of search events from the case
