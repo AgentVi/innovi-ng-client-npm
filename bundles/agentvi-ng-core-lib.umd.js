@@ -664,11 +664,12 @@
       Object Metadata info
    */
    var ObjectInfo = /** @class */ (function () {
-       function ObjectInfo(objectId, sensorId, birthTime, instances) {
+       function ObjectInfo(objectId, sensorId, accountId, birthTime, objectHistory) {
            this.objectId = objectId;
            this.sensorId = sensorId;
+           this.accountId = accountId;
            this.birthTime = birthTime;
-           this.instances = instances;
+           this.objectHistory = objectHistory;
        }
        return ObjectInfo;
    }());

@@ -614,11 +614,12 @@ class ObjectColor {
    Object Metadata info
 */
 class ObjectInfo {
-    constructor(objectId, sensorId, birthTime, instances) {
+    constructor(objectId, sensorId, accountId, birthTime, objectHistory) {
         this.objectId = objectId;
         this.sensorId = sensorId;
+        this.accountId = accountId;
         this.birthTime = birthTime;
-        this.instances = instances;
+        this.objectHistory = objectHistory;
     }
 }
 
