@@ -93,6 +93,11 @@ export declare class SysAccountsService {
      */
     find(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
+     * Find list of accounts and filter but replace group Ids with group names
+     * @Return: QueryResponse<Account>
+     */
+    report(search?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
      * Get account hierarchy
      * @Return: EntityResponse<TreeNode>
      */

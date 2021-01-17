@@ -11559,6 +11559,33 @@
            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
        };
        /**
+        * Find list of accounts and filter but replace group Ids with group names
+        * @Return: QueryResponse<Account>
+        */
+       SysAccountsService.prototype.report = function (search, type, status, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/report"], params));
+       };
+       /**
         * Get account hierarchy
         * @Return: EntityResponse<TreeNode>
         */
