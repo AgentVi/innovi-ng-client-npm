@@ -7813,26 +7813,29 @@
                params[_i - 2] = arguments[_i];
            }
            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var downloadLink = fileName;
            // extract format and file name
-           var ext = 'json';
-           var fn = fileName;
-           params.forEach(function (p) {
-               var arr = p.split('=');
-               if (arr.length > 1) {
-                   if (arr[0].toLowerCase() === 'format') {
-                       ext = arr[1];
+           if (fileName.includes('.') === false) {
+               var ext_1 = 'json';
+               var fn_1 = fileName;
+               params.forEach(function (p) {
+                   var arr = p.split('=');
+                   if (arr.length > 1) {
+                       if (arr[0].toLowerCase() === 'format') {
+                           ext_1 = arr[1];
+                       }
+                       if (arr[0].toLowerCase() === 'filename') {
+                           fn_1 = arr[1];
+                       }
                    }
-                   if (arr[0].toLowerCase() === 'filename') {
-                       fn = arr[1];
-                   }
-               }
-           });
-           var downloadLink = fn + '.' + ext;
+               });
+               downloadLink = fn_1 + '.' + ext_1;
+           }
            return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe(function (data) {
                var downloadURL = window.URL.createObjectURL(data);
                var link = document.createElement('a');
                link.href = downloadURL;
-               if (fn) {
+               if (downloadLink) {
                    link.download = downloadLink;
                }
                link.click();
