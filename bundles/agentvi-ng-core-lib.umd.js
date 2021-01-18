@@ -7813,9 +7813,15 @@
                params[_i - 2] = arguments[_i];
            }
            var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           if (!fileName) {
+               fileName = 'download';
+           }
            var downloadLink = fileName;
            // extract format and file name
-           if (fileName.includes('.') === false) {
+           if (fileName.indexOf('.') > 0) {
+               downloadLink = fileName;
+           }
+           else {
                var ext_1 = 'json';
                var fn_1 = fileName;
                params.forEach(function (p) {
@@ -7835,9 +7841,7 @@
                var downloadURL = window.URL.createObjectURL(data);
                var link = document.createElement('a');
                link.href = downloadURL;
-               if (downloadLink) {
-                   link.download = downloadLink;
-               }
+               link.download = downloadLink;
                link.click();
            });
        };

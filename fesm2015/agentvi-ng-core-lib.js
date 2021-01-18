@@ -6381,9 +6381,15 @@ class RestUtil {
      */
     download(fileName, url, ...params) {
         const resourceUrl = this.buildUrl(url, ...params);
+        if (!fileName) {
+            fileName = 'download';
+        }
         let downloadLink = fileName;
         // extract format and file name
-        if (fileName.includes('.') === false) {
+        if (fileName.indexOf('.') > 0) {
+            downloadLink = fileName;
+        }
+        else {
             let ext = 'json';
             let fn = fileName;
             params.forEach(p => {
@@ -6403,9 +6409,7 @@ class RestUtil {
             const downloadURL = window.URL.createObjectURL(data);
             const link = document.createElement('a');
             link.href = downloadURL;
-            if (downloadLink) {
-                link.download = downloadLink;
-            }
+            link.download = downloadLink;
             link.click();
         });
     }
