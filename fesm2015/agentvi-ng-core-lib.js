@@ -6040,8 +6040,9 @@ class SysSetLogLevelRequest {
 /*
 */
 class SysSystemBackupRequest {
-    constructor(filter) {
+    constructor(filter, fileName) {
         this.filter = filter;
+        this.fileName = fileName;
     }
 }
 
@@ -11270,12 +11271,15 @@ class SysSystemService {
     /**
      * Backup entire system (configurations, users and accounts)
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
-     * @Return: StreamingOutput of the content (zip)
+     * @Return: StreamContent
      */
-    backupSystem(filter) {
+    backupSystem(filter, fileName) {
         const params = new Array();
         if (filter != null) {
             params.push(`filter=${filter}`);
+        }
+        if (fileName != null) {
+            params.push(`fileName=${fileName}`);
         }
         return this.rest.download(`sys-system`, `${this.baseUrl}/backup`, ...params);
     }

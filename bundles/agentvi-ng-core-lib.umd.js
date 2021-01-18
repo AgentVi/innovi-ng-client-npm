@@ -7431,8 +7431,9 @@
    /*
    */
    var SysSystemBackupRequest = /** @class */ (function () {
-       function SysSystemBackupRequest(filter) {
+       function SysSystemBackupRequest(filter, fileName) {
            this.filter = filter;
+           this.fileName = fileName;
        }
        return SysSystemBackupRequest;
    }());
@@ -12994,13 +12995,16 @@
        /**
         * Backup entire system (configurations, users and accounts)
         * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
-        * @Return: StreamingOutput of the content (zip)
+        * @Return: StreamContent
         */
-       SysSystemService.prototype.backupSystem = function (filter) {
+       SysSystemService.prototype.backupSystem = function (filter, fileName) {
            var _a;
            var params = new Array();
            if (filter != null) {
                params.push("filter=" + filter);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
            }
            return (_a = this.rest).download.apply(_a, __spread(["sys-system", this.baseUrl + "/backup"], params));
        };

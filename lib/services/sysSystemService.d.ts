@@ -40,9 +40,9 @@ export declare class SysSystemService {
     /**
      * Backup entire system (configurations, users and accounts)
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
-     * @Return: StreamingOutput of the content (zip)
+     * @Return: StreamContent
      */
-    backupSystem(filter?: string[]): import("rxjs").Subscription;
+    backupSystem(filter?: string[], fileName?: string): import("rxjs").Subscription;
     /**
      * Restore entire system (zip content)
      * @Return: ActionResponse

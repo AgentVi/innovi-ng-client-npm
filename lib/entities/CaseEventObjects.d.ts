@@ -1,11 +1,11 @@
-import { EventStatusCode } from '../enums/EventStatusCode';
-import { ObjectInfo } from '../common/ObjectInfo';
-import { BaseEntity } from '../entities/BaseEntity';
-import { BoundingBox } from '../common/BoundingBox';
-import { TimestampedCrop } from '../common/TimestampedCrop';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { Coordinate } from '../common/Coordinate';
+import { ObjectInfo } from '../common/ObjectInfo';
+import { BoundingBox } from '../common/BoundingBox';
+import { TimestampedCrop } from '../common/TimestampedCrop';
+import { BaseEntity } from '../entities/BaseEntity';
+import { EventStatusCode } from '../enums/EventStatusCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 export declare class CaseEventObjects extends BaseEntity {
     sensorId: string;
