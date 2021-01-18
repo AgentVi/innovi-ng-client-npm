@@ -1,4 +1,4 @@
 export declare class SysSystemBackupRequest {
-    filter: string;
-    constructor(filter?: string);
+    filter: string[];
+    constructor(filter?: string[]);
 }

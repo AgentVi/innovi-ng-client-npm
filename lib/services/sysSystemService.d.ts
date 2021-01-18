@@ -42,7 +42,7 @@ export declare class SysSystemService {
      * Filter parameter values: empty = backup all, config = backup configuration only, users = backup users only, <accountId> = backup account data
      * @Return: StreamingOutput of the content (zip)
      */
-    backupSystem(filter?: string): import("rxjs").Subscription;
+    backupSystem(filter?: string[]): import("rxjs").Subscription;
     /**
      * Restore entire system (zip content)
      * @Return: ActionResponse
