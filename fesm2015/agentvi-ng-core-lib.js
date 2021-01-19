@@ -6381,39 +6381,23 @@ class RestUtil {
      */
     download(fileName, url, ...params) {
         const resourceUrl = this.buildUrl(url, ...params);
-        if (!fileName) {
-            fileName = 'download';
-        }
         let downloadLink = fileName;
-        console.log('download', fileName, params);
-        // extract format and file name
-        /*
-        if (fileName.indexOf('.') > 0) {
-          downloadLink = fileName;
-        } else {
-          let ext = 'json';
-          let fn = fileName;
-          params.forEach(p => {
+        // extract file name
+        params.forEach(p => {
             let arr = p.split('=');
             if (arr.length > 1) {
-              if (arr[0].toLowerCase() === 'format') {
-                ext = arr[1];
-              }
-              if (arr[0].toLowerCase() === 'filename') {
-                fn = arr[1];
-              }
+                if (arr[0].toLowerCase() === 'filename') {
+                    downloadLink = arr[1];
+                }
             }
-          });
-          downloadLink = fn + '.' + ext;
-        }
-        */
+        });
         return this.http.get(resourceUrl, { responseType: 'blob' }).subscribe((data) => {
             const downloadURL = window.URL.createObjectURL(data);
             const link = document.createElement('a');
             link.href = downloadURL;
             link.download = downloadLink;
-            console.log('downloadURL', downloadURL);
-            console.log('downloadLink', downloadLink);
+            // console.log('downloadURL', downloadURL);
+            // console.log('downloadLink', downloadLink);
             link.click();
         });
     }
