@@ -5,5 +5,7 @@ export declare class AccountSettings {
     ruleColor: number;
     maskColor: number;
     enableAnomalyByDefault: boolean;
-    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number, enableAnomalyByDefault?: boolean);
+    dateFormat: string;
+    dateTimeFormat: string;
+    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number, enableAnomalyByDefault?: boolean, dateFormat?: string, dateTimeFormat?: string);
 }

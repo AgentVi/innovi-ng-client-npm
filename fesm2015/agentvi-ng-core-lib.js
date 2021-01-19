@@ -40,12 +40,14 @@ class AccountRole {
    Account specific settings
 */
 class AccountSettings {
-    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault) {
+    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat) {
         this.retentionDays = retentionDays;
         this.objectColors = objectColors;
         this.ruleColor = ruleColor;
         this.maskColor = maskColor;
         this.enableAnomalyByDefault = enableAnomalyByDefault;
+        this.dateFormat = dateFormat;
+        this.dateTimeFormat = dateTimeFormat;
     }
 }
 

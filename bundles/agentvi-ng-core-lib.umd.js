@@ -43,12 +43,14 @@
       Account specific settings
    */
    var AccountSettings = /** @class */ (function () {
-       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault) {
+       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat) {
            this.retentionDays = retentionDays;
            this.objectColors = objectColors;
            this.ruleColor = ruleColor;
            this.maskColor = maskColor;
            this.enableAnomalyByDefault = enableAnomalyByDefault;
+           this.dateFormat = dateFormat;
+           this.dateTimeFormat = dateTimeFormat;
        }
        return AccountSettings;
    }());
