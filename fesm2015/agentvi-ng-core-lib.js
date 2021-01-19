@@ -6385,6 +6385,7 @@ class RestUtil {
             fileName = 'download';
         }
         let downloadLink = fileName;
+        console.log('download', fileName, params);
         // extract format and file name
         /*
         if (fileName.indexOf('.') > 0) {
@@ -6411,6 +6412,8 @@ class RestUtil {
             const link = document.createElement('a');
             link.href = downloadURL;
             link.download = downloadLink;
+            console.log('downloadURL', downloadURL);
+            console.log('downloadLink', downloadLink);
             link.click();
         });
     }

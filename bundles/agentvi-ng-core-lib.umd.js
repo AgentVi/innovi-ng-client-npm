@@ -7817,6 +7817,7 @@
                fileName = 'download';
            }
            var downloadLink = fileName;
+           console.log('download', fileName, params);
            // extract format and file name
            /*
            if (fileName.indexOf('.') > 0) {
@@ -7843,6 +7844,8 @@
                var link = document.createElement('a');
                link.href = downloadURL;
                link.download = downloadLink;
+               console.log('downloadURL', downloadURL);
+               console.log('downloadLink', downloadLink);
                link.click();
            });
        };
