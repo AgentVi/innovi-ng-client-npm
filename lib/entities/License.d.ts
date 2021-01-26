@@ -1,5 +1,6 @@
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class License extends BaseEntity {
+    name: string;
     customerId: string;
     customerName: string;
     deploymentId: string;

@@ -5557,6 +5557,16 @@
 
    /*
    */
+   var EventsServiceSetBulkStatusRequest = /** @class */ (function () {
+       function EventsServiceSetBulkStatusRequest(id, status) {
+           this.id = id;
+           this.status = status;
+       }
+       return EventsServiceSetBulkStatusRequest;
+   }());
+
+   /*
+   */
    var EventsServiceSetClipPathRequest = /** @class */ (function () {
        function EventsServiceSetClipPathRequest(id, body) {
            this.id = id;
@@ -7935,8 +7945,8 @@
    }());
    /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(i0.ɵɵinject(i1.HttpClient)); };
    /** @nocollapse */ RestUtil.ɵprov = i0.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(RestUtil, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestUtil, [{
                type: i0.Injectable
            }], function () { return [{ type: i1.HttpClient }]; }, null);
    })();
@@ -8132,8 +8142,8 @@
    }());
    /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ AccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(AccountsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AccountsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8257,8 +8267,8 @@
    }());
    /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ AnomalyService.ɵprov = i0.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(AnomalyService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AnomalyService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8331,8 +8341,8 @@
    }());
    /** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ ApplianceDigitalIOService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(ApplianceDigitalIOService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceDigitalIOService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8409,8 +8419,8 @@
    }());
    /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ ApplianceProfilesService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(ApplianceProfilesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceProfilesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8809,8 +8819,8 @@
    }());
    /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ AppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(AppliancesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppliancesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8916,8 +8926,8 @@
    }());
    /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ AuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(AuditLogService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AuditLogService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9057,8 +9067,8 @@
    }());
    /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ CalendarsService.ɵprov = i0.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(CalendarsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CalendarsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9182,8 +9192,8 @@
    }());
    /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ CasesService.ɵprov = i0.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(CasesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CasesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9218,24 +9228,25 @@
        };
        /**
         * Change event workflow status
-        * @Return: EntityResponse<Event>
+        * @Return: ActionResponse
         */
        EventsService.prototype.changeStatus = function (id, status) {
            return this.rest.put(this.baseUrl + "/" + id + "/status/" + status, null);
        };
        /**
-        * Set event image path
-        * @Return: EntityResponse<Event>
+        * Change multiple events workflow status
+        * @Return: ActionResponse
         */
-       EventsService.prototype.setImagePath = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/imagePath", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Set event clip path
-        * @Return: EntityResponse<Event>
-        */
-       EventsService.prototype.setClipPath = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/clipPath", typeof body === 'object' ? JSON.stringify(body) : body);
+       EventsService.prototype.changeBulkStatuses = function (id, status) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/bulk-status", null], params));
        };
        /**
         * Get single event by id
@@ -9460,8 +9471,8 @@
    }());
    /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ EventsService.ɵprov = i0.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(EventsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9703,8 +9714,8 @@
    }());
    /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ FoldersService.ɵprov = i0.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(FoldersService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FoldersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9753,8 +9764,8 @@
    }());
    /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ GeoService.ɵprov = i0.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(GeoService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GeoService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9789,8 +9800,8 @@
    }());
    /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ HealthCheckService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(HealthCheckService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthCheckService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9860,8 +9871,8 @@
    }());
    /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ HealthEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(HealthEventsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthEventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10033,8 +10044,8 @@
    }());
    /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ IntegrationsService.ɵprov = i0.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(IntegrationsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(IntegrationsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10106,8 +10117,8 @@
    }());
    /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ LicensesService.ɵprov = i0.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(LicensesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LicensesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10231,8 +10242,8 @@
    }());
    /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ ReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(ReportsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ReportsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10535,8 +10546,8 @@
    }());
    /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ RulesService.ɵprov = i0.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(RulesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RulesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10618,8 +10629,8 @@
    }());
    /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ ScheduledReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(ScheduledReportsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScheduledReportsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10735,8 +10746,8 @@
    }());
    /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SchedulesService.ɵprov = i0.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SchedulesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SchedulesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11017,8 +11028,8 @@
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SearchService.ɵprov = i0.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SearchService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SearchService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11399,8 +11410,8 @@
    }());
    /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SensorsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SensorsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11728,8 +11739,8 @@
    }());
    /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysAccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysAccountsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAccountsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12131,8 +12142,8 @@
    }());
    /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysAppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysAppliancesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAppliancesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12307,8 +12318,8 @@
    }());
    /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysConfigurationsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysConfigurationsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysConfigurationsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12420,8 +12431,8 @@
    }());
    /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysEventsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysEventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12494,8 +12505,8 @@
    }());
    /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysFeaturesGroupsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysFeaturesGroupsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesGroupsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12571,8 +12582,8 @@
    }());
    /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysFeaturesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysFeaturesService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12705,8 +12716,8 @@
    }());
    /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysKeysService.ɵprov = i0.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysKeysService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysKeysService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12916,8 +12927,8 @@
    }());
    /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysSensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysSensorsService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSensorsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13023,8 +13034,8 @@
    }());
    /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysSystemService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysSystemService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSystemService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13213,8 +13224,8 @@
    }());
    /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysUsersService.ɵprov = i0.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysUsersService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysUsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13326,8 +13337,8 @@
    }());
    /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ SysAuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(SysAuditLogService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAuditLogService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13431,8 +13442,8 @@
    }());
    /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ UserService.ɵprov = i0.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(UserService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UserService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13606,8 +13617,8 @@
    }());
    /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
    /** @nocollapse */ UsersService.ɵprov = i0.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(UsersService, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13819,8 +13830,8 @@
    /** @nocollapse */ CoreLibModule.ɵmod = i0.ɵɵdefineNgModule({ type: CoreLibModule });
    /** @nocollapse */ CoreLibModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); }, imports: [[common.CommonModule, i1.HttpClientModule]] });
    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
-   /*@__PURE__*/ (function () {
-       i0.ɵsetClassMetadata(CoreLibModule, [{
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CoreLibModule, [{
                type: i0.NgModule,
                args: [{
                        imports: [common.CommonModule, i1.HttpClientModule]
@@ -14084,6 +14095,7 @@
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
    exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
    exports.EventsServiceFindRequest = EventsServiceFindRequest;
+   exports.EventsServiceSetBulkStatusRequest = EventsServiceSetBulkStatusRequest;
    exports.EventsServiceSetClipPathRequest = EventsServiceSetClipPathRequest;
    exports.EventsServiceSetImagePathRequest = EventsServiceSetImagePathRequest;
    exports.EventsServiceSetStatusRequest = EventsServiceSetStatusRequest;

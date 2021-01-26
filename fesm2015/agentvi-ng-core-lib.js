@@ -4444,6 +4444,15 @@ class EventsServiceFindRequest {
 
 /*
 */
+class EventsServiceSetBulkStatusRequest {
+    constructor(id, status) {
+        this.id = id;
+        this.status = status;
+    }
+}
+
+/*
+*/
 class EventsServiceSetClipPathRequest {
     constructor(id, body) {
         this.id = id;
@@ -6478,7 +6487,7 @@ class RestUtil {
 }
 /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(ɵɵinject(HttpClient)); };
 /** @nocollapse */ RestUtil.ɵprov = ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(RestUtil, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(RestUtil, [{
         type: Injectable
     }], function () { return [{ type: HttpClient }]; }, null); })();
 
@@ -6665,7 +6674,7 @@ class AccountsService {
 }
 /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ AccountsService.ɵprov = ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AccountsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AccountsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -6783,7 +6792,7 @@ class AnomalyService {
 }
 /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ AnomalyService.ɵprov = ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AnomalyService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AnomalyService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -6851,7 +6860,7 @@ class ApplianceDigitalIOService {
 }
 /** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ ApplianceDigitalIOService.ɵprov = ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(ApplianceDigitalIOService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ApplianceDigitalIOService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -6923,7 +6932,7 @@ class ApplianceProfilesService {
 }
 /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ ApplianceProfilesService.ɵprov = ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(ApplianceProfilesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ApplianceProfilesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7309,7 +7318,7 @@ class AppliancesService {
 }
 /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ AppliancesService.ɵprov = ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AppliancesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AppliancesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7409,7 +7418,7 @@ class AuditLogService {
 }
 /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ AuditLogService.ɵprov = ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AuditLogService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AuditLogService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7540,7 +7549,7 @@ class CalendarsService {
 }
 /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ CalendarsService.ɵprov = ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(CalendarsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CalendarsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7657,7 +7666,7 @@ class CasesService {
 }
 /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ CasesService.ɵprov = ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(CasesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CasesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7689,24 +7698,24 @@ class EventsService {
     }
     /**
      * Change event workflow status
-     * @Return: EntityResponse<Event>
+     * @Return: ActionResponse
      */
     changeStatus(id, status) {
         return this.rest.put(`${this.baseUrl}/${id}/status/${status}`, null);
     }
     /**
-     * Set event image path
-     * @Return: EntityResponse<Event>
+     * Change multiple events workflow status
+     * @Return: ActionResponse
      */
-    setImagePath(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/imagePath`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Set event clip path
-     * @Return: EntityResponse<Event>
-     */
-    setClipPath(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}/clipPath`, typeof body === 'object' ? JSON.stringify(body) : body);
+    changeBulkStatuses(id, status) {
+        const params = new Array();
+        if (id != null) {
+            params.push(`id=${id}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        return this.rest.put(`${this.baseUrl}/bulk-status`, null, ...params);
     }
     /**
      * Get single event by id
@@ -7925,7 +7934,7 @@ class EventsService {
 }
 /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ EventsService.ɵprov = ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(EventsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(EventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8156,7 +8165,7 @@ class FoldersService {
 }
 /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ FoldersService.ɵprov = ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(FoldersService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(FoldersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8201,7 +8210,7 @@ class GeoService {
 }
 /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ GeoService.ɵprov = ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(GeoService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(GeoService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8232,7 +8241,7 @@ class HealthCheckService {
 }
 /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ HealthCheckService.ɵprov = ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(HealthCheckService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(HealthCheckService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8297,7 +8306,7 @@ class HealthEventsService {
 }
 /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ HealthEventsService.ɵprov = ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(HealthEventsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(HealthEventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8460,7 +8469,7 @@ class IntegrationsService {
 }
 /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ IntegrationsService.ɵprov = ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(IntegrationsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(IntegrationsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8528,7 +8537,7 @@ class LicensesService {
 }
 /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ LicensesService.ɵprov = ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(LicensesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(LicensesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8644,7 +8653,7 @@ class ReportsService {
 }
 /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ ReportsService.ɵprov = ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(ReportsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ReportsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8932,7 +8941,7 @@ class RulesService {
 }
 /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ RulesService.ɵprov = ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(RulesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(RulesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9008,7 +9017,7 @@ class ScheduledReportsService {
 }
 /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ ScheduledReportsService.ɵprov = ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(ScheduledReportsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ScheduledReportsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9117,7 +9126,7 @@ class SchedulesService {
 }
 /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SchedulesService.ɵprov = ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SchedulesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SchedulesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9387,7 +9396,7 @@ class SearchService {
 }
 /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SearchService.ɵprov = ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SearchService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SearchService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9755,7 +9764,7 @@ class SensorsService {
 }
 /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SensorsService.ɵprov = ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SensorsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SensorsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10070,7 +10079,7 @@ class SysAccountsService {
 }
 /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysAccountsService.ɵprov = ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysAccountsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAccountsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10457,7 +10466,7 @@ class SysAppliancesService {
 }
 /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysAppliancesService.ɵprov = ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysAppliancesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAppliancesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10626,7 +10635,7 @@ class SysConfigurationsService {
 }
 /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysConfigurationsService.ɵprov = ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysConfigurationsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysConfigurationsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10732,7 +10741,7 @@ class SysEventsService {
 }
 /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysEventsService.ɵprov = ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysEventsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysEventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10800,7 +10809,7 @@ class SysFeaturesGroupsService {
 }
 /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysFeaturesGroupsService.ɵprov = ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysFeaturesGroupsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysFeaturesGroupsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10871,7 +10880,7 @@ class SysFeaturesService {
 }
 /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysFeaturesService.ɵprov = ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysFeaturesService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysFeaturesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10998,7 +11007,7 @@ class SysKeysService {
 }
 /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysKeysService.ɵprov = ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysKeysService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysKeysService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11198,7 +11207,7 @@ class SysSensorsService {
 }
 /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysSensorsService.ɵprov = ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysSensorsService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysSensorsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11297,7 +11306,7 @@ class SysSystemService {
 }
 /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysSystemService.ɵprov = ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysSystemService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysSystemService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11480,7 +11489,7 @@ class SysUsersService {
 }
 /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysUsersService.ɵprov = ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysUsersService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysUsersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11586,7 +11595,7 @@ class SysAuditLogService {
 }
 /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysAuditLogService.ɵprov = ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(SysAuditLogService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAuditLogService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11685,7 +11694,7 @@ class UserService {
 }
 /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ UserService.ɵprov = ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(UserService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(UserService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11853,7 +11862,7 @@ class UsersService {
 }
 /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
 /** @nocollapse */ UsersService.ɵprov = ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(UsersService, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(UsersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -12048,7 +12057,7 @@ class CoreLibModule {
 /** @nocollapse */ CoreLibModule.ɵmod = ɵɵdefineNgModule({ type: CoreLibModule });
 /** @nocollapse */ CoreLibModule.ɵinj = ɵɵdefineInjector({ factory: function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); }, imports: [[CommonModule, HttpClientModule]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(CoreLibModule, { imports: [CommonModule, HttpClientModule] }); })();
-/*@__PURE__*/ (function () { ɵsetClassMetadata(CoreLibModule, [{
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CoreLibModule, [{
         type: NgModule,
         args: [{
                 imports: [CommonModule, HttpClientModule]
@@ -12061,5 +12070,5 @@ class CoreLibModule {
  * Generated bundle index. Do not edit.
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatSummary, AccountStatistics, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsMonthStatisticsRequest, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceLogicalTreeRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, ActiveCode, Agent, AgentStateMask, AgentStatus, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfigReport, ApplianceConfigVersion, ApplianceConfiguration, ApplianceDigitalIOService, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceLogBatch, ApplianceLogEntry, ApplianceProfile, ApplianceProfileCreateRequest, ApplianceProfileFindRequest, ApplianceProfileIdRequest, ApplianceProfileIdsRequest, ApplianceProfileUpdateBulkRequest, ApplianceProfileUpdateRequest, ApplianceProfilesService, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStateMask, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceExportSensorsRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceGetLogsRequest, AppliancesServiceImportSensorsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, CaseEventObjects, CaseIdRequest, CaseInfo, CasesService, CasesServiceAddEventsRequest, CasesServiceCreateRequest, CasesServiceDeleteEventsRequest, CasesServiceFindRequest, CasesServiceGetEventCropsRequest, CasesServiceUpdateEventDescriptionRequest, CasesServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangeHealthThresholdsRequest, ChangePasswordRequest, ChangeTimezoneRequest, ClusterIdRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, ComponentVariables, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, DigitalIO, DigitalIOCreateRequest, DigitalIOFindRequest, DigitalIOIdRequest, DigitalIOStateMask, DigitalIOStatusCode, DigitalIOUpdateRequest, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EdgeEventImage, EdgeEventInfo, EdgeEventInfoBody, EdgeEventInfoMessage, EdgeEventObject, EdgeMetadata, EdgeMetadataBody, EdgeMetadataMessage, EmptyRequest, EmptyResponse, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountStatSummary, EntitiesResponseOfAccountStatistics, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfApplianceProfile, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfCaseInfo, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDigitalIO, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfIntegrationStatus, EntitiesResponseOfLicense, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSearchEvent, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntitiesResponseOfStringKeyValue, EntitiesResponseOfTimestampedCrop, EntitiesResponseOfUpdateStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceProfile, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfCaseInfo, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDigitalIO, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfHealthEvent, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfPreset, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSearchEvent, EntityResponseOfSearchStatus, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTimestampedCrop, EntityResponseOfTimestampedCropsData, EntityResponseOfTimestampedImage, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, EntityResponseUsageReport, EntityTypeCode, ErrorCode, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, ExportUsageReportRequest, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderExtIdsRequest, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeThresholdsRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthEvent, HealthEventFindRequest, HealthEventIdRequest, HealthEventsService, HealthSocketServiceOpen, HealthThresholds, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionFilter, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationStatus, IntegrationStatusCode, IntegrationStatusFindRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LicenseIdRequest, LicenseImportRequest, LicensesService, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MachineIdRequest, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, ObjectTypeReport, OnvifChannel, PeopleCountingReportRequest, Point, PortMapping, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfApplianceConfigReport, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfCaseInfo, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfHealthEvent, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationTarget, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSearchEvent, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUpdateStatus, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, RegisterServiceAccountRequest, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleExtIdsRequest, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceArmDisarmRequest, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServicePauseRequest, RulesServiceResumeRequest, RulesServiceUpdateRequest, RuntimeStatusCode, SSHInfo, SSHSocketCloseRequest, SSHSocketInputRequest, SSHSocketOpenRequest, SSHSocketOutputResponse, SSHSocketServiceOpen, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderParamsRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchEvent, SearchEventCountRequest, SearchEventCropsRequest, SearchEventExportRequest, SearchEventFindRequest, SearchEventIdRequest, SearchEventListRequest, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchSession, SearchSessionIdRequest, SearchShape, SearchStatus, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorExtIdsRequest, SensorIdRequest, SensorIdsRequest, SensorInfo, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorUsage, SensorUsageReportRequest, SensorsCountRequest, SensorsGroup, SensorsService, SensorsServiceAttachRequest, SensorsServiceBulkCreateRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceCropImageRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, ServiceAccountRegistration, Services, SeverityTypeCode, SocketEventNotification, SocketEventNotificationPayload, SocketEventsFilter, SocketEventsFilterPayload, SocketHealthStatusNotification, StatisticReport, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysApplianceBatchUpgradeFindRequest, SysApplianceBatchUpgradeRequest, SysApplianceConfigExportRequest, SysApplianceConfigReportRequest, SysApplianceGetLogsRequest, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysAuditLogService, SysAuditLogServiceExportRequest, SysAuditLogServiceFindRequest, SysConfigImportRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysExportUsageReportRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysKeysServiceUpdateBulkRequest, SysSensorUsageReportRequest, SysSensorsCountRequest, SysSensorsFetchObjectsCropsRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSetLogLevelRequest, SysSystemBackupRequest, SysSystemRestoreRequest, SysSystemService, SysUsageReportRequest, SysUsersService, Threshold, Thresholds, TimeFrame, TimeUnitCode, TimestampedCrop, TimestampedCropsData, TimestampedImage, TokenRequest, TrafficAnalysisReportRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, UsageReport, UsageReportRequest, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTokenRequest, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceRegisterRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, VMSGateway, VMSGatewayStateMask, VMSGatewayStatusCode, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatSummary, AccountStatistics, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsMonthStatisticsRequest, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceLogicalTreeRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionResponse, ActiveCode, Agent, AgentStateMask, AgentStatus, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfigReport, ApplianceConfigVersion, ApplianceConfiguration, ApplianceDigitalIOService, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceLogBatch, ApplianceLogEntry, ApplianceProfile, ApplianceProfileCreateRequest, ApplianceProfileFindRequest, ApplianceProfileIdRequest, ApplianceProfileIdsRequest, ApplianceProfileUpdateBulkRequest, ApplianceProfileUpdateRequest, ApplianceProfilesService, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStateMask, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceExportSensorsRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceGetLogsRequest, AppliancesServiceImportSensorsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, CaseEventObjects, CaseIdRequest, CaseInfo, CasesService, CasesServiceAddEventsRequest, CasesServiceCreateRequest, CasesServiceDeleteEventsRequest, CasesServiceFindRequest, CasesServiceGetEventCropsRequest, CasesServiceUpdateEventDescriptionRequest, CasesServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangeHealthThresholdsRequest, ChangePasswordRequest, ChangeTimezoneRequest, ClusterIdRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, ComponentVariables, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, DayOfWeekCode, DigitalIO, DigitalIOCreateRequest, DigitalIOFindRequest, DigitalIOIdRequest, DigitalIOStateMask, DigitalIOStatusCode, DigitalIOUpdateRequest, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EdgeEventImage, EdgeEventInfo, EdgeEventInfoBody, EdgeEventInfoMessage, EdgeEventObject, EdgeMetadata, EdgeMetadataBody, EdgeMetadataMessage, EmptyRequest, EmptyResponse, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountStatSummary, EntitiesResponseOfAccountStatistics, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfApplianceProfile, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfCaseInfo, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDigitalIO, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfIntegrationStatus, EntitiesResponseOfLicense, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSearchEvent, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntitiesResponseOfStringKeyValue, EntitiesResponseOfTimestampedCrop, EntitiesResponseOfUpdateStatus, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceProfile, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfCaseInfo, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDigitalIO, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfHealthEvent, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfLicense, EntityResponseOfLoginData, EntityResponseOfPreset, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSearchEvent, EntityResponseOfSearchStatus, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTimestampedCrop, EntityResponseOfTimestampedCropsData, EntityResponseOfTimestampedImage, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, EntityResponseUsageReport, EntityTypeCode, ErrorCode, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindInAreaRequest, EventsServiceFindRequest, EventsServiceSetBulkStatusRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, ExportUsageReportRequest, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, Folder, FolderExtIdsRequest, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeGeoAreaRequest, FoldersServiceChangeGeoLocationRequest, FoldersServiceChangeNameRequest, FoldersServiceChangeParentRequest, FoldersServiceChangeThresholdsRequest, FoldersServiceChangeTimezoneRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, HealthCheckService, HealthEvent, HealthEventFindRequest, HealthEventIdRequest, HealthEventsService, HealthSocketServiceOpen, HealthThresholds, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionFilter, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationStatus, IntegrationStatusCode, IntegrationStatusFindRequest, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, License, LicenseIdRequest, LicenseImportRequest, LicensesService, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MachineIdRequest, MapClientCode, ObjectColor, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeNode, ObjectTypeReport, OnvifChannel, PeopleCountingReportRequest, Point, PortMapping, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfApplianceConfigReport, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfCaseInfo, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFolder, QueryResponseOfHealthEvent, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationTarget, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfSearchDefinition, QueryResponseOfSearchEvent, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUpdateStatus, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, RegisterServiceAccountRequest, ReportDefinition, ReportIdRequest, ReportIdsRequest, ReportsService, ReportsServiceCreateRequest, ReportsServiceFindRequest, ReportsServiceUpdateRequest, RestUtil, Rule, RuleDefault, RuleExtIdsRequest, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceArmDisarmRequest, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServicePauseRequest, RulesServiceResumeRequest, RulesServiceUpdateRequest, RuntimeStatusCode, SSHInfo, SSHSocketCloseRequest, SSHSocketInputRequest, SSHSocketOpenRequest, SSHSocketOutputResponse, SSHSocketServiceOpen, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderParamsRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchEvent, SearchEventCountRequest, SearchEventCropsRequest, SearchEventExportRequest, SearchEventFindRequest, SearchEventIdRequest, SearchEventListRequest, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceUpdateRequest, SearchSession, SearchSessionIdRequest, SearchShape, SearchStatus, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorConfigChangeMask, SensorDebugInfo, SensorExtIdsRequest, SensorIdRequest, SensorIdsRequest, SensorInfo, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorUsage, SensorUsageReportRequest, SensorsCountRequest, SensorsGroup, SensorsService, SensorsServiceAttachRequest, SensorsServiceBulkCreateRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceCropImageRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdateRequest, ServiceAccountRegistration, Services, SeverityTypeCode, SocketEventNotification, SocketEventNotificationPayload, SocketEventsFilter, SocketEventsFilterPayload, SocketHealthStatusNotification, StatisticReport, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysApplianceBatchUpgradeFindRequest, SysApplianceBatchUpgradeRequest, SysApplianceConfigExportRequest, SysApplianceConfigReportRequest, SysApplianceGetLogsRequest, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysAuditLogService, SysAuditLogServiceExportRequest, SysAuditLogServiceFindRequest, SysConfigImportRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysExportUsageReportRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysKeysServiceUpdateBulkRequest, SysSensorUsageReportRequest, SysSensorsCountRequest, SysSensorsFetchObjectsCropsRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSetLogLevelRequest, SysSystemBackupRequest, SysSystemRestoreRequest, SysSystemService, SysUsageReportRequest, SysUsersService, Threshold, Thresholds, TimeFrame, TimeUnitCode, TimestampedCrop, TimestampedCropsData, TimestampedImage, TokenRequest, TrafficAnalysisReportRequest, TransformationTypeCode, TreeItem, TreeNode, UpdateStatus, UsageReport, UsageReportRequest, User, UserAccountInfo, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceChangePasswordRequest, UserServiceCheckPasswordRequest, UserServiceLoginRequest, UserServiceResetPasswordRequest, UserServiceSendVerificationRequest, UserServiceSwitchAccountRequest, UserServiceVerifyLoginRequest, UserStatusCode, UserTokenRequest, UserTypeCode, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceRegisterRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, VMSGateway, VMSGatewayStateMask, VMSGatewayStatusCode, Verification, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map

@@ -177,6 +177,7 @@ export * from './EventsServiceCreateRequest';
 export * from './EventsServiceExportRequest';
 export * from './EventsServiceFindInAreaRequest';
 export * from './EventsServiceFindRequest';
+export * from './EventsServiceSetBulkStatusRequest';
 export * from './EventsServiceSetClipPathRequest';
 export * from './EventsServiceSetImagePathRequest';
 export * from './EventsServiceSetStatusRequest';

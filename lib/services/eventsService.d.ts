@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Event } from '../entities/Event';
+import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
-import { Event } from '../entities/Event';
-import { EventStatusCode } from '../enums/EventStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -27,19 +27,14 @@ export declare class EventsService {
     create(body?: Event): import("rxjs").Observable<any>;
     /**
      * Change event workflow status
-     * @Return: EntityResponse<Event>
+     * @Return: ActionResponse
      */
     changeStatus(id?: string, status?: EventStatusCode): import("rxjs").Observable<any>;
     /**
-     * Set event image path
-     * @Return: EntityResponse<Event>
+     * Change multiple events workflow status
+     * @Return: ActionResponse
      */
-    setImagePath(id?: string, body?: string): import("rxjs").Observable<any>;
-    /**
-     * Set event clip path
-     * @Return: EntityResponse<Event>
-     */
-    setClipPath(id?: string, body?: string): import("rxjs").Observable<any>;
+    changeBulkStatuses(id?: string[], status?: EventStatusCode): import("rxjs").Observable<any>;
     /**
      * Get single event by id
      * @Return: EntityResponse<Event>
