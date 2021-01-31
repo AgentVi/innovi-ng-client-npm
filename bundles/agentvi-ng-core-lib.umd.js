@@ -1529,7 +1529,7 @@
       Some fields represents the device configuration (report intervals, docker credentials, components versions etc) and they are provided by the backend on device registration.
    */
    var ApplianceCapabilities = /** @class */ (function () {
-       function ApplianceCapabilities(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion, profileId, errors, uploadSpeed, downloadSpeed, speedTestedOn) {
+       function ApplianceCapabilities(productType, serialNumber, deviceModel, cpuModel, uuid, ip, host, dockerVersion, kernelVersion, totalRam, disks, commandInterval, statusInterval, dockerCredentials, configurationVersion, profileId, errors, uploadSpeed, downloadSpeed, speedTestedOn, endpoints) {
            this.productType = productType;
            this.serialNumber = serialNumber;
            this.deviceModel = deviceModel;
@@ -1550,6 +1550,7 @@
            this.uploadSpeed = uploadSpeed;
            this.downloadSpeed = downloadSpeed;
            this.speedTestedOn = speedTestedOn;
+           this.endpoints = endpoints;
        }
        return ApplianceCapabilities;
    }());
@@ -1647,12 +1648,13 @@
       SW Component version type
    */
    var ComponentConfiguration = /** @class */ (function () {
-       function ComponentConfiguration(id, component, dockerImage, variables, mounts, status) {
+       function ComponentConfiguration(id, component, dockerImage, variables, mounts, labels, status) {
            this.id = id;
            this.component = component;
            this.dockerImage = dockerImage;
            this.variables = variables;
            this.mounts = mounts;
+           this.labels = labels;
            this.status = status;
        }
        return ComponentConfiguration;
