@@ -66,6 +66,11 @@ export declare class UserService {
      * @Return: EntityResponse<UserAccountInfo>
      */
     switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
+    /**
+     * Mark the user who accepted the EULA agreement
+     * @Return: ActionResponse
+     */
+    acceptEula(): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<UserService, never>;
     static ɵprov: i0.ɵɵInjectableDef<UserService>;
 }
