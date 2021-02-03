@@ -76,7 +76,7 @@ export declare class RulesService {
      * Find rules by filters
      * @Return: QueryResponse<Rule>
      */
-    find(folderId?: string, physical?: boolean, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, physical?: boolean, applianceId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of rules and filter
      * @Return: StreamContent
