@@ -49,7 +49,7 @@ export declare class EventsService {
      * Find events by filters
      * @Return: QueryResponse<Event>
      */
-    find(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, subFolders?: boolean, sensorId?: string, applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of events and filter
      * @Return: StreamContent

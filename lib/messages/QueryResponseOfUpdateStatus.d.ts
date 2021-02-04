@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { UpdateStatus } from '../entities/UpdateStatus';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfUpdateStatus extends QueryResponse {
     list: UpdateStatus[];
     code: number;
