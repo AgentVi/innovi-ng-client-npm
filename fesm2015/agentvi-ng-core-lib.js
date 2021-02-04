@@ -2866,6 +2866,8 @@ var SensorStateMask;
     SensorStateMask[SensorStateMask["CRITICAL_FRAMERATE_ERROR"] = 2097152] = "CRITICAL_FRAMERATE_ERROR";
     // [ERROR] RTSP timeout, try toggling the multicast support setting [0x00400000] 
     SensorStateMask[SensorStateMask["SOURCE_ERROR_RTSP_TIMEOUT"] = 4194304] = "SOURCE_ERROR_RTSP_TIMEOUT";
+    // RTSP stream issue, try opening with VLC player 
+    SensorStateMask[SensorStateMask["SOURCE_ERROR_RTSP_NOT_SUPPORTED"] = 8388608] = "SOURCE_ERROR_RTSP_NOT_SUPPORTED";
     // [ERROR] Failed to download clip, check the path [0x01000000] 
     SensorStateMask[SensorStateMask["SOURCE_ERROR_CANT_DOWNLOAD_CLIP"] = 16777216] = "SOURCE_ERROR_CANT_DOWNLOAD_CLIP";
     // [ERROR] RTSP host not reachable, check the host and port address, try toggling the multicast support setting [0x02000000] 
