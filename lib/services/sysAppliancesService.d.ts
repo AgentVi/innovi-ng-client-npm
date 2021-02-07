@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
@@ -37,7 +37,7 @@ export declare class SysAppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Delete appliance from the system
      * @Return: ActionResponse
@@ -154,7 +154,7 @@ export declare class SysAppliancesService {
      * Export list of devices configurations (configured vs. actual)
      * @Return:  StreamingOutput of the report file
      */
-    exportDevicesConfigurations(accountId?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean, format?: string, fileName?: string): import("rxjs").Subscription;
+    exportDevicesConfigurations(accountId?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
 }

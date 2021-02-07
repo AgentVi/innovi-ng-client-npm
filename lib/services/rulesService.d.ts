@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Rule } from '../entities/Rule';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { Rule } from '../entities/Rule';
 import * as i0 from "@angular/core";
 /**
  * Services for rules actions
@@ -61,7 +61,7 @@ export declare class RulesService {
      * Export single rule as Json stream
      * @Return: Rule Json as StreamContent
      */
-    exportRule(id?: string): import("rxjs").Subscription;
+    exportRule(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get rules by list of ids
      * @Return: EntitiesResponse<Rule>
@@ -81,7 +81,7 @@ export declare class RulesService {
      * Export list of rules and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, sensorId?: string, search?: string, behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Find anomaly rules by filters
      * @Return: QueryResponse<Rule>

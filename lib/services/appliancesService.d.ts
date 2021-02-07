@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -33,7 +33,7 @@ export declare class AppliancesService {
      * Export list of appliances and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, status?: ApplianceStatusCode[], agentStatus?: AgentStatusCode[], sort?: string, format?: string, fields?: string[]): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get single appliance by id
      * @Return: EntityResponse<Appliance>
@@ -59,7 +59,7 @@ export declare class AppliancesService {
      * Export appliance sensors to CSV file
      * @return StreamContent
      */
-    exportSensors(id?: string, format?: string, fileName?: string): import("rxjs").Subscription;
+    exportSensors(id?: string, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>

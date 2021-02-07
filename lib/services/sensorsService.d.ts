@@ -109,7 +109,7 @@ export declare class SensorsService {
      * Export list of sensors and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get single sensor preset data by id
      * @Return: EntityResponse<Preset>
@@ -119,12 +119,12 @@ export declare class SensorsService {
      * Export single sensor preset (including calibration) as Json stream
      * @Return: Sensor preset Json as StreamContent
      */
-    exportPreset(id?: string): import("rxjs").Subscription;
+    exportPreset(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get sensor reference image [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image
      */
-    getRefImage(id?: string): import("rxjs").Subscription;
+    getRefImage(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get sensor reference image Url suffix
      * @Return: ActionResponse key is sensor Id and data is the URL suffix

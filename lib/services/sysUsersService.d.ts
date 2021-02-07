@@ -89,7 +89,7 @@ export declare class SysUsersService {
      * Export list of users and filter
      * @Return: StreamContent
      */
-    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Aggregate users count distribution by type
      * @Return:  EntityResponse<DistributionOfLong>

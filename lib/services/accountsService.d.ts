@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
 import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
@@ -28,7 +28,7 @@ export declare class AccountsService {
      * Export list of accounts and filter
      * @Return: StreamContent
      */
-    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(name?: string, type?: AccountTypeCode[], status?: AccountStatusCode[], sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get single account by id
      * @Return: EntityResponse<Account>
@@ -96,7 +96,7 @@ export declare class AccountsService {
      * Export account usage report to a file (for billing)
      * @Return: StreamContent
      */
-    exportUsageReport(year?: number, month?: number, format?: string, fileName?: string): import("rxjs").Subscription;
+    exportUsageReport(year?: number, month?: number, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
 }

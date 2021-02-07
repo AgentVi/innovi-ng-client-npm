@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { Event } from '../entities/Event';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -54,7 +54,7 @@ export declare class EventsService {
      * Export list of events and filter
      * @Return: StreamContent
      */
-    exportFormat(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Subscription;
+    exportFormat(folderId?: string, subFolders?: boolean, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Find events generated in area using spatial query
      * @Return: QueryResponse<Event>
@@ -64,12 +64,12 @@ export declare class EventsService {
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
      */
-    getEventImage(id?: string): import("rxjs").Subscription;
+    getEventImage(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get event clip [response content type: video/mp4]
      * @Return: StreamingOutput of the clip
      */
-    getEventClip(id?: string): import("rxjs").Subscription;
+    getEventClip(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>

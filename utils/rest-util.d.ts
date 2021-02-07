@@ -17,7 +17,7 @@ export declare class RestUtil {
     /**
      * Download is HTTP GET action but the content is blob
      */
-    download(fileName: string, url: string, ...params: string[]): import("rxjs").Subscription;
+    download(fileName: string, url: string, ...params: string[]): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * HTTP GET action
      */
