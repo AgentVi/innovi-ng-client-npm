@@ -8,6 +8,9 @@ export declare class SensorStatus extends BaseEntity {
     codec: string;
     resolution: string;
     framerate: number;
+    recordingStartTime: number;
+    recordingEndTime: number;
+    usedStorageMB: number;
     id: string;
     _type: string;
     createdOn: number;
