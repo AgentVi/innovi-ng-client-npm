@@ -46,7 +46,7 @@ export declare class IntegrationsService {
      * Find integration targets by filters
      * @Return: EntitiesResponse<IntegrationTarget>
      */
-    find(search?: string, type?: string): import("rxjs").Observable<any>;
+    find(search?: string, type?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Find all integration status
      * @Return: EntitiesResponse<IntegrationStatus>
@@ -81,7 +81,7 @@ export declare class IntegrationsService {
      * Find integration actions by filters
      * @Return: EntitiesResponse<IntegrationAction>
      */
-    findActions(search?: string): import("rxjs").Observable<any>;
+    findActions(search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Find all integration actions for a specified level in the folder hierarchy
      * @Return: EntitiesResponse<IntegrationAction>

@@ -4812,8 +4812,11 @@ class IntegrationActionUpdateRequest {
 /*
 */
 class IntegrationActionsFindRequest {
-    constructor(search) {
+    constructor(search, sort, page, pageSize) {
         this.search = search;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
 }
 
@@ -4863,9 +4866,12 @@ class IntegrationsServiceCreateRequest {
 /*
 */
 class IntegrationsServiceFindRequest {
-    constructor(search, type) {
+    constructor(search, type, sort, page, pageSize) {
         this.search = search;
         this.type = type;
+        this.sort = sort;
+        this.page = page;
+        this.pageSize = pageSize;
     }
 }
 
@@ -8399,13 +8405,22 @@ class IntegrationsService {
      * Find integration targets by filters
      * @Return: EntitiesResponse<IntegrationTarget>
      */
-    find(search, type) {
+    find(search, type, sort, page, pageSize) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);
         }
         if (type != null) {
             params.push(`type=${type}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -8472,10 +8487,19 @@ class IntegrationsService {
      * Find integration actions by filters
      * @Return: EntitiesResponse<IntegrationAction>
      */
-    findActions(search) {
+    findActions(search, sort, page, pageSize) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
         }
         return this.rest.get(`${this.baseUrl}/actions`, ...params);
     }

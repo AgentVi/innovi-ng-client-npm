@@ -2127,6 +2127,7 @@
    /*
       Account role code (represent role of user in the account)
    */
+   exports.AccountRoleCode = void 0;
    (function (AccountRoleCode) {
        // Undefined [0] 
        AccountRoleCode[AccountRoleCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2145,6 +2146,7 @@
    /*
       Account status code
    */
+   exports.AccountStatusCode = void 0;
    (function (AccountStatusCode) {
        // Undefined [0] 
        AccountStatusCode[AccountStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2159,6 +2161,7 @@
    /*
       Account type code
    */
+   exports.AccountTypeCode = void 0;
    (function (AccountTypeCode) {
        // Undefined [0] 
        AccountTypeCode[AccountTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2175,6 +2178,7 @@
    /*
       Active code
    */
+   exports.ActiveCode = void 0;
    (function (ActiveCode) {
        // Undefined [0] 
        ActiveCode[ActiveCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2191,6 +2195,7 @@
       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
    */
+   exports.AgentStateMask = void 0;
    (function (AgentStateMask) {
        // [OK] Agent is connected and active [0x0] 
        AgentStateMask[AgentStateMask["AGENT_OK"] = 0] = "AGENT_OK";
@@ -2203,6 +2208,7 @@
    /*
       Agent (New Pipeline) status code
    */
+   exports.AgentStatusCode = void 0;
    (function (AgentStatusCode) {
        // Undefined [0] 
        AgentStatusCode[AgentStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2222,6 +2228,7 @@
       Appliance command code.
       Message payload includes command specific data
    */
+   exports.ApplianceCommandCode = void 0;
    (function (ApplianceCommandCode) {
        // Undefined [0] 
        ApplianceCommandCode[ApplianceCommandCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2262,6 +2269,7 @@
       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
    */
+   exports.ApplianceStateMask = void 0;
    (function (ApplianceStateMask) {
        // [OK] No error [0x0] 
        ApplianceStateMask[ApplianceStateMask["APPLIANCE_OK"] = 0] = "APPLIANCE_OK";
@@ -2278,6 +2286,7 @@
    /*
       Appliance status code
    */
+   exports.ApplianceStatusCode = void 0;
    (function (ApplianceStatusCode) {
        // Undefined [0] 
        ApplianceStatusCode[ApplianceStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2301,6 +2310,7 @@
       Detected object behavior type code
       Values with INNOVI prefix represents standard innoVi model behaviour, all other values represent custom models behaviour
    */
+   exports.BehaviorTypeCode = void 0;
    (function (BehaviorTypeCode) {
        // Undefined 0 
        BehaviorTypeCode[BehaviorTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2333,6 +2343,7 @@
    /*
       Detected color of object (or partial object)
    */
+   exports.ColorCode = void 0;
    (function (ColorCode) {
        // Undefined [0] 
        ColorCode[ColorCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2373,6 +2384,7 @@
    /*
       Detected color type (colored location of object)
    */
+   exports.ColorTypeCode = void 0;
    (function (ColorTypeCode) {
        // Undefined [0] 
        ColorTypeCode[ColorTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2393,6 +2405,7 @@
    /*
       Appliance command status
    */
+   exports.CommandStatusCode = void 0;
    (function (CommandStatusCode) {
        // Undefined [0] 
        CommandStatusCode[CommandStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2411,6 +2424,7 @@
    /*
       Day of week code
    */
+   exports.DayOfWeekCode = void 0;
    (function (DayOfWeekCode) {
        // Sunday [0] 
        DayOfWeekCode[DayOfWeekCode["SUN"] = 0] = "SUN";
@@ -2435,6 +2449,7 @@
       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
    */
+   exports.DigitalIOStateMask = void 0;
    (function (DigitalIOStateMask) {
        // [OK] Digital IO device is connected and active' [0x0] 
        DigitalIOStateMask[DigitalIOStateMask["DEVICE_OK"] = 0] = "DEVICE_OK";
@@ -2451,6 +2466,7 @@
    /*
       DigitalIO device status code
    */
+   exports.DigitalIOStatusCode = void 0;
    (function (DigitalIOStatusCode) {
        // Undefined [0] 
        DigitalIOStatusCode[DigitalIOStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2467,6 +2483,7 @@
    /*
       Entity type code (represent entity type in the system)
    */
+   exports.EntityTypeCode = void 0;
    (function (EntityTypeCode) {
        // Undefined [0] 
        EntityTypeCode[EntityTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -2533,6 +2550,7 @@
    /*
       List of system error codes
    */
+   exports.ErrorCode = void 0;
    (function (ErrorCode) {
        // Success (No Error) 
        ErrorCode[ErrorCode["SUCCESS"] = 0] = "SUCCESS";
@@ -3121,6 +3139,7 @@
    /*
       Event status code
    */
+   exports.EventStatusCode = void 0;
    (function (EventStatusCode) {
        // Undefined [0] 
        EventStatusCode[EventStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3141,6 +3160,7 @@
    /*
       Feature codes
    */
+   exports.FeatureCode = void 0;
    (function (FeatureCode) {
        // Undefined [0] 
        FeatureCode[FeatureCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3187,6 +3207,7 @@
    /*
       Integration status code
    */
+   exports.IntegrationStatusCode = void 0;
    (function (IntegrationStatusCode) {
        // Undefined [0] 
        IntegrationStatusCode[IntegrationStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3203,6 +3224,7 @@
    /*
       Integration type code
    */
+   exports.IntegrationTypeCode = void 0;
    (function (IntegrationTypeCode) {
        // Undefined [0] 
        IntegrationTypeCode[IntegrationTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3229,6 +3251,7 @@
    /*
       Line crossing direction (used by rule definition)
    */
+   exports.LineCrossDirectionCode = void 0;
    (function (LineCrossDirectionCode) {
        // Undefined [0] 
        LineCrossDirectionCode[LineCrossDirectionCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3243,6 +3266,7 @@
    /*
       Map client code (represent which map client library to use in the UI)
    */
+   exports.MapClientCode = void 0;
    (function (MapClientCode) {
        // Undefined [0] 
        MapClientCode[MapClientCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3260,6 +3284,7 @@
       Detected object type code
       Values with INNOVI prefix represents standard innoVi model objects, all other values represent custom models objects
    */
+   exports.ObjectTypeCode = void 0;
    (function (ObjectTypeCode) {
        // Undefined 0 
        ObjectTypeCode[ObjectTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3332,6 +3357,7 @@
    /*
       Product type code
    */
+   exports.ProductTypeCode = void 0;
    (function (ProductTypeCode) {
        // Undefined [0] 
        ProductTypeCode[ProductTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3358,6 +3384,7 @@
    /*
       Runtime status code represents the status of component in the host
    */
+   exports.RuntimeStatusCode = void 0;
    (function (RuntimeStatusCode) {
        // Undefined [0] 
        RuntimeStatusCode[RuntimeStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3372,6 +3399,7 @@
    /*
       Search scope
    */
+   exports.SearchScopeCode = void 0;
    (function (SearchScopeCode) {
        // Undefined [0] 
        SearchScopeCode[SearchScopeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3384,6 +3412,7 @@
    /*
       Search time
    */
+   exports.SearchTimeCode = void 0;
    (function (SearchTimeCode) {
        // Custom time frame [0] 
        SearchTimeCode[SearchTimeCode["CUSTOM"] = 0] = "CUSTOM";
@@ -3405,6 +3434,7 @@
       Bit mask to indicate sensor configuration changes (what part of the sensor configuration has changed)
       Since it is a bit mask, the actual value can be a combination of the listed enum values
    */
+   exports.SensorConfigChangeMask = void 0;
    (function (SensorConfigChangeMask) {
        // Sensor has been removed from the system 
        SensorConfigChangeMask[SensorConfigChangeMask["DELETED"] = 0] = "DELETED";
@@ -3419,6 +3449,7 @@
    /*
       Sensor resolution (image quality) code
    */
+   exports.SensorResolutionCode = void 0;
    (function (SensorResolutionCode) {
        // Undefined [0] 
        SensorResolutionCode[SensorResolutionCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3437,6 +3468,7 @@
       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
    */
+   exports.SensorStateMask = void 0;
    (function (SensorStateMask) {
        // [OK] No error [0x0] 
        SensorStateMask[SensorStateMask["SENSOR_OK"] = 0] = "SENSOR_OK";
@@ -3485,6 +3517,7 @@
    /*
       Sensor configuration status code (represents the status due to user actions)
    */
+   exports.SensorStatusCode = void 0;
    (function (SensorStatusCode) {
        // Undefined [0] 
        SensorStatusCode[SensorStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3507,6 +3540,7 @@
    /*
       Sensor type code
    */
+   exports.SensorTypeCode = void 0;
    (function (SensorTypeCode) {
        // Undefined [0] 
        SensorTypeCode[SensorTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3519,6 +3553,7 @@
    /*
       Severity type (level) code
    */
+   exports.SeverityTypeCode = void 0;
    (function (SeverityTypeCode) {
        // Undefined [0] 
        SeverityTypeCode[SeverityTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3543,6 +3578,7 @@
    /*
       Video stream type (source) code
    */
+   exports.StreamTypeCode = void 0;
    (function (StreamTypeCode) {
        // Undefined [0] 
        StreamTypeCode[StreamTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3563,6 +3599,7 @@
    /*
       Time unit interval
    */
+   exports.TimeUnitCode = void 0;
    (function (TimeUnitCode) {
        // Undefined [0] 
        TimeUnitCode[TimeUnitCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3583,6 +3620,7 @@
    /*
       Geo referencing transformation algorithm
    */
+   exports.TransformationTypeCode = void 0;
    (function (TransformationTypeCode) {
        // Transformation type not specified [0] 
        TransformationTypeCode[TransformationTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3597,6 +3635,7 @@
    /*
       User status code
    */
+   exports.UserStatusCode = void 0;
    (function (UserStatusCode) {
        // Undefined [0] 
        UserStatusCode[UserStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3613,6 +3652,7 @@
    /*
       User type code
    */
+   exports.UserTypeCode = void 0;
    (function (UserTypeCode) {
        // Undefined [0] 
        UserTypeCode[UserTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3635,6 +3675,7 @@
       WARNING:	[0x00001 - 0x0000FFFF]		1 - 65535
       ERROR:		[0x10000 - 0xFFFFFFFF]		65536 - MaxInt
    */
+   exports.VMSGatewayStateMask = void 0;
    (function (VMSGatewayStateMask) {
        // [OK] VMS Gateway is connected and active [0x0] 
        VMSGatewayStateMask[VMSGatewayStateMask["VMS_OK"] = 0] = "VMS_OK";
@@ -3649,6 +3690,7 @@
    /*
       VMS Gateway status code
    */
+   exports.VMSGatewayStatusCode = void 0;
    (function (VMSGatewayStatusCode) {
        // Undefined [0] 
        VMSGatewayStatusCode[VMSGatewayStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3665,6 +3707,7 @@
    /*
       Sensor visual quality code
    */
+   exports.VisualQualityCode = void 0;
    (function (VisualQualityCode) {
        // Undefined [0] 
        VisualQualityCode[VisualQualityCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -3679,6 +3722,7 @@
    /*
       Zone type code (used by rule definition)
    */
+   exports.ZoneTypeCode = void 0;
    (function (ZoneTypeCode) {
        // Undefined [0] 
        ZoneTypeCode[ZoneTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
@@ -5964,8 +6008,11 @@
    /*
    */
    var IntegrationActionsFindRequest = /** @class */ (function () {
-       function IntegrationActionsFindRequest(search) {
+       function IntegrationActionsFindRequest(search, sort, page, pageSize) {
            this.search = search;
+           this.sort = sort;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return IntegrationActionsFindRequest;
    }());
@@ -6021,9 +6068,12 @@
    /*
    */
    var IntegrationsServiceFindRequest = /** @class */ (function () {
-       function IntegrationsServiceFindRequest(search, type) {
+       function IntegrationsServiceFindRequest(search, type, sort, page, pageSize) {
            this.search = search;
            this.type = type;
+           this.sort = sort;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return IntegrationsServiceFindRequest;
    }());
@@ -9969,7 +10019,7 @@
         * Find integration targets by filters
         * @Return: EntitiesResponse<IntegrationTarget>
         */
-       IntegrationsService.prototype.find = function (search, type) {
+       IntegrationsService.prototype.find = function (search, type, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (search != null) {
@@ -9977,6 +10027,15 @@
            }
            if (type != null) {
                params.push("type=" + type);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
        };
@@ -10045,11 +10104,20 @@
         * Find integration actions by filters
         * @Return: EntitiesResponse<IntegrationAction>
         */
-       IntegrationsService.prototype.findActions = function (search) {
+       IntegrationsService.prototype.findActions = function (search, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (search != null) {
                params.push("search=" + search);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions"], params));
        };
