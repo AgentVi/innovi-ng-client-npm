@@ -1707,6 +1707,17 @@
    }(BaseEntity));
 
    /*
+      Detection model configuration
+   */
+   var DetectionModel = /** @class */ (function (_super) {
+       __extends(DetectionModel, _super);
+       function DetectionModel() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return DetectionModel;
+   }(BaseEntity));
+
+   /*
       Digital IO type
       Digital IO connection URI should be in the RFC-6570 format which includes schema, credentials, host, port and additional parameters as query string params
    */
@@ -2044,6 +2055,17 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return SensorAnalysisResults;
+   }(BaseEntity));
+
+   /*
+      Relation table to map list of detection models per sensor
+   */
+   var SensorDetectionModels = /** @class */ (function (_super) {
+       __extends(SensorDetectionModels, _super);
+       function SensorDetectionModels() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return SensorDetectionModels;
    }(BaseEntity));
 
    /*
@@ -3914,6 +3936,16 @@
 
    /*
    */
+   var AddSensorModelsRequest = /** @class */ (function () {
+       function AddSensorModelsRequest(sensorId, id) {
+           this.sensorId = sensorId;
+           this.id = id;
+       }
+       return AddSensorModelsRequest;
+   }());
+
+   /*
+   */
    var AnomalyServiceFindEventsRequest = /** @class */ (function () {
        function AnomalyServiceFindEventsRequest(accountId, sensorId, status, from, to, sort, page, pageSize) {
            this.accountId = accountId;
@@ -4570,6 +4602,15 @@
 
    /*
    */
+   var DetectionModelIdRequest = /** @class */ (function () {
+       function DetectionModelIdRequest(id) {
+           this.id = id;
+       }
+       return DetectionModelIdRequest;
+   }());
+
+   /*
+   */
    var DigitalIOCreateRequest = /** @class */ (function () {
        function DigitalIOCreateRequest(body) {
            this.body = body;
@@ -4780,6 +4821,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntitiesResponseOfConfiguration;
+   }(EntitiesResponse));
+
+   /*
+   */
+   var EntitiesResponseOfDetectionModel = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfDetectionModel, _super);
+       function EntitiesResponseOfDetectionModel() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfDetectionModel;
    }(EntitiesResponse));
 
    /*
@@ -5181,6 +5232,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntityResponseOfCoordinate;
+   }(EntityResponse));
+
+   /*
+   */
+   var EntityResponseOfDetectionModel = /** @class */ (function (_super) {
+       __extends(EntityResponseOfDetectionModel, _super);
+       function EntityResponseOfDetectionModel() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfDetectionModel;
    }(EntityResponse));
 
    /*
@@ -6415,6 +6476,16 @@
 
    /*
    */
+   var RemoveSensorModelsRequest = /** @class */ (function () {
+       function RemoveSensorModelsRequest(sensorId, id) {
+           this.sensorId = sensorId;
+           this.id = id;
+       }
+       return RemoveSensorModelsRequest;
+   }());
+
+   /*
+   */
    var ReportIdRequest = /** @class */ (function () {
        function ReportIdRequest(id) {
            this.id = id;
@@ -6850,6 +6921,15 @@
            this.sensorId = sensorId;
        }
        return SensorAnalysisIdRequest;
+   }());
+
+   /*
+   */
+   var SensorDetectionModelsIdRequest = /** @class */ (function () {
+       function SensorDetectionModelsIdRequest(sensorId) {
+           this.sensorId = sensorId;
+       }
+       return SensorDetectionModelsIdRequest;
    }());
 
    /*
@@ -7430,6 +7510,24 @@
            this.body = body;
        }
        return SysKeysServiceUpdateBulkRequest;
+   }());
+
+   /*
+   */
+   var SysModelsServiceCreateModelRequest = /** @class */ (function () {
+       function SysModelsServiceCreateModelRequest(body) {
+           this.body = body;
+       }
+       return SysModelsServiceCreateModelRequest;
+   }());
+
+   /*
+   */
+   var SysModelsServiceUpdateModelRequest = /** @class */ (function () {
+       function SysModelsServiceUpdateModelRequest(body) {
+           this.body = body;
+       }
+       return SysModelsServiceUpdateModelRequest;
    }());
 
    /*
@@ -12829,6 +12927,103 @@
    })();
 
    /**
+    * List of all detection models related actions for system administrator only
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysModelsService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysModelsService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/models';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Create new Detection Model
+        * @Return: EntityResponse<DetectionModel>
+        */
+       SysModelsService.prototype.create = function (body) {
+           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update new Detection Model
+        * @Return: EntityResponse<DetectionModel>
+        */
+       SysModelsService.prototype.update = function (body) {
+           return this.rest.put("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete Detection Model
+        * @Return: ActionResponse
+        */
+       SysModelsService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single Detection Model by id
+        * @Return: EntityResponse<DetectionModel>
+        */
+       SysModelsService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get list of all detection models
+        * @Return: EntitiesResponse<DetectionModel>
+        */
+       SysModelsService.prototype.find = function () {
+           return this.rest.get("" + this.baseUrl);
+       };
+       /**
+        * Get list of all detection models per sensor
+        * @Return: EntitiesResponse<DetectionModel>
+        */
+       SysModelsService.prototype.getSensorModels = function (sensorId) {
+           return this.rest.get(this.baseUrl + "/sensors/" + sensorId);
+       };
+       /**
+        * Add detection model to sensor
+        * @Return: ActionResponse
+        */
+       SysModelsService.prototype.addSensorModels = function (sensorId, id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/sensors/" + sensorId, null], params));
+       };
+       /**
+        * Remove detection model from sensor
+        * @Return: ActionResponse
+        */
+       SysModelsService.prototype.removeSensorModels = function (sensorId, id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).delete.apply(_a, __spread([this.baseUrl + "/sensors/" + sensorId], params));
+       };
+       return SysModelsService;
+   }());
+   /** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysModelsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysModelsService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
     * Services for sensor actions for system administrator only
     * @RequestHeader X-API-KEY The key to identify the application (portal)
     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -13746,6 +13941,7 @@
        SysFeaturesGroupsService,
        SysFeaturesService,
        SysKeysService,
+       SysModelsService,
        SysSensorsService,
        SysSystemService,
        SysUsersService,
@@ -13977,6 +14173,7 @@
    exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
    exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
    exports.ActionResponse = ActionResponse;
+   exports.AddSensorModelsRequest = AddSensorModelsRequest;
    exports.Agent = Agent;
    exports.AgentStatus = AgentStatus;
    exports.AnalysisResult = AnalysisResult;
@@ -14083,6 +14280,8 @@
    exports.Coordinate = Coordinate;
    exports.CoreConfig = CoreConfig;
    exports.CoreLibModule = CoreLibModule;
+   exports.DetectionModel = DetectionModel;
+   exports.DetectionModelIdRequest = DetectionModelIdRequest;
    exports.DigitalIO = DigitalIO;
    exports.DigitalIOCreateRequest = DigitalIOCreateRequest;
    exports.DigitalIOFindRequest = DigitalIOFindRequest;
@@ -14119,6 +14318,7 @@
    exports.EntitiesResponseOfCaseInfo = EntitiesResponseOfCaseInfo;
    exports.EntitiesResponseOfComponentConfiguration = EntitiesResponseOfComponentConfiguration;
    exports.EntitiesResponseOfConfiguration = EntitiesResponseOfConfiguration;
+   exports.EntitiesResponseOfDetectionModel = EntitiesResponseOfDetectionModel;
    exports.EntitiesResponseOfDigitalIO = EntitiesResponseOfDigitalIO;
    exports.EntitiesResponseOfDistributionOfLong = EntitiesResponseOfDistributionOfLong;
    exports.EntitiesResponseOfEvent = EntitiesResponseOfEvent;
@@ -14159,6 +14359,7 @@
    exports.EntityResponseOfConfigurationTemplate = EntityResponseOfConfigurationTemplate;
    exports.EntityResponseOfConfigurationVersion = EntityResponseOfConfigurationVersion;
    exports.EntityResponseOfCoordinate = EntityResponseOfCoordinate;
+   exports.EntityResponseOfDetectionModel = EntityResponseOfDetectionModel;
    exports.EntityResponseOfDigitalIO = EntityResponseOfDigitalIO;
    exports.EntityResponseOfDistributionOfLong = EntityResponseOfDistributionOfLong;
    exports.EntityResponseOfEvent = EntityResponseOfEvent;
@@ -14322,6 +14523,7 @@
    exports.Recurrent = Recurrent;
    exports.RecurrentTimeFrame = RecurrentTimeFrame;
    exports.RegisterServiceAccountRequest = RegisterServiceAccountRequest;
+   exports.RemoveSensorModelsRequest = RemoveSensorModelsRequest;
    exports.ReportDefinition = ReportDefinition;
    exports.ReportIdRequest = ReportIdRequest;
    exports.ReportIdsRequest = ReportIdsRequest;
@@ -14396,6 +14598,8 @@
    exports.SensorAnomalyInfo = SensorAnomalyInfo;
    exports.SensorAnomalyRuleInfo = SensorAnomalyRuleInfo;
    exports.SensorDebugInfo = SensorDebugInfo;
+   exports.SensorDetectionModels = SensorDetectionModels;
+   exports.SensorDetectionModelsIdRequest = SensorDetectionModelsIdRequest;
    exports.SensorExtIdsRequest = SensorExtIdsRequest;
    exports.SensorIdRequest = SensorIdRequest;
    exports.SensorIdsRequest = SensorIdsRequest;
@@ -14471,6 +14675,9 @@
    exports.SysKeysServiceCreatePasswordRequest = SysKeysServiceCreatePasswordRequest;
    exports.SysKeysServiceCreateTokenRequest = SysKeysServiceCreateTokenRequest;
    exports.SysKeysServiceUpdateBulkRequest = SysKeysServiceUpdateBulkRequest;
+   exports.SysModelsService = SysModelsService;
+   exports.SysModelsServiceCreateModelRequest = SysModelsServiceCreateModelRequest;
+   exports.SysModelsServiceUpdateModelRequest = SysModelsServiceUpdateModelRequest;
    exports.SysSensorUsageReportRequest = SysSensorUsageReportRequest;
    exports.SysSensorsCountRequest = SysSensorsCountRequest;
    exports.SysSensorsFetchObjectsCropsRequest = SysSensorsFetchObjectsCropsRequest;
