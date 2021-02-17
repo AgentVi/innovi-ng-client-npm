@@ -8958,6 +8958,21 @@
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
        };
        /**
+        * Get appliance status distribution over time (for pie chart)
+        * @Return:  EntityResponse<DistributionOfLong>
+        */
+       AppliancesService.prototype.getStatusDistribution = function (id, from, to) {
+           var _a;
+           var params = new Array();
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/distribution"], params));
+       };
+       /**
         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
         * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
         */

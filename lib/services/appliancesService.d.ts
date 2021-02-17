@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { Appliance } from '../entities/Appliance';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { Appliance } from '../entities/Appliance';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { Sensor } from '../entities/Sensor';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -178,6 +178,11 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<ApplianceStatusTimeSeries>
      */
     getStatusOverTime(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Get appliance status distribution over time (for pie chart)
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getStatusDistribution(id?: string, from?: number, to?: number): import("rxjs").Observable<any>;
     /**
      * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
      * @Return:  EntityResponse<ApplianceKPIsTimeSeries>

@@ -7390,6 +7390,20 @@ class AppliancesService {
         return this.rest.get(`${this.baseUrl}/${id}/status/overtime`, ...params);
     }
     /**
+     * Get appliance status distribution over time (for pie chart)
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getStatusDistribution(id, from, to) {
+        const params = new Array();
+        if (from != null) {
+            params.push(`from=${from}`);
+        }
+        if (to != null) {
+            params.push(`to=${to}`);
+        }
+        return this.rest.get(`${this.baseUrl}/${id}/status/distribution`, ...params);
+    }
+    /**
      * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
      * @Return:  EntityResponse<ApplianceKPIsTimeSeries>
      */
