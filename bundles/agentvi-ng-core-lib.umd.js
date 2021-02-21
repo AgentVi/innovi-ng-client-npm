@@ -5594,6 +5594,54 @@
 
    /*
    */
+   var EventsCountByBehaviorRequest = /** @class */ (function () {
+       function EventsCountByBehaviorRequest(folderId, sensorId, objectType, severity, status, rule, from, to) {
+           this.folderId = folderId;
+           this.sensorId = sensorId;
+           this.objectType = objectType;
+           this.severity = severity;
+           this.status = status;
+           this.rule = rule;
+           this.from = from;
+           this.to = to;
+       }
+       return EventsCountByBehaviorRequest;
+   }());
+
+   /*
+   */
+   var EventsCountByObjectRequest = /** @class */ (function () {
+       function EventsCountByObjectRequest(folderId, sensorId, behaviorType, severity, status, rule, from, to) {
+           this.folderId = folderId;
+           this.sensorId = sensorId;
+           this.behaviorType = behaviorType;
+           this.severity = severity;
+           this.status = status;
+           this.rule = rule;
+           this.from = from;
+           this.to = to;
+       }
+       return EventsCountByObjectRequest;
+   }());
+
+   /*
+   */
+   var EventsCountByStatusRequest = /** @class */ (function () {
+       function EventsCountByStatusRequest(folderId, sensorId, objectType, behaviorType, severity, rule, from, to) {
+           this.folderId = folderId;
+           this.sensorId = sensorId;
+           this.objectType = objectType;
+           this.behaviorType = behaviorType;
+           this.severity = severity;
+           this.rule = rule;
+           this.from = from;
+           this.to = to;
+       }
+       return EventsCountByStatusRequest;
+   }());
+
+   /*
+   */
    var EventsServiceCreateRequest = /** @class */ (function () {
        function EventsServiceCreateRequest(body) {
            this.body = body;
@@ -9656,6 +9704,105 @@
                params.push("labelFormat=" + labelFormat);
            }
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/overtime"], params));
+       };
+       /**
+        * Get events distribution by status
+        * @Return: EntityResponse<DistributionOfLong>
+        */
+       EventsService.prototype.getEventsCountByStatus = function (folderId, sensorId, objectType, behaviorType, severity, rule, from, to) {
+           var _a;
+           var params = new Array();
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (objectType != null) {
+               params.push("objectType=" + objectType);
+           }
+           if (behaviorType != null) {
+               params.push("behaviorType=" + behaviorType);
+           }
+           if (severity != null) {
+               params.push("severity=" + severity);
+           }
+           if (rule != null) {
+               params.push("rule=" + rule);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+       };
+       /**
+        * Get events distribution by object type
+        * @Return: EntityResponse<DistributionOfLong>
+        */
+       EventsService.prototype.getEventsCountByObject = function (folderId, sensorId, behaviorType, severity, status, rule, from, to) {
+           var _a;
+           var params = new Array();
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (behaviorType != null) {
+               params.push("behaviorType=" + behaviorType);
+           }
+           if (severity != null) {
+               params.push("severity=" + severity);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (rule != null) {
+               params.push("rule=" + rule);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-object"], params));
+       };
+       /**
+        * Get events distribution by behavior
+        * @Return: EntityResponse<DistributionOfLong>
+        */
+       EventsService.prototype.getEventsCountByBehavior = function (folderId, sensorId, objectType, severity, status, rule, from, to) {
+           var _a;
+           var params = new Array();
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (objectType != null) {
+               params.push("objectType=" + objectType);
+           }
+           if (severity != null) {
+               params.push("severity=" + severity);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (rule != null) {
+               params.push("rule=" + rule);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-behavior"], params));
        };
        return EventsService;
    }());
@@ -14414,6 +14561,9 @@
    exports.EventIdRequest = EventIdRequest;
    exports.EventIdsRequest = EventIdsRequest;
    exports.EventStatistics = EventStatistics;
+   exports.EventsCountByBehaviorRequest = EventsCountByBehaviorRequest;
+   exports.EventsCountByObjectRequest = EventsCountByObjectRequest;
+   exports.EventsCountByStatusRequest = EventsCountByStatusRequest;
    exports.EventsService = EventsService;
    exports.EventsServiceCreateRequest = EventsServiceCreateRequest;
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
