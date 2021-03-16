@@ -6662,13 +6662,14 @@
    /*
    */
    var RulesServiceFindRequest = /** @class */ (function () {
-       function RulesServiceFindRequest(folderId, physical, applianceId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+       function RulesServiceFindRequest(folderId, physical, applianceId, sensorId, search, behaviorType, exclude, severity, sort, page, pageSize) {
            this.folderId = folderId;
            this.physical = physical;
            this.applianceId = applianceId;
            this.sensorId = sensorId;
            this.search = search;
            this.behaviorType = behaviorType;
+           this.exclude = exclude;
            this.severity = severity;
            this.sort = sort;
            this.page = page;
@@ -10753,7 +10754,7 @@
         * Find rules by filters
         * @Return: QueryResponse<Rule>
         */
-       RulesService.prototype.find = function (folderId, physical, applianceId, sensorId, search, behaviorType, severity, sort, page, pageSize) {
+       RulesService.prototype.find = function (folderId, physical, applianceId, sensorId, search, behaviorType, exclude, severity, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -10773,6 +10774,9 @@
            }
            if (behaviorType != null) {
                params.push("behaviorType=" + behaviorType);
+           }
+           if (exclude != null) {
+               params.push("exclude=" + exclude);
            }
            if (severity != null) {
                params.push("severity=" + severity);
@@ -14293,8 +14297,9 @@
        };
        return CoreLibModule;
    }());
+   /** @nocollapse */ CoreLibModule.ɵfac = function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); };
    /** @nocollapse */ CoreLibModule.ɵmod = i0.ɵɵdefineNgModule({ type: CoreLibModule });
-   /** @nocollapse */ CoreLibModule.ɵinj = i0.ɵɵdefineInjector({ factory: function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); }, imports: [[common.CommonModule, i1.HttpClientModule]] });
+   /** @nocollapse */ CoreLibModule.ɵinj = i0.ɵɵdefineInjector({ imports: [[common.CommonModule, i1.HttpClientModule]] });
    (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CoreLibModule, [{
