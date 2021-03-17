@@ -28,6 +28,7 @@ export * from './sysEventsService';
 export * from './sysFeaturesGroupsService';
 export * from './sysFeaturesService';
 export * from './sysKeysService';
+export * from './sysLicensesService';
 export * from './sysModelsService';
 export * from './sysSensorsService';
 export * from './sysSystemService';

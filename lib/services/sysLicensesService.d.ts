@@ -6,7 +6,7 @@ import * as i0 from "@angular/core";
  * @RequestHeader X-API-KEY The key to identify the application (portal)
  * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
  */
-export declare class LicensesService {
+export declare class SysLicensesService {
     private config;
     private rest;
     private baseUrl;
@@ -49,6 +49,6 @@ export declare class LicensesService {
      * @Return: ActionResponse
      */
     import(licenseFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
-    static ɵfac: i0.ɵɵFactoryDef<LicensesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<LicensesService>;
+    static ɵfac: i0.ɵɵFactoryDef<SysLicensesService, never>;
+    static ɵprov: i0.ɵɵInjectableDef<SysLicensesService>;
 }
