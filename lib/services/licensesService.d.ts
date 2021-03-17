@@ -44,6 +44,11 @@ export declare class LicensesService {
      * @Return: ActionResponse
      */
     import(licenseFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
+    /**
+     * Get deployment Id (for licensing)
+     * @Return: ActionResponse
+     */
+    getDeploymentId(): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<LicensesService, never>;
     static ɵprov: i0.ɵɵInjectableDef<LicensesService>;
 }

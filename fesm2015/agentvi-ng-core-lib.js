@@ -1,5 +1,7 @@
-import { ɵɵinject, ɵɵdefineInjectable, ɵsetClassMetadata, Injectable, Inject, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
-import { HttpHeaders, HttpRequest, HttpClient, HttpClientModule } from '@angular/common/http';
+import * as i0 from '@angular/core';
+import { Injectable, Inject, NgModule } from '@angular/core';
+import * as i1 from '@angular/common/http';
+import { HttpHeaders, HttpRequest, HttpClientModule } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
@@ -6633,11 +6635,11 @@ class RestUtil {
         return Promise.reject(error.message || error);
     }
 }
-/** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(ɵɵinject(HttpClient)); };
-/** @nocollapse */ RestUtil.ɵprov = ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(RestUtil, [{
+/** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(i0.ɵɵinject(i1.HttpClient)); };
+/** @nocollapse */ RestUtil.ɵprov = i0.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestUtil, [{
         type: Injectable
-    }], function () { return [{ type: HttpClient }]; }, null); })();
+    }], function () { return [{ type: i1.HttpClient }]; }, null); })();
 
 class CoreConfig {
 }
@@ -6820,9 +6822,9 @@ class AccountsService {
         return this.rest.download(`accounts`, `${this.baseUrl}/export-usage-report/${year}/${month}`, ...params);
     }
 }
-/** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ AccountsService.ɵprov = ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AccountsService, [{
+/** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ AccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AccountsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -6938,9 +6940,9 @@ class AnomalyService {
         return this.rest.post(`${this.baseUrl}/event`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
 }
-/** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ AnomalyService.ɵprov = ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AnomalyService, [{
+/** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ AnomalyService.ɵprov = i0.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AnomalyService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7006,9 +7008,9 @@ class ApplianceDigitalIOService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ ApplianceDigitalIOService.ɵprov = ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ApplianceDigitalIOService, [{
+/** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ ApplianceDigitalIOService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceDigitalIOService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7078,9 +7080,9 @@ class ApplianceProfilesService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ ApplianceProfilesService.ɵprov = ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ApplianceProfilesService, [{
+/** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ ApplianceProfilesService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceProfilesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7478,9 +7480,9 @@ class AppliancesService {
         return this.rest.get(`${this.baseUrl}/count/by-status`, ...params);
     }
 }
-/** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ AppliancesService.ɵprov = ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AppliancesService, [{
+/** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ AppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppliancesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7578,9 +7580,9 @@ class AuditLogService {
         return this.rest.get(`${this.baseUrl}/${id}`);
     }
 }
-/** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ AuditLogService.ɵprov = ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(AuditLogService, [{
+/** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ AuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AuditLogService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7709,9 +7711,9 @@ class CalendarsService {
         return this.rest.post(`${this.baseUrl}/importUrl`, typeof body === 'object' ? JSON.stringify(body) : body, ...params);
     }
 }
-/** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ CalendarsService.ɵprov = ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CalendarsService, [{
+/** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ CalendarsService.ɵprov = i0.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CalendarsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -7826,9 +7828,9 @@ class CasesService {
         return this.rest.get(`${this.baseUrl}/${id}/event/${eventId}`);
     }
 }
-/** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ CasesService.ɵprov = ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CasesService, [{
+/** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ CasesService.ɵprov = i0.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CasesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8193,9 +8195,9 @@ class EventsService {
         return this.rest.get(`${this.baseUrl}/count/by-behavior`, ...params);
     }
 }
-/** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ EventsService.ɵprov = ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(EventsService, [{
+/** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ EventsService.ɵprov = i0.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8424,9 +8426,9 @@ class FoldersService {
         return this.rest.get(`${this.baseUrl}/${id}/geoLocation`);
     }
 }
-/** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ FoldersService.ɵprov = ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(FoldersService, [{
+/** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ FoldersService.ɵprov = i0.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FoldersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8469,9 +8471,9 @@ class GeoService {
         return this.rest.post(`${this.baseUrl}/transform`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
 }
-/** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ GeoService.ɵprov = ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(GeoService, [{
+/** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ GeoService.ɵprov = i0.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GeoService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8500,9 +8502,9 @@ class HealthCheckService {
         return this.rest.get(`${this.baseUrl}`);
     }
 }
-/** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ HealthCheckService.ɵprov = ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(HealthCheckService, [{
+/** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ HealthCheckService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthCheckService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8565,9 +8567,9 @@ class HealthEventsService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ HealthEventsService.ɵprov = ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(HealthEventsService, [{
+/** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ HealthEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthEventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8746,9 +8748,9 @@ class IntegrationsService {
         return this.rest.post(`${this.baseUrl}/actions/test`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
 }
-/** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ IntegrationsService.ɵprov = ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(IntegrationsService, [{
+/** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ IntegrationsService.ɵprov = i0.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(IntegrationsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8813,10 +8815,17 @@ class LicensesService {
     import(licenseFile) {
         return this.rest.upload(licenseFile, `${this.baseUrl}/import`);
     }
+    /**
+     * Get deployment Id (for licensing)
+     * @Return: ActionResponse
+     */
+    getDeploymentId() {
+        return this.rest.get(`${this.baseUrl}`);
+    }
 }
-/** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ LicensesService.ɵprov = ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(LicensesService, [{
+/** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ LicensesService.ɵprov = i0.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LicensesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -8930,9 +8939,9 @@ class ReportsService {
         return this.rest.download(`reports`, `${this.baseUrl}/statistics/traffic-analysis`, ...params);
     }
 }
-/** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ ReportsService.ɵprov = ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ReportsService, [{
+/** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ ReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ReportsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9224,9 +9233,9 @@ class RulesService {
         return this.rest.post(`${this.baseUrl}/resume`, null, ...params);
     }
 }
-/** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ RulesService.ɵprov = ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(RulesService, [{
+/** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ RulesService.ɵprov = i0.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RulesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9300,9 +9309,9 @@ class ScheduledReportsService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ ScheduledReportsService.ɵprov = ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(ScheduledReportsService, [{
+/** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ ScheduledReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScheduledReportsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9409,9 +9418,9 @@ class SchedulesService {
         return this.rest.get(`${this.baseUrl}/folder`, ...params);
     }
 }
-/** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SchedulesService.ɵprov = ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SchedulesService, [{
+/** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SchedulesService.ɵprov = i0.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SchedulesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -9679,9 +9688,9 @@ class SearchService {
         return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/events/${eventId}/crops`);
     }
 }
-/** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SearchService.ɵprov = ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SearchService, [{
+/** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SearchService.ɵprov = i0.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SearchService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10050,9 +10059,9 @@ class SensorsService {
         return this.rest.get(`${this.baseUrl}/count/by-status`, ...params);
     }
 }
-/** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SensorsService.ɵprov = ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SensorsService, [{
+/** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SensorsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10365,9 +10374,9 @@ class SysAccountsService {
         return this.rest.download(`sys-accounts`, `${this.baseUrl}/${id}/export-usage-report/${year}/${month}`, ...params);
     }
 }
-/** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysAccountsService.ɵprov = ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAccountsService, [{
+/** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysAccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAccountsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10752,9 +10761,9 @@ class SysAppliancesService {
         return this.rest.download(`sys-appliances`, `${this.baseUrl}/actual-config/export`, ...params);
     }
 }
-/** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysAppliancesService.ɵprov = ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAppliancesService, [{
+/** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysAppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAppliancesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -10921,9 +10930,9 @@ class SysConfigurationsService {
         return this.rest.get(`${this.baseUrl}/templates`, ...params);
     }
 }
-/** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysConfigurationsService.ɵprov = ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysConfigurationsService, [{
+/** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysConfigurationsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysConfigurationsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11027,9 +11036,9 @@ class SysEventsService {
         return this.rest.get(`${this.baseUrl}/${accountId}/overtime`, ...params);
     }
 }
-/** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysEventsService.ɵprov = ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysEventsService, [{
+/** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysEventsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11095,9 +11104,9 @@ class SysFeaturesGroupsService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysFeaturesGroupsService.ɵprov = ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysFeaturesGroupsService, [{
+/** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysFeaturesGroupsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesGroupsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11166,9 +11175,9 @@ class SysFeaturesService {
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
 }
-/** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysFeaturesService.ɵprov = ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysFeaturesService, [{
+/** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysFeaturesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11293,9 +11302,9 @@ class SysKeysService {
         return this.rest.get(`${this.baseUrl}/api-keys/resources`);
     }
 }
-/** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysKeysService.ɵprov = ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysKeysService, [{
+/** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysKeysService.ɵprov = i0.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysKeysService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11383,9 +11392,9 @@ class SysModelsService {
         return this.rest.delete(`${this.baseUrl}/sensors/${sensorId}`, ...params);
     }
 }
-/** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysModelsService.ɵprov = ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysModelsService, [{
+/** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysModelsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysModelsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11583,9 +11592,9 @@ class SysSensorsService {
         return this.rest.post(`${this.baseUrl}/fetch-objects-crops`, null, ...params);
     }
 }
-/** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysSensorsService.ɵprov = ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysSensorsService, [{
+/** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysSensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSensorsService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11682,9 +11691,9 @@ class SysSystemService {
         return this.rest.put(`${this.baseUrl}/log-level`, null);
     }
 }
-/** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysSystemService.ɵprov = ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysSystemService, [{
+/** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysSystemService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSystemService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11865,9 +11874,9 @@ class SysUsersService {
         return this.rest.get(`${this.baseUrl}/count/by-status`);
     }
 }
-/** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysUsersService.ɵprov = ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysUsersService, [{
+/** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysUsersService.ɵprov = i0.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysUsersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -11971,9 +11980,9 @@ class SysAuditLogService {
         return this.rest.get(`${this.baseUrl}/${id}`);
     }
 }
-/** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysAuditLogService.ɵprov = ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(SysAuditLogService, [{
+/** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ SysAuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAuditLogService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -12077,9 +12086,9 @@ class UserService {
         return this.rest.put(`${this.baseUrl}/accept-eula`, null);
     }
 }
-/** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ UserService.ɵprov = ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(UserService, [{
+/** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ UserService.ɵprov = i0.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UserService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -12245,9 +12254,9 @@ class UsersService {
         return this.rest.get(`${this.baseUrl}/${id}/token/${exp}`);
     }
 }
-/** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(ɵɵinject('config'), ɵɵinject(RestUtil)); };
-/** @nocollapse */ UsersService.ɵprov = ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(UsersService, [{
+/** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
+/** @nocollapse */ UsersService.ɵprov = i0.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UsersService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -12441,10 +12450,10 @@ class CoreLibModule {
     }
 }
 /** @nocollapse */ CoreLibModule.ɵfac = function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); };
-/** @nocollapse */ CoreLibModule.ɵmod = ɵɵdefineNgModule({ type: CoreLibModule });
-/** @nocollapse */ CoreLibModule.ɵinj = ɵɵdefineInjector({ imports: [[CommonModule, HttpClientModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(CoreLibModule, { imports: [CommonModule, HttpClientModule] }); })();
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && ɵsetClassMetadata(CoreLibModule, [{
+/** @nocollapse */ CoreLibModule.ɵmod = i0.ɵɵdefineNgModule({ type: CoreLibModule });
+/** @nocollapse */ CoreLibModule.ɵinj = i0.ɵɵdefineInjector({ imports: [[CommonModule, HttpClientModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(CoreLibModule, { imports: [CommonModule, HttpClientModule] }); })();
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CoreLibModule, [{
         type: NgModule,
         args: [{
                 imports: [CommonModule, HttpClientModule]

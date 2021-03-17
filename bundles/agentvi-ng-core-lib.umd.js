@@ -4,6 +4,29 @@
    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.agentvi = global.agentvi || {}, global.agentvi['ng-core-lib'] = {}), global.ng.core, global.ng.common.http, global.rxjs.operators, global.ng.common));
 }(this, (function (exports, i0, i1, operators, common) { 'use strict';
 
+   function _interopNamespace(e) {
+      if (e && e.__esModule) return e;
+      var n = Object.create(null);
+      if (e) {
+         Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+               var d = Object.getOwnPropertyDescriptor(e, k);
+               Object.defineProperty(n, k, d.get ? d : {
+                  enumerable: true,
+                  get: function () {
+                     return e[k];
+                  }
+               });
+            }
+         });
+      }
+      n['default'] = e;
+      return Object.freeze(n);
+   }
+
+   var i0__namespace = /*#__PURE__*/_interopNamespace(i0);
+   var i1__namespace = /*#__PURE__*/_interopNamespace(i1);
+
    /*
       Schedule time frame
       Times are described in ISO 8601 format (See: https://www.w3.org/TR/NOTE-datetime).
@@ -8164,12 +8187,12 @@
        };
        return RestUtil;
    }());
-   /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(i0.ɵɵinject(i1.HttpClient)); };
-   /** @nocollapse */ RestUtil.ɵprov = i0.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
+   /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(i0__namespace.ɵɵinject(i1__namespace.HttpClient)); };
+   /** @nocollapse */ RestUtil.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestUtil, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(RestUtil, [{
                type: i0.Injectable
-           }], function () { return [{ type: i1.HttpClient }]; }, null);
+           }], function () { return [{ type: i1__namespace.HttpClient }]; }, null);
    })();
 
    var CoreConfig = /** @class */ (function () {
@@ -8361,10 +8384,10 @@
        };
        return AccountsService;
    }());
-   /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
+   /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ AccountsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AccountsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AccountsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8486,10 +8509,10 @@
        };
        return AnomalyService;
    }());
-   /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AnomalyService.ɵprov = i0.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
+   /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ AnomalyService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AnomalyService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AnomalyService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8560,10 +8583,10 @@
        };
        return ApplianceDigitalIOService;
    }());
-   /** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ApplianceDigitalIOService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
+   /** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ ApplianceDigitalIOService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceDigitalIOService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ApplianceDigitalIOService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -8638,10 +8661,10 @@
        };
        return ApplianceProfilesService;
    }());
-   /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ApplianceProfilesService.ɵprov = i0.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
+   /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ ApplianceProfilesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ApplianceProfilesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ApplianceProfilesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9053,10 +9076,10 @@
        };
        return AppliancesService;
    }());
-   /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
+   /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ AppliancesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppliancesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AppliancesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9160,10 +9183,10 @@
        };
        return AuditLogService;
    }());
-   /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
+   /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ AuditLogService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AuditLogService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AuditLogService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9301,10 +9324,10 @@
        };
        return CalendarsService;
    }());
-   /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ CalendarsService.ɵprov = i0.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
+   /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ CalendarsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CalendarsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CalendarsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9426,10 +9449,10 @@
        };
        return CasesService;
    }());
-   /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ CasesService.ɵprov = i0.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
+   /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ CasesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CasesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CasesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -9807,10 +9830,10 @@
        };
        return EventsService;
    }());
-   /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ EventsService.ɵprov = i0.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
+   /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ EventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EventsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(EventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10050,10 +10073,10 @@
        };
        return FoldersService;
    }());
-   /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ FoldersService.ɵprov = i0.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
+   /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ FoldersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FoldersService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(FoldersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10100,10 +10123,10 @@
        };
        return GeoService;
    }());
-   /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ GeoService.ɵprov = i0.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
+   /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ GeoService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GeoService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(GeoService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10136,10 +10159,10 @@
        };
        return HealthCheckService;
    }());
-   /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ HealthCheckService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
+   /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ HealthCheckService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthCheckService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(HealthCheckService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10207,10 +10230,10 @@
        };
        return HealthEventsService;
    }());
-   /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ HealthEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
+   /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ HealthEventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HealthEventsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(HealthEventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10398,10 +10421,10 @@
        };
        return IntegrationsService;
    }());
-   /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ IntegrationsService.ɵprov = i0.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
+   /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ IntegrationsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(IntegrationsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(IntegrationsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10469,12 +10492,19 @@
        LicensesService.prototype.import = function (licenseFile) {
            return this.rest.upload(licenseFile, this.baseUrl + "/import");
        };
+       /**
+        * Get deployment Id (for licensing)
+        * @Return: ActionResponse
+        */
+       LicensesService.prototype.getDeploymentId = function () {
+           return this.rest.get("" + this.baseUrl);
+       };
        return LicensesService;
    }());
-   /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ LicensesService.ɵprov = i0.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
+   /** @nocollapse */ LicensesService.ɵfac = function LicensesService_Factory(t) { return new (t || LicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ LicensesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: LicensesService, factory: LicensesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LicensesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(LicensesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10596,10 +10626,10 @@
        };
        return ReportsService;
    }());
-   /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
+   /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ ReportsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ReportsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ReportsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10906,10 +10936,10 @@
        };
        return RulesService;
    }());
-   /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ RulesService.ɵprov = i0.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
+   /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ RulesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RulesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(RulesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -10989,10 +11019,10 @@
        };
        return ScheduledReportsService;
    }());
-   /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ScheduledReportsService.ɵprov = i0.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
+   /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ ScheduledReportsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ScheduledReportsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ScheduledReportsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11106,10 +11136,10 @@
        };
        return SchedulesService;
    }());
-   /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SchedulesService.ɵprov = i0.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
+   /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SchedulesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SchedulesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SchedulesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11388,10 +11418,10 @@
        };
        return SearchService;
    }());
-   /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SearchService.ɵprov = i0.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
+   /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SearchService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SearchService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SearchService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -11773,10 +11803,10 @@
        };
        return SensorsService;
    }());
-   /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
+   /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SensorsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SensorsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SensorsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12102,10 +12132,10 @@
        };
        return SysAccountsService;
    }());
-   /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAccountsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
+   /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysAccountsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAccountsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAccountsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12505,10 +12535,10 @@
        };
        return SysAppliancesService;
    }());
-   /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAppliancesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
+   /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysAppliancesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAppliancesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAppliancesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12681,10 +12711,10 @@
        };
        return SysConfigurationsService;
    }());
-   /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysConfigurationsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
+   /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysConfigurationsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysConfigurationsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysConfigurationsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12794,10 +12824,10 @@
        };
        return SysEventsService;
    }());
-   /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysEventsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
+   /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysEventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysEventsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysEventsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12868,10 +12898,10 @@
        };
        return SysFeaturesGroupsService;
    }());
-   /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysFeaturesGroupsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
+   /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysFeaturesGroupsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesGroupsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesGroupsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -12945,10 +12975,10 @@
        };
        return SysFeaturesService;
    }());
-   /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysFeaturesService.ɵprov = i0.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
+   /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysFeaturesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13079,10 +13109,10 @@
        };
        return SysKeysService;
    }());
-   /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysKeysService.ɵprov = i0.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
+   /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysKeysService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysKeysService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysKeysService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13176,10 +13206,10 @@
        };
        return SysModelsService;
    }());
-   /** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysModelsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
+   /** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysModelsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysModelsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysModelsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13387,10 +13417,10 @@
        };
        return SysSensorsService;
    }());
-   /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysSensorsService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
+   /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysSensorsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSensorsService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysSensorsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13494,10 +13524,10 @@
        };
        return SysSystemService;
    }());
-   /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysSystemService.ɵprov = i0.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
+   /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysSystemService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysSystemService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysSystemService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13684,10 +13714,10 @@
        };
        return SysUsersService;
    }());
-   /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysUsersService.ɵprov = i0.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
+   /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysUsersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysUsersService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysUsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13797,10 +13827,10 @@
        };
        return SysAuditLogService;
    }());
-   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAuditLogService.ɵprov = i0.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysAuditLogService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysAuditLogService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13909,10 +13939,10 @@
        };
        return UserService;
    }());
-   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UserService.ɵprov = i0.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UserService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UserService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -14084,10 +14114,10 @@
        };
        return UsersService;
    }());
-   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UsersService.ɵprov = i0.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UsersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UsersService, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -14298,11 +14328,11 @@
        return CoreLibModule;
    }());
    /** @nocollapse */ CoreLibModule.ɵfac = function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); };
-   /** @nocollapse */ CoreLibModule.ɵmod = i0.ɵɵdefineNgModule({ type: CoreLibModule });
-   /** @nocollapse */ CoreLibModule.ɵinj = i0.ɵɵdefineInjector({ imports: [[common.CommonModule, i1.HttpClientModule]] });
-   (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
+   /** @nocollapse */ CoreLibModule.ɵmod = i0__namespace.ɵɵdefineNgModule({ type: CoreLibModule });
+   /** @nocollapse */ CoreLibModule.ɵinj = i0__namespace.ɵɵdefineInjector({ imports: [[common.CommonModule, i1.HttpClientModule]] });
+   (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0__namespace.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
    (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CoreLibModule, [{
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CoreLibModule, [{
                type: i0.NgModule,
                args: [{
                        imports: [common.CommonModule, i1.HttpClientModule]
