@@ -26,6 +26,7 @@ export * from './EventStatistics';
 export * from './Feature';
 export * from './FeaturesGroup';
 export * from './Folder';
+export * from './Group';
 export * from './HealthEvent';
 export * from './IntegrationAction';
 export * from './IntegrationActionFilter';

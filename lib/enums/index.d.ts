@@ -23,6 +23,7 @@ export * from './IntegrationTypeCode';
 export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
 export * from './ObjectTypeCode';
+export * from './PermissionMask';
 export * from './ProductTypeCode';
 export * from './RuntimeStatusCode';
 export * from './SearchScopeCode';
