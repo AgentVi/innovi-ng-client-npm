@@ -12,7 +12,6 @@ export * from './geoService';
 export * from './healthCheckService';
 export * from './healthEventsService';
 export * from './integrationsService';
-export * from './licensesService';
 export * from './reportsService';
 export * from './rulesService';
 export * from './scheduledReportsService';
