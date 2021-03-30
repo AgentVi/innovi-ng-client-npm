@@ -3377,6 +3377,18 @@
        ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_CLOUD"] = 16843776] = "INNOVI_UNKNOWNS_CLOUD";
        // Object 16844800 
        ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT"] = 16844800] = "INNOVI_UNKNOWNS_OBJECT";
+       // Backpack 16844801 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_BACKPACK"] = 16844801] = "INNOVI_UNKNOWNS_OBJECT_BACKPACK";
+       // Handbag 16844802 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_HANDBAG"] = 16844802] = "INNOVI_UNKNOWNS_OBJECT_HANDBAG";
+       // Suitcase 16844804 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_SUITCASE"] = 16844804] = "INNOVI_UNKNOWNS_OBJECT_SUITCASE";
+       // Other 16844808 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_OTHER"] = 16844808] = "INNOVI_UNKNOWNS_OBJECT_OTHER";
+       // Box 16844816 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_BOX"] = 16844816] = "INNOVI_UNKNOWNS_OBJECT_BOX";
+       // Bag 16844832 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_UNKNOWNS_OBJECT_BAG"] = 16844832] = "INNOVI_UNKNOWNS_OBJECT_BAG";
        // Abstract group of people 16908288 
        ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE"] = 16908288] = "INNOVI_PEOPLE";
        // Person standing upright 16908544 
