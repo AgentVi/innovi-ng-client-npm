@@ -9,6 +9,7 @@ export * from './casesService';
 export * from './eventsService';
 export * from './foldersService';
 export * from './geoService';
+export * from './groupsService';
 export * from './healthCheckService';
 export * from './healthEventsService';
 export * from './integrationsService';

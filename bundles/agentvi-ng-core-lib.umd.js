@@ -5002,6 +5002,16 @@
 
    /*
    */
+   var EntitiesResponseOfGroup = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfGroup, _super);
+       function EntitiesResponseOfGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfGroup;
+   }(EntitiesResponse));
+
+   /*
+   */
    var EntitiesResponseOfIntegration = /** @class */ (function (_super) {
        __extends(EntitiesResponseOfIntegration, _super);
        function EntitiesResponseOfIntegration() {
@@ -5429,6 +5439,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntityResponseOfGeoReferenceData;
+   }(EntityResponse));
+
+   /*
+   */
+   var EntityResponseOfGroup = /** @class */ (function (_super) {
+       __extends(EntityResponseOfGroup, _super);
+       function EntityResponseOfGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfGroup;
    }(EntityResponse));
 
    /*
@@ -6161,6 +6181,55 @@
 
    /*
    */
+   var GroupIdRequest = /** @class */ (function () {
+       function GroupIdRequest(id) {
+           this.id = id;
+       }
+       return GroupIdRequest;
+   }());
+
+   /*
+   */
+   var GroupIdsRequest = /** @class */ (function () {
+       function GroupIdsRequest(id) {
+           this.id = id;
+       }
+       return GroupIdsRequest;
+   }());
+
+   /*
+   */
+   var GroupServiceFindRequest = /** @class */ (function () {
+       function GroupServiceFindRequest(search, sort, page, pageSize) {
+           this.search = search;
+           this.sort = sort;
+           this.page = page;
+           this.pageSize = pageSize;
+       }
+       return GroupServiceFindRequest;
+   }());
+
+   /*
+   */
+   var GroupsServiceCreateRequest = /** @class */ (function () {
+       function GroupsServiceCreateRequest(body) {
+           this.body = body;
+       }
+       return GroupsServiceCreateRequest;
+   }());
+
+   /*
+   */
+   var GroupsServiceUpdateRequest = /** @class */ (function () {
+       function GroupsServiceUpdateRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return GroupsServiceUpdateRequest;
+   }());
+
+   /*
+   */
    var HealthEventFindRequest = /** @class */ (function () {
        function HealthEventFindRequest(folderId, from, to, source, entityId, sort, page, pageSize) {
            this.folderId = folderId;
@@ -6488,6 +6557,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfFolder;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfGroup = /** @class */ (function (_super) {
+       __extends(QueryResponseOfGroup, _super);
+       function QueryResponseOfGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfGroup;
    }(QueryResponse));
 
    /*
@@ -10221,6 +10300,98 @@
    /** @nocollapse */ GeoService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(GeoService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Services for security groups actions
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var GroupsService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function GroupsService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/groups';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Create new group
+        * @Return: EntityResponse<Group>
+        */
+       GroupsService.prototype.create = function (body) {
+           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update group
+        * @Return: EntityResponse<Group>
+        */
+       GroupsService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete group from the system
+        * @Return: ActionResponse
+        */
+       GroupsService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single group by id
+        * @Return: EntityResponse<Group>
+        */
+       GroupsService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get groups by list of ids
+        * @Return: EntitiesResponse<Group>
+        */
+       GroupsService.prototype.list = function (id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+       };
+       /**
+        * Find groups by filters
+        * @Return: QueryResponse<Group>
+        */
+       GroupsService.prototype.find = function (search, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+       };
+       return GroupsService;
+   }());
+   /** @nocollapse */ GroupsService.ɵfac = function GroupsService_Factory(t) { return new (t || GroupsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ GroupsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: GroupsService, factory: GroupsService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(GroupsService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -14275,6 +14446,7 @@
        EventsService,
        FoldersService,
        GeoService,
+       GroupsService,
        HealthEventsService,
        IntegrationsService,
        ReportsService,
@@ -14645,6 +14817,7 @@
    exports.EntitiesResponseOfFeature = EntitiesResponseOfFeature;
    exports.EntitiesResponseOfFeaturesGroup = EntitiesResponseOfFeaturesGroup;
    exports.EntitiesResponseOfFolder = EntitiesResponseOfFolder;
+   exports.EntitiesResponseOfGroup = EntitiesResponseOfGroup;
    exports.EntitiesResponseOfIntegration = EntitiesResponseOfIntegration;
    exports.EntitiesResponseOfIntegrationAction = EntitiesResponseOfIntegrationAction;
    exports.EntitiesResponseOfIntegrationStatus = EntitiesResponseOfIntegrationStatus;
@@ -14688,6 +14861,7 @@
    exports.EntityResponseOfFeaturesGroup = EntityResponseOfFeaturesGroup;
    exports.EntityResponseOfFolder = EntityResponseOfFolder;
    exports.EntityResponseOfGeoReferenceData = EntityResponseOfGeoReferenceData;
+   exports.EntityResponseOfGroup = EntityResponseOfGroup;
    exports.EntityResponseOfHealthEvent = EntityResponseOfHealthEvent;
    exports.EntityResponseOfIntegration = EntityResponseOfIntegration;
    exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
@@ -14774,6 +14948,12 @@
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
    exports.Group = Group;
+   exports.GroupIdRequest = GroupIdRequest;
+   exports.GroupIdsRequest = GroupIdsRequest;
+   exports.GroupServiceFindRequest = GroupServiceFindRequest;
+   exports.GroupsService = GroupsService;
+   exports.GroupsServiceCreateRequest = GroupsServiceCreateRequest;
+   exports.GroupsServiceUpdateRequest = GroupsServiceUpdateRequest;
    exports.HealthCheckService = HealthCheckService;
    exports.HealthEvent = HealthEvent;
    exports.HealthEventFindRequest = HealthEventFindRequest;
@@ -14831,6 +15011,7 @@
    exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
    exports.QueryResponseOfEvent = QueryResponseOfEvent;
    exports.QueryResponseOfFolder = QueryResponseOfFolder;
+   exports.QueryResponseOfGroup = QueryResponseOfGroup;
    exports.QueryResponseOfHealthEvent = QueryResponseOfHealthEvent;
    exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
    exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
