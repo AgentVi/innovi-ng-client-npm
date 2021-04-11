@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { AnomalyEventInfo } from '../common/AnomalyEventInfo';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfAnomalyEventInfo extends QueryResponse {
     list: AnomalyEventInfo[];
     code: number;

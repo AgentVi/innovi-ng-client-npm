@@ -5721,6 +5721,15 @@
 
    /*
    */
+   var EventTokenRequest = /** @class */ (function () {
+       function EventTokenRequest(token) {
+           this.token = token;
+       }
+       return EventTokenRequest;
+   }());
+
+   /*
+   */
    var EventsCountByBehaviorRequest = /** @class */ (function () {
        function EventsCountByBehaviorRequest(folderId, sensorId, objectType, severity, status, rule, from, to) {
            this.folderId = folderId;
@@ -10000,6 +10009,32 @@
                params.push("to=" + to);
            }
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-behavior"], params));
+       };
+       /**
+        * Direct link to download event image [response content type: image/jpeg]
+        * This link is injected dynamically by the system to the ImagePath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
+        * @Return: StreamingOutput of the image
+        */
+       EventsService.prototype.downloadEventImage = function (token) {
+           var _a;
+           var params = new Array();
+           if (token != null) {
+               params.push("token=" + token);
+           }
+           return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Image"], params));
+       };
+       /**
+        * Direct link to download event clip [response content type: video/mp4]
+        * This link is injected dynamically by the system to the ClipPath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
+        * @Return: StreamingOutput of the clip
+        */
+       EventsService.prototype.downloadEventClip = function (token) {
+           var _a;
+           var params = new Array();
+           if (token != null) {
+               params.push("token=" + token);
+           }
+           return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Clip"], params));
        };
        return EventsService;
    }());
@@ -14893,6 +14928,7 @@
    exports.EventIdRequest = EventIdRequest;
    exports.EventIdsRequest = EventIdsRequest;
    exports.EventStatistics = EventStatistics;
+   exports.EventTokenRequest = EventTokenRequest;
    exports.EventsCountByBehaviorRequest = EventsCountByBehaviorRequest;
    exports.EventsCountByObjectRequest = EventsCountByObjectRequest;
    exports.EventsCountByStatusRequest = EventsCountByStatusRequest;

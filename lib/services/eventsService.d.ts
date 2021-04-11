@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { EventStatusCode } from '../enums/EventStatusCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
-import { EventStatusCode } from '../enums/EventStatusCode';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -90,6 +90,18 @@ export declare class EventsService {
      * @Return: EntityResponse<DistributionOfLong>
      */
     getEventsCountByBehavior(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number): import("rxjs").Observable<any>;
+    /**
+     * Direct link to download event image [response content type: image/jpeg]
+     * This link is injected dynamically by the system to the ImagePath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
+     * @Return: StreamingOutput of the image
+     */
+    downloadEventImage(token?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    /**
+     * Direct link to download event clip [response content type: video/mp4]
+     * This link is injected dynamically by the system to the ClipPath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
+     * @Return: StreamingOutput of the clip
+     */
+    downloadEventClip(token?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     static ɵfac: i0.ɵɵFactoryDef<EventsService, never>;
     static ɵprov: i0.ɵɵInjectableDef<EventsService>;
 }

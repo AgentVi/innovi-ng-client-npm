@@ -180,6 +180,7 @@ export * from './EntityResponseOfUserAccountInfo';
 export * from './EntityResponseUsageReport';
 export * from './EventIdRequest';
 export * from './EventIdsRequest';
+export * from './EventTokenRequest';
 export * from './EventsCountByBehaviorRequest';
 export * from './EventsCountByObjectRequest';
 export * from './EventsCountByStatusRequest';
