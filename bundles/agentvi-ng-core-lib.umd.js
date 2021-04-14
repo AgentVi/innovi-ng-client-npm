@@ -1913,6 +1913,18 @@
    }(BaseEntity));
 
    /*
+      Represents a single aggregated path for multiple objects
+   */
+   var ObjectsPath = /** @class */ (function () {
+       function ObjectsPath(pathId, count, path) {
+           this.pathId = pathId;
+           this.count = count;
+           this.path = path;
+       }
+       return ObjectsPath;
+   }());
+
+   /*
       ONVIF channel description
       This structure describes the list of channels (cameras, NVRs, DVRs etc) discovered in the network by ONVIF protocol
    */
@@ -2126,6 +2138,28 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return SensorDetectionModels;
+   }(BaseEntity));
+
+   /*
+      Group of object counts in cells of the sensor's field of view
+   */
+   var SensorHeatmap = /** @class */ (function (_super) {
+       __extends(SensorHeatmap, _super);
+       function SensorHeatmap() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return SensorHeatmap;
+   }(BaseEntity));
+
+   /*
+      Group of objects' path aggregations for sensor's field of view
+   */
+   var SensorPaths = /** @class */ (function (_super) {
+       __extends(SensorPaths, _super);
+       function SensorPaths() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return SensorPaths;
    }(BaseEntity));
 
    /*
@@ -5613,6 +5647,26 @@
 
    /*
    */
+   var EntityResponseOfSensorHeatmap = /** @class */ (function (_super) {
+       __extends(EntityResponseOfSensorHeatmap, _super);
+       function EntityResponseOfSensorHeatmap() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfSensorHeatmap;
+   }(EntityResponse));
+
+   /*
+   */
+   var EntityResponseOfSensorPaths = /** @class */ (function (_super) {
+       __extends(EntityResponseOfSensorPaths, _super);
+       function EntityResponseOfSensorPaths() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfSensorPaths;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfSensorStatus = /** @class */ (function (_super) {
        __extends(EntityResponseOfSensorStatus, _super);
        function EntityResponseOfSensorStatus() {
@@ -7197,6 +7251,34 @@
 
    /*
    */
+   var SensorHeatmapEventsRequest = /** @class */ (function () {
+       function SensorHeatmapEventsRequest(sessionId, sensorId, row, col, page, pageSize) {
+           this.sessionId = sessionId;
+           this.sensorId = sensorId;
+           this.row = row;
+           this.col = col;
+           this.page = page;
+           this.pageSize = pageSize;
+       }
+       return SensorHeatmapEventsRequest;
+   }());
+
+   /*
+   */
+   var SensorHeatmapRequest = /** @class */ (function () {
+       function SensorHeatmapRequest(sessionId, sensorId, from, to, objectType, dim) {
+           this.sessionId = sessionId;
+           this.sensorId = sensorId;
+           this.from = from;
+           this.to = to;
+           this.objectType = objectType;
+           this.dim = dim;
+       }
+       return SensorHeatmapRequest;
+   }());
+
+   /*
+   */
    var SensorIdRequest = /** @class */ (function () {
        function SensorIdRequest(id) {
            this.id = id;
@@ -7211,6 +7293,33 @@
            this.id = id;
        }
        return SensorIdsRequest;
+   }());
+
+   /*
+   */
+   var SensorPathEventsRequest = /** @class */ (function () {
+       function SensorPathEventsRequest(sessionId, sensorId, pathId, page, pageSize) {
+           this.sessionId = sessionId;
+           this.sensorId = sensorId;
+           this.pathId = pathId;
+           this.page = page;
+           this.pageSize = pageSize;
+       }
+       return SensorPathEventsRequest;
+   }());
+
+   /*
+   */
+   var SensorPathsRequest = /** @class */ (function () {
+       function SensorPathsRequest(sessionId, sensorId, from, to, objectType, points) {
+           this.sessionId = sessionId;
+           this.sensorId = sensorId;
+           this.from = from;
+           this.to = to;
+           this.objectType = objectType;
+           this.points = points;
+       }
+       return SensorPathsRequest;
    }());
 
    /*
@@ -11636,6 +11745,87 @@
        SearchService.prototype.getEventObjectCropsData = function (sessionId, eventId) {
            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/events/" + eventId + "/crops");
        };
+       /**
+        * Find objects paths aggregation for sensor FOV (for path visualizer)
+        * @Return: EntityResponse<SensorPaths>
+        */
+       SearchService.prototype.getSensorPaths = function (sessionId, sensorId, from, to, objectType, points) {
+           var _a;
+           var params = new Array();
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (objectType != null) {
+               params.push("objectType=" + objectType);
+           }
+           if (points != null) {
+               params.push("points=" + points);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId], params));
+       };
+       /**
+        * Get all search events related to the path
+        * @Return: QueryResponse<SearchEvent>
+        */
+       SearchService.prototype.getSensorPathEvents = function (sessionId, sensorId, pathId, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (pathId != null) {
+               params.push("pathId=" + pathId);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId + "/{pathId}/events"], params));
+       };
+       /**
+        * Find objects heatmap for sensor FOV (for path visualizer)
+        * @Return: EntityResponse<SensorPaths>
+        */
+       SearchService.prototype.getSensorHeatmap = function (sessionId, sensorId, from, to, objectType, dim) {
+           var _a;
+           var params = new Array();
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (objectType != null) {
+               params.push("objectType=" + objectType);
+           }
+           if (dim != null) {
+               params.push("dim=" + dim);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId], params));
+       };
+       /**
+        * Get all search events related to the heatmap
+        * @Return: QueryResponse<SearchEvent>
+        */
+       SearchService.prototype.getSensorHeatmapEvents = function (sessionId, sensorId, row, col, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (row != null) {
+               params.push("row=" + row);
+           }
+           if (col != null) {
+               params.push("col=" + col);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/{pathId}/events"], params));
+       };
        return SearchService;
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -14913,6 +15103,8 @@
    exports.EntityResponseOfSensor = EntityResponseOfSensor;
    exports.EntityResponseOfSensorAnalysisResults = EntityResponseOfSensorAnalysisResults;
    exports.EntityResponseOfSensorAnomalyInfo = EntityResponseOfSensorAnomalyInfo;
+   exports.EntityResponseOfSensorHeatmap = EntityResponseOfSensorHeatmap;
+   exports.EntityResponseOfSensorPaths = EntityResponseOfSensorPaths;
    exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
    exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
    exports.EntityResponseOfTimestampedCrop = EntityResponseOfTimestampedCrop;
@@ -15027,6 +15219,7 @@
    exports.ObjectInstance = ObjectInstance;
    exports.ObjectTypeNode = ObjectTypeNode;
    exports.ObjectTypeReport = ObjectTypeReport;
+   exports.ObjectsPath = ObjectsPath;
    exports.OnvifChannel = OnvifChannel;
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
@@ -15143,9 +15336,15 @@
    exports.SensorDetectionModels = SensorDetectionModels;
    exports.SensorDetectionModelsIdRequest = SensorDetectionModelsIdRequest;
    exports.SensorExtIdsRequest = SensorExtIdsRequest;
+   exports.SensorHeatmap = SensorHeatmap;
+   exports.SensorHeatmapEventsRequest = SensorHeatmapEventsRequest;
+   exports.SensorHeatmapRequest = SensorHeatmapRequest;
    exports.SensorIdRequest = SensorIdRequest;
    exports.SensorIdsRequest = SensorIdsRequest;
    exports.SensorInfo = SensorInfo;
+   exports.SensorPathEventsRequest = SensorPathEventsRequest;
+   exports.SensorPaths = SensorPaths;
+   exports.SensorPathsRequest = SensorPathsRequest;
    exports.SensorStatus = SensorStatus;
    exports.SensorStatusTimeSeries = SensorStatusTimeSeries;
    exports.SensorStatusTimestamped = SensorStatusTimestamped;

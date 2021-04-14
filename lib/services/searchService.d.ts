@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { SearchDefinition } from '../entities/SearchDefinition';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -114,6 +114,26 @@ export declare class SearchService {
      * @Return: EntityResponse<TimestampedCropsData>
      */
     getEventObjectCropsData(sessionId?: string, eventId?: string): import("rxjs").Observable<any>;
+    /**
+     * Find objects paths aggregation for sensor FOV (for path visualizer)
+     * @Return: EntityResponse<SensorPaths>
+     */
+    getSensorPaths(sessionId?: string, sensorId?: string, from?: number, to?: number, objectType?: ObjectTypeCode[], points?: number): import("rxjs").Observable<any>;
+    /**
+     * Get all search events related to the path
+     * @Return: QueryResponse<SearchEvent>
+     */
+    getSensorPathEvents(sessionId?: string, sensorId?: string, pathId?: number, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Find objects heatmap for sensor FOV (for path visualizer)
+     * @Return: EntityResponse<SensorPaths>
+     */
+    getSensorHeatmap(sessionId?: string, sensorId?: string, from?: number, to?: number, objectType?: ObjectTypeCode[], dim?: number): import("rxjs").Observable<any>;
+    /**
+     * Get all search events related to the heatmap
+     * @Return: QueryResponse<SearchEvent>
+     */
+    getSensorHeatmapEvents(sessionId?: string, sensorId?: string, row?: number, col?: number, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDef<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDef<SearchService>;
 }
