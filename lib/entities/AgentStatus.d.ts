@@ -5,6 +5,7 @@ export declare class AgentStatus extends BaseEntity {
     accountId: string;
     status: AgentStatusCode;
     state: number;
+    duration: number;
     latency: number;
     id: string;
     _type: string;

@@ -5,6 +5,7 @@ export declare class ApplianceStatus extends BaseEntity {
     accountId: string;
     status: ApplianceStatusCode;
     state: number;
+    duration: number;
     cpuAvg: number;
     cpuMax: number;
     ram: number;

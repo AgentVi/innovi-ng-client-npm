@@ -2949,6 +2949,8 @@ var SensorStateMask;
     SensorStateMask[SensorStateMask["SOURCE_DOWNLOADING_CLIP_WARN"] = 32] = "SOURCE_DOWNLOADING_CLIP_WARN";
     // [WARNING] Initializing stream from camera 
     SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
+    // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
+    SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
     // [ERROR] Communication error [0x00010000] 
     SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
     // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 

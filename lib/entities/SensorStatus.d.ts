@@ -5,6 +5,7 @@ export declare class SensorStatus extends BaseEntity {
     accountId: string;
     state: number;
     status: SensorStatusCode;
+    duration: number;
     codec: string;
     resolution: string;
     framerate: number;
