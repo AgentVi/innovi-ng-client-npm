@@ -3318,9 +3318,10 @@ class AccountsServiceFindRequest {
 /*
 */
 class AccountsServiceLogicalTreeRequest {
-    constructor(status, behaviorType) {
+    constructor(status, behaviorType, includeSensors) {
         this.status = status;
         this.behaviorType = behaviorType;
+        this.includeSensors = includeSensors;
     }
 }
 
@@ -3336,9 +3337,9 @@ class AccountsServiceResetRequest {
 /*
 */
 class AccountsServiceTreeRequest {
-    constructor(id, sensors, status, behaviorType) {
+    constructor(id, includeSensors, status, behaviorType) {
         this.id = id;
-        this.sensors = sensors;
+        this.includeSensors = includeSensors;
         this.status = status;
         this.behaviorType = behaviorType;
     }
@@ -7005,13 +7006,16 @@ class AccountsService {
      * A logical tree is a representation of cameras-folders hierarchy as defined by the user
      * @Return: EntityResponse<TreeNode>
      */
-    getLogicalTree(status, behaviorType) {
+    getLogicalTree(status, behaviorType, includeSensors) {
         const params = new Array();
         if (status != null) {
             params.push(`status=${status}`);
         }
         if (behaviorType != null) {
             params.push(`behaviorType=${behaviorType}`);
+        }
+        if (includeSensors != null) {
+            params.push(`includeSensors=${includeSensors}`);
         }
         return this.rest.get(`${this.baseUrl}/logical-tree`, ...params);
     }
@@ -10611,10 +10615,10 @@ class SysAccountsService {
      * Get account hierarchy
      * @Return: EntityResponse<TreeNode>
      */
-    tree(id, sensors, status, behaviorType) {
+    tree(id, includeSensors, status, behaviorType) {
         const params = new Array();
-        if (sensors != null) {
-            params.push(`sensors=${sensors}`);
+        if (includeSensors != null) {
+            params.push(`includeSensors=${includeSensors}`);
         }
         if (status != null) {
             params.push(`status=${status}`);

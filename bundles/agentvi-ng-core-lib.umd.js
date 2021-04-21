@@ -4015,9 +4015,10 @@
    /*
    */
    var AccountsServiceLogicalTreeRequest = /** @class */ (function () {
-       function AccountsServiceLogicalTreeRequest(status, behaviorType) {
+       function AccountsServiceLogicalTreeRequest(status, behaviorType, includeSensors) {
            this.status = status;
            this.behaviorType = behaviorType;
+           this.includeSensors = includeSensors;
        }
        return AccountsServiceLogicalTreeRequest;
    }());
@@ -4035,9 +4036,9 @@
    /*
    */
    var AccountsServiceTreeRequest = /** @class */ (function () {
-       function AccountsServiceTreeRequest(id, sensors, status, behaviorType) {
+       function AccountsServiceTreeRequest(id, includeSensors, status, behaviorType) {
            this.id = id;
-           this.sensors = sensors;
+           this.includeSensors = includeSensors;
            this.status = status;
            this.behaviorType = behaviorType;
        }
@@ -8626,7 +8627,7 @@
         * A logical tree is a representation of cameras-folders hierarchy as defined by the user
         * @Return: EntityResponse<TreeNode>
         */
-       AccountsService.prototype.getLogicalTree = function (status, behaviorType) {
+       AccountsService.prototype.getLogicalTree = function (status, behaviorType, includeSensors) {
            var _a;
            var params = new Array();
            if (status != null) {
@@ -8634,6 +8635,9 @@
            }
            if (behaviorType != null) {
                params.push("behaviorType=" + behaviorType);
+           }
+           if (includeSensors != null) {
+               params.push("includeSensors=" + includeSensors);
            }
            return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/logical-tree"], params));
        };
@@ -12433,11 +12437,11 @@
         * Get account hierarchy
         * @Return: EntityResponse<TreeNode>
         */
-       SysAccountsService.prototype.tree = function (id, sensors, status, behaviorType) {
+       SysAccountsService.prototype.tree = function (id, includeSensors, status, behaviorType) {
            var _a;
            var params = new Array();
-           if (sensors != null) {
-               params.push("sensors=" + sensors);
+           if (includeSensors != null) {
+               params.push("includeSensors=" + includeSensors);
            }
            if (status != null) {
                params.push("status=" + status);

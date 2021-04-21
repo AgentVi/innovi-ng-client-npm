@@ -101,7 +101,7 @@ export declare class SysAccountsService {
      * Get account hierarchy
      * @Return: EntityResponse<TreeNode>
      */
-    tree(id?: string, sensors?: boolean, status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[]): import("rxjs").Observable<any>;
+    tree(id?: string, includeSensors?: boolean, status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[]): import("rxjs").Observable<any>;
     /**
      * Find account folders
      * @Return: QueryResponse<Folder>
