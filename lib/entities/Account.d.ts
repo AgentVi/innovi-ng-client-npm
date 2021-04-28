@@ -1,9 +1,9 @@
-import { AccountTypeCode } from '../enums/AccountTypeCode';
-import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { AccountSettings } from '../common/AccountSettings';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { BaseEntity } from '../entities/BaseEntity';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
+import { AccountStatusCode } from '../enums/AccountStatusCode';
 export declare class Account extends BaseEntity {
     name: string;
     key: string;
@@ -19,6 +19,7 @@ export declare class Account extends BaseEntity {
     description: string;
     settings: AccountSettings;
     healthThresholds: HealthThresholds;
+    sysAdminSupport: boolean;
     id: string;
     _type: string;
     createdOn: number;
