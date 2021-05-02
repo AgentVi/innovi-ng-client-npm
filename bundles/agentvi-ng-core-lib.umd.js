@@ -2287,7 +2287,7 @@
        AccountTypeCode[AccountTypeCode["TRIAL"] = 2] = "TRIAL";
        // Active account for partner [3] 
        AccountTypeCode[AccountTypeCode["PARTNER"] = 3] = "PARTNER";
-       // Deleted account [4] 
+       // Active account for paying customers [4] 
        AccountTypeCode[AccountTypeCode["CUSTOMER"] = 4] = "CUSTOMER";
    })(exports.AccountTypeCode || (exports.AccountTypeCode = {}));
 
