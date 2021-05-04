@@ -315,6 +315,7 @@ export * from './SearchIdsRequest';
 export * from './SearchServiceCreateRequest';
 export * from './SearchServiceExecuteRequest';
 export * from './SearchServiceFindRequest';
+export * from './SearchServiceSimilarRequest';
 export * from './SearchServiceUpdateRequest';
 export * from './SearchSessionIdRequest';
 export * from './SensorAnalysisIdRequest';

@@ -7221,6 +7221,20 @@
 
    /*
    */
+   var SearchServiceSimilarRequest = /** @class */ (function () {
+       function SearchServiceSimilarRequest(objectId, sensorId, timestamp, from, to, similarity) {
+           this.objectId = objectId;
+           this.sensorId = sensorId;
+           this.timestamp = timestamp;
+           this.from = from;
+           this.to = to;
+           this.similarity = similarity;
+       }
+       return SearchServiceSimilarRequest;
+   }());
+
+   /*
+   */
    var SearchServiceUpdateRequest = /** @class */ (function () {
        function SearchServiceUpdateRequest(id, body) {
            this.id = id;
@@ -11577,8 +11591,6 @@
        /**
         * Perform metadata search by the search definition
         * @Return: EntityResponse<SearchStatus>
-        * Search image web socket (/ws/search?search=searchId) must be open before this method invocation.
-        * Please provide search id to query definition and use the same id for the web socket
         */
        SearchService.prototype.execute = function (body) {
            return this.rest.post(this.baseUrl + "/execute", typeof body === 'object' ? JSON.stringify(body) : body);
@@ -11589,6 +11601,30 @@
         */
        SearchService.prototype.executeById = function (id) {
            return this.rest.get(this.baseUrl + "/execute/" + id);
+       };
+       /**
+        * Perform metadata search by the similarity for another object
+        * @Return: EntityResponse<SearchStatus>
+        */
+       SearchService.prototype.searchForSimilar = function (objectId, sensorId, timestamp, from, to) {
+           var _a;
+           var params = new Array();
+           if (objectId != null) {
+               params.push("objectId=" + objectId);
+           }
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (timestamp != null) {
+               params.push("timestamp=" + timestamp);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/similar", null], params));
        };
        /**
         * Get search session status
@@ -15340,6 +15376,7 @@
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
    exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
    exports.SearchServiceFindRequest = SearchServiceFindRequest;
+   exports.SearchServiceSimilarRequest = SearchServiceSimilarRequest;
    exports.SearchServiceUpdateRequest = SearchServiceUpdateRequest;
    exports.SearchSession = SearchSession;
    exports.SearchSessionIdRequest = SearchSessionIdRequest;
