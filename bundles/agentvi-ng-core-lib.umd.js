@@ -66,7 +66,7 @@
       Account specific settings
    */
    var AccountSettings = /** @class */ (function () {
-       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat) {
+       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri) {
            this.retentionDays = retentionDays;
            this.objectColors = objectColors;
            this.ruleColor = ruleColor;
@@ -74,6 +74,7 @@
            this.enableAnomalyByDefault = enableAnomalyByDefault;
            this.dateFormat = dateFormat;
            this.dateTimeFormat = dateTimeFormat;
+           this.playerSourceUri = playerSourceUri;
        }
        return AccountSettings;
    }());

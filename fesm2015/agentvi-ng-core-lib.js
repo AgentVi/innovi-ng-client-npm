@@ -42,7 +42,7 @@ class AccountRole {
    Account specific settings
 */
 class AccountSettings {
-    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat) {
+    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri) {
         this.retentionDays = retentionDays;
         this.objectColors = objectColors;
         this.ruleColor = ruleColor;
@@ -50,6 +50,7 @@ class AccountSettings {
         this.enableAnomalyByDefault = enableAnomalyByDefault;
         this.dateFormat = dateFormat;
         this.dateTimeFormat = dateTimeFormat;
+        this.playerSourceUri = playerSourceUri;
     }
 }
 
