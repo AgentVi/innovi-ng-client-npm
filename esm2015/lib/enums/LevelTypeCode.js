@@ -1,0 +1,15 @@
+/*
+   Level type code
+*/
+export var LevelTypeCode;
+(function (LevelTypeCode) {
+    // Undefined [0] 
+    LevelTypeCode[LevelTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+    // Low [1] 
+    LevelTypeCode[LevelTypeCode["LOW"] = 1] = "LOW";
+    // Medium [2] 
+    LevelTypeCode[LevelTypeCode["MEDIUM"] = 2] = "MEDIUM";
+    // High [3] 
+    LevelTypeCode[LevelTypeCode["HIGH"] = 3] = "HIGH";
+})(LevelTypeCode || (LevelTypeCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGV2ZWxUeXBlQ29kZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL25nLWNvcmUtbGliL3NyYy9saWIvZW51bXMvTGV2ZWxUeXBlQ29kZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFRTtBQUNGLE1BQU0sQ0FBTixJQUFZLGFBY1g7QUFkRCxXQUFZLGFBQWE7SUFFckIsaUJBQWlCO0lBQ2pCLDJEQUFhLENBQUE7SUFFYixXQUFXO0lBQ1gsK0NBQU8sQ0FBQTtJQUVQLGNBQWM7SUFDZCxxREFBVSxDQUFBO0lBRVYsWUFBWTtJQUNaLGlEQUFRLENBQUE7QUFFWixDQUFDLEVBZFcsYUFBYSxLQUFiLGFBQWEsUUFjeEIiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIExldmVsIHR5cGUgY29kZSBcbiovXG5leHBvcnQgZW51bSBMZXZlbFR5cGVDb2RlIHtcbiBcbiAgICAvLyBVbmRlZmluZWQgWzBdIFxuICAgIFVOREVGSU5FRCA9IDAsXG4gXG4gICAgLy8gTG93IFsxXSBcbiAgICBMT1cgPSAxLFxuIFxuICAgIC8vIE1lZGl1bSBbMl0gXG4gICAgTUVESVVNID0gMixcbiBcbiAgICAvLyBIaWdoIFszXSBcbiAgICBISUdIID0gMyxcbiBcbn0iXX0=

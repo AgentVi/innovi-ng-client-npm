@@ -3369,6 +3369,21 @@
    })(exports.IntegrationTypeCode || (exports.IntegrationTypeCode = {}));
 
    /*
+      Level type code
+   */
+   exports.LevelTypeCode = void 0;
+   (function (LevelTypeCode) {
+       // Undefined [0] 
+       LevelTypeCode[LevelTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Low [1] 
+       LevelTypeCode[LevelTypeCode["LOW"] = 1] = "LOW";
+       // Medium [2] 
+       LevelTypeCode[LevelTypeCode["MEDIUM"] = 2] = "MEDIUM";
+       // High [3] 
+       LevelTypeCode[LevelTypeCode["HIGH"] = 3] = "HIGH";
+   })(exports.LevelTypeCode || (exports.LevelTypeCode = {}));
+
+   /*
       Line crossing direction (used by rule definition)
    */
    exports.LineCrossDirectionCode = void 0;

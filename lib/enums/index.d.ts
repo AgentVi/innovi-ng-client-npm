@@ -20,6 +20,7 @@ export * from './EventStatusCode';
 export * from './FeatureCode';
 export * from './IntegrationStatusCode';
 export * from './IntegrationTypeCode';
+export * from './LevelTypeCode';
 export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
 export * from './ObjectTypeCode';
