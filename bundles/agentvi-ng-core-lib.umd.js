@@ -674,6 +674,24 @@
    }());
 
    /*
+      Member registration data model
+   */
+   var MemberRegistration = /** @class */ (function () {
+       function MemberRegistration(accountId, name, email, mobile, role, tempPassword, changePassword, verifyByEmail, description) {
+           this.accountId = accountId;
+           this.name = name;
+           this.email = email;
+           this.mobile = mobile;
+           this.role = role;
+           this.tempPassword = tempPassword;
+           this.changePassword = changePassword;
+           this.verifyByEmail = verifyByEmail;
+           this.description = description;
+       }
+       return MemberRegistration;
+   }());
+
+   /*
       Metadata object color description
    */
    var ObjectColor = /** @class */ (function () {
@@ -1123,6 +1141,49 @@
        return TreeNode;
    }());
 
+   /*
+      User Account info (returned by switch-account method)
+   */
+   var UserAccountInfo = /** @class */ (function () {
+       function UserAccountInfo(account, loginData, features, licenseExpiresOn) {
+           this.account = account;
+           this.loginData = loginData;
+           this.features = features;
+           this.licenseExpiresOn = licenseExpiresOn;
+       }
+       return UserAccountInfo;
+   }());
+
+   /*
+      User invitation data model - used by account admin to invite user to the account
+   */
+   var UserInvitation = /** @class */ (function () {
+       function UserInvitation(email, role) {
+           this.email = email;
+           this.role = role;
+       }
+       return UserInvitation;
+   }());
+
+   /*
+      User registration data model - used by self registered users
+   */
+   var UserRegistration = /** @class */ (function () {
+       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
+           this.name = name;
+           this.email = email;
+           this.mobile = mobile;
+           this.defaultAccount = defaultAccount;
+           this.accountRoles = accountRoles;
+           this.type = type;
+           this.tempPassword = tempPassword;
+           this.changePassword = changePassword;
+           this.verifyByEmail = verifyByEmail;
+           this.description = description;
+       }
+       return UserRegistration;
+   }());
+
    /*! *****************************************************************************
    Copyright (c) Microsoft Corporation.
 
@@ -1447,60 +1508,6 @@
            this.path = path;
        }
        return BaseEntity;
-   }());
-
-   /*
-      User-Account relation type
-   */
-   var UserAccount = /** @class */ (function (_super) {
-       __extends(UserAccount, _super);
-       function UserAccount() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return UserAccount;
-   }(BaseEntity));
-
-   /*
-      User Account info (returned by switch-account method)
-   */
-   var UserAccountInfo = /** @class */ (function () {
-       function UserAccountInfo(account, loginData, features, licenseExpiresOn) {
-           this.account = account;
-           this.loginData = loginData;
-           this.features = features;
-           this.licenseExpiresOn = licenseExpiresOn;
-       }
-       return UserAccountInfo;
-   }());
-
-   /*
-      User invitation data model - used by account admin to invite user to the account
-   */
-   var UserInvitation = /** @class */ (function () {
-       function UserInvitation(email, role) {
-           this.email = email;
-           this.role = role;
-       }
-       return UserInvitation;
-   }());
-
-   /*
-      User registration data model - used by self registered users
-   */
-   var UserRegistration = /** @class */ (function () {
-       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
-           this.name = name;
-           this.email = email;
-           this.mobile = mobile;
-           this.defaultAccount = defaultAccount;
-           this.accountRoles = accountRoles;
-           this.type = type;
-           this.tempPassword = tempPassword;
-           this.changePassword = changePassword;
-           this.verifyByEmail = verifyByEmail;
-           this.description = description;
-       }
-       return UserRegistration;
    }());
 
    /*
@@ -1914,6 +1921,29 @@
    }(BaseEntity));
 
    /*
+      Member combined type (user and user-account)
+   */
+   var Member = /** @class */ (function (_super) {
+       __extends(Member, _super);
+       function Member() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return Member;
+   }(BaseEntity));
+
+   /*
+      Referenced object data for similarity search
+   */
+   var ObjectData = /** @class */ (function () {
+       function ObjectData(objectId, sensorId, timestamp) {
+           this.objectId = objectId;
+           this.sensorId = sensorId;
+           this.timestamp = timestamp;
+       }
+       return ObjectData;
+   }());
+
+   /*
       Represents a single aggregated path for multiple objects
    */
    var ObjectsPath = /** @class */ (function () {
@@ -2216,6 +2246,17 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return User;
+   }(BaseEntity));
+
+   /*
+      User-Account relation type
+   */
+   var UserAccount = /** @class */ (function (_super) {
+       __extends(UserAccount, _super);
+       function UserAccount() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return UserAccount;
    }(BaseEntity));
 
    /*
@@ -2622,10 +2663,16 @@
        EntityTypeCode[EntityTypeCode["APPLIANCE_STATUS"] = 33] = "APPLIANCE_STATUS";
        // Calendar [40] 
        EntityTypeCode[EntityTypeCode["CALENDAR"] = 40] = "CALENDAR";
+       // Case [45] 
+       EntityTypeCode[EntityTypeCode["CASE"] = 45] = "CASE";
        // Configuration [50] 
        EntityTypeCode[EntityTypeCode["CONFIGURATION"] = 50] = "CONFIGURATION";
        // Configuration Template [51] 
        EntityTypeCode[EntityTypeCode["CONFIGURATION_TEMPLATE"] = 51] = "CONFIGURATION_TEMPLATE";
+       // Configuration Version [52] 
+       EntityTypeCode[EntityTypeCode["CONFIGURATION_VERSION"] = 52] = "CONFIGURATION_VERSION";
+       // Detection Model [55] 
+       EntityTypeCode[EntityTypeCode["DETECTION_MODEL"] = 55] = "DETECTION_MODEL";
        // Digital IO device [60] 
        EntityTypeCode[EntityTypeCode["DIGITAL_IO"] = 60] = "DIGITAL_IO";
        // Detection Event [65] 
@@ -2636,12 +2683,16 @@
        EntityTypeCode[EntityTypeCode["FEATURES_GROUP"] = 71] = "FEATURES_GROUP";
        // Folder [80] 
        EntityTypeCode[EntityTypeCode["FOLDER"] = 80] = "FOLDER";
+       // Security Group [85] 
+       EntityTypeCode[EntityTypeCode["GROUP"] = 85] = "GROUP";
        // Health Event [90] 
        EntityTypeCode[EntityTypeCode["HEALTH_EVENT"] = 90] = "HEALTH_EVENT";
        // Integration Action [100] 
        EntityTypeCode[EntityTypeCode["INTEGRATION_ACTION"] = 100] = "INTEGRATION_ACTION";
        // Integration Action [101] 
        EntityTypeCode[EntityTypeCode["INTEGRATION_TARGET"] = 101] = "INTEGRATION_TARGET";
+       // Integration Status [102] 
+       EntityTypeCode[EntityTypeCode["INTEGRATION_STATUS"] = 102] = "INTEGRATION_STATUS";
        // License [110] 
        EntityTypeCode[EntityTypeCode["LICENSE"] = 110] = "LICENSE";
        // Report Definition [120] 
@@ -2654,6 +2705,8 @@
        EntityTypeCode[EntityTypeCode["SCHEDULED_REPORT"] = 141] = "SCHEDULED_REPORT";
        // Search Definition [150] 
        EntityTypeCode[EntityTypeCode["SEARCH_DEFINITION"] = 150] = "SEARCH_DEFINITION";
+       // Search Event [155] 
+       EntityTypeCode[EntityTypeCode["SEARCH_EVENT"] = 155] = "SEARCH_EVENT";
        // Sensor [160] 
        EntityTypeCode[EntityTypeCode["SENSOR"] = 160] = "SENSOR";
        // Sensor Status [161] 
@@ -5554,6 +5607,16 @@
 
    /*
    */
+   var EntityResponseOfMember = /** @class */ (function (_super) {
+       __extends(EntityResponseOfMember, _super);
+       function EntityResponseOfMember() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfMember;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfPreset = /** @class */ (function (_super) {
        __extends(EntityResponseOfPreset, _super);
        function EntityResponseOfPreset() {
@@ -6482,6 +6545,91 @@
 
    /*
    */
+   var MemberByEmailRequest = /** @class */ (function () {
+       function MemberByEmailRequest(email) {
+           this.email = email;
+       }
+       return MemberByEmailRequest;
+   }());
+
+   /*
+   */
+   var MemberIdRequest = /** @class */ (function () {
+       function MemberIdRequest(id) {
+           this.id = id;
+       }
+       return MemberIdRequest;
+   }());
+
+   /*
+   */
+   var MemberTokenRequest = /** @class */ (function () {
+       function MemberTokenRequest(id, exp) {
+           this.id = id;
+           this.exp = exp;
+       }
+       return MemberTokenRequest;
+   }());
+
+   /*
+   */
+   var MembersServiceExportRequest = /** @class */ (function () {
+       function MembersServiceExportRequest(search, type, status, sort, format, fields, fileName) {
+           this.search = search;
+           this.type = type;
+           this.status = status;
+           this.sort = sort;
+           this.format = format;
+           this.fields = fields;
+           this.fileName = fileName;
+       }
+       return MembersServiceExportRequest;
+   }());
+
+   /*
+   */
+   var MembersServiceFindRequest = /** @class */ (function () {
+       function MembersServiceFindRequest(search, type, status, sort, page, pageSize) {
+           this.search = search;
+           this.type = type;
+           this.status = status;
+           this.sort = sort;
+           this.page = page;
+           this.pageSize = pageSize;
+       }
+       return MembersServiceFindRequest;
+   }());
+
+   /*
+   */
+   var MembersServiceInviteRequest = /** @class */ (function () {
+       function MembersServiceInviteRequest(body) {
+           this.body = body;
+       }
+       return MembersServiceInviteRequest;
+   }());
+
+   /*
+   */
+   var MembersServiceRegisterRequest = /** @class */ (function () {
+       function MembersServiceRegisterRequest(body) {
+           this.body = body;
+       }
+       return MembersServiceRegisterRequest;
+   }());
+
+   /*
+   */
+   var MembersServiceUpdateRequest = /** @class */ (function () {
+       function MembersServiceUpdateRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return MembersServiceUpdateRequest;
+   }());
+
+   /*
+   */
    var PeopleCountingReportRequest = /** @class */ (function () {
        function PeopleCountingReportRequest(sensorId, folderId, from, to) {
            this.sensorId = sensorId;
@@ -6677,6 +6825,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfIntegrationTarget;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfMember = /** @class */ (function (_super) {
+       __extends(QueryResponseOfMember, _super);
+       function QueryResponseOfMember() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfMember;
    }(QueryResponse));
 
    /*
@@ -10878,6 +11036,157 @@
    })();
 
    /**
+    * List of all account members related actions for account administrator only
+    */
+   var MembersService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function MembersService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/members';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Send invitation to a new member for the current account
+        * @Return: ActionResponse
+        */
+       MembersService.prototype.invite = function (body) {
+           return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Register user for the account, it a user already exists, an invitation to the new account will be sent
+        * @Return: EntityResponse<Member>
+        */
+       MembersService.prototype.register = function (body) {
+           return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Create service account
+        * @Return: ActionResponse
+        */
+       MembersService.prototype.registerServiceAccount = function (body) {
+           return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Resend invitation to an existing user for the current account
+        * @Return: ActionResponse
+        */
+       MembersService.prototype.reInvite = function (id) {
+           return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+       };
+       /**
+        * Update member
+        * @Return: EntityResponse<Member>
+        */
+       MembersService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete member from the account
+        * The user will be removed from the account, if no accounts associated with the member, it will be deleted
+        * @Return: ActionResponse
+        */
+       MembersService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single member by id
+        * @Return: EntityResponse<Member>
+        */
+       MembersService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single member by email
+        * @Return: EntityResponse<Member>
+        */
+       MembersService.prototype.getByEmail = function (email) {
+           return this.rest.get(this.baseUrl + "/byEmail/" + email);
+       };
+       /**
+        * Find list of members and filter the list
+        * System user will see all users, Account system will see all users of the account, registered user will get an error.
+        * @Return: QueryResponse<Member>
+        */
+       MembersService.prototype.find = function (search, type, status, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+       };
+       /**
+        * Export list of members and filter
+        * @Return: StreamContent
+        */
+       MembersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spread(["members", this.baseUrl + "/export"], params));
+       };
+       /**
+        * Get access token for member
+        * @Return: ActionResponse
+        */
+       MembersService.prototype.getUserToken = function (id, exp) {
+           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+       };
+       return MembersService;
+   }());
+   /** @nocollapse */ MembersService.ɵfac = function MembersService_Factory(t) { return new (t || MembersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ MembersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: MembersService, factory: MembersService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(MembersService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
     * Services for reports definition actions
     * @RequestHeader X-API-KEY The key to identify the application (portal)
     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -14730,6 +15039,7 @@
        GroupsService,
        HealthEventsService,
        IntegrationsService,
+       MembersService,
        ReportsService,
        RulesService,
        ScheduledReportsService,
@@ -15148,6 +15458,7 @@
    exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
+   exports.EntityResponseOfMember = EntityResponseOfMember;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -15270,7 +15581,19 @@
    exports.LoginParams = LoginParams;
    exports.LongTuple = LongTuple;
    exports.MachineIdRequest = MachineIdRequest;
+   exports.Member = Member;
+   exports.MemberByEmailRequest = MemberByEmailRequest;
+   exports.MemberIdRequest = MemberIdRequest;
+   exports.MemberRegistration = MemberRegistration;
+   exports.MemberTokenRequest = MemberTokenRequest;
+   exports.MembersService = MembersService;
+   exports.MembersServiceExportRequest = MembersServiceExportRequest;
+   exports.MembersServiceFindRequest = MembersServiceFindRequest;
+   exports.MembersServiceInviteRequest = MembersServiceInviteRequest;
+   exports.MembersServiceRegisterRequest = MembersServiceRegisterRequest;
+   exports.MembersServiceUpdateRequest = MembersServiceUpdateRequest;
    exports.ObjectColor = ObjectColor;
+   exports.ObjectData = ObjectData;
    exports.ObjectInfo = ObjectInfo;
    exports.ObjectInstance = ObjectInstance;
    exports.ObjectTypeNode = ObjectTypeNode;
@@ -15300,6 +15623,7 @@
    exports.QueryResponseOfHealthEvent = QueryResponseOfHealthEvent;
    exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
    exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
+   exports.QueryResponseOfMember = QueryResponseOfMember;
    exports.QueryResponseOfReportDefinition = QueryResponseOfReportDefinition;
    exports.QueryResponseOfRule = QueryResponseOfRule;
    exports.QueryResponseOfSchedule = QueryResponseOfSchedule;

@@ -13,6 +13,7 @@ export * from './groupsService';
 export * from './healthCheckService';
 export * from './healthEventsService';
 export * from './integrationsService';
+export * from './membersService';
 export * from './reportsService';
 export * from './rulesService';
 export * from './scheduledReportsService';
