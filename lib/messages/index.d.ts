@@ -350,6 +350,7 @@ export * from './SensorsServiceCreateRequest';
 export * from './SensorsServiceCropImageRequest';
 export * from './SensorsServiceExportRequest';
 export * from './SensorsServiceFindRequest';
+export * from './SensorsServiceGetRefImageRequest';
 export * from './SensorsServiceSetRefImageRequest';
 export * from './SensorsServiceStatusOvertimeRequest';
 export * from './SensorsServiceUpdateRequest';
