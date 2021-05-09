@@ -4,5 +4,6 @@ export declare enum AccountRoleCode {
     SUPERVISOR = 2,
     OPERATOR = 4,
     USER = 8,
-    INSTALLER = 16
+    INSTALLER = 16,
+    VIEWER = 32
 }
