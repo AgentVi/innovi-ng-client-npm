@@ -380,6 +380,7 @@ export * from './SysConfigurationsServiceUpdateVersionRequest';
 export * from './SysEventIdRequest';
 export * from './SysEventsServiceFindInAreaRequest';
 export * from './SysEventsServiceStatisticsRequest';
+export * from './SysExportAllAccountsUsageReportRequest';
 export * from './SysExportUsageReportRequest';
 export * from './SysKeysServiceCreateApiKeyRequest';
 export * from './SysKeysServiceCreatePasswordRequest';

@@ -8026,6 +8026,16 @@
 
    /*
    */
+   var SysExportAllAccountsUsageReportRequest = /** @class */ (function () {
+       function SysExportAllAccountsUsageReportRequest(year, month) {
+           this.year = year;
+           this.month = month;
+       }
+       return SysExportAllAccountsUsageReportRequest;
+   }());
+
+   /*
+   */
    var SysExportUsageReportRequest = /** @class */ (function () {
        function SysExportUsageReportRequest(id, year, month, format, fileName) {
            this.id = id;
@@ -12952,6 +12962,13 @@
            }
            return (_a = this.rest).download.apply(_a, __spread(["sys-accounts", this.baseUrl + "/" + id + "/export-usage-report/" + year + "/" + month], params));
        };
+       /**
+        * Export all accounts usage report to a file (for operations)
+        * @Return: StreamContent
+        */
+       SysAccountsService.prototype.exportAllAccountsUsageReport = function (year, month) {
+           return this.rest.download("sys-accounts", this.baseUrl + "/export-usage-report/" + year + "/" + month);
+       };
        return SysAccountsService;
    }());
    /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -15872,6 +15889,7 @@
    exports.SysEventsService = SysEventsService;
    exports.SysEventsServiceFindInAreaRequest = SysEventsServiceFindInAreaRequest;
    exports.SysEventsServiceStatisticsRequest = SysEventsServiceStatisticsRequest;
+   exports.SysExportAllAccountsUsageReportRequest = SysExportAllAccountsUsageReportRequest;
    exports.SysExportUsageReportRequest = SysExportUsageReportRequest;
    exports.SysFeaturesGroupsService = SysFeaturesGroupsService;
    exports.SysFeaturesService = SysFeaturesService;
