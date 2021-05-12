@@ -8,6 +8,7 @@ export declare class Member extends BaseEntity {
     role: AccountRoleCode;
     groups: string[];
     name: string;
+    description: string;
     email: string;
     mobile: string;
     type: UserTypeCode;
