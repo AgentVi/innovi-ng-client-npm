@@ -15072,6 +15072,16 @@
    /*
       @WebSocketMessage
    */
+   var EntityChangeSocketServiceOpen = /** @class */ (function () {
+       function EntityChangeSocketServiceOpen(token) {
+           this.token = token;
+       }
+       return EntityChangeSocketServiceOpen;
+   }());
+
+   /*
+      @WebSocketMessage
+   */
    var EventsSocketServiceOpen = /** @class */ (function () {
        function EventsSocketServiceOpen(token) {
            this.token = token;
@@ -15146,6 +15156,54 @@
            this.token = token;
        }
        return SSHSocketServiceOpen;
+   }());
+
+   /*
+      @WebSocketMessage
+      This message is sent to the server to set filter criteria for the entity type
+   */
+   var SocketEntityChangeFilter = /** @class */ (function () {
+       function SocketEntityChangeFilter(op, payload) {
+           this.op = op;
+           this.payload = payload;
+       }
+       return SocketEntityChangeFilter;
+   }());
+
+   /*
+      @WebSocketMessage
+      Payload for entity change filter socket message
+   */
+   var SocketEntityChangeFilterPayload = /** @class */ (function () {
+       function SocketEntityChangeFilterPayload(entityTypes) {
+           this.entityTypes = entityTypes;
+       }
+       return SocketEntityChangeFilterPayload;
+   }());
+
+   /*
+      @WebSocketMessage
+      This message is pushed to the client upon any new entity change in the registered account
+   */
+   var SocketEntityChangeNotification = /** @class */ (function () {
+       function SocketEntityChangeNotification(op, payload) {
+           this.op = op;
+           this.payload = payload;
+       }
+       return SocketEntityChangeNotification;
+   }());
+
+   /*
+      @WebSocketMessage
+      Payload for entity change notification socket message
+   */
+   var SocketEntityChangePayload = /** @class */ (function () {
+       function SocketEntityChangePayload(op, sid, entity) {
+           this.op = op;
+           this.sid = sid;
+           this.entity = entity;
+       }
+       return SocketEntityChangePayload;
    }());
 
    /*
@@ -15444,6 +15502,7 @@
    exports.EntitiesResponseOfStringKeyValue = EntitiesResponseOfStringKeyValue;
    exports.EntitiesResponseOfTimestampedCrop = EntitiesResponseOfTimestampedCrop;
    exports.EntitiesResponseOfUpdateStatus = EntitiesResponseOfUpdateStatus;
+   exports.EntityChangeSocketServiceOpen = EntityChangeSocketServiceOpen;
    exports.EntityResponse = EntityResponse;
    exports.EntityResponseOfAccount = EntityResponseOfAccount;
    exports.EntityResponseOfApiKey = EntityResponseOfApiKey;
@@ -15770,6 +15829,10 @@
    exports.SensorsServiceUpdateRequest = SensorsServiceUpdateRequest;
    exports.ServiceAccountRegistration = ServiceAccountRegistration;
    exports.Services = Services;
+   exports.SocketEntityChangeFilter = SocketEntityChangeFilter;
+   exports.SocketEntityChangeFilterPayload = SocketEntityChangeFilterPayload;
+   exports.SocketEntityChangeNotification = SocketEntityChangeNotification;
+   exports.SocketEntityChangePayload = SocketEntityChangePayload;
    exports.SocketEventNotification = SocketEventNotification;
    exports.SocketEventNotificationPayload = SocketEventNotificationPayload;
    exports.SocketEventsFilter = SocketEventsFilter;

@@ -1,3 +1,4 @@
+export * from './EntityChangeSocketServiceOpen';
 export * from './EventsSocketServiceOpen';
 export * from './HealthSocketServiceOpen';
 export * from './SSHSocketCloseRequest';
@@ -5,6 +6,10 @@ export * from './SSHSocketInputRequest';
 export * from './SSHSocketOpenRequest';
 export * from './SSHSocketOutputResponse';
 export * from './SSHSocketServiceOpen';
+export * from './SocketEntityChangeFilter';
+export * from './SocketEntityChangeFilterPayload';
+export * from './SocketEntityChangeNotification';
+export * from './SocketEntityChangePayload';
 export * from './SocketEventNotification';
 export * from './SocketEventNotificationPayload';
 export * from './SocketEventsFilter';
