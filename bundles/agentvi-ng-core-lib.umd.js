@@ -1159,9 +1159,10 @@
       User invitation data model - used by account admin to invite user to the account
    */
    var UserInvitation = /** @class */ (function () {
-       function UserInvitation(email, role) {
+       function UserInvitation(email, role, groups) {
            this.email = email;
            this.role = role;
+           this.groups = groups;
        }
        return UserInvitation;
    }());

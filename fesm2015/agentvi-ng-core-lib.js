@@ -1054,9 +1054,10 @@ class UserAccountInfo {
    User invitation data model - used by account admin to invite user to the account
 */
 class UserInvitation {
-    constructor(email, role) {
+    constructor(email, role, groups) {
         this.email = email;
         this.role = role;
+        this.groups = groups;
     }
 }
 
