@@ -7698,6 +7698,16 @@
 
    /*
    */
+   var SensorsServiceUpdatePresetRequest = /** @class */ (function () {
+       function SensorsServiceUpdatePresetRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return SensorsServiceUpdatePresetRequest;
+   }());
+
+   /*
+   */
    var SensorsServiceUpdateRequest = /** @class */ (function () {
        function SensorsServiceUpdateRequest(id, body) {
            this.id = id;
@@ -12458,6 +12468,13 @@
            return this.rest.get(this.baseUrl + "/" + id + "/preset");
        };
        /**
+        * Set single sensor preset data
+        * @Return: EntityResponse<Preset>
+        */
+       SensorsService.prototype.setPreset = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id + "/preset", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
         * Export single sensor preset (including calibration) as Json stream
         * @Return: Sensor preset Json as StreamContent
         */
@@ -12470,6 +12487,13 @@
         */
        SensorsService.prototype.getRefImage = function (id) {
            return this.rest.download("sensors", this.baseUrl + "/" + id + "/ref-image");
+       };
+       /**
+        * Clear sensor reference image
+        * @Return: ActionResponse
+        */
+       SensorsService.prototype.clearRefImage = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id + "/ref-image");
        };
        /**
         * Get sensor reference image for a specific timestamp [response content type: image/jpeg]
@@ -15845,6 +15869,7 @@
    exports.SensorsServiceGetRefImageRequest = SensorsServiceGetRefImageRequest;
    exports.SensorsServiceSetRefImageRequest = SensorsServiceSetRefImageRequest;
    exports.SensorsServiceStatusOvertimeRequest = SensorsServiceStatusOvertimeRequest;
+   exports.SensorsServiceUpdatePresetRequest = SensorsServiceUpdatePresetRequest;
    exports.SensorsServiceUpdateRequest = SensorsServiceUpdateRequest;
    exports.ServiceAccountRegistration = ServiceAccountRegistration;
    exports.Services = Services;

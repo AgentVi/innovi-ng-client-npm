@@ -353,6 +353,7 @@ export * from './SensorsServiceFindRequest';
 export * from './SensorsServiceGetRefImageRequest';
 export * from './SensorsServiceSetRefImageRequest';
 export * from './SensorsServiceStatusOvertimeRequest';
+export * from './SensorsServiceUpdatePresetRequest';
 export * from './SensorsServiceUpdateRequest';
 export * from './StreamResponse';
 export * from './SysAccountExportRequest';

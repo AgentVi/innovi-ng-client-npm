@@ -1,13 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
+import { RulePolygon } from '../common/RulePolygon';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Preset } from '../entities/Preset';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -116,6 +117,11 @@ export declare class SensorsService {
      */
     getPreset(id?: string): import("rxjs").Observable<any>;
     /**
+     * Set single sensor preset data
+     * @Return: EntityResponse<Preset>
+     */
+    setPreset(id?: string, body?: Preset): import("rxjs").Observable<any>;
+    /**
      * Export single sensor preset (including calibration) as Json stream
      * @Return: Sensor preset Json as StreamContent
      */
@@ -125,6 +131,11 @@ export declare class SensorsService {
      * @Return: StreamingOutput of the reference image
      */
     getRefImage(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    /**
+     * Clear sensor reference image
+     * @Return: ActionResponse
+     */
+    clearRefImage(id?: string): import("rxjs").Observable<any>;
     /**
      * Get sensor reference image for a specific timestamp [response content type: image/jpeg]
      * @Return: StreamingOutput of the reference image
