@@ -35,6 +35,7 @@ export * from './IntegrationTarget';
 export * from './License';
 export * from './Member';
 export * from './ObjectData';
+export * from './ObjectTypeCount';
 export * from './ObjectsPath';
 export * from './OnvifChannel';
 export * from './PortMapping';
