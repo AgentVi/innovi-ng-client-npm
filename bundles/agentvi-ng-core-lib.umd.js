@@ -636,9 +636,10 @@
       Login data (returned by the API after successful login)
    */
    var LoginData = /** @class */ (function () {
-       function LoginData(accessToken, accountRole, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula) {
+       function LoginData(accessToken, accountRole, groups, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula) {
            this.accessToken = accessToken;
            this.accountRole = accountRole;
+           this.groups = groups;
            this.userId = userId;
            this.userName = userName;
            this.userEmail = userEmail;
