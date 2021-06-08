@@ -12185,16 +12185,13 @@
        SearchService.prototype.getSensorPathEvents = function (sessionId, sensorId, pathId, page, pageSize) {
            var _a;
            var params = new Array();
-           if (pathId != null) {
-               params.push("pathId=" + pathId);
-           }
            if (page != null) {
                params.push("page=" + page);
            }
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId + "/{pathId}/events"], params));
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId + "/" + pathId + "/events"], params));
        };
        /**
         * Find objects heatmap for sensor FOV (for path visualizer)

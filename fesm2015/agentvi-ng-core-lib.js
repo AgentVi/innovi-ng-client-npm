@@ -10350,16 +10350,13 @@ class SearchService {
      */
     getSensorPathEvents(sessionId, sensorId, pathId, page, pageSize) {
         const params = new Array();
-        if (pathId != null) {
-            params.push(`pathId=${pathId}`);
-        }
         if (page != null) {
             params.push(`page=${page}`);
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
         }
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensor-paths/${sensorId}/{pathId}/events`, ...params);
+        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensor-paths/${sensorId}/${pathId}/events`, ...params);
     }
     /**
      * Find objects heatmap for sensor FOV (for path visualizer)
