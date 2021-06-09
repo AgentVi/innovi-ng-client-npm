@@ -14587,6 +14587,13 @@
        SysUsersService.prototype.getUsersCountByStatus = function () {
            return this.rest.get(this.baseUrl + "/count/by-status");
        };
+       /**
+        * Get access token for user
+        * @Return: ActionResponse
+        */
+       SysUsersService.prototype.getUserToken = function (id, exp) {
+           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+       };
        return SysUsersService;
    }());
    /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };

@@ -12640,6 +12640,13 @@ class SysUsersService {
     getUsersCountByStatus() {
         return this.rest.get(`${this.baseUrl}/count/by-status`);
     }
+    /**
+     * Get access token for user
+     * @Return: ActionResponse
+     */
+    getUserToken(id, exp) {
+        return this.rest.get(`${this.baseUrl}/${id}/token/${exp}`);
+    }
 }
 /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysUsersService.ɵprov = i0.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
