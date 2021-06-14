@@ -1413,10 +1413,16 @@
                r[k] = a[j];
        return r;
    }
-   function __spreadArray(to, from) {
-       for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-           to[j] = from[i];
-       return to;
+   function __spreadArray(to, from, pack) {
+       if (pack || arguments.length === 2)
+           for (var i = 0, l = from.length, ar; i < l; i++) {
+               if (ar || !(i in from)) {
+                   if (!ar)
+                       ar = Array.prototype.slice.call(from, 0, i);
+                   ar[i] = from[i];
+               }
+           }
+       return to.concat(ar || from);
    }
    function __await(v) {
        return this instanceof __await ? (this.v = v, this) : new __await(v);
@@ -1921,6 +1927,17 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return License;
+   }(BaseEntity));
+
+   /*
+      Map one value to another - user for internal-external id mapping
+   */
+   var Mapping = /** @class */ (function (_super) {
+       __extends(Mapping, _super);
+       function Mapping() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return Mapping;
    }(BaseEntity));
 
    /*
@@ -5873,8 +5890,8 @@
    /*
    */
    var EventTokenRequest = /** @class */ (function () {
-       function EventTokenRequest(token) {
-           this.token = token;
+       function EventTokenRequest(imageToken) {
+           this.imageToken = imageToken;
        }
        return EventTokenRequest;
    }());
@@ -10363,11 +10380,11 @@
         * This link is injected dynamically by the system to the ImagePath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
         * @Return: StreamingOutput of the image
         */
-       EventsService.prototype.downloadEventImage = function (token) {
+       EventsService.prototype.downloadEventImage = function (imageToken) {
            var _a;
            var params = new Array();
-           if (token != null) {
-               params.push("token=" + token);
+           if (imageToken != null) {
+               params.push("imageToken=" + imageToken);
            }
            return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Image"], params));
        };
@@ -10376,11 +10393,11 @@
         * This link is injected dynamically by the system to the ClipPath property of the event, the link includes time-limited token (valid for 12 hours) to identify the account and event
         * @Return: StreamingOutput of the clip
         */
-       EventsService.prototype.downloadEventClip = function (token) {
+       EventsService.prototype.downloadEventClip = function (imageToken) {
            var _a;
            var params = new Array();
-           if (token != null) {
-               params.push("token=" + token);
+           if (imageToken != null) {
+               params.push("imageToken=" + imageToken);
            }
            return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Clip"], params));
        };
@@ -15719,6 +15736,7 @@
    exports.LoginParams = LoginParams;
    exports.LongTuple = LongTuple;
    exports.MachineIdRequest = MachineIdRequest;
+   exports.Mapping = Mapping;
    exports.Member = Member;
    exports.MemberByEmailRequest = MemberByEmailRequest;
    exports.MemberIdRequest = MemberIdRequest;

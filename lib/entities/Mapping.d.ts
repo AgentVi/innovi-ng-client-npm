@@ -1,8 +1,9 @@
-import { AnalysisResult } from '../common/AnalysisResult';
 import { BaseEntity } from '../entities/BaseEntity';
-export declare class SensorAnalysisResults extends BaseEntity {
+export declare class Mapping extends BaseEntity {
     accountId: string;
-    results: AnalysisResult[];
+    type: string;
+    from: string;
+    to: string;
     id: string;
     _type: string;
     createdOn: number;

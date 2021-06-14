@@ -1,7 +1,7 @@
+import { UserStatusCode } from '../enums/UserStatusCode';
 import { AccountRole } from '../common/AccountRole';
 import { Permission } from '../common/Permission';
 import { UserTypeCode } from '../enums/UserTypeCode';
-import { UserStatusCode } from '../enums/UserStatusCode';
 export declare class LoginData {
     accessToken: string;
     accountRole: AccountRole;

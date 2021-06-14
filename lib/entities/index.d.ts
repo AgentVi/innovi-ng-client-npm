@@ -33,6 +33,7 @@ export * from './IntegrationActionFilter';
 export * from './IntegrationStatus';
 export * from './IntegrationTarget';
 export * from './License';
+export * from './Mapping';
 export * from './Member';
 export * from './ObjectData';
 export * from './ObjectTypeCount';
