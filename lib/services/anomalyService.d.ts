@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
 import { AnalysisResult } from '../common/AnalysisResult';
-import { EventStatusCode } from '../enums/EventStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of anomaly related actions for the anomaly detection service

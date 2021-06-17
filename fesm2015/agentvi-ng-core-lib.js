@@ -1390,11 +1390,12 @@ class ObjectTypeCount {
    Represents a single aggregated path for multiple objects
 */
 class ObjectsPath {
-    constructor(id, count, path, countPerObjectType) {
+    constructor(id, count, path, countPerObjectType, parentObjectType) {
         this.id = id;
         this.count = count;
         this.path = path;
         this.countPerObjectType = countPerObjectType;
+        this.parentObjectType = parentObjectType;
     }
 }
 

@@ -1978,11 +1978,12 @@
       Represents a single aggregated path for multiple objects
    */
    var ObjectsPath = /** @class */ (function () {
-       function ObjectsPath(id, count, path, countPerObjectType) {
+       function ObjectsPath(id, count, path, countPerObjectType, parentObjectType) {
            this.id = id;
            this.count = count;
            this.path = path;
            this.countPerObjectType = countPerObjectType;
+           this.parentObjectType = parentObjectType;
        }
        return ObjectsPath;
    }());
