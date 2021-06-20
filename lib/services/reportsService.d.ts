@@ -46,6 +46,11 @@ export declare class ReportsService {
      */
     find(search?: string): import("rxjs").Observable<any>;
     /**
+     * Export account sensors as CSV report stream
+     * @Return: StreamContent
+     */
+    exportSensorsReport(): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    /**
      * Generate people counting report and stream it as CSV
      * @Return: StreamContent
      */

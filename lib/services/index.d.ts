@@ -31,6 +31,7 @@ export * from './sysFeaturesService';
 export * from './sysKeysService';
 export * from './sysLicensesService';
 export * from './sysModelsService';
+export * from './sysReportsService';
 export * from './sysSensorsService';
 export * from './sysSystemService';
 export * from './sysUsersService';
