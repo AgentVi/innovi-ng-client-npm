@@ -291,6 +291,7 @@ export * from './ReportIdRequest';
 export * from './ReportIdsRequest';
 export * from './ReportsServiceCreateRequest';
 export * from './ReportsServiceFindRequest';
+export * from './ReportsServiceSensorsRequest';
 export * from './ReportsServiceUpdateRequest';
 export * from './RuleExtIdsRequest';
 export * from './RuleIdRequest';

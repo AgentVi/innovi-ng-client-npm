@@ -7040,6 +7040,15 @@
 
    /*
    */
+   var ReportsServiceSensorsRequest = /** @class */ (function () {
+       function ReportsServiceSensorsRequest(accountId) {
+           this.accountId = accountId;
+       }
+       return ReportsServiceSensorsRequest;
+   }());
+
+   /*
+   */
    var ReportsServiceUpdateRequest = /** @class */ (function () {
        function ReportsServiceUpdateRequest(id, body) {
            this.id = id;
@@ -11327,8 +11336,13 @@
         * Export account sensors as CSV report stream
         * @Return: StreamContent
         */
-       ReportsService.prototype.exportSensorsReport = function () {
-           return this.rest.download("reports", this.baseUrl + "/sensors");
+       ReportsService.prototype.exportSensorsReport = function (accountId) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/sensors"], params));
        };
        /**
         * Generate people counting report and stream it as CSV
@@ -15853,6 +15867,7 @@
    exports.ReportsService = ReportsService;
    exports.ReportsServiceCreateRequest = ReportsServiceCreateRequest;
    exports.ReportsServiceFindRequest = ReportsServiceFindRequest;
+   exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
    exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;
