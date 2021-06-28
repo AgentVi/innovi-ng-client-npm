@@ -7,6 +7,7 @@ export * from './AgentStatusCode';
 export * from './ApplianceCommandCode';
 export * from './ApplianceStateMask';
 export * from './ApplianceStatusCode';
+export * from './AttributesMask';
 export * from './BehaviorTypeCode';
 export * from './ColorCode';
 export * from './ColorTypeCode';

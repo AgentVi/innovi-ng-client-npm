@@ -2528,6 +2528,43 @@
    })(exports.ApplianceStatusCode || (exports.ApplianceStatusCode = {}));
 
    /*
+      Attributes mask - the bit mask represents the combination of object's attributes
+   */
+   exports.AttributesMask = void 0;
+   (function (AttributesMask) {
+       // Undefined [0] 
+       AttributesMask[AttributesMask["UNDEFINED"] = 0] = "UNDEFINED";
+       // Unknown Face [65536] 
+       AttributesMask[AttributesMask["ATTR_FACE_UNKNOWN"] = 65536] = "ATTR_FACE_UNKNOWN";
+       // Face with mask [65792] 
+       AttributesMask[AttributesMask["ATTR_FACE_MASK"] = 65792] = "ATTR_FACE_MASK";
+       // Unknown gender [131072] 
+       AttributesMask[AttributesMask["ATTR_GENDER_UNKNOWN"] = 131072] = "ATTR_GENDER_UNKNOWN";
+       // Male [131328] 
+       AttributesMask[AttributesMask["ATTR_GENDER_MALE"] = 131328] = "ATTR_GENDER_MALE";
+       // Female [131584] 
+       AttributesMask[AttributesMask["ATTR_GENDER_FEMALE"] = 131584] = "ATTR_GENDER_FEMALE";
+       // Unknown age [196608] 
+       AttributesMask[AttributesMask["ATTR_AGE_UNKNOWN"] = 262144] = "ATTR_AGE_UNKNOWN";
+       // Age of 0-4 [196864] 
+       AttributesMask[AttributesMask["ATTR_AGE_0_4"] = 262400] = "ATTR_AGE_0_4";
+       // Age of 4-8 [197120] 
+       AttributesMask[AttributesMask["ATTR_AGE_4_8"] = 262656] = "ATTR_AGE_4_8";
+       // Age of 8-15 [197632] 
+       AttributesMask[AttributesMask["ATTR_AGE_8_15"] = 263168] = "ATTR_AGE_8_15";
+       // Age of 15-25 [198656] 
+       AttributesMask[AttributesMask["ATTR_AGE_15_25"] = 264192] = "ATTR_AGE_15_25";
+       // Age of 25-35 [200704] 
+       AttributesMask[AttributesMask["ATTR_AGE_25_35"] = 266240] = "ATTR_AGE_25_35";
+       // Age of 35-45 [204800] 
+       AttributesMask[AttributesMask["ATTR_AGE_35_45"] = 270336] = "ATTR_AGE_35_45";
+       // Age of 45-60 [212992] 
+       AttributesMask[AttributesMask["ATTR_AGE_45_60"] = 278528] = "ATTR_AGE_45_60";
+       // Age of 60 or more [229376] 
+       AttributesMask[AttributesMask["ATTR_AGE_60_PLUS"] = 294912] = "ATTR_AGE_60_PLUS";
+   })(exports.AttributesMask || (exports.AttributesMask = {}));
+
+   /*
       Detected object behavior type code
       Values with INNOVI prefix represents standard innoVi model behaviour, all other values represent custom models behaviour
    */
