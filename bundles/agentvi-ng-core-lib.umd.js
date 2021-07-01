@@ -509,6 +509,17 @@
    }());
 
    /*
+      Metadata object color description
+   */
+   var Embedding = /** @class */ (function () {
+       function Embedding(version, data) {
+           this.version = version;
+           this.data = data;
+       }
+       return Embedding;
+   }());
+
+   /*
       Event count time series data point
    */
    var EventCountDataPoint = /** @class */ (function () {
@@ -530,6 +541,19 @@
            this.data = data;
        }
        return EventCountTimeSeries;
+   }());
+
+   /*
+      Extended custom model results
+   */
+   var ExtendedModelResults = /** @class */ (function () {
+       function ExtendedModelResults(modelName, attributes, boundingBox, embedding) {
+           this.modelName = modelName;
+           this.attributes = attributes;
+           this.boundingBox = boundingBox;
+           this.embedding = embedding;
+       }
+       return ExtendedModelResults;
    }());
 
    /*
@@ -763,7 +787,7 @@
       One instance of the object in the scene
    */
    var ObjectInstance = /** @class */ (function () {
-       function ObjectInstance(timestamp, objectType, confidence, isStopped, colors, direction, dimension, boundingBox, speed, size, position, location) {
+       function ObjectInstance(timestamp, objectType, confidence, isStopped, colors, direction, dimension, boundingBox, speed, size, position, location, extendedModelResults) {
            this.timestamp = timestamp;
            this.objectType = objectType;
            this.confidence = confidence;
@@ -776,6 +800,7 @@
            this.size = size;
            this.position = position;
            this.location = location;
+           this.extendedModelResults = extendedModelResults;
        }
        return ObjectInstance;
    }());
@@ -15668,6 +15693,7 @@
    exports.EdgeMetadata = EdgeMetadata;
    exports.EdgeMetadataBody = EdgeMetadataBody;
    exports.EdgeMetadataMessage = EdgeMetadataMessage;
+   exports.Embedding = Embedding;
    exports.EmptyRequest = EmptyRequest;
    exports.EmptyResponse = EmptyResponse;
    exports.EntitiesResponse = EntitiesResponse;
@@ -15789,6 +15815,7 @@
    exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
    exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
    exports.ExportUsageReportRequest = ExportUsageReportRequest;
+   exports.ExtendedModelResults = ExtendedModelResults;
    exports.Feature = Feature;
    exports.FeatureIdRequest = FeatureIdRequest;
    exports.FeatureIdsRequest = FeatureIdsRequest;
