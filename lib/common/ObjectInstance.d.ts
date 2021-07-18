@@ -1,10 +1,10 @@
-import { Point } from '../common/Point';
 import { Coordinate } from '../common/Coordinate';
 import { ExtendedModelResults } from '../common/ExtendedModelResults';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { ObjectColor } from '../common/ObjectColor';
 import { Dimension } from '../common/Dimension';
 import { BoundingBox } from '../common/BoundingBox';
+import { Point } from '../common/Point';
 export declare class ObjectInstance {
     timestamp: number;
     objectType: ObjectTypeCode;
