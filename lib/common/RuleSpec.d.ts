@@ -8,10 +8,11 @@ export declare class RuleSpec {
     objectTypes: ObjectTypeCode[];
     isLineDrawing: boolean;
     dwellTime: RuleDefault;
+    minSpeed: RuleDefault;
     peopleInGroup: RuleDefault;
     clusterDistance: RuleDefault;
     intervalTime: RuleDefault;
     referenceCrop: boolean;
     objectHierarchy: ObjectTypeNode[];
-    constructor(behaviorType?: BehaviorTypeCode, ruleTypeName?: string, objectTypes?: ObjectTypeCode[], isLineDrawing?: boolean, dwellTime?: RuleDefault, peopleInGroup?: RuleDefault, clusterDistance?: RuleDefault, intervalTime?: RuleDefault, referenceCrop?: boolean, objectHierarchy?: ObjectTypeNode[]);
+    constructor(behaviorType?: BehaviorTypeCode, ruleTypeName?: string, objectTypes?: ObjectTypeCode[], isLineDrawing?: boolean, dwellTime?: RuleDefault, minSpeed?: RuleDefault, peopleInGroup?: RuleDefault, clusterDistance?: RuleDefault, intervalTime?: RuleDefault, referenceCrop?: boolean, objectHierarchy?: ObjectTypeNode[]);
 }
