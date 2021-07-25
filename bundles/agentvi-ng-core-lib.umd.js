@@ -1988,6 +1988,16 @@
    }(BaseEntity));
 
    /*
+   */
+   var HeatmapRow = /** @class */ (function () {
+       function HeatmapRow(row, cells) {
+           this.row = row;
+           this.cells = cells;
+       }
+       return HeatmapRow;
+   }());
+
+   /*
       Integration action describes content details to use for a specific integration target
    */
    var IntegrationAction = /** @class */ (function (_super) {
@@ -15871,6 +15881,7 @@
    exports.HealthEventsService = HealthEventsService;
    exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
    exports.HealthThresholds = HealthThresholds;
+   exports.HeatmapRow = HeatmapRow;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
    exports.IntegrationActionFilter = IntegrationActionFilter;
