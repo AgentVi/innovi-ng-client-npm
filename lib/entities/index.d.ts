@@ -28,6 +28,7 @@ export * from './FeaturesGroup';
 export * from './Folder';
 export * from './Group';
 export * from './HealthEvent';
+export * from './HeatmapCell';
 export * from './HeatmapRow';
 export * from './IntegrationAction';
 export * from './IntegrationActionFilter';

@@ -1989,6 +1989,16 @@
 
    /*
    */
+   var HeatmapCell = /** @class */ (function () {
+       function HeatmapCell(objectType, count) {
+           this.objectType = objectType;
+           this.count = count;
+       }
+       return HeatmapCell;
+   }());
+
+   /*
+   */
    var HeatmapRow = /** @class */ (function () {
        function HeatmapRow(row, cells) {
            this.row = row;
@@ -15881,6 +15891,7 @@
    exports.HealthEventsService = HealthEventsService;
    exports.HealthSocketServiceOpen = HealthSocketServiceOpen;
    exports.HealthThresholds = HealthThresholds;
+   exports.HeatmapCell = HeatmapCell;
    exports.HeatmapRow = HeatmapRow;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
