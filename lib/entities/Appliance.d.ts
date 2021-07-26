@@ -23,6 +23,8 @@ export declare class Appliance extends BaseEntity {
     metadataIntegrationId: string;
     deviceProfileId: string;
     healthThresholds: Thresholds;
+    cpuAvg: number;
+    ram: number;
     id: string;
     _type: string;
     createdOn: number;

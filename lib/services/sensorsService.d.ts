@@ -3,11 +3,11 @@ import { CoreConfig } from '../../config';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Preset } from '../entities/Preset';
 import * as i0 from "@angular/core";
 /**
