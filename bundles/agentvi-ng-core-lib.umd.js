@@ -1990,9 +1990,9 @@
    /*
    */
    var HeatmapCell = /** @class */ (function () {
-       function HeatmapCell(objectType, count) {
-           this.objectType = objectType;
-           this.count = count;
+       function HeatmapCell(col, objectsCount) {
+           this.col = col;
+           this.objectsCount = objectsCount;
        }
        return HeatmapCell;
    }());
@@ -2085,6 +2085,16 @@
        }
        return Member;
    }(BaseEntity));
+
+   /*
+   */
+   var ObjectCount = /** @class */ (function () {
+       function ObjectCount(objectType, count) {
+           this.objectType = objectType;
+           this.count = count;
+       }
+       return ObjectCount;
+   }());
 
    /*
       Represents object type count distribution
@@ -15932,6 +15942,7 @@
    exports.MembersServiceUpdateRequest = MembersServiceUpdateRequest;
    exports.ModelAttributes = ModelAttributes;
    exports.ObjectColor = ObjectColor;
+   exports.ObjectCount = ObjectCount;
    exports.ObjectData = ObjectData;
    exports.ObjectInfo = ObjectInfo;
    exports.ObjectInstance = ObjectInstance;

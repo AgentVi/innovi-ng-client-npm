@@ -1,6 +1,6 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { ObjectCount } from '../entities/ObjectCount';
 export declare class HeatmapCell {
-    objectType: ObjectTypeCode;
-    count: number;
-    constructor(objectType?: ObjectTypeCode, count?: number);
+    col: number;
+    objectsCount: ObjectCount[];
+    constructor(col?: number, objectsCount?: ObjectCount[]);
 }

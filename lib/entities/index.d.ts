@@ -37,6 +37,7 @@ export * from './IntegrationTarget';
 export * from './License';
 export * from './Mapping';
 export * from './Member';
+export * from './ObjectCount';
 export * from './ObjectTypeCount';
 export * from './ObjectsPath';
 export * from './OnvifChannel';
