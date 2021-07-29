@@ -6357,52 +6357,12 @@
 
    /*
    */
-   var FoldersServiceChangeGeoAreaRequest = /** @class */ (function () {
-       function FoldersServiceChangeGeoAreaRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return FoldersServiceChangeGeoAreaRequest;
-   }());
-
-   /*
-   */
-   var FoldersServiceChangeGeoLocationRequest = /** @class */ (function () {
-       function FoldersServiceChangeGeoLocationRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return FoldersServiceChangeGeoLocationRequest;
-   }());
-
-   /*
-   */
-   var FoldersServiceChangeNameRequest = /** @class */ (function () {
-       function FoldersServiceChangeNameRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return FoldersServiceChangeNameRequest;
-   }());
-
-   /*
-   */
    var FoldersServiceChangeParentRequest = /** @class */ (function () {
        function FoldersServiceChangeParentRequest(id, parentId) {
            this.id = id;
            this.parentId = parentId;
        }
        return FoldersServiceChangeParentRequest;
-   }());
-
-   /*
-   */
-   var FoldersServiceChangeThresholdsRequest = /** @class */ (function () {
-       function FoldersServiceChangeThresholdsRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return FoldersServiceChangeThresholdsRequest;
    }());
 
    /*
@@ -10573,39 +10533,11 @@
            return this.rest.put("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
-        * Change folder name
-        * @Return: EntityResponse<Folder>
-        */
-       FoldersService.prototype.changeName = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
         * Change folder parent id
         * @Return: EntityResponse<Folder>
         */
        FoldersService.prototype.changeParent = function (id, parentId) {
            return this.rest.put(this.baseUrl + "/" + id + "/parent/" + parentId, null);
-       };
-       /**
-        * Change folder geo-area (polygon)
-        * @Return: EntityResponse<Folder>
-        */
-       FoldersService.prototype.changeGeoArea = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/geoArea", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change folder geo-location (center)
-        * @Return: EntityResponse<Folder>
-        */
-       FoldersService.prototype.changeGeoLocation = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/geoLocation", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change folder health thresholds
-        * @Return: EntityResponse<Folder>
-        */
-       FoldersService.prototype.changeHealthThresholds = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/health-thresholds", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Delete folder from the system (only if it is empty)
@@ -15850,11 +15782,7 @@
    exports.FolderIdRequest = FolderIdRequest;
    exports.FolderIdsRequest = FolderIdsRequest;
    exports.FoldersService = FoldersService;
-   exports.FoldersServiceChangeGeoAreaRequest = FoldersServiceChangeGeoAreaRequest;
-   exports.FoldersServiceChangeGeoLocationRequest = FoldersServiceChangeGeoLocationRequest;
-   exports.FoldersServiceChangeNameRequest = FoldersServiceChangeNameRequest;
    exports.FoldersServiceChangeParentRequest = FoldersServiceChangeParentRequest;
-   exports.FoldersServiceChangeThresholdsRequest = FoldersServiceChangeThresholdsRequest;
    exports.FoldersServiceCreateRequest = FoldersServiceCreateRequest;
    exports.FoldersServiceExportRequest = FoldersServiceExportRequest;
    exports.FoldersServiceFindRequest = FoldersServiceFindRequest;

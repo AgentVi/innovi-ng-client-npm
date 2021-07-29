@@ -1,8 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { Folder } from '../entities/Folder';
-import { Coordinate } from '../common/Coordinate';
-import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * Services for folders actions
@@ -28,30 +26,10 @@ export declare class FoldersService {
      */
     update(body?: Folder): import("rxjs").Observable<any>;
     /**
-     * Change folder name
-     * @Return: EntityResponse<Folder>
-     */
-    changeName(id?: string, body?: string): import("rxjs").Observable<any>;
-    /**
      * Change folder parent id
      * @Return: EntityResponse<Folder>
      */
     changeParent(id?: string, parentId?: string): import("rxjs").Observable<any>;
-    /**
-     * Change folder geo-area (polygon)
-     * @Return: EntityResponse<Folder>
-     */
-    changeGeoArea(id?: string, body?: Coordinate[]): import("rxjs").Observable<any>;
-    /**
-     * Change folder geo-location (center)
-     * @Return: EntityResponse<Folder>
-     */
-    changeGeoLocation(id?: string, body?: Coordinate): import("rxjs").Observable<any>;
-    /**
-     * Change folder health thresholds
-     * @Return: EntityResponse<Folder>
-     */
-    changeHealthThresholds(id?: string, body?: HealthThresholds): import("rxjs").Observable<any>;
     /**
      * Delete folder from the system (only if it is empty)
      * @Return: ActionResponse error will be returned if the folder is not empty
