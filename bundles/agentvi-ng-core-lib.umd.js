@@ -6407,16 +6407,6 @@
 
    /*
    */
-   var FoldersServiceChangeTimezoneRequest = /** @class */ (function () {
-       function FoldersServiceChangeTimezoneRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return FoldersServiceChangeTimezoneRequest;
-   }());
-
-   /*
-   */
    var FoldersServiceCreateRequest = /** @class */ (function () {
        function FoldersServiceCreateRequest(body) {
            this.body = body;
@@ -10616,13 +10606,6 @@
         */
        FoldersService.prototype.changeHealthThresholds = function (id, body) {
            return this.rest.put(this.baseUrl + "/" + id + "/health-thresholds", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change folder timezone
-        * @Return: EntityResponse<Folder>
-        */
-       FoldersService.prototype.changeTimezone = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/timezone", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Delete folder from the system (only if it is empty)
@@ -15872,7 +15855,6 @@
    exports.FoldersServiceChangeNameRequest = FoldersServiceChangeNameRequest;
    exports.FoldersServiceChangeParentRequest = FoldersServiceChangeParentRequest;
    exports.FoldersServiceChangeThresholdsRequest = FoldersServiceChangeThresholdsRequest;
-   exports.FoldersServiceChangeTimezoneRequest = FoldersServiceChangeTimezoneRequest;
    exports.FoldersServiceCreateRequest = FoldersServiceCreateRequest;
    exports.FoldersServiceExportRequest = FoldersServiceExportRequest;
    exports.FoldersServiceFindRequest = FoldersServiceFindRequest;

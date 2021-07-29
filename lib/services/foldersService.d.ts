@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { HealthThresholds } from '../common/HealthThresholds';
 import { Folder } from '../entities/Folder';
 import { Coordinate } from '../common/Coordinate';
+import { HealthThresholds } from '../common/HealthThresholds';
 import * as i0 from "@angular/core";
 /**
  * Services for folders actions
@@ -52,11 +52,6 @@ export declare class FoldersService {
      * @Return: EntityResponse<Folder>
      */
     changeHealthThresholds(id?: string, body?: HealthThresholds): import("rxjs").Observable<any>;
-    /**
-     * Change folder timezone
-     * @Return: EntityResponse<Folder>
-     */
-    changeTimezone(id?: string, body?: string): import("rxjs").Observable<any>;
     /**
      * Delete folder from the system (only if it is empty)
      * @Return: ActionResponse error will be returned if the folder is not empty

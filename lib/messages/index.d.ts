@@ -217,7 +217,6 @@ export * from './FoldersServiceChangeGeoLocationRequest';
 export * from './FoldersServiceChangeNameRequest';
 export * from './FoldersServiceChangeParentRequest';
 export * from './FoldersServiceChangeThresholdsRequest';
-export * from './FoldersServiceChangeTimezoneRequest';
 export * from './FoldersServiceCreateRequest';
 export * from './FoldersServiceExportRequest';
 export * from './FoldersServiceFindRequest';
