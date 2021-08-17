@@ -10893,7 +10893,7 @@ class SensorsService {
      * @Return: ActionResponse
      */
     addSensorModel(id, modelId) {
-        return this.rest.put(`${this.baseUrl}/${id}/models/${modelId}`, null);
+        return this.rest.post(`${this.baseUrl}/${id}/models/${modelId}`, null);
     }
     /**
      * Remove detection model from sensor
