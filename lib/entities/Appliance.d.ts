@@ -1,8 +1,8 @@
-import { BaseEntity } from '../entities/BaseEntity';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { ApplianceCapabilities } from '../entities/ApplianceCapabilities';
 import { Thresholds } from '../common/Thresholds';
+import { BaseEntity } from '../entities/BaseEntity';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 export declare class Appliance extends BaseEntity {
     name: string;
     accountId: string;
@@ -25,6 +25,7 @@ export declare class Appliance extends BaseEntity {
     healthThresholds: Thresholds;
     cpuAvg: number;
     ram: number;
+    uptime: number;
     id: string;
     _type: string;
     createdOn: number;

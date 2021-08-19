@@ -13,6 +13,7 @@ export declare class ApplianceStatus extends BaseEntity {
     uploadSpeed: string;
     downloadSpeed: string;
     speedTestedOn: number;
+    uptime: number;
     id: string;
     _type: string;
     createdOn: number;
