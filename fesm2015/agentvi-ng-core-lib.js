@@ -1935,6 +1935,8 @@ var BehaviorTypeCode;
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_TRAFFIC_STATISTICS"] = 65857] = "INNOVI_TRAFFIC_STATISTICS";
     // Count statistics report 65858 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_COUNT_STATISTICS"] = 65858] = "INNOVI_COUNT_STATISTICS";
+    // Counter flow 65859 
+    BehaviorTypeCode[BehaviorTypeCode["INNOVI_COUNTER_FLOW"] = 65859] = "INNOVI_COUNTER_FLOW";
     // Ignore Mask 66049 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_MASK_IGNORE"] = 66049] = "INNOVI_MASK_IGNORE";
     // Shutdown Mask 66050 
@@ -2791,6 +2793,8 @@ var FeatureCode;
     FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
     // Crossing a line rule [2049] 
     FeatureCode[FeatureCode["RULE_CROSSING"] = 2049] = "RULE_CROSSING";
+    // Counter flow rule [2050] 
+    FeatureCode[FeatureCode["RULE_COUNTER_FLOW"] = 2050] = "RULE_COUNTER_FLOW";
     // Moving in an area rule [2051] 
     FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
     // Stopped vehicle rule only [2052] 
@@ -10720,6 +10724,13 @@ class SensorsService {
      */
     setPreset(id, body) {
         return this.rest.put(`${this.baseUrl}/${id}/preset`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Reset single sensor preset back to the default
+     * @Return: EntityResponse<Preset>
+     */
+    resetPreset(id, body) {
+        return this.rest.delete(`${this.baseUrl}/${id}/preset/reset`);
     }
     /**
      * Export single sensor preset (including calibration) as Json stream

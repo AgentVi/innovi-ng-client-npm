@@ -6,6 +6,7 @@ export declare enum FeatureCode {
     FEATURE_FR_FULL = 21,
     MODULE_ADMIN = 2048,
     RULE_CROSSING = 2049,
+    RULE_COUNTER_FLOW = 2050,
     RULE_MOVING = 2051,
     RULE_STOPPED = 2052,
     RULE_OCCUPANCY = 2056,
