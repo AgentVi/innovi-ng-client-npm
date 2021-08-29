@@ -1,5 +1,4 @@
 import { EntityTypeCode } from '../enums/EntityTypeCode';
-import { IntegrationActionFilter } from '../entities/IntegrationActionFilter';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class IntegrationAction extends BaseEntity {
     accountId: string;
@@ -12,7 +11,7 @@ export declare class IntegrationAction extends BaseEntity {
     body: string;
     mimeType: string;
     enabled: boolean;
-    filter: IntegrationActionFilter;
+    filters: any;
     id: string;
     _type: string;
     createdOn: number;
