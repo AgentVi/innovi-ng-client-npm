@@ -7,6 +7,7 @@ export declare class ScheduledReport extends BaseEntity {
     targetId: string;
     recipients: string[];
     subject: string;
+    lastSentOn: number;
     id: string;
     _type: string;
     createdOn: number;
