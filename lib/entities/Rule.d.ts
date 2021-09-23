@@ -29,6 +29,7 @@ export declare class Rule extends BaseEntity {
     lastTrainingOn: number;
     nextTrainingOn: number;
     trainingReadiness: number;
+    externalModel: string;
     id: string;
     _type: string;
     createdOn: number;
