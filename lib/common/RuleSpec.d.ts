@@ -1,8 +1,8 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { RuleDefault } from '../common/RuleDefault';
 import { ObjectTypeNode } from '../common/ObjectTypeNode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 export declare class RuleSpec {
     behaviorType: BehaviorTypeCode;
     ruleTypeName: string;
