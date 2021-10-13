@@ -824,7 +824,7 @@ class RulePolygon {
    Rule specification describe rule parameters
 */
 class RuleSpec {
-    constructor(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes) {
+    constructor(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel) {
         this.behaviorType = behaviorType;
         this.ruleTypeName = ruleTypeName;
         this.objectTypes = objectTypes;
@@ -837,6 +837,7 @@ class RuleSpec {
         this.referenceCrop = referenceCrop;
         this.objectHierarchy = objectHierarchy;
         this.sensorTypes = sensorTypes;
+        this.externalModel = externalModel;
     }
 }
 
