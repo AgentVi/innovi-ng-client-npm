@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { EventStatusCode } from '../enums/EventStatusCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
-import { EventStatusCode } from '../enums/EventStatusCode';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -25,6 +25,11 @@ export declare class EventsService {
      * @Return: EntityResponse<Event>
      */
     create(body?: Event): import("rxjs").Observable<any>;
+    /**
+     * Force manual event integrations
+     * @Return: ActionResponse
+     */
+    invokeIntegrations(id?: string): import("rxjs").Observable<any>;
     /**
      * Change event workflow status
      * @Return: ActionResponse

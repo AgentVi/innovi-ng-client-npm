@@ -8416,6 +8416,13 @@ class EventsService {
         return this.rest.post(`${this.baseUrl}`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
+     * Force manual event integrations
+     * @Return: ActionResponse
+     */
+    invokeIntegrations(id) {
+        return this.rest.post(`${this.baseUrl}/${id}/integrations`, null);
+    }
+    /**
      * Change event workflow status
      * @Return: ActionResponse
      */
