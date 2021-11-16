@@ -191,6 +191,7 @@ export * from './EventsServiceCreateRequest';
 export * from './EventsServiceExportRequest';
 export * from './EventsServiceFindInAreaRequest';
 export * from './EventsServiceFindRequest';
+export * from './EventsServiceGetIntegrationsRequestRequest';
 export * from './EventsServiceSetBulkStatusRequest';
 export * from './EventsServiceSetClipPathRequest';
 export * from './EventsServiceSetImagePathRequest';

@@ -1,7 +1,7 @@
+import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { TimeFrame } from '../common/TimeFrame';
 import { BaseEntity } from '../entities/BaseEntity';
-import { Coordinate } from '../common/Coordinate';
 export declare class Folder extends BaseEntity {
     parentId: string;
     accountId: string;
@@ -13,6 +13,7 @@ export declare class Folder extends BaseEntity {
     timezone: string;
     healthThresholds: HealthThresholds;
     shunt: TimeFrame;
+    description: string;
     id: string;
     _type: string;
     createdOn: number;

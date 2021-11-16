@@ -6164,6 +6164,17 @@
 
    /*
    */
+   var EventsServiceGetIntegrationsRequestRequest = /** @class */ (function () {
+       function EventsServiceGetIntegrationsRequestRequest(id, sensorId, folderId) {
+           this.id = id;
+           this.sensorId = sensorId;
+           this.folderId = folderId;
+       }
+       return EventsServiceGetIntegrationsRequestRequest;
+   }());
+
+   /*
+   */
    var EventsServiceSetBulkStatusRequest = /** @class */ (function () {
        function EventsServiceSetBulkStatusRequest(id, status) {
            this.id = id;
@@ -10146,6 +10157,21 @@
         */
        EventsService.prototype.create = function (body) {
            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Get a list of integration targets applicable for this event
+        * @Return: EntitiesResponse<IntegrationAction>
+        */
+       EventsService.prototype.getIntegrations = function (id, sensorId, folderId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/integrations"], params));
        };
        /**
         * Force manual event integrations
@@ -15810,6 +15836,7 @@
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
    exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
    exports.EventsServiceFindRequest = EventsServiceFindRequest;
+   exports.EventsServiceGetIntegrationsRequestRequest = EventsServiceGetIntegrationsRequestRequest;
    exports.EventsServiceSetBulkStatusRequest = EventsServiceSetBulkStatusRequest;
    exports.EventsServiceSetClipPathRequest = EventsServiceSetClipPathRequest;
    exports.EventsServiceSetImagePathRequest = EventsServiceSetImagePathRequest;
