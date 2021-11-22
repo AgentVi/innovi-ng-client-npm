@@ -33,6 +33,8 @@ export * from './ApplianceProfileUpdateRequest';
 export * from './ApplianceServiceDeleteCommandRequest';
 export * from './AppliancesCountRequest';
 export * from './AppliancesServiceAddSensorRequest';
+export * from './AppliancesServiceBulkAttachRequest';
+export * from './AppliancesServiceBulkDetachRequest';
 export * from './AppliancesServiceChangeConfigurationRequest';
 export * from './AppliancesServiceChangeFolderRequest';
 export * from './AppliancesServiceChangeMachineIdRequest';
