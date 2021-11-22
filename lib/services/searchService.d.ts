@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { SearchDefinition } from '../entities/SearchDefinition';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
-import { SearchDefinition } from '../entities/SearchDefinition';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -61,7 +61,7 @@ export declare class SearchService {
      * Perform metadata search by the similarity for another object
      * @Return: EntityResponse<SearchStatus>
      */
-    searchForSimilar(objectId?: number, sensorId?: string, timestamp?: number, from?: number, to?: number): import("rxjs").Observable<any>;
+    searchForSimilar(body?: SearchDefinition): import("rxjs").Observable<any>;
     /**
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
