@@ -26,16 +26,6 @@ export declare class EventsService {
      */
     create(body?: Event): import("rxjs").Observable<any>;
     /**
-     * Get a list of integration targets applicable for this event
-     * @Return: EntitiesResponse<IntegrationAction>
-     */
-    getIntegrations(id?: string, sensorId?: string, folderId?: string): import("rxjs").Observable<any>;
-    /**
-     * Force manual event integrations
-     * @Return: ActionResponse
-     */
-    invokeIntegrations(id?: string): import("rxjs").Observable<any>;
-    /**
      * Change event workflow status
      * @Return: ActionResponse
      */
@@ -112,6 +102,6 @@ export declare class EventsService {
      * @Return: StreamingOutput of the clip
      */
     downloadEventClip(imageToken?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<EventsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<EventsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EventsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EventsService>;
 }

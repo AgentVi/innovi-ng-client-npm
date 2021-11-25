@@ -30,6 +30,6 @@ export declare class SysAuditLogService {
      * @Return: EntityResponse<Appliance>
      */
     get(id?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAuditLogService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysAuditLogService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysAuditLogService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysAuditLogService>;
 }

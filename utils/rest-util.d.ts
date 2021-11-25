@@ -46,6 +46,6 @@ export declare class RestUtil {
      * Error handling
      */
     private handleError;
-    static ɵfac: i0.ɵɵFactoryDef<RestUtil, never>;
-    static ɵprov: i0.ɵɵInjectableDef<RestUtil>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<RestUtil, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<RestUtil>;
 }

@@ -65,6 +65,6 @@ export declare class ReportsService {
      * @Return: StreamContent
      */
     getTrafficAnalysisReport(sensorId?: string[], folderId?: string[], from?: string, to?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<ReportsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<ReportsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ReportsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<ReportsService>;
 }

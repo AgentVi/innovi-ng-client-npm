@@ -92,6 +92,6 @@ export declare class IntegrationsService {
      * @Return: EntityResponse<IntegrationAction>
      */
     testAction(body?: IntegrationAction): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<IntegrationsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<IntegrationsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<IntegrationsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<IntegrationsService>;
 }

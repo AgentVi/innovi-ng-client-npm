@@ -25,6 +25,6 @@ export declare class HealthEventsService {
      * @Return: QueryResponse<HealthEvent>
      */
     find(folderId?: string, from?: number, to?: number, source?: EntityTypeCode, entityId?: string[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<HealthEventsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<HealthEventsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<HealthEventsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<HealthEventsService>;
 }

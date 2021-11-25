@@ -1,8 +1,8 @@
 (function (global, factory) {
    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common/http'), require('rxjs/operators'), require('@angular/common')) :
    typeof define === 'function' && define.amd ? define('@agentvi/ng-core-lib', ['exports', '@angular/core', '@angular/common/http', 'rxjs/operators', '@angular/common'], factory) :
-   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.agentvi = global.agentvi || {}, global.agentvi['ng-core-lib'] = {}), global.ng.core, global.ng.common.http, global.rxjs.operators, global.ng.common));
-}(this, (function (exports, i0, i1, operators, common) { 'use strict';
+   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.agentvi = global.agentvi || {}, global.agentvi["ng-core-lib"] = {}), global.ng.core, global.ng.common.http, global.rxjs.operators, global.ng.common));
+})(this, (function (exports, i0, i1, operators, common) { 'use strict';
 
    function _interopNamespace(e) {
       if (e && e.__esModule) return e;
@@ -13,14 +13,12 @@
                var d = Object.getOwnPropertyDescriptor(e, k);
                Object.defineProperty(n, k, d.get ? d : {
                   enumerable: true,
-                  get: function () {
-                     return e[k];
-                  }
+                  get: function () { return e[k]; }
                });
             }
          });
       }
-      n['default'] = e;
+      n["default"] = e;
       return Object.freeze(n);
    }
 
@@ -1196,16 +1194,10 @@
                r[k] = a[j];
        return r;
    }
-   function __spreadArray(to, from, pack) {
-       if (pack || arguments.length === 2)
-           for (var i = 0, l = from.length, ar; i < l; i++) {
-               if (ar || !(i in from)) {
-                   if (!ar)
-                       ar = Array.prototype.slice.call(from, 0, i);
-                   ar[i] = from[i];
-               }
-           }
-       return to.concat(ar || from);
+   function __spreadArray(to, from) {
+       for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
+           to[j] = from[i];
+       return to;
    }
    function __await(v) {
        return this instanceof __await ? (this.v = v, this) : new __await(v);
@@ -1271,21 +1263,18 @@
    function __importDefault(mod) {
        return (mod && mod.__esModule) ? mod : { default: mod };
    }
-   function __classPrivateFieldGet(receiver, state, kind, f) {
-       if (kind === "a" && !f)
-           throw new TypeError("Private accessor was defined without a getter");
-       if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
-           throw new TypeError("Cannot read private member from an object whose class did not declare it");
-       return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+   function __classPrivateFieldGet(receiver, privateMap) {
+       if (!privateMap.has(receiver)) {
+           throw new TypeError("attempted to get private field on non-instance");
+       }
+       return privateMap.get(receiver);
    }
-   function __classPrivateFieldSet(receiver, state, value, kind, f) {
-       if (kind === "m")
-           throw new TypeError("Private method is not writable");
-       if (kind === "a" && !f)
-           throw new TypeError("Private accessor was defined without a setter");
-       if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver))
-           throw new TypeError("Cannot write private member to an object whose class did not declare it");
-       return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+   function __classPrivateFieldSet(receiver, privateMap, value) {
+       if (!privateMap.has(receiver)) {
+           throw new TypeError("attempted to set private field on non-instance");
+       }
+       privateMap.set(receiver, value);
+       return value;
    }
 
    /*
@@ -4503,26 +4492,6 @@
 
    /*
    */
-   var AppliancesServiceBulkAttachRequest = /** @class */ (function () {
-       function AppliancesServiceBulkAttachRequest(id, sensorId) {
-           this.id = id;
-           this.sensorId = sensorId;
-       }
-       return AppliancesServiceBulkAttachRequest;
-   }());
-
-   /*
-   */
-   var AppliancesServiceBulkDetachRequest = /** @class */ (function () {
-       function AppliancesServiceBulkDetachRequest(id, sensorId) {
-           this.id = id;
-           this.sensorId = sensorId;
-       }
-       return AppliancesServiceBulkDetachRequest;
-   }());
-
-   /*
-   */
    var AppliancesServiceChangeConfigurationRequest = /** @class */ (function () {
        function AppliancesServiceChangeConfigurationRequest(id, configId, versionId) {
            this.id = id;
@@ -6180,17 +6149,6 @@
            this.pageSize = pageSize;
        }
        return EventsServiceFindRequest;
-   }());
-
-   /*
-   */
-   var EventsServiceGetIntegrationsRequestRequest = /** @class */ (function () {
-       function EventsServiceGetIntegrationsRequestRequest(id, sensorId, folderId) {
-           this.id = id;
-           this.sensorId = sensorId;
-           this.folderId = folderId;
-       }
-       return EventsServiceGetIntegrationsRequestRequest;
    }());
 
    /*
@@ -8722,7 +8680,7 @@
            for (var _i = 2; _i < arguments.length; _i++) {
                params[_i - 2] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            var formData = new FormData();
            formData.append('fileKey', file, file.name);
            var req = new i1.HttpRequest('POST', resourceUrl, formData, {
@@ -8739,7 +8697,7 @@
            for (var _i = 2; _i < arguments.length; _i++) {
                params[_i - 2] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            var downloadLink = fileName;
            // extract file name
            params.forEach(function (p) {
@@ -8785,7 +8743,7 @@
            for (var _i = 1; _i < arguments.length; _i++) {
                params[_i - 1] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            return this.http
                .get(resourceUrl, { headers: this.headers, observe: 'response' })
                .pipe(operators.map(function (res) { return _this.processResponse(res); }), operators.catchError(this.handleError));
@@ -8799,7 +8757,7 @@
            for (var _i = 2; _i < arguments.length; _i++) {
                params[_i - 2] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            return this.http
                .post(resourceUrl, body, { headers: this.headers, observe: 'response' })
                .pipe(operators.map(function (res) { return _this.processResponse(res); }), operators.catchError(this.handleError));
@@ -8813,7 +8771,7 @@
            for (var _i = 2; _i < arguments.length; _i++) {
                params[_i - 2] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            return this.http
                .put(resourceUrl, body, { headers: this.headers, observe: 'response' })
                .pipe(operators.map(function (res) { return _this.processResponse(res); }), operators.catchError(this.handleError));
@@ -8827,7 +8785,7 @@
            for (var _i = 1; _i < arguments.length; _i++) {
                params[_i - 1] = arguments[_i];
            }
-           var resourceUrl = this.buildUrl.apply(this, __spread([url], params));
+           var resourceUrl = this.buildUrl.apply(this, __spreadArray([url], __read(params)));
            return this.http
                .delete(resourceUrl, { headers: this.headers, observe: 'response' })
                .pipe(operators.map(function (res) { return _this.processResponse(res); }), operators.catchError(this.handleError));
@@ -8875,7 +8833,7 @@
        return RestUtil;
    }());
    /** @nocollapse */ RestUtil.ɵfac = function RestUtil_Factory(t) { return new (t || RestUtil)(i0__namespace.ɵɵinject(i1__namespace.HttpClient)); };
-   /** @nocollapse */ RestUtil.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
+   /** @nocollapse */ RestUtil.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: RestUtil, factory: RestUtil.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(RestUtil, [{
                type: i0.Injectable
@@ -8927,7 +8885,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of accounts and filter
@@ -8957,7 +8915,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["accounts", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["accounts", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get single account by id
@@ -9035,7 +8993,7 @@
            if (includeNonRecordingSensors != null) {
                params.push("includeNonRecordingSensors=" + includeNonRecordingSensors);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/logical-tree"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/logical-tree"], __read(params)));
        };
        /**
         * Get account physical tree hierarchy (account -> folders -> devices -> sensors) - starting from the account level as root
@@ -9073,12 +9031,12 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["accounts", this.baseUrl + "/export-usage-report/" + year + "/" + month], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["accounts", this.baseUrl + "/export-usage-report/" + year + "/" + month], __read(params)));
        };
        return AccountsService;
    }());
    /** @nocollapse */ AccountsService.ɵfac = function AccountsService_Factory(t) { return new (t || AccountsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AccountsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
+   /** @nocollapse */ AccountsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: AccountsService, factory: AccountsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AccountsService, [{
                type: i0.Injectable
@@ -9118,7 +9076,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/results"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/results"], __read(params)));
        };
        /**
         * Update sensor analysis results bach for a specific sensors
@@ -9172,7 +9130,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/events"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/events"], __read(params)));
        };
        /**
         * Update sensor anomaly rule attributed
@@ -9203,7 +9161,7 @@
        return AnomalyService;
    }());
    /** @nocollapse */ AnomalyService.ɵfac = function AnomalyService_Factory(t) { return new (t || AnomalyService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AnomalyService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
+   /** @nocollapse */ AnomalyService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: AnomalyService, factory: AnomalyService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AnomalyService, [{
                type: i0.Injectable
@@ -9272,12 +9230,12 @@
            if (search != null) {
                params.push("search=" + search);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return ApplianceDigitalIOService;
    }());
    /** @nocollapse */ ApplianceDigitalIOService.ɵfac = function ApplianceDigitalIOService_Factory(t) { return new (t || ApplianceDigitalIOService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ApplianceDigitalIOService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
+   /** @nocollapse */ ApplianceDigitalIOService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: ApplianceDigitalIOService, factory: ApplianceDigitalIOService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ApplianceDigitalIOService, [{
                type: i0.Injectable
@@ -9350,12 +9308,12 @@
            if (search != null) {
                params.push("search=" + search);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return ApplianceProfilesService;
    }());
    /** @nocollapse */ ApplianceProfilesService.ɵfac = function ApplianceProfilesService_Factory(t) { return new (t || ApplianceProfilesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ApplianceProfilesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
+   /** @nocollapse */ ApplianceProfilesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: ApplianceProfilesService, factory: ApplianceProfilesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ApplianceProfilesService, [{
                type: i0.Injectable
@@ -9414,7 +9372,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of appliances and filter
@@ -9447,7 +9405,7 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["appliances", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["appliances", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get single appliance by id
@@ -9500,7 +9458,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/sensors"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/sensors"], __read(params)));
        };
        /**
         * Import sensors from CSV file
@@ -9523,7 +9481,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["appliances", this.baseUrl + "/" + id + "/sensors/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["appliances", this.baseUrl + "/" + id + "/sensors/export"], __read(params)));
        };
        /**
         * Get all appliance agents
@@ -9661,7 +9619,7 @@
            if (component != null) {
                params.push("component=" + component);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/logs", null], __read(params)));
        };
        /**
         * Delete appliance from the system and detach all it's related sensors
@@ -9698,7 +9656,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/commands"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/commands"], __read(params)));
        };
        /**
         * Delete command
@@ -9720,7 +9678,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/status/overtime"], __read(params)));
        };
        /**
         * Get appliance status distribution over time (for pie chart)
@@ -9735,7 +9693,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/distribution"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/status/distribution"], __read(params)));
        };
        /**
         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
@@ -9750,7 +9708,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/kpi/overtime"], __read(params)));
        };
        /**
         * Aggregate appliances count distribution by status
@@ -9765,36 +9723,12 @@
            if (subFolders != null) {
                params.push("subFolders=" + subFolders);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
-       };
-       /**
-        * Attach multiple sensors to the device
-        * @Return: ActionResponse
-        */
-       AppliancesService.prototype.bulkAttach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/attach", null], params));
-       };
-       /**
-        * Detach multiple sensors from the device
-        * @Return: ActionResponse
-        */
-       AppliancesService.prototype.bulkDetach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/detach", null], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        return AppliancesService;
    }());
    /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AppliancesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
+   /** @nocollapse */ AppliancesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: AppliancesService, factory: AppliancesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AppliancesService, [{
                type: i0.Injectable
@@ -9853,7 +9787,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of audit log entries and filter
@@ -9889,7 +9823,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["auditlog", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get single audit log entry by id
@@ -9901,7 +9835,7 @@
        return AuditLogService;
    }());
    /** @nocollapse */ AuditLogService.ɵfac = function AuditLogService_Factory(t) { return new (t || AuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ AuditLogService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
+   /** @nocollapse */ AuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: AuditLogService, factory: AuditLogService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(AuditLogService, [{
                type: i0.Injectable
@@ -9967,7 +9901,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find calendars by filters
@@ -9991,7 +9925,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Find all calendars for a specified level in the folder hierarchy
@@ -10013,7 +9947,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/folder"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/folder"], __read(params)));
        };
        /**
         * Import calendar from outlook CSV, ICS or iCal file
@@ -10025,7 +9959,7 @@
            if (folderId != null) {
                params.push("folderId=" + folderId);
            }
-           return (_a = this.rest).upload.apply(_a, __spread([icsFile, this.baseUrl + "/import"], params));
+           return (_a = this.rest).upload.apply(_a, __spreadArray([icsFile, this.baseUrl + "/import"], __read(params)));
        };
        /**
         * Import calendar from Url (ICS or iCal formats)
@@ -10037,12 +9971,12 @@
            if (folderId != null) {
                params.push("folderId=" + folderId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/importUrl", typeof body === 'object' ? JSON.stringify(body) : body], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/importUrl", typeof body === 'object' ? JSON.stringify(body) : body], __read(params)));
        };
        return CalendarsService;
    }());
    /** @nocollapse */ CalendarsService.ɵfac = function CalendarsService_Factory(t) { return new (t || CalendarsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ CalendarsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
+   /** @nocollapse */ CalendarsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: CalendarsService, factory: CalendarsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CalendarsService, [{
                type: i0.Injectable
@@ -10117,7 +10051,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Add bulk of search events to the case
@@ -10129,7 +10063,7 @@
            if (eventId != null) {
                params.push("eventId=" + eventId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/sessions/" + sessionId + "/events", typeof description === 'object' ? JSON.stringify(description) : description], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/sessions/" + sessionId + "/events", typeof description === 'object' ? JSON.stringify(description) : description], __read(params)));
        };
        /**
         * Update event description
@@ -10148,7 +10082,7 @@
            if (eventId != null) {
                params.push("eventId=" + eventId);
            }
-           return (_a = this.rest).delete.apply(_a, __spread([this.baseUrl + "/" + id + "/events"], params));
+           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/events"], __read(params)));
        };
        /**
         * Get all timestamped objects of the provided case event
@@ -10167,7 +10101,7 @@
        return CasesService;
    }());
    /** @nocollapse */ CasesService.ɵfac = function CasesService_Factory(t) { return new (t || CasesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ CasesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
+   /** @nocollapse */ CasesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: CasesService, factory: CasesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CasesService, [{
                type: i0.Injectable
@@ -10203,28 +10137,6 @@
            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
-        * Get a list of integration targets applicable for this event
-        * @Return: EntitiesResponse<IntegrationAction>
-        */
-       EventsService.prototype.getIntegrations = function (id, sensorId, folderId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (folderId != null) {
-               params.push("folderId=" + folderId);
-           }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/integrations"], params));
-       };
-       /**
-        * Force manual event integrations
-        * @Return: ActionResponse
-        */
-       EventsService.prototype.invokeIntegrations = function (id) {
-           return this.rest.post(this.baseUrl + "/" + id + "/integrations", null);
-       };
-       /**
         * Change event workflow status
         * @Return: ActionResponse
         */
@@ -10244,7 +10156,7 @@
            if (status != null) {
                params.push("status=" + status);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/bulk-status", null], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/bulk-status", null], __read(params)));
        };
        /**
         * Get single event by id
@@ -10263,7 +10175,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find events by filters
@@ -10314,7 +10226,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of events and filter
@@ -10365,7 +10277,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["events", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Find events generated in area using spatial query
@@ -10410,7 +10322,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/area", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/area", null], __read(params)));
        };
        /**
         * Get event image [response content type: image/jpeg]
@@ -10466,7 +10378,7 @@
            if (labelFormat != null) {
                params.push("labelFormat=" + labelFormat);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/overtime"], __read(params)));
        };
        /**
         * Get events distribution by status
@@ -10499,7 +10411,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        /**
         * Get events distribution by object type
@@ -10532,7 +10444,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-object"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-object"], __read(params)));
        };
        /**
         * Get events distribution by behavior
@@ -10565,7 +10477,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-behavior"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-behavior"], __read(params)));
        };
        /**
         * Direct link to download event image [response content type: image/jpeg]
@@ -10578,7 +10490,7 @@
            if (imageToken != null) {
                params.push("imageToken=" + imageToken);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Image"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["events", this.baseUrl + "Image"], __read(params)));
        };
        /**
         * Direct link to download event clip [response content type: video/mp4]
@@ -10591,12 +10503,12 @@
            if (imageToken != null) {
                params.push("imageToken=" + imageToken);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["events", this.baseUrl + "Clip"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["events", this.baseUrl + "Clip"], __read(params)));
        };
        return EventsService;
    }());
    /** @nocollapse */ EventsService.ɵfac = function EventsService_Factory(t) { return new (t || EventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ EventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
+   /** @nocollapse */ EventsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: EventsService, factory: EventsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(EventsService, [{
                type: i0.Injectable
@@ -10669,7 +10581,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Get folders Ids by list of external ids
@@ -10681,7 +10593,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/map-external-ids"], __read(params)));
        };
        /**
         * Find folders by filters
@@ -10705,7 +10617,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of folders and filter
@@ -10732,7 +10644,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["folders", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["folders", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Find and filter list of folders
@@ -10756,7 +10668,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/folders"], __read(params)));
        };
        /**
         * Get items (folders and sensors) by parent folder id
@@ -10780,7 +10692,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/items"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/items"], __read(params)));
        };
        /**
         * Get account tree hierarchy (folders and sensors) - starting from the account level as root
@@ -10792,7 +10704,7 @@
            if (includeSensors != null) {
                params.push("includeSensors=" + includeSensors);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/tree"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/tree"], __read(params)));
        };
        /**
         * Get default geo bounds
@@ -10804,7 +10716,7 @@
        return FoldersService;
    }());
    /** @nocollapse */ FoldersService.ɵfac = function FoldersService_Factory(t) { return new (t || FoldersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ FoldersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
+   /** @nocollapse */ FoldersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: FoldersService, factory: FoldersService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(FoldersService, [{
                type: i0.Injectable
@@ -10854,7 +10766,7 @@
        return GeoService;
    }());
    /** @nocollapse */ GeoService.ɵfac = function GeoService_Factory(t) { return new (t || GeoService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ GeoService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
+   /** @nocollapse */ GeoService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: GeoService, factory: GeoService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(GeoService, [{
                type: i0.Injectable
@@ -10920,7 +10832,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find groups by filters
@@ -10941,12 +10853,12 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return GroupsService;
    }());
    /** @nocollapse */ GroupsService.ɵfac = function GroupsService_Factory(t) { return new (t || GroupsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ GroupsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: GroupsService, factory: GroupsService.ɵfac });
+   /** @nocollapse */ GroupsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: GroupsService, factory: GroupsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(GroupsService, [{
                type: i0.Injectable
@@ -10982,7 +10894,7 @@
        return HealthCheckService;
    }());
    /** @nocollapse */ HealthCheckService.ɵfac = function HealthCheckService_Factory(t) { return new (t || HealthCheckService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ HealthCheckService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
+   /** @nocollapse */ HealthCheckService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: HealthCheckService, factory: HealthCheckService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(HealthCheckService, [{
                type: i0.Injectable
@@ -11048,12 +10960,12 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return HealthEventsService;
    }());
    /** @nocollapse */ HealthEventsService.ɵfac = function HealthEventsService_Factory(t) { return new (t || HealthEventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ HealthEventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
+   /** @nocollapse */ HealthEventsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: HealthEventsService, factory: HealthEventsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(HealthEventsService, [{
                type: i0.Injectable
@@ -11119,7 +11031,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find integration targets by filters
@@ -11143,7 +11055,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Find all integration status
@@ -11164,7 +11076,7 @@
            if (integrationActionId != null) {
                params.push("integrationActionId=" + integrationActionId);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/status"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/status"], __read(params)));
        };
        /**
         * Create new integration action
@@ -11204,7 +11116,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actions/list"], __read(params)));
        };
        /**
         * Find integration actions by filters
@@ -11225,7 +11137,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actions"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actions"], __read(params)));
        };
        /**
         * Find all integration actions for a specified level in the folder hierarchy
@@ -11244,7 +11156,7 @@
        return IntegrationsService;
    }());
    /** @nocollapse */ IntegrationsService.ɵfac = function IntegrationsService_Factory(t) { return new (t || IntegrationsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ IntegrationsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
+   /** @nocollapse */ IntegrationsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: IntegrationsService, factory: IntegrationsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(IntegrationsService, [{
                type: i0.Injectable
@@ -11353,7 +11265,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of members and filter
@@ -11383,7 +11295,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["members", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["members", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get access token for member
@@ -11395,7 +11307,7 @@
        return MembersService;
    }());
    /** @nocollapse */ MembersService.ɵfac = function MembersService_Factory(t) { return new (t || MembersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ MembersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: MembersService, factory: MembersService.ɵfac });
+   /** @nocollapse */ MembersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: MembersService, factory: MembersService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(MembersService, [{
                type: i0.Injectable
@@ -11461,7 +11373,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find report definitions by filters
@@ -11473,7 +11385,7 @@
            if (search != null) {
                params.push("search=" + search);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export account sensors as CSV report stream
@@ -11485,7 +11397,7 @@
            if (accountId != null) {
                params.push("accountId=" + accountId);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/sensors"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/sensors"], __read(params)));
        };
        /**
         * Export account sensors rules schedules as CSV report stream
@@ -11497,7 +11409,7 @@
            if (accountId != null) {
                params.push("accountId=" + accountId);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/rule-schedules"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/rule-schedules"], __read(params)));
        };
        /**
         * Generate people counting report and stream it as CSV
@@ -11518,7 +11430,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/statistics/people-counting"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/people-counting"], __read(params)));
        };
        /**
         * Generate traffic analysis report and stream it as CSV
@@ -11539,12 +11451,12 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["reports", this.baseUrl + "/statistics/traffic-analysis"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/traffic-analysis"], __read(params)));
        };
        return ReportsService;
    }());
    /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ReportsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
+   /** @nocollapse */ ReportsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: ReportsService, factory: ReportsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ReportsService, [{
                type: i0.Injectable
@@ -11596,7 +11508,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/enable", null], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/enable", null], __read(params)));
        };
        /**
         * Disable list of rules
@@ -11608,7 +11520,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/disable", null], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/disable", null], __read(params)));
        };
        /**
         * Arm (Enable analytics rules) on group of sensors or all sensors in site (folder)
@@ -11629,7 +11541,7 @@
            if (sensorExtId != null) {
                params.push("sensorExtId=" + sensorExtId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/arm", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/arm", null], __read(params)));
        };
        /**
         * Disarm (Disable analytics rules) on group of sensors or all sensors in site (folder)
@@ -11650,7 +11562,7 @@
            if (sensorExtId != null) {
                params.push("sensorExtId=" + sensorExtId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/disarm", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/disarm", null], __read(params)));
        };
        /**
         * Delete rule from the system
@@ -11683,7 +11595,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Get rules Ids by list of external ids
@@ -11695,7 +11607,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/map-external-ids"], __read(params)));
        };
        /**
         * Find rules by filters
@@ -11737,7 +11649,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of rules and filter
@@ -11773,7 +11685,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["rules", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["rules", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Find anomaly rules by filters
@@ -11806,7 +11718,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/anomaly"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/anomaly"], __read(params)));
        };
        /**
         * Get rules specifications available by account features
@@ -11834,7 +11746,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/pause", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/pause", null], __read(params)));
        };
        /**
         * Resume analytics on site (folder) that was paused
@@ -11849,12 +11761,12 @@
            if (folderExtId != null) {
                params.push("folderExtId=" + folderExtId);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/resume", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/resume", null], __read(params)));
        };
        return RulesService;
    }());
    /** @nocollapse */ RulesService.ɵfac = function RulesService_Factory(t) { return new (t || RulesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ RulesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
+   /** @nocollapse */ RulesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: RulesService, factory: RulesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(RulesService, [{
                type: i0.Injectable
@@ -11920,7 +11832,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find scheduled report definitions by filters
@@ -11932,12 +11844,12 @@
            if (search != null) {
                params.push("search=" + search);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return ScheduledReportsService;
    }());
    /** @nocollapse */ ScheduledReportsService.ɵfac = function ScheduledReportsService_Factory(t) { return new (t || ScheduledReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ ScheduledReportsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
+   /** @nocollapse */ ScheduledReportsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: ScheduledReportsService, factory: ScheduledReportsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(ScheduledReportsService, [{
                type: i0.Injectable
@@ -12003,7 +11915,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find schedule by filters
@@ -12027,7 +11939,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Find all schedules for a specified level in the folder hierarchy
@@ -12049,12 +11961,12 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/folder"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/folder"], __read(params)));
        };
        return SchedulesService;
    }());
    /** @nocollapse */ SchedulesService.ɵfac = function SchedulesService_Factory(t) { return new (t || SchedulesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SchedulesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
+   /** @nocollapse */ SchedulesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SchedulesService, factory: SchedulesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SchedulesService, [{
                type: i0.Injectable
@@ -12120,7 +12032,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find search definitions by filters
@@ -12141,7 +12053,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Perform metadata search by the search definition
@@ -12161,8 +12073,25 @@
         * Perform metadata search by the similarity for another object
         * @Return: EntityResponse<SearchStatus>
         */
-       SearchService.prototype.searchForSimilar = function (body) {
-           return this.rest.post(this.baseUrl + "/similar", typeof body === 'object' ? JSON.stringify(body) : body);
+       SearchService.prototype.searchForSimilar = function (objectId, sensorId, timestamp, from, to) {
+           var _a;
+           var params = new Array();
+           if (objectId != null) {
+               params.push("objectId=" + objectId);
+           }
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (timestamp != null) {
+               params.push("timestamp=" + timestamp);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/similar", null], __read(params)));
        };
        /**
         * Get search session status
@@ -12209,7 +12138,7 @@
            if (eventId != null) {
                params.push("eventId=" + eventId);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/list"], __read(params)));
        };
        /**
         * Find list of search events by filter
@@ -12239,7 +12168,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/find"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/find"], __read(params)));
        };
        /**
         * Get total search events count by filter
@@ -12269,7 +12198,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/total"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/total"], __read(params)));
        };
        /**
         * Export list of search events by filter
@@ -12302,7 +12231,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["search", this.baseUrl + "/sessions/" + sessionId + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["search", this.baseUrl + "/sessions/" + sessionId + "/export"], __read(params)));
        };
        /**
         * Get events count overtime for all events in the system
@@ -12329,7 +12258,7 @@
            if (labelFormat != null) {
                params.push("labelFormat=" + labelFormat);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/overtime"], __read(params)));
        };
        /**
         * Get search event object crops (for animation)
@@ -12357,7 +12286,7 @@
            if (points != null) {
                params.push("points=" + points);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId], __read(params)));
        };
        /**
         * Get all search events related to the path
@@ -12372,7 +12301,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId + "/" + pathId + "/events"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-paths/" + sensorId + "/" + pathId + "/events"], __read(params)));
        };
        /**
         * Find objects heatmap for sensor FOV (for path visualizer)
@@ -12393,7 +12322,7 @@
            if (dim != null) {
                params.push("dim=" + dim);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId], __read(params)));
        };
        /**
         * Get all search events related to the heatmap
@@ -12414,12 +12343,12 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/events"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/events"], __read(params)));
        };
        return SearchService;
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SearchService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
+   /** @nocollapse */ SearchService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SearchService, factory: SearchService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SearchService, [{
                type: i0.Injectable
@@ -12499,7 +12428,7 @@
            if (azimuth != null) {
                params.push("azimuth=" + azimuth);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/fov", typeof body === 'object' ? JSON.stringify(body) : body], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/fov", typeof body === 'object' ? JSON.stringify(body) : body], __read(params)));
        };
        /**
         * Enable (activate) sensor
@@ -12556,7 +12485,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Get sensors Ids by list of external ids
@@ -12568,7 +12497,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/map-external-ids"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/map-external-ids"], __read(params)));
        };
        /**
         * Find sensors by filters
@@ -12610,7 +12539,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of sensors and filter
@@ -12649,7 +12578,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sensors", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sensors", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get single sensor preset data by id
@@ -12755,7 +12684,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/status/overtime"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by type
@@ -12779,7 +12708,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-type"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-type"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by stream type
@@ -12803,7 +12732,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-stream"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-stream"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by status
@@ -12827,7 +12756,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        /**
         * Get list of all detection models available for the account
@@ -12860,7 +12789,7 @@
        return SensorsService;
    }());
    /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SensorsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
+   /** @nocollapse */ SensorsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SensorsService, [{
                type: i0.Injectable
@@ -12933,7 +12862,7 @@
            if (groupId != null) {
                params.push("groupId=" + groupId);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/" + id + "/groups/{groups}", null], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/groups/{groups}", null], __read(params)));
        };
        /**
         * Change account geo-location (center)
@@ -12989,7 +12918,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/list"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
        };
        /**
         * Find list of accounts and filter
@@ -13016,7 +12945,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Find list of accounts and filter but replace group Ids with group names
@@ -13043,7 +12972,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/report"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/report"], __read(params)));
        };
        /**
         * Get account hierarchy
@@ -13061,7 +12990,7 @@
            if (behaviorType != null) {
                params.push("behaviorType=" + behaviorType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/tree"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/tree"], __read(params)));
        };
        /**
         * Find account folders
@@ -13085,7 +13014,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/folders"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/folders"], __read(params)));
        };
        /**
         * Export list of accounts and filter
@@ -13115,7 +13044,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-accounts", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-accounts", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get account types statistics for all accounts in the system
@@ -13140,7 +13069,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/statistics/month"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/statistics/month"], __read(params)));
        };
        /**
         * Get accounts month report - current channels and devices per account compared to previous month
@@ -13184,7 +13113,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-accounts", this.baseUrl + "/" + id + "/export-usage-report/" + year + "/" + month], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-accounts", this.baseUrl + "/" + id + "/export-usage-report/" + year + "/" + month], __read(params)));
        };
        /**
         * Export all accounts usage report to a file (for operations)
@@ -13196,7 +13125,7 @@
        return SysAccountsService;
    }());
    /** @nocollapse */ SysAccountsService.ɵfac = function SysAccountsService_Factory(t) { return new (t || SysAccountsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAccountsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
+   /** @nocollapse */ SysAccountsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAccountsService, factory: SysAccountsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAccountsService, [{
                type: i0.Injectable
@@ -13266,7 +13195,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of appliances and filter
@@ -13299,7 +13228,7 @@
            if (fields != null) {
                params.push("fields=" + fields);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-appliances", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-appliances", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Delete appliance from the system
@@ -13389,7 +13318,7 @@
            if (status != null) {
                params.push("status=" + status);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/commands"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/commands"], __read(params)));
        };
        /**
         * Update command status
@@ -13425,7 +13354,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/status/overtime"], __read(params)));
        };
        /**
         * Get appliance KPI (Key Performance Indicators) history over time (CPU, RAM. LOAD)
@@ -13440,7 +13369,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/kpi/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/kpi/overtime"], __read(params)));
        };
        /**
         * Aggregate appliances count distribution by status
@@ -13458,7 +13387,7 @@
            if (subFolders != null) {
                params.push("subFolders=" + subFolders);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        /**
         * Send get capabilities command to the appliance and wait for response up to 60 seconds
@@ -13483,7 +13412,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/" + id + "/logs", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/logs", null], __read(params)));
        };
        /**
         * Upgrade batch of appliances
@@ -13495,7 +13424,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/config/" + configId + "/" + versionId + "/batch-upgrade", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/config/" + configId + "/" + versionId + "/batch-upgrade", null], __read(params)));
        };
        /**
         * Find list of device update status entries by filter
@@ -13534,7 +13463,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/batch-upgrade"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/batch-upgrade"], __read(params)));
        };
        /**
         * Find list of devices configurations (configured vs. actual)
@@ -13564,7 +13493,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/actual-config"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actual-config"], __read(params)));
        };
        /**
         * Export list of devices configurations (configured vs. actual)
@@ -13594,12 +13523,12 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-appliances", this.baseUrl + "/actual-config/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-appliances", this.baseUrl + "/actual-config/export"], __read(params)));
        };
        return SysAppliancesService;
    }());
    /** @nocollapse */ SysAppliancesService.ɵfac = function SysAppliancesService_Factory(t) { return new (t || SysAppliancesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAppliancesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
+   /** @nocollapse */ SysAppliancesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAppliancesService, factory: SysAppliancesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAppliancesService, [{
                type: i0.Injectable
@@ -13685,7 +13614,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Create new configuration version in the system
@@ -13770,12 +13699,12 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/templates"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/templates"], __read(params)));
        };
        return SysConfigurationsService;
    }());
    /** @nocollapse */ SysConfigurationsService.ɵfac = function SysConfigurationsService_Factory(t) { return new (t || SysConfigurationsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysConfigurationsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
+   /** @nocollapse */ SysConfigurationsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysConfigurationsService, factory: SysConfigurationsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysConfigurationsService, [{
                type: i0.Injectable
@@ -13847,7 +13776,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + accountId], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + accountId], __read(params)));
        };
        /**
         * Get events count overtime for all events in the system
@@ -13883,12 +13812,12 @@
            if (format != null) {
                params.push("format=" + format);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + accountId + "/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + accountId + "/overtime"], __read(params)));
        };
        return SysEventsService;
    }());
    /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysEventsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
+   /** @nocollapse */ SysEventsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysEventsService, [{
                type: i0.Injectable
@@ -13957,12 +13886,12 @@
            if (sort != null) {
                params.push("sort=" + sort);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return SysFeaturesGroupsService;
    }());
    /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysFeaturesGroupsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
+   /** @nocollapse */ SysFeaturesGroupsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesGroupsService, [{
                type: i0.Injectable
@@ -14034,12 +13963,12 @@
            if (sort != null) {
                params.push("sort=" + sort);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        return SysFeaturesService;
    }());
    /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysFeaturesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
+   /** @nocollapse */ SysFeaturesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesService, [{
                type: i0.Injectable
@@ -14146,7 +14075,7 @@
            if (ttl != null) {
                params.push("ttl=" + ttl);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/token", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/token", null], __read(params)));
        };
        /**
         * Create time limited password for user to access the API documentation
@@ -14161,7 +14090,7 @@
            if (user != null) {
                params.push("user=" + user);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/password", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/password", null], __read(params)));
        };
        /**
         * Get list of all resources
@@ -14173,7 +14102,7 @@
        return SysKeysService;
    }());
    /** @nocollapse */ SysKeysService.ɵfac = function SysKeysService_Factory(t) { return new (t || SysKeysService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysKeysService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
+   /** @nocollapse */ SysKeysService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysKeysService, factory: SysKeysService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysKeysService, [{
                type: i0.Injectable
@@ -14253,7 +14182,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).put.apply(_a, __spread([this.baseUrl + "/sensors/" + sensorId, null], params));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/sensors/" + sensorId, null], __read(params)));
        };
        /**
         * Remove detection model from sensor
@@ -14265,12 +14194,12 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).delete.apply(_a, __spread([this.baseUrl + "/sensors/" + sensorId], params));
+           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/sensors/" + sensorId], __read(params)));
        };
        return SysModelsService;
    }());
    /** @nocollapse */ SysModelsService.ɵfac = function SysModelsService_Factory(t) { return new (t || SysModelsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysModelsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
+   /** @nocollapse */ SysModelsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysModelsService, factory: SysModelsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysModelsService, [{
                type: i0.Injectable
@@ -14308,7 +14237,7 @@
        return SysReportsService;
    }());
    /** @nocollapse */ SysReportsService.ɵfac = function SysReportsService_Factory(t) { return new (t || SysReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysReportsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysReportsService, factory: SysReportsService.ɵfac });
+   /** @nocollapse */ SysReportsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysReportsService, factory: SysReportsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysReportsService, [{
                type: i0.Injectable
@@ -14380,7 +14309,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Get single sensor health by sensor id
@@ -14409,7 +14338,7 @@
            if (to != null) {
                params.push("to=" + to);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/" + id + "/status/overtime"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/status/overtime"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by type
@@ -14436,7 +14365,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-type"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-type"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by stream type
@@ -14463,7 +14392,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-stream"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-stream"], __read(params)));
        };
        /**
         * Aggregate sensors count distribution by status
@@ -14490,7 +14419,7 @@
            if (streamType != null) {
                params.push("streamType=" + streamType);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/count/by-status"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        /**
         * Collect object crops from agents based on the query parameters
@@ -14514,12 +14443,12 @@
            if (bucketFolder != null) {
                params.push("bucketFolder=" + bucketFolder);
            }
-           return (_a = this.rest).post.apply(_a, __spread([this.baseUrl + "/fetch-objects-crops", null], params));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/fetch-objects-crops", null], __read(params)));
        };
        return SysSensorsService;
    }());
    /** @nocollapse */ SysSensorsService.ɵfac = function SysSensorsService_Factory(t) { return new (t || SysSensorsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysSensorsService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
+   /** @nocollapse */ SysSensorsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysSensorsService, factory: SysSensorsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysSensorsService, [{
                type: i0.Injectable
@@ -14565,7 +14494,7 @@
            if (password != null) {
                params.push("password=" + password);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-system", this.baseUrl + "/accounts/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-system", this.baseUrl + "/accounts/export"], __read(params)));
        };
        /**
         * Import account configuration data from byte array (zip content)
@@ -14577,7 +14506,7 @@
            if (password != null) {
                params.push("password=" + password);
            }
-           return (_a = this.rest).upload.apply(_a, __spread([zipFile, this.baseUrl + "/accounts/import"], params));
+           return (_a = this.rest).upload.apply(_a, __spreadArray([zipFile, this.baseUrl + "/accounts/import"], __read(params)));
        };
        /**
         * Export SW package configurations data
@@ -14607,7 +14536,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-system", this.baseUrl + "/backup"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-system", this.baseUrl + "/backup"], __read(params)));
        };
        /**
         * Restore entire system (zip content)
@@ -14626,7 +14555,7 @@
        return SysSystemService;
    }());
    /** @nocollapse */ SysSystemService.ɵfac = function SysSystemService_Factory(t) { return new (t || SysSystemService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysSystemService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
+   /** @nocollapse */ SysSystemService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysSystemService, factory: SysSystemService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysSystemService, [{
                type: i0.Injectable
@@ -14767,7 +14696,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of users and filter
@@ -14797,7 +14726,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["sys-users", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sys-users", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Aggregate users count distribution by type
@@ -14823,7 +14752,7 @@
        return SysUsersService;
    }());
    /** @nocollapse */ SysUsersService.ɵfac = function SysUsersService_Factory(t) { return new (t || SysUsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysUsersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
+   /** @nocollapse */ SysUsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysUsersService, factory: SysUsersService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysUsersService, [{
                type: i0.Injectable
@@ -14885,7 +14814,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of audit log entries and filter
@@ -14924,7 +14853,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["auditlog", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get single audit log entry by id
@@ -14936,7 +14865,7 @@
        return SysAuditLogService;
    }());
    /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAuditLogService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+   /** @nocollapse */ SysAuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
                type: i0.Injectable
@@ -15016,7 +14945,7 @@
        return SysLicensesService;
    }());
    /** @nocollapse */ SysLicensesService.ɵfac = function SysLicensesService_Factory(t) { return new (t || SysLicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysLicensesService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
+   /** @nocollapse */ SysLicensesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysLicensesService, [{
                type: i0.Injectable
@@ -15067,7 +14996,7 @@
            if (key != null) {
                params.push("key=" + key);
            }
-           return (_a = this.rest).get.apply(_a, __spread([this.baseUrl + "/login/verify"], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/login/verify"], __read(params)));
        };
        /**
         * Send verification code by email
@@ -15128,7 +15057,7 @@
        return UserService;
    }());
    /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UserService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+   /** @nocollapse */ UserService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
                type: i0.Injectable
@@ -15261,7 +15190,7 @@
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
            }
-           return (_a = this.rest).get.apply(_a, __spread(["" + this.baseUrl], params));
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
        /**
         * Export list of users and filter
@@ -15291,7 +15220,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spread(["users", this.baseUrl + "/export"], params));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["users", this.baseUrl + "/export"], __read(params)));
        };
        /**
         * Get access token for user
@@ -15303,7 +15232,7 @@
        return UsersService;
    }());
    /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UsersService.ɵprov = i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+   /** @nocollapse */ UsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
                type: i0.Injectable
@@ -15568,18 +15497,17 @@
            // console.log(config);
            return {
                ngModule: CoreLibModule,
-               providers: __spread([
+               providers: __spreadArray([
                    { provide: 'config', useValue: config },
                    RestUtil
-               ], Services)
+               ], __read(Services))
            };
        };
        return CoreLibModule;
    }());
    /** @nocollapse */ CoreLibModule.ɵfac = function CoreLibModule_Factory(t) { return new (t || CoreLibModule)(); };
-   /** @nocollapse */ CoreLibModule.ɵmod = i0__namespace.ɵɵdefineNgModule({ type: CoreLibModule });
-   /** @nocollapse */ CoreLibModule.ɵinj = i0__namespace.ɵɵdefineInjector({ imports: [[common.CommonModule, i1.HttpClientModule]] });
-   (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0__namespace.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
+   /** @nocollapse */ CoreLibModule.ɵmod = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineNgModule({ type: CoreLibModule });
+   /** @nocollapse */ CoreLibModule.ɵinj = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjector({ imports: [[common.CommonModule, i1.HttpClientModule]] });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(CoreLibModule, [{
                type: i0.NgModule,
@@ -15588,6 +15516,7 @@
                    }]
            }], null, null);
    })();
+   (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0__namespace.ɵɵsetNgModuleScope(CoreLibModule, { imports: [common.CommonModule, i1.HttpClientModule] }); })();
 
    /* Public API Surface of ng-core-lib */
 
@@ -15664,8 +15593,6 @@
    exports.AppliancesCountRequest = AppliancesCountRequest;
    exports.AppliancesService = AppliancesService;
    exports.AppliancesServiceAddSensorRequest = AppliancesServiceAddSensorRequest;
-   exports.AppliancesServiceBulkAttachRequest = AppliancesServiceBulkAttachRequest;
-   exports.AppliancesServiceBulkDetachRequest = AppliancesServiceBulkDetachRequest;
    exports.AppliancesServiceChangeConfigurationRequest = AppliancesServiceChangeConfigurationRequest;
    exports.AppliancesServiceChangeFolderRequest = AppliancesServiceChangeFolderRequest;
    exports.AppliancesServiceChangeMachineIdRequest = AppliancesServiceChangeMachineIdRequest;
@@ -15865,7 +15792,6 @@
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
    exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
    exports.EventsServiceFindRequest = EventsServiceFindRequest;
-   exports.EventsServiceGetIntegrationsRequestRequest = EventsServiceGetIntegrationsRequestRequest;
    exports.EventsServiceSetBulkStatusRequest = EventsServiceSetBulkStatusRequest;
    exports.EventsServiceSetClipPathRequest = EventsServiceSetClipPathRequest;
    exports.EventsServiceSetImagePathRequest = EventsServiceSetImagePathRequest;
@@ -16249,5 +16175,5 @@
 
    Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=agentvi-ng-core-lib.umd.js.map

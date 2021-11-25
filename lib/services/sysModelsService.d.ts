@@ -55,6 +55,6 @@ export declare class SysModelsService {
      * @Return: ActionResponse
      */
     removeSensorModels(sensorId?: string, id?: string[]): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysModelsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysModelsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysModelsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysModelsService>;
 }

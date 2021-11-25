@@ -97,6 +97,6 @@ export declare class AccountsService {
      * @Return: StreamContent
      */
     exportUsageReport(year?: number, month?: number, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<AccountsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<AccountsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AccountsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<AccountsService>;
 }

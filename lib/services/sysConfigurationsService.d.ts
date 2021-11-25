@@ -104,6 +104,6 @@ export declare class SysConfigurationsService {
      * @Return: QueryResponse<ConfigurationTemplate>
      */
     findTemplates(page?: number, pageSize?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysConfigurationsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysConfigurationsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysConfigurationsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysConfigurationsService>;
 }

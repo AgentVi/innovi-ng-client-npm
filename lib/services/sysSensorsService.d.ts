@@ -62,6 +62,6 @@ export declare class SysSensorsService {
      * @Return:  ActionResponse
      */
     fetchObjectsCrops(accountId?: string, sensorId?: string, ts?: number[], objectId?: number[], bucketFolder?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysSensorsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysSensorsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysSensorsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysSensorsService>;
 }

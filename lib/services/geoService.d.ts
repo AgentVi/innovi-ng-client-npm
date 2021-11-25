@@ -31,6 +31,6 @@ export declare class GeoService {
      * @Return: EntityResponse<GeoReferenceData>
      */
     transform(body?: GeoReferenceTest): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<GeoService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<GeoService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GeoService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<GeoService>;
 }

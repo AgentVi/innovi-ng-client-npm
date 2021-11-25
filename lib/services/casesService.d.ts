@@ -65,6 +65,6 @@ export declare class CasesService {
      * @Return: EntityResponse<TimestampedCrop>
      */
     getMainEventObjectCrop(id?: string, eventId?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<CasesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<CasesService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<CasesService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<CasesService>;
 }

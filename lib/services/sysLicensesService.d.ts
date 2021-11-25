@@ -49,6 +49,6 @@ export declare class SysLicensesService {
      * @Return: ActionResponse
      */
     import(licenseFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
-    static ɵfac: i0.ɵɵFactoryDef<SysLicensesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysLicensesService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysLicensesService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysLicensesService>;
 }

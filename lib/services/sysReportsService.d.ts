@@ -19,6 +19,6 @@ export declare class SysReportsService {
      * @Return: StreamContent
      */
     exportSensorsReport(): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<SysReportsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysReportsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysReportsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysReportsService>;
 }

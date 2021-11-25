@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { Account } from '../entities/Account';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { Account } from '../entities/Account';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions for system administrator only
@@ -153,6 +153,6 @@ export declare class SysAccountsService {
      * @Return: StreamContent
      */
     exportAllAccountsUsageReport(year?: number, month?: number): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAccountsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysAccountsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysAccountsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysAccountsService>;
 }

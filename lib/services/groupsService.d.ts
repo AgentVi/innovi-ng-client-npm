@@ -45,6 +45,6 @@ export declare class GroupsService {
      * @Return: QueryResponse<Group>
      */
     find(search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<GroupsService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<GroupsService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<GroupsService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<GroupsService>;
 }

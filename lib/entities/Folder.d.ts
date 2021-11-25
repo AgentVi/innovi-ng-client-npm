@@ -13,7 +13,6 @@ export declare class Folder extends BaseEntity {
     timezone: string;
     healthThresholds: HealthThresholds;
     shunt: TimeFrame;
-    description: string;
     id: string;
     _type: string;
     createdOn: number;

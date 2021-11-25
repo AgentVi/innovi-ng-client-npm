@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { Appliance } from '../entities/Appliance';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { Sensor } from '../entities/Sensor';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -193,16 +193,6 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
-    /**
-     * Attach multiple sensors to the device
-     * @Return: ActionResponse
-     */
-    bulkAttach(id?: string, sensorId?: string[]): import("rxjs").Observable<any>;
-    /**
-     * Detach multiple sensors from the device
-     * @Return: ActionResponse
-     */
-    bulkDetach(id?: string, sensorId?: string[]): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AppliancesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<AppliancesService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AppliancesService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<AppliancesService>;
 }

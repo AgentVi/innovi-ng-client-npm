@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { AnalysisResult } from '../common/AnalysisResult';
-import { EventStatusCode } from '../enums/EventStatusCode';
 import { SensorAnomalyRuleInfo } from '../common/SensorAnomalyRuleInfo';
 import { Event } from '../entities/Event';
+import { AnalysisResult } from '../common/AnalysisResult';
+import { EventStatusCode } from '../enums/EventStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of anomaly related actions for the anomaly detection service
@@ -64,6 +64,6 @@ export declare class AnomalyService {
      * @return EntityResponse<Event>
      */
     createDummyEvent(body?: Event): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<AnomalyService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<AnomalyService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<AnomalyService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<AnomalyService>;
 }

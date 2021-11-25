@@ -71,6 +71,6 @@ export declare class UserService {
      * @Return: ActionResponse
      */
     acceptEula(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<UserService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<UserService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<UserService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<UserService>;
 }

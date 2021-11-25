@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance queries for system administrator only
@@ -155,6 +155,6 @@ export declare class SysAppliancesService {
      * @Return:  StreamingOutput of the report file
      */
     exportDevicesConfigurations(accountId?: string, search?: string, configId?: string, versionId?: string, unmatched?: boolean, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    static ɵfac: i0.ɵɵFactoryDef<SysAppliancesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysAppliancesService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysAppliancesService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysAppliancesService>;
 }

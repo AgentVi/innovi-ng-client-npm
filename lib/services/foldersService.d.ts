@@ -80,6 +80,6 @@ export declare class FoldersService {
      * @Return: EntityResponse<Coordinate> The folder location
      */
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<FoldersService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<FoldersService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<FoldersService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<FoldersService>;
 }

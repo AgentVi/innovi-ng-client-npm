@@ -102,6 +102,6 @@ export declare class RulesService {
      * @Return: ActionResponse
      */
     resume(folderId?: string, folderExtId?: string): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<RulesService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<RulesService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<RulesService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<RulesService>;
 }

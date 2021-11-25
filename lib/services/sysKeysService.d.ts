@@ -75,6 +75,6 @@ export declare class SysKeysService {
      * @Return: EntitiesResponse<StringKeyValue>
      */
     getResources(): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<SysKeysService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<SysKeysService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<SysKeysService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<SysKeysService>;
 }

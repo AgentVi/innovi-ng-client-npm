@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { UserTypeCode } from '../enums/UserTypeCode';
+import { UserStatusCode } from '../enums/UserStatusCode';
 import { UserInvitation } from '../common/UserInvitation';
 import { UserRegistration } from '../common/UserRegistration';
 import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
 import { User } from '../entities/User';
-import { UserTypeCode } from '../enums/UserTypeCode';
-import { UserStatusCode } from '../enums/UserStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -90,6 +90,6 @@ export declare class UsersService {
      * @Return: ActionResponse
      */
     getUserToken(id?: string, exp?: number): import("rxjs").Observable<any>;
-    static ɵfac: i0.ɵɵFactoryDef<UsersService, never>;
-    static ɵprov: i0.ɵɵInjectableDef<UsersService>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<UsersService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<UsersService>;
 }
