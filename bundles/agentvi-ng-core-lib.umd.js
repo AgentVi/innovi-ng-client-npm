@@ -4492,6 +4492,26 @@
 
    /*
    */
+   var AppliancesServiceBulkAttachRequest = /** @class */ (function () {
+       function AppliancesServiceBulkAttachRequest(id, sensorId) {
+           this.id = id;
+           this.sensorId = sensorId;
+       }
+       return AppliancesServiceBulkAttachRequest;
+   }());
+
+   /*
+   */
+   var AppliancesServiceBulkDetachRequest = /** @class */ (function () {
+       function AppliancesServiceBulkDetachRequest(id, sensorId) {
+           this.id = id;
+           this.sensorId = sensorId;
+       }
+       return AppliancesServiceBulkDetachRequest;
+   }());
+
+   /*
+   */
    var AppliancesServiceChangeConfigurationRequest = /** @class */ (function () {
        function AppliancesServiceChangeConfigurationRequest(id, configId, versionId) {
            this.id = id;
@@ -6149,6 +6169,17 @@
            this.pageSize = pageSize;
        }
        return EventsServiceFindRequest;
+   }());
+
+   /*
+   */
+   var EventsServiceGetIntegrationsRequestRequest = /** @class */ (function () {
+       function EventsServiceGetIntegrationsRequestRequest(id, sensorId, folderId) {
+           this.id = id;
+           this.sensorId = sensorId;
+           this.folderId = folderId;
+       }
+       return EventsServiceGetIntegrationsRequestRequest;
    }());
 
    /*
@@ -9725,6 +9756,30 @@
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
+       /**
+        * Attach multiple sensors to the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkAttach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/attach", null], __read(params)));
+       };
+       /**
+        * Detach multiple sensors from the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkDetach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/detach", null], __read(params)));
+       };
        return AppliancesService;
    }());
    /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -10135,6 +10190,28 @@
         */
        EventsService.prototype.create = function (body) {
            return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Get a list of integration targets applicable for this event
+        * @Return: EntitiesResponse<IntegrationAction>
+        */
+       EventsService.prototype.getIntegrations = function (id, sensorId, folderId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/integrations"], __read(params)));
+       };
+       /**
+        * Force manual event integrations
+        * @Return: ActionResponse
+        */
+       EventsService.prototype.invokeIntegrations = function (id) {
+           return this.rest.post(this.baseUrl + "/" + id + "/integrations", null);
        };
        /**
         * Change event workflow status
@@ -12073,25 +12150,8 @@
         * Perform metadata search by the similarity for another object
         * @Return: EntityResponse<SearchStatus>
         */
-       SearchService.prototype.searchForSimilar = function (objectId, sensorId, timestamp, from, to) {
-           var _a;
-           var params = new Array();
-           if (objectId != null) {
-               params.push("objectId=" + objectId);
-           }
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (timestamp != null) {
-               params.push("timestamp=" + timestamp);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/similar", null], __read(params)));
+       SearchService.prototype.searchForSimilar = function (body) {
+           return this.rest.post(this.baseUrl + "/similar", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Get search session status
@@ -15593,6 +15653,8 @@
    exports.AppliancesCountRequest = AppliancesCountRequest;
    exports.AppliancesService = AppliancesService;
    exports.AppliancesServiceAddSensorRequest = AppliancesServiceAddSensorRequest;
+   exports.AppliancesServiceBulkAttachRequest = AppliancesServiceBulkAttachRequest;
+   exports.AppliancesServiceBulkDetachRequest = AppliancesServiceBulkDetachRequest;
    exports.AppliancesServiceChangeConfigurationRequest = AppliancesServiceChangeConfigurationRequest;
    exports.AppliancesServiceChangeFolderRequest = AppliancesServiceChangeFolderRequest;
    exports.AppliancesServiceChangeMachineIdRequest = AppliancesServiceChangeMachineIdRequest;
@@ -15792,6 +15854,7 @@
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
    exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
    exports.EventsServiceFindRequest = EventsServiceFindRequest;
+   exports.EventsServiceGetIntegrationsRequestRequest = EventsServiceGetIntegrationsRequestRequest;
    exports.EventsServiceSetBulkStatusRequest = EventsServiceSetBulkStatusRequest;
    exports.EventsServiceSetClipPathRequest = EventsServiceSetClipPathRequest;
    exports.EventsServiceSetImagePathRequest = EventsServiceSetImagePathRequest;

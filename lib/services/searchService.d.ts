@@ -61,7 +61,7 @@ export declare class SearchService {
      * Perform metadata search by the similarity for another object
      * @Return: EntityResponse<SearchStatus>
      */
-    searchForSimilar(objectId?: number, sensorId?: string, timestamp?: number, from?: number, to?: number): import("rxjs").Observable<any>;
+    searchForSimilar(body?: SearchDefinition): import("rxjs").Observable<any>;
     /**
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
