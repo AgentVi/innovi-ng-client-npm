@@ -744,9 +744,9 @@
       Metadata object color description
    */
    var ObjectColor = /** @class */ (function () {
-       function ObjectColor(colorType, primary, primaryConf, secondaryColor, secondaryConf) {
+       function ObjectColor(colorType, primaryColor, primaryConf, secondaryColor, secondaryConf) {
            this.colorType = colorType;
-           this.primary = primary;
+           this.primaryColor = primaryColor;
            this.primaryConf = primaryConf;
            this.secondaryColor = secondaryColor;
            this.secondaryConf = secondaryConf;
@@ -2447,6 +2447,19 @@
        // Active account for paying customers [4] 
        AccountTypeCode[AccountTypeCode["CUSTOMER"] = 4] = "CUSTOMER";
    })(exports.AccountTypeCode || (exports.AccountTypeCode = {}));
+
+   /*
+      Action Mode code
+   */
+   exports.ActionModeCode = void 0;
+   (function (ActionModeCode) {
+       // Undefined - similar to disabled [0] 
+       ActionModeCode[ActionModeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Manual mode [1] 
+       ActionModeCode[ActionModeCode["MANUAL"] = 1] = "MANUAL";
+       // Auto mode  [2] 
+       ActionModeCode[ActionModeCode["AUTO"] = 2] = "AUTO";
+   })(exports.ActionModeCode || (exports.ActionModeCode = {}));
 
    /*
       Active code
