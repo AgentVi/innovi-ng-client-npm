@@ -870,11 +870,10 @@ class SearchColor {
    Object attributes to search for
 */
 class SearchObject {
-    constructor(type, colors, objectData, tolerance, externalModelResults) {
+    constructor(type, colors, objectData, externalModelResults) {
         this.type = type;
         this.colors = colors;
         this.objectData = objectData;
-        this.tolerance = tolerance;
         this.externalModelResults = externalModelResults;
     }
 }

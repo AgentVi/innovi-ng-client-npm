@@ -958,11 +958,10 @@
       Object attributes to search for
    */
    var SearchObject = /** @class */ (function () {
-       function SearchObject(type, colors, objectData, tolerance, externalModelResults) {
+       function SearchObject(type, colors, objectData, externalModelResults) {
            this.type = type;
            this.colors = colors;
            this.objectData = objectData;
-           this.tolerance = tolerance;
            this.externalModelResults = externalModelResults;
        }
        return SearchObject;
