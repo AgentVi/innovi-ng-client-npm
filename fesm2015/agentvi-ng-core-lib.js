@@ -4852,7 +4852,7 @@ class EventsServiceCreateRequest {
 /*
 */
 class EventsServiceExportRequest {
-    constructor(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, format, fields, fileName) {
+    constructor(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
@@ -4861,7 +4861,6 @@ class EventsServiceExportRequest {
         this.severity = severity;
         this.status = status;
         this.rule = rule;
-        this.tolerance = tolerance;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -4874,7 +4873,7 @@ class EventsServiceExportRequest {
 /*
 */
 class EventsServiceFindInAreaRequest {
-    constructor(folderId, searchArea, sensorId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, page, pageSize) {
+    constructor(folderId, searchArea, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
         this.folderId = folderId;
         this.searchArea = searchArea;
         this.sensorId = sensorId;
@@ -4883,7 +4882,6 @@ class EventsServiceFindInAreaRequest {
         this.severity = severity;
         this.status = status;
         this.rule = rule;
-        this.tolerance = tolerance;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -4895,7 +4893,7 @@ class EventsServiceFindInAreaRequest {
 /*
 */
 class EventsServiceFindRequest {
-    constructor(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, page, pageSize) {
+    constructor(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
@@ -4905,7 +4903,6 @@ class EventsServiceFindRequest {
         this.severity = severity;
         this.status = status;
         this.rule = rule;
-        this.tolerance = tolerance;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -5954,10 +5951,11 @@ class SearchEventCropsRequest {
 /*
 */
 class SearchEventExportRequest {
-    constructor(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
+    constructor(sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
         this.sessionId = sessionId;
         this.sensorId = sensorId;
         this.objectType = objectType;
+        this.tolerance = tolerance;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -5970,10 +5968,11 @@ class SearchEventExportRequest {
 /*
 */
 class SearchEventFindRequest {
-    constructor(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+    constructor(sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
         this.sessionId = sessionId;
         this.sensorId = sensorId;
         this.objectType = objectType;
+        this.tolerance = tolerance;
         this.from = from;
         this.to = to;
         this.sort = sort;
@@ -10379,13 +10378,16 @@ class SearchService {
      * Find list of search events by filter
      * @Return: QueryResponse<SearchDefinition>
      */
-    findEvents(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+    findEvents(sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
         }
         if (objectType != null) {
             params.push(`objectType=${objectType}`);
+        }
+        if (tolerance != null) {
+            params.push(`tolerance=${tolerance}`);
         }
         if (from != null) {
             params.push(`from=${from}`);
@@ -10408,13 +10410,16 @@ class SearchService {
      * Get total search events count by filter
      * @Return: QueryResponse<SearchDefinition> entities list is null
      */
-    totalEvents(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+    totalEvents(sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
         }
         if (objectType != null) {
             params.push(`objectType=${objectType}`);
+        }
+        if (tolerance != null) {
+            params.push(`tolerance=${tolerance}`);
         }
         if (from != null) {
             params.push(`from=${from}`);
@@ -10437,13 +10442,16 @@ class SearchService {
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
+    exportEvents(sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
         const params = new Array();
         if (sensorId != null) {
             params.push(`sensorId=${sensorId}`);
         }
         if (objectType != null) {
             params.push(`objectType=${objectType}`);
+        }
+        if (tolerance != null) {
+            params.push(`tolerance=${tolerance}`);
         }
         if (from != null) {
             params.push(`from=${from}`);

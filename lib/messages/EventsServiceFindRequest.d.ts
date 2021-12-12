@@ -1,4 +1,3 @@
-import { LevelTypeCode } from '../enums/LevelTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
@@ -13,11 +12,10 @@ export declare class EventsServiceFindRequest {
     severity: SeverityTypeCode[];
     status: EventStatusCode[];
     rule: string[];
-    tolerance: LevelTypeCode;
     from: number;
     to: number;
     sort: string;
     page: number;
     pageSize: number;
-    constructor(folderId?: string, subFolders?: boolean, sensorId?: string, applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
+    constructor(folderId?: string, subFolders?: boolean, sensorId?: string, applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
 }

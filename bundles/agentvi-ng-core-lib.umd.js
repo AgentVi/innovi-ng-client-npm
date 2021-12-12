@@ -6121,7 +6121,7 @@
    /*
    */
    var EventsServiceExportRequest = /** @class */ (function () {
-       function EventsServiceExportRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, format, fields, fileName) {
+       function EventsServiceExportRequest(folderId, subFolders, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, format, fields, fileName) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.sensorId = sensorId;
@@ -6130,7 +6130,6 @@
            this.severity = severity;
            this.status = status;
            this.rule = rule;
-           this.tolerance = tolerance;
            this.from = from;
            this.to = to;
            this.sort = sort;
@@ -6144,7 +6143,7 @@
    /*
    */
    var EventsServiceFindInAreaRequest = /** @class */ (function () {
-       function EventsServiceFindInAreaRequest(folderId, searchArea, sensorId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, page, pageSize) {
+       function EventsServiceFindInAreaRequest(folderId, searchArea, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
            this.folderId = folderId;
            this.searchArea = searchArea;
            this.sensorId = sensorId;
@@ -6153,7 +6152,6 @@
            this.severity = severity;
            this.status = status;
            this.rule = rule;
-           this.tolerance = tolerance;
            this.from = from;
            this.to = to;
            this.sort = sort;
@@ -6166,7 +6164,7 @@
    /*
    */
    var EventsServiceFindRequest = /** @class */ (function () {
-       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, tolerance, from, to, sort, page, pageSize) {
+       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.sensorId = sensorId;
@@ -6176,7 +6174,6 @@
            this.severity = severity;
            this.status = status;
            this.rule = rule;
-           this.tolerance = tolerance;
            this.from = from;
            this.to = to;
            this.sort = sort;
@@ -7461,10 +7458,11 @@
    /*
    */
    var SearchEventExportRequest = /** @class */ (function () {
-       function SearchEventExportRequest(sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
+       function SearchEventExportRequest(sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
            this.sessionId = sessionId;
            this.sensorId = sensorId;
            this.objectType = objectType;
+           this.tolerance = tolerance;
            this.from = from;
            this.to = to;
            this.sort = sort;
@@ -7478,10 +7476,11 @@
    /*
    */
    var SearchEventFindRequest = /** @class */ (function () {
-       function SearchEventFindRequest(sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+       function SearchEventFindRequest(sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
            this.sessionId = sessionId;
            this.sensorId = sensorId;
            this.objectType = objectType;
+           this.tolerance = tolerance;
            this.from = from;
            this.to = to;
            this.sort = sort;
@@ -12219,7 +12218,7 @@
         * Find list of search events by filter
         * @Return: QueryResponse<SearchDefinition>
         */
-       SearchService.prototype.findEvents = function (sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+       SearchService.prototype.findEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -12227,6 +12226,9 @@
            }
            if (objectType != null) {
                params.push("objectType=" + objectType);
+           }
+           if (tolerance != null) {
+               params.push("tolerance=" + tolerance);
            }
            if (from != null) {
                params.push("from=" + from);
@@ -12249,7 +12251,7 @@
         * Get total search events count by filter
         * @Return: QueryResponse<SearchDefinition> entities list is null
         */
-       SearchService.prototype.totalEvents = function (sessionId, sensorId, objectType, from, to, sort, page, pageSize) {
+       SearchService.prototype.totalEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -12257,6 +12259,9 @@
            }
            if (objectType != null) {
                params.push("objectType=" + objectType);
+           }
+           if (tolerance != null) {
+               params.push("tolerance=" + tolerance);
            }
            if (from != null) {
                params.push("from=" + from);
@@ -12279,7 +12284,7 @@
         * Export list of search events by filter
         * @Return: StreamContent
         */
-       SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, from, to, sort, format, fields, fileName) {
+       SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
            var _a;
            var params = new Array();
            if (sensorId != null) {
@@ -12287,6 +12292,9 @@
            }
            if (objectType != null) {
                params.push("objectType=" + objectType);
+           }
+           if (tolerance != null) {
+               params.push("tolerance=" + tolerance);
            }
            if (from != null) {
                params.push("from=" + from);
