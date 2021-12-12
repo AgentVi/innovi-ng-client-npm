@@ -1,8 +1,8 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { LevelTypeCode } from '../enums/LevelTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 export declare class EventsServiceExportRequest {
     folderId: string;
     subFolders: boolean;
