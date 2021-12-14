@@ -12,7 +12,6 @@ export declare class IntegrationAction extends BaseEntity {
     subject: string;
     body: string;
     mimeType: string;
-    enabled: boolean;
     mode: ActionModeCode;
     filter: IntegrationActionFilter;
     id: string;
