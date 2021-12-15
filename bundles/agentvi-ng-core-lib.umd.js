@@ -5445,6 +5445,16 @@
 
    /*
    */
+   var EntitiesResponseOfStringIntValue = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfStringIntValue, _super);
+       function EntitiesResponseOfStringIntValue() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfStringIntValue;
+   }(EntitiesResponse));
+
+   /*
+   */
    var EntitiesResponseOfStringKeyValue = /** @class */ (function (_super) {
        __extends(EntitiesResponseOfStringKeyValue, _super);
        function EntitiesResponseOfStringKeyValue() {
@@ -12248,6 +12258,13 @@
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/find"], __read(params)));
        };
        /**
+        * Find list of sensor Ids related to the search results
+        * @Return: EntitiesResponse<StringIntValue>
+        */
+       SearchService.prototype.findSensorsIds = function (sessionId) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/sensorsIds");
+       };
+       /**
         * Get total search events count by filter
         * @Return: QueryResponse<SearchDefinition> entities list is null
         */
@@ -15802,6 +15819,7 @@
    exports.EntitiesResponseOfSearchEvent = EntitiesResponseOfSearchEvent;
    exports.EntitiesResponseOfSensor = EntitiesResponseOfSensor;
    exports.EntitiesResponseOfSensorStatus = EntitiesResponseOfSensorStatus;
+   exports.EntitiesResponseOfStringIntValue = EntitiesResponseOfStringIntValue;
    exports.EntitiesResponseOfStringKeyValue = EntitiesResponseOfStringKeyValue;
    exports.EntitiesResponseOfTimestampedCrop = EntitiesResponseOfTimestampedCrop;
    exports.EntitiesResponseOfUpdateStatus = EntitiesResponseOfUpdateStatus;

@@ -124,6 +124,7 @@ export * from './EntitiesResponseOfSearchDefinition';
 export * from './EntitiesResponseOfSearchEvent';
 export * from './EntitiesResponseOfSensor';
 export * from './EntitiesResponseOfSensorStatus';
+export * from './EntitiesResponseOfStringIntValue';
 export * from './EntitiesResponseOfStringKeyValue';
 export * from './EntitiesResponseOfTimestampedCrop';
 export * from './EntitiesResponseOfUpdateStatus';

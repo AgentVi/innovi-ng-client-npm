@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SearchDefinition } from '../entities/SearchDefinition';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { LevelTypeCode } from '../enums/LevelTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { SearchDefinition } from '../entities/SearchDefinition';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -98,6 +98,11 @@ export declare class SearchService {
      * @Return: QueryResponse<SearchDefinition>
      */
     findEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    /**
+     * Find list of sensor Ids related to the search results
+     * @Return: EntitiesResponse<StringIntValue>
+     */
+    findSensorsIds(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Get total search events count by filter
      * @Return: QueryResponse<SearchDefinition> entities list is null
