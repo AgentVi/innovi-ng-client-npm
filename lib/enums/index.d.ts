@@ -44,5 +44,6 @@ export * from './UserStatusCode';
 export * from './UserTypeCode';
 export * from './VMSGatewayStateMask';
 export * from './VMSGatewayStatusCode';
+export * from './ViewTypeCode';
 export * from './VisualQualityCode';
 export * from './ZoneTypeCode';

@@ -909,7 +909,7 @@
       Rule specification describe rule parameters
    */
    var RuleSpec = /** @class */ (function () {
-       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel) {
+       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes) {
            this.behaviorType = behaviorType;
            this.ruleTypeName = ruleTypeName;
            this.objectTypes = objectTypes;
@@ -923,6 +923,7 @@
            this.objectHierarchy = objectHierarchy;
            this.sensorTypes = sensorTypes;
            this.externalModel = externalModel;
+           this.viewTypes = viewTypes;
        }
        return RuleSpec;
    }());
@@ -1352,7 +1353,7 @@
       Sensor configuration info
    */
    var SensorInfo = /** @class */ (function () {
-       function SensorInfo(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo) {
+       function SensorInfo(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo, view) {
            this.name = name;
            this.type = type;
            this.streamType = streamType;
@@ -1370,6 +1371,7 @@
            this.externalId = externalId;
            this.tags = tags;
            this.debugInfo = debugInfo;
+           this.view = view;
        }
        return SensorInfo;
    }());
@@ -2666,6 +2668,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
        // Smoke and Fire 67585 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
+       // 65860 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3550,6 +3554,8 @@
        FeatureCode[FeatureCode["MODULE_INVESTIGATION"] = 8192] = "MODULE_INVESTIGATION";
        // Analytics (BI) module [8192] 
        FeatureCode[FeatureCode["MODULE_ANALYTICS"] = 16384] = "MODULE_ANALYTICS";
+       // Slip and Fall rule [34816] 
+       FeatureCode[FeatureCode["RULE_SLIP_AND_FALL"] = 34816] = "RULE_SLIP_AND_FALL";
    })(exports.FeatureCode || (exports.FeatureCode = {}));
 
    /*
@@ -4103,6 +4109,17 @@
        // VMS gateway in error state [4] 
        VMSGatewayStatusCode[VMSGatewayStatusCode["ERROR"] = 4] = "ERROR";
    })(exports.VMSGatewayStatusCode || (exports.VMSGatewayStatusCode = {}));
+
+   /*
+      View type code
+   */
+   exports.ViewTypeCode = void 0;
+   (function (ViewTypeCode) {
+       // Normal [0] 
+       ViewTypeCode[ViewTypeCode["NORMAL"] = 0] = "NORMAL";
+       // Fisheye overhead [1] 
+       ViewTypeCode[ViewTypeCode["FISHEYE_OVERHEAD"] = 1] = "FISHEYE_OVERHEAD";
+   })(exports.ViewTypeCode || (exports.ViewTypeCode = {}));
 
    /*
       Sensor visual quality code
