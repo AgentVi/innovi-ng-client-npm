@@ -1353,7 +1353,7 @@
       Sensor configuration info
    */
    var SensorInfo = /** @class */ (function () {
-       function SensorInfo(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo, view) {
+       function SensorInfo(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo, viewType) {
            this.name = name;
            this.type = type;
            this.streamType = streamType;
@@ -1371,7 +1371,7 @@
            this.externalId = externalId;
            this.tags = tags;
            this.debugInfo = debugInfo;
-           this.view = view;
+           this.viewType = viewType;
        }
        return SensorInfo;
    }());

@@ -945,7 +945,7 @@ class SensorDebugInfo {
    Sensor configuration info
 */
 class SensorInfo {
-    constructor(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo, view) {
+    constructor(name, type, streamType, imageResolution, recording, metadata, anomalyDetection, alarmInterval, maxBBoxPerFrame, maxFrameRate, streamUri, geoLocation, azimuth, fovAttributes, externalId, tags, debugInfo, viewType) {
         this.name = name;
         this.type = type;
         this.streamType = streamType;
@@ -963,7 +963,7 @@ class SensorInfo {
         this.externalId = externalId;
         this.tags = tags;
         this.debugInfo = debugInfo;
-        this.view = view;
+        this.viewType = viewType;
     }
 }
 
