@@ -3600,6 +3600,8 @@
        IntegrationTypeCode[IntegrationTypeCode["MILESTONE"] = 13] = "MILESTONE";
        // Genetec integration (based on http protocol) [14] 
        IntegrationTypeCode[IntegrationTypeCode["GENETEC"] = 14] = "GENETEC";
+       // MOBOTIX  integration [15] 
+       IntegrationTypeCode[IntegrationTypeCode["MOBOTIX"] = 15] = "MOBOTIX";
    })(exports.IntegrationTypeCode || (exports.IntegrationTypeCode = {}));
 
    /*
