@@ -1,5 +1,5 @@
-import { LevelTypeCode } from '../enums/LevelTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { LevelTypeCode } from '../enums/LevelTypeCode';
 export declare class SearchEventExportRequest {
     sessionId: string;
     sensorId: string[];

@@ -8,6 +8,5 @@ export declare enum IntegrationTypeCode {
     IMMIX = 11,
     SENTINEL = 12,
     MILESTONE = 13,
-    GENETEC = 14,
-    MOBOTIX = 15
+    GENETEC = 14
 }
