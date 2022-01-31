@@ -3187,6 +3187,8 @@ var SensorStateMask;
     SensorStateMask[SensorStateMask["SOURCE_DOWNLOADING_CLIP_WARN"] = 32] = "SOURCE_DOWNLOADING_CLIP_WARN";
     // [WARNING] Initializing stream from camera 
     SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
+    // [WARNING] Insufficient auto-calibration 
+    SensorStateMask[SensorStateMask["INSUFFICIENT_AUTO_CALIBRATION"] = 128] = "INSUFFICIENT_AUTO_CALIBRATION";
     // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
     SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
     // [ERROR] Communication error [0x00010000] 
