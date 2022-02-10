@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Appliance } from '../entities/Appliance';
+import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
@@ -193,6 +193,21 @@ export declare class AppliancesService {
      * @Return:  EntityResponse<DistributionOfLong>
      */
     getAppliancesCountByStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    /**
+     * Aggregate appliances count distribution by state
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByState(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    /**
+     * Aggregate appliances count distribution by agent status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByAgentStatus(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
+    /**
+     * Aggregate appliances count distribution by agent state
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByAgentState(folderId?: string, subFolders?: boolean): import("rxjs").Observable<any>;
     /**
      * Attach multiple sensors to the device
      * @Return: ActionResponse
