@@ -271,6 +271,7 @@ export * from './QueryResponseOfFolder';
 export * from './QueryResponseOfGroup';
 export * from './QueryResponseOfHealthEvent';
 export * from './QueryResponseOfIntegrationAction';
+export * from './QueryResponseOfIntegrationStatus';
 export * from './QueryResponseOfIntegrationTarget';
 export * from './QueryResponseOfMember';
 export * from './QueryResponseOfReportDefinition';

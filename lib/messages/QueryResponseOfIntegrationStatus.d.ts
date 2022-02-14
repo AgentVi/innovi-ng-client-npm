@@ -1,7 +1,7 @@
-import { HealthEvent } from '../entities/HealthEvent';
+import { IntegrationStatus } from '../entities/IntegrationStatus';
 import { QueryResponse } from '../messages/QueryResponse';
-export declare class QueryResponseOfHealthEvent extends QueryResponse {
-    list: HealthEvent[];
+export declare class QueryResponseOfIntegrationStatus extends QueryResponse {
+    list: IntegrationStatus[];
     code: number;
     error: string;
     page: number;
