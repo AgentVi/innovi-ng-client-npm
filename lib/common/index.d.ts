@@ -84,6 +84,8 @@ export * from './StringKeyValue';
 export * from './Threshold';
 export * from './Thresholds';
 export * from './TimeFrame';
+export * from './TimeSlot';
+export * from './Timeline';
 export * from './TimestampedCrop';
 export * from './TimestampedCropsData';
 export * from './TimestampedImage';
