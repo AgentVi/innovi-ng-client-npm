@@ -4406,6 +4406,16 @@
 
    /*
    */
+   var AnomalyServiceSensorPresetRequest = /** @class */ (function () {
+       function AnomalyServiceSensorPresetRequest(sensorId, presetNum) {
+           this.sensorId = sensorId;
+           this.presetNum = presetNum;
+       }
+       return AnomalyServiceSensorPresetRequest;
+   }());
+
+   /*
+   */
    var AnomalyServiceUpdateRequest = /** @class */ (function () {
        function AnomalyServiceUpdateRequest(sensorId, body) {
            this.sensorId = sensorId;
@@ -6016,6 +6026,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntityResponseOfSensorStatusTimeSeries;
+   }(EntityResponse));
+
+   /*
+   */
+   var EntityResponseOfTimeline = /** @class */ (function (_super) {
+       __extends(EntityResponseOfTimeline, _super);
+       function EntityResponseOfTimeline() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfTimeline;
    }(EntityResponse));
 
    /*
@@ -9271,6 +9291,20 @@
         */
        AnomalyService.prototype.createDummyEvent = function (body) {
            return this.rest.post(this.baseUrl + "/event", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Get single sensor preset
+        * @return EntityResponse<Preset>
+        */
+       AnomalyService.prototype.getSensorPreset = function (sensorId, presetNum) {
+           return this.rest.get(this.baseUrl + "/sensor/" + sensorId + "/preset/" + presetNum);
+       };
+       /**
+        * Get single sensor schedule for the next hour
+        * @return EntityResponse<Timeline>
+        */
+       AnomalyService.prototype.getSensorSchedule = function (sensorId) {
+           return this.rest.get(this.baseUrl + "/sensor/" + sensorId + "/schedule");
        };
        return AnomalyService;
    }());
@@ -15783,6 +15817,7 @@
    exports.AnomalyService = AnomalyService;
    exports.AnomalyServiceFindEventsRequest = AnomalyServiceFindEventsRequest;
    exports.AnomalyServiceFindRequest = AnomalyServiceFindRequest;
+   exports.AnomalyServiceSensorPresetRequest = AnomalyServiceSensorPresetRequest;
    exports.AnomalyServiceUpdateRequest = AnomalyServiceUpdateRequest;
    exports.AnomalyServiceUpdateRuleRequest = AnomalyServiceUpdateRuleRequest;
    exports.ApiKey = ApiKey;
@@ -15999,6 +16034,7 @@
    exports.EntityResponseOfSensorPaths = EntityResponseOfSensorPaths;
    exports.EntityResponseOfSensorStatus = EntityResponseOfSensorStatus;
    exports.EntityResponseOfSensorStatusTimeSeries = EntityResponseOfSensorStatusTimeSeries;
+   exports.EntityResponseOfTimeline = EntityResponseOfTimeline;
    exports.EntityResponseOfTimestampedCrop = EntityResponseOfTimestampedCrop;
    exports.EntityResponseOfTimestampedCropsData = EntityResponseOfTimestampedCropsData;
    exports.EntityResponseOfTimestampedImage = EntityResponseOfTimestampedImage;

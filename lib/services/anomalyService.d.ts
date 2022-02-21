@@ -64,6 +64,16 @@ export declare class AnomalyService {
      * @return EntityResponse<Event>
      */
     createDummyEvent(body?: Event): import("rxjs").Observable<any>;
+    /**
+     * Get single sensor preset
+     * @return EntityResponse<Preset>
+     */
+    getSensorPreset(sensorId?: string, presetNum?: number): import("rxjs").Observable<any>;
+    /**
+     * Get single sensor schedule for the next hour
+     * @return EntityResponse<Timeline>
+     */
+    getSensorSchedule(sensorId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<AnomalyService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<AnomalyService>;
 }
