@@ -2075,6 +2075,17 @@
    }(BaseEntity));
 
    /*
+      JobStatus represents the status of an background creation job (background reports).
+   */
+   var JobStatus = /** @class */ (function (_super) {
+       __extends(JobStatus, _super);
+       function JobStatus() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return JobStatus;
+   }(BaseEntity));
+
+   /*
       License information includes on-premises deployment's license restrictions
    */
    var License = /** @class */ (function (_super) {
@@ -3626,6 +3637,21 @@
        // Genetec integration (based on http protocol) [14] 
        IntegrationTypeCode[IntegrationTypeCode["GENETEC"] = 14] = "GENETEC";
    })(exports.IntegrationTypeCode || (exports.IntegrationTypeCode = {}));
+
+   /*
+      Job status code
+   */
+   exports.JobStatusCode = void 0;
+   (function (JobStatusCode) {
+       // Undefined [0] 
+       JobStatusCode[JobStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Job is still running [1] 
+       JobStatusCode[JobStatusCode["RUNNING"] = 1] = "RUNNING";
+       // Job has completed successfully [2] 
+       JobStatusCode[JobStatusCode["COMPLETED"] = 2] = "COMPLETED";
+       // Job has completed with an error [3] 
+       JobStatusCode[JobStatusCode["ERROR"] = 3] = "ERROR";
+   })(exports.JobStatusCode || (exports.JobStatusCode = {}));
 
    /*
       Level type code
@@ -16134,6 +16160,7 @@
    exports.IntegrationsServiceCreateRequest = IntegrationsServiceCreateRequest;
    exports.IntegrationsServiceFindRequest = IntegrationsServiceFindRequest;
    exports.IntegrationsServiceUpdateRequest = IntegrationsServiceUpdateRequest;
+   exports.JobStatus = JobStatus;
    exports.License = License;
    exports.LicenseIdRequest = LicenseIdRequest;
    exports.LicenseImportRequest = LicenseImportRequest;

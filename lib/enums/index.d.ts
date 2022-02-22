@@ -22,6 +22,7 @@ export * from './EventStatusCode';
 export * from './FeatureCode';
 export * from './IntegrationStatusCode';
 export * from './IntegrationTypeCode';
+export * from './JobStatusCode';
 export * from './LevelTypeCode';
 export * from './LineCrossDirectionCode';
 export * from './MapClientCode';

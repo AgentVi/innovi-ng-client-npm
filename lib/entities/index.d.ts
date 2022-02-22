@@ -34,6 +34,7 @@ export * from './IntegrationAction';
 export * from './IntegrationActionFilter';
 export * from './IntegrationStatus';
 export * from './IntegrationTarget';
+export * from './JobStatus';
 export * from './License';
 export * from './Mapping';
 export * from './Member';
