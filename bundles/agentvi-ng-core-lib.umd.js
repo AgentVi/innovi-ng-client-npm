@@ -3835,6 +3835,51 @@
    })(exports.ProductTypeCode || (exports.ProductTypeCode = {}));
 
    /*
+      Report data type code (defining what columns should be included in a report)
+   */
+   exports.ReportDataTypeCode = void 0;
+   (function (ReportDataTypeCode) {
+       // Undefined [0] 
+       ReportDataTypeCode[ReportDataTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Minimum amount of data, only the essentials [1] 
+       ReportDataTypeCode[ReportDataTypeCode["ESSENTIAL"] = 1] = "ESSENTIAL";
+       // Often used data [2] 
+       ReportDataTypeCode[ReportDataTypeCode["OFTEN_USED"] = 2] = "OFTEN_USED";
+       // All exportable data [3] 
+       ReportDataTypeCode[ReportDataTypeCode["ALL"] = 3] = "ALL";
+   })(exports.ReportDataTypeCode || (exports.ReportDataTypeCode = {}));
+
+   /*
+      Report format code (defining the file format of a report)
+   */
+   exports.ReportFormatCode = void 0;
+   (function (ReportFormatCode) {
+       // Undefined [0] 
+       ReportFormatCode[ReportFormatCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Comma Separated Values (.csv) [1] 
+       ReportFormatCode[ReportFormatCode["CSV"] = 1] = "CSV";
+       // Excel format (.xlsx) [2] 
+       ReportFormatCode[ReportFormatCode["EXCEL"] = 2] = "EXCEL";
+   })(exports.ReportFormatCode || (exports.ReportFormatCode = {}));
+
+   /*
+      Report type code
+   */
+   exports.ReportTypeCode = void 0;
+   (function (ReportTypeCode) {
+       // Undefined [0] 
+       ReportTypeCode[ReportTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Alarm Events [1] 
+       ReportTypeCode[ReportTypeCode["ALARM_EVENTS"] = 1] = "ALARM_EVENTS";
+       // Health Events [2] 
+       ReportTypeCode[ReportTypeCode["HEALTH_EVENTS"] = 2] = "HEALTH_EVENTS";
+       // People counting analysis [3] 
+       ReportTypeCode[ReportTypeCode["PEOPLE_COUNTING_ANALYSIS"] = 3] = "PEOPLE_COUNTING_ANALYSIS";
+       // Traffic analysis [4] 
+       ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
+   })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
+
+   /*
       Runtime status code represents the status of component in the host
    */
    exports.RuntimeStatusCode = void 0;
@@ -5876,6 +5921,16 @@
 
    /*
    */
+   var EntityResponseOfJobStatus = /** @class */ (function (_super) {
+       __extends(EntityResponseOfJobStatus, _super);
+       function EntityResponseOfJobStatus() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfJobStatus;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfLicense = /** @class */ (function (_super) {
        __extends(EntityResponseOfLicense, _super);
        function EntityResponseOfLicense() {
@@ -7104,6 +7159,16 @@
 
    /*
    */
+   var QueryResponseOfJobStatus = /** @class */ (function (_super) {
+       __extends(QueryResponseOfJobStatus, _super);
+       function QueryResponseOfJobStatus() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfJobStatus;
+   }(QueryResponse));
+
+   /*
+   */
    var QueryResponseOfMember = /** @class */ (function (_super) {
        __extends(QueryResponseOfMember, _super);
        function QueryResponseOfMember() {
@@ -7239,6 +7304,33 @@
            this.id = id;
        }
        return RemoveSensorModelsRequest;
+   }());
+
+   /*
+   */
+   var ReportFindRequest = /** @class */ (function () {
+       function ReportFindRequest(page, pageSize, search) {
+           this.page = page;
+           this.pageSize = pageSize;
+           this.search = search;
+       }
+       return ReportFindRequest;
+   }());
+
+   /*
+   */
+   var ReportGenerationRequest = /** @class */ (function () {
+       function ReportGenerationRequest(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
+           this.sensorId = sensorId;
+           this.folderId = folderId;
+           this.from = from;
+           this.to = to;
+           this.reportType = reportType;
+           this.aggregationType = aggregationType;
+           this.dataType = dataType;
+           this.reportFormat = reportFormat;
+       }
+       return ReportGenerationRequest;
    }());
 
    /*
@@ -11740,6 +11832,64 @@
            }
            return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/traffic-analysis"], __read(params)));
        };
+       /**
+        * Start the background creation of a report. Returns immediately with the status of the started background job.
+        * @Return: EntityResponseOfJobStatus
+        */
+       ReportsService.prototype.startReportJob = function (sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (reportType != null) {
+               params.push("reportType=" + reportType);
+           }
+           if (aggregationType != null) {
+               params.push("aggregationType=" + aggregationType);
+           }
+           if (dataType != null) {
+               params.push("dataType=" + dataType);
+           }
+           if (reportFormat != null) {
+               params.push("reportFormat=" + reportFormat);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/job", null], __read(params)));
+       };
+       /**
+        * Returns a paginated list of existing background jobs for creating reports.
+        * @Return: StreamContent
+        */
+       ReportsService.prototype.findJobs = function (page, pageSize, search) {
+           var _a;
+           var params = new Array();
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/jobs"], __read(params)));
+       };
+       /**
+        * Retrieves the contents of one successfully generated report and returns it as a stream.
+        * @Return: StreamContent
+        */
+       ReportsService.prototype.getJobFile = function (id) {
+           return this.rest.download("reports", this.baseUrl + "/statistics/" + id + "/file");
+       };
        return ReportsService;
    }());
    /** @nocollapse */ ReportsService.ɵfac = function ReportsService_Factory(t) { return new (t || ReportsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -13078,6 +13228,486 @@
    /** @nocollapse */ SensorsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SensorsService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Audit log queries for account administrator only
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysAuditLogService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysAuditLogService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/auditlog';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Find list of audit log entries and filter
+        * @Return: QueryResponse<AuditLog>
+        */
+       SysAuditLogService.prototype.find = function (accountId, userId, from, to, item, itemType, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (userId != null) {
+               params.push("userId=" + userId);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (item != null) {
+               params.push("item=" + item);
+           }
+           if (itemType != null) {
+               params.push("itemType=" + itemType);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       /**
+        * Export list of audit log entries and filter
+        * @Return: StreamContent
+        */
+       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (userId != null) {
+               params.push("userId=" + userId);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (item != null) {
+               params.push("item=" + item);
+           }
+           if (itemType != null) {
+               params.push("itemType=" + itemType);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
+       };
+       /**
+        * Get single audit log entry by id
+        * @Return: EntityResponse<Appliance>
+        */
+       SysAuditLogService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       return SysAuditLogService;
+   }());
+   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysAuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * List of license related actions
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysLicensesService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysLicensesService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/licenses';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Get cluster id
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.getClusterId = function () {
+           return this.rest.get(this.baseUrl + "/cluster/id");
+       };
+       /**
+        * Get deployment Id (for licensing)
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.getDeploymentId = function () {
+           return this.rest.get(this.baseUrl + "/deployment/id");
+       };
+       /**
+        * Get active license (combined license from all licenses)
+        * @Return: EntityResponse<License>
+        */
+       SysLicensesService.prototype.getActive = function () {
+           return this.rest.get(this.baseUrl + "/active");
+       };
+       /**
+        * Get single license by Id
+        * @Return: EntityResponse<License>
+        */
+       SysLicensesService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Delete license from the system
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get all licenses
+        * @Return: EntitiesResponse<License>
+        */
+       SysLicensesService.prototype.getAll = function () {
+           return this.rest.get("" + this.baseUrl);
+       };
+       /**
+        * Import license data from file
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.import = function (licenseFile) {
+           return this.rest.upload(licenseFile, this.baseUrl + "/import");
+       };
+       return SysLicensesService;
+   }());
+   /** @nocollapse */ SysLicensesService.ɵfac = function SysLicensesService_Factory(t) { return new (t || SysLicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysLicensesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysLicensesService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Services for user registration and login
+    */
+   var UserService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function UserService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/user';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Login to the system with user email and password
+        * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
+        * @Return: EntityResponse<LoginData>
+        */
+       UserService.prototype.login = function (body) {
+           return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Refresh token (set new expiration time) and associate with new account if required
+        * @Return: EntityResponse<LoginData>
+        */
+       UserService.prototype.refreshToken = function () {
+           return this.rest.post(this.baseUrl + "/refresh-token", null);
+       };
+       /**
+        * Verify user by temporary login key
+        * @Return: EntityResponse<User>
+        */
+       UserService.prototype.verifyLoginKey = function (key) {
+           var _a;
+           var params = new Array();
+           if (key != null) {
+               params.push("key=" + key);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/login/verify"], __read(params)));
+       };
+       /**
+        * Send verification code by email
+        * @Return: ActionResponse
+        */
+       UserService.prototype.sendVerificationCode = function (body) {
+           return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Validate verification code and reset password
+        * @Return: ActionResponse
+        */
+       UserService.prototype.resetPassword = function (code) {
+           return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
+       };
+       /**
+        * Change password
+        * @Return: ActionResponse
+        */
+       UserService.prototype.changePassword = function (body) {
+           return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Check if password was used before (according to password policy)
+        * @Return: ActionResponse
+        */
+       UserService.prototype.checkUnusedPassword = function (body) {
+           return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change current user name
+        * @Return: ActionResponse
+        */
+       UserService.prototype.changeName = function (body) {
+           return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change current user mobile
+        * @Return: ActionResponse
+        */
+       UserService.prototype.changeMobile = function (body) {
+           return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Refresh token (set new expiration time) and associate with new account if required
+        * @Return: EntityResponse<UserAccountInfo>
+        */
+       UserService.prototype.switchAccount = function (body) {
+           return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Mark the user who accepted the EULA agreement
+        * @Return: ActionResponse
+        */
+       UserService.prototype.acceptEula = function () {
+           return this.rest.put(this.baseUrl + "/accept-eula", null);
+       };
+       return UserService;
+   }());
+   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UserService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * List of all user related actions for account administrator only
+    */
+   var UsersService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function UsersService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/users';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Send invitation to a new user for the current account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.invite = function (body) {
+           return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Register user for the account, it a user already exists, an invitation to the new account will be sent
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.register = function (body) {
+           return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Create service account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.registerServiceAccount = function (body) {
+           return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Resend invitation to an existing user for the current account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.reInvite = function (id) {
+           return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+       };
+       /**
+        * Update user
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user name
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeName = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user mobile
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeMobile = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user type
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeType = function (id, type) {
+           return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+       };
+       /**
+        * Delete user from the system
+        * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single user by id
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single user by email
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.getByEmail = function (email) {
+           return this.rest.get(this.baseUrl + "/byEmail/" + email);
+       };
+       /**
+        * Find list of users and filter the list
+        * System user will see all users, Account system will see all users of the account, registered user will get an error.
+        * @Return: QueryResponse<User>
+        */
+       UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       /**
+        * Export list of users and filter
+        * @Return: StreamContent
+        */
+       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["users", this.baseUrl + "/export"], __read(params)));
+       };
+       /**
+        * Get access token for user
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.getUserToken = function (id, exp) {
+           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+       };
+       return UsersService;
+   }());
+   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -15050,501 +15680,7 @@
        }, null);
    })();
 
-   /**
-    * Audit log queries for account administrator only
-    * @RequestHeader X-API-KEY The key to identify the application (portal)
-    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
-    */
-   var SysAuditLogService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function SysAuditLogService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/sys/auditlog';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Find list of audit log entries and filter
-        * @Return: QueryResponse<AuditLog>
-        */
-       SysAuditLogService.prototype.find = function (accountId, userId, from, to, item, itemType, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (userId != null) {
-               params.push("userId=" + userId);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (item != null) {
-               params.push("item=" + item);
-           }
-           if (itemType != null) {
-               params.push("itemType=" + itemType);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
-       /**
-        * Export list of audit log entries and filter
-        * @Return: StreamContent
-        */
-       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (userId != null) {
-               params.push("userId=" + userId);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (item != null) {
-               params.push("item=" + item);
-           }
-           if (itemType != null) {
-               params.push("itemType=" + itemType);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
-       };
-       /**
-        * Get single audit log entry by id
-        * @Return: EntityResponse<Appliance>
-        */
-       SysAuditLogService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       return SysAuditLogService;
-   }());
-   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * List of license related actions
-    * @RequestHeader X-API-KEY The key to identify the application (portal)
-    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
-    */
-   var SysLicensesService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function SysLicensesService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/sys/licenses';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Get cluster id
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.getClusterId = function () {
-           return this.rest.get(this.baseUrl + "/cluster/id");
-       };
-       /**
-        * Get deployment Id (for licensing)
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.getDeploymentId = function () {
-           return this.rest.get(this.baseUrl + "/deployment/id");
-       };
-       /**
-        * Get active license (combined license from all licenses)
-        * @Return: EntityResponse<License>
-        */
-       SysLicensesService.prototype.getActive = function () {
-           return this.rest.get(this.baseUrl + "/active");
-       };
-       /**
-        * Get single license by Id
-        * @Return: EntityResponse<License>
-        */
-       SysLicensesService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Delete license from the system
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get all licenses
-        * @Return: EntitiesResponse<License>
-        */
-       SysLicensesService.prototype.getAll = function () {
-           return this.rest.get("" + this.baseUrl);
-       };
-       /**
-        * Import license data from file
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.import = function (licenseFile) {
-           return this.rest.upload(licenseFile, this.baseUrl + "/import");
-       };
-       return SysLicensesService;
-   }());
-   /** @nocollapse */ SysLicensesService.ɵfac = function SysLicensesService_Factory(t) { return new (t || SysLicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysLicensesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysLicensesService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * Services for user registration and login
-    */
-   var UserService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function UserService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/user';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Login to the system with user email and password
-        * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-        * @Return: EntityResponse<LoginData>
-        */
-       UserService.prototype.login = function (body) {
-           return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Refresh token (set new expiration time) and associate with new account if required
-        * @Return: EntityResponse<LoginData>
-        */
-       UserService.prototype.refreshToken = function () {
-           return this.rest.post(this.baseUrl + "/refresh-token", null);
-       };
-       /**
-        * Verify user by temporary login key
-        * @Return: EntityResponse<User>
-        */
-       UserService.prototype.verifyLoginKey = function (key) {
-           var _a;
-           var params = new Array();
-           if (key != null) {
-               params.push("key=" + key);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/login/verify"], __read(params)));
-       };
-       /**
-        * Send verification code by email
-        * @Return: ActionResponse
-        */
-       UserService.prototype.sendVerificationCode = function (body) {
-           return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Validate verification code and reset password
-        * @Return: ActionResponse
-        */
-       UserService.prototype.resetPassword = function (code) {
-           return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-       };
-       /**
-        * Change password
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changePassword = function (body) {
-           return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Check if password was used before (according to password policy)
-        * @Return: ActionResponse
-        */
-       UserService.prototype.checkUnusedPassword = function (body) {
-           return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change current user name
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changeName = function (body) {
-           return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change current user mobile
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changeMobile = function (body) {
-           return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Refresh token (set new expiration time) and associate with new account if required
-        * @Return: EntityResponse<UserAccountInfo>
-        */
-       UserService.prototype.switchAccount = function (body) {
-           return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Mark the user who accepted the EULA agreement
-        * @Return: ActionResponse
-        */
-       UserService.prototype.acceptEula = function () {
-           return this.rest.put(this.baseUrl + "/accept-eula", null);
-       };
-       return UserService;
-   }());
-   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UserService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * List of all user related actions for account administrator only
-    */
-   var UsersService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function UsersService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/users';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Send invitation to a new user for the current account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.invite = function (body) {
-           return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Register user for the account, it a user already exists, an invitation to the new account will be sent
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.register = function (body) {
-           return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Create service account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.registerServiceAccount = function (body) {
-           return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Resend invitation to an existing user for the current account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.reInvite = function (id) {
-           return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-       };
-       /**
-        * Update user
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.update = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user name
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeName = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user mobile
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeMobile = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user type
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeType = function (id, type) {
-           return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-       };
-       /**
-        * Delete user from the system
-        * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single user by id
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single user by email
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.getByEmail = function (email) {
-           return this.rest.get(this.baseUrl + "/byEmail/" + email);
-       };
-       /**
-        * Find list of users and filter the list
-        * System user will see all users, Account system will see all users of the account, registered user will get an error.
-        * @Return: QueryResponse<User>
-        */
-       UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
-       /**
-        * Export list of users and filter
-        * @Return: StreamContent
-        */
-       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["users", this.baseUrl + "/export"], __read(params)));
-       };
-       /**
-        * Get access token for user
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.getUserToken = function (id, exp) {
-           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
-       };
-       return UsersService;
-   }());
-   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
    var Services = [
-       AnomalyService,
-       HealthCheckService,
-       SysAccountsService,
-       SysAppliancesService,
-       SysConfigurationsService,
-       SysEventsService,
-       SysFeaturesGroupsService,
-       SysFeaturesService,
-       SysKeysService,
-       SysModelsService,
-       SysReportsService,
-       SysSensorsService,
-       SysSystemService,
-       SysUsersService,
        SysAuditLogService,
        SysLicensesService,
        AccountsService,
@@ -15569,6 +15705,20 @@
        SensorsService,
        UserService,
        UsersService,
+       AnomalyService,
+       HealthCheckService,
+       SysAccountsService,
+       SysAppliancesService,
+       SysConfigurationsService,
+       SysEventsService,
+       SysFeaturesGroupsService,
+       SysFeaturesService,
+       SysKeysService,
+       SysModelsService,
+       SysReportsService,
+       SysSensorsService,
+       SysSystemService,
+       SysUsersService,
    ];
 
    /*
@@ -16042,6 +16192,7 @@
    exports.EntityResponseOfHealthEvent = EntityResponseOfHealthEvent;
    exports.EntityResponseOfIntegration = EntityResponseOfIntegration;
    exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
+   exports.EntityResponseOfJobStatus = EntityResponseOfJobStatus;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
    exports.EntityResponseOfMember = EntityResponseOfMember;
@@ -16215,6 +16366,7 @@
    exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
    exports.QueryResponseOfIntegrationStatus = QueryResponseOfIntegrationStatus;
    exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
+   exports.QueryResponseOfJobStatus = QueryResponseOfJobStatus;
    exports.QueryResponseOfMember = QueryResponseOfMember;
    exports.QueryResponseOfReportDefinition = QueryResponseOfReportDefinition;
    exports.QueryResponseOfRule = QueryResponseOfRule;
@@ -16232,6 +16384,8 @@
    exports.RemoveSensorModelRequest = RemoveSensorModelRequest;
    exports.RemoveSensorModelsRequest = RemoveSensorModelsRequest;
    exports.ReportDefinition = ReportDefinition;
+   exports.ReportFindRequest = ReportFindRequest;
+   exports.ReportGenerationRequest = ReportGenerationRequest;
    exports.ReportIdRequest = ReportIdRequest;
    exports.ReportIdsRequest = ReportIdsRequest;
    exports.ReportsService = ReportsService;

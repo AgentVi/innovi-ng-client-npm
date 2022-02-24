@@ -1,0 +1,7 @@
+export declare enum ReportTypeCode {
+    UNDEFINED = 0,
+    ALARM_EVENTS = 1,
+    HEALTH_EVENTS = 2,
+    PEOPLE_COUNTING_ANALYSIS = 3,
+    TRAFFIC_ANALYSIS = 4
+}
