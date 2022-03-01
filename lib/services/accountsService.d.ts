@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { AccountTypeCode } from '../enums/AccountTypeCode';
+import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
 import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { AccountTypeCode } from '../enums/AccountTypeCode';
-import { AccountStatusCode } from '../enums/AccountStatusCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
@@ -74,13 +74,13 @@ export declare class AccountsService {
      * A logical tree is a representation of cameras-folders hierarchy as defined by the user
      * @Return: EntityResponse<TreeNode>
      */
-    getLogicalTree(status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[], includeSensors?: boolean, includeNonRecordingSensors?: boolean): import("rxjs").Observable<any>;
+    getLogicalTree(status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[], includeSensors?: boolean, includeNonRecordingSensors?: boolean, search?: string): import("rxjs").Observable<any>;
     /**
      * Get account physical tree hierarchy (account -> folders -> devices -> sensors) - starting from the account level as root
      * A Physical tree is a representation of cameras-devices-folders hierarchy as defined by the network topology
      * @Return: EntityResponse<TreeNode>
      */
-    getPhysicalTree(): import("rxjs").Observable<any>;
+    getPhysicalTree(search?: string): import("rxjs").Observable<any>;
     /**
      * Get account usage report (for billing)
      * List of sensor with total active time (minutes) and total of billable sensors
