@@ -13844,6 +13844,60 @@
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-status"], __read(params)));
        };
        /**
+        * Aggregate appliances count distribution by state
+        * @Return:  EntityResponse<DistributionOfLong>
+        */
+       SysAppliancesService.prototype.getAppliancesCountByState = function (accountId, folderId, subFolders) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (subFolders != null) {
+               params.push("subFolders=" + subFolders);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-state"], __read(params)));
+       };
+       /**
+        * Aggregate appliances count distribution by agent status
+        * @Return:  EntityResponse<DistributionOfLong>
+        */
+       SysAppliancesService.prototype.getAppliancesCountByAgentStatus = function (accountId, folderId, subFolders) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (subFolders != null) {
+               params.push("subFolders=" + subFolders);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-agent-status"], __read(params)));
+       };
+       /**
+        * Aggregate appliances count distribution by agent state
+        * @Return:  EntityResponse<DistributionOfLong>
+        */
+       SysAppliancesService.prototype.getAppliancesCountByAgentState = function (accountId, folderId, subFolders) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (folderId != null) {
+               params.push("folderId=" + folderId);
+           }
+           if (subFolders != null) {
+               params.push("subFolders=" + subFolders);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-agent-state"], __read(params)));
+       };
+       /**
         * Send get capabilities command to the appliance and wait for response up to 60 seconds
         * @Return:  EntityResponse<Appliance>
         */

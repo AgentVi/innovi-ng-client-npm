@@ -11915,6 +11915,57 @@ class SysAppliancesService {
         return this.rest.get(`${this.baseUrl}/count/by-status`, ...params);
     }
     /**
+     * Aggregate appliances count distribution by state
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByState(accountId, folderId, subFolders) {
+        const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
+        if (folderId != null) {
+            params.push(`folderId=${folderId}`);
+        }
+        if (subFolders != null) {
+            params.push(`subFolders=${subFolders}`);
+        }
+        return this.rest.get(`${this.baseUrl}/count/by-state`, ...params);
+    }
+    /**
+     * Aggregate appliances count distribution by agent status
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByAgentStatus(accountId, folderId, subFolders) {
+        const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
+        if (folderId != null) {
+            params.push(`folderId=${folderId}`);
+        }
+        if (subFolders != null) {
+            params.push(`subFolders=${subFolders}`);
+        }
+        return this.rest.get(`${this.baseUrl}/count/by-agent-status`, ...params);
+    }
+    /**
+     * Aggregate appliances count distribution by agent state
+     * @Return:  EntityResponse<DistributionOfLong>
+     */
+    getAppliancesCountByAgentState(accountId, folderId, subFolders) {
+        const params = new Array();
+        if (accountId != null) {
+            params.push(`accountId=${accountId}`);
+        }
+        if (folderId != null) {
+            params.push(`folderId=${folderId}`);
+        }
+        if (subFolders != null) {
+            params.push(`subFolders=${subFolders}`);
+        }
+        return this.rest.get(`${this.baseUrl}/count/by-agent-state`, ...params);
+    }
+    /**
      * Send get capabilities command to the appliance and wait for response up to 60 seconds
      * @Return:  EntityResponse<Appliance>
      */
