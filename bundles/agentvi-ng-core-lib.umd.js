@@ -3647,10 +3647,12 @@
        JobStatusCode[JobStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
        // Job is still running [1] 
        JobStatusCode[JobStatusCode["RUNNING"] = 1] = "RUNNING";
-       // Job has completed successfully [2] 
+       // Job has completed successfully and is ready for download [2] 
        JobStatusCode[JobStatusCode["COMPLETED"] = 2] = "COMPLETED";
        // Job has completed with an error [3] 
        JobStatusCode[JobStatusCode["ERROR"] = 3] = "ERROR";
+       // Job has completed successfully and report has been downloaded by the user [4] 
+       JobStatusCode[JobStatusCode["DOWNLOADED"] = 4] = "DOWNLOADED";
    })(exports.JobStatusCode || (exports.JobStatusCode = {}));
 
    /*
@@ -7359,6 +7361,16 @@
            this.id = id;
        }
        return ReportIdsRequest;
+   }());
+
+   /*
+   */
+   var ReportUpdateRequest = /** @class */ (function () {
+       function ReportUpdateRequest(id, status) {
+           this.id = id;
+           this.status = status;
+       }
+       return ReportUpdateRequest;
    }());
 
    /*
@@ -11902,11 +11914,30 @@
            return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/jobs"], __read(params)));
        };
        /**
+        * Retrieves the status of one report job.
+        * @Return: EntityResponseOfJobStatus
+        */
+       ReportsService.prototype.getJob = function (id) {
+           return this.rest.download("reports", this.baseUrl + "/statistics/job/" + id);
+       };
+       /**
+        * Updates the status of one report job.
+        * @Return: EntityResponseOfJobStatus
+        */
+       ReportsService.prototype.updateJob = function (id, status) {
+           var _a;
+           var params = new Array();
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/job/" + id, null], __read(params)));
+       };
+       /**
         * Retrieves the contents of one successfully generated report and returns it as a stream.
         * @Return: StreamContent
         */
        ReportsService.prototype.getJobFile = function (id) {
-           return this.rest.download("reports", this.baseUrl + "/statistics/" + id + "/file");
+           return this.rest.download("reports", this.baseUrl + "/statistics/job/" + id + "/file");
        };
        return ReportsService;
    }());
@@ -16461,6 +16492,7 @@
    exports.ReportGenerationRequest = ReportGenerationRequest;
    exports.ReportIdRequest = ReportIdRequest;
    exports.ReportIdsRequest = ReportIdsRequest;
+   exports.ReportUpdateRequest = ReportUpdateRequest;
    exports.ReportsService = ReportsService;
    exports.ReportsServiceCreateRequest = ReportsServiceCreateRequest;
    exports.ReportsServiceFindRequest = ReportsServiceFindRequest;

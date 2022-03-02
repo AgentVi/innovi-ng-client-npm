@@ -296,6 +296,7 @@ export * from './ReportFindRequest';
 export * from './ReportGenerationRequest';
 export * from './ReportIdRequest';
 export * from './ReportIdsRequest';
+export * from './ReportUpdateRequest';
 export * from './ReportsServiceCreateRequest';
 export * from './ReportsServiceFindRequest';
 export * from './ReportsServiceRulesSchedulesRequest';
