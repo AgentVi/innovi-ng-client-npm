@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ReportFormatCode } from '../enums/ReportFormatCode';
+import { JobStatusCode } from '../enums/JobStatusCode';
 import { ReportDefinition } from '../entities/ReportDefinition';
 import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
-import { ReportFormatCode } from '../enums/ReportFormatCode';
-import { JobStatusCode } from '../enums/JobStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions
@@ -72,22 +72,22 @@ export declare class ReportsService {
     getTrafficAnalysisReport(sensorId?: string[], folderId?: string[], from?: string, to?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Start the background creation of a report. Returns immediately with the status of the started background job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     startReportJob(sensorId?: string[], folderId?: string[], from?: string, to?: string, reportType?: ReportTypeCode, aggregationType?: TimeUnitCode, dataType?: ReportDataTypeCode, reportFormat?: ReportFormatCode): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Returns a paginated list of existing background jobs for creating reports.
-     * @Return: StreamContent
+     * @Return: QueryResponse<JobStatus>
      */
     findJobs(page?: number, pageSize?: number, search?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Retrieves the status of one report job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     getJob(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Updates the status of one report job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     updateJob(id?: string, status?: JobStatusCode): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**

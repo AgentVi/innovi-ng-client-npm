@@ -10022,7 +10022,7 @@ class ReportsService {
     }
     /**
      * Start the background creation of a report. Returns immediately with the status of the started background job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     startReportJob(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
         const params = new Array();
@@ -10054,7 +10054,7 @@ class ReportsService {
     }
     /**
      * Returns a paginated list of existing background jobs for creating reports.
-     * @Return: StreamContent
+     * @Return: QueryResponse<JobStatus>
      */
     findJobs(page, pageSize, search) {
         const params = new Array();
@@ -10071,14 +10071,14 @@ class ReportsService {
     }
     /**
      * Retrieves the status of one report job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     getJob(id) {
         return this.rest.download(`reports`, `${this.baseUrl}/statistics/job/${id}`);
     }
     /**
      * Updates the status of one report job.
-     * @Return: EntityResponseOfJobStatus
+     * @Return: EntityResponse<JobStatus>
      */
     updateJob(id, status) {
         const params = new Array();

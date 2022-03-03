@@ -11864,7 +11864,7 @@
        };
        /**
         * Start the background creation of a report. Returns immediately with the status of the started background job.
-        * @Return: EntityResponseOfJobStatus
+        * @Return: EntityResponse<JobStatus>
         */
        ReportsService.prototype.startReportJob = function (sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
            var _a;
@@ -11897,7 +11897,7 @@
        };
        /**
         * Returns a paginated list of existing background jobs for creating reports.
-        * @Return: StreamContent
+        * @Return: QueryResponse<JobStatus>
         */
        ReportsService.prototype.findJobs = function (page, pageSize, search) {
            var _a;
@@ -11915,14 +11915,14 @@
        };
        /**
         * Retrieves the status of one report job.
-        * @Return: EntityResponseOfJobStatus
+        * @Return: EntityResponse<JobStatus>
         */
        ReportsService.prototype.getJob = function (id) {
            return this.rest.download("reports", this.baseUrl + "/statistics/job/" + id);
        };
        /**
         * Updates the status of one report job.
-        * @Return: EntityResponseOfJobStatus
+        * @Return: EntityResponse<JobStatus>
         */
        ReportsService.prototype.updateJob = function (id, status) {
            var _a;
