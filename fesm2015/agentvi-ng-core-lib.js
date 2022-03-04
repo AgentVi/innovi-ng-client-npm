@@ -10050,7 +10050,7 @@ class ReportsService {
         if (reportFormat != null) {
             params.push(`reportFormat=${reportFormat}`);
         }
-        return this.rest.download(`reports`, `${this.baseUrl}/statistics/job`, null, ...params);
+        return this.rest.post(`${this.baseUrl}/statistics/job`, null, ...params);
     }
     /**
      * Returns a paginated list of existing background jobs for creating reports.
@@ -10067,14 +10067,14 @@ class ReportsService {
         if (search != null) {
             params.push(`search=${search}`);
         }
-        return this.rest.download(`reports`, `${this.baseUrl}/statistics/jobs`, ...params);
+        return this.rest.get(`${this.baseUrl}/statistics/jobs`, ...params);
     }
     /**
      * Retrieves the status of one report job.
      * @Return: EntityResponse<JobStatus>
      */
     getJob(id) {
-        return this.rest.download(`reports`, `${this.baseUrl}/statistics/job/${id}`);
+        return this.rest.get(`${this.baseUrl}/statistics/job/${id}`);
     }
     /**
      * Updates the status of one report job.
@@ -10085,7 +10085,7 @@ class ReportsService {
         if (status != null) {
             params.push(`status=${status}`);
         }
-        return this.rest.download(`reports`, `${this.baseUrl}/statistics/job/${id}`, null, ...params);
+        return this.rest.put(`${this.baseUrl}/statistics/job/${id}`, null, ...params);
     }
     /**
      * Retrieves the contents of one successfully generated report and returns it as a stream.

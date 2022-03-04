@@ -11893,7 +11893,7 @@
            if (reportFormat != null) {
                params.push("reportFormat=" + reportFormat);
            }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/job", null], __read(params)));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/statistics/job", null], __read(params)));
        };
        /**
         * Returns a paginated list of existing background jobs for creating reports.
@@ -11911,14 +11911,14 @@
            if (search != null) {
                params.push("search=" + search);
            }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/jobs"], __read(params)));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/statistics/jobs"], __read(params)));
        };
        /**
         * Retrieves the status of one report job.
         * @Return: EntityResponse<JobStatus>
         */
        ReportsService.prototype.getJob = function (id) {
-           return this.rest.download("reports", this.baseUrl + "/statistics/job/" + id);
+           return this.rest.get(this.baseUrl + "/statistics/job/" + id);
        };
        /**
         * Updates the status of one report job.
@@ -11930,7 +11930,7 @@
            if (status != null) {
                params.push("status=" + status);
            }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/statistics/job/" + id, null], __read(params)));
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/statistics/job/" + id, null], __read(params)));
        };
        /**
         * Retrieves the contents of one successfully generated report and returns it as a stream.
