@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
-import { ReportFormatCode } from '../enums/ReportFormatCode';
-import { JobStatusCode } from '../enums/JobStatusCode';
 import { ReportDefinition } from '../entities/ReportDefinition';
 import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
+import { ReportFormatCode } from '../enums/ReportFormatCode';
+import { JobStatusCode } from '../enums/JobStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions
@@ -90,6 +90,11 @@ export declare class ReportsService {
      * @Return: EntityResponse<JobStatus>
      */
     updateJob(id?: string, status?: JobStatusCode): import("rxjs").Observable<any>;
+    /**
+     * Deletes one report job. The job generation must be completed, either successfully or with an error. Returns error if the job is still running.
+     * @Return: ActionResponse
+     */
+    deleteJob(id?: string, status?: JobStatusCode): import("rxjs").Observable<any>;
     /**
      * Retrieves the contents of one successfully generated report and returns it as a stream.
      * @Return: StreamContent

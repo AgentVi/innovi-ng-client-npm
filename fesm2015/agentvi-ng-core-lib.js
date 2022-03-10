@@ -10088,6 +10088,17 @@ class ReportsService {
         return this.rest.put(`${this.baseUrl}/statistics/job/${id}`, null, ...params);
     }
     /**
+     * Deletes one report job. The job generation must be completed, either successfully or with an error. Returns error if the job is still running.
+     * @Return: ActionResponse
+     */
+    deleteJob(id, status) {
+        const params = new Array();
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        return this.rest.delete(`${this.baseUrl}/statistics/job/${id}`, ...params);
+    }
+    /**
      * Retrieves the contents of one successfully generated report and returns it as a stream.
      * @Return: StreamContent
      */

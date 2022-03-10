@@ -11933,6 +11933,18 @@
            return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/statistics/job/" + id, null], __read(params)));
        };
        /**
+        * Deletes one report job. The job generation must be completed, either successfully or with an error. Returns error if the job is still running.
+        * @Return: ActionResponse
+        */
+       ReportsService.prototype.deleteJob = function (id, status) {
+           var _a;
+           var params = new Array();
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/statistics/job/" + id], __read(params)));
+       };
+       /**
         * Retrieves the contents of one successfully generated report and returns it as a stream.
         * @Return: StreamContent
         */
