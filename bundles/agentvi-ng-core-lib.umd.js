@@ -183,11 +183,13 @@
       Appliance KPIs data point
    */
    var ApplianceKpiDataPoint = /** @class */ (function () {
-       function ApplianceKpiDataPoint(cpuAvg, cpuMax, ram, loadAvg) {
+       function ApplianceKpiDataPoint(cpuAvg, cpuMax, ram, loadAvg, uploadSpeed, downloadSpeed) {
            this.cpuAvg = cpuAvg;
            this.cpuMax = cpuMax;
            this.ram = ram;
            this.loadAvg = loadAvg;
+           this.uploadSpeed = uploadSpeed;
+           this.downloadSpeed = downloadSpeed;
        }
        return ApplianceKpiDataPoint;
    }());

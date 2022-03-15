@@ -153,11 +153,13 @@ class ApplianceConfiguration {
    Appliance KPIs data point
 */
 class ApplianceKpiDataPoint {
-    constructor(cpuAvg, cpuMax, ram, loadAvg) {
+    constructor(cpuAvg, cpuMax, ram, loadAvg, uploadSpeed, downloadSpeed) {
         this.cpuAvg = cpuAvg;
         this.cpuMax = cpuMax;
         this.ram = ram;
         this.loadAvg = loadAvg;
+        this.uploadSpeed = uploadSpeed;
+        this.downloadSpeed = downloadSpeed;
     }
 }
 
