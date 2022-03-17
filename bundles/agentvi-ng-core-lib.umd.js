@@ -900,9 +900,10 @@
       In case of area description, the line crossing direction field is ignored
    */
    var RulePolygon = /** @class */ (function () {
-       function RulePolygon(lineCrossDir, points) {
+       function RulePolygon(lineCrossDir, points, color) {
            this.lineCrossDir = lineCrossDir;
            this.points = points;
+           this.color = color;
        }
        return RulePolygon;
    }());
@@ -3882,6 +3883,47 @@
        // Traffic analysis [4] 
        ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
+
+   /*
+      User interface color of a rule polygon
+   */
+   exports.RuleColorCode = void 0;
+   (function (RuleColorCode) {
+       // Undefined [0] 
+       RuleColorCode[RuleColorCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Same color as used for severity [1] 
+       RuleColorCode[RuleColorCode["SEVERITY"] = 1] = "SEVERITY";
+       // Color Beige [2] 
+       RuleColorCode[RuleColorCode["BEIGE"] = 2] = "BEIGE";
+       // Color Yellow [3] 
+       RuleColorCode[RuleColorCode["YELLOW"] = 3] = "YELLOW";
+       // Color Amber [4] 
+       RuleColorCode[RuleColorCode["AMBER"] = 4] = "AMBER";
+       // Color Orange [5] 
+       RuleColorCode[RuleColorCode["ORANGE"] = 5] = "ORANGE";
+       // Color Vermillion [6] 
+       RuleColorCode[RuleColorCode["VERMILLION"] = 6] = "VERMILLION";
+       // Color Red [7] 
+       RuleColorCode[RuleColorCode["RED"] = 7] = "RED";
+       // Color Burgundy [8] 
+       RuleColorCode[RuleColorCode["BURGUNDY"] = 8] = "BURGUNDY";
+       // Color Purple [9] 
+       RuleColorCode[RuleColorCode["PURPLE"] = 9] = "PURPLE";
+       // Color Violet [10] 
+       RuleColorCode[RuleColorCode["VIOLET"] = 10] = "VIOLET";
+       // Color Blue [11] 
+       RuleColorCode[RuleColorCode["BLUE"] = 11] = "BLUE";
+       // Color Iris [12] 
+       RuleColorCode[RuleColorCode["IRIS"] = 12] = "IRIS";
+       // Color Sky [13] 
+       RuleColorCode[RuleColorCode["SKY"] = 13] = "SKY";
+       // Color Turquoise [14] 
+       RuleColorCode[RuleColorCode["TURQUOISE"] = 14] = "TURQUOISE";
+       // Color Green [15] 
+       RuleColorCode[RuleColorCode["GREEN"] = 15] = "GREEN";
+       // Color Lime [16] 
+       RuleColorCode[RuleColorCode["LIME"] = 16] = "LIME";
+   })(exports.RuleColorCode || (exports.RuleColorCode = {}));
 
    /*
       Runtime status code represents the status of component in the host

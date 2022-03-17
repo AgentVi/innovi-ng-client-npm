@@ -32,6 +32,7 @@ export * from './ProductTypeCode';
 export * from './ReportDataTypeCode';
 export * from './ReportFormatCode';
 export * from './ReportTypeCode';
+export * from './RuleColorCode';
 export * from './RuntimeStatusCode';
 export * from './SearchScopeCode';
 export * from './SearchTimeCode';
