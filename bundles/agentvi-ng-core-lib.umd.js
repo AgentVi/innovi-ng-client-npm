@@ -1407,6 +1407,18 @@
    }());
 
    /*
+      An item in the sensors usage report's sensors list
+   */
+   var SensorUsageReport = /** @class */ (function () {
+       function SensorUsageReport(key, minutes, billable) {
+           this.key = key;
+           this.minutes = minutes;
+           this.billable = billable;
+       }
+       return SensorUsageReport;
+   }());
+
+   /*
       Group of sensor data with common attributes
    */
    var SensorsGroup = /** @class */ (function () {
@@ -16639,6 +16651,7 @@
    exports.SensorStatusTimeSeries = SensorStatusTimeSeries;
    exports.SensorStatusTimestamped = SensorStatusTimestamped;
    exports.SensorUsage = SensorUsage;
+   exports.SensorUsageReport = SensorUsageReport;
    exports.SensorUsageReportRequest = SensorUsageReportRequest;
    exports.SensorsCountRequest = SensorsCountRequest;
    exports.SensorsGroup = SensorsGroup;

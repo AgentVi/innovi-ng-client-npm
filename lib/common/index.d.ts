@@ -76,6 +76,7 @@ export * from './SensorDebugInfo';
 export * from './SensorInfo';
 export * from './SensorStatusTimeSeries';
 export * from './SensorStatusTimestamped';
+export * from './SensorUsageReport';
 export * from './SensorsGroup';
 export * from './ServiceAccountRegistration';
 export * from './StatisticReport';

@@ -1,11 +1,11 @@
 import { TimeFrame } from '../common/TimeFrame';
-import { StringIntValue } from '../common/StringIntValue';
+import { SensorUsageReport } from '../common/SensorUsageReport';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class UsageReport extends BaseEntity {
     accountId: string;
     period: TimeFrame;
     totalSensors: number;
-    usage: StringIntValue[];
+    usage: SensorUsageReport[];
     id: string;
     _type: string;
     createdOn: number;

@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { CaseInfo } from '../entities/CaseInfo';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfCaseInfo extends QueryResponse {
     list: CaseInfo[];
     code: number;
