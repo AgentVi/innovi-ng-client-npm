@@ -3801,10 +3801,10 @@
        ObjectTypeCode[ObjectTypeCode["INNOVI_ANIMAL_SMALL"] = 17826304] = "INNOVI_ANIMAL_SMALL";
        // Large animal (ie. Horses/Cows) 17826816 
        ObjectTypeCode[ObjectTypeCode["INNOVI_ANIMAL_LARGE"] = 17826816] = "INNOVI_ANIMAL_LARGE";
-       // Fire 33554432 
-       ObjectTypeCode[ObjectTypeCode["INNOVI_SMOKEANDFIRE_FIRE"] = 33554432] = "INNOVI_SMOKEANDFIRE_FIRE";
-       // Smoke 33554433 
-       ObjectTypeCode[ObjectTypeCode["INNOVI_SMOKEANDFIRE_SMOKE"] = 33554433] = "INNOVI_SMOKEANDFIRE_SMOKE";
+       // Fire 33620224 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_SMOKEANDFIRE_FIRE"] = 33620224] = "INNOVI_SMOKEANDFIRE_FIRE";
+       // Smoke 33620480 
+       ObjectTypeCode[ObjectTypeCode["INNOVI_SMOKEANDFIRE_SMOKE"] = 33620480] = "INNOVI_SMOKEANDFIRE_SMOKE";
    })(exports.ObjectTypeCode || (exports.ObjectTypeCode = {}));
 
    /*

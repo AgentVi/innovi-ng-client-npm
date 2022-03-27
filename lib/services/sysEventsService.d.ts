@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for event queries for system administrator only
