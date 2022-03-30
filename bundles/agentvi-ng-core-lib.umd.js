@@ -3567,6 +3567,8 @@
        FeatureCode[FeatureCode["FEATURE_FR_LITE"] = 20] = "FEATURE_FR_LITE";
        // Face Recognition full feature (Paid Version) [21] 
        FeatureCode[FeatureCode["FEATURE_FR_FULL"] = 21] = "FEATURE_FR_FULL";
+       // Rail Trespassing [22] 
+       FeatureCode[FeatureCode["FEATURE_RAIL_TRESPASSING"] = 22] = "FEATURE_RAIL_TRESPASSING";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
