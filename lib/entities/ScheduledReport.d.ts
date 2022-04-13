@@ -1,3 +1,7 @@
+import { ReportTypeCode } from '../enums/ReportTypeCode';
+import { ReportFormatCode } from '../enums/ReportFormatCode';
+import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class ScheduledReport extends BaseEntity {
     accountId: string;
@@ -8,6 +12,14 @@ export declare class ScheduledReport extends BaseEntity {
     recipients: string[];
     subject: string;
     lastSentOn: number;
+    userId: string;
+    folders: string[];
+    sensors: string[];
+    reportType: ReportTypeCode;
+    reportFormat: ReportFormatCode;
+    dataType: ReportDataTypeCode;
+    aggregationType: TimeUnitCode;
+    timeRange: number;
     id: string;
     _type: string;
     createdOn: number;
