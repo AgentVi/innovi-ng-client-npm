@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { JobStatusCode } from '../enums/JobStatusCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class JobStatus extends BaseEntity {
     accountId: string;
     userId: string;
@@ -8,6 +8,7 @@ export declare class JobStatus extends BaseEntity {
     mimeType: string;
     destinationsSent: string[];
     createdBySchedule: boolean;
+    relatedScheduledReportId: string;
     id: string;
     _type: string;
     createdOn: number;

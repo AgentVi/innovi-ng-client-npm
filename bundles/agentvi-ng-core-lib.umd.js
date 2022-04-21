@@ -7392,7 +7392,7 @@
    /*
    */
    var ReportGenerationRequest = /** @class */ (function () {
-       function ReportGenerationRequest(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
+       function ReportGenerationRequest(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
            this.sensorId = sensorId;
            this.folderId = folderId;
            this.from = from;
@@ -7401,6 +7401,7 @@
            this.aggregationType = aggregationType;
            this.dataType = dataType;
            this.reportFormat = reportFormat;
+           this.surveillanceStartHour = surveillanceStartHour;
        }
        return ReportGenerationRequest;
    }());

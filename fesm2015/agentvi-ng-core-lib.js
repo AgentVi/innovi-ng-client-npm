@@ -5880,7 +5880,7 @@ class ReportFindRequest {
 /*
 */
 class ReportGenerationRequest {
-    constructor(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
+    constructor(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
         this.sensorId = sensorId;
         this.folderId = folderId;
         this.from = from;
@@ -5889,6 +5889,7 @@ class ReportGenerationRequest {
         this.aggregationType = aggregationType;
         this.dataType = dataType;
         this.reportFormat = reportFormat;
+        this.surveillanceStartHour = surveillanceStartHour;
     }
 }
 
