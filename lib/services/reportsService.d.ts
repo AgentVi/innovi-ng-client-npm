@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { JobStatusCode } from '../enums/JobStatusCode';
+import { ReportDefinition } from '../entities/ReportDefinition';
 import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
 import { ReportFormatCode } from '../enums/ReportFormatCode';
-import { JobStatusCode } from '../enums/JobStatusCode';
-import { ReportDefinition } from '../entities/ReportDefinition';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions

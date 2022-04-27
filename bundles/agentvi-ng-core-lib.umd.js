@@ -3901,6 +3901,19 @@
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
 
    /*
+      Rule Auto Sensitivity Code
+   */
+   exports.RuleAutoSensitivityCode = void 0;
+   (function (RuleAutoSensitivityCode) {
+       // High sensitivity [0] 
+       RuleAutoSensitivityCode[RuleAutoSensitivityCode["HIGH_SENSITIVITY"] = 0] = "HIGH_SENSITIVITY";
+       // High sensitivity [1] 
+       RuleAutoSensitivityCode[RuleAutoSensitivityCode["NORMAL_SENSITIVITY"] = 1] = "NORMAL_SENSITIVITY";
+       // Low sensitivity [2] 
+       RuleAutoSensitivityCode[RuleAutoSensitivityCode["LOW_SENSITIVITY"] = 2] = "LOW_SENSITIVITY";
+   })(exports.RuleAutoSensitivityCode || (exports.RuleAutoSensitivityCode = {}));
+
+   /*
       User interface color of a rule polygon
    */
    exports.RuleColorCode = void 0;
