@@ -44,7 +44,7 @@ export declare class ScheduledReportsService {
      * Find scheduled report definitions by filters
      * @Return: QueryResponse<ScheduledReport>
      */
-    find(search?: string): import("rxjs").Observable<any>;
+    find(page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ScheduledReportsService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ScheduledReportsService>;
 }

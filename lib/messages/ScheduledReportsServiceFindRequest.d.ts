@@ -1,4 +1,5 @@
 export declare class ScheduledReportsServiceFindRequest {
-    search: string;
-    constructor(search?: string);
+    page: number;
+    pageSize: number;
+    constructor(page?: number, pageSize?: number);
 }

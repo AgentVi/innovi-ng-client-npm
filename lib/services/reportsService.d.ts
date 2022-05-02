@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ReportDefinition } from '../entities/ReportDefinition';
-import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
 import { ReportFormatCode } from '../enums/ReportFormatCode';
 import { JobStatusCode } from '../enums/JobStatusCode';
+import { ReportDefinition } from '../entities/ReportDefinition';
+import { ReportTypeCode } from '../enums/ReportTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions
@@ -79,7 +79,7 @@ export declare class ReportsService {
      * Returns a paginated list of existing background jobs for creating reports.
      * @Return: QueryResponse<JobStatus>
      */
-    findJobs(page?: number, pageSize?: number, search?: string): import("rxjs").Observable<any>;
+    findJobs(page?: number, pageSize?: number, search?: string, relatedScheduledReportId?: string): import("rxjs").Observable<any>;
     /**
      * Retrieves the status of one report job.
      * @Return: EntityResponse<JobStatus>

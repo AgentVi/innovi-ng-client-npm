@@ -282,6 +282,7 @@ export * from './QueryResponseOfMember';
 export * from './QueryResponseOfReportDefinition';
 export * from './QueryResponseOfRule';
 export * from './QueryResponseOfSchedule';
+export * from './QueryResponseOfScheduledReport';
 export * from './QueryResponseOfSearchDefinition';
 export * from './QueryResponseOfSearchEvent';
 export * from './QueryResponseOfSensor';

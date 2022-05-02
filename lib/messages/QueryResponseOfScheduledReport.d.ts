@@ -1,7 +1,7 @@
+import { ScheduledReport } from '../entities/ScheduledReport';
 import { QueryResponse } from '../messages/QueryResponse';
-import { Event } from '../entities/Event';
-export declare class QueryResponseOfEvent extends QueryResponse {
-    list: Event[];
+export declare class QueryResponseOfScheduledReport extends QueryResponse {
+    list: ScheduledReport[];
     code: number;
     error: string;
     page: number;
