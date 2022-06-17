@@ -7,7 +7,8 @@ export declare class IntegrationStatusFindRequest {
     from: number;
     to: number;
     sort: string;
+    resolveNames: boolean;
     page: number;
     pageSize: number;
-    constructor(source?: EntityTypeCode, entityId?: string, integrationTargetId?: string, integrationActionId?: string, from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
+    constructor(source?: EntityTypeCode, entityId?: string, integrationTargetId?: string, integrationActionId?: string, from?: number, to?: number, sort?: string, resolveNames?: boolean, page?: number, pageSize?: number);
 }

@@ -6876,7 +6876,7 @@
    /*
    */
    var IntegrationStatusFindRequest = /** @class */ (function () {
-       function IntegrationStatusFindRequest(source, entityId, integrationTargetId, integrationActionId, from, to, sort, page, pageSize) {
+       function IntegrationStatusFindRequest(source, entityId, integrationTargetId, integrationActionId, from, to, sort, resolveNames, page, pageSize) {
            this.source = source;
            this.entityId = entityId;
            this.integrationTargetId = integrationTargetId;
@@ -6884,6 +6884,7 @@
            this.from = from;
            this.to = to;
            this.sort = sort;
+           this.resolveNames = resolveNames;
            this.page = page;
            this.pageSize = pageSize;
        }
@@ -7231,6 +7232,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfIntegrationStatus;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfIntegrationStatusResponse = /** @class */ (function (_super) {
+       __extends(QueryResponseOfIntegrationStatusResponse, _super);
+       function QueryResponseOfIntegrationStatusResponse() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfIntegrationStatusResponse;
    }(QueryResponse));
 
    /*
@@ -9006,6 +9017,19 @@
        }
        return WebSocketMessageHeader;
    }());
+
+   /*
+      Describes status of an integration attempt (for events and health integrations) - was the integration successfully triggered or not.
+      This contains information on what type of event the integration was triggered by (even or health event),
+      the name and id of the integration target, the t
+   */
+   var IntegrationStatusResponse = /** @class */ (function (_super) {
+       __extends(IntegrationStatusResponse, _super);
+       function IntegrationStatusResponse() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return IntegrationStatusResponse;
+   }(BaseEntity));
 
    // Access token key in the local storage
    var tokenKey = 'portalAccessToken';
@@ -11533,9 +11557,9 @@
        };
        /**
         * Find all integration status
-        * @Return: QueryResponse<IntegrationStatus>
+        * @Return: QueryResponse<IntegrationStatusResponse>
         */
-       IntegrationsService.prototype.findStatus = function (source, entityId, integrationTargetId, integrationActionId, from, to, sort, page, pageSize) {
+       IntegrationsService.prototype.findStatus = function (source, entityId, integrationTargetId, integrationActionId, from, to, sort, resolveNames, page, pageSize) {
            var _a;
            var params = new Array();
            if (source != null) {
@@ -11558,6 +11582,9 @@
            }
            if (sort != null) {
                params.push("sort=" + sort);
+           }
+           if (resolveNames != null) {
+               params.push("resolveNames=" + resolveNames);
            }
            if (page != null) {
                params.push("page=" + page);
@@ -16515,6 +16542,7 @@
    exports.IntegrationSpec = IntegrationSpec;
    exports.IntegrationStatus = IntegrationStatus;
    exports.IntegrationStatusFindRequest = IntegrationStatusFindRequest;
+   exports.IntegrationStatusResponse = IntegrationStatusResponse;
    exports.IntegrationTarget = IntegrationTarget;
    exports.IntegrationsService = IntegrationsService;
    exports.IntegrationsServiceCreateRequest = IntegrationsServiceCreateRequest;
@@ -16574,6 +16602,7 @@
    exports.QueryResponseOfHealthEvent = QueryResponseOfHealthEvent;
    exports.QueryResponseOfIntegrationAction = QueryResponseOfIntegrationAction;
    exports.QueryResponseOfIntegrationStatus = QueryResponseOfIntegrationStatus;
+   exports.QueryResponseOfIntegrationStatusResponse = QueryResponseOfIntegrationStatusResponse;
    exports.QueryResponseOfIntegrationTarget = QueryResponseOfIntegrationTarget;
    exports.QueryResponseOfJobStatus = QueryResponseOfJobStatus;
    exports.QueryResponseOfMember = QueryResponseOfMember;

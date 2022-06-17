@@ -276,6 +276,7 @@ export * from './QueryResponseOfGroup';
 export * from './QueryResponseOfHealthEvent';
 export * from './QueryResponseOfIntegrationAction';
 export * from './QueryResponseOfIntegrationStatus';
+export * from './QueryResponseOfIntegrationStatusResponse';
 export * from './QueryResponseOfIntegrationTarget';
 export * from './QueryResponseOfJobStatus';
 export * from './QueryResponseOfMember';

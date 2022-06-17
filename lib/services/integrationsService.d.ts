@@ -49,9 +49,9 @@ export declare class IntegrationsService {
     find(search?: string, type?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Find all integration status
-     * @Return: QueryResponse<IntegrationStatus>
+     * @Return: QueryResponse<IntegrationStatusResponse>
      */
-    findStatus(source?: EntityTypeCode, entityId?: string, integrationTargetId?: string, integrationActionId?: string, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findStatus(source?: EntityTypeCode, entityId?: string, integrationTargetId?: string, integrationActionId?: string, from?: number, to?: number, sort?: string, resolveNames?: boolean, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Create new integration action
      * @Return: EntityResponse<IntegrationAction>
