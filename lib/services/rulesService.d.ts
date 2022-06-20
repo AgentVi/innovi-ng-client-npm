@@ -102,6 +102,11 @@ export declare class RulesService {
      * @Return: ActionResponse
      */
     resume(folderId?: string, folderExtId?: string): import("rxjs").Observable<any>;
+    /**
+     * Trigger test event on rule
+     * @Return: ActionResponse
+     */
+    triggerTestEvent(id?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<RulesService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RulesService>;
 }
