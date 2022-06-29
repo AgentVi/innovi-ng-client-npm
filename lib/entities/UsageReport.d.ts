@@ -1,6 +1,6 @@
+import { BaseEntity } from '../entities/BaseEntity';
 import { TimeFrame } from '../common/TimeFrame';
 import { SensorUsageReport } from '../common/SensorUsageReport';
-import { BaseEntity } from '../entities/BaseEntity';
 export declare class UsageReport extends BaseEntity {
     accountId: string;
     period: TimeFrame;
