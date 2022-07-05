@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
 import { ReportFormatCode } from '../enums/ReportFormatCode';
 import { JobStatusCode } from '../enums/JobStatusCode';
 import { ReportDefinition } from '../entities/ReportDefinition';
-import { ReportTypeCode } from '../enums/ReportTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions
@@ -54,12 +54,12 @@ export declare class ReportsService {
      * Export account sensors as CSV report stream
      * @Return: StreamContent
      */
-    exportSensorsReport(accountId?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    exportSensorsReport(): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Export account sensors rules schedules as CSV report stream
      * @Return: StreamContent
      */
-    exportRulesSchedulesReport(accountId?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    exportRulesSchedulesReport(): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Generate people counting report and stream it as CSV
      * @Return: StreamContent

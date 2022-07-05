@@ -5965,16 +5965,14 @@ class ReportsServiceFindRequest {
 /*
 */
 class ReportsServiceRulesSchedulesRequest {
-    constructor(accountId) {
-        this.accountId = accountId;
+    constructor() {
     }
 }
 
 /*
 */
 class ReportsServiceSensorsRequest {
-    constructor(accountId) {
-        this.accountId = accountId;
+    constructor() {
     }
 }
 
@@ -10062,23 +10060,15 @@ class ReportsService {
      * Export account sensors as CSV report stream
      * @Return: StreamContent
      */
-    exportSensorsReport(accountId) {
-        const params = new Array();
-        if (accountId != null) {
-            params.push(`accountId=${accountId}`);
-        }
-        return this.rest.download(`reports`, `${this.baseUrl}/sensors`, ...params);
+    exportSensorsReport() {
+        return this.rest.download(`reports`, `${this.baseUrl}/sensors`);
     }
     /**
      * Export account sensors rules schedules as CSV report stream
      * @Return: StreamContent
      */
-    exportRulesSchedulesReport(accountId) {
-        const params = new Array();
-        if (accountId != null) {
-            params.push(`accountId=${accountId}`);
-        }
-        return this.rest.download(`reports`, `${this.baseUrl}/rule-schedules`, ...params);
+    exportRulesSchedulesReport() {
+        return this.rest.download(`reports`, `${this.baseUrl}/rule-schedules`);
     }
     /**
      * Generate people counting report and stream it as CSV

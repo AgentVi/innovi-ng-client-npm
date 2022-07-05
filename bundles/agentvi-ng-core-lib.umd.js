@@ -7493,8 +7493,7 @@
    /*
    */
    var ReportsServiceRulesSchedulesRequest = /** @class */ (function () {
-       function ReportsServiceRulesSchedulesRequest(accountId) {
-           this.accountId = accountId;
+       function ReportsServiceRulesSchedulesRequest() {
        }
        return ReportsServiceRulesSchedulesRequest;
    }());
@@ -7502,8 +7501,7 @@
    /*
    */
    var ReportsServiceSensorsRequest = /** @class */ (function () {
-       function ReportsServiceSensorsRequest(accountId) {
-           this.accountId = accountId;
+       function ReportsServiceSensorsRequest() {
        }
        return ReportsServiceSensorsRequest;
    }());
@@ -11916,25 +11914,15 @@
         * Export account sensors as CSV report stream
         * @Return: StreamContent
         */
-       ReportsService.prototype.exportSensorsReport = function (accountId) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/sensors"], __read(params)));
+       ReportsService.prototype.exportSensorsReport = function () {
+           return this.rest.download("reports", this.baseUrl + "/sensors");
        };
        /**
         * Export account sensors rules schedules as CSV report stream
         * @Return: StreamContent
         */
-       ReportsService.prototype.exportRulesSchedulesReport = function (accountId) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["reports", this.baseUrl + "/rule-schedules"], __read(params)));
+       ReportsService.prototype.exportRulesSchedulesReport = function () {
+           return this.rest.download("reports", this.baseUrl + "/rule-schedules");
        };
        /**
         * Generate people counting report and stream it as CSV
