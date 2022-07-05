@@ -2549,6 +2549,8 @@ var ErrorCode;
     ErrorCode[ErrorCode["DeleteAccountWithContent"] = 10116] = "DeleteAccountWithContent";
     // Can't delete PENDING account 
     ErrorCode[ErrorCode["PendingDeletedAccount"] = 10117] = "PendingDeletedAccount";
+    // Account is suspended 
+    ErrorCode[ErrorCode["SuspendedAccount"] = 10118] = "SuspendedAccount";
     // Folder not found 
     ErrorCode[ErrorCode["FolderNotFound"] = 10120] = "FolderNotFound";
     // Folder create failed 

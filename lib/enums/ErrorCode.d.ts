@@ -154,6 +154,7 @@ export declare enum ErrorCode {
     DeleteSuspendedAccount = 10115,
     DeleteAccountWithContent = 10116,
     PendingDeletedAccount = 10117,
+    SuspendedAccount = 10118,
     FolderNotFound = 10120,
     FolderNotCreated = 10121,
     FolderNotUpdated = 10122,
