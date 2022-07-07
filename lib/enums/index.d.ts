@@ -28,6 +28,7 @@ export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
 export * from './ObjectTypeCode';
 export * from './PermissionMask';
+export * from './PlatformTypeCode';
 export * from './ProductTypeCode';
 export * from './ReportDataTypeCode';
 export * from './ReportFormatCode';

@@ -674,7 +674,7 @@
       Login data (returned by the API after successful login)
    */
    var LoginData = /** @class */ (function () {
-       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula) {
+       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, platformType) {
            this.accessToken = accessToken;
            this.accountRole = accountRole;
            this.permissions = permissions;
@@ -685,6 +685,7 @@
            this.userStatus = userStatus;
            this.changePassword = changePassword;
            this.acceptedEula = acceptedEula;
+           this.platformType = platformType;
        }
        return LoginData;
    }());
@@ -3832,6 +3833,17 @@
        // Delete [8] 
        PermissionMask[PermissionMask["D"] = 8] = "D";
    })(exports.PermissionMask || (exports.PermissionMask = {}));
+
+   /*
+      Platform type code
+   */
+   exports.PlatformTypeCode = void 0;
+   (function (PlatformTypeCode) {
+       // innovi [0] 
+       PlatformTypeCode[PlatformTypeCode["INNOVI"] = 0] = "INNOVI";
+       // Irisity [1] 
+       PlatformTypeCode[PlatformTypeCode["IRISITY"] = 1] = "IRISITY";
+   })(exports.PlatformTypeCode || (exports.PlatformTypeCode = {}));
 
    /*
       Product type code
