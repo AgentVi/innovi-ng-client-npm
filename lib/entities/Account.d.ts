@@ -1,10 +1,10 @@
+import { BaseEntity } from '../entities/BaseEntity';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { AccountSettings } from '../common/AccountSettings';
 import { HealthThresholds } from '../common/HealthThresholds';
 import { PlatformTypeCode } from '../enums/PlatformTypeCode';
-import { BaseEntity } from '../entities/BaseEntity';
 export declare class Account extends BaseEntity {
     name: string;
     key: string;
@@ -22,6 +22,7 @@ export declare class Account extends BaseEntity {
     healthThresholds: HealthThresholds;
     sysAdminSupport: boolean;
     platformType: PlatformTypeCode;
+    eventClipLengthSec: number;
     id: string;
     _type: string;
     createdOn: number;
