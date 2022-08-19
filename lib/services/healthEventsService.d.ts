@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
+import { OpenClosedStatusCode } from '../enums/OpenClosedStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for health events queries
@@ -24,7 +25,7 @@ export declare class HealthEventsService {
      * Find health events by filters
      * @Return: QueryResponse<HealthEvent>
      */
-    find(folderId?: string, from?: number, to?: number, source?: EntityTypeCode, entityId?: string[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, from?: number, to?: number, source?: EntityTypeCode, openClosed?: OpenClosedStatusCode, entityId?: string[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<HealthEventsService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<HealthEventsService>;
 }

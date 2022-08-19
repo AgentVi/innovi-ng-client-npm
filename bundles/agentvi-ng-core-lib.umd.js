@@ -3820,6 +3820,19 @@
    })(exports.ObjectTypeCode || (exports.ObjectTypeCode = {}));
 
    /*
+      OpenClosedStatusCode represents if a HealthEvent is in the opened state or closed state
+   */
+   exports.OpenClosedStatusCode = void 0;
+   (function (OpenClosedStatusCode) {
+       // Undefined [0] 
+       OpenClosedStatusCode[OpenClosedStatusCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Open [1] 
+       OpenClosedStatusCode[OpenClosedStatusCode["OPEN"] = 1] = "OPEN";
+       // Closed (i.e. resolved) [2] 
+       OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
+   })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
+
+   /*
       Permission Mask
    */
    exports.PermissionMask = void 0;
@@ -6793,11 +6806,12 @@
    /*
    */
    var HealthEventFindRequest = /** @class */ (function () {
-       function HealthEventFindRequest(folderId, from, to, source, entityId, sort, page, pageSize) {
+       function HealthEventFindRequest(folderId, from, to, source, openClosed, entityId, sort, page, pageSize) {
            this.folderId = folderId;
            this.from = from;
            this.to = to;
            this.source = source;
+           this.openClosed = openClosed;
            this.entityId = entityId;
            this.sort = sort;
            this.page = page;
@@ -11456,7 +11470,7 @@
         * Find health events by filters
         * @Return: QueryResponse<HealthEvent>
         */
-       HealthEventsService.prototype.find = function (folderId, from, to, source, entityId, sort, page, pageSize) {
+       HealthEventsService.prototype.find = function (folderId, from, to, source, openClosed, entityId, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -11470,6 +11484,9 @@
            }
            if (source != null) {
                params.push("source=" + source);
+           }
+           if (openClosed != null) {
+               params.push("openClosed=" + openClosed);
            }
            if (entityId != null) {
                params.push("entityId=" + entityId);
