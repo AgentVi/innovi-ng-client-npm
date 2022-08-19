@@ -5946,9 +5946,9 @@ class ReportGenerationRequest {
 /*
 */
 class ReportGenerationRequestBody {
-    constructor(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
-        this.sensorId = sensorId;
-        this.folderId = folderId;
+    constructor(sensorIds, folderIds, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
+        this.sensorIds = sensorIds;
+        this.folderIds = folderIds;
         this.from = from;
         this.to = to;
         this.reportType = reportType;
