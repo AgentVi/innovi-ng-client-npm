@@ -296,6 +296,7 @@ export * from './RemoveSensorModelRequest';
 export * from './RemoveSensorModelsRequest';
 export * from './ReportFindRequest';
 export * from './ReportGenerationRequest';
+export * from './ReportGenerationRequestBody';
 export * from './ReportIdRequest';
 export * from './ReportIdsRequest';
 export * from './ReportUpdateRequest';

@@ -1,10 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { ReportDefinition } from '../entities/ReportDefinition';
-import { ReportTypeCode } from '../enums/ReportTypeCode';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
-import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
-import { ReportFormatCode } from '../enums/ReportFormatCode';
+import { ReportGenerationRequestBody } from '../messages/ReportGenerationRequestBody';
 import { JobStatusCode } from '../enums/JobStatusCode';
 import * as i0 from "@angular/core";
 /**
@@ -74,7 +71,7 @@ export declare class ReportsService {
      * Start the background creation of a report. Returns immediately with the status of the started background job.
      * @Return: EntityResponse<JobStatus>
      */
-    startReportJob(sensorId?: string[], folderId?: string[], from?: string, to?: string, reportType?: ReportTypeCode, aggregationType?: TimeUnitCode, dataType?: ReportDataTypeCode, reportFormat?: ReportFormatCode): import("rxjs").Observable<any>;
+    startReportJob(body?: ReportGenerationRequestBody): import("rxjs").Observable<any>;
     /**
      * Returns a paginated list of existing background jobs for creating reports.
      * @Return: QueryResponse<JobStatus>

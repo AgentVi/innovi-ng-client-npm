@@ -7446,7 +7446,16 @@
    /*
    */
    var ReportGenerationRequest = /** @class */ (function () {
-       function ReportGenerationRequest(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
+       function ReportGenerationRequest(body) {
+           this.body = body;
+       }
+       return ReportGenerationRequest;
+   }());
+
+   /*
+   */
+   var ReportGenerationRequestBody = /** @class */ (function () {
+       function ReportGenerationRequestBody(sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat, surveillanceStartHour) {
            this.sensorId = sensorId;
            this.folderId = folderId;
            this.from = from;
@@ -7457,7 +7466,7 @@
            this.reportFormat = reportFormat;
            this.surveillanceStartHour = surveillanceStartHour;
        }
-       return ReportGenerationRequest;
+       return ReportGenerationRequestBody;
    }());
 
    /*
@@ -11986,34 +11995,8 @@
         * Start the background creation of a report. Returns immediately with the status of the started background job.
         * @Return: EntityResponse<JobStatus>
         */
-       ReportsService.prototype.startReportJob = function (sensorId, folderId, from, to, reportType, aggregationType, dataType, reportFormat) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (folderId != null) {
-               params.push("folderId=" + folderId);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (reportType != null) {
-               params.push("reportType=" + reportType);
-           }
-           if (aggregationType != null) {
-               params.push("aggregationType=" + aggregationType);
-           }
-           if (dataType != null) {
-               params.push("dataType=" + dataType);
-           }
-           if (reportFormat != null) {
-               params.push("reportFormat=" + reportFormat);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/statistics/job", null], __read(params)));
+       ReportsService.prototype.startReportJob = function (body) {
+           return this.rest.post(this.baseUrl + "/statistics/job", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Returns a paginated list of existing background jobs for creating reports.
@@ -16638,6 +16621,7 @@
    exports.ReportDefinition = ReportDefinition;
    exports.ReportFindRequest = ReportFindRequest;
    exports.ReportGenerationRequest = ReportGenerationRequest;
+   exports.ReportGenerationRequestBody = ReportGenerationRequestBody;
    exports.ReportIdRequest = ReportIdRequest;
    exports.ReportIdsRequest = ReportIdsRequest;
    exports.ReportUpdateRequest = ReportUpdateRequest;
