@@ -12759,11 +12759,11 @@
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/list"], __read(params)));
        };
        /**
-        * Find list of search events by filter
+        * Find list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
         * @Return: QueryResponse<SearchDefinition>
         */
        SearchService.prototype.findEvents = function (sessionId, body) {
-           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/find");
+           return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/find", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Find list of sensor Ids related to the search results
@@ -12773,14 +12773,14 @@
            return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/sensorsIds");
        };
        /**
-        * Get total search events count by filter
+        * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
         * @Return: QueryResponse<SearchDefinition> entities list is null
         */
        SearchService.prototype.totalEvents = function (sessionId, body) {
-           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/total");
+           return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/total", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
-        * Export list of search events by filter
+        * Export list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
         * @Return: StreamContent
         */
        SearchService.prototype.exportEvents = function (sessionId, format, fields, fileName, body) {
@@ -12795,7 +12795,7 @@
            if (fileName != null) {
                params.push("fileName=" + fileName);
            }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["search", this.baseUrl + "/sessions/" + sessionId + "/export"], __read(params)));
+           return (_a = this.rest).download.apply(_a, __spreadArray(["search", this.baseUrl + "/sessions/" + sessionId + "/export", typeof body === 'object' ? JSON.stringify(body) : body], __read(params)));
        };
        /**
         * Get events count overtime for all events in the system

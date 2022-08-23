@@ -94,7 +94,7 @@ export declare class SearchService {
      */
     listEvents(sessionId?: string, eventId?: string[]): import("rxjs").Observable<any>;
     /**
-     * Find list of search events by filter
+     * Find list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: QueryResponse<SearchDefinition>
      */
     findEvents(sessionId?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<any>;
@@ -104,12 +104,12 @@ export declare class SearchService {
      */
     findSensorsIds(sessionId?: string): import("rxjs").Observable<any>;
     /**
-     * Get total search events count by filter
+     * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: QueryResponse<SearchDefinition> entities list is null
      */
     totalEvents(sessionId?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<any>;
     /**
-     * Export list of search events by filter
+     * Export list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: StreamContent
      */
     exportEvents(sessionId?: string, format?: string, fields?: string[], fileName?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;

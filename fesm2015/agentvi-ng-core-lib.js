@@ -10859,11 +10859,11 @@ class SearchService {
         return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/list`, ...params);
     }
     /**
-     * Find list of search events by filter
+     * Find list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: QueryResponse<SearchDefinition>
      */
     findEvents(sessionId, body) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/find`);
+        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/find`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
      * Find list of sensor Ids related to the search results
@@ -10873,14 +10873,14 @@ class SearchService {
         return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensorsIds`);
     }
     /**
-     * Get total search events count by filter
+     * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: QueryResponse<SearchDefinition> entities list is null
      */
     totalEvents(sessionId, body) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/total`);
+        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/total`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
-     * Export list of search events by filter
+     * Export list of search events by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: StreamContent
      */
     exportEvents(sessionId, format, fields, fileName, body) {
@@ -10894,7 +10894,7 @@ class SearchService {
         if (fileName != null) {
             params.push(`fileName=${fileName}`);
         }
-        return this.rest.download(`search`, `${this.baseUrl}/sessions/${sessionId}/export`, ...params);
+        return this.rest.download(`search`, `${this.baseUrl}/sessions/${sessionId}/export`, typeof body === 'object' ? JSON.stringify(body) : body, ...params);
     }
     /**
      * Get events count overtime for all events in the system
