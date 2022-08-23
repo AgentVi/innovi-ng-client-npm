@@ -7824,14 +7824,9 @@
    /*
    */
    var SearchEventExportRequest = /** @class */ (function () {
-       function SearchEventExportRequest(sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
+       function SearchEventExportRequest(sessionId, body, format, fields, fileName) {
            this.sessionId = sessionId;
-           this.sensorId = sensorId;
-           this.objectType = objectType;
-           this.tolerance = tolerance;
-           this.from = from;
-           this.to = to;
-           this.sort = sort;
+           this.body = body;
            this.format = format;
            this.fields = fields;
            this.fileName = fileName;
@@ -7842,9 +7837,18 @@
    /*
    */
    var SearchEventFindRequest = /** @class */ (function () {
-       function SearchEventFindRequest(sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
+       function SearchEventFindRequest(sessionId, body) {
            this.sessionId = sessionId;
-           this.sensorId = sensorId;
+           this.body = body;
+       }
+       return SearchEventFindRequest;
+   }());
+
+   /*
+   */
+   var SearchEventFindRequestBody = /** @class */ (function () {
+       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
+           this.sensorIds = sensorIds;
            this.objectType = objectType;
            this.tolerance = tolerance;
            this.from = from;
@@ -7853,7 +7857,7 @@
            this.page = page;
            this.pageSize = pageSize;
        }
-       return SearchEventFindRequest;
+       return SearchEventFindRequestBody;
    }());
 
    /*
@@ -12758,34 +12762,8 @@
         * Find list of search events by filter
         * @Return: QueryResponse<SearchDefinition>
         */
-       SearchService.prototype.findEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (objectType != null) {
-               params.push("objectType=" + objectType);
-           }
-           if (tolerance != null) {
-               params.push("tolerance=" + tolerance);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/find"], __read(params)));
+       SearchService.prototype.findEvents = function (sessionId, body) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/find");
        };
        /**
         * Find list of sensor Ids related to the search results
@@ -12798,60 +12776,16 @@
         * Get total search events count by filter
         * @Return: QueryResponse<SearchDefinition> entities list is null
         */
-       SearchService.prototype.totalEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (objectType != null) {
-               params.push("objectType=" + objectType);
-           }
-           if (tolerance != null) {
-               params.push("tolerance=" + tolerance);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/total"], __read(params)));
+       SearchService.prototype.totalEvents = function (sessionId, body) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/total");
        };
        /**
         * Export list of search events by filter
         * @Return: StreamContent
         */
-       SearchService.prototype.exportEvents = function (sessionId, sensorId, objectType, tolerance, from, to, sort, format, fields, fileName) {
+       SearchService.prototype.exportEvents = function (sessionId, format, fields, fileName, body) {
            var _a;
            var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (objectType != null) {
-               params.push("objectType=" + objectType);
-           }
-           if (tolerance != null) {
-               params.push("tolerance=" + tolerance);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
            if (format != null) {
                params.push("format=" + format);
            }
@@ -16694,6 +16628,7 @@
    exports.SearchEventCropsRequest = SearchEventCropsRequest;
    exports.SearchEventExportRequest = SearchEventExportRequest;
    exports.SearchEventFindRequest = SearchEventFindRequest;
+   exports.SearchEventFindRequestBody = SearchEventFindRequestBody;
    exports.SearchEventIdRequest = SearchEventIdRequest;
    exports.SearchEventListRequest = SearchEventListRequest;
    exports.SearchIdRequest = SearchIdRequest;

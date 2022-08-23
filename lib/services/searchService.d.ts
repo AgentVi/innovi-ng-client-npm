@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { SearchDefinition } from '../entities/SearchDefinition';
+import { SearchEventFindRequestBody } from '../messages/SearchEventFindRequestBody';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
-import { LevelTypeCode } from '../enums/LevelTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import * as i0 from "@angular/core";
 /**
@@ -97,7 +97,7 @@ export declare class SearchService {
      * Find list of search events by filter
      * @Return: QueryResponse<SearchDefinition>
      */
-    findEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    findEvents(sessionId?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<any>;
     /**
      * Find list of sensor Ids related to the search results
      * @Return: EntitiesResponse<StringIntValue>
@@ -107,12 +107,12 @@ export declare class SearchService {
      * Get total search events count by filter
      * @Return: QueryResponse<SearchDefinition> entities list is null
      */
-    totalEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    totalEvents(sessionId?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<any>;
     /**
      * Export list of search events by filter
      * @Return: StreamContent
      */
-    exportEvents(sessionId?: string, sensorId?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    exportEvents(sessionId?: string, format?: string, fields?: string[], fileName?: string, body?: SearchEventFindRequestBody): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>

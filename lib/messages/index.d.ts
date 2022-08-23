@@ -331,6 +331,7 @@ export * from './SearchEventCountRequest';
 export * from './SearchEventCropsRequest';
 export * from './SearchEventExportRequest';
 export * from './SearchEventFindRequest';
+export * from './SearchEventFindRequestBody';
 export * from './SearchEventIdRequest';
 export * from './SearchEventListRequest';
 export * from './SearchIdRequest';
