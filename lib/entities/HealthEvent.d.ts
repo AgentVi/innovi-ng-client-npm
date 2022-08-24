@@ -12,6 +12,7 @@ export declare class HealthEvent extends BaseEntity {
     status: number;
     state: number;
     integrationStatus: IntegrationStatusCode;
+    testEvent: boolean;
     id: string;
     _type: string;
     createdOn: number;
