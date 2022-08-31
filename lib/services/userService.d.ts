@@ -2,7 +2,7 @@ import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { LoginParams } from '../common/LoginParams';
 import { ChangePasswordRequest } from '../messages/ChangePasswordRequest';
-import { TokenRequest } from '../messages/TokenRequest';
+import { SwitchAccountRequest } from '../messages/SwitchAccountRequest';
 import * as i0 from "@angular/core";
 /**
  * Services for user registration and login
@@ -65,7 +65,7 @@ export declare class UserService {
      * Refresh token (set new expiration time) and associate with new account if required
      * @Return: EntityResponse<UserAccountInfo>
      */
-    switchAccount(body?: TokenRequest): import("rxjs").Observable<any>;
+    switchAccount(body?: SwitchAccountRequest): import("rxjs").Observable<any>;
     /**
      * Mark the user who accepted the EULA agreement
      * @Return: ActionResponse

@@ -370,6 +370,7 @@ export * from './SensorsServiceStatusOvertimeRequest';
 export * from './SensorsServiceUpdatePresetRequest';
 export * from './SensorsServiceUpdateRequest';
 export * from './StreamResponse';
+export * from './SwitchAccountRequest';
 export * from './SysAccountExportRequest';
 export * from './SysAccountImportRequest';
 export * from './SysApplianceBatchUpgradeFindRequest';

@@ -1,5 +1,5 @@
-import { TokenRequest } from '../messages/TokenRequest';
+import { SwitchAccountRequest } from '../messages/SwitchAccountRequest';
 export declare class UserServiceSwitchAccountRequest {
-    body: TokenRequest;
-    constructor(body?: TokenRequest);
+    body: SwitchAccountRequest;
+    constructor(body?: SwitchAccountRequest);
 }

@@ -694,10 +694,11 @@
       Login parameters data model
    */
    var LoginParams = /** @class */ (function () {
-       function LoginParams(email, password, accessToken) {
+       function LoginParams(email, password, accessToken, platformType) {
            this.email = email;
            this.password = password;
            this.accessToken = accessToken;
+           this.platformType = platformType;
        }
        return LoginParams;
    }());
@@ -8270,6 +8271,17 @@
            this.content = content;
        }
        return StreamResponse;
+   }());
+
+   /*
+      Switch account request message
+   */
+   var SwitchAccountRequest = /** @class */ (function () {
+       function SwitchAccountRequest(accountId, platformType) {
+           this.accountId = accountId;
+           this.platformType = platformType;
+       }
+       return SwitchAccountRequest;
    }());
 
    /*
@@ -16703,6 +16715,7 @@
    exports.StreamResponse = StreamResponse;
    exports.StringIntValue = StringIntValue;
    exports.StringKeyValue = StringKeyValue;
+   exports.SwitchAccountRequest = SwitchAccountRequest;
    exports.SysAccountExportRequest = SysAccountExportRequest;
    exports.SysAccountImportRequest = SysAccountImportRequest;
    exports.SysAccountsService = SysAccountsService;
