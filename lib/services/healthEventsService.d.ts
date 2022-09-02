@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { OpenClosedStatusCode } from '../enums/OpenClosedStatusCode';
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for health events queries

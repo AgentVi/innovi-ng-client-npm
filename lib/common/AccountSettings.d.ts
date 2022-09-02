@@ -8,5 +8,6 @@ export declare class AccountSettings {
     dateFormat: string;
     dateTimeFormat: string;
     playerSourceUri: string;
-    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number, enableAnomalyByDefault?: boolean, dateFormat?: string, dateTimeFormat?: string, playerSourceUri?: string);
+    eventClipLengthSec: number;
+    constructor(retentionDays?: number, objectColors?: LongTuple[], ruleColor?: number, maskColor?: number, enableAnomalyByDefault?: boolean, dateFormat?: string, dateTimeFormat?: string, playerSourceUri?: string, eventClipLengthSec?: number);
 }
