@@ -8797,6 +8797,27 @@
 
    /*
    */
+   var TriggerTestHealthEventRequest = /** @class */ (function () {
+       function TriggerTestHealthEventRequest(body) {
+           this.body = body;
+       }
+       return TriggerTestHealthEventRequest;
+   }());
+
+   /*
+      Request body for TriggerTestHealthEventRequest
+   */
+   var TriggerTestHealthEventRequestBody = /** @class */ (function () {
+       function TriggerTestHealthEventRequestBody(entityId, entityType, entityState) {
+           this.entityId = entityId;
+           this.entityType = entityType;
+           this.entityState = entityState;
+       }
+       return TriggerTestHealthEventRequestBody;
+   }());
+
+   /*
+   */
    var UsageReportRequest = /** @class */ (function () {
        function UsageReportRequest(year, month) {
            this.year = year;
@@ -11518,6 +11539,13 @@
                params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       /**
+        * Trigger a test health event
+        * @Return: ActionResponse
+        */
+       HealthEventsService.prototype.triggerTestHealthEvent = function (body) {
+           return this.rest.post(this.baseUrl + "/trigger-test-event", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        return HealthEventsService;
    }());
@@ -16784,6 +16812,8 @@
    exports.TrafficAnalysisReportRequest = TrafficAnalysisReportRequest;
    exports.TreeItem = TreeItem;
    exports.TreeNode = TreeNode;
+   exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
+   exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
    exports.UpdateStatus = UpdateStatus;
    exports.UsageReport = UsageReport;
    exports.UsageReportRequest = UsageReportRequest;

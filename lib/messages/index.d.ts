@@ -414,6 +414,8 @@ export * from './SysSystemRestoreRequest';
 export * from './SysUsageReportRequest';
 export * from './TokenRequest';
 export * from './TrafficAnalysisReportRequest';
+export * from './TriggerTestHealthEventRequest';
+export * from './TriggerTestHealthEventRequestBody';
 export * from './UsageReportRequest';
 export * from './UserByEmailRequest';
 export * from './UserIdRequest';
