@@ -2554,6 +2554,8 @@ var ErrorCode;
     ErrorCode[ErrorCode["PendingDeletedAccount"] = 10117] = "PendingDeletedAccount";
     // Account is suspended 
     ErrorCode[ErrorCode["SuspendedAccount"] = 10118] = "SuspendedAccount";
+    // Account belongs to another platform (IRIS+ vs INNOVI) 
+    ErrorCode[ErrorCode["WrongPlatformType"] = 10119] = "WrongPlatformType";
     // Folder not found 
     ErrorCode[ErrorCode["FolderNotFound"] = 10120] = "FolderNotFound";
     // Folder create failed 
