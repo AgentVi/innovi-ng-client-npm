@@ -7032,10 +7032,11 @@
    /*
    */
    var MembersServiceFindRequest = /** @class */ (function () {
-       function MembersServiceFindRequest(search, type, status, sort, page, pageSize) {
+       function MembersServiceFindRequest(search, type, status, group, sort, page, pageSize) {
            this.search = search;
            this.type = type;
            this.status = status;
+           this.group = group;
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
@@ -11856,7 +11857,7 @@
         * System user will see all users, Account system will see all users of the account, registered user will get an error.
         * @Return: QueryResponse<Member>
         */
-       MembersService.prototype.find = function (search, type, status, sort, page, pageSize) {
+       MembersService.prototype.find = function (search, type, status, group, sort, page, pageSize) {
            var _a;
            var params = new Array();
            if (search != null) {
@@ -11867,6 +11868,9 @@
            }
            if (status != null) {
                params.push("status=" + status);
+           }
+           if (group != null) {
+               params.push("group=" + group);
            }
            if (sort != null) {
                params.push("sort=" + sort);

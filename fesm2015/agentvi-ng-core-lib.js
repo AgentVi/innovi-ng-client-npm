@@ -5680,10 +5680,11 @@ class MembersServiceExportRequest {
 /*
 */
 class MembersServiceFindRequest {
-    constructor(search, type, status, sort, page, pageSize) {
+    constructor(search, type, status, group, sort, page, pageSize) {
         this.search = search;
         this.type = type;
         this.status = status;
+        this.group = group;
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
@@ -10006,7 +10007,7 @@ class MembersService {
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * @Return: QueryResponse<Member>
      */
-    find(search, type, status, sort, page, pageSize) {
+    find(search, type, status, group, sort, page, pageSize) {
         const params = new Array();
         if (search != null) {
             params.push(`search=${search}`);
@@ -10016,6 +10017,9 @@ class MembersService {
         }
         if (status != null) {
             params.push(`status=${status}`);
+        }
+        if (group != null) {
+            params.push(`group=${group}`);
         }
         if (sort != null) {
             params.push(`sort=${sort}`);

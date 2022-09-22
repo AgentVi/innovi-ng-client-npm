@@ -64,7 +64,7 @@ export declare class MembersService {
      * System user will see all users, Account system will see all users of the account, registered user will get an error.
      * @Return: QueryResponse<Member>
      */
-    find(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(search?: string, type?: UserTypeCode[], status?: UserStatusCode[], group?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Export list of members and filter
      * @Return: StreamContent
