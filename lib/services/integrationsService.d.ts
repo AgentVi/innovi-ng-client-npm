@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { IntegrationAction } from '../entities/IntegrationAction';
 import { IntegrationTarget } from '../entities/IntegrationTarget';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
+import { IntegrationAction } from '../entities/IntegrationAction';
 import * as i0 from "@angular/core";
 /**
  * Services for integrations targets (templates)
@@ -18,7 +18,8 @@ export declare class IntegrationsService {
      */
     constructor(config: CoreConfig, rest: RestUtil);
     /**
-     * Create new integration target
+     * Create new integration target. Notice that only one target of type Email is allowed per account.
+     * Returns IntegrationTargetDuplicationsNotAllowed if an attempt is made to create two Email integration targets.
      * @Return: EntityResponse<IntegrationTarget>
      */
     create(body?: IntegrationTarget): import("rxjs").Observable<any>;

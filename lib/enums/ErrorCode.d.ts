@@ -276,6 +276,7 @@ export declare enum ErrorCode {
     IntegrationTargetSearchFailed = 10504,
     IntegrationTargetHasActions = 10505,
     IntegrationTargetNotSupported = 10506,
+    IntegrationTargetDuplicationsNotAllowed = 10507,
     IntegrationActionNotFound = 10510,
     IntegrationActionNotCreated = 10511,
     IntegrationActionNotUpdated = 10512,
