@@ -547,14 +547,15 @@
    /*
       Extended custom model results
    */
-   var ExtendedModelResults = /** @class */ (function () {
-       function ExtendedModelResults(modelName, attributes, boundingBox, embedding) {
+   var ExternalModelResults = /** @class */ (function () {
+       function ExternalModelResults(modelName, attributes, boundingBox, embedding, keypoints) {
            this.modelName = modelName;
            this.attributes = attributes;
            this.boundingBox = boundingBox;
            this.embedding = embedding;
+           this.keypoints = keypoints;
        }
-       return ExtendedModelResults;
+       return ExternalModelResults;
    }());
 
    /*
@@ -790,7 +791,7 @@
       One instance of the object in the scene
    */
    var ObjectInstance = /** @class */ (function () {
-       function ObjectInstance(timestamp, objectType, confidence, isStopped, colors, direction, dimension, boundingBox, speed, size, position, location, extendedModelResults) {
+       function ObjectInstance(timestamp, objectType, confidence, isStopped, colors, direction, dimension, boundingBox, speed, size, position, location, externalModelResults) {
            this.timestamp = timestamp;
            this.objectType = objectType;
            this.confidence = confidence;
@@ -803,7 +804,7 @@
            this.size = size;
            this.position = position;
            this.location = location;
-           this.extendedModelResults = extendedModelResults;
+           this.externalModelResults = externalModelResults;
        }
        return ObjectInstance;
    }());
@@ -16470,7 +16471,7 @@
    exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
    exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
    exports.ExportUsageReportRequest = ExportUsageReportRequest;
-   exports.ExtendedModelResults = ExtendedModelResults;
+   exports.ExternalModelResults = ExternalModelResults;
    exports.Feature = Feature;
    exports.FeatureIdRequest = FeatureIdRequest;
    exports.FeatureIdsRequest = FeatureIdsRequest;

@@ -36,7 +36,7 @@ export * from './EdgeMetadataMessage';
 export * from './Embedding';
 export * from './EventCountDataPoint';
 export * from './EventCountTimeSeries';
-export * from './ExtendedModelResults';
+export * from './ExternalModelResults';
 export * from './FovGeoAttributes';
 export * from './GeoCircle';
 export * from './GeoControlPoint';
