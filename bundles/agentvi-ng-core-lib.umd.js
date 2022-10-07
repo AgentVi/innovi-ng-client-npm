@@ -13107,7 +13107,12 @@
         * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=SensorId)
         */
        SensorsService.prototype.mapExternalIds = function (id) {
-           return this.rest.post(this.baseUrl + "/map-external-ids", typeof id === 'object' ? JSON.stringify(id) : id);
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/map-external-ids"], __read(params)));
        };
        /**
         * Find sensors by filters

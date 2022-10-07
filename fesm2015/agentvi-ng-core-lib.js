@@ -11191,7 +11191,11 @@ class SensorsService {
      * @Return: EntitiesResponse<StringKeyValue> (Key=ExternalId, Value=SensorId)
      */
     mapExternalIds(id) {
-        return this.rest.post(`${this.baseUrl}/map-external-ids`, typeof id === 'object' ? JSON.stringify(id) : id);
+        const params = new Array();
+        if (id != null) {
+            params.push(`id=${id}`);
+        }
+        return this.rest.get(`${this.baseUrl}/map-external-ids`, ...params);
     }
     /**
      * Find sensors by filters
