@@ -2015,7 +2015,9 @@ var BehaviorTypeCode;
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
     // Smoke and Fire 67585 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
-    // 65860 
+    // Face Present 67586 
+    BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
+    // Slip and Fall 65860 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
 })(BehaviorTypeCode || (BehaviorTypeCode = {}));
 
