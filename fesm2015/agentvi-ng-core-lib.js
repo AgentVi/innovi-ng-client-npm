@@ -2015,9 +2015,7 @@ var BehaviorTypeCode;
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
     // Smoke and Fire 67585 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
-    // Face Present 67586 
-    BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
-    // Slip and Fall 65860 
+    // 65860 
     BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
 })(BehaviorTypeCode || (BehaviorTypeCode = {}));
 
@@ -2881,6 +2879,8 @@ var FeatureCode;
     FeatureCode[FeatureCode["FEATURE_ALARM_FILTERING"] = 25] = "FEATURE_ALARM_FILTERING";
     // Person recognition [26] 
     FeatureCode[FeatureCode["FEATURE_PERSON_RECOGNITION"] = 26] = "FEATURE_PERSON_RECOGNITION";
+    // View pose keypoints in Investigation [27] 
+    FeatureCode[FeatureCode["FEATURE_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_VIEW_POSE_KEYPOINTS";
     // Account administrator module [2048] 
     FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
     // Crossing a line rule [2049] 
