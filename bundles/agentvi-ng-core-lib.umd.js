@@ -1992,6 +1992,35 @@
    }(BaseEntity));
 
    /*
+   */
+   var FindUser = /** @class */ (function () {
+       function FindUser(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description) {
+           this.id = id;
+           this.name = name;
+           this.email = email;
+           this.mobile = mobile;
+           this.type = type;
+           this.status = status;
+           this.lastSignIn = lastSignIn;
+           this.accountRoles = accountRoles;
+           this.defaultAccount = defaultAccount;
+           this.description = description;
+       }
+       return FindUser;
+   }());
+
+   /*
+   */
+   var FindUserAccountRole = /** @class */ (function () {
+       function FindUserAccountRole(accountId, accountName, role) {
+           this.accountId = accountId;
+           this.accountName = accountName;
+           this.role = role;
+       }
+       return FindUserAccountRole;
+   }());
+
+   /*
       Folder (container for sensors and sub folders)
    */
    var Folder = /** @class */ (function (_super) {
@@ -7226,6 +7255,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfEvent;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfFindUser = /** @class */ (function (_super) {
+       __extends(QueryResponseOfFindUser, _super);
+       function QueryResponseOfFindUser() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfFindUser;
    }(QueryResponse));
 
    /*
@@ -16495,6 +16534,8 @@
    exports.FeaturesServiceCreateRequest = FeaturesServiceCreateRequest;
    exports.FeaturesServiceFindRequest = FeaturesServiceFindRequest;
    exports.FeaturesServiceUpdateRequest = FeaturesServiceUpdateRequest;
+   exports.FindUser = FindUser;
+   exports.FindUserAccountRole = FindUserAccountRole;
    exports.Folder = Folder;
    exports.FolderExtIdsRequest = FolderExtIdsRequest;
    exports.FolderIdRequest = FolderIdRequest;
@@ -16599,6 +16640,7 @@
    exports.QueryResponseOfConfigurationTemplate = QueryResponseOfConfigurationTemplate;
    exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
    exports.QueryResponseOfEvent = QueryResponseOfEvent;
+   exports.QueryResponseOfFindUser = QueryResponseOfFindUser;
    exports.QueryResponseOfFolder = QueryResponseOfFolder;
    exports.QueryResponseOfGroup = QueryResponseOfGroup;
    exports.QueryResponseOfHealthEvent = QueryResponseOfHealthEvent;

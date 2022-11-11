@@ -271,6 +271,7 @@ export * from './QueryResponseOfConfiguration';
 export * from './QueryResponseOfConfigurationTemplate';
 export * from './QueryResponseOfConfigurationVersion';
 export * from './QueryResponseOfEvent';
+export * from './QueryResponseOfFindUser';
 export * from './QueryResponseOfFolder';
 export * from './QueryResponseOfGroup';
 export * from './QueryResponseOfHealthEvent';
