@@ -3863,9 +3863,11 @@ class ActionResponse {
 /*
 */
 class AddPoiRequest {
-    constructor(base64EncodedJpeg, name) {
+    constructor(base64EncodedJpeg, name, ttl, poiId) {
         this.base64EncodedJpeg = base64EncodedJpeg;
         this.name = name;
+        this.ttl = ttl;
+        this.poiId = poiId;
     }
 }
 
@@ -6081,7 +6083,8 @@ class ReportsServiceUpdateRequest {
 /*
 */
 class ResponseOfPoi {
-    constructor(name) {
+    constructor(errorMessage, name) {
+        this.errorMessage = errorMessage;
         this.name = name;
     }
 }
@@ -10190,11 +10193,13 @@ class PersonRecognitionService {
         return this.rest.get(`${this.baseUrl}watchlist`, ...params);
     }
     /**
-     * Add provided image of a person as a new POI to the system-internal dynamic watchlist
+     * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
+     * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
+     * If PoiId is not empty, then it must match the ID of an already existing POI.
      * @Return: ResponseOfPoi
      */
-    poi(name) {
-        return this.rest.post(`${this.baseUrl}poi`, typeof name === 'object' ? JSON.stringify(name) : name);
+    dynamicPoi(poiId) {
+        return this.rest.post(`${this.baseUrl}dynamic-poi`, typeof poiId === 'object' ? JSON.stringify(poiId) : poiId);
     }
 }
 /** @nocollapse */ PersonRecognitionService.ɵfac = function PersonRecognitionService_Factory(t) { return new (t || PersonRecognitionService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };

@@ -20,10 +20,12 @@ export declare class PersonRecognitionService {
      */
     watchlist(id?: string): import("rxjs").Observable<any>;
     /**
-     * Add provided image of a person as a new POI to the system-internal dynamic watchlist
+     * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
+     * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
+     * If PoiId is not empty, then it must match the ID of an already existing POI.
      * @Return: ResponseOfPoi
      */
-    poi(name?: string): import("rxjs").Observable<any>;
+    dynamicPoi(poiId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<PersonRecognitionService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PersonRecognitionService>;
 }

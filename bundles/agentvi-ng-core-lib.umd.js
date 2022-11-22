@@ -4591,9 +4591,11 @@
    /*
    */
    var AddPoiRequest = /** @class */ (function () {
-       function AddPoiRequest(base64EncodedJpeg, name) {
+       function AddPoiRequest(base64EncodedJpeg, name, ttl, poiId) {
            this.base64EncodedJpeg = base64EncodedJpeg;
            this.name = name;
+           this.ttl = ttl;
+           this.poiId = poiId;
        }
        return AddPoiRequest;
    }());
@@ -7621,7 +7623,8 @@
    /*
    */
    var ResponseOfPoi = /** @class */ (function () {
-       function ResponseOfPoi(name) {
+       function ResponseOfPoi(errorMessage, name) {
+           this.errorMessage = errorMessage;
            this.name = name;
        }
        return ResponseOfPoi;
@@ -12060,11 +12063,13 @@
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "watchlist"], __read(params)));
        };
        /**
-        * Add provided image of a person as a new POI to the system-internal dynamic watchlist
+        * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
+        * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
+        * If PoiId is not empty, then it must match the ID of an already existing POI.
         * @Return: ResponseOfPoi
         */
-       PersonRecognitionService.prototype.poi = function (name) {
-           return this.rest.post(this.baseUrl + "poi", typeof name === 'object' ? JSON.stringify(name) : name);
+       PersonRecognitionService.prototype.dynamicPoi = function (poiId) {
+           return this.rest.post(this.baseUrl + "dynamic-poi", typeof poiId === 'object' ? JSON.stringify(poiId) : poiId);
        };
        return PersonRecognitionService;
    }());

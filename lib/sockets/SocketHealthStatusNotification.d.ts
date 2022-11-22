@@ -1,6 +1,6 @@
-import { ApplianceStatus } from '../entities/ApplianceStatus';
 import { SensorStatus } from '../entities/SensorStatus';
 import { AgentStatus } from '../entities/AgentStatus';
+import { ApplianceStatus } from '../entities/ApplianceStatus';
 export declare class SocketHealthStatusNotification {
     op: number;
     error: string;
