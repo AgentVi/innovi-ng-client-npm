@@ -6810,6 +6810,15 @@
 
    /*
    */
+   var GetPoiFromImageRequest = /** @class */ (function () {
+       function GetPoiFromImageRequest(base64EncodedJpeg) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+       }
+       return GetPoiFromImageRequest;
+   }());
+
+   /*
+   */
    var GroupIdRequest = /** @class */ (function () {
        function GroupIdRequest(id) {
            this.id = id;
@@ -6881,6 +6890,18 @@
            this.id = id;
        }
        return HealthEventIdRequest;
+   }());
+
+   /*
+   */
+   var IdentifiedPoiFromImage = /** @class */ (function () {
+       function IdentifiedPoiFromImage(poiId, displayName, score, boundingBox) {
+           this.poiId = poiId;
+           this.displayName = displayName;
+           this.score = score;
+           this.boundingBox = boundingBox;
+       }
+       return IdentifiedPoiFromImage;
    }());
 
    /*
@@ -7132,6 +7153,18 @@
            this.to = to;
        }
        return PeopleCountingReportRequest;
+   }());
+
+   /*
+   */
+   var PoiBoundingBox = /** @class */ (function () {
+       function PoiBoundingBox(maxX, maxY, minX, minY) {
+           this.maxX = maxX;
+           this.maxY = maxY;
+           this.minX = minX;
+           this.minY = minY;
+       }
+       return PoiBoundingBox;
    }());
 
    /*
@@ -7622,12 +7655,24 @@
 
    /*
    */
-   var ResponseOfPoi = /** @class */ (function () {
-       function ResponseOfPoi(errorMessage, name) {
+   var ResponseOfAddPoi = /** @class */ (function () {
+       function ResponseOfAddPoi(errorMessage, name, poiId, expireAt) {
            this.errorMessage = errorMessage;
            this.name = name;
+           this.poiId = poiId;
+           this.expireAt = expireAt;
        }
-       return ResponseOfPoi;
+       return ResponseOfAddPoi;
+   }());
+
+   /*
+   */
+   var ResponseOfSearchForPoiFromImage = /** @class */ (function () {
+       function ResponseOfSearchForPoiFromImage(errorMessage, poi) {
+           this.errorMessage = errorMessage;
+           this.poi = poi;
+       }
+       return ResponseOfSearchForPoiFromImage;
    }());
 
    /*
@@ -12070,6 +12115,13 @@
         */
        PersonRecognitionService.prototype.dynamicPoi = function (poiId) {
            return this.rest.post(this.baseUrl + "dynamic-poi", typeof poiId === 'object' ? JSON.stringify(poiId) : poiId);
+       };
+       /**
+        * Searches the system for POIs matching the provided image in _all_ watchlists.
+        * @Return: ResponseOfPoi
+        */
+       PersonRecognitionService.prototype.searchForPoiFromImage = function (base64EncodedJpeg) {
+           return this.rest.post(this.baseUrl + "search-poi-from-image", typeof base64EncodedJpeg === 'object' ? JSON.stringify(base64EncodedJpeg) : base64EncodedJpeg);
        };
        return PersonRecognitionService;
    }());
@@ -16662,6 +16714,7 @@
    exports.GeoService = GeoService;
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
+   exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;
@@ -16678,6 +16731,7 @@
    exports.HealthThresholds = HealthThresholds;
    exports.HeatmapCell = HeatmapCell;
    exports.HeatmapRow = HeatmapRow;
+   exports.IdentifiedPoiFromImage = IdentifiedPoiFromImage;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
    exports.IntegrationActionFilter = IntegrationActionFilter;
@@ -16731,6 +16785,7 @@
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
    exports.PersonRecognitionService = PersonRecognitionService;
+   exports.PoiBoundingBox = PoiBoundingBox;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16786,7 +16841,8 @@
    exports.ReportsServiceRulesSchedulesRequest = ReportsServiceRulesSchedulesRequest;
    exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
    exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
-   exports.ResponseOfPoi = ResponseOfPoi;
+   exports.ResponseOfAddPoi = ResponseOfAddPoi;
+   exports.ResponseOfSearchForPoiFromImage = ResponseOfSearchForPoiFromImage;
    exports.ResponseOfStaticWatchlist = ResponseOfStaticWatchlist;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;

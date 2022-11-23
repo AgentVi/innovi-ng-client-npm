@@ -26,6 +26,11 @@ export declare class PersonRecognitionService {
      * @Return: ResponseOfPoi
      */
     dynamicPoi(poiId?: string): import("rxjs").Observable<any>;
+    /**
+     * Searches the system for POIs matching the provided image in _all_ watchlists.
+     * @Return: ResponseOfPoi
+     */
+    searchForPoiFromImage(base64EncodedJpeg?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<PersonRecognitionService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PersonRecognitionService>;
 }
