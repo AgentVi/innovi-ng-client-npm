@@ -12105,7 +12105,7 @@
            if (id != null) {
                params.push("id=" + id);
            }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "watchlist"], __read(params)));
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/watchlist"], __read(params)));
        };
        /**
         * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
@@ -12114,14 +12114,14 @@
         * @Return: ResponseOfPoi
         */
        PersonRecognitionService.prototype.dynamicPoi = function (poiId) {
-           return this.rest.post(this.baseUrl + "dynamic-poi", typeof poiId === 'object' ? JSON.stringify(poiId) : poiId);
+           return this.rest.post(this.baseUrl + "/dynamic-poi", typeof poiId === 'object' ? JSON.stringify(poiId) : poiId);
        };
        /**
         * Searches the system for POIs matching the provided image in _all_ watchlists.
         * @Return: ResponseOfPoi
         */
        PersonRecognitionService.prototype.searchForPoiFromImage = function (base64EncodedJpeg) {
-           return this.rest.post(this.baseUrl + "search-poi-from-image", typeof base64EncodedJpeg === 'object' ? JSON.stringify(base64EncodedJpeg) : base64EncodedJpeg);
+           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof base64EncodedJpeg === 'object' ? JSON.stringify(base64EncodedJpeg) : base64EncodedJpeg);
        };
        return PersonRecognitionService;
    }());
