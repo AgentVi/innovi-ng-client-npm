@@ -33,6 +33,8 @@ export declare class Rule extends BaseEntity {
     externalModel: string;
     excludeObjectTypes: ObjectTypeCode[];
     autoSensitivity: RuleAutoSensitivityCode;
+    existsInWatchlist: boolean;
+    watchlistId: string[];
     id: string;
     _type: string;
     createdOn: number;
