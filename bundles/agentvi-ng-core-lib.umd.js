@@ -6820,10 +6820,19 @@
    /*
    */
    var GetPoiFromImageRequest = /** @class */ (function () {
-       function GetPoiFromImageRequest(base64EncodedJpeg) {
-           this.base64EncodedJpeg = base64EncodedJpeg;
+       function GetPoiFromImageRequest(body) {
+           this.body = body;
        }
        return GetPoiFromImageRequest;
+   }());
+
+   /*
+   */
+   var GetPoiFromImageRequestBody = /** @class */ (function () {
+       function GetPoiFromImageRequestBody(base64EncodedJpeg) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+       }
+       return GetPoiFromImageRequestBody;
    }());
 
    /*
@@ -12129,8 +12138,8 @@
         * Searches the system for POIs matching the provided image in _all_ watchlists.
         * @Return: ResponseOfPoi
         */
-       PersonRecognitionService.prototype.searchForPoiFromImage = function (base64EncodedJpeg) {
-           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof base64EncodedJpeg === 'object' ? JSON.stringify(base64EncodedJpeg) : base64EncodedJpeg);
+       PersonRecognitionService.prototype.searchForPoiFromImage = function (body) {
+           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        return PersonRecognitionService;
    }());
@@ -16725,6 +16734,7 @@
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
    exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
+   exports.GetPoiFromImageRequestBody = GetPoiFromImageRequestBody;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;

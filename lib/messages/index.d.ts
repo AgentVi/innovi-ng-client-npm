@@ -230,6 +230,7 @@ export * from './FoldersServiceGetHierarchyRequest';
 export * from './GeoServicesReferenceRequest';
 export * from './GeoServicesTransformRequest';
 export * from './GetPoiFromImageRequest';
+export * from './GetPoiFromImageRequestBody';
 export * from './GroupIdRequest';
 export * from './GroupIdsRequest';
 export * from './GroupServiceFindRequest';

@@ -1,6 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
+import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -31,7 +32,7 @@ export declare class PersonRecognitionService {
      * Searches the system for POIs matching the provided image in _all_ watchlists.
      * @Return: ResponseOfPoi
      */
-    searchForPoiFromImage(base64EncodedJpeg?: string): import("rxjs").Observable<any>;
+    searchForPoiFromImage(body?: GetPoiFromImageRequestBody): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<PersonRecognitionService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PersonRecognitionService>;
 }
