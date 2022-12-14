@@ -2860,6 +2860,18 @@ var ErrorCode;
     ErrorCode[ErrorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
     // Search service response error 
     ErrorCode[ErrorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
+    // General error when a request to Corsight failed 
+    ErrorCode[ErrorCode["CorsightRequestFailed"] = 30100] = "CorsightRequestFailed";
+    // Corsight DetectFaces call failed 
+    ErrorCode[ErrorCode["CorsightDetectFacesFailed"] = 30110] = "CorsightDetectFacesFailed";
+    // Corsight DetectFaces did not find any faces 
+    ErrorCode[ErrorCode["CorsightNoFacesDetected"] = 30111] = "CorsightNoFacesDetected";
+    // Corsight AnalyzeFace failed 
+    ErrorCode[ErrorCode["CorsightAnalyzeFaceFailed"] = 30120] = "CorsightAnalyzeFaceFailed";
+    // Corsight failed to create a new POI 
+    ErrorCode[ErrorCode["CorsightCreatePoiFailed"] = 30130] = "CorsightCreatePoiFailed";
+    // Corsight failed to find a specific POI, or a POI matching an image 
+    ErrorCode[ErrorCode["CorsightNoPoiFound"] = 30131] = "CorsightNoPoiFound";
 })(ErrorCode || (ErrorCode = {}));
 
 /*
