@@ -1,7 +1,7 @@
 export declare class SensorsFetchObjectsCropsRequest {
-    sensorId: string;
+    id: string;
     ts: number[];
     objectId: number[];
     bucketFolder: string;
-    constructor(sensorId?: string, ts?: number[], objectId?: number[], bucketFolder?: string);
+    constructor(id?: string, ts?: number[], objectId?: number[], bucketFolder?: string);
 }
