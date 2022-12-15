@@ -363,6 +363,7 @@ export * from './SensorPathEventsRequest';
 export * from './SensorPathsRequest';
 export * from './SensorUsageReportRequest';
 export * from './SensorsCountRequest';
+export * from './SensorsFetchObjectsCropsRequest';
 export * from './SensorsServiceAttachRequest';
 export * from './SensorsServiceBulkCreateRequest';
 export * from './SensorsServiceChangeFolderRequest';
