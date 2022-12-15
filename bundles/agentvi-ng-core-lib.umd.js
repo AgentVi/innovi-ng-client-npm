@@ -13523,7 +13523,7 @@
            if (bucketFolder != null) {
                params.push("bucketFolder=" + bucketFolder);
            }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/fetch-objects-crops", null], __read(params)));
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/fetch-objects-crops", null], __read(params)));
        };
        /**
         * Get default geo location

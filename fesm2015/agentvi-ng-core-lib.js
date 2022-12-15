@@ -11578,7 +11578,7 @@ class SensorsService {
         if (bucketFolder != null) {
             params.push(`bucketFolder=${bucketFolder}`);
         }
-        return this.rest.post(`${this.baseUrl}/fetch-objects-crops`, null, ...params);
+        return this.rest.post(`${this.baseUrl}/${id}/fetch-objects-crops`, null, ...params);
     }
     /**
      * Get default geo location
