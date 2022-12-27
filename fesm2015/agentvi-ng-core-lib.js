@@ -3200,6 +3200,8 @@ var ProductTypeCode;
     ProductTypeCode[ProductTypeCode["VIRTUAL"] = 1] = "VIRTUAL";
     // Custom Device (Customer provides it's own hardware) [2] 
     ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
+    // Edge 10 [10] 
+    ProductTypeCode[ProductTypeCode["EDGE_10"] = 10] = "EDGE_10";
     // Edge 200 [200] 
     ProductTypeCode[ProductTypeCode["EDGE_200"] = 200] = "EDGE_200";
     // Edge 220 [220] 
