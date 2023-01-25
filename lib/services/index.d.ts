@@ -14,7 +14,6 @@ export * from './healthCheckService';
 export * from './healthEventsService';
 export * from './integrationsService';
 export * from './membersService';
-export * from './personRecognitionService';
 export * from './reportsService';
 export * from './rulesService';
 export * from './scheduledReportsService';
