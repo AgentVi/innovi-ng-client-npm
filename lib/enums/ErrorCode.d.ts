@@ -292,11 +292,5 @@ export declare enum ErrorCode {
     SearchServiceImageNotFound = 10602,
     SearchServiceDisconnected = 10603,
     SearchServiceRequestError = 10604,
-    SearchServiceResponseError = 10605,
-    CorsightRequestFailed = 30100,
-    CorsightDetectFacesFailed = 30110,
-    CorsightNoFacesDetected = 30111,
-    CorsightAnalyzeFaceFailed = 30120,
-    CorsightCreatePoiFailed = 30130,
-    CorsightNoPoiFound = 30131
+    SearchServiceResponseError = 10605
 }
