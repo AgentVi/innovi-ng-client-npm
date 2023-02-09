@@ -8,5 +8,7 @@ export declare class TreeItem {
     typeName: string;
     status: SensorStatusCode;
     shunt: TimeFrame;
-    constructor(itemId?: string, type?: EntityTypeCode, name?: string, typeName?: string, status?: SensorStatusCode, shunt?: TimeFrame);
+    scheduleId: string;
+    active: boolean;
+    constructor(itemId?: string, type?: EntityTypeCode, name?: string, typeName?: string, status?: SensorStatusCode, shunt?: TimeFrame, scheduleId?: string, active?: boolean);
 }
