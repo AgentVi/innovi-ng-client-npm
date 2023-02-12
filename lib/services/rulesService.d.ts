@@ -1,7 +1,6 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
 import { Rule } from '../entities/Rule';
-import { UpdateScheduleForRules } from '../default/UpdateScheduleForRules';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import * as i0 from "@angular/core";
@@ -28,11 +27,6 @@ export declare class RulesService {
      * @Return: EntityResponse<Rule>
      */
     update(id?: string, body?: Rule): import("rxjs").Observable<any>;
-    /**
-     * Update schedule for a set of rules
-     * @Return: ActionResponse
-     */
-    updateScheduleForRules(body?: UpdateScheduleForRules): import("rxjs").Observable<any>;
     /**
      * Enable list of rules
      * @Return: ActionResponse

@@ -4,8 +4,7 @@ export declare class AccountsServiceLogicalTreeRequest {
     status: SensorStatusCode[];
     behaviorType: BehaviorTypeCode[];
     includeSensors: boolean;
-    includeRules: boolean;
     includeNonRecordingSensors: boolean;
     search: string;
-    constructor(status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[], includeSensors?: boolean, includeRules?: boolean, includeNonRecordingSensors?: boolean, search?: string);
+    constructor(status?: SensorStatusCode[], behaviorType?: BehaviorTypeCode[], includeSensors?: boolean, includeNonRecordingSensors?: boolean, search?: string);
 }

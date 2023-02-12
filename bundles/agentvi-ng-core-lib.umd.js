@@ -1338,12 +1338,10 @@
       Sensor anomaly rule information
    */
    var SensorAnomalyRuleInfo = /** @class */ (function () {
-       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip) {
+       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes) {
            this.active = active;
            this.sensitivity = sensitivity;
            this.objectTypes = objectTypes;
-           this.createImage = createImage;
-           this.createClip = createClip;
        }
        return SensorAnomalyRuleInfo;
    }());
@@ -1590,15 +1588,13 @@
       Tree item for account hierarchy tree
    */
    var TreeItem = /** @class */ (function () {
-       function TreeItem(itemId, type, name, typeName, status, shunt, scheduleId, active) {
+       function TreeItem(itemId, type, name, typeName, status, shunt) {
            this.itemId = itemId;
            this.type = type;
            this.name = name;
            this.typeName = typeName;
            this.status = status;
            this.shunt = shunt;
-           this.scheduleId = scheduleId;
-           this.active = active;
        }
        return TreeItem;
    }());
@@ -1659,16 +1655,6 @@
            this.description = description;
        }
        return UserRegistration;
-   }());
-
-   /*
-   */
-   var UpdateScheduleForRules = /** @class */ (function () {
-       function UpdateScheduleForRules(ids, scheduleId) {
-           this.ids = ids;
-           this.scheduleId = scheduleId;
-       }
-       return UpdateScheduleForRules;
    }());
 
    /*
@@ -2767,7 +2753,9 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
        // Smoke and Fire 67585 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
-       // 65860 
+       // Face Present 67586 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
+       // Slip and Fall 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
@@ -3583,6 +3571,18 @@
        ErrorCode[ErrorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
        // Search service response error 
        ErrorCode[ErrorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
+       // General error when a request to Corsight failed 
+       ErrorCode[ErrorCode["CorsightRequestFailed"] = 30100] = "CorsightRequestFailed";
+       // Corsight DetectFaces call failed 
+       ErrorCode[ErrorCode["CorsightDetectFacesFailed"] = 30110] = "CorsightDetectFacesFailed";
+       // Corsight DetectFaces did not find any faces 
+       ErrorCode[ErrorCode["CorsightNoFacesDetected"] = 30111] = "CorsightNoFacesDetected";
+       // Corsight AnalyzeFace failed 
+       ErrorCode[ErrorCode["CorsightAnalyzeFaceFailed"] = 30120] = "CorsightAnalyzeFaceFailed";
+       // Corsight failed to create a new POI 
+       ErrorCode[ErrorCode["CorsightCreatePoiFailed"] = 30130] = "CorsightCreatePoiFailed";
+       // Corsight failed to find a specific POI, or a POI matching an image 
+       ErrorCode[ErrorCode["CorsightNoPoiFound"] = 30131] = "CorsightNoPoiFound";
    })(exports.ErrorCode || (exports.ErrorCode = {}));
 
    /*
@@ -3925,8 +3925,6 @@
        ProductTypeCode[ProductTypeCode["VIRTUAL"] = 1] = "VIRTUAL";
        // Custom Device (Customer provides it's own hardware) [2] 
        ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
-       // Edge 10 [10] 
-       ProductTypeCode[ProductTypeCode["EDGE_10"] = 10] = "EDGE_10";
        // Edge 200 [200] 
        ProductTypeCode[ProductTypeCode["EDGE_200"] = 200] = "EDGE_200";
        // Edge 220 [220] 
@@ -4538,11 +4536,10 @@
    /*
    */
    var AccountsServiceLogicalTreeRequest = /** @class */ (function () {
-       function AccountsServiceLogicalTreeRequest(status, behaviorType, includeSensors, includeRules, includeNonRecordingSensors, search) {
+       function AccountsServiceLogicalTreeRequest(status, behaviorType, includeSensors, includeNonRecordingSensors, search) {
            this.status = status;
            this.behaviorType = behaviorType;
            this.includeSensors = includeSensors;
-           this.includeRules = includeRules;
            this.includeNonRecordingSensors = includeNonRecordingSensors;
            this.search = search;
        }
@@ -4601,6 +4598,27 @@
            this.data = data;
        }
        return ActionResponse;
+   }());
+
+   /*
+   */
+   var AddPoiRequest = /** @class */ (function () {
+       function AddPoiRequest(body) {
+           this.body = body;
+       }
+       return AddPoiRequest;
+   }());
+
+   /*
+   */
+   var AddPoiRequestBody = /** @class */ (function () {
+       function AddPoiRequestBody(base64EncodedJpeg, name, ttl, poiId) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+           this.name = name;
+           this.ttl = ttl;
+           this.poiId = poiId;
+       }
+       return AddPoiRequestBody;
    }());
 
    /*
@@ -6813,6 +6831,24 @@
 
    /*
    */
+   var GetPoiFromImageRequest = /** @class */ (function () {
+       function GetPoiFromImageRequest(body) {
+           this.body = body;
+       }
+       return GetPoiFromImageRequest;
+   }());
+
+   /*
+   */
+   var GetPoiFromImageRequestBody = /** @class */ (function () {
+       function GetPoiFromImageRequestBody(base64EncodedJpeg) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+       }
+       return GetPoiFromImageRequestBody;
+   }());
+
+   /*
+   */
    var GroupIdRequest = /** @class */ (function () {
        function GroupIdRequest(id) {
            this.id = id;
@@ -6884,6 +6920,18 @@
            this.id = id;
        }
        return HealthEventIdRequest;
+   }());
+
+   /*
+   */
+   var IdentifiedPoiFromImage = /** @class */ (function () {
+       function IdentifiedPoiFromImage(poiId, displayName, score, boundingBox) {
+           this.poiId = poiId;
+           this.displayName = displayName;
+           this.score = score;
+           this.boundingBox = boundingBox;
+       }
+       return IdentifiedPoiFromImage;
    }());
 
    /*
@@ -7135,6 +7183,18 @@
            this.to = to;
        }
        return PeopleCountingReportRequest;
+   }());
+
+   /*
+   */
+   var PoiBoundingBox = /** @class */ (function () {
+       function PoiBoundingBox(maxX, maxY, minX, minY) {
+           this.maxX = maxX;
+           this.maxY = maxY;
+           this.minX = minX;
+           this.minY = minY;
+       }
+       return PoiBoundingBox;
    }());
 
    /*
@@ -7625,6 +7685,38 @@
 
    /*
    */
+   var ResponseOfAddPoi = /** @class */ (function () {
+       function ResponseOfAddPoi(code, name, poiId, expireAt) {
+           this.code = code;
+           this.name = name;
+           this.poiId = poiId;
+           this.expireAt = expireAt;
+       }
+       return ResponseOfAddPoi;
+   }());
+
+   /*
+   */
+   var ResponseOfSearchForPoiFromImage = /** @class */ (function () {
+       function ResponseOfSearchForPoiFromImage(code, poi) {
+           this.code = code;
+           this.poi = poi;
+       }
+       return ResponseOfSearchForPoiFromImage;
+   }());
+
+   /*
+   */
+   var ResponseOfStaticWatchlist = /** @class */ (function () {
+       function ResponseOfStaticWatchlist(code, watchlists) {
+           this.code = code;
+           this.watchlists = watchlists;
+       }
+       return ResponseOfStaticWatchlist;
+   }());
+
+   /*
+   */
    var RuleExtIdsRequest = /** @class */ (function () {
        function RuleExtIdsRequest(id) {
            this.id = id;
@@ -7753,15 +7845,6 @@
            this.body = body;
        }
        return RulesServiceUpdateRequest;
-   }());
-
-   /*
-   */
-   var RulesServiceUpdateScheduleForRulesRequest = /** @class */ (function () {
-       function RulesServiceUpdateScheduleForRulesRequest(body) {
-           this.body = body;
-       }
-       return RulesServiceUpdateScheduleForRulesRequest;
    }());
 
    /*
@@ -8164,6 +8247,18 @@
 
    /*
    */
+   var SensorsFetchObjectsCropsRequest = /** @class */ (function () {
+       function SensorsFetchObjectsCropsRequest(id, ts, objectId, bucketFolder) {
+           this.id = id;
+           this.ts = ts;
+           this.objectId = objectId;
+           this.bucketFolder = bucketFolder;
+       }
+       return SensorsFetchObjectsCropsRequest;
+   }());
+
+   /*
+   */
    var SensorsServiceAttachRequest = /** @class */ (function () {
        function SensorsServiceAttachRequest(id, applianceId) {
            this.id = id;
@@ -8337,6 +8432,25 @@
            this.body = body;
        }
        return SensorsServiceUpdateRequest;
+   }());
+
+   /*
+   */
+   var StaticWatchlist = /** @class */ (function () {
+       function StaticWatchlist(iD, name) {
+           this.iD = iD;
+           this.name = name;
+       }
+       return StaticWatchlist;
+   }());
+
+   /*
+   */
+   var StaticWatchlistIdRequest = /** @class */ (function () {
+       function StaticWatchlistIdRequest(id) {
+           this.id = id;
+       }
+       return StaticWatchlistIdRequest;
    }());
 
    /*
@@ -9515,7 +9629,7 @@
         * A logical tree is a representation of cameras-folders hierarchy as defined by the user
         * @Return: EntityResponse<TreeNode>
         */
-       AccountsService.prototype.getLogicalTree = function (status, behaviorType, includeSensors, includeRules, includeNonRecordingSensors, search) {
+       AccountsService.prototype.getLogicalTree = function (status, behaviorType, includeSensors, includeNonRecordingSensors, search) {
            var _a;
            var params = new Array();
            if (status != null) {
@@ -9526,9 +9640,6 @@
            }
            if (includeSensors != null) {
                params.push("includeSensors=" + includeSensors);
-           }
-           if (includeRules != null) {
-               params.push("includeRules=" + includeRules);
            }
            if (includeNonRecordingSensors != null) {
                params.push("includeNonRecordingSensors=" + includeNonRecordingSensors);
@@ -12012,6 +12123,65 @@
    })();
 
    /**
+    * List of Person Recognition Services
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var PersonRecognitionService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function PersonRecognitionService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/person-recognition';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * List static watchlists
+        * @Return: ResponseOfStaticWatchlist
+        */
+       PersonRecognitionService.prototype.watchlist = function (id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/watchlist"], __read(params)));
+       };
+       /**
+        * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
+        * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
+        * If PoiId is not empty, then it must match the ID of an already existing POI.
+        * @Return: ResponseOfPoi
+        */
+       PersonRecognitionService.prototype.dynamicPoi = function (body) {
+           return this.rest.post(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Searches the system for POIs matching the provided image in _all_ watchlists.
+        * @Return: ResponseOfPoi
+        */
+       PersonRecognitionService.prototype.searchForPoiFromImage = function (body) {
+           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       return PersonRecognitionService;
+   }());
+   /** @nocollapse */ PersonRecognitionService.ɵfac = function PersonRecognitionService_Factory(t) { return new (t || PersonRecognitionService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ PersonRecognitionService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: PersonRecognitionService, factory: PersonRecognitionService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(PersonRecognitionService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
     * Services for reports definition actions
     * @RequestHeader X-API-KEY The key to identify the application (portal)
     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -12245,13 +12415,6 @@
         */
        RulesService.prototype.update = function (id, body) {
            return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Update schedule for a set of rules
-        * @Return: ActionResponse
-        */
-       RulesService.prototype.updateScheduleForRules = function (body) {
-           return this.rest.put(this.baseUrl + "/schedule", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Enable list of rules
@@ -13343,6 +13506,24 @@
         */
        SensorsService.prototype.cropImage = function (id, body) {
            return this.rest.post(this.baseUrl + "/" + id + "/crop", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Collect object crops from agents based on the query parameters
+        * @Return: ActionResponse
+        */
+       SensorsService.prototype.fetchObjectCrops = function (id, ts, objectId, bucketFolder) {
+           var _a;
+           var params = new Array();
+           if (ts != null) {
+               params.push("ts=" + ts);
+           }
+           if (objectId != null) {
+               params.push("objectId=" + objectId);
+           }
+           if (bucketFolder != null) {
+               params.push("bucketFolder=" + bucketFolder);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/fetch-objects-crops", null], __read(params)));
        };
        /**
         * Get default geo location
@@ -16023,6 +16204,7 @@
        HealthEventsService,
        IntegrationsService,
        MembersService,
+       PersonRecognitionService,
        ReportsService,
        RulesService,
        ScheduledReportsService,
@@ -16297,6 +16479,8 @@
    exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
    exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
    exports.ActionResponse = ActionResponse;
+   exports.AddPoiRequest = AddPoiRequest;
+   exports.AddPoiRequestBody = AddPoiRequestBody;
    exports.AddSensorModelRequest = AddSensorModelRequest;
    exports.AddSensorModelsRequest = AddSensorModelsRequest;
    exports.Agent = Agent;
@@ -16592,6 +16776,8 @@
    exports.GeoService = GeoService;
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
+   exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
+   exports.GetPoiFromImageRequestBody = GetPoiFromImageRequestBody;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;
@@ -16608,6 +16794,7 @@
    exports.HealthThresholds = HealthThresholds;
    exports.HeatmapCell = HeatmapCell;
    exports.HeatmapRow = HeatmapRow;
+   exports.IdentifiedPoiFromImage = IdentifiedPoiFromImage;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
    exports.IntegrationActionFilter = IntegrationActionFilter;
@@ -16660,6 +16847,8 @@
    exports.OnvifChannel = OnvifChannel;
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
+   exports.PersonRecognitionService = PersonRecognitionService;
+   exports.PoiBoundingBox = PoiBoundingBox;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16715,6 +16904,9 @@
    exports.ReportsServiceRulesSchedulesRequest = ReportsServiceRulesSchedulesRequest;
    exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
    exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
+   exports.ResponseOfAddPoi = ResponseOfAddPoi;
+   exports.ResponseOfSearchForPoiFromImage = ResponseOfSearchForPoiFromImage;
+   exports.ResponseOfStaticWatchlist = ResponseOfStaticWatchlist;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;
    exports.RuleDefault = RuleDefault;
@@ -16732,7 +16924,6 @@
    exports.RulesServicePauseRequest = RulesServicePauseRequest;
    exports.RulesServiceResumeRequest = RulesServiceResumeRequest;
    exports.RulesServiceUpdateRequest = RulesServiceUpdateRequest;
-   exports.RulesServiceUpdateScheduleForRulesRequest = RulesServiceUpdateScheduleForRulesRequest;
    exports.SSHInfo = SSHInfo;
    exports.SSHSocketCloseRequest = SSHSocketCloseRequest;
    exports.SSHSocketInputRequest = SSHSocketInputRequest;
@@ -16804,6 +16995,7 @@
    exports.SensorUsageReport = SensorUsageReport;
    exports.SensorUsageReportRequest = SensorUsageReportRequest;
    exports.SensorsCountRequest = SensorsCountRequest;
+   exports.SensorsFetchObjectsCropsRequest = SensorsFetchObjectsCropsRequest;
    exports.SensorsGroup = SensorsGroup;
    exports.SensorsService = SensorsService;
    exports.SensorsServiceAttachRequest = SensorsServiceAttachRequest;
@@ -16833,6 +17025,8 @@
    exports.SocketEventsFilter = SocketEventsFilter;
    exports.SocketEventsFilterPayload = SocketEventsFilterPayload;
    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
+   exports.StaticWatchlist = StaticWatchlist;
+   exports.StaticWatchlistIdRequest = StaticWatchlistIdRequest;
    exports.StatisticReport = StatisticReport;
    exports.StreamResponse = StreamResponse;
    exports.StringIntValue = StringIntValue;
@@ -16907,7 +17101,6 @@
    exports.TreeNode = TreeNode;
    exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
    exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
-   exports.UpdateScheduleForRules = UpdateScheduleForRules;
    exports.UpdateStatus = UpdateStatus;
    exports.UsageReport = UsageReport;
    exports.UsageReportRequest = UsageReportRequest;
