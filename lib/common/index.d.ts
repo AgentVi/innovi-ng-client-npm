@@ -62,6 +62,7 @@ export * from './Point';
 export * from './Recurrent';
 export * from './RecurrentTimeFrame';
 export * from './RuleDefault';
+export * from './RuleDefaultSensitivity';
 export * from './RulePolygon';
 export * from './RuleSpec';
 export * from './SearchBehavior';
