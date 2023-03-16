@@ -4259,6 +4259,49 @@
    })(exports.SeverityTypeCode || (exports.SeverityTypeCode = {}));
 
    /*
+      Websocket client op codes
+   */
+   exports.SocketOpCode = void 0;
+   (function (SocketOpCode) {
+       // Undefined [0] 
+       SocketOpCode[SocketOpCode["Undefined"] = 0] = "Undefined";
+       // Entity change notification on add [1] 
+       SocketOpCode[SocketOpCode["EntitiesAdd"] = 1] = "EntitiesAdd";
+       // Entity change notification on update [2] 
+       SocketOpCode[SocketOpCode["EntitiesUpdate"] = 2] = "EntitiesUpdate";
+       // Entity change notification on delete [3] 
+       SocketOpCode[SocketOpCode["EntitiesDelete"] = 3] = "EntitiesDelete";
+       // Request entities change notification for account [100] 
+       SocketOpCode[SocketOpCode["EntitiesRequest"] = 100] = "EntitiesRequest";
+       // Request live video streaming [1010] 
+       SocketOpCode[SocketOpCode["LiveRequest"] = 1010] = "LiveRequest";
+       // Request playback video frames [1020] 
+       SocketOpCode[SocketOpCode["PlaybackRequest"] = 1020] = "PlaybackRequest";
+       // Request pause video frame (renew session) [1021] 
+       SocketOpCode[SocketOpCode["PauseRequest"] = 1021] = "PauseRequest";
+       // Request for events stream (including filters) [1030] 
+       SocketOpCode[SocketOpCode["EventsRequest"] = 1030] = "EventsRequest";
+       // Event notification [1031] 
+       SocketOpCode[SocketOpCode["EventNotification"] = 1031] = "EventNotification";
+       // Health event notification [1032] 
+       SocketOpCode[SocketOpCode["HealthEventNotification"] = 1032] = "HealthEventNotification";
+       // Closed health event notification [1033] 
+       SocketOpCode[SocketOpCode["ClosedHealthEventNotification"] = 1033] = "ClosedHealthEventNotification";
+       // Request for health status stream [1040] 
+       SocketOpCode[SocketOpCode["HealthRequest"] = 1040] = "HealthRequest";
+       // Health status notification [1041] 
+       SocketOpCode[SocketOpCode["HealthNotification"] = 1041] = "HealthNotification";
+       // SSH open connection request [1101] 
+       SocketOpCode[SocketOpCode["SSHOpen"] = 1101] = "SSHOpen";
+       // SSH close connection request [1102] 
+       SocketOpCode[SocketOpCode["SSHClose"] = 1102] = "SSHClose";
+       // SSH send input request [1103] 
+       SocketOpCode[SocketOpCode["SSHInput"] = 1103] = "SSHInput";
+       // SSH output response [1104] 
+       SocketOpCode[SocketOpCode["SSHOutput"] = 1104] = "SSHOutput";
+   })(exports.SocketOpCode || (exports.SocketOpCode = {}));
+
+   /*
       Video stream type (source) code
    */
    exports.StreamTypeCode = void 0;
@@ -16226,13 +16269,15 @@
       Payload for events filter socket message
    */
    var SocketEventsFilterPayload = /** @class */ (function () {
-       function SocketEventsFilterPayload(sensorIds, extSensorIds, ruleIds, extRuleIds, objectTypes, behaviorTypes) {
+       function SocketEventsFilterPayload(sensorIds, extSensorIds, ruleIds, extRuleIds, objectTypes, behaviorTypes, severityTypes, eventStatusCodes) {
            this.sensorIds = sensorIds;
            this.extSensorIds = extSensorIds;
            this.ruleIds = ruleIds;
            this.extRuleIds = extRuleIds;
            this.objectTypes = objectTypes;
            this.behaviorTypes = behaviorTypes;
+           this.severityTypes = severityTypes;
+           this.eventStatusCodes = eventStatusCodes;
        }
        return SocketEventsFilterPayload;
    }());

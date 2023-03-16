@@ -1,6 +1,7 @@
+import { SocketOpCode } from '../enums/SocketOpCode';
 import { SocketEventNotificationPayload } from '../sockets/SocketEventNotificationPayload';
 export declare class SocketEventNotification {
-    op: number;
+    op: SocketOpCode;
     payload: SocketEventNotificationPayload;
-    constructor(op?: number, payload?: SocketEventNotificationPayload);
+    constructor(op?: SocketOpCode, payload?: SocketEventNotificationPayload);
 }

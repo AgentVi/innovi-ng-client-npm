@@ -1,5 +1,6 @@
+import { SocketOpCode } from '../enums/SocketOpCode';
 export declare class SSHSocketCloseRequest {
-    op: number;
+    op: SocketOpCode;
     payload: string;
-    constructor(op?: number, payload?: string);
+    constructor(op?: SocketOpCode, payload?: string);
 }

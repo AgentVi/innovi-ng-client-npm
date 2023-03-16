@@ -1,6 +1,7 @@
+import { SocketOpCode } from '../enums/SocketOpCode';
 export declare class SSHSocketOutputResponse {
-    op: number;
+    op: SocketOpCode;
     error: string;
     payload: string;
-    constructor(op?: number, error?: string, payload?: string);
+    constructor(op?: SocketOpCode, error?: string, payload?: string);
 }

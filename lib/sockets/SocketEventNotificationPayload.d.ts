@@ -1,7 +1,8 @@
+import { SocketOpCode } from '../enums/SocketOpCode';
 import { Event } from '../entities/Event';
 export declare class SocketEventNotificationPayload {
-    code: number;
+    code: SocketOpCode;
     error: string;
     event: Event;
-    constructor(code?: number, error?: string, event?: Event);
+    constructor(code?: SocketOpCode, error?: string, event?: Event);
 }

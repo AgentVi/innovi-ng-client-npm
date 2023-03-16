@@ -1,6 +1,7 @@
+import { SocketOpCode } from '../enums/SocketOpCode';
 import { SocketEntityChangeFilterPayload } from '../sockets/SocketEntityChangeFilterPayload';
 export declare class SocketEntityChangeFilter {
-    op: number;
+    op: SocketOpCode;
     payload: SocketEntityChangeFilterPayload;
-    constructor(op?: number, payload?: SocketEntityChangeFilterPayload);
+    constructor(op?: SocketOpCode, payload?: SocketEntityChangeFilterPayload);
 }

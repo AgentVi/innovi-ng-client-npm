@@ -45,6 +45,7 @@ export * from './SensorStateMask';
 export * from './SensorStatusCode';
 export * from './SensorTypeCode';
 export * from './SeverityTypeCode';
+export * from './SocketOpCode';
 export * from './StreamTypeCode';
 export * from './TimeUnitCode';
 export * from './TransformationTypeCode';
