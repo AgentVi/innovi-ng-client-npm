@@ -2783,6 +2783,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
        // 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
+       // 65861 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY"] = 65861] = "INNOVI_AREA_OCCUPANCY";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3675,6 +3677,8 @@
        FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
        // Count statistics rule [3072] 
        FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
+       // Area count statistics rule [3073] 
+       FeatureCode[FeatureCode["RULE_AREA_COUNT_STATISTICS"] = 3073] = "RULE_AREA_COUNT_STATISTICS";
        // Monitor (real time events) module [4096] 
        FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
        // Google maps support module [4097] 
