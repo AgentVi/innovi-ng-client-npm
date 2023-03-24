@@ -2783,7 +2783,7 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
        // 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
-       // 65861 
+       // Area Occupancy 65861 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY"] = 65861] = "INNOVI_AREA_OCCUPANCY";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
@@ -4004,6 +4004,8 @@
        ReportTypeCode[ReportTypeCode["PEOPLE_COUNTING_ANALYSIS"] = 3] = "PEOPLE_COUNTING_ANALYSIS";
        // Traffic analysis [4] 
        ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
+       // Area counting analysis [5] 
+       ReportTypeCode[ReportTypeCode["AREA_COUNTING_ANALYSIS"] = 5] = "AREA_COUNTING_ANALYSIS";
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
 
    /*
