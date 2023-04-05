@@ -4,5 +4,5 @@ export declare enum ReportTypeCode {
     HEALTH_EVENTS = 2,
     PEOPLE_COUNTING_ANALYSIS = 3,
     TRAFFIC_ANALYSIS = 4,
-    AREA_OCCUPANCY_ANALYSIS = 5
+    AREA_COUNTING_ANALYSIS = 5
 }
