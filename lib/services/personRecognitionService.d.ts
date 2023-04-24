@@ -1,10 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import { DeleteStaticWatchlistRequestBody } from '../messages/DeleteStaticWatchlistRequestBody';
 import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
 import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
+import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
+import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
 import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
+import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -56,6 +58,16 @@ export declare class PersonRecognitionService {
      * @Return: ResponseOfPoi
      */
     searchForPoiFromImage(body?: GetPoiFromImageRequestBody): import("rxjs").Observable<any>;
+    /**
+     * Add Poi to static watchlist.
+     * @Return: AddPoiToStaticWatchListResponse
+     */
+    addPoiToWatchlist(body?: AddPoiToStaticWatchListRequestBody): import("rxjs").Observable<any>;
+    /**
+     * Remove Poi from static watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
+     * @Return: RemovePoiFromStaticWatchListResponse
+     */
+    removePoiFromWatchlist(body?: RemovePoiFromStaticWatchListRequestBody): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<PersonRecognitionService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PersonRecognitionService>;
 }
