@@ -1,10 +1,10 @@
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { Sensitivity } from '../common/Sensitivity';
 import { RulePolygon } from '../common/RulePolygon';
 import { RuleAutoSensitivityCode } from '../enums/RuleAutoSensitivityCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 export declare class Rule extends BaseEntity {
     accountId: string;
     sensorId: string;
@@ -33,6 +33,8 @@ export declare class Rule extends BaseEntity {
     externalModel: string;
     excludeObjectTypes: ObjectTypeCode[];
     autoSensitivity: RuleAutoSensitivityCode;
+    existsInWatchlist: boolean;
+    watchlistId: string[];
     id: string;
     _type: string;
     createdOn: number;
