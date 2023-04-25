@@ -6997,20 +6997,11 @@
 
    /*
    */
-   var GetPoiRequest = /** @class */ (function () {
-       function GetPoiRequest(body) {
-           this.body = body;
+   var GetPoiIdRequest = /** @class */ (function () {
+       function GetPoiIdRequest(id) {
+           this.id = id;
        }
-       return GetPoiRequest;
-   }());
-
-   /*
-   */
-   var GetPoiRequestBody = /** @class */ (function () {
-       function GetPoiRequestBody(iD) {
-           this.iD = iD;
-       }
-       return GetPoiRequestBody;
+       return GetPoiIdRequest;
    }());
 
    /*
@@ -12477,8 +12468,8 @@
         * Get a POI
         * @Return: ResponseGetPoi
         */
-       PersonRecognitionService.prototype.getPoi = function () {
-           return this.rest.get(this.baseUrl + "/poi/{id}");
+       PersonRecognitionService.prototype.getPoi = function (id) {
+           return this.rest.get(this.baseUrl + "/poi/" + id);
        };
        /**
         * Searches the system for POIs matching the provided image in _all_ watchlists.
@@ -17129,8 +17120,7 @@
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
    exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
    exports.GetPoiFromImageRequestBody = GetPoiFromImageRequestBody;
-   exports.GetPoiRequest = GetPoiRequest;
-   exports.GetPoiRequestBody = GetPoiRequestBody;
+   exports.GetPoiIdRequest = GetPoiIdRequest;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;

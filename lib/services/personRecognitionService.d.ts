@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
+import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
 import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
 import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
 import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import { DeleteStaticWatchlistRequestBody } from '../messages/DeleteStaticWatchlistRequestBody';
-import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
-import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -57,7 +57,7 @@ export declare class PersonRecognitionService {
      * Get a POI
      * @Return: ResponseGetPoi
      */
-    getPoi(): import("rxjs").Observable<any>;
+    getPoi(id?: string): import("rxjs").Observable<any>;
     /**
      * Searches the system for POIs matching the provided image in _all_ watchlists.
      * @Return: ResponseOfPoi
