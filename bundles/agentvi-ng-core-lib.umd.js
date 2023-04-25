@@ -928,7 +928,7 @@
       Rule specification describe rule parameters
    */
    var RuleSpec = /** @class */ (function () {
-       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
+       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity) {
            this.behaviorType = behaviorType;
            this.ruleTypeName = ruleTypeName;
            this.objectTypes = objectTypes;
@@ -946,7 +946,6 @@
            this.excludeObjectTypes = excludeObjectTypes;
            this.autoSensitivity = autoSensitivity;
            this.sensitivity = sensitivity;
-           this.existsInWatchlist = existsInWatchlist;
        }
        return RuleSpec;
    }());
@@ -2782,9 +2781,7 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
        // Smoke and Fire 67585 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
-       // Face Present 67586 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
-       // Slip and Fall 65860 
+       // 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
        // Area Occupancy 65861 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY"] = 65861] = "INNOVI_AREA_OCCUPANCY";
@@ -3602,18 +3599,6 @@
        ErrorCode[ErrorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
        // Search service response error 
        ErrorCode[ErrorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
-       // General error when a request to Corsight failed 
-       ErrorCode[ErrorCode["CorsightRequestFailed"] = 30100] = "CorsightRequestFailed";
-       // Corsight DetectFaces call failed 
-       ErrorCode[ErrorCode["CorsightDetectFacesFailed"] = 30110] = "CorsightDetectFacesFailed";
-       // Corsight DetectFaces did not find any faces 
-       ErrorCode[ErrorCode["CorsightNoFacesDetected"] = 30111] = "CorsightNoFacesDetected";
-       // Corsight AnalyzeFace failed 
-       ErrorCode[ErrorCode["CorsightAnalyzeFaceFailed"] = 30120] = "CorsightAnalyzeFaceFailed";
-       // Corsight failed to create a new POI 
-       ErrorCode[ErrorCode["CorsightCreatePoiFailed"] = 30130] = "CorsightCreatePoiFailed";
-       // Corsight failed to find a specific POI, or a POI matching an image 
-       ErrorCode[ErrorCode["CorsightNoPoiFound"] = 30131] = "CorsightNoPoiFound";
    })(exports.ErrorCode || (exports.ErrorCode = {}));
 
    /*
@@ -4683,57 +4668,6 @@
 
    /*
    */
-   var AddPoiRequest = /** @class */ (function () {
-       function AddPoiRequest(body) {
-           this.body = body;
-       }
-       return AddPoiRequest;
-   }());
-
-   /*
-   */
-   var AddPoiRequestBody = /** @class */ (function () {
-       function AddPoiRequestBody(base64EncodedJpeg, name, ttl, poiId) {
-           this.base64EncodedJpeg = base64EncodedJpeg;
-           this.name = name;
-           this.ttl = ttl;
-           this.poiId = poiId;
-       }
-       return AddPoiRequestBody;
-   }());
-
-   /*
-   */
-   var AddPoiToStaticWatchListRequest = /** @class */ (function () {
-       function AddPoiToStaticWatchListRequest(body) {
-           this.body = body;
-       }
-       return AddPoiToStaticWatchListRequest;
-   }());
-
-   /*
-   */
-   var AddPoiToStaticWatchListRequestBody = /** @class */ (function () {
-       function AddPoiToStaticWatchListRequestBody(watchlistID, base64EncodedJpeg, name) {
-           this.watchlistID = watchlistID;
-           this.base64EncodedJpeg = base64EncodedJpeg;
-           this.name = name;
-       }
-       return AddPoiToStaticWatchListRequestBody;
-   }());
-
-   /*
-   */
-   var AddPoiToStaticWatchListResponse = /** @class */ (function () {
-       function AddPoiToStaticWatchListResponse(code, poiIdAdded) {
-           this.code = code;
-           this.poiIdAdded = poiIdAdded;
-       }
-       return AddPoiToStaticWatchListResponse;
-   }());
-
-   /*
-   */
    var AddSensorModelRequest = /** @class */ (function () {
        function AddSensorModelRequest(id, modelId) {
            this.id = id;
@@ -5436,43 +5370,6 @@
            this.versionId = versionId;
        }
        return ConfigurationVersionIdRequest;
-   }());
-
-   /*
-   */
-   var CreateStaticWatchlistRequest = /** @class */ (function () {
-       function CreateStaticWatchlistRequest(body) {
-           this.body = body;
-       }
-       return CreateStaticWatchlistRequest;
-   }());
-
-   /*
-   */
-   var CreateStaticWatchlistRequestBody = /** @class */ (function () {
-       function CreateStaticWatchlistRequestBody(name, isWhitelist) {
-           this.name = name;
-           this.isWhitelist = isWhitelist;
-       }
-       return CreateStaticWatchlistRequestBody;
-   }());
-
-   /*
-   */
-   var DeleteStaticWatchlistRequest = /** @class */ (function () {
-       function DeleteStaticWatchlistRequest(body) {
-           this.body = body;
-       }
-       return DeleteStaticWatchlistRequest;
-   }());
-
-   /*
-   */
-   var DeleteStaticWatchlistRequestBody = /** @class */ (function () {
-       function DeleteStaticWatchlistRequestBody(iD) {
-           this.iD = iD;
-       }
-       return DeleteStaticWatchlistRequestBody;
    }());
 
    /*
@@ -6979,24 +6876,6 @@
 
    /*
    */
-   var GetPoiFromImageRequest = /** @class */ (function () {
-       function GetPoiFromImageRequest(body) {
-           this.body = body;
-       }
-       return GetPoiFromImageRequest;
-   }());
-
-   /*
-   */
-   var GetPoiFromImageRequestBody = /** @class */ (function () {
-       function GetPoiFromImageRequestBody(base64EncodedJpeg) {
-           this.base64EncodedJpeg = base64EncodedJpeg;
-       }
-       return GetPoiFromImageRequestBody;
-   }());
-
-   /*
-   */
    var GroupIdRequest = /** @class */ (function () {
        function GroupIdRequest(id) {
            this.id = id;
@@ -7068,18 +6947,6 @@
            this.id = id;
        }
        return HealthEventIdRequest;
-   }());
-
-   /*
-   */
-   var IdentifiedPoiFromImage = /** @class */ (function () {
-       function IdentifiedPoiFromImage(poiId, displayName, score, boundingBox) {
-           this.poiId = poiId;
-           this.displayName = displayName;
-           this.score = score;
-           this.boundingBox = boundingBox;
-       }
-       return IdentifiedPoiFromImage;
    }());
 
    /*
@@ -7323,16 +7190,6 @@
 
    /*
    */
-   var POIMinimalResponse = /** @class */ (function () {
-       function POIMinimalResponse(iD, name) {
-           this.iD = iD;
-           this.name = name;
-       }
-       return POIMinimalResponse;
-   }());
-
-   /*
-   */
    var PeopleCountingReportRequest = /** @class */ (function () {
        function PeopleCountingReportRequest(sensorId, folderId, from, to) {
            this.sensorId = sensorId;
@@ -7341,18 +7198,6 @@
            this.to = to;
        }
        return PeopleCountingReportRequest;
-   }());
-
-   /*
-   */
-   var PoiBoundingBox = /** @class */ (function () {
-       function PoiBoundingBox(maxX, maxY, minX, minY) {
-           this.maxX = maxX;
-           this.maxY = maxY;
-           this.minX = minX;
-           this.minY = minY;
-       }
-       return PoiBoundingBox;
    }());
 
    /*
@@ -7713,34 +7558,6 @@
 
    /*
    */
-   var RemovePoiFromStaticWatchListRequest = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListRequest(body) {
-           this.body = body;
-       }
-       return RemovePoiFromStaticWatchListRequest;
-   }());
-
-   /*
-   */
-   var RemovePoiFromStaticWatchListRequestBody = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListRequestBody(poiID, watchlistID) {
-           this.poiID = poiID;
-           this.watchlistID = watchlistID;
-       }
-       return RemovePoiFromStaticWatchListRequestBody;
-   }());
-
-   /*
-   */
-   var RemovePoiFromStaticWatchListResponse = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListResponse(code) {
-           this.code = code;
-       }
-       return RemovePoiFromStaticWatchListResponse;
-   }());
-
-   /*
-   */
    var RemoveSensorModelRequest = /** @class */ (function () {
        function RemoveSensorModelRequest(id, modelId) {
            this.id = id;
@@ -7867,57 +7684,6 @@
            this.body = body;
        }
        return ReportsServiceUpdateRequest;
-   }());
-
-   /*
-   */
-   var ResponseDeleteStaticWatchlist = /** @class */ (function () {
-       function ResponseDeleteStaticWatchlist(code) {
-           this.code = code;
-       }
-       return ResponseDeleteStaticWatchlist;
-   }());
-
-   /*
-   */
-   var ResponseOfAddPoi = /** @class */ (function () {
-       function ResponseOfAddPoi(code, name, poiId, expireAt) {
-           this.code = code;
-           this.name = name;
-           this.poiId = poiId;
-           this.expireAt = expireAt;
-       }
-       return ResponseOfAddPoi;
-   }());
-
-   /*
-   */
-   var ResponseOfSearchForPoiFromImage = /** @class */ (function () {
-       function ResponseOfSearchForPoiFromImage(code, poi) {
-           this.code = code;
-           this.poi = poi;
-       }
-       return ResponseOfSearchForPoiFromImage;
-   }());
-
-   /*
-   */
-   var ResponseOfStaticWatchlist = /** @class */ (function () {
-       function ResponseOfStaticWatchlist(code, watchlist) {
-           this.code = code;
-           this.watchlist = watchlist;
-       }
-       return ResponseOfStaticWatchlist;
-   }());
-
-   /*
-   */
-   var ResponseOfStaticWatchlists = /** @class */ (function () {
-       function ResponseOfStaticWatchlists(code, watchlists) {
-           this.code = code;
-           this.watchlists = watchlists;
-       }
-       return ResponseOfStaticWatchlists;
    }());
 
    /*
@@ -8461,18 +8227,6 @@
 
    /*
    */
-   var SensorsFetchObjectsCropsRequest = /** @class */ (function () {
-       function SensorsFetchObjectsCropsRequest(id, ts, objectId, bucketFolder) {
-           this.id = id;
-           this.ts = ts;
-           this.objectId = objectId;
-           this.bucketFolder = bucketFolder;
-       }
-       return SensorsFetchObjectsCropsRequest;
-   }());
-
-   /*
-   */
    var SensorsServiceAttachRequest = /** @class */ (function () {
        function SensorsServiceAttachRequest(id, applianceId) {
            this.id = id;
@@ -8646,40 +8400,6 @@
            this.body = body;
        }
        return SensorsServiceUpdateRequest;
-   }());
-
-   /*
-   */
-   var StaticWatchlist = /** @class */ (function () {
-       function StaticWatchlist(iD, name, type, totalPOIs) {
-           this.iD = iD;
-           this.name = name;
-           this.type = type;
-           this.totalPOIs = totalPOIs;
-       }
-       return StaticWatchlist;
-   }());
-
-   /*
-   */
-   var StaticWatchlistIdRequest = /** @class */ (function () {
-       function StaticWatchlistIdRequest(id) {
-           this.id = id;
-       }
-       return StaticWatchlistIdRequest;
-   }());
-
-   /*
-   */
-   var StaticWatchlistWithPOIs = /** @class */ (function () {
-       function StaticWatchlistWithPOIs(iD, name, type, totalPOIs, pOIs) {
-           this.iD = iD;
-           this.name = name;
-           this.type = type;
-           this.totalPOIs = totalPOIs;
-           this.pOIs = pOIs;
-       }
-       return StaticWatchlistWithPOIs;
    }());
 
    /*
@@ -9232,26 +8952,6 @@
            this.entityState = entityState;
        }
        return TriggerTestHealthEventRequestBody;
-   }());
-
-   /*
-   */
-   var UpdateStaticWatchlistRequest = /** @class */ (function () {
-       function UpdateStaticWatchlistRequest(body) {
-           this.body = body;
-       }
-       return UpdateStaticWatchlistRequest;
-   }());
-
-   /*
-   */
-   var UpdateStaticWatchlistRequestBody = /** @class */ (function () {
-       function UpdateStaticWatchlistRequestBody(iD, name, isWhitelist) {
-           this.iD = iD;
-           this.name = name;
-           this.isWhitelist = isWhitelist;
-       }
-       return UpdateStaticWatchlistRequestBody;
    }());
 
    /*
@@ -12375,102 +12075,6 @@
    })();
 
    /**
-    * List of Person Recognition Services
-    * @RequestHeader X-API-KEY The key to identify the application (portal)
-    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
-    */
-   var PersonRecognitionService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function PersonRecognitionService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/person-recognition';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Get watchlist
-        * @Return: ResponseOfStaticWatchlist
-        */
-       PersonRecognitionService.prototype.getWatchlist = function (id) {
-           return this.rest.get(this.baseUrl + "/watchlist/" + id);
-       };
-       /**
-        * List system watchlists
-        * @Return: ResponseOfStaticWatchlists
-        */
-       PersonRecognitionService.prototype.getWatchlists = function (id) {
-           return this.rest.get(this.baseUrl + "/watchlist");
-       };
-       /**
-        * Create static watchlist
-        * @Return: ResponseOfStaticWatchlist
-        */
-       PersonRecognitionService.prototype.createStaticWatchList = function (body) {
-           return this.rest.post(this.baseUrl + "/watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Update static watchlist
-        * @Return: ResponseOfStaticWatchlist
-        */
-       PersonRecognitionService.prototype.updateStaticWatchList = function (body) {
-           return this.rest.put(this.baseUrl + "/watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Delete static watchlist
-        * @Return: ResponseOfStaticWatchlist
-        */
-       PersonRecognitionService.prototype.deleteStaticWatchList = function (body) {
-           return this.rest.delete(this.baseUrl + "/watchlist");
-       };
-       /**
-        * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
-        * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
-        * If PoiId is not empty, then it must match the ID of an already existing POI.
-        * @Return: ResponseOfPoi
-        */
-       PersonRecognitionService.prototype.dynamicPoi = function (body) {
-           return this.rest.post(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Searches the system for POIs matching the provided image in _all_ watchlists.
-        * @Return: ResponseOfPoi
-        */
-       PersonRecognitionService.prototype.searchForPoiFromImage = function (body) {
-           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Add Poi to static watchlist.
-        * @Return: AddPoiToStaticWatchListResponse
-        */
-       PersonRecognitionService.prototype.addPoiToWatchlist = function (body) {
-           return this.rest.post(this.baseUrl + "/watchlist/add-poi", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Remove Poi from static watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
-        * @Return: RemovePoiFromStaticWatchListResponse
-        */
-       PersonRecognitionService.prototype.removePoiFromWatchlist = function (body) {
-           return this.rest.post(this.baseUrl + "/watchlist/remove-poi", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       return PersonRecognitionService;
-   }());
-   /** @nocollapse */ PersonRecognitionService.ɵfac = function PersonRecognitionService_Factory(t) { return new (t || PersonRecognitionService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ PersonRecognitionService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: PersonRecognitionService, factory: PersonRecognitionService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(PersonRecognitionService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
     * Services for reports definition actions
     * @RequestHeader X-API-KEY The key to identify the application (portal)
     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -13802,24 +13406,6 @@
         */
        SensorsService.prototype.cropImage = function (id, body) {
            return this.rest.post(this.baseUrl + "/" + id + "/crop", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Collect object crops from agents based on the query parameters
-        * @Return: ActionResponse
-        */
-       SensorsService.prototype.fetchObjectCrops = function (id, ts, objectId, bucketFolder) {
-           var _a;
-           var params = new Array();
-           if (ts != null) {
-               params.push("ts=" + ts);
-           }
-           if (objectId != null) {
-               params.push("objectId=" + objectId);
-           }
-           if (bucketFolder != null) {
-               params.push("bucketFolder=" + bucketFolder);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/fetch-objects-crops", null], __read(params)));
        };
        /**
         * Get default geo location
@@ -16500,7 +16086,6 @@
        HealthEventsService,
        IntegrationsService,
        MembersService,
-       PersonRecognitionService,
        ReportsService,
        RulesService,
        ScheduledReportsService,
@@ -16777,11 +16362,6 @@
    exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
    exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
    exports.ActionResponse = ActionResponse;
-   exports.AddPoiRequest = AddPoiRequest;
-   exports.AddPoiRequestBody = AddPoiRequestBody;
-   exports.AddPoiToStaticWatchListRequest = AddPoiToStaticWatchListRequest;
-   exports.AddPoiToStaticWatchListRequestBody = AddPoiToStaticWatchListRequestBody;
-   exports.AddPoiToStaticWatchListResponse = AddPoiToStaticWatchListResponse;
    exports.AddSensorModelRequest = AddSensorModelRequest;
    exports.AddSensorModelsRequest = AddSensorModelsRequest;
    exports.Agent = Agent;
@@ -16894,10 +16474,6 @@
    exports.Coordinate = Coordinate;
    exports.CoreConfig = CoreConfig;
    exports.CoreLibModule = CoreLibModule;
-   exports.CreateStaticWatchlistRequest = CreateStaticWatchlistRequest;
-   exports.CreateStaticWatchlistRequestBody = CreateStaticWatchlistRequestBody;
-   exports.DeleteStaticWatchlistRequest = DeleteStaticWatchlistRequest;
-   exports.DeleteStaticWatchlistRequestBody = DeleteStaticWatchlistRequestBody;
    exports.DetectionModel = DetectionModel;
    exports.DetectionModelIdRequest = DetectionModelIdRequest;
    exports.DigitalIO = DigitalIO;
@@ -17081,8 +16657,6 @@
    exports.GeoService = GeoService;
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
-   exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
-   exports.GetPoiFromImageRequestBody = GetPoiFromImageRequestBody;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;
@@ -17099,7 +16673,6 @@
    exports.HealthThresholds = HealthThresholds;
    exports.HeatmapCell = HeatmapCell;
    exports.HeatmapRow = HeatmapRow;
-   exports.IdentifiedPoiFromImage = IdentifiedPoiFromImage;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
    exports.IntegrationActionFilter = IntegrationActionFilter;
@@ -17150,11 +16723,8 @@
    exports.ObjectTypeReport = ObjectTypeReport;
    exports.ObjectsPath = ObjectsPath;
    exports.OnvifChannel = OnvifChannel;
-   exports.POIMinimalResponse = POIMinimalResponse;
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
-   exports.PersonRecognitionService = PersonRecognitionService;
-   exports.PoiBoundingBox = PoiBoundingBox;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -17195,9 +16765,6 @@
    exports.Recurrent = Recurrent;
    exports.RecurrentTimeFrame = RecurrentTimeFrame;
    exports.RegisterServiceAccountRequest = RegisterServiceAccountRequest;
-   exports.RemovePoiFromStaticWatchListRequest = RemovePoiFromStaticWatchListRequest;
-   exports.RemovePoiFromStaticWatchListRequestBody = RemovePoiFromStaticWatchListRequestBody;
-   exports.RemovePoiFromStaticWatchListResponse = RemovePoiFromStaticWatchListResponse;
    exports.RemoveSensorModelRequest = RemoveSensorModelRequest;
    exports.RemoveSensorModelsRequest = RemoveSensorModelsRequest;
    exports.ReportDefinition = ReportDefinition;
@@ -17213,11 +16780,6 @@
    exports.ReportsServiceRulesSchedulesRequest = ReportsServiceRulesSchedulesRequest;
    exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
    exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
-   exports.ResponseDeleteStaticWatchlist = ResponseDeleteStaticWatchlist;
-   exports.ResponseOfAddPoi = ResponseOfAddPoi;
-   exports.ResponseOfSearchForPoiFromImage = ResponseOfSearchForPoiFromImage;
-   exports.ResponseOfStaticWatchlist = ResponseOfStaticWatchlist;
-   exports.ResponseOfStaticWatchlists = ResponseOfStaticWatchlists;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;
    exports.RuleDefault = RuleDefault;
@@ -17308,7 +16870,6 @@
    exports.SensorUsageReport = SensorUsageReport;
    exports.SensorUsageReportRequest = SensorUsageReportRequest;
    exports.SensorsCountRequest = SensorsCountRequest;
-   exports.SensorsFetchObjectsCropsRequest = SensorsFetchObjectsCropsRequest;
    exports.SensorsGroup = SensorsGroup;
    exports.SensorsService = SensorsService;
    exports.SensorsServiceAttachRequest = SensorsServiceAttachRequest;
@@ -17338,9 +16899,6 @@
    exports.SocketEventsFilter = SocketEventsFilter;
    exports.SocketEventsFilterPayload = SocketEventsFilterPayload;
    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
-   exports.StaticWatchlist = StaticWatchlist;
-   exports.StaticWatchlistIdRequest = StaticWatchlistIdRequest;
-   exports.StaticWatchlistWithPOIs = StaticWatchlistWithPOIs;
    exports.StatisticReport = StatisticReport;
    exports.StreamResponse = StreamResponse;
    exports.StringIntValue = StringIntValue;
@@ -17416,8 +16974,6 @@
    exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
    exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
    exports.UpdateScheduleForRules = UpdateScheduleForRules;
-   exports.UpdateStaticWatchlistRequest = UpdateStaticWatchlistRequest;
-   exports.UpdateStaticWatchlistRequestBody = UpdateStaticWatchlistRequestBody;
    exports.UpdateStatus = UpdateStatus;
    exports.UsageReport = UsageReport;
    exports.UsageReportRequest = UsageReportRequest;
