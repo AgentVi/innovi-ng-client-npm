@@ -7952,6 +7952,16 @@
 
    /*
    */
+   var ResponseUpdatePoi = /** @class */ (function () {
+       function ResponseUpdatePoi(code, pOI) {
+           this.code = code;
+           this.pOI = pOI;
+       }
+       return ResponseUpdatePoi;
+   }());
+
+   /*
+   */
    var RuleExtIdsRequest = /** @class */ (function () {
        function RuleExtIdsRequest(id) {
            this.id = id;
@@ -9262,6 +9272,26 @@
            this.entityState = entityState;
        }
        return TriggerTestHealthEventRequestBody;
+   }());
+
+   /*
+   */
+   var UpdatePoiRequest = /** @class */ (function () {
+       function UpdatePoiRequest(body) {
+           this.body = body;
+       }
+       return UpdatePoiRequest;
+   }());
+
+   /*
+   */
+   var UpdatePoiRequestBody = /** @class */ (function () {
+       function UpdatePoiRequestBody(id, name, base64EncodedJpeg) {
+           this.id = id;
+           this.name = name;
+           this.base64EncodedJpeg = base64EncodedJpeg;
+       }
+       return UpdatePoiRequestBody;
    }());
 
    /*
@@ -12470,6 +12500,13 @@
         */
        PersonRecognitionService.prototype.getPoi = function (id) {
            return this.rest.get(this.baseUrl + "/poi/" + id);
+       };
+       /**
+        * Get a POI
+        * @Return: ResponseGetPoi
+        */
+       PersonRecognitionService.prototype.updatePoi = function (body) {
+           return this.rest.put(this.baseUrl + "/poi", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Searches the system for POIs matching the provided image in _all_ watchlists.
@@ -17258,6 +17295,7 @@
    exports.ResponseOfStaticWatchlist = ResponseOfStaticWatchlist;
    exports.ResponseOfStaticWatchlists = ResponseOfStaticWatchlists;
    exports.ResponsePoi = ResponsePoi;
+   exports.ResponseUpdatePoi = ResponseUpdatePoi;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;
    exports.RuleDefault = RuleDefault;
@@ -17455,6 +17493,8 @@
    exports.TreeNode = TreeNode;
    exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
    exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
+   exports.UpdatePoiRequest = UpdatePoiRequest;
+   exports.UpdatePoiRequestBody = UpdatePoiRequestBody;
    exports.UpdateScheduleForRules = UpdateScheduleForRules;
    exports.UpdateStaticWatchlistRequest = UpdateStaticWatchlistRequest;
    exports.UpdateStaticWatchlistRequestBody = UpdateStaticWatchlistRequestBody;
