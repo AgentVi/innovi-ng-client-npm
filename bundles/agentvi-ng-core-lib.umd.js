@@ -7942,10 +7942,11 @@
    /*
    */
    var ResponsePoi = /** @class */ (function () {
-       function ResponsePoi(id, name, base64EncodedImage) {
+       function ResponsePoi(id, name, base64EncodedImage, watchlists) {
            this.id = id;
            this.name = name;
            this.base64EncodedImage = base64EncodedImage;
+           this.watchlists = watchlists;
        }
        return ResponsePoi;
    }());
