@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
-import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
-import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import { DeleteStaticWatchlistRequestBody } from '../messages/DeleteStaticWatchlistRequestBody';
 import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
 import { UpdatePoiRequestBody } from '../messages/UpdatePoiRequestBody';
 import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
+import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
+import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
+import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
