@@ -1,13 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { DeleteStaticWatchlistRequestBody } from '../messages/DeleteStaticWatchlistRequestBody';
+import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
+import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
 import { UpdatePoiRequestBody } from '../messages/UpdatePoiRequestBody';
 import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
 import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
-import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
-import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -44,9 +43,9 @@ export declare class PersonRecognitionService {
     updateStaticWatchList(body?: UpdateStaticWatchlistRequestBody): import("rxjs").Observable<any>;
     /**
      * Delete static watchlist
-     * @Return: ResponseOfStaticWatchlist
+     * @Return: ResponseDeleteStaticWatchlist
      */
-    deleteStaticWatchList(body?: DeleteStaticWatchlistRequestBody): import("rxjs").Observable<any>;
+    deleteStaticWatchList(id?: string): import("rxjs").Observable<any>;
     /**
      * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
      * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
