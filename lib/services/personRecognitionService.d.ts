@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
-import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
-import { UpdatePoiRequestBody } from '../messages/UpdatePoiRequestBody';
 import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
 import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
 import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
 import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
+import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
+import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
+import { UpdatePoiRequestBody } from '../messages/UpdatePoiRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -78,6 +78,11 @@ export declare class PersonRecognitionService {
      * @Return: RemovePoiFromStaticWatchListResponse
      */
     removePoiFromWatchlist(body?: RemovePoiFromStaticWatchListRequestBody): import("rxjs").Observable<any>;
+    /**
+     * Export watchlist
+     * @Return: StreamContent
+     */
+    exportWatchlist(id?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<PersonRecognitionService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PersonRecognitionService>;
 }

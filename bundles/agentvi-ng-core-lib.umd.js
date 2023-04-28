@@ -6752,6 +6752,15 @@
 
    /*
    */
+   var ExportWatchListRequest = /** @class */ (function () {
+       function ExportWatchListRequest(id) {
+           this.id = id;
+       }
+       return ExportWatchListRequest;
+   }());
+
+   /*
+   */
    var FeatureIdRequest = /** @class */ (function () {
        function FeatureIdRequest(id) {
            this.id = id;
@@ -12520,6 +12529,13 @@
        PersonRecognitionService.prototype.removePoiFromWatchlist = function (body) {
            return this.rest.post(this.baseUrl + "/watchlist/remove-poi", typeof body === 'object' ? JSON.stringify(body) : body);
        };
+       /**
+        * Export watchlist
+        * @Return: StreamContent
+        */
+       PersonRecognitionService.prototype.exportWatchlist = function (id) {
+           return this.rest.download("person-recognition", this.baseUrl + "/watchlist/export/" + id);
+       };
        return PersonRecognitionService;
    }());
    /** @nocollapse */ PersonRecognitionService.ɵfac = function PersonRecognitionService_Factory(t) { return new (t || PersonRecognitionService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -17108,6 +17124,7 @@
    exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
    exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
    exports.ExportUsageReportRequest = ExportUsageReportRequest;
+   exports.ExportWatchListRequest = ExportWatchListRequest;
    exports.ExternalModelResults = ExternalModelResults;
    exports.Feature = Feature;
    exports.FeatureIdRequest = FeatureIdRequest;

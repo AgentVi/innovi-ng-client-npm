@@ -213,6 +213,7 @@ export * from './EventsServiceSetImagePathRequest';
 export * from './EventsServiceSetStatusRequest';
 export * from './EventsServiceStatisticsRequest';
 export * from './ExportUsageReportRequest';
+export * from './ExportWatchListRequest';
 export * from './FeatureIdRequest';
 export * from './FeatureIdsRequest';
 export * from './FeaturesGroupIdRequest';
