@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Account } from '../entities/Account';
 import { Coordinate } from '../common/Coordinate';
 import { HealthThresholds } from '../common/HealthThresholds';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of account related actions
