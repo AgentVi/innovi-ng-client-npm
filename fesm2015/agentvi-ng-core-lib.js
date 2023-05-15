@@ -2901,6 +2901,26 @@ var ErrorCode;
     ErrorCode[ErrorCode["CorsightCreatePoiFailed"] = 30130] = "CorsightCreatePoiFailed";
     // Corsight failed to find a specific POI, or a POI matching an image 
     ErrorCode[ErrorCode["CorsightNoPoiFound"] = 30131] = "CorsightNoPoiFound";
+    // Corsight Update Poi Failed 
+    ErrorCode[ErrorCode["CorsightUpdatePoiFailed"] = 30132] = "CorsightUpdatePoiFailed";
+    // Corsight Add static watchlist failed 
+    ErrorCode[ErrorCode["CorsightAddStaticWatchlistFailed"] = 30133] = "CorsightAddStaticWatchlistFailed";
+    // Corsight Update static watchlist failed 
+    ErrorCode[ErrorCode["CorsightUpdateStaticWatchlistFailed"] = 30134] = "CorsightUpdateStaticWatchlistFailed";
+    // Corsight Delete static watchlist failed 
+    ErrorCode[ErrorCode["CorsightDeleteStaticWatchlistFailed"] = 30135] = "CorsightDeleteStaticWatchlistFailed";
+    // Corsight No watchlist found 
+    ErrorCode[ErrorCode["CorsightNoWatchlistFound"] = 30136] = "CorsightNoWatchlistFound";
+    // Corsight Is not a static watchlist failed 
+    ErrorCode[ErrorCode["CorsightIsNotStaticWatchlistFailed"] = 30137] = "CorsightIsNotStaticWatchlistFailed";
+    // Corsight Watchlist already exist 
+    ErrorCode[ErrorCode["CorsightWatchlistAlreadyExist"] = 30138] = "CorsightWatchlistAlreadyExist";
+    // Corsight Detect faces image quality too low to create poi 
+    ErrorCode[ErrorCode["CorsightDetectFacesImageQualityTooLowToCreatePoi"] = 30139] = "CorsightDetectFacesImageQualityTooLowToCreatePoi";
+    // Corsight Export failed 
+    ErrorCode[ErrorCode["CorsightExportFailed"] = 30140] = "CorsightExportFailed";
+    // Corsight Poi not allowed to exist in both dynamic and static watchlist at the same time 
+    ErrorCode[ErrorCode["CorsightPoiNotAllowedToExistInBothDynamicAndStatic"] = 30141] = "CorsightPoiNotAllowedToExistInBothDynamicAndStatic";
 })(ErrorCode || (ErrorCode = {}));
 
 /*
