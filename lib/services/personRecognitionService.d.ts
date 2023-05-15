@@ -3,10 +3,11 @@ import { CoreConfig } from '../../config';
 import { CreateStaticWatchlistRequestBody } from '../messages/CreateStaticWatchlistRequestBody';
 import { UpdateStaticWatchlistRequestBody } from '../messages/UpdateStaticWatchlistRequestBody';
 import { AddPoiRequestBody } from '../messages/AddPoiRequestBody';
-import { UpdatePoiRequestBody } from '../messages/UpdatePoiRequestBody';
+import { UpdateDynamicPoiRequestBody } from '../messages/UpdateDynamicPoiRequestBody';
+import { UpdateStaticPoiRequestBody } from '../messages/UpdateStaticPoiRequestBody';
 import { GetPoiFromImageRequestBody } from '../messages/GetPoiFromImageRequestBody';
-import { AddPoiToStaticWatchListRequestBody } from '../messages/AddPoiToStaticWatchListRequestBody';
-import { RemovePoiFromStaticWatchListRequestBody } from '../messages/RemovePoiFromStaticWatchListRequestBody';
+import { AddPoiToStaticWatchListsRequestBody } from '../messages/AddPoiToStaticWatchListsRequestBody';
+import { RemovePoiFromSystemWatchListRequestBody } from '../messages/RemovePoiFromSystemWatchListRequestBody';
 import * as i0 from "@angular/core";
 /**
  * List of Person Recognition Services
@@ -54,15 +55,20 @@ export declare class PersonRecognitionService {
      */
     dynamicPoi(body?: AddPoiRequestBody): import("rxjs").Observable<any>;
     /**
+     * Update a POI that's included in a system-internal dynamic watchlist
+     * @Return: ResponseUpdatePoi
+     */
+    updateDynamicPoi(body?: UpdateDynamicPoiRequestBody): import("rxjs").Observable<any>;
+    /**
      * Get a POI
      * @Return: ResponseGetPoi
      */
     getPoi(id?: string): import("rxjs").Observable<any>;
     /**
-     * Get a POI
-     * @Return: ResponseGetPoi
+     * Update a POI that own one or more static watchlist(s)
+     * @Return: ResponseUpdatePoi
      */
-    updatePoi(body?: UpdatePoiRequestBody): import("rxjs").Observable<any>;
+    updateStaticPoi(body?: UpdateStaticPoiRequestBody): import("rxjs").Observable<any>;
     /**
      * Searches the system for POIs matching the provided image in _all_ watchlists.
      * @Return: ResponseOfPoi
@@ -72,12 +78,12 @@ export declare class PersonRecognitionService {
      * Add Poi to static watchlist.
      * @Return: AddPoiToStaticWatchListResponse
      */
-    addPoiToWatchlist(body?: AddPoiToStaticWatchListRequestBody): import("rxjs").Observable<any>;
+    addPoiToStaticWatchlists(body?: AddPoiToStaticWatchListsRequestBody): import("rxjs").Observable<any>;
     /**
-     * Remove Poi from static watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
+     * Remove Poi from a system watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
      * @Return: RemovePoiFromStaticWatchListResponse
      */
-    removePoiFromWatchlist(body?: RemovePoiFromStaticWatchListRequestBody): import("rxjs").Observable<any>;
+    removePoiFromSystemWatchlist(body?: RemovePoiFromSystemWatchListRequestBody): import("rxjs").Observable<any>;
     /**
      * Export watchlist
      * @Return: StreamContent

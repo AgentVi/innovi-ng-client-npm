@@ -4704,32 +4704,32 @@
 
    /*
    */
-   var AddPoiToStaticWatchListRequest = /** @class */ (function () {
-       function AddPoiToStaticWatchListRequest(body) {
+   var AddPoiToStaticWatchListsRequest = /** @class */ (function () {
+       function AddPoiToStaticWatchListsRequest(body) {
            this.body = body;
        }
-       return AddPoiToStaticWatchListRequest;
+       return AddPoiToStaticWatchListsRequest;
    }());
 
    /*
    */
-   var AddPoiToStaticWatchListRequestBody = /** @class */ (function () {
-       function AddPoiToStaticWatchListRequestBody(watchlistID, base64EncodedJpeg, name) {
-           this.watchlistID = watchlistID;
+   var AddPoiToStaticWatchListsRequestBody = /** @class */ (function () {
+       function AddPoiToStaticWatchListsRequestBody(watchlistIds, base64EncodedJpeg, name) {
+           this.watchlistIds = watchlistIds;
            this.base64EncodedJpeg = base64EncodedJpeg;
            this.name = name;
        }
-       return AddPoiToStaticWatchListRequestBody;
+       return AddPoiToStaticWatchListsRequestBody;
    }());
 
    /*
    */
-   var AddPoiToStaticWatchListResponse = /** @class */ (function () {
-       function AddPoiToStaticWatchListResponse(code, poiIdAdded) {
+   var AddPoiToStaticWatchListsResponse = /** @class */ (function () {
+       function AddPoiToStaticWatchListsResponse(code, poiIdAdded) {
            this.code = code;
            this.poiIdAdded = poiIdAdded;
        }
-       return AddPoiToStaticWatchListResponse;
+       return AddPoiToStaticWatchListsResponse;
    }());
 
    /*
@@ -7721,30 +7721,30 @@
 
    /*
    */
-   var RemovePoiFromStaticWatchListRequest = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListRequest(body) {
+   var RemovePoiFromSystemWatchListRequest = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListRequest(body) {
            this.body = body;
        }
-       return RemovePoiFromStaticWatchListRequest;
+       return RemovePoiFromSystemWatchListRequest;
    }());
 
    /*
    */
-   var RemovePoiFromStaticWatchListRequestBody = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListRequestBody(poiID, watchlistID) {
+   var RemovePoiFromSystemWatchListRequestBody = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListRequestBody(poiID, watchlistID) {
            this.poiID = poiID;
            this.watchlistID = watchlistID;
        }
-       return RemovePoiFromStaticWatchListRequestBody;
+       return RemovePoiFromSystemWatchListRequestBody;
    }());
 
    /*
    */
-   var RemovePoiFromStaticWatchListResponse = /** @class */ (function () {
-       function RemovePoiFromStaticWatchListResponse(code) {
+   var RemovePoiFromSystemWatchListResponse = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListResponse(code) {
            this.code = code;
        }
-       return RemovePoiFromStaticWatchListResponse;
+       return RemovePoiFromSystemWatchListResponse;
    }());
 
    /*
@@ -7941,11 +7941,11 @@
    /*
    */
    var ResponsePoi = /** @class */ (function () {
-       function ResponsePoi(id, name, base64EncodedImage, watchlists, expireTime) {
+       function ResponsePoi(id, name, base64EncodedImage, watchlistIds, expireTime) {
            this.id = id;
            this.name = name;
            this.base64EncodedImage = base64EncodedImage;
-           this.watchlists = watchlists;
+           this.watchlistIds = watchlistIds;
            this.expireTime = expireTime;
        }
        return ResponsePoi;
@@ -9277,22 +9277,43 @@
 
    /*
    */
-   var UpdatePoiRequest = /** @class */ (function () {
-       function UpdatePoiRequest(body) {
+   var UpdateDynamicPoiRequest = /** @class */ (function () {
+       function UpdateDynamicPoiRequest(body) {
            this.body = body;
        }
-       return UpdatePoiRequest;
+       return UpdateDynamicPoiRequest;
    }());
 
    /*
    */
-   var UpdatePoiRequestBody = /** @class */ (function () {
-       function UpdatePoiRequestBody(id, name, base64EncodedJpeg) {
+   var UpdateDynamicPoiRequestBody = /** @class */ (function () {
+       function UpdateDynamicPoiRequestBody(id, name, watchlistIds) {
+           this.id = id;
+           this.name = name;
+           this.watchlistIds = watchlistIds;
+       }
+       return UpdateDynamicPoiRequestBody;
+   }());
+
+   /*
+   */
+   var UpdateStaticPoiRequest = /** @class */ (function () {
+       function UpdateStaticPoiRequest(body) {
+           this.body = body;
+       }
+       return UpdateStaticPoiRequest;
+   }());
+
+   /*
+   */
+   var UpdateStaticPoiRequestBody = /** @class */ (function () {
+       function UpdateStaticPoiRequestBody(id, name, base64EncodedJpeg, watchlistIds) {
            this.id = id;
            this.name = name;
            this.base64EncodedJpeg = base64EncodedJpeg;
+           this.watchlistIds = watchlistIds;
        }
-       return UpdatePoiRequestBody;
+       return UpdateStaticPoiRequestBody;
    }());
 
    /*
@@ -12495,6 +12516,13 @@
            return this.rest.post(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
+        * Update a POI that's included in a system-internal dynamic watchlist
+        * @Return: ResponseUpdatePoi
+        */
+       PersonRecognitionService.prototype.updateDynamicPoi = function (body) {
+           return this.rest.put(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
         * Get a POI
         * @Return: ResponseGetPoi
         */
@@ -12502,10 +12530,10 @@
            return this.rest.get(this.baseUrl + "/poi/" + id);
        };
        /**
-        * Get a POI
-        * @Return: ResponseGetPoi
+        * Update a POI that own one or more static watchlist(s)
+        * @Return: ResponseUpdatePoi
         */
-       PersonRecognitionService.prototype.updatePoi = function (body) {
+       PersonRecognitionService.prototype.updateStaticPoi = function (body) {
            return this.rest.put(this.baseUrl + "/poi", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
@@ -12519,15 +12547,15 @@
         * Add Poi to static watchlist.
         * @Return: AddPoiToStaticWatchListResponse
         */
-       PersonRecognitionService.prototype.addPoiToWatchlist = function (body) {
-           return this.rest.post(this.baseUrl + "/watchlist/add-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       PersonRecognitionService.prototype.addPoiToStaticWatchlists = function (body) {
+           return this.rest.post(this.baseUrl + "/poi/add-to-static-watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
-        * Remove Poi from static watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
+        * Remove Poi from a system watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
         * @Return: RemovePoiFromStaticWatchListResponse
         */
-       PersonRecognitionService.prototype.removePoiFromWatchlist = function (body) {
-           return this.rest.post(this.baseUrl + "/watchlist/remove-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       PersonRecognitionService.prototype.removePoiFromSystemWatchlist = function (body) {
+           return this.rest.post(this.baseUrl + "/poi/remove-from-watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Export watchlist
@@ -16860,9 +16888,9 @@
    exports.ActionResponse = ActionResponse;
    exports.AddPoiRequest = AddPoiRequest;
    exports.AddPoiRequestBody = AddPoiRequestBody;
-   exports.AddPoiToStaticWatchListRequest = AddPoiToStaticWatchListRequest;
-   exports.AddPoiToStaticWatchListRequestBody = AddPoiToStaticWatchListRequestBody;
-   exports.AddPoiToStaticWatchListResponse = AddPoiToStaticWatchListResponse;
+   exports.AddPoiToStaticWatchListsRequest = AddPoiToStaticWatchListsRequest;
+   exports.AddPoiToStaticWatchListsRequestBody = AddPoiToStaticWatchListsRequestBody;
+   exports.AddPoiToStaticWatchListsResponse = AddPoiToStaticWatchListsResponse;
    exports.AddSensorModelRequest = AddSensorModelRequest;
    exports.AddSensorModelsRequest = AddSensorModelsRequest;
    exports.Agent = Agent;
@@ -17277,9 +17305,9 @@
    exports.Recurrent = Recurrent;
    exports.RecurrentTimeFrame = RecurrentTimeFrame;
    exports.RegisterServiceAccountRequest = RegisterServiceAccountRequest;
-   exports.RemovePoiFromStaticWatchListRequest = RemovePoiFromStaticWatchListRequest;
-   exports.RemovePoiFromStaticWatchListRequestBody = RemovePoiFromStaticWatchListRequestBody;
-   exports.RemovePoiFromStaticWatchListResponse = RemovePoiFromStaticWatchListResponse;
+   exports.RemovePoiFromSystemWatchListRequest = RemovePoiFromSystemWatchListRequest;
+   exports.RemovePoiFromSystemWatchListRequestBody = RemovePoiFromSystemWatchListRequestBody;
+   exports.RemovePoiFromSystemWatchListResponse = RemovePoiFromSystemWatchListResponse;
    exports.RemoveSensorModelRequest = RemoveSensorModelRequest;
    exports.RemoveSensorModelsRequest = RemoveSensorModelsRequest;
    exports.ReportDefinition = ReportDefinition;
@@ -17500,9 +17528,11 @@
    exports.TreeNode = TreeNode;
    exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
    exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
-   exports.UpdatePoiRequest = UpdatePoiRequest;
-   exports.UpdatePoiRequestBody = UpdatePoiRequestBody;
+   exports.UpdateDynamicPoiRequest = UpdateDynamicPoiRequest;
+   exports.UpdateDynamicPoiRequestBody = UpdateDynamicPoiRequestBody;
    exports.UpdateScheduleForRules = UpdateScheduleForRules;
+   exports.UpdateStaticPoiRequest = UpdateStaticPoiRequest;
+   exports.UpdateStaticPoiRequestBody = UpdateStaticPoiRequestBody;
    exports.UpdateStaticWatchlistRequest = UpdateStaticWatchlistRequest;
    exports.UpdateStaticWatchlistRequestBody = UpdateStaticWatchlistRequestBody;
    exports.UpdateStatus = UpdateStatus;
