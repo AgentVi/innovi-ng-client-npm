@@ -7961,8 +7961,8 @@
    /*
    */
    var ResponsePoi = /** @class */ (function () {
-       function ResponsePoi(id, name, base64EncodedImage, watchlistIds, expireTime) {
-           this.id = id;
+       function ResponsePoi(poiId, name, base64EncodedImage, watchlistIds, expireTime) {
+           this.poiId = poiId;
            this.name = name;
            this.base64EncodedImage = base64EncodedImage;
            this.watchlistIds = watchlistIds;
