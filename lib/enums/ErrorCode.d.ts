@@ -292,21 +292,5 @@ export declare enum ErrorCode {
     SearchServiceImageNotFound = 10602,
     SearchServiceDisconnected = 10603,
     SearchServiceRequestError = 10604,
-    SearchServiceResponseError = 10605,
-    CorsightRequestFailed = 30100,
-    CorsightDetectFacesFailed = 30110,
-    CorsightNoFacesDetected = 30111,
-    CorsightAnalyzeFaceFailed = 30120,
-    CorsightCreatePoiFailed = 30130,
-    CorsightNoPoiFound = 30131,
-    CorsightUpdatePoiFailed = 30132,
-    CorsightAddStaticWatchlistFailed = 30133,
-    CorsightUpdateStaticWatchlistFailed = 30134,
-    CorsightDeleteStaticWatchlistFailed = 30135,
-    CorsightNoWatchlistFound = 30136,
-    CorsightIsNotStaticWatchlistFailed = 30137,
-    CorsightWatchlistAlreadyExist = 30138,
-    CorsightDetectFacesImageQualityTooLowToCreatePoi = 30139,
-    CorsightExportFailed = 30140,
-    CorsightPoiNotAllowedToExistInBothDynamicAndStatic = 30141
+    SearchServiceResponseError = 10605
 }
