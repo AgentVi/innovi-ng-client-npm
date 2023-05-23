@@ -3770,6 +3770,8 @@
        IntegrationTypeCode[IntegrationTypeCode["MILESTONE"] = 13] = "MILESTONE";
        // Genetec integration (based on http protocol) [14] 
        IntegrationTypeCode[IntegrationTypeCode["GENETEC"] = 14] = "GENETEC";
+       // Patriot Systems integration (based on http protocol) [15] 
+       IntegrationTypeCode[IntegrationTypeCode["PATRIOT"] = 15] = "PATRIOT";
    })(exports.IntegrationTypeCode || (exports.IntegrationTypeCode = {}));
 
    /*
