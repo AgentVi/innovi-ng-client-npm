@@ -1,14 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Sensor } from '../entities/Sensor';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Preset } from '../entities/Preset';
 import { RulePolygon } from '../common/RulePolygon';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { Sensor } from '../entities/Sensor';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -161,11 +161,6 @@ export declare class SensorsService {
      * @Return: ActionResponse - the encoded jpeg as base64 is in the data key
      */
     cropImage(id?: string, body?: RulePolygon): import("rxjs").Observable<any>;
-    /**
-     * Collect object crops from agents based on the query parameters
-     * @Return: ActionResponse
-     */
-    fetchObjectCrops(id?: string, ts?: number[], objectId?: number[], bucketFolder?: string): import("rxjs").Observable<any>;
     /**
      * Get default geo location
      * @Return: EntityResponse<Coordinate>
