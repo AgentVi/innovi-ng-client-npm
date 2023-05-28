@@ -94,5 +94,6 @@ export * from './TimestampedImage';
 export * from './TreeItem';
 export * from './TreeNode';
 export * from './UserAccountInfo';
+export * from './UserAccountInfoAccount';
 export * from './UserInvitation';
 export * from './UserRegistration';
