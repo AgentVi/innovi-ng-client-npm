@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -65,11 +65,6 @@ export declare class EventsService {
      * @Return: StreamContent
      */
     exportFormat(folderId?: string[], subFolders?: boolean, sensorId?: string[], objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
-    /**
-     * Find events generated in area using spatial query
-     * @Return: QueryResponse<Event>
-     */
-    findInArea(folderId?: string, sensorId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get event image [response content type: image/jpeg]
      * @Return: StreamingOutput of the image
