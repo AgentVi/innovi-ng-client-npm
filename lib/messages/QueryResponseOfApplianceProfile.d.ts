@@ -1,7 +1,7 @@
-import { CaseInfo } from '../entities/CaseInfo';
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-export declare class QueryResponseOfCaseInfo extends QueryResponse {
-    list: CaseInfo[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;
