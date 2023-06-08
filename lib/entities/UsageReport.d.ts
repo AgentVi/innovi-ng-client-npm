@@ -6,7 +6,6 @@ export declare class UsageReport extends BaseEntity {
     period: TimeFrame;
     totalSensors: number;
     usage: SensorUsageReport[];
-    cursor: string;
     id: string;
     _type: string;
     createdOn: number;
