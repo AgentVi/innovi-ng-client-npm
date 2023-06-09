@@ -1,7 +1,7 @@
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-import { IntegrationTarget } from '../entities/IntegrationTarget';
-export declare class QueryResponseOfIntegrationTarget extends QueryResponse {
-    list: IntegrationTarget[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;
