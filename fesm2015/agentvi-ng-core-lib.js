@@ -649,15 +649,13 @@ class LongTuple {
    Account member registration data model - used by self registered users
 */
 class MemberRegistration {
-    constructor(accountId, name, email, mobile, role, groups, tempPassword, changePassword, verifyByEmail, description) {
+    constructor(accountId, name, email, mobile, role, groups, verifyByEmail, description) {
         this.accountId = accountId;
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.role = role;
         this.groups = groups;
-        this.tempPassword = tempPassword;
-        this.changePassword = changePassword;
         this.verifyByEmail = verifyByEmail;
         this.description = description;
     }

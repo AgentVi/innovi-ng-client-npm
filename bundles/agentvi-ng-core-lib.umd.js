@@ -720,15 +720,13 @@
       Account member registration data model - used by self registered users
    */
    var MemberRegistration = /** @class */ (function () {
-       function MemberRegistration(accountId, name, email, mobile, role, groups, tempPassword, changePassword, verifyByEmail, description) {
+       function MemberRegistration(accountId, name, email, mobile, role, groups, verifyByEmail, description) {
            this.accountId = accountId;
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.role = role;
            this.groups = groups;
-           this.tempPassword = tempPassword;
-           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
