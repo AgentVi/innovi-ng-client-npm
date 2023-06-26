@@ -3229,6 +3229,8 @@ var PlatformTypeCode;
     PlatformTypeCode[PlatformTypeCode["INNOVI"] = 0] = "INNOVI";
     // Irisity [1] 
     PlatformTypeCode[PlatformTypeCode["IRISITY"] = 1] = "IRISITY";
+    // Identiv [2] 
+    PlatformTypeCode[PlatformTypeCode["IDENTIV"] = 2] = "IDENTIV";
 })(PlatformTypeCode || (PlatformTypeCode = {}));
 
 /*
