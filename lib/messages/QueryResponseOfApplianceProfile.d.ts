@@ -1,7 +1,7 @@
-import { HealthEvent } from '../entities/HealthEvent';
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-export declare class QueryResponseOfHealthEvent extends QueryResponse {
-    list: HealthEvent[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;
