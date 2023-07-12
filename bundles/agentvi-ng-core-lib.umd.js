@@ -3960,8 +3960,6 @@
        ProductTypeCode[ProductTypeCode["VIRTUAL"] = 1] = "VIRTUAL";
        // Custom Device (Customer provides it's own hardware) [2] 
        ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
-       // Custom iris+ Device (Customer provides it's own hardware) [3] 
-       ProductTypeCode[ProductTypeCode["CUSTOM_IRIS_PLUS"] = 3] = "CUSTOM_IRIS_PLUS";
        // Edge 10 [10] 
        ProductTypeCode[ProductTypeCode["EDGE_10"] = 10] = "EDGE_10";
        // Edge 200 [200] 
