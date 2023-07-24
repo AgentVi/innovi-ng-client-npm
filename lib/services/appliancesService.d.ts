@@ -1,12 +1,12 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { Sensor } from '../entities/Sensor';
-import { ApplianceRegistration } from '../common/ApplianceRegistration';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
-import { Appliance } from '../entities/Appliance';
 import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { Sensor } from '../entities/Sensor';
+import { ApplianceRegistration } from '../common/ApplianceRegistration';
+import { Appliance } from '../entities/Appliance';
+import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { ProductTypeCode } from '../enums/ProductTypeCode';

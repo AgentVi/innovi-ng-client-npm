@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorsGroup } from '../common/SensorsGroup';
-import { Coordinate } from '../common/Coordinate';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Preset } from '../entities/Preset';
-import { Sensor } from '../entities/Sensor';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { RulePolygon } from '../common/RulePolygon';
+import { Sensor } from '../entities/Sensor';
+import { Coordinate } from '../common/Coordinate';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Preset } from '../entities/Preset';
+import { SensorsGroup } from '../common/SensorsGroup';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import * as i0 from "@angular/core";
 /**
@@ -168,11 +168,13 @@ export declare class SensorsService {
     getDefaultLocation(id?: string): import("rxjs").Observable<any>;
     /**
      * Get single sensor health by sensor id
+     * REMOVED: Please use /sensors/{id} instead.
      * @Return: EntityResponse<SensorStatus>
      */
     getSensorHealthStatus(id?: string): import("rxjs").Observable<any>;
     /**
      * Get all sensors health status
+     * REMOVED: Please use /sensors instead.
      * @Return: EntitiesResponse<SensorStatus>
      */
     getSensorsHealthStatus(): import("rxjs").Observable<any>;
