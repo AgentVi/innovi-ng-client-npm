@@ -44,7 +44,7 @@ export declare class ApplianceProfilesService {
      * Find profiles by filters
      * @Return: EntitiesResponse<ApplianceProfile>
      */
-    find(search?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(search?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ApplianceProfilesService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ApplianceProfilesService>;
 }
