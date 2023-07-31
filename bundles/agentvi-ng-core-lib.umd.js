@@ -53,9 +53,10 @@
       Account role represents the role of the user in the account
    */
    var AccountRole = /** @class */ (function () {
-       function AccountRole(accountId, role) {
+       function AccountRole(accountId, role, groups) {
            this.accountId = accountId;
            this.role = role;
+           this.groups = groups;
        }
        return AccountRole;
    }());

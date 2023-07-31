@@ -32,9 +32,10 @@ class AbsoluteTimeFrame {
    Account role represents the role of the user in the account
 */
 class AccountRole {
-    constructor(accountId, role) {
+    constructor(accountId, role, groups) {
         this.accountId = accountId;
         this.role = role;
+        this.groups = groups;
     }
 }
 
