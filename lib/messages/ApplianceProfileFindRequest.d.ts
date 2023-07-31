@@ -1,4 +1,6 @@
 export declare class ApplianceProfileFindRequest {
     search: string;
-    constructor(search?: string);
+    page: number;
+    pageSize: number;
+    constructor(search?: string, page?: number, pageSize?: number);
 }
