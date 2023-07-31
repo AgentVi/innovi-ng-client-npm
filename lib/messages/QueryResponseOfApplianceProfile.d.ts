@@ -1,7 +1,7 @@
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-import { Schedule } from '../entities/Schedule';
-export declare class QueryResponseOfSchedule extends QueryResponse {
-    list: Schedule[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;
