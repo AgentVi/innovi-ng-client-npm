@@ -720,13 +720,15 @@
       Account member registration data model - used by self registered users
    */
    var MemberRegistration = /** @class */ (function () {
-       function MemberRegistration(accountId, name, email, mobile, role, groups, verifyByEmail, description) {
+       function MemberRegistration(accountId, name, email, mobile, role, groups, tempPassword, changePassword, verifyByEmail, description) {
            this.accountId = accountId;
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.role = role;
            this.groups = groups;
+           this.tempPassword = tempPassword;
+           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
@@ -4808,10 +4810,8 @@
    /*
    */
    var ApplianceProfileFindRequest = /** @class */ (function () {
-       function ApplianceProfileFindRequest(search, page, pageSize) {
+       function ApplianceProfileFindRequest(search) {
            this.search = search;
-           this.page = page;
-           this.pageSize = pageSize;
        }
        return ApplianceProfileFindRequest;
    }());
@@ -5552,6 +5552,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntitiesResponseOfApplianceConfiguration;
+   }(EntitiesResponse));
+
+   /*
+   */
+   var EntitiesResponseOfApplianceProfile = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfApplianceProfile, _super);
+       function EntitiesResponseOfApplianceProfile() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfApplianceProfile;
    }(EntitiesResponse));
 
    /*
@@ -6979,10 +6989,8 @@
    /*
    */
    var IntegrationActionsFolderRequest = /** @class */ (function () {
-       function IntegrationActionsFolderRequest(folderId, page, pageSize) {
+       function IntegrationActionsFolderRequest(folderId) {
            this.folderId = folderId;
-           this.page = page;
-           this.pageSize = pageSize;
        }
        return IntegrationActionsFolderRequest;
    }());
@@ -7235,16 +7243,6 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfApplianceConfigReport;
-   }(QueryResponse));
-
-   /*
-   */
-   var QueryResponseOfApplianceProfile = /** @class */ (function (_super) {
-       __extends(QueryResponseOfApplianceProfile, _super);
-       function QueryResponseOfApplianceProfile() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return QueryResponseOfApplianceProfile;
    }(QueryResponse));
 
    /*
@@ -9863,17 +9861,11 @@
         * Find profiles by filters
         * @Return: EntitiesResponse<ApplianceProfile>
         */
-       ApplianceProfilesService.prototype.find = function (search, page, pageSize) {
+       ApplianceProfilesService.prototype.find = function (search) {
            var _a;
            var params = new Array();
            if (search != null) {
                params.push("search=" + search);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
@@ -11785,16 +11777,8 @@
         * Find all integration actions for a specified level in the folder hierarchy
         * @Return: EntitiesResponse<IntegrationAction>
         */
-       IntegrationsService.prototype.getFolderActions = function (folderId, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actions/folder/" + folderId], __read(params)));
+       IntegrationsService.prototype.getFolderActions = function (folderId) {
+           return this.rest.get(this.baseUrl + "/actions/folder/" + folderId);
        };
        /**
         * Test integration action with data (limited to HTTP)
@@ -13321,7 +13305,6 @@
        };
        /**
         * Get single sensor health by sensor id
-        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -13329,7 +13312,6 @@
        };
        /**
         * Get all sensors health status
-        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorsHealthStatus = function () {
@@ -14891,22 +14873,10 @@
            return this.rest.get(this.baseUrl + "/sensors/" + sensorId);
        };
        /**
-        * Add detection model to the list of detection models for the given sensor
+        * Add detection model to sensor
         * @Return: ActionResponse
         */
        SysModelsService.prototype.addSensorModels = function (sensorId, id) {
-           var _a;
-           var params = new Array();
-           if (id != null) {
-               params.push("id=" + id);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sensors/" + sensorId, null], __read(params)));
-       };
-       /**
-        * Update the list of detection model for the given sensor
-        * @Return: ActionResponse
-        */
-       SysModelsService.prototype.updateSensorModels = function (sensorId, id) {
            var _a;
            var params = new Array();
            if (id != null) {
@@ -15043,7 +15013,6 @@
        };
        /**
         * Get single sensor health by sensor id
-        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -15051,7 +15020,6 @@
        };
        /**
         * Get all sensors health status
-        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorsHealthStatus = function () {
@@ -16373,6 +16341,7 @@
    exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
    exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
    exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
+   exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
    exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
    exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
    exports.EntitiesResponseOfCaseInfo = EntitiesResponseOfCaseInfo;
@@ -16596,7 +16565,6 @@
    exports.QueryResponseOfAnomalyEventInfo = QueryResponseOfAnomalyEventInfo;
    exports.QueryResponseOfAppliance = QueryResponseOfAppliance;
    exports.QueryResponseOfApplianceConfigReport = QueryResponseOfApplianceConfigReport;
-   exports.QueryResponseOfApplianceProfile = QueryResponseOfApplianceProfile;
    exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
    exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
    exports.QueryResponseOfCaseInfo = QueryResponseOfCaseInfo;
