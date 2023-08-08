@@ -1,7 +1,7 @@
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-import { FindUser } from '../entities/FindUser';
-export declare class QueryResponseOfFindUser extends QueryResponse {
-    list: FindUser[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;
