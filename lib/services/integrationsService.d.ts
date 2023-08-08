@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { IntegrationTarget } from '../entities/IntegrationTarget';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationAction } from '../entities/IntegrationAction';
-import { IntegrationTarget } from '../entities/IntegrationTarget';
 import * as i0 from "@angular/core";
 /**
  * Services for integrations targets (templates)
@@ -87,7 +87,7 @@ export declare class IntegrationsService {
      * Find all integration actions for a specified level in the folder hierarchy
      * @Return: EntitiesResponse<IntegrationAction>
      */
-    getFolderActions(folderId?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    getFolderActions(folderId?: string): import("rxjs").Observable<any>;
     /**
      * Test integration action with data (limited to HTTP)
      * @Return: EntityResponse<IntegrationAction>
