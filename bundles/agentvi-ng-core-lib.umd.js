@@ -720,15 +720,13 @@
       Account member registration data model - used by self registered users
    */
    var MemberRegistration = /** @class */ (function () {
-       function MemberRegistration(accountId, name, email, mobile, role, groups, tempPassword, changePassword, verifyByEmail, description) {
+       function MemberRegistration(accountId, name, email, mobile, role, groups, verifyByEmail, description) {
            this.accountId = accountId;
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.role = role;
            this.groups = groups;
-           this.tempPassword = tempPassword;
-           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
@@ -1642,6 +1640,19 @@
            this.licenseExpiresOn = licenseExpiresOn;
        }
        return UserAccountInfo;
+   }());
+
+   /*
+      User Account info (returned by switch-account method)
+   */
+   var UserAccountInfoAccount = /** @class */ (function () {
+       function UserAccountInfoAccount(id, name, status, sysAdminSupport) {
+           this.id = id;
+           this.name = name;
+           this.status = status;
+           this.sysAdminSupport = sysAdminSupport;
+       }
+       return UserAccountInfoAccount;
    }());
 
    /*
@@ -2784,7 +2795,7 @@
        // 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
        // Area Occupancy 65861 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY"] = 65861] = "INNOVI_AREA_OCCUPANCY";
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY_STATISTICS"] = 65861] = "INNOVI_AREA_OCCUPANCY_STATISTICS";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3735,6 +3746,8 @@
        IntegrationTypeCode[IntegrationTypeCode["MILESTONE"] = 13] = "MILESTONE";
        // Genetec integration (based on http protocol) [14] 
        IntegrationTypeCode[IntegrationTypeCode["GENETEC"] = 14] = "GENETEC";
+       // Patriot Systems integration (based on http protocol) [15] 
+       IntegrationTypeCode[IntegrationTypeCode["PATRIOT"] = 15] = "PATRIOT";
    })(exports.IntegrationTypeCode || (exports.IntegrationTypeCode = {}));
 
    /*
@@ -3930,6 +3943,8 @@
        PlatformTypeCode[PlatformTypeCode["INNOVI"] = 0] = "INNOVI";
        // Irisity [1] 
        PlatformTypeCode[PlatformTypeCode["IRISITY"] = 1] = "IRISITY";
+       // Identiv [2] 
+       PlatformTypeCode[PlatformTypeCode["IDENTIV"] = 2] = "IDENTIV";
    })(exports.PlatformTypeCode || (exports.PlatformTypeCode = {}));
 
    /*
@@ -4793,8 +4808,10 @@
    /*
    */
    var ApplianceProfileFindRequest = /** @class */ (function () {
-       function ApplianceProfileFindRequest(search) {
+       function ApplianceProfileFindRequest(search, page, pageSize) {
            this.search = search;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return ApplianceProfileFindRequest;
    }());
@@ -5539,16 +5556,6 @@
 
    /*
    */
-   var EntitiesResponseOfApplianceProfile = /** @class */ (function (_super) {
-       __extends(EntitiesResponseOfApplianceProfile, _super);
-       function EntitiesResponseOfApplianceProfile() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntitiesResponseOfApplianceProfile;
-   }(EntitiesResponse));
-
-   /*
-   */
    var EntitiesResponseOfAuditLog = /** @class */ (function (_super) {
        __extends(EntitiesResponseOfAuditLog, _super);
        function EntitiesResponseOfAuditLog() {
@@ -6180,16 +6187,6 @@
 
    /*
    */
-   var EntityResponseOfLoginData = /** @class */ (function (_super) {
-       __extends(EntityResponseOfLoginData, _super);
-       function EntityResponseOfLoginData() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntityResponseOfLoginData;
-   }(EntityResponse));
-
-   /*
-   */
    var EntityResponseOfMember = /** @class */ (function (_super) {
        __extends(EntityResponseOfMember, _super);
        function EntityResponseOfMember() {
@@ -6532,27 +6529,6 @@
            this.fileName = fileName;
        }
        return EventsServiceExportRequest;
-   }());
-
-   /*
-   */
-   var EventsServiceFindInAreaRequest = /** @class */ (function () {
-       function EventsServiceFindInAreaRequest(folderId, searchArea, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
-           this.folderId = folderId;
-           this.searchArea = searchArea;
-           this.sensorId = sensorId;
-           this.objectType = objectType;
-           this.behaviorType = behaviorType;
-           this.severity = severity;
-           this.status = status;
-           this.rule = rule;
-           this.from = from;
-           this.to = to;
-           this.sort = sort;
-           this.page = page;
-           this.pageSize = pageSize;
-       }
-       return EventsServiceFindInAreaRequest;
    }());
 
    /*
@@ -7003,8 +6979,10 @@
    /*
    */
    var IntegrationActionsFolderRequest = /** @class */ (function () {
-       function IntegrationActionsFolderRequest(folderId) {
+       function IntegrationActionsFolderRequest(folderId, page, pageSize) {
            this.folderId = folderId;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return IntegrationActionsFolderRequest;
    }());
@@ -7257,6 +7235,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfApplianceConfigReport;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfApplianceProfile = /** @class */ (function (_super) {
+       __extends(QueryResponseOfApplianceProfile, _super);
+       function QueryResponseOfApplianceProfile() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfApplianceProfile;
    }(QueryResponse));
 
    /*
@@ -9013,65 +9001,11 @@
 
    /*
    */
-   var UserServiceChangePasswordRequest = /** @class */ (function () {
-       function UserServiceChangePasswordRequest(body) {
-           this.body = body;
-       }
-       return UserServiceChangePasswordRequest;
-   }());
-
-   /*
-   */
-   var UserServiceCheckPasswordRequest = /** @class */ (function () {
-       function UserServiceCheckPasswordRequest(body) {
-           this.body = body;
-       }
-       return UserServiceCheckPasswordRequest;
-   }());
-
-   /*
-   */
-   var UserServiceLoginRequest = /** @class */ (function () {
-       function UserServiceLoginRequest(body) {
-           this.body = body;
-       }
-       return UserServiceLoginRequest;
-   }());
-
-   /*
-   */
-   var UserServiceResetPasswordRequest = /** @class */ (function () {
-       function UserServiceResetPasswordRequest(code) {
-           this.code = code;
-       }
-       return UserServiceResetPasswordRequest;
-   }());
-
-   /*
-   */
-   var UserServiceSendVerificationRequest = /** @class */ (function () {
-       function UserServiceSendVerificationRequest(body) {
-           this.body = body;
-       }
-       return UserServiceSendVerificationRequest;
-   }());
-
-   /*
-   */
    var UserServiceSwitchAccountRequest = /** @class */ (function () {
        function UserServiceSwitchAccountRequest(body) {
            this.body = body;
        }
        return UserServiceSwitchAccountRequest;
-   }());
-
-   /*
-   */
-   var UserServiceVerifyLoginRequest = /** @class */ (function () {
-       function UserServiceVerifyLoginRequest(key) {
-           this.key = key;
-       }
-       return UserServiceVerifyLoginRequest;
    }());
 
    /*
@@ -9929,11 +9863,17 @@
         * Find profiles by filters
         * @Return: EntitiesResponse<ApplianceProfile>
         */
-       ApplianceProfilesService.prototype.find = function (search) {
+       ApplianceProfilesService.prototype.find = function (search, page, pageSize) {
            var _a;
            var params = new Array();
            if (search != null) {
                params.push("search=" + search);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
@@ -10998,51 +10938,6 @@
            return (_a = this.rest).download.apply(_a, __spreadArray(["events", this.baseUrl + "/export"], __read(params)));
        };
        /**
-        * Find events generated in area using spatial query
-        * @Return: QueryResponse<Event>
-        */
-       EventsService.prototype.findInArea = function (folderId, sensorId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (folderId != null) {
-               params.push("folderId=" + folderId);
-           }
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           if (objectType != null) {
-               params.push("objectType=" + objectType);
-           }
-           if (behaviorType != null) {
-               params.push("behaviorType=" + behaviorType);
-           }
-           if (severity != null) {
-               params.push("severity=" + severity);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (rule != null) {
-               params.push("rule=" + rule);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/area", null], __read(params)));
-       };
-       /**
         * Get event image [response content type: image/jpeg]
         * @Return: StreamingOutput of the image
         */
@@ -11890,8 +11785,16 @@
         * Find all integration actions for a specified level in the folder hierarchy
         * @Return: EntitiesResponse<IntegrationAction>
         */
-       IntegrationsService.prototype.getFolderActions = function (folderId) {
-           return this.rest.get(this.baseUrl + "/actions/folder/" + folderId);
+       IntegrationsService.prototype.getFolderActions = function (folderId, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actions/folder/" + folderId], __read(params)));
        };
        /**
         * Test integration action with data (limited to HTTP)
@@ -13418,6 +13321,7 @@
        };
        /**
         * Get single sensor health by sensor id
+        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -13425,6 +13329,7 @@
        };
        /**
         * Get all sensors health status
+        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorsHealthStatus = function () {
@@ -14986,10 +14891,22 @@
            return this.rest.get(this.baseUrl + "/sensors/" + sensorId);
        };
        /**
-        * Add detection model to sensor
+        * Add detection model to the list of detection models for the given sensor
         * @Return: ActionResponse
         */
        SysModelsService.prototype.addSensorModels = function (sensorId, id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sensors/" + sensorId, null], __read(params)));
+       };
+       /**
+        * Update the list of detection model for the given sensor
+        * @Return: ActionResponse
+        */
+       SysModelsService.prototype.updateSensorModels = function (sensorId, id) {
            var _a;
            var params = new Array();
            if (id != null) {
@@ -15126,6 +15043,7 @@
        };
        /**
         * Get single sensor health by sensor id
+        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -15133,6 +15051,7 @@
        };
        /**
         * Get all sensors health status
+        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorsHealthStatus = function () {
@@ -15784,61 +15703,6 @@
            this.baseUrl = '/user';
            this.baseUrl = this.config.api + this.baseUrl;
        }
-       /**
-        * Login to the system with user email and password
-        * The response includes access token valid for 20 minutes. The client side should renew the token before expiration using refresh-token method
-        * @Return: EntityResponse<LoginData>
-        */
-       UserService.prototype.login = function (body) {
-           return this.rest.post(this.baseUrl + "/login", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Refresh token (set new expiration time) and associate with new account if required
-        * @Return: EntityResponse<LoginData>
-        */
-       UserService.prototype.refreshToken = function () {
-           return this.rest.post(this.baseUrl + "/refresh-token", null);
-       };
-       /**
-        * Verify user by temporary login key
-        * @Return: EntityResponse<User>
-        */
-       UserService.prototype.verifyLoginKey = function (key) {
-           var _a;
-           var params = new Array();
-           if (key != null) {
-               params.push("key=" + key);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/login/verify"], __read(params)));
-       };
-       /**
-        * Send verification code by email
-        * @Return: ActionResponse
-        */
-       UserService.prototype.sendVerificationCode = function (body) {
-           return this.rest.post(this.baseUrl + "/verify", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Validate verification code and reset password
-        * @Return: ActionResponse
-        */
-       UserService.prototype.resetPassword = function (code) {
-           return this.rest.post(this.baseUrl + "/reset-password", typeof code === 'object' ? JSON.stringify(code) : code);
-       };
-       /**
-        * Change password
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changePassword = function (body) {
-           return this.rest.post(this.baseUrl + "/change-password", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Check if password was used before (according to password policy)
-        * @Return: ActionResponse
-        */
-       UserService.prototype.checkUnusedPassword = function (body) {
-           return this.rest.post(this.baseUrl + "/check-password", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
        /**
         * Change current user name
         * @Return: ActionResponse
@@ -16509,7 +16373,6 @@
    exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
    exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
    exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
-   exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
    exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
    exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
    exports.EntitiesResponseOfCaseInfo = EntitiesResponseOfCaseInfo;
@@ -16574,7 +16437,6 @@
    exports.EntityResponseOfIntegrationAction = EntityResponseOfIntegrationAction;
    exports.EntityResponseOfJobStatus = EntityResponseOfJobStatus;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
-   exports.EntityResponseOfLoginData = EntityResponseOfLoginData;
    exports.EntityResponseOfMember = EntityResponseOfMember;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
@@ -16612,7 +16474,6 @@
    exports.EventsService = EventsService;
    exports.EventsServiceCreateRequest = EventsServiceCreateRequest;
    exports.EventsServiceExportRequest = EventsServiceExportRequest;
-   exports.EventsServiceFindInAreaRequest = EventsServiceFindInAreaRequest;
    exports.EventsServiceFindRequest = EventsServiceFindRequest;
    exports.EventsServiceGetIntegrationsRequestRequest = EventsServiceGetIntegrationsRequestRequest;
    exports.EventsServiceSetBulkStatusRequest = EventsServiceSetBulkStatusRequest;
@@ -16735,6 +16596,7 @@
    exports.QueryResponseOfAnomalyEventInfo = QueryResponseOfAnomalyEventInfo;
    exports.QueryResponseOfAppliance = QueryResponseOfAppliance;
    exports.QueryResponseOfApplianceConfigReport = QueryResponseOfApplianceConfigReport;
+   exports.QueryResponseOfApplianceProfile = QueryResponseOfApplianceProfile;
    exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
    exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
    exports.QueryResponseOfCaseInfo = QueryResponseOfCaseInfo;
@@ -16982,6 +16844,7 @@
    exports.User = User;
    exports.UserAccount = UserAccount;
    exports.UserAccountInfo = UserAccountInfo;
+   exports.UserAccountInfoAccount = UserAccountInfoAccount;
    exports.UserByEmailRequest = UserByEmailRequest;
    exports.UserIdRequest = UserIdRequest;
    exports.UserIdsRequest = UserIdsRequest;
@@ -16990,13 +16853,7 @@
    exports.UserService = UserService;
    exports.UserServiceChangeMobileRequest = UserServiceChangeMobileRequest;
    exports.UserServiceChangeNameRequest = UserServiceChangeNameRequest;
-   exports.UserServiceChangePasswordRequest = UserServiceChangePasswordRequest;
-   exports.UserServiceCheckPasswordRequest = UserServiceCheckPasswordRequest;
-   exports.UserServiceLoginRequest = UserServiceLoginRequest;
-   exports.UserServiceResetPasswordRequest = UserServiceResetPasswordRequest;
-   exports.UserServiceSendVerificationRequest = UserServiceSendVerificationRequest;
    exports.UserServiceSwitchAccountRequest = UserServiceSwitchAccountRequest;
-   exports.UserServiceVerifyLoginRequest = UserServiceVerifyLoginRequest;
    exports.UserTokenRequest = UserTokenRequest;
    exports.UsersService = UsersService;
    exports.UsersServiceChangeDefaultAccountRequest = UsersServiceChangeDefaultAccountRequest;
