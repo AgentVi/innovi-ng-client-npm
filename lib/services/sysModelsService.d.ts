@@ -46,10 +46,15 @@ export declare class SysModelsService {
      */
     getSensorModels(sensorId?: string): import("rxjs").Observable<any>;
     /**
-     * Add detection model to sensor
+     * Add detection model to the list of detection models for the given sensor
      * @Return: ActionResponse
      */
     addSensorModels(sensorId?: string, id?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Update the list of detection model for the given sensor
+     * @Return: ActionResponse
+     */
+    updateSensorModels(sensorId?: string, id?: string[]): import("rxjs").Observable<any>;
     /**
      * Remove detection model from sensor
      * @Return: ActionResponse

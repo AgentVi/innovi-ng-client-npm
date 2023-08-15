@@ -29,11 +29,13 @@ export declare class SysSensorsService {
     find(accountId?: string, folderId?: string, subFolders?: boolean, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Get single sensor health by sensor id
+     * REMOVED: Please use /sensors/{id} instead.
      * @Return: EntityResponse<SensorStatus>
      */
     getSensorHealthStatus(id?: string): import("rxjs").Observable<any>;
     /**
      * Get all sensors health status
+     * REMOVED: Please use /sensors instead.
      * @Return: EntitiesResponse<SensorStatus>
      */
     getSensorsHealthStatus(): import("rxjs").Observable<any>;
