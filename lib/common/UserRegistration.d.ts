@@ -7,7 +7,9 @@ export declare class UserRegistration {
     defaultAccount: string;
     accountRoles: AccountRole[];
     type: UserTypeCode;
+    tempPassword: string;
+    changePassword: boolean;
     verifyByEmail: boolean;
     description: string;
-    constructor(name?: string, email?: string, mobile?: string, defaultAccount?: string, accountRoles?: AccountRole[], type?: UserTypeCode, verifyByEmail?: boolean, description?: string);
+    constructor(name?: string, email?: string, mobile?: string, defaultAccount?: string, accountRoles?: AccountRole[], type?: UserTypeCode, tempPassword?: string, changePassword?: boolean, verifyByEmail?: boolean, description?: string);
 }

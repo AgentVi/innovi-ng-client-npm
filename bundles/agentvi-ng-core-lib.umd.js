@@ -1671,34 +1671,19 @@
       User registration data model - used by self registered users
    */
    var UserRegistration = /** @class */ (function () {
-       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, verifyByEmail, description) {
+       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.defaultAccount = defaultAccount;
            this.accountRoles = accountRoles;
            this.type = type;
+           this.tempPassword = tempPassword;
+           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
        return UserRegistration;
-   }());
-
-   /*
-      User update request data model
-   */
-   var UserUpdate = /** @class */ (function () {
-       function UserUpdate(id, name, mobile, type, defaultAccount, description, status, accountRoles) {
-           this.id = id;
-           this.name = name;
-           this.mobile = mobile;
-           this.type = type;
-           this.defaultAccount = defaultAccount;
-           this.description = description;
-           this.status = status;
-           this.accountRoles = accountRoles;
-       }
-       return UserUpdate;
    }());
 
    /*
@@ -16872,7 +16857,6 @@
    exports.UserServiceChangeNameRequest = UserServiceChangeNameRequest;
    exports.UserServiceSwitchAccountRequest = UserServiceSwitchAccountRequest;
    exports.UserTokenRequest = UserTokenRequest;
-   exports.UserUpdate = UserUpdate;
    exports.UsersService = UsersService;
    exports.UsersServiceChangeDefaultAccountRequest = UsersServiceChangeDefaultAccountRequest;
    exports.UsersServiceChangeMobileRequest = UsersServiceChangeMobileRequest;
