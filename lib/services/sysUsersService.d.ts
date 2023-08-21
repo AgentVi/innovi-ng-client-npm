@@ -1,10 +1,10 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { User } from '../entities/User';
+import { UserRegistration } from '../common/UserRegistration';
+import { UserUpdate } from '../common/UserUpdate';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { AccountRoleCode } from '../enums/AccountRoleCode';
-import { UserRegistration } from '../common/UserRegistration';
 import * as i0 from "@angular/core";
 /**
  * List of all user related actions for account administrator only
@@ -29,7 +29,7 @@ export declare class SysUsersService {
      * Update user
      * @Return: EntityResponse<User>
      */
-    update(id?: string, body?: User): import("rxjs").Observable<any>;
+    update(id?: string, body?: UserUpdate): import("rxjs").Observable<any>;
     /**
      * Change user name
      * @Return: EntityResponse<User>
