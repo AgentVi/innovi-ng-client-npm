@@ -97,4 +97,3 @@ export * from './UserAccountInfo';
 export * from './UserAccountInfoAccount';
 export * from './UserInvitation';
 export * from './UserRegistration';
-export * from './UserUpdate';
