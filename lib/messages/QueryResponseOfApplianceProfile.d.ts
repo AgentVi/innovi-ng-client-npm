@@ -1,7 +1,7 @@
+import { ApplianceProfile } from '../entities/ApplianceProfile';
 import { QueryResponse } from '../messages/QueryResponse';
-import { Group } from '../entities/Group';
-export declare class QueryResponseOfGroup extends QueryResponse {
-    list: Group[];
+export declare class QueryResponseOfApplianceProfile extends QueryResponse {
+    list: ApplianceProfile[];
     code: number;
     error: string;
     page: number;

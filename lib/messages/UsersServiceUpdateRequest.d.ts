@@ -1,6 +1,6 @@
-import { User } from '../entities/User';
+import { UserUpdate } from '../common/UserUpdate';
 export declare class UsersServiceUpdateRequest {
     id: string;
-    body: User;
-    constructor(id?: string, body?: User);
+    body: UserUpdate;
+    constructor(id?: string, body?: UserUpdate);
 }

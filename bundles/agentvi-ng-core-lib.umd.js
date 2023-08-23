@@ -720,15 +720,13 @@
       Account member registration data model - used by self registered users
    */
    var MemberRegistration = /** @class */ (function () {
-       function MemberRegistration(accountId, name, email, mobile, role, groups, tempPassword, changePassword, verifyByEmail, description) {
+       function MemberRegistration(accountId, name, email, mobile, role, groups, verifyByEmail, description) {
            this.accountId = accountId;
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.role = role;
            this.groups = groups;
-           this.tempPassword = tempPassword;
-           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
@@ -1351,12 +1349,14 @@
       Sensor anomaly rule information
    */
    var SensorAnomalyRuleInfo = /** @class */ (function () {
-       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip) {
+       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip, ruleId, externalId) {
            this.active = active;
            this.sensitivity = sensitivity;
            this.objectTypes = objectTypes;
            this.createImage = createImage;
            this.createClip = createClip;
+           this.ruleId = ruleId;
+           this.externalId = externalId;
        }
        return SensorAnomalyRuleInfo;
    }());
@@ -1673,19 +1673,34 @@
       User registration data model - used by self registered users
    */
    var UserRegistration = /** @class */ (function () {
-       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, tempPassword, changePassword, verifyByEmail, description) {
+       function UserRegistration(name, email, mobile, defaultAccount, accountRoles, type, verifyByEmail, description) {
            this.name = name;
            this.email = email;
            this.mobile = mobile;
            this.defaultAccount = defaultAccount;
            this.accountRoles = accountRoles;
            this.type = type;
-           this.tempPassword = tempPassword;
-           this.changePassword = changePassword;
            this.verifyByEmail = verifyByEmail;
            this.description = description;
        }
        return UserRegistration;
+   }());
+
+   /*
+      User update request data model
+   */
+   var UserUpdate = /** @class */ (function () {
+       function UserUpdate(id, name, mobile, type, defaultAccount, description, status, accountRoles) {
+           this.id = id;
+           this.name = name;
+           this.mobile = mobile;
+           this.type = type;
+           this.defaultAccount = defaultAccount;
+           this.description = description;
+           this.status = status;
+           this.accountRoles = accountRoles;
+       }
+       return UserUpdate;
    }());
 
    /*
@@ -4812,8 +4827,10 @@
    /*
    */
    var ApplianceProfileFindRequest = /** @class */ (function () {
-       function ApplianceProfileFindRequest(search) {
+       function ApplianceProfileFindRequest(search, page, pageSize) {
            this.search = search;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return ApplianceProfileFindRequest;
    }());
@@ -5554,16 +5571,6 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntitiesResponseOfApplianceConfiguration;
-   }(EntitiesResponse));
-
-   /*
-   */
-   var EntitiesResponseOfApplianceProfile = /** @class */ (function (_super) {
-       __extends(EntitiesResponseOfApplianceProfile, _super);
-       function EntitiesResponseOfApplianceProfile() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntitiesResponseOfApplianceProfile;
    }(EntitiesResponse));
 
    /*
@@ -6991,8 +6998,10 @@
    /*
    */
    var IntegrationActionsFolderRequest = /** @class */ (function () {
-       function IntegrationActionsFolderRequest(folderId) {
+       function IntegrationActionsFolderRequest(folderId, page, pageSize) {
            this.folderId = folderId;
+           this.page = page;
+           this.pageSize = pageSize;
        }
        return IntegrationActionsFolderRequest;
    }());
@@ -7245,6 +7254,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfApplianceConfigReport;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfApplianceProfile = /** @class */ (function (_super) {
+       __extends(QueryResponseOfApplianceProfile, _super);
+       function QueryResponseOfApplianceProfile() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfApplianceProfile;
    }(QueryResponse));
 
    /*
@@ -8891,10 +8910,12 @@
    /*
    */
    var SysUsageReportRequest = /** @class */ (function () {
-       function SysUsageReportRequest(id, year, month) {
+       function SysUsageReportRequest(id, year, month, after, limit) {
            this.id = id;
            this.year = year;
            this.month = month;
+           this.after = after;
+           this.limit = limit;
        }
        return SysUsageReportRequest;
    }());
@@ -9863,11 +9884,17 @@
         * Find profiles by filters
         * @Return: EntitiesResponse<ApplianceProfile>
         */
-       ApplianceProfilesService.prototype.find = function (search) {
+       ApplianceProfilesService.prototype.find = function (search, page, pageSize) {
            var _a;
            var params = new Array();
            if (search != null) {
                params.push("search=" + search);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
@@ -11779,8 +11806,16 @@
         * Find all integration actions for a specified level in the folder hierarchy
         * @Return: EntitiesResponse<IntegrationAction>
         */
-       IntegrationsService.prototype.getFolderActions = function (folderId) {
-           return this.rest.get(this.baseUrl + "/actions/folder/" + folderId);
+       IntegrationsService.prototype.getFolderActions = function (folderId, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/actions/folder/" + folderId], __read(params)));
        };
        /**
         * Test integration action with data (limited to HTTP)
@@ -13307,6 +13342,7 @@
        };
        /**
         * Get single sensor health by sensor id
+        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -13314,6 +13350,7 @@
        };
        /**
         * Get all sensors health status
+        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SensorsService.prototype.getSensorsHealthStatus = function () {
@@ -13738,7 +13775,7 @@
         * List of sensor with total active time (minutes) and total of billable sensors
         * @Return: EntityResponse<UsageReport>
         */
-       SysAccountsService.prototype.getUsageReport = function (id, year, month) {
+       SysAccountsService.prototype.getUsageReport = function (id, year, month, after, limit) {
            return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
        };
        /**
@@ -14875,10 +14912,22 @@
            return this.rest.get(this.baseUrl + "/sensors/" + sensorId);
        };
        /**
-        * Add detection model to sensor
+        * Add detection model to the list of detection models for the given sensor
         * @Return: ActionResponse
         */
        SysModelsService.prototype.addSensorModels = function (sensorId, id) {
+           var _a;
+           var params = new Array();
+           if (id != null) {
+               params.push("id=" + id);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sensors/" + sensorId, null], __read(params)));
+       };
+       /**
+        * Update the list of detection model for the given sensor
+        * @Return: ActionResponse
+        */
+       SysModelsService.prototype.updateSensorModels = function (sensorId, id) {
            var _a;
            var params = new Array();
            if (id != null) {
@@ -15015,6 +15064,7 @@
        };
        /**
         * Get single sensor health by sensor id
+        * REMOVED: Please use /sensors/{id} instead.
         * @Return: EntityResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorHealthStatus = function (id) {
@@ -15022,6 +15072,7 @@
        };
        /**
         * Get all sensors health status
+        * REMOVED: Please use /sensors instead.
         * @Return: EntitiesResponse<SensorStatus>
         */
        SysSensorsService.prototype.getSensorsHealthStatus = function () {
@@ -16343,7 +16394,6 @@
    exports.EntitiesResponseOfApplianceAgents = EntitiesResponseOfApplianceAgents;
    exports.EntitiesResponseOfApplianceCommand = EntitiesResponseOfApplianceCommand;
    exports.EntitiesResponseOfApplianceConfiguration = EntitiesResponseOfApplianceConfiguration;
-   exports.EntitiesResponseOfApplianceProfile = EntitiesResponseOfApplianceProfile;
    exports.EntitiesResponseOfAuditLog = EntitiesResponseOfAuditLog;
    exports.EntitiesResponseOfCalendar = EntitiesResponseOfCalendar;
    exports.EntitiesResponseOfCaseInfo = EntitiesResponseOfCaseInfo;
@@ -16567,6 +16617,7 @@
    exports.QueryResponseOfAnomalyEventInfo = QueryResponseOfAnomalyEventInfo;
    exports.QueryResponseOfAppliance = QueryResponseOfAppliance;
    exports.QueryResponseOfApplianceConfigReport = QueryResponseOfApplianceConfigReport;
+   exports.QueryResponseOfApplianceProfile = QueryResponseOfApplianceProfile;
    exports.QueryResponseOfAuditLog = QueryResponseOfAuditLog;
    exports.QueryResponseOfCalendar = QueryResponseOfCalendar;
    exports.QueryResponseOfCaseInfo = QueryResponseOfCaseInfo;
@@ -16825,6 +16876,7 @@
    exports.UserServiceChangeNameRequest = UserServiceChangeNameRequest;
    exports.UserServiceSwitchAccountRequest = UserServiceSwitchAccountRequest;
    exports.UserTokenRequest = UserTokenRequest;
+   exports.UserUpdate = UserUpdate;
    exports.UsersService = UsersService;
    exports.UsersServiceChangeDefaultAccountRequest = UsersServiceChangeDefaultAccountRequest;
    exports.UsersServiceChangeMobileRequest = UsersServiceChangeMobileRequest;
