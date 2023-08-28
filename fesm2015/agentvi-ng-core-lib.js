@@ -942,12 +942,14 @@ class SensorAnomalyInfo {
    Sensor anomaly rule information
 */
 class SensorAnomalyRuleInfo {
-    constructor(active, sensitivity, objectTypes, createImage, createClip) {
+    constructor(active, sensitivity, objectTypes, createImage, createClip, ruleId, externalId) {
         this.active = active;
         this.sensitivity = sensitivity;
         this.objectTypes = objectTypes;
         this.createImage = createImage;
         this.createClip = createClip;
+        this.ruleId = ruleId;
+        this.externalId = externalId;
     }
 }
 
@@ -1175,7 +1177,7 @@ class TimestampedImage {
    Tree item for account hierarchy tree
 */
 class TreeItem {
-    constructor(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType) {
+    constructor(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType, permissions) {
         this.itemId = itemId;
         this.type = type;
         this.name = name;
@@ -1185,6 +1187,7 @@ class TreeItem {
         this.scheduleId = scheduleId;
         this.active = active;
         this.behaviorType = behaviorType;
+        this.permissions = permissions;
     }
 }
 
@@ -7264,10 +7267,12 @@ class SysSystemRestoreRequest {
 /*
 */
 class SysUsageReportRequest {
-    constructor(id, year, month) {
+    constructor(id, year, month, after, limit) {
         this.id = id;
         this.year = year;
         this.month = month;
+        this.after = after;
+        this.limit = limit;
     }
 }
 
@@ -12236,7 +12241,7 @@ class SysAccountsService {
      * List of sensor with total active time (minutes) and total of billable sensors
      * @Return: EntityResponse<UsageReport>
      */
-    getUsageReport(id, year, month) {
+    getUsageReport(id, year, month, after, limit) {
         return this.rest.get(`${this.baseUrl}/${id}/usage-report/${year}/${month}`);
     }
     /**

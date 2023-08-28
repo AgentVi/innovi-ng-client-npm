@@ -137,7 +137,7 @@ export declare class SysAccountsService {
      * List of sensor with total active time (minutes) and total of billable sensors
      * @Return: EntityResponse<UsageReport>
      */
-    getUsageReport(id?: string, year?: number, month?: number): import("rxjs").Observable<any>;
+    getUsageReport(id?: string, year?: number, month?: number, after?: string, limit?: number): import("rxjs").Observable<any>;
     /**
      * Get sensor usage report (for billing)
      * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>

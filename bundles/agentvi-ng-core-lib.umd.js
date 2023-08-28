@@ -1349,12 +1349,14 @@
       Sensor anomaly rule information
    */
    var SensorAnomalyRuleInfo = /** @class */ (function () {
-       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip) {
+       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip, ruleId, externalId) {
            this.active = active;
            this.sensitivity = sensitivity;
            this.objectTypes = objectTypes;
            this.createImage = createImage;
            this.createClip = createClip;
+           this.ruleId = ruleId;
+           this.externalId = externalId;
        }
        return SensorAnomalyRuleInfo;
    }());
@@ -1601,7 +1603,7 @@
       Tree item for account hierarchy tree
    */
    var TreeItem = /** @class */ (function () {
-       function TreeItem(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType) {
+       function TreeItem(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType, permissions) {
            this.itemId = itemId;
            this.type = type;
            this.name = name;
@@ -1611,6 +1613,7 @@
            this.scheduleId = scheduleId;
            this.active = active;
            this.behaviorType = behaviorType;
+           this.permissions = permissions;
        }
        return TreeItem;
    }());
@@ -8908,10 +8911,12 @@
    /*
    */
    var SysUsageReportRequest = /** @class */ (function () {
-       function SysUsageReportRequest(id, year, month) {
+       function SysUsageReportRequest(id, year, month, after, limit) {
            this.id = id;
            this.year = year;
            this.month = month;
+           this.after = after;
+           this.limit = limit;
        }
        return SysUsageReportRequest;
    }());
@@ -14196,7 +14201,7 @@
         * List of sensor with total active time (minutes) and total of billable sensors
         * @Return: EntityResponse<UsageReport>
         */
-       SysAccountsService.prototype.getUsageReport = function (id, year, month) {
+       SysAccountsService.prototype.getUsageReport = function (id, year, month, after, limit) {
            return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
        };
        /**
