@@ -7714,9 +7714,11 @@ class UpdateStaticWatchlistRequestBody {
 /*
 */
 class UsageReportRequest {
-    constructor(year, month) {
+    constructor(year, month, after, limit) {
         this.year = year;
         this.month = month;
+        this.after = after;
+        this.limit = limit;
     }
 }
 
@@ -8253,8 +8255,15 @@ class AccountsService {
      * List of sensor with total active time (minutes) and total of billable sensors
      * @Return: EntityResponse<UsageReport>
      */
-    getUsageReport(year, month) {
-        return this.rest.get(`${this.baseUrl}/usage-report/${year}/${month}`);
+    getUsageReport(year, month, after, limit) {
+        const params = new Array();
+        if (after != null) {
+            params.push(`after=${after}`);
+        }
+        if (limit != null) {
+            params.push(`limit=${limit}`);
+        }
+        return this.rest.get(`${this.baseUrl}/usage-report/${year}/${month}`, ...params);
     }
     /**
      * Get sensor usage report (for billing)
@@ -12378,7 +12387,14 @@ class SysAccountsService {
      * @Return: EntityResponse<UsageReport>
      */
     getUsageReport(id, year, month, after, limit) {
-        return this.rest.get(`${this.baseUrl}/${id}/usage-report/${year}/${month}`);
+        const params = new Array();
+        if (after != null) {
+            params.push(`after=${after}`);
+        }
+        if (limit != null) {
+            params.push(`limit=${limit}`);
+        }
+        return this.rest.get(`${this.baseUrl}/${id}/usage-report/${year}/${month}`, ...params);
     }
     /**
      * Get sensor usage report (for billing)

@@ -9402,9 +9402,11 @@
    /*
    */
    var UsageReportRequest = /** @class */ (function () {
-       function UsageReportRequest(year, month) {
+       function UsageReportRequest(year, month, after, limit) {
            this.year = year;
            this.month = month;
+           this.after = after;
+           this.limit = limit;
        }
        return UsageReportRequest;
    }());
@@ -10010,8 +10012,16 @@
         * List of sensor with total active time (minutes) and total of billable sensors
         * @Return: EntityResponse<UsageReport>
         */
-       AccountsService.prototype.getUsageReport = function (year, month) {
-           return this.rest.get(this.baseUrl + "/usage-report/" + year + "/" + month);
+       AccountsService.prototype.getUsageReport = function (year, month, after, limit) {
+           var _a;
+           var params = new Array();
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/usage-report/" + year + "/" + month], __read(params)));
        };
        /**
         * Get sensor usage report (for billing)
@@ -14359,7 +14369,15 @@
         * @Return: EntityResponse<UsageReport>
         */
        SysAccountsService.prototype.getUsageReport = function (id, year, month, after, limit) {
-           return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
+           var _a;
+           var params = new Array();
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month], __read(params)));
        };
        /**
         * Get sensor usage report (for billing)
