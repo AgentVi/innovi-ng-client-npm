@@ -3302,6 +3302,8 @@ var ProductTypeCode;
     ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
     // Custom iris+ Device (Customer provides it's own hardware) [3] 
     ProductTypeCode[ProductTypeCode["CUSTOM_IRIS_PLUS"] = 3] = "CUSTOM_IRIS_PLUS";
+    // Axis ARTPEC-7 Camera [7] 
+    ProductTypeCode[ProductTypeCode["AXIS_ARTPEC7"] = 7] = "AXIS_ARTPEC7";
     // Edge 10 [10] 
     ProductTypeCode[ProductTypeCode["EDGE_10"] = 10] = "EDGE_10";
     // Edge 200 [200] 
