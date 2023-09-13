@@ -2815,8 +2815,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
        // Slip and Fall 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
-       // Area Occupancy 65861 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY_STATISTICS"] = 65861] = "INNOVI_AREA_OCCUPANCY_STATISTICS";
+       // Crowd Statistics 65861 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_CROWD_STATISTICS"] = 65861] = "INNOVI_CROWD_STATISTICS";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3747,8 +3747,8 @@
        FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
        // Count statistics rule [3072] 
        FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
-       // Area occupancy statistics rule [3073] 
-       FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
+       // Crowd statistics rule [3073] 
+       FeatureCode[FeatureCode["RULE_CROWD_STATISTICS"] = 3073] = "RULE_CROWD_STATISTICS";
        // Monitor (real time events) module [4096] 
        FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
        // Google maps support module [4097] 
@@ -4084,8 +4084,8 @@
        ReportTypeCode[ReportTypeCode["PEOPLE_COUNTING_ANALYSIS"] = 3] = "PEOPLE_COUNTING_ANALYSIS";
        // Traffic analysis [4] 
        ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
-       // Area occupancy analysis [5] 
-       ReportTypeCode[ReportTypeCode["AREA_OCCUPANCY_ANALYSIS"] = 5] = "AREA_OCCUPANCY_ANALYSIS";
+       // Crowd statistics analysis [5] 
+       ReportTypeCode[ReportTypeCode["CROWD_STATISTICS_ANALYSIS"] = 5] = "CROWD_STATISTICS_ANALYSIS";
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
 
    /*
