@@ -39,6 +39,7 @@ export * from './RuleColorCode';
 export * from './RuntimeStatusCode';
 export * from './SearchScopeCode';
 export * from './SearchTimeCode';
+export * from './SensorAnonymizationTypeCode';
 export * from './SensorConfigChangeMask';
 export * from './SensorResolutionCode';
 export * from './SensorStateMask';
