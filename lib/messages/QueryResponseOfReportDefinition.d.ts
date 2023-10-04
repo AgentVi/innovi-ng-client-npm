@@ -1,5 +1,5 @@
-import { ReportDefinition } from '../entities/ReportDefinition';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ReportDefinition } from '../entities/ReportDefinition';
 export declare class QueryResponseOfReportDefinition extends QueryResponse {
     list: ReportDefinition[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfReportDefinition extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

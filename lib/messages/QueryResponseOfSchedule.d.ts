@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { Schedule } from '../entities/Schedule';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfSchedule extends QueryResponse {
     list: Schedule[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfSchedule extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

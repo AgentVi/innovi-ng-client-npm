@@ -6708,7 +6708,7 @@
    /*
    */
    var EventsServiceFindRequest = /** @class */ (function () {
-       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.sensorId = sensorId;
@@ -6723,6 +6723,8 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
+           this.after = after;
+           this.limit = limit;
        }
        return EventsServiceFindRequest;
    }());
@@ -7436,7 +7438,7 @@
       Query response message returned for find operation (with pagination) on multiple entities
    */
    var QueryResponse = /** @class */ (function () {
-       function QueryResponse(code, error, page, pageSize, pages, total, queryDef, docType) {
+       function QueryResponse(code, error, page, pageSize, pages, total, queryDef, docType, cursor) {
            this.code = code;
            this.error = error;
            this.page = page;
@@ -7445,6 +7447,7 @@
            this.total = total;
            this.queryDef = queryDef;
            this.docType = docType;
+           this.cursor = cursor;
        }
        return QueryResponse;
    }());
@@ -9099,7 +9102,7 @@
    /*
    */
    var SysEventsServiceFindInAreaRequest = /** @class */ (function () {
-       function SysEventsServiceFindInAreaRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+       function SysEventsServiceFindInAreaRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
            this.accountId = accountId;
            this.folderId = folderId;
            this.sensorId = sensorId;
@@ -9111,6 +9114,8 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
+           this.after = after;
+           this.limit = limit;
        }
        return SysEventsServiceFindInAreaRequest;
    }());
@@ -11321,7 +11326,7 @@
         * Find events by filters
         * @Return: QueryResponse<Event>
         */
-       EventsService.prototype.find = function (folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+       EventsService.prototype.find = function (folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -11365,6 +11370,12 @@
            }
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
+           }
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
@@ -15100,7 +15111,7 @@
         * Find events by filters
         * @Return: QueryResponse<Event>
         */
-       SysEventsService.prototype.find = function (accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+       SysEventsService.prototype.find = function (accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -15132,6 +15143,12 @@
            }
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
+           }
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + accountId], __read(params)));
        };

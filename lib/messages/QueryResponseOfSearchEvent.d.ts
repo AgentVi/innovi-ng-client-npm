@@ -10,4 +10,5 @@ export declare class QueryResponseOfSearchEvent extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

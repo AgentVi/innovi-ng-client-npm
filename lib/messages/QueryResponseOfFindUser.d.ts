@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { FindUser } from '../entities/FindUser';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfFindUser extends QueryResponse {
     list: FindUser[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfFindUser extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

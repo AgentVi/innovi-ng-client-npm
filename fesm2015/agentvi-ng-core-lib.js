@@ -5407,7 +5407,7 @@ class EventsServiceExportRequest {
 /*
 */
 class EventsServiceFindRequest {
-    constructor(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+    constructor(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
         this.folderId = folderId;
         this.subFolders = subFolders;
         this.sensorId = sensorId;
@@ -5422,6 +5422,8 @@ class EventsServiceFindRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.after = after;
+        this.limit = limit;
     }
 }
 
@@ -6066,7 +6068,7 @@ class PoiBoundingBox {
    Query response message returned for find operation (with pagination) on multiple entities
 */
 class QueryResponse {
-    constructor(code, error, page, pageSize, pages, total, queryDef, docType) {
+    constructor(code, error, page, pageSize, pages, total, queryDef, docType, cursor) {
         this.code = code;
         this.error = error;
         this.page = page;
@@ -6075,6 +6077,7 @@ class QueryResponse {
         this.total = total;
         this.queryDef = queryDef;
         this.docType = docType;
+        this.cursor = cursor;
     }
 }
 
@@ -7439,7 +7442,7 @@ class SysEventIdRequest {
 /*
 */
 class SysEventsServiceFindInAreaRequest {
-    constructor(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+    constructor(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
         this.accountId = accountId;
         this.folderId = folderId;
         this.sensorId = sensorId;
@@ -7451,6 +7454,8 @@ class SysEventsServiceFindInAreaRequest {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.after = after;
+        this.limit = limit;
     }
 }
 
@@ -9490,7 +9495,7 @@ class EventsService {
      * Find events by filters
      * @Return: QueryResponse<Event>
      */
-    find(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+    find(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -9533,6 +9538,12 @@ class EventsService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (after != null) {
+            params.push(`after=${after}`);
+        }
+        if (limit != null) {
+            params.push(`limit=${limit}`);
         }
         return this.rest.get(`${this.baseUrl}`, ...params);
     }
@@ -13085,7 +13096,7 @@ class SysEventsService {
      * Find events by filters
      * @Return: QueryResponse<Event>
      */
-    find(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+    find(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
         const params = new Array();
         if (folderId != null) {
             params.push(`folderId=${folderId}`);
@@ -13116,6 +13127,12 @@ class SysEventsService {
         }
         if (pageSize != null) {
             params.push(`pageSize=${pageSize}`);
+        }
+        if (after != null) {
+            params.push(`after=${after}`);
+        }
+        if (limit != null) {
+            params.push(`limit=${limit}`);
         }
         return this.rest.get(`${this.baseUrl}/${accountId}`, ...params);
     }
