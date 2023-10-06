@@ -1,5 +1,5 @@
-import { RuntimeStatusCode } from '../enums/RuntimeStatusCode';
 import { StringKeyValue } from '../common/StringKeyValue';
+import { RuntimeStatusCode } from '../enums/RuntimeStatusCode';
 export declare class ComponentConfiguration {
     id: string;
     component: string;

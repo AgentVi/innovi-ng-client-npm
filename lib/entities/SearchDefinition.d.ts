@@ -1,6 +1,6 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { Coordinate } from '../common/Coordinate';
 import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { BaseEntity } from '../entities/BaseEntity';
 import { SearchTimeCode } from '../enums/SearchTimeCode';
 import { TimeFrame } from '../common/TimeFrame';
 import { SearchBehavior } from '../common/SearchBehavior';
