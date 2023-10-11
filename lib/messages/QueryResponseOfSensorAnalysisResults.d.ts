@@ -1,5 +1,5 @@
-import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
 import { QueryResponse } from '../messages/QueryResponse';
+import { SensorAnalysisResults } from '../entities/SensorAnalysisResults';
 export declare class QueryResponseOfSensorAnalysisResults extends QueryResponse {
     list: SensorAnalysisResults[];
     code: number;
@@ -10,5 +10,4 @@ export declare class QueryResponseOfSensorAnalysisResults extends QueryResponse 
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

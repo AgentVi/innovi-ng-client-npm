@@ -10,5 +10,4 @@ export declare class QueryResponseOfMember extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

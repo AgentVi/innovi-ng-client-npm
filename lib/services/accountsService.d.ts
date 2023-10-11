@@ -86,7 +86,7 @@ export declare class AccountsService {
      * List of sensor with total active time (minutes) and total of billable sensors
      * @Return: EntityResponse<UsageReport>
      */
-    getUsageReport(year?: number, month?: number, after?: string, limit?: number): import("rxjs").Observable<any>;
+    getUsageReport(year?: number, month?: number): import("rxjs").Observable<any>;
     /**
      * Get sensor usage report (for billing)
      * @Return: EntityResponse<TimeDataSeries<SensorStatusCode>>
