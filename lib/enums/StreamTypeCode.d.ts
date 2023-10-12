@@ -5,5 +5,6 @@ export declare enum StreamTypeCode {
     CLIP = 3,
     RTP = 4,
     MULTICAST = 5,
-    HTTP = 6
+    HTTP = 6,
+    INTERNAL = 7
 }

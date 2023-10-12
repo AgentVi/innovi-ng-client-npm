@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { IntegrationAction } from '../entities/IntegrationAction';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfIntegrationAction extends QueryResponse {
     list: IntegrationAction[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfIntegrationAction extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

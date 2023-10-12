@@ -27,7 +27,7 @@ export declare class SysEventsService {
      * Find events by filters
      * @Return: QueryResponse<Event>
      */
-    find(accountId?: string, folderId?: string[], sensorId?: string[], objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(accountId?: string, folderId?: string[], sensorId?: string[], objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number, after?: string, limit?: number): import("rxjs").Observable<any>;
     /**
      * Get events count overtime for all events in the system
      * @Return: EntityResponse<EventCountTimeSeries>

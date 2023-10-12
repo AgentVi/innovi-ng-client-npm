@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { Event } from '../entities/Event';
 import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 import * as i0 from "@angular/core";
 /**
  * Services for events actions
@@ -59,7 +59,7 @@ export declare class EventsService {
      * Find events by filters
      * @Return: QueryResponse<Event>
      */
-    find(folderId?: string[], subFolders?: boolean, sensorId?: string[], applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string[], subFolders?: boolean, sensorId?: string[], applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number, after?: string, limit?: number): import("rxjs").Observable<any>;
     /**
      * Export list of events and filter
      * @Return: StreamContent
