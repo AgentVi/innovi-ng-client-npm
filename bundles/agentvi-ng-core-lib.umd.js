@@ -7898,39 +7898,12 @@
 
    /*
    */
-   var ReportIdsRequest = /** @class */ (function () {
-       function ReportIdsRequest(id) {
-           this.id = id;
-       }
-       return ReportIdsRequest;
-   }());
-
-   /*
-   */
    var ReportUpdateRequest = /** @class */ (function () {
        function ReportUpdateRequest(id, status) {
            this.id = id;
            this.status = status;
        }
        return ReportUpdateRequest;
-   }());
-
-   /*
-   */
-   var ReportsServiceCreateRequest = /** @class */ (function () {
-       function ReportsServiceCreateRequest(body) {
-           this.body = body;
-       }
-       return ReportsServiceCreateRequest;
-   }());
-
-   /*
-   */
-   var ReportsServiceFindRequest = /** @class */ (function () {
-       function ReportsServiceFindRequest(search) {
-           this.search = search;
-       }
-       return ReportsServiceFindRequest;
    }());
 
    /*
@@ -7947,16 +7920,6 @@
        function ReportsServiceSensorsRequest() {
        }
        return ReportsServiceSensorsRequest;
-   }());
-
-   /*
-   */
-   var ReportsServiceUpdateRequest = /** @class */ (function () {
-       function ReportsServiceUpdateRequest(id, body) {
-           this.id = id;
-           this.body = body;
-       }
-       return ReportsServiceUpdateRequest;
    }());
 
    /*
@@ -12620,58 +12583,6 @@
            this.baseUrl = this.config.api + this.baseUrl;
        }
        /**
-        * Create new report definition
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.create = function (body) {
-           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Update report definition
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.update = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Delete report definition from the system
-        * @Return: ActionResponse
-        */
-       ReportsService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single report definition by id
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get multiple report definitions by list of ids
-        * @Return: EntitiesResponse<ReportDefinition>
-        */
-       ReportsService.prototype.list = function (id) {
-           var _a;
-           var params = new Array();
-           if (id != null) {
-               params.push("id=" + id);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
-       };
-       /**
-        * Find report definitions by filters
-        * @Return: QueryResponse<ReportDefinition>
-        */
-       ReportsService.prototype.find = function (search) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
-       /**
         * Export account sensors as CSV report stream
         * @Return: StreamContent
         */
@@ -17311,14 +17222,10 @@
    exports.ReportGenerationRequest = ReportGenerationRequest;
    exports.ReportGenerationRequestBody = ReportGenerationRequestBody;
    exports.ReportIdRequest = ReportIdRequest;
-   exports.ReportIdsRequest = ReportIdsRequest;
    exports.ReportUpdateRequest = ReportUpdateRequest;
    exports.ReportsService = ReportsService;
-   exports.ReportsServiceCreateRequest = ReportsServiceCreateRequest;
-   exports.ReportsServiceFindRequest = ReportsServiceFindRequest;
    exports.ReportsServiceRulesSchedulesRequest = ReportsServiceRulesSchedulesRequest;
    exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
-   exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
    exports.ResponseDeleteStaticWatchlist = ResponseDeleteStaticWatchlist;
    exports.ResponseGetPoi = ResponseGetPoi;
    exports.ResponseOfAddPoi = ResponseOfAddPoi;
