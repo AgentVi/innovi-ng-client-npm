@@ -1,5 +1,5 @@
-import { CaseInfo } from '../entities/CaseInfo';
 import { QueryResponse } from '../messages/QueryResponse';
+import { CaseInfo } from '../entities/CaseInfo';
 export declare class QueryResponseOfCaseInfo extends QueryResponse {
     list: CaseInfo[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfCaseInfo extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

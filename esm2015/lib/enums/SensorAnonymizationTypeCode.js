@@ -1,0 +1,11 @@
+/*
+   Sensor anonymization code
+*/
+export var SensorAnonymizationTypeCode;
+(function (SensorAnonymizationTypeCode) {
+    // No anonymization [0] 
+    SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["NONE"] = 0] = "NONE";
+    // Default anonymization [1] 
+    SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE"] = 1] = "GRAYSCALE";
+})(SensorAnonymizationTypeCode || (SensorAnonymizationTypeCode = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2Vuc29yQW5vbnltaXphdGlvblR5cGVDb2RlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbmctY29yZS1saWIvc3JjL2xpYi9lbnVtcy9TZW5zb3JBbm9ueW1pemF0aW9uVHlwZUNvZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0VBRUU7QUFDRixNQUFNLENBQU4sSUFBWSwyQkFRWDtBQVJELFdBQVksMkJBQTJCO0lBRW5DLHdCQUF3QjtJQUN4Qiw2RUFBUSxDQUFBO0lBRVIsNkJBQTZCO0lBQzdCLHVGQUFhLENBQUE7QUFFakIsQ0FBQyxFQVJXLDJCQUEyQixLQUEzQiwyQkFBMkIsUUFRdEMiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBcbiAgIFNlbnNvciBhbm9ueW1pemF0aW9uIGNvZGUgXG4qL1xuZXhwb3J0IGVudW0gU2Vuc29yQW5vbnltaXphdGlvblR5cGVDb2RlIHtcbiBcbiAgICAvLyBObyBhbm9ueW1pemF0aW9uIFswXSBcbiAgICBOT05FID0gMCxcbiBcbiAgICAvLyBEZWZhdWx0IGFub255bWl6YXRpb24gWzFdIFxuICAgIEdSQVlTQ0FMRSA9IDEsXG4gXG59Il19

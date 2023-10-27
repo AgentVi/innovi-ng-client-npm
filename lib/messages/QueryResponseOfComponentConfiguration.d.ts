@@ -1,5 +1,5 @@
-import { ComponentConfiguration } from '../entities/ComponentConfiguration';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ComponentConfiguration } from '../entities/ComponentConfiguration';
 export declare class QueryResponseOfComponentConfiguration extends QueryResponse {
     list: ComponentConfiguration[];
     code: number;
@@ -10,4 +10,5 @@ export declare class QueryResponseOfComponentConfiguration extends QueryResponse
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

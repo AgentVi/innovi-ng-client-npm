@@ -10,4 +10,5 @@ export declare class QueryResponseOfApplianceConfigReport extends QueryResponse 
     total: number;
     queryDef: string;
     docType: string;
+    cursor: string;
 }

@@ -926,7 +926,7 @@
       Rule specification describe rule parameters
    */
    var RuleSpec = /** @class */ (function () {
-       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity) {
+       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
            this.behaviorType = behaviorType;
            this.ruleTypeName = ruleTypeName;
            this.objectTypes = objectTypes;
@@ -944,6 +944,7 @@
            this.excludeObjectTypes = excludeObjectTypes;
            this.autoSensitivity = autoSensitivity;
            this.sensitivity = sensitivity;
+           this.existsInWatchlist = existsInWatchlist;
        }
        return RuleSpec;
    }());
@@ -1349,12 +1350,14 @@
       Sensor anomaly rule information
    */
    var SensorAnomalyRuleInfo = /** @class */ (function () {
-       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip) {
+       function SensorAnomalyRuleInfo(active, sensitivity, objectTypes, createImage, createClip, ruleId, externalId) {
            this.active = active;
            this.sensitivity = sensitivity;
            this.objectTypes = objectTypes;
            this.createImage = createImage;
            this.createClip = createClip;
+           this.ruleId = ruleId;
+           this.externalId = externalId;
        }
        return SensorAnomalyRuleInfo;
    }());
@@ -1601,7 +1604,7 @@
       Tree item for account hierarchy tree
    */
    var TreeItem = /** @class */ (function () {
-       function TreeItem(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType) {
+       function TreeItem(itemId, type, name, typeName, status, shunt, scheduleId, active, behaviorType, permissions) {
            this.itemId = itemId;
            this.type = type;
            this.name = name;
@@ -1611,6 +1614,7 @@
            this.scheduleId = scheduleId;
            this.active = active;
            this.behaviorType = behaviorType;
+           this.permissions = permissions;
        }
        return TreeItem;
    }());
@@ -2807,7 +2811,9 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SIMILARITY"] = 67584] = "INNOVI_SIMILARITY";
        // Smoke and Fire 67585 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SMOKEANDFIRE"] = 67585] = "INNOVI_SMOKEANDFIRE";
-       // 65860 
+       // Face Present 67586 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
+       // Slip and Fall 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
        // Area Occupancy 65861 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY_STATISTICS"] = 65861] = "INNOVI_AREA_OCCUPANCY_STATISTICS";
@@ -3625,6 +3631,40 @@
        ErrorCode[ErrorCode["SearchServiceRequestError"] = 10604] = "SearchServiceRequestError";
        // Search service response error 
        ErrorCode[ErrorCode["SearchServiceResponseError"] = 10605] = "SearchServiceResponseError";
+       // General error when a request to Corsight failed 
+       ErrorCode[ErrorCode["CorsightRequestFailed"] = 30100] = "CorsightRequestFailed";
+       // Corsight DetectFaces call failed 
+       ErrorCode[ErrorCode["CorsightDetectFacesFailed"] = 30110] = "CorsightDetectFacesFailed";
+       // Corsight DetectFaces did not find any faces 
+       ErrorCode[ErrorCode["CorsightNoFacesDetected"] = 30111] = "CorsightNoFacesDetected";
+       // Corsight AnalyzeFace failed 
+       ErrorCode[ErrorCode["CorsightAnalyzeFaceFailed"] = 30120] = "CorsightAnalyzeFaceFailed";
+       // Corsight detected multiple faces in uploaded image 
+       ErrorCode[ErrorCode["CorsightAnalyzeMultipleFacesDetectedFailed"] = 30121] = "CorsightAnalyzeMultipleFacesDetectedFailed";
+       // Corsight failed to create a new POI 
+       ErrorCode[ErrorCode["CorsightCreatePoiFailed"] = 30130] = "CorsightCreatePoiFailed";
+       // Corsight failed to find a specific POI, or a POI matching an image 
+       ErrorCode[ErrorCode["CorsightNoPoiFound"] = 30131] = "CorsightNoPoiFound";
+       // Corsight Update Poi Failed 
+       ErrorCode[ErrorCode["CorsightUpdatePoiFailed"] = 30132] = "CorsightUpdatePoiFailed";
+       // Corsight Add static watchlist failed 
+       ErrorCode[ErrorCode["CorsightAddStaticWatchlistFailed"] = 30133] = "CorsightAddStaticWatchlistFailed";
+       // Corsight Update static watchlist failed 
+       ErrorCode[ErrorCode["CorsightUpdateStaticWatchlistFailed"] = 30134] = "CorsightUpdateStaticWatchlistFailed";
+       // Corsight Delete static watchlist failed 
+       ErrorCode[ErrorCode["CorsightDeleteStaticWatchlistFailed"] = 30135] = "CorsightDeleteStaticWatchlistFailed";
+       // Corsight No watchlist found 
+       ErrorCode[ErrorCode["CorsightNoWatchlistFound"] = 30136] = "CorsightNoWatchlistFound";
+       // Corsight Is not a static watchlist failed 
+       ErrorCode[ErrorCode["CorsightIsNotStaticWatchlistFailed"] = 30137] = "CorsightIsNotStaticWatchlistFailed";
+       // Corsight Watchlist already exist 
+       ErrorCode[ErrorCode["CorsightWatchlistAlreadyExist"] = 30138] = "CorsightWatchlistAlreadyExist";
+       // Corsight Detect faces image quality too low to create poi 
+       ErrorCode[ErrorCode["CorsightDetectFacesImageQualityTooLowToCreatePoi"] = 30139] = "CorsightDetectFacesImageQualityTooLowToCreatePoi";
+       // Corsight Export failed 
+       ErrorCode[ErrorCode["CorsightExportFailed"] = 30140] = "CorsightExportFailed";
+       // Corsight Poi not allowed to exist in both dynamic and static watchlist at the same time 
+       ErrorCode[ErrorCode["CorsightPoiNotAllowedToExistInBothDynamicAndStatic"] = 30141] = "CorsightPoiNotAllowedToExistInBothDynamicAndStatic";
    })(exports.ErrorCode || (exports.ErrorCode = {}));
 
    /*
@@ -3677,6 +3717,8 @@
        FeatureCode[FeatureCode["FEATURE_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_VIEW_POSE_KEYPOINTS";
        // Two people on motorcycle [28] 
        FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
+       // Anonymization [29] 
+       FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
@@ -3977,6 +4019,8 @@
        ProductTypeCode[ProductTypeCode["CUSTOM"] = 2] = "CUSTOM";
        // Custom iris+ Device (Customer provides it's own hardware) [3] 
        ProductTypeCode[ProductTypeCode["CUSTOM_IRIS_PLUS"] = 3] = "CUSTOM_IRIS_PLUS";
+       // Axis ARTPEC-7 Camera [7] 
+       ProductTypeCode[ProductTypeCode["AXIS_ARTPEC7"] = 7] = "AXIS_ARTPEC7";
        // Edge 10 [10] 
        ProductTypeCode[ProductTypeCode["EDGE_10"] = 10] = "EDGE_10";
        // Edge 200 [200] 
@@ -4144,6 +4188,17 @@
        // Last 48 hours [48] 
        SearchTimeCode[SearchTimeCode["LAST_48H"] = 48] = "LAST_48H";
    })(exports.SearchTimeCode || (exports.SearchTimeCode = {}));
+
+   /*
+      Sensor anonymization code
+   */
+   exports.SensorAnonymizationTypeCode = void 0;
+   (function (SensorAnonymizationTypeCode) {
+       // No anonymization [0] 
+       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["NONE"] = 0] = "NONE";
+       // Default anonymization [1] 
+       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE"] = 1] = "GRAYSCALE";
+   })(exports.SensorAnonymizationTypeCode || (exports.SensorAnonymizationTypeCode = {}));
 
    /*
       Bit mask to indicate sensor configuration changes (what part of the sensor configuration has changed)
@@ -4360,6 +4415,8 @@
        StreamTypeCode[StreamTypeCode["MULTICAST"] = 5] = "MULTICAST";
        // Download clip from http(s) [6] (streamUrl schema: http://  or https://) 
        StreamTypeCode[StreamTypeCode["HTTP"] = 6] = "HTTP";
+       // Stream from device [7] (streamUrl schema: internal://) 
+       StreamTypeCode[StreamTypeCode["INTERNAL"] = 7] = "INTERNAL";
    })(exports.StreamTypeCode || (exports.StreamTypeCode = {}));
 
    /*
@@ -4698,6 +4755,57 @@
            this.data = data;
        }
        return ActionResponse;
+   }());
+
+   /*
+   */
+   var AddPoiRequest = /** @class */ (function () {
+       function AddPoiRequest(body) {
+           this.body = body;
+       }
+       return AddPoiRequest;
+   }());
+
+   /*
+   */
+   var AddPoiRequestBody = /** @class */ (function () {
+       function AddPoiRequestBody(base64EncodedJpeg, name, ttl, poiId) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+           this.name = name;
+           this.ttl = ttl;
+           this.poiId = poiId;
+       }
+       return AddPoiRequestBody;
+   }());
+
+   /*
+   */
+   var AddPoiToStaticWatchListsRequest = /** @class */ (function () {
+       function AddPoiToStaticWatchListsRequest(body) {
+           this.body = body;
+       }
+       return AddPoiToStaticWatchListsRequest;
+   }());
+
+   /*
+   */
+   var AddPoiToStaticWatchListsRequestBody = /** @class */ (function () {
+       function AddPoiToStaticWatchListsRequestBody(watchlistIds, base64EncodedJpeg, name) {
+           this.watchlistIds = watchlistIds;
+           this.base64EncodedJpeg = base64EncodedJpeg;
+           this.name = name;
+       }
+       return AddPoiToStaticWatchListsRequestBody;
+   }());
+
+   /*
+   */
+   var AddPoiToStaticWatchListsResponse = /** @class */ (function () {
+       function AddPoiToStaticWatchListsResponse(code, poiIdAdded) {
+           this.code = code;
+           this.poiIdAdded = poiIdAdded;
+       }
+       return AddPoiToStaticWatchListsResponse;
    }());
 
    /*
@@ -5410,6 +5518,33 @@
 
    /*
    */
+   var CreateStaticWatchlistRequest = /** @class */ (function () {
+       function CreateStaticWatchlistRequest(body) {
+           this.body = body;
+       }
+       return CreateStaticWatchlistRequest;
+   }());
+
+   /*
+   */
+   var CreateStaticWatchlistRequestBody = /** @class */ (function () {
+       function CreateStaticWatchlistRequestBody(name) {
+           this.name = name;
+       }
+       return CreateStaticWatchlistRequestBody;
+   }());
+
+   /*
+   */
+   var DeleteStaticWatchlistIdRequest = /** @class */ (function () {
+       function DeleteStaticWatchlistIdRequest(id) {
+           this.id = id;
+       }
+       return DeleteStaticWatchlistIdRequest;
+   }());
+
+   /*
+   */
    var DetectionModelIdRequest = /** @class */ (function () {
        function DetectionModelIdRequest(id) {
            this.id = id;
@@ -5468,6 +5603,28 @@
        function EmptyResponse() {
        }
        return EmptyResponse;
+   }());
+
+   /*
+   */
+   var EngineInformation = /** @class */ (function () {
+       function EngineInformation(engineVersion, deploymentId, numberOfPOIsUsed, numberOfPOIsLicensed) {
+           this.engineVersion = engineVersion;
+           this.deploymentId = deploymentId;
+           this.numberOfPOIsUsed = numberOfPOIsUsed;
+           this.numberOfPOIsLicensed = numberOfPOIsLicensed;
+       }
+       return EngineInformation;
+   }());
+
+   /*
+   */
+   var EngineInformationResponse = /** @class */ (function () {
+       function EngineInformationResponse(code, engineInformation) {
+           this.code = code;
+           this.engineInformation = engineInformation;
+       }
+       return EngineInformationResponse;
    }());
 
    /*
@@ -6551,7 +6708,7 @@
    /*
    */
    var EventsServiceFindRequest = /** @class */ (function () {
-       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+       function EventsServiceFindRequest(folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
            this.folderId = folderId;
            this.subFolders = subFolders;
            this.sensorId = sensorId;
@@ -6566,6 +6723,8 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
+           this.after = after;
+           this.limit = limit;
        }
        return EventsServiceFindRequest;
    }());
@@ -6650,6 +6809,15 @@
            this.fileName = fileName;
        }
        return ExportUsageReportRequest;
+   }());
+
+   /*
+   */
+   var ExportWatchListRequest = /** @class */ (function () {
+       function ExportWatchListRequest(id) {
+           this.id = id;
+       }
+       return ExportWatchListRequest;
    }());
 
    /*
@@ -6871,6 +7039,41 @@
 
    /*
    */
+   var GetEngineInformation = /** @class */ (function () {
+       function GetEngineInformation() {
+       }
+       return GetEngineInformation;
+   }());
+
+   /*
+   */
+   var GetPoiFromImageRequest = /** @class */ (function () {
+       function GetPoiFromImageRequest(body) {
+           this.body = body;
+       }
+       return GetPoiFromImageRequest;
+   }());
+
+   /*
+   */
+   var GetPoiFromImageRequestBody = /** @class */ (function () {
+       function GetPoiFromImageRequestBody(base64EncodedJpeg) {
+           this.base64EncodedJpeg = base64EncodedJpeg;
+       }
+       return GetPoiFromImageRequestBody;
+   }());
+
+   /*
+   */
+   var GetPoiIdRequest = /** @class */ (function () {
+       function GetPoiIdRequest(id) {
+           this.id = id;
+       }
+       return GetPoiIdRequest;
+   }());
+
+   /*
+   */
    var GroupIdRequest = /** @class */ (function () {
        function GroupIdRequest(id) {
            this.id = id;
@@ -6942,6 +7145,18 @@
            this.id = id;
        }
        return HealthEventIdRequest;
+   }());
+
+   /*
+   */
+   var IdentifiedPoiFromImage = /** @class */ (function () {
+       function IdentifiedPoiFromImage(poiId, displayName, score, boundingBox) {
+           this.poiId = poiId;
+           this.displayName = displayName;
+           this.score = score;
+           this.boundingBox = boundingBox;
+       }
+       return IdentifiedPoiFromImage;
    }());
 
    /*
@@ -7187,6 +7402,16 @@
 
    /*
    */
+   var POIMinimalResponse = /** @class */ (function () {
+       function POIMinimalResponse(iD, name) {
+           this.iD = iD;
+           this.name = name;
+       }
+       return POIMinimalResponse;
+   }());
+
+   /*
+   */
    var PeopleCountingReportRequest = /** @class */ (function () {
        function PeopleCountingReportRequest(sensorId, folderId, from, to) {
            this.sensorId = sensorId;
@@ -7198,10 +7423,22 @@
    }());
 
    /*
+   */
+   var PoiBoundingBox = /** @class */ (function () {
+       function PoiBoundingBox(maxX, maxY, minX, minY) {
+           this.maxX = maxX;
+           this.maxY = maxY;
+           this.minX = minX;
+           this.minY = minY;
+       }
+       return PoiBoundingBox;
+   }());
+
+   /*
       Query response message returned for find operation (with pagination) on multiple entities
    */
    var QueryResponse = /** @class */ (function () {
-       function QueryResponse(code, error, page, pageSize, pages, total, queryDef, docType) {
+       function QueryResponse(code, error, page, pageSize, pages, total, queryDef, docType, cursor) {
            this.code = code;
            this.error = error;
            this.page = page;
@@ -7210,6 +7447,7 @@
            this.total = total;
            this.queryDef = queryDef;
            this.docType = docType;
+           this.cursor = cursor;
        }
        return QueryResponse;
    }());
@@ -7565,6 +7803,34 @@
 
    /*
    */
+   var RemovePoiFromSystemWatchListRequest = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListRequest(body) {
+           this.body = body;
+       }
+       return RemovePoiFromSystemWatchListRequest;
+   }());
+
+   /*
+   */
+   var RemovePoiFromSystemWatchListRequestBody = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListRequestBody(poiID, watchlistID) {
+           this.poiID = poiID;
+           this.watchlistID = watchlistID;
+       }
+       return RemovePoiFromSystemWatchListRequestBody;
+   }());
+
+   /*
+   */
+   var RemovePoiFromSystemWatchListResponse = /** @class */ (function () {
+       function RemovePoiFromSystemWatchListResponse(code) {
+           this.code = code;
+       }
+       return RemovePoiFromSystemWatchListResponse;
+   }());
+
+   /*
+   */
    var RemoveSensorModelRequest = /** @class */ (function () {
        function RemoveSensorModelRequest(id, modelId) {
            this.id = id;
@@ -7632,39 +7898,12 @@
 
    /*
    */
-   var ReportIdsRequest = /** @class */ (function () {
-       function ReportIdsRequest(id) {
-           this.id = id;
-       }
-       return ReportIdsRequest;
-   }());
-
-   /*
-   */
    var ReportUpdateRequest = /** @class */ (function () {
        function ReportUpdateRequest(id, status) {
            this.id = id;
            this.status = status;
        }
        return ReportUpdateRequest;
-   }());
-
-   /*
-   */
-   var ReportsServiceCreateRequest = /** @class */ (function () {
-       function ReportsServiceCreateRequest(body) {
-           this.body = body;
-       }
-       return ReportsServiceCreateRequest;
-   }());
-
-   /*
-   */
-   var ReportsServiceFindRequest = /** @class */ (function () {
-       function ReportsServiceFindRequest(search) {
-           this.search = search;
-       }
-       return ReportsServiceFindRequest;
    }());
 
    /*
@@ -7685,12 +7924,86 @@
 
    /*
    */
-   var ReportsServiceUpdateRequest = /** @class */ (function () {
-       function ReportsServiceUpdateRequest(id, body) {
-           this.id = id;
-           this.body = body;
+   var ResponseDeleteStaticWatchlist = /** @class */ (function () {
+       function ResponseDeleteStaticWatchlist(code) {
+           this.code = code;
        }
-       return ReportsServiceUpdateRequest;
+       return ResponseDeleteStaticWatchlist;
+   }());
+
+   /*
+   */
+   var ResponseGetPoi = /** @class */ (function () {
+       function ResponseGetPoi(code, pOI) {
+           this.code = code;
+           this.pOI = pOI;
+       }
+       return ResponseGetPoi;
+   }());
+
+   /*
+   */
+   var ResponseOfAddPoi = /** @class */ (function () {
+       function ResponseOfAddPoi(code, name, poiId, expireAt) {
+           this.code = code;
+           this.name = name;
+           this.poiId = poiId;
+           this.expireAt = expireAt;
+       }
+       return ResponseOfAddPoi;
+   }());
+
+   /*
+   */
+   var ResponseOfSearchForPoiFromImage = /** @class */ (function () {
+       function ResponseOfSearchForPoiFromImage(code, poi) {
+           this.code = code;
+           this.poi = poi;
+       }
+       return ResponseOfSearchForPoiFromImage;
+   }());
+
+   /*
+   */
+   var ResponseOfStaticWatchlist = /** @class */ (function () {
+       function ResponseOfStaticWatchlist(code, watchlist) {
+           this.code = code;
+           this.watchlist = watchlist;
+       }
+       return ResponseOfStaticWatchlist;
+   }());
+
+   /*
+   */
+   var ResponseOfStaticWatchlists = /** @class */ (function () {
+       function ResponseOfStaticWatchlists(code, watchlists) {
+           this.code = code;
+           this.watchlists = watchlists;
+       }
+       return ResponseOfStaticWatchlists;
+   }());
+
+   /*
+   */
+   var ResponsePoi = /** @class */ (function () {
+       function ResponsePoi(poiId, name, base64EncodedImage, watchlistIds, expireTime) {
+           this.poiId = poiId;
+           this.name = name;
+           this.base64EncodedImage = base64EncodedImage;
+           this.watchlistIds = watchlistIds;
+           this.expireTime = expireTime;
+       }
+       return ResponsePoi;
+   }());
+
+   /*
+   */
+   var ResponseUpdatePoi = /** @class */ (function () {
+       function ResponseUpdatePoi(code, pOI) {
+           this.code = code;
+           this.pOI = pOI;
+       }
+       return ResponseUpdatePoi;
    }());
 
    /*
@@ -8234,6 +8547,18 @@
 
    /*
    */
+   var SensorsFetchObjectsCropsRequest = /** @class */ (function () {
+       function SensorsFetchObjectsCropsRequest(id, ts, objectId, bucketFolder) {
+           this.id = id;
+           this.ts = ts;
+           this.objectId = objectId;
+           this.bucketFolder = bucketFolder;
+       }
+       return SensorsFetchObjectsCropsRequest;
+   }());
+
+   /*
+   */
    var SensorsServiceAttachRequest = /** @class */ (function () {
        function SensorsServiceAttachRequest(id, applianceId) {
            this.id = id;
@@ -8407,6 +8732,40 @@
            this.body = body;
        }
        return SensorsServiceUpdateRequest;
+   }());
+
+   /*
+   */
+   var StaticWatchlist = /** @class */ (function () {
+       function StaticWatchlist(iD, name, type, totalPOIs) {
+           this.iD = iD;
+           this.name = name;
+           this.type = type;
+           this.totalPOIs = totalPOIs;
+       }
+       return StaticWatchlist;
+   }());
+
+   /*
+   */
+   var StaticWatchlistIdRequest = /** @class */ (function () {
+       function StaticWatchlistIdRequest(id) {
+           this.id = id;
+       }
+       return StaticWatchlistIdRequest;
+   }());
+
+   /*
+   */
+   var StaticWatchlistWithPOIs = /** @class */ (function () {
+       function StaticWatchlistWithPOIs(iD, name, type, totalPOIs, pOIs) {
+           this.iD = iD;
+           this.name = name;
+           this.type = type;
+           this.totalPOIs = totalPOIs;
+           this.pOIs = pOIs;
+       }
+       return StaticWatchlistWithPOIs;
    }());
 
    /*
@@ -8706,7 +9065,7 @@
    /*
    */
    var SysEventsServiceFindInAreaRequest = /** @class */ (function () {
-       function SysEventsServiceFindInAreaRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+       function SysEventsServiceFindInAreaRequest(accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
            this.accountId = accountId;
            this.folderId = folderId;
            this.sensorId = sensorId;
@@ -8718,6 +9077,8 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
+           this.after = after;
+           this.limit = limit;
        }
        return SysEventsServiceFindInAreaRequest;
    }());
@@ -8908,10 +9269,12 @@
    /*
    */
    var SysUsageReportRequest = /** @class */ (function () {
-       function SysUsageReportRequest(id, year, month) {
+       function SysUsageReportRequest(id, year, month, after, limit) {
            this.id = id;
            this.year = year;
            this.month = month;
+           this.after = after;
+           this.limit = limit;
        }
        return SysUsageReportRequest;
    }());
@@ -8963,10 +9326,72 @@
 
    /*
    */
+   var UpdateDynamicPoiRequest = /** @class */ (function () {
+       function UpdateDynamicPoiRequest(body) {
+           this.body = body;
+       }
+       return UpdateDynamicPoiRequest;
+   }());
+
+   /*
+   */
+   var UpdateDynamicPoiRequestBody = /** @class */ (function () {
+       function UpdateDynamicPoiRequestBody(id, name, watchlistIds) {
+           this.id = id;
+           this.name = name;
+           this.watchlistIds = watchlistIds;
+       }
+       return UpdateDynamicPoiRequestBody;
+   }());
+
+   /*
+   */
+   var UpdateStaticPoiRequest = /** @class */ (function () {
+       function UpdateStaticPoiRequest(body) {
+           this.body = body;
+       }
+       return UpdateStaticPoiRequest;
+   }());
+
+   /*
+   */
+   var UpdateStaticPoiRequestBody = /** @class */ (function () {
+       function UpdateStaticPoiRequestBody(id, name, base64EncodedJpeg, watchlistIds) {
+           this.id = id;
+           this.name = name;
+           this.base64EncodedJpeg = base64EncodedJpeg;
+           this.watchlistIds = watchlistIds;
+       }
+       return UpdateStaticPoiRequestBody;
+   }());
+
+   /*
+   */
+   var UpdateStaticWatchlistRequest = /** @class */ (function () {
+       function UpdateStaticWatchlistRequest(body) {
+           this.body = body;
+       }
+       return UpdateStaticWatchlistRequest;
+   }());
+
+   /*
+   */
+   var UpdateStaticWatchlistRequestBody = /** @class */ (function () {
+       function UpdateStaticWatchlistRequestBody(id, name) {
+           this.id = id;
+           this.name = name;
+       }
+       return UpdateStaticWatchlistRequestBody;
+   }());
+
+   /*
+   */
    var UsageReportRequest = /** @class */ (function () {
-       function UsageReportRequest(year, month) {
+       function UsageReportRequest(year, month, after, limit) {
            this.year = year;
            this.month = month;
+           this.after = after;
+           this.limit = limit;
        }
        return UsageReportRequest;
    }());
@@ -9572,8 +9997,16 @@
         * List of sensor with total active time (minutes) and total of billable sensors
         * @Return: EntityResponse<UsageReport>
         */
-       AccountsService.prototype.getUsageReport = function (year, month) {
-           return this.rest.get(this.baseUrl + "/usage-report/" + year + "/" + month);
+       AccountsService.prototype.getUsageReport = function (year, month, after, limit) {
+           var _a;
+           var params = new Array();
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/usage-report/" + year + "/" + month], __read(params)));
        };
        /**
         * Get sensor usage report (for billing)
@@ -10856,7 +11289,7 @@
         * Find events by filters
         * @Return: QueryResponse<Event>
         */
-       EventsService.prototype.find = function (folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize) {
+       EventsService.prototype.find = function (folderId, subFolders, sensorId, applianceId, objectType, behaviorType, severity, status, rule, from, to, sort, page, pageSize, after, limit) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -10900,6 +11333,12 @@
            }
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
+           }
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
        };
@@ -11997,6 +12436,137 @@
    })();
 
    /**
+    * List of Person Recognition Services
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var PersonRecognitionService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function PersonRecognitionService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/person-recognition';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Get watchlist
+        * @Return: ResponseOfStaticWatchlist
+        */
+       PersonRecognitionService.prototype.getWatchlist = function (id) {
+           return this.rest.get(this.baseUrl + "/watchlist/" + id);
+       };
+       /**
+        * List system watchlists
+        * @Return: ResponseOfStaticWatchlists
+        */
+       PersonRecognitionService.prototype.getWatchlists = function (id) {
+           return this.rest.get(this.baseUrl + "/watchlist");
+       };
+       /**
+        * Create static watchlist
+        * @Return: ResponseOfStaticWatchlist
+        */
+       PersonRecognitionService.prototype.createStaticWatchList = function (body) {
+           return this.rest.post(this.baseUrl + "/watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update static watchlist
+        * @Return: ResponseOfStaticWatchlist
+        */
+       PersonRecognitionService.prototype.updateStaticWatchList = function (body) {
+           return this.rest.put(this.baseUrl + "/watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete static watchlist
+        * @Return: ResponseDeleteStaticWatchlist
+        */
+       PersonRecognitionService.prototype.deleteStaticWatchList = function (id) {
+           return this.rest.delete(this.baseUrl + "/watchlist/" + id);
+       };
+       /**
+        * Add provided image of a person as a new POI to the system-internal dynamic watchlist.
+        * The POI can be an already existing POI, identified by the PoiId, or created anew (if the PoiId is empty)
+        * If PoiId is not empty, then it must match the ID of an already existing POI.
+        * @Return: ResponseOfPoi
+        */
+       PersonRecognitionService.prototype.dynamicPoi = function (body) {
+           return this.rest.post(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update a POI that's included in a system-internal dynamic watchlist
+        * @Return: ResponseUpdatePoi
+        */
+       PersonRecognitionService.prototype.updateDynamicPoi = function (body) {
+           return this.rest.put(this.baseUrl + "/dynamic-poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Get a POI
+        * @Return: ResponseGetPoi
+        */
+       PersonRecognitionService.prototype.getPoi = function (id) {
+           return this.rest.get(this.baseUrl + "/poi/" + id);
+       };
+       /**
+        * Update a POI that own one or more static watchlist(s)
+        * @Return: ResponseUpdatePoi
+        */
+       PersonRecognitionService.prototype.updateStaticPoi = function (body) {
+           return this.rest.put(this.baseUrl + "/poi", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Searches the system for POIs matching the provided image in _all_ watchlists.
+        * @Return: ResponseOfPoi
+        */
+       PersonRecognitionService.prototype.searchForPoiFromImage = function (body) {
+           return this.rest.post(this.baseUrl + "/search-poi-from-image", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Add Poi to static watchlist.
+        * @Return: AddPoiToStaticWatchListResponse
+        */
+       PersonRecognitionService.prototype.addPoiToStaticWatchlists = function (body) {
+           return this.rest.post(this.baseUrl + "/poi/add-to-static-watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Remove Poi from a system watchlist. If Poi is not associated to no other watchlist the Poi will be permanently deleted.
+        * @Return: RemovePoiFromStaticWatchListResponse
+        */
+       PersonRecognitionService.prototype.removePoiFromSystemWatchlist = function (body) {
+           return this.rest.post(this.baseUrl + "/poi/remove-from-watchlist", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Export watchlist
+        * @Return: StreamContent
+        */
+       PersonRecognitionService.prototype.exportWatchlist = function (id) {
+           return this.rest.download("person-recognition", this.baseUrl + "/watchlist/export/" + id);
+       };
+       /**
+        * Get engine information
+        * @Return: EngineInformationResponse
+        */
+       PersonRecognitionService.prototype.getEngineInformation = function () {
+           return this.rest.get(this.baseUrl + "/engine-information");
+       };
+       return PersonRecognitionService;
+   }());
+   /** @nocollapse */ PersonRecognitionService.ɵfac = function PersonRecognitionService_Factory(t) { return new (t || PersonRecognitionService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ PersonRecognitionService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: PersonRecognitionService, factory: PersonRecognitionService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(PersonRecognitionService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
     * Services for reports definition actions
     * @RequestHeader X-API-KEY The key to identify the application (portal)
     * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
@@ -12012,58 +12582,6 @@
            this.baseUrl = '/reports';
            this.baseUrl = this.config.api + this.baseUrl;
        }
-       /**
-        * Create new report definition
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.create = function (body) {
-           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Update report definition
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.update = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Delete report definition from the system
-        * @Return: ActionResponse
-        */
-       ReportsService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single report definition by id
-        * @Return: EntityResponse<ReportDefinition>
-        */
-       ReportsService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get multiple report definitions by list of ids
-        * @Return: EntitiesResponse<ReportDefinition>
-        */
-       ReportsService.prototype.list = function (id) {
-           var _a;
-           var params = new Array();
-           if (id != null) {
-               params.push("id=" + id);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/list"], __read(params)));
-       };
-       /**
-        * Find report definitions by filters
-        * @Return: QueryResponse<ReportDefinition>
-        */
-       ReportsService.prototype.find = function (search) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
        /**
         * Export account sensors as CSV report stream
         * @Return: StreamContent
@@ -13330,6 +13848,24 @@
            return this.rest.post(this.baseUrl + "/" + id + "/crop", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
+        * Collect object crops from agents based on the query parameters
+        * @Return: ActionResponse
+        */
+       SensorsService.prototype.fetchObjectCrops = function (id, ts, objectId, bucketFolder) {
+           var _a;
+           var params = new Array();
+           if (ts != null) {
+               params.push("ts=" + ts);
+           }
+           if (objectId != null) {
+               params.push("objectId=" + objectId);
+           }
+           if (bucketFolder != null) {
+               params.push("bucketFolder=" + bucketFolder);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/fetch-objects-crops", null], __read(params)));
+       };
+       /**
         * Get default geo location
         * @Return: EntityResponse<Coordinate>
         */
@@ -13473,6 +14009,431 @@
    /** @nocollapse */ SensorsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SensorsService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Audit log queries for account administrator only
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysAuditLogService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysAuditLogService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/auditlog';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Find list of audit log entries and filter
+        * @Return: QueryResponse<AuditLog>
+        */
+       SysAuditLogService.prototype.find = function (accountId, userId, from, to, item, itemType, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (userId != null) {
+               params.push("userId=" + userId);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (item != null) {
+               params.push("item=" + item);
+           }
+           if (itemType != null) {
+               params.push("itemType=" + itemType);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       /**
+        * Export list of audit log entries and filter
+        * @Return: StreamContent
+        */
+       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (userId != null) {
+               params.push("userId=" + userId);
+           }
+           if (from != null) {
+               params.push("from=" + from);
+           }
+           if (to != null) {
+               params.push("to=" + to);
+           }
+           if (item != null) {
+               params.push("item=" + item);
+           }
+           if (itemType != null) {
+               params.push("itemType=" + itemType);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
+       };
+       /**
+        * Get single audit log entry by id
+        * @Return: EntityResponse<Appliance>
+        */
+       SysAuditLogService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       return SysAuditLogService;
+   }());
+   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysAuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * List of license related actions
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysLicensesService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysLicensesService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/licenses';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Get cluster id
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.getClusterId = function () {
+           return this.rest.get(this.baseUrl + "/cluster/id");
+       };
+       /**
+        * Get deployment Id (for licensing)
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.getDeploymentId = function () {
+           return this.rest.get(this.baseUrl + "/deployment/id");
+       };
+       /**
+        * Get active license (combined license from all licenses)
+        * @Return: EntityResponse<License>
+        */
+       SysLicensesService.prototype.getActive = function () {
+           return this.rest.get(this.baseUrl + "/active");
+       };
+       /**
+        * Get single license by Id
+        * @Return: EntityResponse<License>
+        */
+       SysLicensesService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Delete license from the system
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get all licenses
+        * @Return: EntitiesResponse<License>
+        */
+       SysLicensesService.prototype.getAll = function () {
+           return this.rest.get("" + this.baseUrl);
+       };
+       /**
+        * Import license data from file
+        * @Return: ActionResponse
+        */
+       SysLicensesService.prototype.import = function (licenseFile) {
+           return this.rest.upload(licenseFile, this.baseUrl + "/import");
+       };
+       return SysLicensesService;
+   }());
+   /** @nocollapse */ SysLicensesService.ɵfac = function SysLicensesService_Factory(t) { return new (t || SysLicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysLicensesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysLicensesService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Services for user registration and login
+    */
+   var UserService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function UserService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/user';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Change current user name
+        * @Return: ActionResponse
+        */
+       UserService.prototype.changeName = function (body) {
+           return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change current user mobile
+        * @Return: ActionResponse
+        */
+       UserService.prototype.changeMobile = function (body) {
+           return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Refresh token (set new expiration time) and associate with new account if required
+        * @Return: EntityResponse<UserAccountInfo>
+        */
+       UserService.prototype.switchAccount = function (body) {
+           return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Mark the user who accepted the EULA agreement
+        * @Return: ActionResponse
+        */
+       UserService.prototype.acceptEula = function () {
+           return this.rest.put(this.baseUrl + "/accept-eula", null);
+       };
+       return UserService;
+   }());
+   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UserService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * List of all user related actions for account administrator only
+    */
+   var UsersService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function UsersService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/users';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Send invitation to a new user for the current account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.invite = function (body) {
+           return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Register user for the account, it a user already exists, an invitation to the new account will be sent
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.register = function (body) {
+           return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Create service account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.registerServiceAccount = function (body) {
+           return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Resend invitation to an existing user for the current account
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.reInvite = function (id) {
+           return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
+       };
+       /**
+        * Update user
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user name
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeName = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user mobile
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeMobile = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Change user type
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.changeType = function (id, type) {
+           return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
+       };
+       /**
+        * Delete user from the system
+        * The user will be removed from the account, if no accounts associated with the user, it will be deleted
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single user by id
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single user by email
+        * @Return: EntityResponse<User>
+        */
+       UsersService.prototype.getByEmail = function (email) {
+           return this.rest.get(this.baseUrl + "/byEmail/" + email);
+       };
+       /**
+        * Find list of users and filter the list
+        * System user will see all users, Account system will see all users of the account, registered user will get an error.
+        * @Return: QueryResponse<User>
+        */
+       UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (accountId != null) {
+               params.push("accountId=" + accountId);
+           }
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       /**
+        * Export list of users and filter
+        * @Return: StreamContent
+        */
+       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["users", this.baseUrl + "/export"], __read(params)));
+       };
+       /**
+        * Get access token for user
+        * @Return: ActionResponse
+        */
+       UsersService.prototype.getUserToken = function (id, exp) {
+           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
+       };
+       return UsersService;
+   }());
+   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ UsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -13771,8 +14732,16 @@
         * List of sensor with total active time (minutes) and total of billable sensors
         * @Return: EntityResponse<UsageReport>
         */
-       SysAccountsService.prototype.getUsageReport = function (id, year, month) {
-           return this.rest.get(this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month);
+       SysAccountsService.prototype.getUsageReport = function (id, year, month, after, limit) {
+           var _a;
+           var params = new Array();
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/usage-report/" + year + "/" + month], __read(params)));
        };
        /**
         * Get sensor usage report (for billing)
@@ -14478,7 +15447,7 @@
         * Find events by filters
         * @Return: QueryResponse<Event>
         */
-       SysEventsService.prototype.find = function (accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize) {
+       SysEventsService.prototype.find = function (accountId, folderId, sensorId, objectType, behaviorType, severity, from, to, sort, page, pageSize, after, limit) {
            var _a;
            var params = new Array();
            if (folderId != null) {
@@ -14510,6 +15479,12 @@
            }
            if (pageSize != null) {
                params.push("pageSize=" + pageSize);
+           }
+           if (after != null) {
+               params.push("after=" + after);
+           }
+           if (limit != null) {
+               params.push("limit=" + limit);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + accountId], __read(params)));
        };
@@ -15513,446 +16488,7 @@
        }, null);
    })();
 
-   /**
-    * Audit log queries for account administrator only
-    * @RequestHeader X-API-KEY The key to identify the application (portal)
-    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
-    */
-   var SysAuditLogService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function SysAuditLogService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/sys/auditlog';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Find list of audit log entries and filter
-        * @Return: QueryResponse<AuditLog>
-        */
-       SysAuditLogService.prototype.find = function (accountId, userId, from, to, item, itemType, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (userId != null) {
-               params.push("userId=" + userId);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (item != null) {
-               params.push("item=" + item);
-           }
-           if (itemType != null) {
-               params.push("itemType=" + itemType);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
-       /**
-        * Export list of audit log entries and filter
-        * @Return: StreamContent
-        */
-       SysAuditLogService.prototype.exportFormat = function (accountId, userId, from, to, item, itemType, sort, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (userId != null) {
-               params.push("userId=" + userId);
-           }
-           if (from != null) {
-               params.push("from=" + from);
-           }
-           if (to != null) {
-               params.push("to=" + to);
-           }
-           if (item != null) {
-               params.push("item=" + item);
-           }
-           if (itemType != null) {
-               params.push("itemType=" + itemType);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["auditlog", this.baseUrl + "/export"], __read(params)));
-       };
-       /**
-        * Get single audit log entry by id
-        * @Return: EntityResponse<Appliance>
-        */
-       SysAuditLogService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       return SysAuditLogService;
-   }());
-   /** @nocollapse */ SysAuditLogService.ɵfac = function SysAuditLogService_Factory(t) { return new (t || SysAuditLogService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysAuditLogService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysAuditLogService, factory: SysAuditLogService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysAuditLogService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * List of license related actions
-    * @RequestHeader X-API-KEY The key to identify the application (portal)
-    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
-    */
-   var SysLicensesService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function SysLicensesService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/sys/licenses';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Get cluster id
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.getClusterId = function () {
-           return this.rest.get(this.baseUrl + "/cluster/id");
-       };
-       /**
-        * Get deployment Id (for licensing)
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.getDeploymentId = function () {
-           return this.rest.get(this.baseUrl + "/deployment/id");
-       };
-       /**
-        * Get active license (combined license from all licenses)
-        * @Return: EntityResponse<License>
-        */
-       SysLicensesService.prototype.getActive = function () {
-           return this.rest.get(this.baseUrl + "/active");
-       };
-       /**
-        * Get single license by Id
-        * @Return: EntityResponse<License>
-        */
-       SysLicensesService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Delete license from the system
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get all licenses
-        * @Return: EntitiesResponse<License>
-        */
-       SysLicensesService.prototype.getAll = function () {
-           return this.rest.get("" + this.baseUrl);
-       };
-       /**
-        * Import license data from file
-        * @Return: ActionResponse
-        */
-       SysLicensesService.prototype.import = function (licenseFile) {
-           return this.rest.upload(licenseFile, this.baseUrl + "/import");
-       };
-       return SysLicensesService;
-   }());
-   /** @nocollapse */ SysLicensesService.ɵfac = function SysLicensesService_Factory(t) { return new (t || SysLicensesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ SysLicensesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysLicensesService, factory: SysLicensesService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysLicensesService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * Services for user registration and login
-    */
-   var UserService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function UserService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/user';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Change current user name
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changeName = function (body) {
-           return this.rest.put(this.baseUrl + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change current user mobile
-        * @Return: ActionResponse
-        */
-       UserService.prototype.changeMobile = function (body) {
-           return this.rest.put(this.baseUrl + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Refresh token (set new expiration time) and associate with new account if required
-        * @Return: EntityResponse<UserAccountInfo>
-        */
-       UserService.prototype.switchAccount = function (body) {
-           return this.rest.post(this.baseUrl + "/switch-account", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Mark the user who accepted the EULA agreement
-        * @Return: ActionResponse
-        */
-       UserService.prototype.acceptEula = function () {
-           return this.rest.put(this.baseUrl + "/accept-eula", null);
-       };
-       return UserService;
-   }());
-   /** @nocollapse */ UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UserService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UserService, factory: UserService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UserService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
-   /**
-    * List of all user related actions for account administrator only
-    */
-   var UsersService = /** @class */ (function () {
-       /**
-        * Class constructor
-        */
-       function UsersService(config, rest) {
-           this.config = config;
-           this.rest = rest;
-           // URL to web api
-           this.baseUrl = '/users';
-           this.baseUrl = this.config.api + this.baseUrl;
-       }
-       /**
-        * Send invitation to a new user for the current account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.invite = function (body) {
-           return this.rest.post(this.baseUrl + "/invite", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Register user for the account, it a user already exists, an invitation to the new account will be sent
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.register = function (body) {
-           return this.rest.post(this.baseUrl + "/register", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Create service account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.registerServiceAccount = function (body) {
-           return this.rest.post(this.baseUrl + "/service-account", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Resend invitation to an existing user for the current account
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.reInvite = function (id) {
-           return this.rest.post(this.baseUrl + "/re-invite/" + id, null);
-       };
-       /**
-        * Update user
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.update = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user name
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeName = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/name", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user mobile
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeMobile = function (id, body) {
-           return this.rest.put(this.baseUrl + "/" + id + "/mobile", typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Change user type
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.changeType = function (id, type) {
-           return this.rest.put(this.baseUrl + "/" + id + "/type/" + type, null);
-       };
-       /**
-        * Delete user from the system
-        * The user will be removed from the account, if no accounts associated with the user, it will be deleted
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.delete = function (id) {
-           return this.rest.delete(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single user by id
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.get = function (id) {
-           return this.rest.get(this.baseUrl + "/" + id);
-       };
-       /**
-        * Get single user by email
-        * @Return: EntityResponse<User>
-        */
-       UsersService.prototype.getByEmail = function (email) {
-           return this.rest.get(this.baseUrl + "/byEmail/" + email);
-       };
-       /**
-        * Find list of users and filter the list
-        * System user will see all users, Account system will see all users of the account, registered user will get an error.
-        * @Return: QueryResponse<User>
-        */
-       UsersService.prototype.find = function (accountId, search, type, status, sort, page, pageSize) {
-           var _a;
-           var params = new Array();
-           if (accountId != null) {
-               params.push("accountId=" + accountId);
-           }
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
-       };
-       /**
-        * Export list of users and filter
-        * @Return: StreamContent
-        */
-       UsersService.prototype.exportFormat = function (search, type, status, sort, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["users", this.baseUrl + "/export"], __read(params)));
-       };
-       /**
-        * Get access token for user
-        * @Return: ActionResponse
-        */
-       UsersService.prototype.getUserToken = function (id, exp) {
-           return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
-       };
-       return UsersService;
-   }());
-   /** @nocollapse */ UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
-   /** @nocollapse */ UsersService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: UsersService, factory: UsersService.ɵfac });
-   (function () {
-       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(UsersService, [{
-               type: i0.Injectable
-           }], function () {
-           return [{ type: CoreConfig, decorators: [{
-                           type: i0.Inject,
-                           args: ['config']
-                       }] }, { type: RestUtil }];
-       }, null);
-   })();
-
    var Services = [
-       AnomalyService,
-       HealthCheckService,
-       SysAccountsService,
-       SysAppliancesService,
-       SysConfigurationsService,
-       SysEventsService,
-       SysFeaturesGroupsService,
-       SysFeaturesService,
-       SysKeysService,
-       SysModelsService,
-       SysReportsService,
-       SysSensorsService,
-       SysSystemService,
-       SysUsersService,
        SysAuditLogService,
        SysLicensesService,
        AccountsService,
@@ -15969,6 +16505,7 @@
        HealthEventsService,
        IntegrationsService,
        MembersService,
+       PersonRecognitionService,
        ReportsService,
        RulesService,
        ScheduledReportsService,
@@ -15977,6 +16514,20 @@
        SensorsService,
        UserService,
        UsersService,
+       AnomalyService,
+       HealthCheckService,
+       SysAccountsService,
+       SysAppliancesService,
+       SysConfigurationsService,
+       SysEventsService,
+       SysFeaturesGroupsService,
+       SysFeaturesService,
+       SysKeysService,
+       SysModelsService,
+       SysReportsService,
+       SysSensorsService,
+       SysSystemService,
+       SysUsersService,
    ];
 
    /*
@@ -16241,6 +16792,11 @@
    exports.AccountsServiceTreeRequest = AccountsServiceTreeRequest;
    exports.AccountsServiceUpdateRequest = AccountsServiceUpdateRequest;
    exports.ActionResponse = ActionResponse;
+   exports.AddPoiRequest = AddPoiRequest;
+   exports.AddPoiRequestBody = AddPoiRequestBody;
+   exports.AddPoiToStaticWatchListsRequest = AddPoiToStaticWatchListsRequest;
+   exports.AddPoiToStaticWatchListsRequestBody = AddPoiToStaticWatchListsRequestBody;
+   exports.AddPoiToStaticWatchListsResponse = AddPoiToStaticWatchListsResponse;
    exports.AddSensorModelRequest = AddSensorModelRequest;
    exports.AddSensorModelsRequest = AddSensorModelsRequest;
    exports.Agent = Agent;
@@ -16353,6 +16909,9 @@
    exports.Coordinate = Coordinate;
    exports.CoreConfig = CoreConfig;
    exports.CoreLibModule = CoreLibModule;
+   exports.CreateStaticWatchlistRequest = CreateStaticWatchlistRequest;
+   exports.CreateStaticWatchlistRequestBody = CreateStaticWatchlistRequestBody;
+   exports.DeleteStaticWatchlistIdRequest = DeleteStaticWatchlistIdRequest;
    exports.DetectionModel = DetectionModel;
    exports.DetectionModelIdRequest = DetectionModelIdRequest;
    exports.DigitalIO = DigitalIO;
@@ -16376,6 +16935,8 @@
    exports.Embedding = Embedding;
    exports.EmptyRequest = EmptyRequest;
    exports.EmptyResponse = EmptyResponse;
+   exports.EngineInformation = EngineInformation;
+   exports.EngineInformationResponse = EngineInformationResponse;
    exports.EntitiesResponse = EntitiesResponse;
    exports.EntitiesResponseOfAccount = EntitiesResponseOfAccount;
    exports.EntitiesResponseOfAccountStatSummary = EntitiesResponseOfAccountStatSummary;
@@ -16496,6 +17057,7 @@
    exports.EventsServiceStatisticsRequest = EventsServiceStatisticsRequest;
    exports.EventsSocketServiceOpen = EventsSocketServiceOpen;
    exports.ExportUsageReportRequest = ExportUsageReportRequest;
+   exports.ExportWatchListRequest = ExportWatchListRequest;
    exports.ExternalModelResults = ExternalModelResults;
    exports.Feature = Feature;
    exports.FeatureIdRequest = FeatureIdRequest;
@@ -16533,6 +17095,10 @@
    exports.GeoService = GeoService;
    exports.GeoServicesReferenceRequest = GeoServicesReferenceRequest;
    exports.GeoServicesTransformRequest = GeoServicesTransformRequest;
+   exports.GetEngineInformation = GetEngineInformation;
+   exports.GetPoiFromImageRequest = GetPoiFromImageRequest;
+   exports.GetPoiFromImageRequestBody = GetPoiFromImageRequestBody;
+   exports.GetPoiIdRequest = GetPoiIdRequest;
    exports.Group = Group;
    exports.GroupIdRequest = GroupIdRequest;
    exports.GroupIdsRequest = GroupIdsRequest;
@@ -16549,6 +17115,7 @@
    exports.HealthThresholds = HealthThresholds;
    exports.HeatmapCell = HeatmapCell;
    exports.HeatmapRow = HeatmapRow;
+   exports.IdentifiedPoiFromImage = IdentifiedPoiFromImage;
    exports.IntegrationAction = IntegrationAction;
    exports.IntegrationActionCreateRequest = IntegrationActionCreateRequest;
    exports.IntegrationActionFilter = IntegrationActionFilter;
@@ -16599,8 +17166,11 @@
    exports.ObjectTypeReport = ObjectTypeReport;
    exports.ObjectsPath = ObjectsPath;
    exports.OnvifChannel = OnvifChannel;
+   exports.POIMinimalResponse = POIMinimalResponse;
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
+   exports.PersonRecognitionService = PersonRecognitionService;
+   exports.PoiBoundingBox = PoiBoundingBox;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16642,6 +17212,9 @@
    exports.Recurrent = Recurrent;
    exports.RecurrentTimeFrame = RecurrentTimeFrame;
    exports.RegisterServiceAccountRequest = RegisterServiceAccountRequest;
+   exports.RemovePoiFromSystemWatchListRequest = RemovePoiFromSystemWatchListRequest;
+   exports.RemovePoiFromSystemWatchListRequestBody = RemovePoiFromSystemWatchListRequestBody;
+   exports.RemovePoiFromSystemWatchListResponse = RemovePoiFromSystemWatchListResponse;
    exports.RemoveSensorModelRequest = RemoveSensorModelRequest;
    exports.RemoveSensorModelsRequest = RemoveSensorModelsRequest;
    exports.ReportDefinition = ReportDefinition;
@@ -16649,14 +17222,18 @@
    exports.ReportGenerationRequest = ReportGenerationRequest;
    exports.ReportGenerationRequestBody = ReportGenerationRequestBody;
    exports.ReportIdRequest = ReportIdRequest;
-   exports.ReportIdsRequest = ReportIdsRequest;
    exports.ReportUpdateRequest = ReportUpdateRequest;
    exports.ReportsService = ReportsService;
-   exports.ReportsServiceCreateRequest = ReportsServiceCreateRequest;
-   exports.ReportsServiceFindRequest = ReportsServiceFindRequest;
    exports.ReportsServiceRulesSchedulesRequest = ReportsServiceRulesSchedulesRequest;
    exports.ReportsServiceSensorsRequest = ReportsServiceSensorsRequest;
-   exports.ReportsServiceUpdateRequest = ReportsServiceUpdateRequest;
+   exports.ResponseDeleteStaticWatchlist = ResponseDeleteStaticWatchlist;
+   exports.ResponseGetPoi = ResponseGetPoi;
+   exports.ResponseOfAddPoi = ResponseOfAddPoi;
+   exports.ResponseOfSearchForPoiFromImage = ResponseOfSearchForPoiFromImage;
+   exports.ResponseOfStaticWatchlist = ResponseOfStaticWatchlist;
+   exports.ResponseOfStaticWatchlists = ResponseOfStaticWatchlists;
+   exports.ResponsePoi = ResponsePoi;
+   exports.ResponseUpdatePoi = ResponseUpdatePoi;
    exports.RestUtil = RestUtil;
    exports.Rule = Rule;
    exports.RuleDefault = RuleDefault;
@@ -16747,6 +17324,7 @@
    exports.SensorUsageReport = SensorUsageReport;
    exports.SensorUsageReportRequest = SensorUsageReportRequest;
    exports.SensorsCountRequest = SensorsCountRequest;
+   exports.SensorsFetchObjectsCropsRequest = SensorsFetchObjectsCropsRequest;
    exports.SensorsGroup = SensorsGroup;
    exports.SensorsService = SensorsService;
    exports.SensorsServiceAttachRequest = SensorsServiceAttachRequest;
@@ -16776,6 +17354,9 @@
    exports.SocketEventsFilter = SocketEventsFilter;
    exports.SocketEventsFilterPayload = SocketEventsFilterPayload;
    exports.SocketHealthStatusNotification = SocketHealthStatusNotification;
+   exports.StaticWatchlist = StaticWatchlist;
+   exports.StaticWatchlistIdRequest = StaticWatchlistIdRequest;
+   exports.StaticWatchlistWithPOIs = StaticWatchlistWithPOIs;
    exports.StatisticReport = StatisticReport;
    exports.StreamResponse = StreamResponse;
    exports.StringIntValue = StringIntValue;
@@ -16850,7 +17431,13 @@
    exports.TreeNode = TreeNode;
    exports.TriggerTestHealthEventRequest = TriggerTestHealthEventRequest;
    exports.TriggerTestHealthEventRequestBody = TriggerTestHealthEventRequestBody;
+   exports.UpdateDynamicPoiRequest = UpdateDynamicPoiRequest;
+   exports.UpdateDynamicPoiRequestBody = UpdateDynamicPoiRequestBody;
    exports.UpdateScheduleForRules = UpdateScheduleForRules;
+   exports.UpdateStaticPoiRequest = UpdateStaticPoiRequest;
+   exports.UpdateStaticPoiRequestBody = UpdateStaticPoiRequestBody;
+   exports.UpdateStaticWatchlistRequest = UpdateStaticWatchlistRequest;
+   exports.UpdateStaticWatchlistRequestBody = UpdateStaticWatchlistRequestBody;
    exports.UpdateStatus = UpdateStatus;
    exports.UsageReport = UsageReport;
    exports.UsageReportRequest = UsageReportRequest;

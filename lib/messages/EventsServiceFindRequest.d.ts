@@ -17,5 +17,7 @@ export declare class EventsServiceFindRequest {
     sort: string;
     page: number;
     pageSize: number;
-    constructor(folderId?: string[], subFolders?: boolean, sensorId?: string[], applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
+    after: string;
+    limit: number;
+    constructor(folderId?: string[], subFolders?: boolean, sensorId?: string[], applianceId?: string, objectType?: ObjectTypeCode[], behaviorType?: BehaviorTypeCode[], severity?: SeverityTypeCode[], status?: EventStatusCode[], rule?: string[], from?: number, to?: number, sort?: string, page?: number, pageSize?: number, after?: string, limit?: number);
 }
