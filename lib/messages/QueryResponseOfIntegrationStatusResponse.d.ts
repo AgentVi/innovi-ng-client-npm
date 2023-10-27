@@ -10,5 +10,4 @@ export declare class QueryResponseOfIntegrationStatusResponse extends QueryRespo
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

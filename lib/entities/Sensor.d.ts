@@ -1,14 +1,13 @@
-import { SensorDebugInfo } from '../common/SensorDebugInfo';
+import { Thresholds } from '../common/Thresholds';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { StringKeyValue } from '../common/StringKeyValue';
-import { Thresholds } from '../common/Thresholds';
 import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
+import { StringKeyValue } from '../common/StringKeyValue';
+import { SensorDebugInfo } from '../common/SensorDebugInfo';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class Sensor extends BaseEntity {
     accountId: string;
@@ -47,8 +46,6 @@ export declare class Sensor extends BaseEntity {
     poseEstimation: boolean;
     eventFiltering: boolean;
     eventClipLengthSec: number;
-    personRecognition: boolean;
-    anonymizationType: SensorAnonymizationTypeCode;
     id: string;
     _type: string;
     createdOn: number;

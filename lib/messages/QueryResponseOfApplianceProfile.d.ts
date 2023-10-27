@@ -10,5 +10,4 @@ export declare class QueryResponseOfApplianceProfile extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

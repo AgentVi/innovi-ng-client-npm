@@ -6,7 +6,5 @@ export declare class SensorAnomalyRuleInfo {
     objectTypes: ObjectTypeCode[];
     createImage: boolean;
     createClip: boolean;
-    ruleId: string;
-    externalId: string;
-    constructor(active?: boolean, sensitivity?: Sensitivity, objectTypes?: ObjectTypeCode[], createImage?: boolean, createClip?: boolean, ruleId?: string, externalId?: string);
+    constructor(active?: boolean, sensitivity?: Sensitivity, objectTypes?: ObjectTypeCode[], createImage?: boolean, createClip?: boolean);
 }

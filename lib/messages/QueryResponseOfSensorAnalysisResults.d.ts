@@ -10,5 +10,4 @@ export declare class QueryResponseOfSensorAnalysisResults extends QueryResponse 
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

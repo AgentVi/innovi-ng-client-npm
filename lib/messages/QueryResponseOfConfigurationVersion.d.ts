@@ -10,5 +10,4 @@ export declare class QueryResponseOfConfigurationVersion extends QueryResponse {
     total: number;
     queryDef: string;
     docType: string;
-    cursor: string;
 }

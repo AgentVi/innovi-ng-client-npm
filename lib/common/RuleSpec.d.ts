@@ -24,6 +24,5 @@ export declare class RuleSpec {
     excludeObjectTypes: ObjectTypeCode[];
     autoSensitivity: RuleAutoSensitivityCode[];
     sensitivity: RuleDefaultSensitivity;
-    existsInWatchlist: boolean[];
-    constructor(behaviorType?: BehaviorTypeCode, ruleTypeName?: string, objectTypes?: ObjectTypeCode[], isLineDrawing?: boolean, dwellTime?: RuleDefault, minSpeed?: RuleDefault, peopleInGroup?: RuleDefault, clusterDistance?: RuleDefault, intervalTime?: RuleDefault, referenceCrop?: boolean, objectHierarchy?: ObjectTypeNode[], sensorTypes?: SensorTypeCode[], externalModel?: string, viewTypes?: ViewTypeCode[], excludeObjectTypes?: ObjectTypeCode[], autoSensitivity?: RuleAutoSensitivityCode[], sensitivity?: RuleDefaultSensitivity, existsInWatchlist?: boolean[]);
+    constructor(behaviorType?: BehaviorTypeCode, ruleTypeName?: string, objectTypes?: ObjectTypeCode[], isLineDrawing?: boolean, dwellTime?: RuleDefault, minSpeed?: RuleDefault, peopleInGroup?: RuleDefault, clusterDistance?: RuleDefault, intervalTime?: RuleDefault, referenceCrop?: boolean, objectHierarchy?: ObjectTypeNode[], sensorTypes?: SensorTypeCode[], externalModel?: string, viewTypes?: ViewTypeCode[], excludeObjectTypes?: ObjectTypeCode[], autoSensitivity?: RuleAutoSensitivityCode[], sensitivity?: RuleDefaultSensitivity);
 }
