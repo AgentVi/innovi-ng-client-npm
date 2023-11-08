@@ -1,15 +1,15 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { ApplianceRegistration } from '../common/ApplianceRegistration';
-import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { Appliance } from '../entities/Appliance';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
-import { AgentStatusCode } from '../enums/AgentStatusCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { CommandStatusCode } from '../enums/CommandStatusCode';
+import { ProductTypeCode } from '../enums/ProductTypeCode';
 import * as i0 from "@angular/core";
 /**
  * List of appliance related actions
