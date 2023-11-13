@@ -3719,6 +3719,8 @@
        FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
        // Anonymization [29] 
        FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
+       // Use external model for stopped vehicle detection [30] 
+       FeatureCode[FeatureCode["FEATURE_STOPPED_EXT_MODEL"] = 30] = "FEATURE_STOPPED_EXT_MODEL";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
