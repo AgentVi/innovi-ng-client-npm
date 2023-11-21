@@ -4,6 +4,7 @@ export declare enum ProductTypeCode {
     CUSTOM = 2,
     CUSTOM_IRIS_PLUS = 3,
     AXIS_ARTPEC7 = 7,
+    AXIS_ARTPEC8 = 8,
     EDGE_10 = 10,
     EDGE_200 = 200,
     EDGE_220 = 220,
