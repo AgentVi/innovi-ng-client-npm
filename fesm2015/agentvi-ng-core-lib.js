@@ -3478,6 +3478,7 @@ var SearchTimeCode;
 
 /*
    Sensor anonymization code
+   test commemnt
 */
 var SensorAnonymizationTypeCode;
 (function (SensorAnonymizationTypeCode) {
