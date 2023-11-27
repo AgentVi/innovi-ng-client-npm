@@ -3006,7 +3006,7 @@ var FeatureCode;
     FeatureCode[FeatureCode["FEATURE_REALTIME_ANONYMIZATION"] = 29] = "FEATURE_REALTIME_ANONYMIZATION";
     // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
     FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
-    // Account administrator module [2048] 
+    // Account administrator tab [2048] 
     FeatureCode[FeatureCode["TABS_ADMIN"] = 2048] = "TABS_ADMIN";
     // Crossing a line rule [2049] 
     FeatureCode[FeatureCode["RULE_REALTIME_LINE_CROSSING"] = 2049] = "RULE_REALTIME_LINE_CROSSING";
@@ -3016,7 +3016,7 @@ var FeatureCode;
     FeatureCode[FeatureCode["RULE_REALTIME_MOVING"] = 2051] = "RULE_REALTIME_MOVING";
     // Stopped vehicle rule only [2052] 
     FeatureCode[FeatureCode["RULE_REALTIME_STOPPED_VEHICLE"] = 2052] = "RULE_REALTIME_STOPPED_VEHICLE";
-    // Occupancy rule [2056] 
+    // Crowd density rule [2056] 
     FeatureCode[FeatureCode["RULE_REALTIME_CROWD_DENSITY"] = 2056] = "RULE_REALTIME_CROWD_DENSITY";
     // Grouping rule [2064] 
     FeatureCode[FeatureCode["RULE_REALTIME_GROUPING"] = 2064] = "RULE_REALTIME_GROUPING";
@@ -3039,9 +3039,9 @@ var FeatureCode;
     // Monitor (real time events) tab [4096] 
     FeatureCode[FeatureCode["TABS_MONITOR"] = 4096] = "TABS_MONITOR";
     // Google maps support module [4097] 
-    FeatureCode[FeatureCode["MAP_GOOGLE"] = 4097] = "MAP_GOOGLE";
+    FeatureCode[FeatureCode["FEATURE_MAP_GOOGLE"] = 4097] = "FEATURE_MAP_GOOGLE";
     // Leaflet maps support module [4098] 
-    FeatureCode[FeatureCode["MAP_LEAFLET"] = 4098] = "MAP_LEAFLET";
+    FeatureCode[FeatureCode["FEATURE_MAP_LEAFLET"] = 4098] = "FEATURE_MAP_LEAFLET";
     // Investigation (search) tab [8192] 
     FeatureCode[FeatureCode["TABS_INVESTIGATION"] = 8192] = "TABS_INVESTIGATION";
     // Analytics (BI) reporting tab [8192] 
