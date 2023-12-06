@@ -1,5 +1,5 @@
-import { ApplianceConfigReport } from '../common/ApplianceConfigReport';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ApplianceConfigReport } from '../common/ApplianceConfigReport';
 export declare class QueryResponseOfApplianceConfigReport extends QueryResponse {
     list: ApplianceConfigReport[];
     code: number;
