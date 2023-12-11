@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { Event } from '../entities/Event';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfEvent extends QueryResponse {
     list: Event[];
     code: number;
