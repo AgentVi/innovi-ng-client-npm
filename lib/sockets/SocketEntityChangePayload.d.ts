@@ -1,5 +1,5 @@
-import { SocketOpCode } from '../enums/SocketOpCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { SocketOpCode } from '../enums/SocketOpCode';
 export declare class SocketEntityChangePayload {
     op: SocketOpCode;
     sid: string;
