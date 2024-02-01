@@ -26,6 +26,7 @@ export declare class Appliance extends BaseEntity {
     cpuAvg: number;
     ram: number;
     uptime: number;
+    externalIds: string[];
     id: string;
     _type: string;
     createdOn: number;
