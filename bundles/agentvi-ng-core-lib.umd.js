@@ -4200,10 +4200,8 @@
    (function (SensorAnonymizationTypeCode) {
        // No anonymization [0] 
        SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["NONE"] = 0] = "NONE";
-       // Default anonymization Everything grayscale, pixelated objects [1] 
-       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE_NONE_GRAYSCALE_ADAPTIVE"] = 1] = "GRAYSCALE_NONE_GRAYSCALE_ADAPTIVE";
-       // Color retained, pixelated objects [1011] 
-       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["CHROMATIC_NONE_CHROMATIC_ADAPTIVE"] = 1011] = "CHROMATIC_NONE_CHROMATIC_ADAPTIVE";
+       // Default anonymization [1] 
+       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE"] = 1] = "GRAYSCALE";
    })(exports.SensorAnonymizationTypeCode || (exports.SensorAnonymizationTypeCode = {}));
 
    /*

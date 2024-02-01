@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { TreeItem } from '../common/TreeItem';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfTreeItem extends QueryResponse {
     list: TreeItem[];
     code: number;
