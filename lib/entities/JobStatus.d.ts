@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { JobStatusCode } from '../enums/JobStatusCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class JobStatus extends BaseEntity {
     accountId: string;
     userId: string;
