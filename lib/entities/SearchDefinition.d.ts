@@ -1,10 +1,10 @@
-import { Coordinate } from '../common/Coordinate';
-import { TimeFrame } from '../common/TimeFrame';
 import { BaseEntity } from '../entities/BaseEntity';
 import { SearchScopeCode } from '../enums/SearchScopeCode';
 import { SearchTimeCode } from '../enums/SearchTimeCode';
 import { SearchBehavior } from '../common/SearchBehavior';
 import { SearchObject } from '../common/SearchObject';
+import { Coordinate } from '../common/Coordinate';
+import { TimeFrame } from '../common/TimeFrame';
 import { ObjectData } from '../common/ObjectData';
 import { LevelTypeCode } from '../enums/LevelTypeCode';
 export declare class SearchDefinition extends BaseEntity {
