@@ -26,7 +26,7 @@ export declare class HealthEventsService {
      * Find health events by filters
      * @Return: QueryResponse<HealthEvent>
      */
-    find(folderId?: string, from?: number, to?: number, source?: EntityTypeCode[], openClosed?: OpenClosedStatusCode[], entityId?: string[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
+    find(folderId?: string, from?: number, to?: number, source?: EntityTypeCode, openClosed?: OpenClosedStatusCode, entityId?: string[], sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
      * Trigger a test health event
      * @Return: ActionResponse
