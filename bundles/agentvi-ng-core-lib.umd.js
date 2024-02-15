@@ -3719,6 +3719,8 @@
        FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
        // Anonymization [29] 
        FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
+       // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
+       FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
@@ -4198,8 +4200,10 @@
    (function (SensorAnonymizationTypeCode) {
        // No anonymization [0] 
        SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["NONE"] = 0] = "NONE";
-       // Default anonymization [1] 
-       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE"] = 1] = "GRAYSCALE";
+       // Default anonymization Everything grayscale, pixelated objects [1] 
+       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["GRAYSCALE_NONE_GRAYSCALE_ADAPTIVE"] = 1] = "GRAYSCALE_NONE_GRAYSCALE_ADAPTIVE";
+       // Color retained, pixelated objects [1011] 
+       SensorAnonymizationTypeCode[SensorAnonymizationTypeCode["CHROMATIC_NONE_CHROMATIC_ADAPTIVE"] = 1011] = "CHROMATIC_NONE_CHROMATIC_ADAPTIVE";
    })(exports.SensorAnonymizationTypeCode || (exports.SensorAnonymizationTypeCode = {}));
 
    /*
