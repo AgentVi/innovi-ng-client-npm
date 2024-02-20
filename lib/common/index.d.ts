@@ -1,5 +1,6 @@
 export * from './AbsoluteTimeFrame';
 export * from './AccountRole';
+export * from './AccountSettings';
 export * from './AccountStatSummary';
 export * from './AccountTypeSummary';
 export * from './AnalysisResult';
