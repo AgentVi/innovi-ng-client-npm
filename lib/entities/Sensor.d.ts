@@ -1,12 +1,12 @@
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { StringKeyValue } from '../common/StringKeyValue';
 import { Thresholds } from '../common/Thresholds';
 import { SensorDebugInfo } from '../common/SensorDebugInfo';
 import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
