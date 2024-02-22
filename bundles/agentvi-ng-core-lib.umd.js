@@ -61,6 +61,16 @@
    }());
 
    /*
+      Account specific settings
+   */
+   var AccountSettings = /** @class */ (function () {
+       function AccountSettings(playerSourceUri) {
+           this.playerSourceUri = playerSourceUri;
+       }
+       return AccountSettings;
+   }());
+
+   /*
       Account statistic summary (provide info about account sensors and devices number compared to previous month)
    */
    var AccountStatSummary = /** @class */ (function () {
@@ -16760,6 +16770,7 @@
    exports.AccountIdRequest = AccountIdRequest;
    exports.AccountIdsRequest = AccountIdsRequest;
    exports.AccountRole = AccountRole;
+   exports.AccountSettings = AccountSettings;
    exports.AccountStatSummary = AccountStatSummary;
    exports.AccountStatistics = AccountStatistics;
    exports.AccountTypeSummary = AccountTypeSummary;
