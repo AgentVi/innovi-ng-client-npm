@@ -1,7 +1,7 @@
+import { DomainEntity } from '../default/DomainEntity';
 import { QueryResponse } from '../messages/QueryResponse';
-import { CaseInfo } from '../entities/CaseInfo';
-export declare class QueryResponseOfCaseInfo extends QueryResponse {
-    list: CaseInfo[];
+export declare class QueryResponseOfDomainEntity extends QueryResponse {
+    list: DomainEntity[];
     code: number;
     error: string;
     page: number;
