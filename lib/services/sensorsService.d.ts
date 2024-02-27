@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Preset } from '../entities/Preset';
 import { RulePolygon } from '../common/RulePolygon';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { Preset } from '../entities/Preset';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
