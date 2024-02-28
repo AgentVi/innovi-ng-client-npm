@@ -75,11 +75,6 @@ export declare class MembersService {
      * @Return: ActionResponse
      */
     getUserToken(id?: string, exp?: number): import("rxjs").Observable<any>;
-    /**
-     * Search after domain entries
-     * @Return: QueryResponse<DomainEntry>
-     */
-    domainSearch(search?: string, sort?: string, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<MembersService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<MembersService>;
 }
