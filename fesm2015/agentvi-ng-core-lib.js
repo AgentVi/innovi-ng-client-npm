@@ -2981,73 +2981,73 @@ var FeatureCode;
     // Undefined [0] 
     FeatureCode[FeatureCode["UNDEFINED"] = 0] = "UNDEFINED";
     // Record sensor metadata feature [10] 
-    FeatureCode[FeatureCode["FEATURE_INVESTIGATION_METADATA"] = 10] = "FEATURE_INVESTIGATION_METADATA";
+    FeatureCode[FeatureCode["FEATURE_SENSOR_METADATA"] = 10] = "FEATURE_SENSOR_METADATA";
     // Record sensor frames feature [11] 
-    FeatureCode[FeatureCode["FEATURE_INVESTIGATION_RECORD_FRAMES"] = 11] = "FEATURE_INVESTIGATION_RECORD_FRAMES";
+    FeatureCode[FeatureCode["FEATURE_SENSOR_RECORDING"] = 11] = "FEATURE_SENSOR_RECORDING";
     // Face Recognition lite feature (Free Version) [20] 
-    FeatureCode[FeatureCode["FEATURE_FACE_RECOGNITION_LITE"] = 20] = "FEATURE_FACE_RECOGNITION_LITE";
+    FeatureCode[FeatureCode["FEATURE_FR_LITE"] = 20] = "FEATURE_FR_LITE";
     // Face Recognition full feature (Paid Version) [21] 
-    FeatureCode[FeatureCode["FEATURE_FACE_RECOGNITION_FULL"] = 21] = "FEATURE_FACE_RECOGNITION_FULL";
+    FeatureCode[FeatureCode["FEATURE_FR_FULL"] = 21] = "FEATURE_FR_FULL";
     // Rail Trespassing [22] 
-    FeatureCode[FeatureCode["FEATURE_REALTIME_RAIL_TRESPASSING"] = 22] = "FEATURE_REALTIME_RAIL_TRESPASSING";
+    FeatureCode[FeatureCode["FEATURE_RAIL_TRESPASSING"] = 22] = "FEATURE_RAIL_TRESPASSING";
     // Expanded reporting capabilities [23] 
-    FeatureCode[FeatureCode["FEATURE_REPORTING_STATISTICS_RULES"] = 23] = "FEATURE_REPORTING_STATISTICS_RULES";
+    FeatureCode[FeatureCode["FEATURE_REPORTING_FULL"] = 23] = "FEATURE_REPORTING_FULL";
     // Action analysis [24] 
-    FeatureCode[FeatureCode["FEATURE_INTERNAL_TESTING_ACTION_ANALYSIS"] = 24] = "FEATURE_INTERNAL_TESTING_ACTION_ANALYSIS";
+    FeatureCode[FeatureCode["FEATURE_ACTION_ANALYSIS"] = 24] = "FEATURE_ACTION_ANALYSIS";
     // Alarm filtering [25] 
-    FeatureCode[FeatureCode["FEATURE_REALTIME_ALARM_FILTERING"] = 25] = "FEATURE_REALTIME_ALARM_FILTERING";
+    FeatureCode[FeatureCode["FEATURE_ALARM_FILTERING"] = 25] = "FEATURE_ALARM_FILTERING";
     // Person recognition [26] 
-    FeatureCode[FeatureCode["FEATURE_REALTIME_PERSON_RECOGNITION"] = 26] = "FEATURE_REALTIME_PERSON_RECOGNITION";
+    FeatureCode[FeatureCode["FEATURE_PERSON_RECOGNITION"] = 26] = "FEATURE_PERSON_RECOGNITION";
     // View pose keypoints in Investigation [27] 
-    FeatureCode[FeatureCode["FEATURE_INTERNAL_TESTING_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_INTERNAL_TESTING_VIEW_POSE_KEYPOINTS";
+    FeatureCode[FeatureCode["FEATURE_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_VIEW_POSE_KEYPOINTS";
     // Two people on motorcycle [28] 
-    FeatureCode[FeatureCode["FEATURE_REALTIME_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_REALTIME_TWO_PEOPLE_ON_MOTORCYCLE";
+    FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
     // Anonymization [29] 
-    FeatureCode[FeatureCode["FEATURE_REALTIME_ANONYMIZATION"] = 29] = "FEATURE_REALTIME_ANONYMIZATION";
+    FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
     // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
     FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
     // Account administrator module [2048] 
     FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
     // Crossing a line rule [2049] 
-    FeatureCode[FeatureCode["RULE_REALTIME_LINE_CROSSING"] = 2049] = "RULE_REALTIME_LINE_CROSSING";
+    FeatureCode[FeatureCode["RULE_CROSSING"] = 2049] = "RULE_CROSSING";
     // Counter flow rule [2050] 
-    FeatureCode[FeatureCode["RULE_REALTIME_COUNTERFLOW_TRAFFIC"] = 2050] = "RULE_REALTIME_COUNTERFLOW_TRAFFIC";
+    FeatureCode[FeatureCode["RULE_COUNTER_FLOW"] = 2050] = "RULE_COUNTER_FLOW";
     // Moving in an area rule [2051] 
-    FeatureCode[FeatureCode["RULE_REALTIME_MOVING"] = 2051] = "RULE_REALTIME_MOVING";
+    FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
     // Stopped vehicle rule only [2052] 
-    FeatureCode[FeatureCode["RULE_REALTIME_STOPPED_VEHICLE"] = 2052] = "RULE_REALTIME_STOPPED_VEHICLE";
+    FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
     // Crowd density rule [2056] 
-    FeatureCode[FeatureCode["RULE_REALTIME_CROWD_DENSITY"] = 2056] = "RULE_REALTIME_CROWD_DENSITY";
+    FeatureCode[FeatureCode["RULE_CROWD_DENSITY"] = 2056] = "RULE_CROWD_DENSITY";
     // Grouping rule [2064] 
-    FeatureCode[FeatureCode["RULE_REALTIME_GROUPING"] = 2064] = "RULE_REALTIME_GROUPING";
+    FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
     // Ignore (yellow) mask rule [2080] 
-    FeatureCode[FeatureCode["RULE_REALTIME_IGNORE_MASK"] = 2080] = "RULE_REALTIME_IGNORE_MASK";
+    FeatureCode[FeatureCode["RULE_IGNORE_MASK"] = 2080] = "RULE_IGNORE_MASK";
     // Anomaly detection rule [2112] 
-    FeatureCode[FeatureCode["RULE_REALTIME_ANOMALY"] = 2112] = "RULE_REALTIME_ANOMALY";
+    FeatureCode[FeatureCode["RULE_ANOMALY"] = 2112] = "RULE_ANOMALY";
     // Unattended object detection rule [2176] 
-    FeatureCode[FeatureCode["RULE_REALTIME_UNATTENDED_OBJECT"] = 2176] = "RULE_REALTIME_UNATTENDED_OBJECT";
+    FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
     // Asset protection (missing object detection) rule [2304] 
-    FeatureCode[FeatureCode["RULE_REALTIME_ASSET_PROTECTION"] = 2304] = "RULE_REALTIME_ASSET_PROTECTION";
+    FeatureCode[FeatureCode["RULE_ASSET_PROTECTION"] = 2304] = "RULE_ASSET_PROTECTION";
     // Smoke and Fire rule [2305] 
-    FeatureCode[FeatureCode["RULE_REALTIME_SMOKE_AND_FIRE"] = 2305] = "RULE_REALTIME_SMOKE_AND_FIRE";
+    FeatureCode[FeatureCode["RULE_SMOKEANDFIRE"] = 2305] = "RULE_SMOKEANDFIRE";
     // Traffic statistics rule [2560] 
-    FeatureCode[FeatureCode["RULE_STATISTICS_TRAFFIC_STATISTICS"] = 2560] = "RULE_STATISTICS_TRAFFIC_STATISTICS";
+    FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
     // Count statistics rule [3072] 
-    FeatureCode[FeatureCode["RULE_STATISTICS_PEOPLE_COUNTING"] = 3072] = "RULE_STATISTICS_PEOPLE_COUNTING";
+    FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
     // Crowd statistics rule [3073] 
-    FeatureCode[FeatureCode["RULE_STATISTICS_CROWD_STATISTICS"] = 3073] = "RULE_STATISTICS_CROWD_STATISTICS";
+    FeatureCode[FeatureCode["RULE_CROWD_STATISTICS"] = 3073] = "RULE_CROWD_STATISTICS";
     // Monitor (real time events) module [4096] 
     FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
     // Google maps support module [4097] 
-    FeatureCode[FeatureCode["FEATURE_MAP_GOOGLE"] = 4097] = "FEATURE_MAP_GOOGLE";
+    FeatureCode[FeatureCode["MAP_GOOGLE"] = 4097] = "MAP_GOOGLE";
     // Leaflet maps support module [4098] 
-    FeatureCode[FeatureCode["FEATURE_MAP_LEAFLET"] = 4098] = "FEATURE_MAP_LEAFLET";
+    FeatureCode[FeatureCode["MAP_LEAFLET"] = 4098] = "MAP_LEAFLET";
     // Investigation (search) module [8192] 
     FeatureCode[FeatureCode["MODULE_INVESTIGATION"] = 8192] = "MODULE_INVESTIGATION";
-    // Analytics (BI) reporting module [8192] 
-    FeatureCode[FeatureCode["MODULE_REPORTING"] = 16384] = "MODULE_REPORTING";
+    // Analytics (BI) module [8192] 
+    FeatureCode[FeatureCode["MODULE_ANALYTICS"] = 16384] = "MODULE_ANALYTICS";
     // Slip and Fall rule [34816] 
-    FeatureCode[FeatureCode["RULE_REALTIME_SLIP_AND_FALL"] = 34816] = "RULE_REALTIME_SLIP_AND_FALL";
+    FeatureCode[FeatureCode["RULE_SLIP_AND_FALL"] = 34816] = "RULE_SLIP_AND_FALL";
 })(FeatureCode || (FeatureCode = {}));
 
 /*
