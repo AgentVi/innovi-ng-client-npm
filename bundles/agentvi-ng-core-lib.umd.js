@@ -1707,6 +1707,17 @@
 
    /*
    */
+   var DomainEntry = /** @class */ (function () {
+       function DomainEntry(name, id, type) {
+           this.name = name;
+           this.id = id;
+           this.type = type;
+       }
+       return DomainEntry;
+   }());
+
+   /*
+   */
    var UpdateScheduleForRules = /** @class */ (function () {
        function UpdateScheduleForRules(ids, scheduleId) {
            this.ids = ids;
@@ -2787,8 +2798,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_MOVING"] = 65794] = "INNOVI_MOVING";
        // Stopped vehicle 65796 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_STOPPED"] = 65796] = "INNOVI_STOPPED";
-       // Crowd density 65800 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_CROWD_DENSITY"] = 65800] = "INNOVI_CROWD_DENSITY";
+       // Occupancy 65800 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_OCCUPANCY"] = 65800] = "INNOVI_OCCUPANCY";
        // Grouping 65808 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_GROUPING"] = 65808] = "INNOVI_GROUPING";
        // Unattended Object 65824 
@@ -2815,8 +2826,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
        // Slip and Fall 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
-       // Crowd Statistics 65861 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_CROWD_STATISTICS"] = 65861] = "INNOVI_CROWD_STATISTICS";
+       // Area Occupancy 65861 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY_STATISTICS"] = 65861] = "INNOVI_AREA_OCCUPANCY_STATISTICS";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3731,8 +3742,8 @@
        FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
        // Stopped vehicle rule only [2052] 
        FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
-       // Crowd density rule [2056] 
-       FeatureCode[FeatureCode["RULE_CROWD_DENSITY"] = 2056] = "RULE_CROWD_DENSITY";
+       // Occupancy rule [2056] 
+       FeatureCode[FeatureCode["RULE_OCCUPANCY"] = 2056] = "RULE_OCCUPANCY";
        // Grouping rule [2064] 
        FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
        // Ignore (yellow) mask rule [2080] 
@@ -3749,8 +3760,8 @@
        FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
        // Count statistics rule [3072] 
        FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
-       // Crowd statistics rule [3073] 
-       FeatureCode[FeatureCode["RULE_CROWD_STATISTICS"] = 3073] = "RULE_CROWD_STATISTICS";
+       // Area occupancy statistics rule [3073] 
+       FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
        // Monitor (real time events) module [4096] 
        FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
        // Google maps support module [4097] 
@@ -3913,8 +3924,6 @@
        ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_PERSON_ON_THE_GROUND"] = 16908800] = "INNOVI_PEOPLE_PERSON_ON_THE_GROUND";
        // Person from an overhead camera 16909312 
        ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_PERSON_OVERHEAD"] = 16909312] = "INNOVI_PEOPLE_PERSON_OVERHEAD";
-       // Person in a crowd 16912384 
-       ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_CROWD"] = 16912384] = "INNOVI_PEOPLE_CROWD";
        // Abstract group of vehicles 17039360 
        ObjectTypeCode[ObjectTypeCode["INNOVI_VEHICLE"] = 17039360] = "INNOVI_VEHICLE";
        // Car (class group) 17039616 
@@ -4088,8 +4097,8 @@
        ReportTypeCode[ReportTypeCode["PEOPLE_COUNTING_ANALYSIS"] = 3] = "PEOPLE_COUNTING_ANALYSIS";
        // Traffic analysis [4] 
        ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
-       // Crowd statistics analysis [5] 
-       ReportTypeCode[ReportTypeCode["CROWD_STATISTICS_ANALYSIS"] = 5] = "CROWD_STATISTICS_ANALYSIS";
+       // Area occupancy analysis [5] 
+       ReportTypeCode[ReportTypeCode["AREA_OCCUPANCY_ANALYSIS"] = 5] = "AREA_OCCUPANCY_ANALYSIS";
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
 
    /*
@@ -7352,6 +7361,18 @@
 
    /*
    */
+   var MembersServiceDomainSearchRequest = /** @class */ (function () {
+       function MembersServiceDomainSearchRequest(search, sort, page, pageSize) {
+           this.search = search;
+           this.sort = sort;
+           this.page = page;
+           this.pageSize = pageSize;
+       }
+       return MembersServiceDomainSearchRequest;
+   }());
+
+   /*
+   */
    var MembersServiceExportRequest = /** @class */ (function () {
        function MembersServiceExportRequest(search, type, status, sort, format, fields, fileName) {
            this.search = search;
@@ -7578,6 +7599,16 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return QueryResponseOfConfigurationVersion;
+   }(QueryResponse));
+
+   /*
+   */
+   var QueryResponseOfDomainEntry = /** @class */ (function (_super) {
+       __extends(QueryResponseOfDomainEntry, _super);
+       function QueryResponseOfDomainEntry() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return QueryResponseOfDomainEntry;
    }(QueryResponse));
 
    /*
@@ -12428,6 +12459,27 @@
        MembersService.prototype.getUserToken = function (id, exp) {
            return this.rest.get(this.baseUrl + "/" + id + "/token/" + exp);
        };
+       /**
+        * Search after domain entries
+        * @Return: QueryResponse<DomainEntry>
+        */
+       MembersService.prototype.domainSearch = function (search, sort, page, pageSize) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/domain"], __read(params)));
+       };
        return MembersService;
    }());
    /** @nocollapse */ MembersService.ɵfac = function MembersService_Factory(t) { return new (t || MembersService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -16932,6 +16984,7 @@
    exports.DistributionOfLong = DistributionOfLong;
    exports.DistributionOfString = DistributionOfString;
    exports.DockerCredentials = DockerCredentials;
+   exports.DomainEntry = DomainEntry;
    exports.EdgeEventImage = EdgeEventImage;
    exports.EdgeEventInfo = EdgeEventInfo;
    exports.EdgeEventInfoBody = EdgeEventInfoBody;
@@ -17158,6 +17211,7 @@
    exports.MemberRegistration = MemberRegistration;
    exports.MemberTokenRequest = MemberTokenRequest;
    exports.MembersService = MembersService;
+   exports.MembersServiceDomainSearchRequest = MembersServiceDomainSearchRequest;
    exports.MembersServiceExportRequest = MembersServiceExportRequest;
    exports.MembersServiceFindRequest = MembersServiceFindRequest;
    exports.MembersServiceInviteRequest = MembersServiceInviteRequest;
@@ -17195,6 +17249,7 @@
    exports.QueryResponseOfConfiguration = QueryResponseOfConfiguration;
    exports.QueryResponseOfConfigurationTemplate = QueryResponseOfConfigurationTemplate;
    exports.QueryResponseOfConfigurationVersion = QueryResponseOfConfigurationVersion;
+   exports.QueryResponseOfDomainEntry = QueryResponseOfDomainEntry;
    exports.QueryResponseOfEvent = QueryResponseOfEvent;
    exports.QueryResponseOfFindUser = QueryResponseOfFindUser;
    exports.QueryResponseOfFolder = QueryResponseOfFolder;
