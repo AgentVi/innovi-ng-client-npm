@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { DomainEntry } from '../default/DomainEntry';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfDomainEntry extends QueryResponse {
     list: DomainEntry[];
     code: number;
