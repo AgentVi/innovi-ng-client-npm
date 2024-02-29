@@ -1,5 +1,5 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 export declare class SearchEventCountRequest {
     sessionId: string;
     sensorId: string[];
