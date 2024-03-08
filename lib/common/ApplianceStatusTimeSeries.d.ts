@@ -1,5 +1,5 @@
-import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { ApplianceStatusTimestamped } from '../common/ApplianceStatusTimestamped';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
 export declare class ApplianceStatusTimeSeries {
     label: string;
     interval: TimeUnitCode;
