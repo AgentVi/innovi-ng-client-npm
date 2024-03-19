@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { Preset } from '../entities/Preset';
-import { RulePolygon } from '../common/RulePolygon';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { Preset } from '../entities/Preset';
+import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
