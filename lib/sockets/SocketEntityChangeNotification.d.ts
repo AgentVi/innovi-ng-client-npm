@@ -1,5 +1,5 @@
-import { SocketEntityChangePayload } from '../sockets/SocketEntityChangePayload';
 import { SocketOpCode } from '../enums/SocketOpCode';
+import { SocketEntityChangePayload } from '../sockets/SocketEntityChangePayload';
 export declare class SocketEntityChangeNotification {
     op: SocketOpCode;
     payload: SocketEntityChangePayload;
