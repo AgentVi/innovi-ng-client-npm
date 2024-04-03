@@ -1,8 +1,8 @@
-import { AccountRoleCode } from '../enums/AccountRoleCode';
-import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { UserOriginTypeCode } from '../enums/UserOriginTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { AccountRoleCode } from '../enums/AccountRoleCode';
+import { UserTypeCode } from '../enums/UserTypeCode';
 export declare class Member extends BaseEntity {
     userId: string;
     accountId: string;
