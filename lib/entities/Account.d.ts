@@ -16,7 +16,6 @@ export declare class Account extends BaseEntity {
     geoLocation: Coordinate;
     timezone: string;
     expiredOn: number;
-    maxChannels: number;
     description: string;
     settings: AccountSettings;
     healthThresholds: HealthThresholds;
