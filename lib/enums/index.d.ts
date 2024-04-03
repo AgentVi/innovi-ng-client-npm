@@ -50,7 +50,6 @@ export * from './SocketOpCode';
 export * from './StreamTypeCode';
 export * from './TimeUnitCode';
 export * from './TransformationTypeCode';
-export * from './UserOriginTypeCode';
 export * from './UserStatusCode';
 export * from './UserTypeCode';
 export * from './VMSGatewayStateMask';
