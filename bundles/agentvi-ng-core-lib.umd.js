@@ -64,8 +64,16 @@
       Account specific settings
    */
    var AccountSettings = /** @class */ (function () {
-       function AccountSettings(playerSourceUri) {
+       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri, eventClipLengthSec) {
+           this.retentionDays = retentionDays;
+           this.objectColors = objectColors;
+           this.ruleColor = ruleColor;
+           this.maskColor = maskColor;
+           this.enableAnomalyByDefault = enableAnomalyByDefault;
+           this.dateFormat = dateFormat;
+           this.dateTimeFormat = dateTimeFormat;
            this.playerSourceUri = playerSourceUri;
+           this.eventClipLengthSec = eventClipLengthSec;
        }
        return AccountSettings;
    }());
@@ -2779,8 +2787,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_MOVING"] = 65794] = "INNOVI_MOVING";
        // Stopped vehicle 65796 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_STOPPED"] = 65796] = "INNOVI_STOPPED";
-       // Crowd density 65800 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_CROWD_DENSITY"] = 65800] = "INNOVI_CROWD_DENSITY";
+       // Occupancy 65800 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_OCCUPANCY"] = 65800] = "INNOVI_OCCUPANCY";
        // Grouping 65808 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_GROUPING"] = 65808] = "INNOVI_GROUPING";
        // Unattended Object 65824 
@@ -2807,8 +2815,8 @@
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_FACE"] = 67586] = "INNOVI_FACE";
        // Slip and Fall 65860 
        BehaviorTypeCode[BehaviorTypeCode["INNOVI_SLIP_AND_FALL"] = 65860] = "INNOVI_SLIP_AND_FALL";
-       // Crowd Statistics 65861 
-       BehaviorTypeCode[BehaviorTypeCode["INNOVI_CROWD_STATISTICS"] = 65861] = "INNOVI_CROWD_STATISTICS";
+       // Area Occupancy 65861 
+       BehaviorTypeCode[BehaviorTypeCode["INNOVI_AREA_OCCUPANCY_STATISTICS"] = 65861] = "INNOVI_AREA_OCCUPANCY_STATISTICS";
    })(exports.BehaviorTypeCode || (exports.BehaviorTypeCode = {}));
 
    /*
@@ -3723,7 +3731,7 @@
        FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
        // Stopped vehicle rule only [2052] 
        FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
-       // Occupancy a.k.a. Crowd density rule [2056] 
+       // Occupancy rule [2056] 
        FeatureCode[FeatureCode["RULE_OCCUPANCY"] = 2056] = "RULE_OCCUPANCY";
        // Grouping rule [2064] 
        FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
@@ -3741,7 +3749,7 @@
        FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
        // Count statistics rule [3072] 
        FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
-       // Area occupancy a.k.a. Crowd statistics rule [3073] 
+       // Area occupancy statistics rule [3073] 
        FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
        // Monitor (real time events) module [4096] 
        FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
@@ -3905,8 +3913,6 @@
        ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_PERSON_ON_THE_GROUND"] = 16908800] = "INNOVI_PEOPLE_PERSON_ON_THE_GROUND";
        // Person from an overhead camera 16909312 
        ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_PERSON_OVERHEAD"] = 16909312] = "INNOVI_PEOPLE_PERSON_OVERHEAD";
-       // Person in a crowd 16912384 
-       ObjectTypeCode[ObjectTypeCode["INNOVI_PEOPLE_CROWD"] = 16912384] = "INNOVI_PEOPLE_CROWD";
        // Abstract group of vehicles 17039360 
        ObjectTypeCode[ObjectTypeCode["INNOVI_VEHICLE"] = 17039360] = "INNOVI_VEHICLE";
        // Car (class group) 17039616 
@@ -3971,6 +3977,21 @@
        // Closed (i.e. resolved) [2] 
        OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
    })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
+
+   /*
+      Origin type code
+   */
+   exports.OriginTypeCode = void 0;
+   (function (OriginTypeCode) {
+       // Undefined [0] 
+       OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Registration by Email [1] 
+       OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
+       // Registration by LDAP user [2] 
+       OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
+       // Registration by LDAP user group [3] 
+       OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
+   })(exports.OriginTypeCode || (exports.OriginTypeCode = {}));
 
    /*
       Permission Mask
@@ -4080,8 +4101,8 @@
        ReportTypeCode[ReportTypeCode["PEOPLE_COUNTING_ANALYSIS"] = 3] = "PEOPLE_COUNTING_ANALYSIS";
        // Traffic analysis [4] 
        ReportTypeCode[ReportTypeCode["TRAFFIC_ANALYSIS"] = 4] = "TRAFFIC_ANALYSIS";
-       // Crowd statistics analysis [5] 
-       ReportTypeCode[ReportTypeCode["CROWD_STATISTICS_ANALYSIS"] = 5] = "CROWD_STATISTICS_ANALYSIS";
+       // Area occupancy analysis [5] 
+       ReportTypeCode[ReportTypeCode["AREA_OCCUPANCY_ANALYSIS"] = 5] = "AREA_OCCUPANCY_ANALYSIS";
    })(exports.ReportTypeCode || (exports.ReportTypeCode = {}));
 
    /*
@@ -10439,11 +10460,81 @@
            return this.rest.get(this.baseUrl + "/machine/" + machineId);
        };
        /**
+        * Get all sensors assigned to the appliance (getSensors)
+        * @Return: QueryResponse<Sensor>
+        */
+       AppliancesService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (stream != null) {
+               params.push("stream=" + stream);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/sensors"], __read(params)));
+       };
+       /**
+        * Import sensors from CSV file
+        * The file must include header with the columns:
+        * @return ActionResponse
+        */
+       AppliancesService.prototype.importSensors = function (id, csvFile) {
+           return this.rest.upload(csvFile, this.baseUrl + "/" + id + "/sensors/import");
+       };
+       /**
+        * Export appliance sensors to CSV file
+        * @return StreamContent
+        */
+       AppliancesService.prototype.exportSensors = function (id, format, fileName) {
+           var _a;
+           var params = new Array();
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["appliances", this.baseUrl + "/" + id + "/sensors/export"], __read(params)));
+       };
+       /**
         * Get all appliance agents
         * @Return: EntitiesResponse<Agent>
         */
        AppliancesService.prototype.getApplianceAgents = function (id) {
            return this.rest.get(this.baseUrl + "/" + id + "/agents");
+       };
+       /**
+        * Add new sensor and assigned it to a specific appliance
+        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+        * @Return: EntityResponse<Sensor> The updated sensor
+        */
+       AppliancesService.prototype.addApplianceSensor = function (id, body) {
+           return this.rest.post(this.baseUrl + "/" + id + "/sensors", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Register new appliance in the system
@@ -10716,6 +10807,30 @@
                params.push("subFolders=" + subFolders);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-agent-state"], __read(params)));
+       };
+       /**
+        * Attach multiple sensors to the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkAttach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/attach", null], __read(params)));
+       };
+       /**
+        * Detach multiple sensors from the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkDetach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/detach", null], __read(params)));
        };
        return AppliancesService;
    }());
@@ -13908,100 +14023,6 @@
         */
        SensorsService.prototype.removeSensorModel = function (id, modelId) {
            return this.rest.delete(this.baseUrl + "/" + id + "/models/" + modelId);
-       };
-       /**
-        * Get all sensors assigned to the appliance (getSensors)
-        * @Return: QueryResponse<Sensor>
-        */
-       SensorsService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (stream != null) {
-               params.push("stream=" + stream);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}"], __read(params)));
-       };
-       /**
-        * Import sensors from CSV file
-        * The file must include header with the columns:
-        * @return ActionResponse
-        */
-       SensorsService.prototype.importSensors = function (id, csvFile) {
-           return this.rest.upload(csvFile, this.baseUrl + "/for-appliance/{applianceId}/import");
-       };
-       /**
-        * Export appliance sensors to CSV file
-        * @return StreamContent
-        */
-       SensorsService.prototype.exportSensors = function (id, format, fileName) {
-           var _a;
-           var params = new Array();
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["sensors", this.baseUrl + "/for-appliance/" + id + "/export"], __read(params)));
-       };
-       /**
-        * Add new sensor and assigned it to a specific appliance
-        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
-        * @Return: EntityResponse<Sensor> The updated sensor
-        */
-       SensorsService.prototype.addApplianceSensor = function (id, body) {
-           return this.rest.post(this.baseUrl + "/for-appliance/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Attach multiple sensors to the device
-        * @Return: ActionResponse
-        */
-       SensorsService.prototype.bulkAttach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}/attach", null], __read(params)));
-       };
-       /**
-        * Detach multiple sensors from the device
-        * @Return: ActionResponse
-        */
-       SensorsService.prototype.bulkDetach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}/detach", null], __read(params)));
        };
        return SensorsService;
    }());
