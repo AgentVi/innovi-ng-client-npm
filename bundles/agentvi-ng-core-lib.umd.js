@@ -3981,21 +3981,6 @@
    })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
 
    /*
-      Origin type code
-   */
-   exports.OriginTypeCode = void 0;
-   (function (OriginTypeCode) {
-       // Undefined [0] 
-       OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
-       // Registration by Email [1] 
-       OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
-       // Registration by LDAP user [2] 
-       OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
-       // Registration by LDAP user group [3] 
-       OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
-   })(exports.OriginTypeCode || (exports.OriginTypeCode = {}));
-
-   /*
       Permission Mask
    */
    exports.PermissionMask = void 0;
