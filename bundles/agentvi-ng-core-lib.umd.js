@@ -64,16 +64,8 @@
       Account specific settings
    */
    var AccountSettings = /** @class */ (function () {
-       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri, eventClipLengthSec) {
-           this.retentionDays = retentionDays;
-           this.objectColors = objectColors;
-           this.ruleColor = ruleColor;
-           this.maskColor = maskColor;
-           this.enableAnomalyByDefault = enableAnomalyByDefault;
-           this.dateFormat = dateFormat;
-           this.dateTimeFormat = dateTimeFormat;
+       function AccountSettings(playerSourceUri) {
            this.playerSourceUri = playerSourceUri;
-           this.eventClipLengthSec = eventClipLengthSec;
        }
        return AccountSettings;
    }());
@@ -3721,8 +3713,6 @@
        FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
        // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
        FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
-       // Active Directory [31] 
-       FeatureCode[FeatureCode["FEATURE_ACTIVE_DIRECTORY"] = 31] = "FEATURE_ACTIVE_DIRECTORY";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
@@ -3981,21 +3971,6 @@
        // Closed (i.e. resolved) [2] 
        OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
    })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
-
-   /*
-      Origin type code
-   */
-   exports.OriginTypeCode = void 0;
-   (function (OriginTypeCode) {
-       // Undefined [0] 
-       OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
-       // Registration by Email [1] 
-       OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
-       // Registration by LDAP user [2] 
-       OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
-       // Registration by LDAP user group [3] 
-       OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
-   })(exports.OriginTypeCode || (exports.OriginTypeCode = {}));
 
    /*
       Permission Mask
@@ -10464,81 +10439,11 @@
            return this.rest.get(this.baseUrl + "/machine/" + machineId);
        };
        /**
-        * Get all sensors assigned to the appliance (getSensors)
-        * @Return: QueryResponse<Sensor>
-        */
-       AppliancesService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (stream != null) {
-               params.push("stream=" + stream);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/sensors"], __read(params)));
-       };
-       /**
-        * Import sensors from CSV file
-        * The file must include header with the columns:
-        * @return ActionResponse
-        */
-       AppliancesService.prototype.importSensors = function (id, csvFile) {
-           return this.rest.upload(csvFile, this.baseUrl + "/" + id + "/sensors/import");
-       };
-       /**
-        * Export appliance sensors to CSV file
-        * @return StreamContent
-        */
-       AppliancesService.prototype.exportSensors = function (id, format, fileName) {
-           var _a;
-           var params = new Array();
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["appliances", this.baseUrl + "/" + id + "/sensors/export"], __read(params)));
-       };
-       /**
         * Get all appliance agents
         * @Return: EntitiesResponse<Agent>
         */
        AppliancesService.prototype.getApplianceAgents = function (id) {
            return this.rest.get(this.baseUrl + "/" + id + "/agents");
-       };
-       /**
-        * Add new sensor and assigned it to a specific appliance
-        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
-        * @Return: EntityResponse<Sensor> The updated sensor
-        */
-       AppliancesService.prototype.addApplianceSensor = function (id, body) {
-           return this.rest.post(this.baseUrl + "/" + id + "/sensors", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Register new appliance in the system
@@ -10811,30 +10716,6 @@
                params.push("subFolders=" + subFolders);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-agent-state"], __read(params)));
-       };
-       /**
-        * Attach multiple sensors to the device
-        * @Return: ActionResponse
-        */
-       AppliancesService.prototype.bulkAttach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/attach", null], __read(params)));
-       };
-       /**
-        * Detach multiple sensors from the device
-        * @Return: ActionResponse
-        */
-       AppliancesService.prototype.bulkDetach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/detach", null], __read(params)));
        };
        return AppliancesService;
    }());
@@ -14027,6 +13908,100 @@
         */
        SensorsService.prototype.removeSensorModel = function (id, modelId) {
            return this.rest.delete(this.baseUrl + "/" + id + "/models/" + modelId);
+       };
+       /**
+        * Get all sensors assigned to the appliance (getSensors)
+        * @Return: QueryResponse<Sensor>
+        */
+       SensorsService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (stream != null) {
+               params.push("stream=" + stream);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}"], __read(params)));
+       };
+       /**
+        * Import sensors from CSV file
+        * The file must include header with the columns:
+        * @return ActionResponse
+        */
+       SensorsService.prototype.importSensors = function (id, csvFile) {
+           return this.rest.upload(csvFile, this.baseUrl + "/for-appliance/{applianceId}/import");
+       };
+       /**
+        * Export appliance sensors to CSV file
+        * @return StreamContent
+        */
+       SensorsService.prototype.exportSensors = function (id, format, fileName) {
+           var _a;
+           var params = new Array();
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["sensors", this.baseUrl + "/for-appliance/" + id + "/export"], __read(params)));
+       };
+       /**
+        * Add new sensor and assigned it to a specific appliance
+        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+        * @Return: EntityResponse<Sensor> The updated sensor
+        */
+       SensorsService.prototype.addApplianceSensor = function (id, body) {
+           return this.rest.post(this.baseUrl + "/for-appliance/{applianceId}", typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Attach multiple sensors to the device
+        * @Return: ActionResponse
+        */
+       SensorsService.prototype.bulkAttach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}/attach", null], __read(params)));
+       };
+       /**
+        * Detach multiple sensors from the device
+        * @Return: ActionResponse
+        */
+       SensorsService.prototype.bulkDetach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/{applianceId}/detach", null], __read(params)));
        };
        return SensorsService;
    }());
