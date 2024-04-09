@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { Calendar } from '../entities/Calendar';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfCalendar extends QueryResponse {
     list: Calendar[];
     code: number;
