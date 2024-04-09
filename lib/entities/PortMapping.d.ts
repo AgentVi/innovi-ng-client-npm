@@ -1,5 +1,5 @@
-import { ActiveCode } from '../enums/ActiveCode';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
+import { ActiveCode } from '../enums/ActiveCode';
 export declare class PortMapping {
     port: string;
     isOutput: boolean;
