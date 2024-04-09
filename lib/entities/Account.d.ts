@@ -1,10 +1,10 @@
-import { HealthThresholds } from '../common/HealthThresholds';
-import { PlatformTypeCode } from '../enums/PlatformTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
 import { AccountTypeCode } from '../enums/AccountTypeCode';
 import { AccountStatusCode } from '../enums/AccountStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { AccountSettings } from '../common/AccountSettings';
+import { HealthThresholds } from '../common/HealthThresholds';
+import { PlatformTypeCode } from '../enums/PlatformTypeCode';
 export declare class Account extends BaseEntity {
     name: string;
     key: string;
@@ -16,7 +16,6 @@ export declare class Account extends BaseEntity {
     geoLocation: Coordinate;
     timezone: string;
     expiredOn: number;
-    maxChannels: number;
     description: string;
     settings: AccountSettings;
     healthThresholds: HealthThresholds;
