@@ -42,16 +42,8 @@ class AccountRole {
    Account specific settings
 */
 class AccountSettings {
-    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri, eventClipLengthSec) {
-        this.retentionDays = retentionDays;
-        this.objectColors = objectColors;
-        this.ruleColor = ruleColor;
-        this.maskColor = maskColor;
-        this.enableAnomalyByDefault = enableAnomalyByDefault;
-        this.dateFormat = dateFormat;
-        this.dateTimeFormat = dateTimeFormat;
+    constructor(playerSourceUri) {
         this.playerSourceUri = playerSourceUri;
-        this.eventClipLengthSec = eventClipLengthSec;
     }
 }
 
@@ -8666,79 +8658,11 @@ class AppliancesService {
         return this.rest.get(`${this.baseUrl}/machine/${machineId}`);
     }
     /**
-     * Get all sensors assigned to the appliance (getSensors)
-     * @Return: QueryResponse<Sensor>
-     */
-    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (type != null) {
-            params.push(`type=${type}`);
-        }
-        if (status != null) {
-            params.push(`status=${status}`);
-        }
-        if (stream != null) {
-            params.push(`stream=${stream}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        if (page != null) {
-            params.push(`page=${page}`);
-        }
-        if (pageSize != null) {
-            params.push(`pageSize=${pageSize}`);
-        }
-        if (format != null) {
-            params.push(`format=${format}`);
-        }
-        if (fields != null) {
-            params.push(`fields=${fields}`);
-        }
-        if (fileName != null) {
-            params.push(`fileName=${fileName}`);
-        }
-        return this.rest.get(`${this.baseUrl}/${id}/sensors`, ...params);
-    }
-    /**
-     * Import sensors from CSV file
-     * The file must include header with the columns:
-     * @return ActionResponse
-     */
-    importSensors(id, csvFile) {
-        return this.rest.upload(csvFile, `${this.baseUrl}/${id}/sensors/import`);
-    }
-    /**
-     * Export appliance sensors to CSV file
-     * @return StreamContent
-     */
-    exportSensors(id, format, fileName) {
-        const params = new Array();
-        if (format != null) {
-            params.push(`format=${format}`);
-        }
-        if (fileName != null) {
-            params.push(`fileName=${fileName}`);
-        }
-        return this.rest.download(`appliances`, `${this.baseUrl}/${id}/sensors/export`, ...params);
-    }
-    /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>
      */
     getApplianceAgents(id) {
         return this.rest.get(`${this.baseUrl}/${id}/agents`);
-    }
-    /**
-     * Add new sensor and assigned it to a specific appliance
-     * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
-     * @Return: EntityResponse<Sensor> The updated sensor
-     */
-    addApplianceSensor(id, body) {
-        return this.rest.post(`${this.baseUrl}/${id}/sensors`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
      * Register new appliance in the system
@@ -9002,28 +8926,6 @@ class AppliancesService {
             params.push(`subFolders=${subFolders}`);
         }
         return this.rest.get(`${this.baseUrl}/count/by-agent-state`, ...params);
-    }
-    /**
-     * Attach multiple sensors to the device
-     * @Return: ActionResponse
-     */
-    bulkAttach(id, sensorId) {
-        const params = new Array();
-        if (sensorId != null) {
-            params.push(`sensorId=${sensorId}`);
-        }
-        return this.rest.put(`${this.baseUrl}/${id}/attach`, null, ...params);
-    }
-    /**
-     * Detach multiple sensors from the device
-     * @Return: ActionResponse
-     */
-    bulkDetach(id, sensorId) {
-        const params = new Array();
-        if (sensorId != null) {
-            params.push(`sensorId=${sensorId}`);
-        }
-        return this.rest.put(`${this.baseUrl}/${id}/detach`, null, ...params);
     }
 }
 /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
@@ -12047,6 +11949,96 @@ class SensorsService {
      */
     removeSensorModel(id, modelId) {
         return this.rest.delete(`${this.baseUrl}/${id}/models/${modelId}`);
+    }
+    /**
+     * Get all sensors assigned to the appliance (getSensors)
+     * @Return: QueryResponse<Sensor>
+     */
+    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
+        const params = new Array();
+        if (search != null) {
+            params.push(`search=${search}`);
+        }
+        if (type != null) {
+            params.push(`type=${type}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        if (stream != null) {
+            params.push(`stream=${stream}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
+        }
+        if (fileName != null) {
+            params.push(`fileName=${fileName}`);
+        }
+        return this.rest.get(`${this.baseUrl}/for-appliance/{applianceId}`, ...params);
+    }
+    /**
+     * Import sensors from CSV file
+     * The file must include header with the columns:
+     * @return ActionResponse
+     */
+    importSensors(id, csvFile) {
+        return this.rest.upload(csvFile, `${this.baseUrl}/for-appliance/{applianceId}/import`);
+    }
+    /**
+     * Export appliance sensors to CSV file
+     * @return StreamContent
+     */
+    exportSensors(id, format, fileName) {
+        const params = new Array();
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fileName != null) {
+            params.push(`fileName=${fileName}`);
+        }
+        return this.rest.download(`sensors`, `${this.baseUrl}/for-appliance/${id}/export`, ...params);
+    }
+    /**
+     * Add new sensor and assigned it to a specific appliance
+     * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+     * @Return: EntityResponse<Sensor> The updated sensor
+     */
+    addApplianceSensor(id, body) {
+        return this.rest.post(`${this.baseUrl}/for-appliance/{applianceId}`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Attach multiple sensors to the device
+     * @Return: ActionResponse
+     */
+    bulkAttach(id, sensorId) {
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        return this.rest.put(`${this.baseUrl}/for-appliance/{applianceId}/attach`, null, ...params);
+    }
+    /**
+     * Detach multiple sensors from the device
+     * @Return: ActionResponse
+     */
+    bulkDetach(id, sensorId) {
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        return this.rest.put(`${this.baseUrl}/for-appliance/{applianceId}/detach`, null, ...params);
     }
 }
 /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
