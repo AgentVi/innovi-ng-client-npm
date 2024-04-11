@@ -1,14 +1,14 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { Preset } from '../entities/Preset';
-import { SensorsGroup } from '../common/SensorsGroup';
+import { Sensor } from '../entities/Sensor';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { Sensor } from '../entities/Sensor';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { RulePolygon } from '../common/RulePolygon';
+import { SensorsGroup } from '../common/SensorsGroup';
+import { Preset } from '../entities/Preset';
 import * as i0 from "@angular/core";
 /**
  * Services for sensor actions
@@ -223,6 +223,38 @@ export declare class SensorsService {
      * @Return: ActionResponse
      */
     removeSensorModel(id?: string, modelId?: string): import("rxjs").Observable<any>;
+    /**
+     * Get all sensors assigned to the appliance (getSensors)
+     * @Return: QueryResponse<Sensor>
+     */
+    findApplianceSensors(id?: string, search?: string, type?: SensorTypeCode[], status?: SensorStatusCode[], stream?: StreamTypeCode[], sort?: string, page?: number, pageSize?: number, format?: string, fields?: string[], fileName?: string): import("rxjs").Observable<any>;
+    /**
+     * Import sensors from CSV file
+     * The file must include header with the columns:
+     * @return ActionResponse
+     */
+    importSensors(id?: string, csvFile?: File): import("rxjs").Observable<import("@angular/common/http").HttpEvent<unknown>>;
+    /**
+     * Export appliance sensors to CSV file
+     * @return StreamContent
+     */
+    exportSensors(id?: string, format?: string, fileName?: string): import("rxjs").Observable<import("@angular/common/http").HttpEvent<Blob>>;
+    /**
+     * Add new sensor and assigned it to a specific appliance
+     * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+     * @Return: EntityResponse<Sensor> The updated sensor
+     */
+    addApplianceSensor(id?: string, body?: Sensor): import("rxjs").Observable<any>;
+    /**
+     * Attach multiple sensors to the device
+     * @Return: ActionResponse
+     */
+    bulkAttach(id?: string, sensorId?: string[]): import("rxjs").Observable<any>;
+    /**
+     * Detach multiple sensors from the device
+     * @Return: ActionResponse
+     */
+    bulkDetach(id?: string, sensorId?: string[]): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<SensorsService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SensorsService>;
 }
