@@ -13977,7 +13977,7 @@
         * @Return: EntityResponse<Sensor> The updated sensor
         */
        SensorsService.prototype.addApplianceSensor = function (id, body) {
-           return this.rest.post(this.baseUrl + "/for-appliance/{applianceId}", typeof body === 'object' ? JSON.stringify(body) : body);
+           return this.rest.post(this.baseUrl + "/for-appliance/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Attach multiple sensors to the device
