@@ -3721,8 +3721,6 @@
        FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
        // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
        FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
-       // BI Dashboard [31] 
-       FeatureCode[FeatureCode["FEATURE_BI_DASHBOARD"] = 31] = "FEATURE_BI_DASHBOARD";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
@@ -3733,8 +3731,8 @@
        FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
        // Stopped vehicle rule only [2052] 
        FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
-       // Crowd density rule [2056] 
-       FeatureCode[FeatureCode["RULE_CROWD_DENSITY"] = 2056] = "RULE_CROWD_DENSITY";
+       // Occupancy a.k.a. Crowd density rule [2056] 
+       FeatureCode[FeatureCode["RULE_OCCUPANCY"] = 2056] = "RULE_OCCUPANCY";
        // Grouping rule [2064] 
        FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
        // Ignore (yellow) mask rule [2080] 
@@ -3751,8 +3749,8 @@
        FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
        // Count statistics rule [3072] 
        FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
-       // Crowd statistics rule [3073] 
-       FeatureCode[FeatureCode["RULE_CROWD_STATISTICS"] = 3073] = "RULE_CROWD_STATISTICS";
+       // Area occupancy a.k.a. Crowd statistics rule [3073] 
+       FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
        // Monitor (real time events) module [4096] 
        FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
        // Google maps support module [4097] 
