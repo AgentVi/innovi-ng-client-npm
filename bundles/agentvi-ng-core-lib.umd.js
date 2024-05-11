@@ -2052,7 +2052,7 @@
    /*
    */
    var FindUser = /** @class */ (function () {
-       function FindUser(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description) {
+       function FindUser(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description, originId, originType) {
            this.id = id;
            this.name = name;
            this.email = email;
@@ -2063,6 +2063,8 @@
            this.accountRoles = accountRoles;
            this.defaultAccount = defaultAccount;
            this.description = description;
+           this.originId = originId;
+           this.originType = originType;
        }
        return FindUser;
    }());
@@ -3721,8 +3723,8 @@
        FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
        // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
        FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
-       // BI Dashboard [31] 
-       FeatureCode[FeatureCode["FEATURE_BI_DASHBOARD"] = 31] = "FEATURE_BI_DASHBOARD";
+       // Active Directory [31] 
+       FeatureCode[FeatureCode["FEATURE_ACTIVE_DIRECTORY"] = 31] = "FEATURE_ACTIVE_DIRECTORY";
        // Account administrator module [2048] 
        FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
        // Crossing a line rule [2049] 
@@ -3981,6 +3983,21 @@
        // Closed (i.e. resolved) [2] 
        OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
    })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
+
+   /*
+      Origin type code
+   */
+   exports.OriginTypeCode = void 0;
+   (function (OriginTypeCode) {
+       // Undefined [0] 
+       OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Registration by Email [1] 
+       OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
+       // Registration by LDAP user [2] 
+       OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
+       // Registration by LDAP user group [3] 
+       OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
+   })(exports.OriginTypeCode || (exports.OriginTypeCode = {}));
 
    /*
       Permission Mask
