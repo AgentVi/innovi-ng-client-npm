@@ -1,5 +1,5 @@
-import { SocketEntityChangeFilterPayload } from '../sockets/SocketEntityChangeFilterPayload';
 import { SocketOpCode } from '../enums/SocketOpCode';
+import { SocketEntityChangeFilterPayload } from '../sockets/SocketEntityChangeFilterPayload';
 export declare class SocketEntityChangeFilter {
     op: SocketOpCode;
     payload: SocketEntityChangeFilterPayload;
