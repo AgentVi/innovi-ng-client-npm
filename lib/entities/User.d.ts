@@ -1,4 +1,5 @@
 import { UserStatusCode } from '../enums/UserStatusCode';
+import { OriginTypeCode } from '../enums/OriginTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
 import { UserTypeCode } from '../enums/UserTypeCode';
 export declare class User extends BaseEntity {
@@ -12,6 +13,8 @@ export declare class User extends BaseEntity {
     defaultAccount: string;
     description: string;
     acceptedEula: boolean;
+    originId: string;
+    originType: OriginTypeCode;
     id: string;
     _type: string;
     createdOn: number;
