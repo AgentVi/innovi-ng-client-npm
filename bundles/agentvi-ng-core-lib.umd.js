@@ -918,7 +918,7 @@
       Rule specification describe rule parameters
    */
    var RuleSpec = /** @class */ (function () {
-       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
+       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
            this.behaviorType = behaviorType;
            this.ruleTypeName = ruleTypeName;
            this.objectTypes = objectTypes;
@@ -927,7 +927,6 @@
            this.minSpeed = minSpeed;
            this.peopleInGroup = peopleInGroup;
            this.clusterDistance = clusterDistance;
-           this.intervalTime = intervalTime;
            this.referenceCrop = referenceCrop;
            this.objectHierarchy = objectHierarchy;
            this.sensorTypes = sensorTypes;
