@@ -1,9 +1,9 @@
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { EventStatusCode } from '../enums/EventStatusCode';
+import { TimestampedCrop } from '../common/TimestampedCrop';
 import { Coordinate } from '../common/Coordinate';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
-import { TimestampedCrop } from '../common/TimestampedCrop';
-import { EventStatusCode } from '../enums/EventStatusCode';
 import { ObjectInfo } from '../common/ObjectInfo';
 import { BoundingBox } from '../common/BoundingBox';
 import { BaseEntity } from '../entities/BaseEntity';

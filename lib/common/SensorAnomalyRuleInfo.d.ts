@@ -1,5 +1,5 @@
-import { Sensitivity } from '../common/Sensitivity';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { Sensitivity } from '../common/Sensitivity';
 export declare class SensorAnomalyRuleInfo {
     active: boolean;
     sensitivity: Sensitivity;
