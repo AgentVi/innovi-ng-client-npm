@@ -22,6 +22,7 @@ export declare class Rule extends BaseEntity {
     minSpeed: number;
     maxObjectsInGroup: number;
     clusterDistance: number;
+    intervalTime: number;
     polygons: RulePolygon[];
     referenceCrop: string;
     createImage: boolean;
