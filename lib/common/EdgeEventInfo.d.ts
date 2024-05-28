@@ -1,9 +1,9 @@
-import { EdgeEventObject } from '../common/EdgeEventObject';
 import { EdgeEventImage } from '../common/EdgeEventImage';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { BoundingBox } from '../common/BoundingBox';
+import { EdgeEventObject } from '../common/EdgeEventObject';
 export declare class EdgeEventInfo {
     behaviorType: BehaviorTypeCode;
     clipPeriod: number;
