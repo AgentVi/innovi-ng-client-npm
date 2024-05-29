@@ -19,6 +19,7 @@ export * from './DigitalIOStatusCode';
 export * from './EntityTypeCode';
 export * from './ErrorCode';
 export * from './EventStatusCode';
+export * from './FeatureCode';
 export * from './IntegrationStatusCode';
 export * from './IntegrationTypeCode';
 export * from './JobStatusCode';
