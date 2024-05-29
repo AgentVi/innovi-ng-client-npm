@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class ApplianceStatus extends BaseEntity {
     applianceId: string;
     accountId: string;
