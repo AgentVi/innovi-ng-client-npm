@@ -27,6 +27,8 @@ export * from './sysAppliancesService';
 export * from './sysAuditLogService';
 export * from './sysConfigurationsService';
 export * from './sysEventsService';
+export * from './sysFeaturesGroupsService';
+export * from './sysFeaturesService';
 export * from './sysKeysService';
 export * from './sysLicensesService';
 export * from './sysModelsService';
