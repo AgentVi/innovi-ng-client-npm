@@ -958,9 +958,7 @@ class SensorAnomalyRuleInfo {
    Sensor debug information
 */
 class SensorDebugInfo {
-    constructor(saveCrops, saveFrames, saveEventImages) {
-        this.saveCrops = saveCrops;
-        this.saveFrames = saveFrames;
+    constructor(saveEventImages) {
         this.saveEventImages = saveEventImages;
     }
 }
@@ -3008,6 +3006,8 @@ var FeatureCode;
     FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
     // BI Dashboard [31] 
     FeatureCode[FeatureCode["FEATURE_BI_DASHBOARD"] = 31] = "FEATURE_BI_DASHBOARD";
+    // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
+    FeatureCode[FeatureCode["FEATURE_TRACKER_IMPROVEMENT"] = 32] = "FEATURE_TRACKER_IMPROVEMENT";
     // Account administrator module [2048] 
     FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
     // Crossing a line rule [2049] 
