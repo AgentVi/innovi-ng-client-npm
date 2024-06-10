@@ -1,9 +1,9 @@
-import { ObjectData } from '../common/ObjectData';
-import { SearchTimeCode } from '../enums/SearchTimeCode';
-import { SearchScopeCode } from '../enums/SearchScopeCode';
-import { TimeFrame } from '../common/TimeFrame';
 import { SearchBehavior } from '../common/SearchBehavior';
 import { SearchObject } from '../common/SearchObject';
+import { TimeFrame } from '../common/TimeFrame';
+import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { SearchTimeCode } from '../enums/SearchTimeCode';
+import { ObjectData } from '../common/ObjectData';
 import { LevelTypeCode } from '../enums/LevelTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
 import { Coordinate } from '../common/Coordinate';
