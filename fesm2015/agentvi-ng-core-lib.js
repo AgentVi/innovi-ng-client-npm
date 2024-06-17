@@ -42,16 +42,8 @@ class AccountRole {
    Account specific settings
 */
 class AccountSettings {
-    constructor(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri, eventClipLengthSec) {
-        this.retentionDays = retentionDays;
-        this.objectColors = objectColors;
-        this.ruleColor = ruleColor;
-        this.maskColor = maskColor;
-        this.enableAnomalyByDefault = enableAnomalyByDefault;
-        this.dateFormat = dateFormat;
-        this.dateTimeFormat = dateTimeFormat;
+    constructor(playerSourceUri) {
         this.playerSourceUri = playerSourceUri;
-        this.eventClipLengthSec = eventClipLengthSec;
     }
 }
 
@@ -840,7 +832,7 @@ class RulePolygon {
    Rule specification describe rule parameters
 */
 class RuleSpec {
-    constructor(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
+    constructor(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
         this.behaviorType = behaviorType;
         this.ruleTypeName = ruleTypeName;
         this.objectTypes = objectTypes;
@@ -849,7 +841,6 @@ class RuleSpec {
         this.minSpeed = minSpeed;
         this.peopleInGroup = peopleInGroup;
         this.clusterDistance = clusterDistance;
-        this.intervalTime = intervalTime;
         this.referenceCrop = referenceCrop;
         this.objectHierarchy = objectHierarchy;
         this.sensorTypes = sensorTypes;
@@ -1489,21 +1480,9 @@ class EventStatistics extends BaseEntity {
 }
 
 /*
-   System functionality (feature) description
-*/
-class Feature extends BaseEntity {
-}
-
-/*
-   Group of features
-*/
-class FeaturesGroup extends BaseEntity {
-}
-
-/*
 */
 class FindUser {
-    constructor(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description, originId, originType) {
+    constructor(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -1514,8 +1493,6 @@ class FindUser {
         this.accountRoles = accountRoles;
         this.defaultAccount = defaultAccount;
         this.description = description;
-        this.originId = originId;
-        this.originType = originType;
     }
 }
 
@@ -2976,87 +2953,6 @@ var EventStatusCode;
 })(EventStatusCode || (EventStatusCode = {}));
 
 /*
-   Feature codes
-*/
-var FeatureCode;
-(function (FeatureCode) {
-    // Undefined [0] 
-    FeatureCode[FeatureCode["UNDEFINED"] = 0] = "UNDEFINED";
-    // Record sensor metadata feature [10] 
-    FeatureCode[FeatureCode["FEATURE_SENSOR_METADATA"] = 10] = "FEATURE_SENSOR_METADATA";
-    // Record sensor frames feature [11] 
-    FeatureCode[FeatureCode["FEATURE_SENSOR_RECORDING"] = 11] = "FEATURE_SENSOR_RECORDING";
-    // Face Recognition lite feature (Free Version) [20] 
-    FeatureCode[FeatureCode["FEATURE_FR_LITE"] = 20] = "FEATURE_FR_LITE";
-    // Face Recognition full feature (Paid Version) [21] 
-    FeatureCode[FeatureCode["FEATURE_FR_FULL"] = 21] = "FEATURE_FR_FULL";
-    // Rail Trespassing [22] 
-    FeatureCode[FeatureCode["FEATURE_RAIL_TRESPASSING"] = 22] = "FEATURE_RAIL_TRESPASSING";
-    // Expanded reporting capabilities [23] 
-    FeatureCode[FeatureCode["FEATURE_REPORTING_FULL"] = 23] = "FEATURE_REPORTING_FULL";
-    // Action analysis [24] 
-    FeatureCode[FeatureCode["FEATURE_ACTION_ANALYSIS"] = 24] = "FEATURE_ACTION_ANALYSIS";
-    // Alarm filtering [25] 
-    FeatureCode[FeatureCode["FEATURE_ALARM_FILTERING"] = 25] = "FEATURE_ALARM_FILTERING";
-    // Person recognition [26] 
-    FeatureCode[FeatureCode["FEATURE_PERSON_RECOGNITION"] = 26] = "FEATURE_PERSON_RECOGNITION";
-    // View pose keypoints in Investigation [27] 
-    FeatureCode[FeatureCode["FEATURE_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_VIEW_POSE_KEYPOINTS";
-    // Two people on motorcycle [28] 
-    FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
-    // Anonymization [29] 
-    FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
-    // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
-    FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
-    // BI Dashboard [31] 
-    FeatureCode[FeatureCode["FEATURE_BI_DASHBOARD"] = 31] = "FEATURE_BI_DASHBOARD";
-    // Active Directory [32] 
-    FeatureCode[FeatureCode["FEATURE_ACTIVE_DIRECTORY"] = 32] = "FEATURE_ACTIVE_DIRECTORY";
-    // Account administrator module [2048] 
-    FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
-    // Crossing a line rule [2049] 
-    FeatureCode[FeatureCode["RULE_CROSSING"] = 2049] = "RULE_CROSSING";
-    // Counter flow rule [2050] 
-    FeatureCode[FeatureCode["RULE_COUNTER_FLOW"] = 2050] = "RULE_COUNTER_FLOW";
-    // Moving in an area rule [2051] 
-    FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
-    // Stopped vehicle rule only [2052] 
-    FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
-    // Occupancy a.k.a. Crowd density rule [2056] 
-    FeatureCode[FeatureCode["RULE_OCCUPANCY"] = 2056] = "RULE_OCCUPANCY";
-    // Grouping rule [2064] 
-    FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
-    // Ignore (yellow) mask rule [2080] 
-    FeatureCode[FeatureCode["RULE_IGNORE_MASK"] = 2080] = "RULE_IGNORE_MASK";
-    // Anomaly detection rule [2112] 
-    FeatureCode[FeatureCode["RULE_ANOMALY"] = 2112] = "RULE_ANOMALY";
-    // Unattended object detection rule [2176] 
-    FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
-    // Asset protection (missing object detection) rule [2304] 
-    FeatureCode[FeatureCode["RULE_ASSET_PROTECTION"] = 2304] = "RULE_ASSET_PROTECTION";
-    // Smoke and Fire rule [2305] 
-    FeatureCode[FeatureCode["RULE_SMOKEANDFIRE"] = 2305] = "RULE_SMOKEANDFIRE";
-    // Traffic statistics rule [2560] 
-    FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
-    // Count statistics rule [3072] 
-    FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
-    // Area occupancy a.k.a. Crowd statistics rule [3073] 
-    FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
-    // Monitor (real time events) module [4096] 
-    FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
-    // Google maps support module [4097] 
-    FeatureCode[FeatureCode["MAP_GOOGLE"] = 4097] = "MAP_GOOGLE";
-    // Leaflet maps support module [4098] 
-    FeatureCode[FeatureCode["MAP_LEAFLET"] = 4098] = "MAP_LEAFLET";
-    // Investigation (search) module [8192] 
-    FeatureCode[FeatureCode["MODULE_INVESTIGATION"] = 8192] = "MODULE_INVESTIGATION";
-    // Analytics (BI) module [8192] 
-    FeatureCode[FeatureCode["MODULE_ANALYTICS"] = 16384] = "MODULE_ANALYTICS";
-    // Slip and Fall rule [34816] 
-    FeatureCode[FeatureCode["RULE_SLIP_AND_FALL"] = 34816] = "RULE_SLIP_AND_FALL";
-})(FeatureCode || (FeatureCode = {}));
-
-/*
    Integration status code
 */
 var IntegrationStatusCode;
@@ -3270,21 +3166,6 @@ var OpenClosedStatusCode;
     // Closed (i.e. resolved) [2] 
     OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
 })(OpenClosedStatusCode || (OpenClosedStatusCode = {}));
-
-/*
-   Origin type code
-*/
-var OriginTypeCode;
-(function (OriginTypeCode) {
-    // Undefined [0] 
-    OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
-    // Registration by Email [1] 
-    OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
-    // Registration by LDAP user [2] 
-    OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
-    // Registration by LDAP user group [3] 
-    OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
-})(OriginTypeCode || (OriginTypeCode = {}));
 
 /*
    Permission Mask
@@ -4942,16 +4823,6 @@ class EntitiesResponseOfEvent extends EntitiesResponse {
 
 /*
 */
-class EntitiesResponseOfFeature extends EntitiesResponse {
-}
-
-/*
-*/
-class EntitiesResponseOfFeaturesGroup extends EntitiesResponse {
-}
-
-/*
-*/
 class EntitiesResponseOfFolder extends EntitiesResponse {
 }
 
@@ -5163,16 +5034,6 @@ class EntityResponseOfEvent extends EntityResponse {
 /*
 */
 class EntityResponseOfEventCountTimeSeries extends EntityResponse {
-}
-
-/*
-*/
-class EntityResponseOfFeature extends EntityResponse {
-}
-
-/*
-*/
-class EntityResponseOfFeaturesGroup extends EntityResponse {
 }
 
 /*
@@ -5536,109 +5397,6 @@ class ExportUsageReportRequest {
 class ExportWatchListRequest {
     constructor(id) {
         this.id = id;
-    }
-}
-
-/*
-*/
-class FeatureIdRequest {
-    constructor(id) {
-        this.id = id;
-    }
-}
-
-/*
-*/
-class FeatureIdsRequest {
-    constructor(id) {
-        this.id = id;
-    }
-}
-
-/*
-*/
-class FeaturesGroupIdRequest {
-    constructor(id) {
-        this.id = id;
-    }
-}
-
-/*
-*/
-class FeaturesGroupIdsRequest {
-    constructor(id) {
-        this.id = id;
-    }
-}
-
-/*
-*/
-class FeaturesGroupsServiceCreateRequest {
-    constructor(body) {
-        this.body = body;
-    }
-}
-
-/*
-*/
-class FeaturesGroupsServiceFindRequest {
-    constructor(search, sort) {
-        this.search = search;
-        this.sort = sort;
-    }
-}
-
-/*
-*/
-class FeaturesGroupsServiceSetFeaturesRequest {
-    constructor(id, body) {
-        this.id = id;
-        this.body = body;
-    }
-}
-
-/*
-*/
-class FeaturesGroupsServiceSetNameRequest {
-    constructor(id, body) {
-        this.id = id;
-        this.body = body;
-    }
-}
-
-/*
-*/
-class FeaturesGroupsServiceUpdateRequest {
-    constructor(id, body) {
-        this.id = id;
-        this.body = body;
-    }
-}
-
-/*
-*/
-class FeaturesServiceCreateRequest {
-    constructor(body) {
-        this.body = body;
-    }
-}
-
-/*
-*/
-class FeaturesServiceFindRequest {
-    constructor(search, category, sort) {
-        this.search = search;
-        this.category = category;
-        this.sort = sort;
-    }
-}
-
-/*
-*/
-class FeaturesServiceUpdateRequest {
-    constructor(id, body) {
-        this.id = id;
-        this.body = body;
     }
 }
 
@@ -8687,79 +8445,11 @@ class AppliancesService {
         return this.rest.get(`${this.baseUrl}/machine/${machineId}`);
     }
     /**
-     * Get all sensors assigned to the appliance (getSensors)
-     * @Return: QueryResponse<Sensor>
-     */
-    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (type != null) {
-            params.push(`type=${type}`);
-        }
-        if (status != null) {
-            params.push(`status=${status}`);
-        }
-        if (stream != null) {
-            params.push(`stream=${stream}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        if (page != null) {
-            params.push(`page=${page}`);
-        }
-        if (pageSize != null) {
-            params.push(`pageSize=${pageSize}`);
-        }
-        if (format != null) {
-            params.push(`format=${format}`);
-        }
-        if (fields != null) {
-            params.push(`fields=${fields}`);
-        }
-        if (fileName != null) {
-            params.push(`fileName=${fileName}`);
-        }
-        return this.rest.get(`${this.baseUrl}/${id}/sensors`, ...params);
-    }
-    /**
-     * Import sensors from CSV file
-     * The file must include header with the columns:
-     * @return ActionResponse
-     */
-    importSensors(id, csvFile) {
-        return this.rest.upload(csvFile, `${this.baseUrl}/${id}/sensors/import`);
-    }
-    /**
-     * Export appliance sensors to CSV file
-     * @return StreamContent
-     */
-    exportSensors(id, format, fileName) {
-        const params = new Array();
-        if (format != null) {
-            params.push(`format=${format}`);
-        }
-        if (fileName != null) {
-            params.push(`fileName=${fileName}`);
-        }
-        return this.rest.download(`appliances`, `${this.baseUrl}/${id}/sensors/export`, ...params);
-    }
-    /**
      * Get all appliance agents
      * @Return: EntitiesResponse<Agent>
      */
     getApplianceAgents(id) {
         return this.rest.get(`${this.baseUrl}/${id}/agents`);
-    }
-    /**
-     * Add new sensor and assigned it to a specific appliance
-     * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
-     * @Return: EntityResponse<Sensor> The updated sensor
-     */
-    addApplianceSensor(id, body) {
-        return this.rest.post(`${this.baseUrl}/${id}/sensors`, typeof body === 'object' ? JSON.stringify(body) : body);
     }
     /**
      * Register new appliance in the system
@@ -9023,28 +8713,6 @@ class AppliancesService {
             params.push(`subFolders=${subFolders}`);
         }
         return this.rest.get(`${this.baseUrl}/count/by-agent-state`, ...params);
-    }
-    /**
-     * Attach multiple sensors to the device
-     * @Return: ActionResponse
-     */
-    bulkAttach(id, sensorId) {
-        const params = new Array();
-        if (sensorId != null) {
-            params.push(`sensorId=${sensorId}`);
-        }
-        return this.rest.put(`${this.baseUrl}/${id}/attach`, null, ...params);
-    }
-    /**
-     * Detach multiple sensors from the device
-     * @Return: ActionResponse
-     */
-    bulkDetach(id, sensorId) {
-        const params = new Array();
-        if (sensorId != null) {
-            params.push(`sensorId=${sensorId}`);
-        }
-        return this.rest.put(`${this.baseUrl}/${id}/detach`, null, ...params);
     }
 }
 /** @nocollapse */ AppliancesService.ɵfac = function AppliancesService_Factory(t) { return new (t || AppliancesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
@@ -12069,6 +11737,96 @@ class SensorsService {
     removeSensorModel(id, modelId) {
         return this.rest.delete(`${this.baseUrl}/${id}/models/${modelId}`);
     }
+    /**
+     * Get all sensors assigned to the appliance (getSensors)
+     * @Return: QueryResponse<Sensor>
+     */
+    findApplianceSensors(id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
+        const params = new Array();
+        if (search != null) {
+            params.push(`search=${search}`);
+        }
+        if (type != null) {
+            params.push(`type=${type}`);
+        }
+        if (status != null) {
+            params.push(`status=${status}`);
+        }
+        if (stream != null) {
+            params.push(`stream=${stream}`);
+        }
+        if (sort != null) {
+            params.push(`sort=${sort}`);
+        }
+        if (page != null) {
+            params.push(`page=${page}`);
+        }
+        if (pageSize != null) {
+            params.push(`pageSize=${pageSize}`);
+        }
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fields != null) {
+            params.push(`fields=${fields}`);
+        }
+        if (fileName != null) {
+            params.push(`fileName=${fileName}`);
+        }
+        return this.rest.get(`${this.baseUrl}/for-appliance/${id}`, ...params);
+    }
+    /**
+     * Import sensors from CSV file
+     * The file must include header with the columns:
+     * @return ActionResponse
+     */
+    importSensors(id, csvFile) {
+        return this.rest.upload(csvFile, `${this.baseUrl}/for-appliance/${id}/import`);
+    }
+    /**
+     * Export appliance sensors to CSV file
+     * @return StreamContent
+     */
+    exportSensors(id, format, fileName) {
+        const params = new Array();
+        if (format != null) {
+            params.push(`format=${format}`);
+        }
+        if (fileName != null) {
+            params.push(`fileName=${fileName}`);
+        }
+        return this.rest.download(`sensors`, `${this.baseUrl}/for-appliance/${id}/export`, ...params);
+    }
+    /**
+     * Add new sensor and assigned it to a specific appliance
+     * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+     * @Return: EntityResponse<Sensor> The updated sensor
+     */
+    addApplianceSensor(id, body) {
+        return this.rest.post(`${this.baseUrl}/for-appliance/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
+    }
+    /**
+     * Attach multiple sensors to the device
+     * @Return: ActionResponse
+     */
+    bulkAttach(id, sensorId) {
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        return this.rest.put(`${this.baseUrl}/for-appliance/${id}/attach`, null, ...params);
+    }
+    /**
+     * Detach multiple sensors from the device
+     * @Return: ActionResponse
+     */
+    bulkDetach(id, sensorId) {
+        const params = new Array();
+        if (sensorId != null) {
+            params.push(`sensorId=${sensorId}`);
+        }
+        return this.rest.put(`${this.baseUrl}/for-appliance/${id}/detach`, null, ...params);
+    }
 }
 /** @nocollapse */ SensorsService.ɵfac = function SensorsService_Factory(t) { return new (t || SensorsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
 /** @nocollapse */ SensorsService.ɵprov = /** @pureOrBreakMyCode */ i0.ɵɵdefineInjectable({ token: SensorsService, factory: SensorsService.ɵfac });
@@ -13121,145 +12879,6 @@ class SysEventsService {
 /** @nocollapse */ SysEventsService.ɵfac = function SysEventsService_Factory(t) { return new (t || SysEventsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
 /** @nocollapse */ SysEventsService.ɵprov = /** @pureOrBreakMyCode */ i0.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysEventsService, [{
-        type: Injectable
-    }], function () { return [{ type: CoreConfig, decorators: [{
-                type: Inject,
-                args: ['config']
-            }] }, { type: RestUtil }]; }, null); })();
-
-/**
- * Features groups services for system administrator only
- * @RequestHeader X-API-KEY The key to identify the application (portal)
- * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- */
-class SysFeaturesGroupsService {
-    /**
-     * Class constructor
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/sys/features/groups';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Create new features group
-     * @Return: EntityResponse<FeaturesGroup>
-     */
-    create(body) {
-        return this.rest.post(`${this.baseUrl}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Update features group
-     * @Return: EntityResponse<FeaturesGroup>
-     */
-    update(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Delete Feature from the system
-     * @Return: ActionResponse
-     */
-    delete(id) {
-        return this.rest.delete(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single features group by id
-     * @Return: EntityResponse<FeaturesGroup>
-     */
-    get(id) {
-        return this.rest.get(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Find features groups by filters
-     * @Return: QueryResponse<FeaturesGroup>
-     */
-    find(search, sort) {
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        return this.rest.get(`${this.baseUrl}`, ...params);
-    }
-}
-/** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysFeaturesGroupsService.ɵprov = /** @pureOrBreakMyCode */ i0.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesGroupsService, [{
-        type: Injectable
-    }], function () { return [{ type: CoreConfig, decorators: [{
-                type: Inject,
-                args: ['config']
-            }] }, { type: RestUtil }]; }, null); })();
-
-/**
- * Features services for system administrator only
- * @RequestHeader X-API-KEY The key to identify the application (portal)
- * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
- */
-class SysFeaturesService {
-    /**
-     * Class constructor
-     */
-    constructor(config, rest) {
-        this.config = config;
-        this.rest = rest;
-        // URL to web api
-        this.baseUrl = '/sys/features';
-        this.baseUrl = this.config.api + this.baseUrl;
-    }
-    /**
-     * Create new Feature
-     * @Return: EntityResponse<Feature>
-     */
-    create(body) {
-        return this.rest.post(`${this.baseUrl}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Update Feature
-     * @Return: EntityResponse<Feature>
-     */
-    update(id, body) {
-        return this.rest.put(`${this.baseUrl}/${id}`, typeof body === 'object' ? JSON.stringify(body) : body);
-    }
-    /**
-     * Delete Feature from the system
-     * @Return: ActionResponse
-     */
-    delete(id) {
-        return this.rest.delete(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Get single feature by id
-     * @Return: EntityResponse<Feature>
-     */
-    get(id) {
-        return this.rest.get(`${this.baseUrl}/${id}`);
-    }
-    /**
-     * Find features by filters
-     * @Return: QueryResponse<Feature>
-     */
-    find(search, category, sort) {
-        const params = new Array();
-        if (search != null) {
-            params.push(`search=${search}`);
-        }
-        if (category != null) {
-            params.push(`category=${category}`);
-        }
-        if (sort != null) {
-            params.push(`sort=${sort}`);
-        }
-        return this.rest.get(`${this.baseUrl}`, ...params);
-    }
-}
-/** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0.ɵɵinject('config'), i0.ɵɵinject(RestUtil)); };
-/** @nocollapse */ SysFeaturesService.ɵprov = /** @pureOrBreakMyCode */ i0.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SysFeaturesService, [{
         type: Injectable
     }], function () { return [{ type: CoreConfig, decorators: [{
                 type: Inject,
@@ -14426,8 +14045,6 @@ const Services = [
     SysAppliancesService,
     SysConfigurationsService,
     SysEventsService,
-    SysFeaturesGroupsService,
-    SysFeaturesService,
     SysKeysService,
     SysModelsService,
     SysReportsService,
@@ -14677,5 +14294,5 @@ class CoreLibModule {
  * Generated bundle index. Do not edit.
  */
 
-export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatSummary, AccountStatistics, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsMonthStatisticsRequest, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceLogicalTreeRequest, AccountsServicePhysicalTreeRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionModeCode, ActionResponse, ActiveCode, AddPoiRequest, AddPoiRequestBody, AddPoiToStaticWatchListsRequest, AddPoiToStaticWatchListsRequestBody, AddPoiToStaticWatchListsResponse, AddSensorModelRequest, AddSensorModelsRequest, Agent, AgentStateMask, AgentStatus, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceSensorPresetRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfigReport, ApplianceConfigVersion, ApplianceConfiguration, ApplianceDigitalIOService, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceLogBatch, ApplianceLogEntry, ApplianceProfile, ApplianceProfileCreateRequest, ApplianceProfileFindRequest, ApplianceProfileIdRequest, ApplianceProfileIdsRequest, ApplianceProfileUpdateBulkRequest, ApplianceProfileUpdateRequest, ApplianceProfilesService, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStateMask, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceBulkAttachRequest, AppliancesServiceBulkDetachRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceExportSensorsRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceGetLogsRequest, AppliancesServiceImportSensorsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, Attribute, AttributesMask, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, CaseEventObjects, CaseIdRequest, CaseInfo, CasesService, CasesServiceAddEventsRequest, CasesServiceCreateRequest, CasesServiceDeleteEventsRequest, CasesServiceFindRequest, CasesServiceGetEventCropsRequest, CasesServiceUpdateEventDescriptionRequest, CasesServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangeHealthThresholdsRequest, ChangePasswordRequest, ChangeTimezoneRequest, ClusterIdRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, ComponentVariables, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, CreateStaticWatchlistRequest, CreateStaticWatchlistRequestBody, DayOfWeekCode, DeleteStaticWatchlistIdRequest, DetectionModel, DetectionModelIdRequest, DigitalIO, DigitalIOCreateRequest, DigitalIOFindRequest, DigitalIOIdRequest, DigitalIOStateMask, DigitalIOStatusCode, DigitalIOUpdateRequest, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EdgeEventImage, EdgeEventInfo, EdgeEventInfoBody, EdgeEventInfoMessage, EdgeEventObject, EdgeMetadata, EdgeMetadataBody, EdgeMetadataMessage, Embedding, EmptyRequest, EmptyResponse, EngineInformation, EngineInformationResponse, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountStatSummary, EntitiesResponseOfAccountStatistics, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfCaseInfo, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDetectionModel, EntitiesResponseOfDigitalIO, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFeature, EntitiesResponseOfFeaturesGroup, EntitiesResponseOfFolder, EntitiesResponseOfGroup, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfIntegrationStatus, EntitiesResponseOfLicense, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSearchEvent, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntitiesResponseOfStringIntValue, EntitiesResponseOfStringKeyValue, EntitiesResponseOfTimestampedCrop, EntitiesResponseOfUpdateStatus, EntityChangeSocketServiceOpen, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceProfile, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfCaseInfo, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDetectionModel, EntityResponseOfDigitalIO, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFeature, EntityResponseOfFeaturesGroup, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfGroup, EntityResponseOfHealthEvent, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfJobStatus, EntityResponseOfLicense, EntityResponseOfMember, EntityResponseOfPreset, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSearchEvent, EntityResponseOfSearchStatus, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHeatmap, EntityResponseOfSensorPaths, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTimeline, EntityResponseOfTimestampedCrop, EntityResponseOfTimestampedCropsData, EntityResponseOfTimestampedImage, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, EntityResponseUsageReport, EntityTypeCode, ErrorCode, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventTokenRequest, EventsCountByBehaviorRequest, EventsCountByObjectRequest, EventsCountByStatusRequest, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindRequest, EventsServiceGetIntegrationsRequestRequest, EventsServiceSetBulkStatusRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, ExportUsageReportRequest, ExportWatchListRequest, ExternalModelResults, Feature, FeatureCode, FeatureIdRequest, FeatureIdsRequest, FeaturesGroup, FeaturesGroupIdRequest, FeaturesGroupIdsRequest, FeaturesGroupsServiceCreateRequest, FeaturesGroupsServiceFindRequest, FeaturesGroupsServiceSetFeaturesRequest, FeaturesGroupsServiceSetNameRequest, FeaturesGroupsServiceUpdateRequest, FeaturesServiceCreateRequest, FeaturesServiceFindRequest, FeaturesServiceUpdateRequest, FindUser, FindUserAccountRole, Folder, FolderExtIdsRequest, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeParentRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, GetEngineInformation, GetPoiFromImageRequest, GetPoiFromImageRequestBody, GetPoiIdRequest, Group, GroupIdRequest, GroupIdsRequest, GroupServiceFindRequest, GroupsService, GroupsServiceCreateRequest, GroupsServiceUpdateRequest, HealthCheckService, HealthEvent, HealthEventFindRequest, HealthEventIdRequest, HealthEventsService, HealthSocketServiceOpen, HealthThresholds, HeatmapCell, HeatmapRow, IdentifiedPoiFromImage, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionFilter, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationStatus, IntegrationStatusCode, IntegrationStatusFindRequest, IntegrationStatusResponse, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, JobStatus, JobStatusCode, LevelTypeCode, License, LicenseIdRequest, LicenseImportRequest, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MachineIdRequest, MapClientCode, Mapping, Member, MemberByEmailRequest, MemberIdRequest, MemberRegistration, MemberTokenRequest, MembersService, MembersServiceExportRequest, MembersServiceFindRequest, MembersServiceInviteRequest, MembersServiceRegisterRequest, MembersServiceUpdateRequest, ModelAttributes, ObjectColor, ObjectCount, ObjectData, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeCount, ObjectTypeNode, ObjectTypeReport, ObjectsPath, OnvifChannel, OpenClosedStatusCode, OriginTypeCode, POIMinimalResponse, PeopleCountingReportRequest, Permission, PermissionMask, PersonRecognitionService, PlatformTypeCode, PoiBoundingBox, Point, PortMapping, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfApplianceConfigReport, QueryResponseOfApplianceProfile, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfCaseInfo, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFindUser, QueryResponseOfFolder, QueryResponseOfGroup, QueryResponseOfHealthEvent, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationStatus, QueryResponseOfIntegrationStatusResponse, QueryResponseOfIntegrationTarget, QueryResponseOfJobStatus, QueryResponseOfMember, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfScheduledReport, QueryResponseOfSearchDefinition, QueryResponseOfSearchEvent, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUpdateStatus, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, RegisterServiceAccountRequest, RemovePoiFromSystemWatchListRequest, RemovePoiFromSystemWatchListRequestBody, RemovePoiFromSystemWatchListResponse, RemoveSensorModelRequest, RemoveSensorModelsRequest, ReportDataTypeCode, ReportDefinition, ReportFindRequest, ReportFormatCode, ReportGenerationRequest, ReportGenerationRequestBody, ReportIdRequest, ReportTypeCode, ReportUpdateRequest, ReportsService, ReportsServiceRulesSchedulesRequest, ReportsServiceSensorsRequest, ResponseDeleteStaticWatchlist, ResponseGetPoi, ResponseOfAddPoi, ResponseOfSearchForPoiFromImage, ResponseOfStaticWatchlist, ResponseOfStaticWatchlists, ResponsePoi, ResponseUpdatePoi, RestUtil, Rule, RuleAutoSensitivityCode, RuleColorCode, RuleDefault, RuleDefaultSensitivity, RuleExtIdsRequest, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceArmDisarmRequest, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServicePauseRequest, RulesServiceResumeRequest, RulesServiceUpdateRequest, RulesServiceUpdateScheduleForRulesRequest, RuntimeStatusCode, SSHInfo, SSHSocketCloseRequest, SSHSocketInputRequest, SSHSocketOpenRequest, SSHSocketOutputResponse, SSHSocketServiceOpen, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderParamsRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchEvent, SearchEventCountRequest, SearchEventCropsRequest, SearchEventExportRequest, SearchEventFindRequest, SearchEventFindRequestBody, SearchEventIdRequest, SearchEventListRequest, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceSimilarRequest, SearchServiceUpdateRequest, SearchSession, SearchSessionIdRequest, SearchShape, SearchStatus, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorAnonymizationTypeCode, SensorConfigChangeMask, SensorDebugInfo, SensorDetectionModels, SensorDetectionModelsIdRequest, SensorExtIdsRequest, SensorHeatmap, SensorHeatmapEventsRequest, SensorHeatmapRequest, SensorIdRequest, SensorIdsRequest, SensorInfo, SensorPathEventsRequest, SensorPaths, SensorPathsRequest, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorUsage, SensorUsageReport, SensorUsageReportRequest, SensorsCountRequest, SensorsFetchObjectsCropsRequest, SensorsGroup, SensorsService, SensorsServiceAttachRequest, SensorsServiceBulkCreateRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceCropImageRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceGetRefImageRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdatePresetRequest, SensorsServiceUpdateRequest, ServiceAccountRegistration, Services, SeverityTypeCode, SocketEntityChangeFilter, SocketEntityChangeFilterPayload, SocketEntityChangeNotification, SocketEntityChangePayload, SocketEventNotification, SocketEventNotificationPayload, SocketEventsFilter, SocketEventsFilterPayload, SocketHealthStatusNotification, SocketOpCode, StaticWatchlist, StaticWatchlistIdRequest, StaticWatchlistWithPOIs, StatisticReport, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SwitchAccountRequest, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysApplianceBatchUpgradeFindRequest, SysApplianceBatchUpgradeRequest, SysApplianceConfigExportRequest, SysApplianceConfigReportRequest, SysApplianceGetLogsRequest, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysAuditLogService, SysAuditLogServiceExportRequest, SysAuditLogServiceFindRequest, SysConfigImportRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysExportAllAccountsUsageReportRequest, SysExportUsageReportRequest, SysFeaturesGroupsService, SysFeaturesService, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysKeysServiceUpdateBulkRequest, SysLicensesService, SysModelsService, SysModelsServiceCreateModelRequest, SysModelsServiceUpdateModelRequest, SysReportsService, SysSensorUsageReportRequest, SysSensorsCountRequest, SysSensorsFetchObjectsCropsRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSetLogLevelRequest, SysSystemBackupRequest, SysSystemRestoreRequest, SysSystemService, SysUsageReportRequest, SysUsersService, Threshold, Thresholds, TimeFrame, TimeSlot, TimeUnitCode, Timeline, TimestampedCrop, TimestampedCropsData, TimestampedImage, TokenRequest, TrafficAnalysisReportRequest, TransformationTypeCode, TreeItem, TreeNode, TriggerTestHealthEventRequest, TriggerTestHealthEventRequestBody, UpdateDynamicPoiRequest, UpdateDynamicPoiRequestBody, UpdateScheduleForRules, UpdateStaticPoiRequest, UpdateStaticPoiRequestBody, UpdateStaticWatchlistRequest, UpdateStaticWatchlistRequestBody, UpdateStatus, UsageReport, UsageReportRequest, User, UserAccount, UserAccountInfo, UserAccountInfoAccount, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceSwitchAccountRequest, UserStatusCode, UserTokenRequest, UserTypeCode, UserUpdate, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceRegisterRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, VMSGateway, VMSGatewayStateMask, VMSGatewayStatusCode, Verification, ViewTypeCode, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken };
+export { AbsoluteTimeFrame, Account, AccountIdRequest, AccountIdsRequest, AccountRole, AccountRoleCode, AccountSettings, AccountStatSummary, AccountStatistics, AccountStatusCode, AccountTypeCode, AccountTypeSummary, AccountsMonthStatisticsRequest, AccountsService, AccountsServiceChangeGroupsRequest, AccountsServiceChangeNameRequest, AccountsServiceChangeStatusRequest, AccountsServiceChangeTypeRequest, AccountsServiceCreateRequest, AccountsServiceExportRequest, AccountsServiceFindFoldersRequest, AccountsServiceFindRequest, AccountsServiceLogicalTreeRequest, AccountsServicePhysicalTreeRequest, AccountsServiceResetRequest, AccountsServiceTreeRequest, AccountsServiceUpdateRequest, ActionModeCode, ActionResponse, ActiveCode, AddPoiRequest, AddPoiRequestBody, AddPoiToStaticWatchListsRequest, AddPoiToStaticWatchListsRequestBody, AddPoiToStaticWatchListsResponse, AddSensorModelRequest, AddSensorModelsRequest, Agent, AgentStateMask, AgentStatus, AgentStatusCode, AnalysisResult, AnomalyEventInfo, AnomalyService, AnomalyServiceFindEventsRequest, AnomalyServiceFindRequest, AnomalyServiceSensorPresetRequest, AnomalyServiceUpdateRequest, AnomalyServiceUpdateRuleRequest, ApiKey, ApiKeyIdRequest, Appliance, ApplianceCapabilities, ApplianceCommand, ApplianceCommandCode, ApplianceCommandIdRequest, ApplianceConfigReport, ApplianceConfigVersion, ApplianceConfiguration, ApplianceDigitalIOService, ApplianceDiscovery, ApplianceIdAgentIdRequest, ApplianceIdRequest, ApplianceKpiDataPoint, ApplianceKpiTimeSeries, ApplianceKpiTimestamped, ApplianceLogBatch, ApplianceLogEntry, ApplianceProfile, ApplianceProfileCreateRequest, ApplianceProfileFindRequest, ApplianceProfileIdRequest, ApplianceProfileIdsRequest, ApplianceProfileUpdateBulkRequest, ApplianceProfileUpdateRequest, ApplianceProfilesService, ApplianceRegistration, ApplianceServiceDeleteCommandRequest, ApplianceStateMask, ApplianceStatus, ApplianceStatusCode, ApplianceStatusTimeSeries, ApplianceStatusTimestamped, AppliancesCountRequest, AppliancesService, AppliancesServiceAddSensorRequest, AppliancesServiceBulkAttachRequest, AppliancesServiceBulkDetachRequest, AppliancesServiceChangeConfigurationRequest, AppliancesServiceChangeFolderRequest, AppliancesServiceChangeMachineIdRequest, AppliancesServiceChangeNameRequest, AppliancesServiceExportRequest, AppliancesServiceExportSensorsRequest, AppliancesServiceFindRequest, AppliancesServiceFindSensorsRequest, AppliancesServiceGetCommandsRequest, AppliancesServiceGetLogsRequest, AppliancesServiceImportSensorsRequest, AppliancesServiceRegisterApplianceRequest, AppliancesServiceSetCommandRequest, AppliancesServiceStatusOvertimeRequest, AppliancesServiceUpdateApplianceRequest, Attribute, AttributesMask, AuditLog, AuditLogIdRequest, AuditLogService, AuditLogServiceExportRequest, AuditLogServiceFindRequest, BaseEntity, BehaviorTypeCode, BoundingBox, BoundingMap, Calendar, CalendarIdRequest, CalendarIdsRequest, CalendarsService, CalendarsServiceCreateRequest, CalendarsServiceFindRequest, CalendarsServiceFolderRequest, CalendarsServiceImportRequest, CalendarsServiceImportUrlRequest, CalendarsServiceUpdateRequest, CaseEventObjects, CaseIdRequest, CaseInfo, CasesService, CasesServiceAddEventsRequest, CasesServiceCreateRequest, CasesServiceDeleteEventsRequest, CasesServiceFindRequest, CasesServiceGetEventCropsRequest, CasesServiceUpdateEventDescriptionRequest, CasesServiceUpdateRequest, ChangeGeoAreaRequest, ChangeGeoLocationRequest, ChangeHealthThresholdsRequest, ChangePasswordRequest, ChangeTimezoneRequest, ClusterIdRequest, ColorCode, ColorTypeCode, CommandStatusCode, ComponentConfiguration, ComponentVariables, Configuration, ConfigurationIdRequest, ConfigurationModelRequest, ConfigurationTargetRequest, ConfigurationTemplate, ConfigurationTemplateIdRequest, ConfigurationVersion, ConfigurationVersionIdRequest, Coordinate, CoreConfig, CoreLibModule, CreateStaticWatchlistRequest, CreateStaticWatchlistRequestBody, DayOfWeekCode, DeleteStaticWatchlistIdRequest, DetectionModel, DetectionModelIdRequest, DigitalIO, DigitalIOCreateRequest, DigitalIOFindRequest, DigitalIOIdRequest, DigitalIOStateMask, DigitalIOStatusCode, DigitalIOUpdateRequest, Dimension, DiskInfo, DistributionOfLong, DistributionOfString, DockerCredentials, EdgeEventImage, EdgeEventInfo, EdgeEventInfoBody, EdgeEventInfoMessage, EdgeEventObject, EdgeMetadata, EdgeMetadataBody, EdgeMetadataMessage, Embedding, EmptyRequest, EmptyResponse, EngineInformation, EngineInformationResponse, EntitiesResponse, EntitiesResponseOfAccount, EntitiesResponseOfAccountStatSummary, EntitiesResponseOfAccountStatistics, EntitiesResponseOfAccountTypeSummary, EntitiesResponseOfApiKey, EntitiesResponseOfAppliance, EntitiesResponseOfApplianceAgents, EntitiesResponseOfApplianceCommand, EntitiesResponseOfApplianceConfiguration, EntitiesResponseOfAuditLog, EntitiesResponseOfCalendar, EntitiesResponseOfCaseInfo, EntitiesResponseOfComponentConfiguration, EntitiesResponseOfConfiguration, EntitiesResponseOfDetectionModel, EntitiesResponseOfDigitalIO, EntitiesResponseOfDistributionOfLong, EntitiesResponseOfEvent, EntitiesResponseOfFolder, EntitiesResponseOfGroup, EntitiesResponseOfIntegration, EntitiesResponseOfIntegrationAction, EntitiesResponseOfIntegrationStatus, EntitiesResponseOfLicense, EntitiesResponseOfReportDefinition, EntitiesResponseOfRule, EntitiesResponseOfRuleSpec, EntitiesResponseOfSchedule, EntitiesResponseOfScheduledReport, EntitiesResponseOfSearchDefinition, EntitiesResponseOfSearchEvent, EntitiesResponseOfSensor, EntitiesResponseOfSensorStatus, EntitiesResponseOfStringIntValue, EntitiesResponseOfStringKeyValue, EntitiesResponseOfTimestampedCrop, EntitiesResponseOfUpdateStatus, EntityChangeSocketServiceOpen, EntityResponse, EntityResponseOfAccount, EntityResponseOfApiKey, EntityResponseOfAppliance, EntityResponseOfApplianceAgents, EntityResponseOfApplianceConfiguration, EntityResponseOfApplianceDiscovery, EntityResponseOfApplianceKpiTimeSeries, EntityResponseOfApplianceProfile, EntityResponseOfApplianceStatusTimeSeries, EntityResponseOfAuditLog, EntityResponseOfCalendar, EntityResponseOfCaseInfo, EntityResponseOfComponentConfiguration, EntityResponseOfConfiguration, EntityResponseOfConfigurationTemplate, EntityResponseOfConfigurationVersion, EntityResponseOfCoordinate, EntityResponseOfDetectionModel, EntityResponseOfDigitalIO, EntityResponseOfDistributionOfLong, EntityResponseOfEvent, EntityResponseOfEventCountTimeSeries, EntityResponseOfFolder, EntityResponseOfGeoReferenceData, EntityResponseOfGroup, EntityResponseOfHealthEvent, EntityResponseOfIntegration, EntityResponseOfIntegrationAction, EntityResponseOfJobStatus, EntityResponseOfLicense, EntityResponseOfMember, EntityResponseOfPreset, EntityResponseOfReportDefinition, EntityResponseOfRule, EntityResponseOfSchedule, EntityResponseOfScheduledReport, EntityResponseOfSearchDefinition, EntityResponseOfSearchEvent, EntityResponseOfSearchStatus, EntityResponseOfSensor, EntityResponseOfSensorAnalysisResults, EntityResponseOfSensorAnomalyInfo, EntityResponseOfSensorHeatmap, EntityResponseOfSensorPaths, EntityResponseOfSensorStatus, EntityResponseOfSensorStatusTimeSeries, EntityResponseOfTimeline, EntityResponseOfTimestampedCrop, EntityResponseOfTimestampedCropsData, EntityResponseOfTimestampedImage, EntityResponseOfTreeNode, EntityResponseOfUser, EntityResponseOfUserAccountInfo, EntityResponseUsageReport, EntityTypeCode, ErrorCode, Event, EventCountDataPoint, EventCountTimeSeries, EventIdRequest, EventIdsRequest, EventStatistics, EventStatusCode, EventTokenRequest, EventsCountByBehaviorRequest, EventsCountByObjectRequest, EventsCountByStatusRequest, EventsService, EventsServiceCreateRequest, EventsServiceExportRequest, EventsServiceFindRequest, EventsServiceGetIntegrationsRequestRequest, EventsServiceSetBulkStatusRequest, EventsServiceSetClipPathRequest, EventsServiceSetImagePathRequest, EventsServiceSetStatusRequest, EventsServiceStatisticsRequest, EventsSocketServiceOpen, ExportUsageReportRequest, ExportWatchListRequest, ExternalModelResults, FindUser, FindUserAccountRole, Folder, FolderExtIdsRequest, FolderIdRequest, FolderIdsRequest, FoldersService, FoldersServiceChangeParentRequest, FoldersServiceCreateRequest, FoldersServiceExportRequest, FoldersServiceFindRequest, FoldersServiceGetHierarchyRequest, FovGeoAttributes, GeoCircle, GeoControlPoint, GeoControlPoints, GeoPolygon, GeoReferenceData, GeoReferenceTest, GeoService, GeoServicesReferenceRequest, GeoServicesTransformRequest, GetEngineInformation, GetPoiFromImageRequest, GetPoiFromImageRequestBody, GetPoiIdRequest, Group, GroupIdRequest, GroupIdsRequest, GroupServiceFindRequest, GroupsService, GroupsServiceCreateRequest, GroupsServiceUpdateRequest, HealthCheckService, HealthEvent, HealthEventFindRequest, HealthEventIdRequest, HealthEventsService, HealthSocketServiceOpen, HealthThresholds, HeatmapCell, HeatmapRow, IdentifiedPoiFromImage, IntegrationAction, IntegrationActionCreateRequest, IntegrationActionFilter, IntegrationActionIdRequest, IntegrationActionIdsRequest, IntegrationActionUpdateRequest, IntegrationActionsFindRequest, IntegrationActionsFolderRequest, IntegrationIdRequest, IntegrationIdsRequest, IntegrationSpec, IntegrationStatus, IntegrationStatusCode, IntegrationStatusFindRequest, IntegrationStatusResponse, IntegrationTarget, IntegrationTypeCode, IntegrationsService, IntegrationsServiceCreateRequest, IntegrationsServiceFindRequest, IntegrationsServiceUpdateRequest, JobStatus, JobStatusCode, LevelTypeCode, License, LicenseIdRequest, LicenseImportRequest, LineCrossDirectionCode, LoginData, LoginParams, LongTuple, MachineIdRequest, MapClientCode, Mapping, Member, MemberByEmailRequest, MemberIdRequest, MemberRegistration, MemberTokenRequest, MembersService, MembersServiceExportRequest, MembersServiceFindRequest, MembersServiceInviteRequest, MembersServiceRegisterRequest, MembersServiceUpdateRequest, ModelAttributes, ObjectColor, ObjectCount, ObjectData, ObjectInfo, ObjectInstance, ObjectTypeCode, ObjectTypeCount, ObjectTypeNode, ObjectTypeReport, ObjectsPath, OnvifChannel, OpenClosedStatusCode, POIMinimalResponse, PeopleCountingReportRequest, Permission, PermissionMask, PersonRecognitionService, PlatformTypeCode, PoiBoundingBox, Point, PortMapping, Preset, ProductTypeCode, QueryResponse, QueryResponseOfAccount, QueryResponseOfAnomalyEventInfo, QueryResponseOfAppliance, QueryResponseOfApplianceConfigReport, QueryResponseOfApplianceProfile, QueryResponseOfAuditLog, QueryResponseOfCalendar, QueryResponseOfCaseInfo, QueryResponseOfComponentConfiguration, QueryResponseOfConfiguration, QueryResponseOfConfigurationTemplate, QueryResponseOfConfigurationVersion, QueryResponseOfEvent, QueryResponseOfFindUser, QueryResponseOfFolder, QueryResponseOfGroup, QueryResponseOfHealthEvent, QueryResponseOfIntegrationAction, QueryResponseOfIntegrationStatus, QueryResponseOfIntegrationStatusResponse, QueryResponseOfIntegrationTarget, QueryResponseOfJobStatus, QueryResponseOfMember, QueryResponseOfReportDefinition, QueryResponseOfRule, QueryResponseOfSchedule, QueryResponseOfScheduledReport, QueryResponseOfSearchDefinition, QueryResponseOfSearchEvent, QueryResponseOfSensor, QueryResponseOfSensorAnalysisResults, QueryResponseOfTreeItem, QueryResponseOfUpdateStatus, QueryResponseOfUser, Recurrent, RecurrentTimeFrame, RegisterServiceAccountRequest, RemovePoiFromSystemWatchListRequest, RemovePoiFromSystemWatchListRequestBody, RemovePoiFromSystemWatchListResponse, RemoveSensorModelRequest, RemoveSensorModelsRequest, ReportDataTypeCode, ReportDefinition, ReportFindRequest, ReportFormatCode, ReportGenerationRequest, ReportGenerationRequestBody, ReportIdRequest, ReportTypeCode, ReportUpdateRequest, ReportsService, ReportsServiceRulesSchedulesRequest, ReportsServiceSensorsRequest, ResponseDeleteStaticWatchlist, ResponseGetPoi, ResponseOfAddPoi, ResponseOfSearchForPoiFromImage, ResponseOfStaticWatchlist, ResponseOfStaticWatchlists, ResponsePoi, ResponseUpdatePoi, RestUtil, Rule, RuleAutoSensitivityCode, RuleColorCode, RuleDefault, RuleDefaultSensitivity, RuleExtIdsRequest, RuleIdRequest, RuleIdsRequest, RulePolygon, RuleSpec, RulesService, RulesServiceArmDisarmRequest, RulesServiceCreateRequest, RulesServiceExportRequest, RulesServiceFindAnomalyRequest, RulesServiceFindRequest, RulesServicePauseRequest, RulesServiceResumeRequest, RulesServiceUpdateRequest, RulesServiceUpdateScheduleForRulesRequest, RuntimeStatusCode, SSHInfo, SSHSocketCloseRequest, SSHSocketInputRequest, SSHSocketOpenRequest, SSHSocketOutputResponse, SSHSocketServiceOpen, Schedule, ScheduleIdRequest, ScheduleIdsRequest, ScheduledReport, ScheduledReportIdRequest, ScheduledReportIdsRequest, ScheduledReportsService, ScheduledReportsServiceCreateRequest, ScheduledReportsServiceFindRequest, ScheduledReportsServiceUpdateRequest, SchedulesService, SchedulesServiceCreateRequest, SchedulesServiceFindRequest, SchedulesServiceFolderParamsRequest, SchedulesServiceUpdateRequest, SearchBehavior, SearchColor, SearchDefinition, SearchEvent, SearchEventCountRequest, SearchEventCropsRequest, SearchEventExportRequest, SearchEventFindRequest, SearchEventFindRequestBody, SearchEventIdRequest, SearchEventListRequest, SearchIdRequest, SearchIdsRequest, SearchObject, SearchScopeCode, SearchService, SearchServiceCreateRequest, SearchServiceExecuteRequest, SearchServiceFindRequest, SearchServiceSimilarRequest, SearchServiceUpdateRequest, SearchSession, SearchSessionIdRequest, SearchShape, SearchStatus, SearchTimeCode, Sensitivity, Sensor, SensorAnalysisIdRequest, SensorAnalysisResults, SensorAnomalyInfo, SensorAnomalyRuleInfo, SensorAnonymizationTypeCode, SensorConfigChangeMask, SensorDebugInfo, SensorDetectionModels, SensorDetectionModelsIdRequest, SensorExtIdsRequest, SensorHeatmap, SensorHeatmapEventsRequest, SensorHeatmapRequest, SensorIdRequest, SensorIdsRequest, SensorInfo, SensorPathEventsRequest, SensorPaths, SensorPathsRequest, SensorResolutionCode, SensorStateMask, SensorStatus, SensorStatusCode, SensorStatusTimeSeries, SensorStatusTimestamped, SensorTypeCode, SensorUsage, SensorUsageReport, SensorUsageReportRequest, SensorsCountRequest, SensorsFetchObjectsCropsRequest, SensorsGroup, SensorsService, SensorsServiceAttachRequest, SensorsServiceBulkCreateRequest, SensorsServiceChangeFolderRequest, SensorsServiceChangeFovRequest, SensorsServiceChangeGeoLocationRequest, SensorsServiceChangeNameRequest, SensorsServiceChangeStatusRequest, SensorsServiceCreateRequest, SensorsServiceCropImageRequest, SensorsServiceExportRequest, SensorsServiceFindRequest, SensorsServiceGetRefImageRequest, SensorsServiceSetRefImageRequest, SensorsServiceStatusOvertimeRequest, SensorsServiceUpdatePresetRequest, SensorsServiceUpdateRequest, ServiceAccountRegistration, Services, SeverityTypeCode, SocketEntityChangeFilter, SocketEntityChangeFilterPayload, SocketEntityChangeNotification, SocketEntityChangePayload, SocketEventNotification, SocketEventNotificationPayload, SocketEventsFilter, SocketEventsFilterPayload, SocketHealthStatusNotification, SocketOpCode, StaticWatchlist, StaticWatchlistIdRequest, StaticWatchlistWithPOIs, StatisticReport, StreamResponse, StreamTypeCode, StringIntValue, StringKeyValue, SwitchAccountRequest, SysAccountExportRequest, SysAccountImportRequest, SysAccountsService, SysApplianceBatchUpgradeFindRequest, SysApplianceBatchUpgradeRequest, SysApplianceConfigExportRequest, SysApplianceConfigReportRequest, SysApplianceGetLogsRequest, SysAppliancesCountRequest, SysAppliancesService, SysAppliancesServiceFindRequest, SysAppliancesServiceGetCommandsRequest, SysAuditLogService, SysAuditLogServiceExportRequest, SysAuditLogServiceFindRequest, SysConfigImportRequest, SysConfigurationsService, SysConfigurationsServiceCreateRequest, SysConfigurationsServiceCreateTemplateRequest, SysConfigurationsServiceCreateVersionRequest, SysConfigurationsServiceDeleteVersionRequest, SysConfigurationsServiceFindRequest, SysConfigurationsServiceFindTemplateRequest, SysConfigurationsServiceUpdateRequest, SysConfigurationsServiceUpdateTemplateRequest, SysConfigurationsServiceUpdateVersionRequest, SysEventIdRequest, SysEventsService, SysEventsServiceFindInAreaRequest, SysEventsServiceStatisticsRequest, SysExportAllAccountsUsageReportRequest, SysExportUsageReportRequest, SysKeysService, SysKeysServiceCreateApiKeyRequest, SysKeysServiceCreatePasswordRequest, SysKeysServiceCreateTokenRequest, SysKeysServiceUpdateBulkRequest, SysLicensesService, SysModelsService, SysModelsServiceCreateModelRequest, SysModelsServiceUpdateModelRequest, SysReportsService, SysSensorUsageReportRequest, SysSensorsCountRequest, SysSensorsFetchObjectsCropsRequest, SysSensorsService, SysSensorsServiceFindRequest, SysSetLogLevelRequest, SysSystemBackupRequest, SysSystemRestoreRequest, SysSystemService, SysUsageReportRequest, SysUsersService, Threshold, Thresholds, TimeFrame, TimeSlot, TimeUnitCode, Timeline, TimestampedCrop, TimestampedCropsData, TimestampedImage, TokenRequest, TrafficAnalysisReportRequest, TransformationTypeCode, TreeItem, TreeNode, TriggerTestHealthEventRequest, TriggerTestHealthEventRequestBody, UpdateDynamicPoiRequest, UpdateDynamicPoiRequestBody, UpdateScheduleForRules, UpdateStaticPoiRequest, UpdateStaticPoiRequestBody, UpdateStaticWatchlistRequest, UpdateStaticWatchlistRequestBody, UpdateStatus, UsageReport, UsageReportRequest, User, UserAccount, UserAccountInfo, UserAccountInfoAccount, UserByEmailRequest, UserIdRequest, UserIdsRequest, UserInvitation, UserRegistration, UserService, UserServiceChangeMobileRequest, UserServiceChangeNameRequest, UserServiceSwitchAccountRequest, UserStatusCode, UserTokenRequest, UserTypeCode, UserUpdate, UsersService, UsersServiceChangeDefaultAccountRequest, UsersServiceChangeMobileRequest, UsersServiceChangeNameRequest, UsersServiceChangeRoleRequest, UsersServiceChangeStatusRequest, UsersServiceChangeTypeRequest, UsersServiceCreateRequest, UsersServiceExportRequest, UsersServiceFindRequest, UsersServiceInviteRequest, UsersServiceRegisterRequest, UsersServiceSetRolesRequest, UsersServiceUpdateRequest, VMSGateway, VMSGatewayStateMask, VMSGatewayStatusCode, Verification, ViewTypeCode, VisualQualityCode, WebSocketMessageHeader, ZoneTypeCode, getToken, removeToken, setToken };
 //# sourceMappingURL=agentvi-ng-core-lib.js.map
