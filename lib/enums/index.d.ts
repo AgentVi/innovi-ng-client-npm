@@ -28,7 +28,6 @@ export * from './LineCrossDirectionCode';
 export * from './MapClientCode';
 export * from './ObjectTypeCode';
 export * from './OpenClosedStatusCode';
-export * from './OriginTypeCode';
 export * from './PermissionMask';
 export * from './PlatformTypeCode';
 export * from './ProductTypeCode';
