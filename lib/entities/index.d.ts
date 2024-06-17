@@ -23,8 +23,6 @@ export * from './DetectionModel';
 export * from './DigitalIO';
 export * from './Event';
 export * from './EventStatistics';
-export * from './Feature';
-export * from './FeaturesGroup';
 export * from './FindUser';
 export * from './FindUserAccountRole';
 export * from './Folder';
