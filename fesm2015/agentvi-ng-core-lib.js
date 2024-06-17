@@ -949,7 +949,9 @@ class SensorAnomalyRuleInfo {
    Sensor debug information
 */
 class SensorDebugInfo {
-    constructor(saveEventImages) {
+    constructor(saveCrops, saveFrames, saveEventImages) {
+        this.saveCrops = saveCrops;
+        this.saveFrames = saveFrames;
         this.saveEventImages = saveEventImages;
     }
 }
