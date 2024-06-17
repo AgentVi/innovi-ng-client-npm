@@ -1357,9 +1357,7 @@
       Sensor debug information
    */
    var SensorDebugInfo = /** @class */ (function () {
-       function SensorDebugInfo(saveCrops, saveFrames, saveEventImages) {
-           this.saveCrops = saveCrops;
-           this.saveFrames = saveFrames;
+       function SensorDebugInfo(saveEventImages) {
            this.saveEventImages = saveEventImages;
        }
        return SensorDebugInfo;
