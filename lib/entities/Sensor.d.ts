@@ -1,14 +1,14 @@
-import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { SensorResolutionCode } from '../enums/SensorResolutionCode';
-import { Coordinate } from '../common/Coordinate';
-import { StringKeyValue } from '../common/StringKeyValue';
-import { Thresholds } from '../common/Thresholds';
 import { SensorDebugInfo } from '../common/SensorDebugInfo';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { StringKeyValue } from '../common/StringKeyValue';
+import { Thresholds } from '../common/Thresholds';
+import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { Coordinate } from '../common/Coordinate';
 import { BaseEntity } from '../entities/BaseEntity';
 export declare class Sensor extends BaseEntity {
     accountId: string;
@@ -49,6 +49,7 @@ export declare class Sensor extends BaseEntity {
     eventClipLengthSec: number;
     personRecognition: boolean;
     anonymizationType: SensorAnonymizationTypeCode;
+    trackerImprovementInterval: number;
     id: string;
     _type: string;
     createdOn: number;
