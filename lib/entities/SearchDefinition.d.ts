@@ -1,12 +1,12 @@
-import { SearchBehavior } from '../common/SearchBehavior';
-import { ObjectData } from '../common/ObjectData';
-import { BaseEntity } from '../entities/BaseEntity';
 import { SearchScopeCode } from '../enums/SearchScopeCode';
+import { ObjectData } from '../common/ObjectData';
+import { LevelTypeCode } from '../enums/LevelTypeCode';
+import { BaseEntity } from '../entities/BaseEntity';
+import { SearchObject } from '../common/SearchObject';
+import { Coordinate } from '../common/Coordinate';
 import { SearchTimeCode } from '../enums/SearchTimeCode';
 import { TimeFrame } from '../common/TimeFrame';
-import { Coordinate } from '../common/Coordinate';
-import { SearchObject } from '../common/SearchObject';
-import { LevelTypeCode } from '../enums/LevelTypeCode';
+import { SearchBehavior } from '../common/SearchBehavior';
 export declare class SearchDefinition extends BaseEntity {
     accountId: string;
     userId: string;
