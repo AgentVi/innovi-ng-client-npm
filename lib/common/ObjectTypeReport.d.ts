@@ -1,5 +1,5 @@
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { LineCrossDirectionCode } from '../enums/LineCrossDirectionCode';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 export declare class ObjectTypeReport {
     objectType: ObjectTypeCode;
     crossingDir: LineCrossDirectionCode;
