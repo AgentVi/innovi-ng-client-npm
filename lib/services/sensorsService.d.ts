@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Sensor } from '../entities/Sensor';
 import { SensorsGroup } from '../common/SensorsGroup';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { Sensor } from '../entities/Sensor';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
