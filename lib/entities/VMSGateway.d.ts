@@ -1,5 +1,5 @@
-import { VMSGatewayStatusCode } from '../enums/VMSGatewayStatusCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { VMSGatewayStatusCode } from '../enums/VMSGatewayStatusCode';
 export declare class VMSGateway extends BaseEntity {
     accountId: string;
     name: string;
