@@ -290,28 +290,14 @@
       Attribute
    */
    var Attribute = /** @class */ (function () {
-       function Attribute(id, version, values) {
-           this.id = id;
-           this.version = version;
-           this.values = values;
-       }
-       return Attribute;
-   }());
-
-   /*
-   */
-   var AttributeValue = /** @class */ (function () {
-       function AttributeValue(id, confidence, type, valueString, valueInt, valueBool, valueFloat, valueArray) {
-           this.id = id;
-           this.confidence = confidence;
+       function Attribute(name, type, valueString, valueInt, valueBool) {
+           this.name = name;
            this.type = type;
            this.valueString = valueString;
            this.valueInt = valueInt;
            this.valueBool = valueBool;
-           this.valueFloat = valueFloat;
-           this.valueArray = valueArray;
        }
-       return AttributeValue;
+       return Attribute;
    }());
 
    /*
@@ -16465,7 +16451,6 @@
    exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;
    exports.AppliancesServiceUpdateApplianceRequest = AppliancesServiceUpdateApplianceRequest;
    exports.Attribute = Attribute;
-   exports.AttributeValue = AttributeValue;
    exports.AuditLog = AuditLog;
    exports.AuditLogIdRequest = AuditLogIdRequest;
    exports.AuditLogService = AuditLogService;
