@@ -1,5 +1,5 @@
-import { AccountRoleCode } from '../enums/AccountRoleCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { AccountRoleCode } from '../enums/AccountRoleCode';
 export declare class UserAccount extends BaseEntity {
     userId: string;
     accountId: string;
