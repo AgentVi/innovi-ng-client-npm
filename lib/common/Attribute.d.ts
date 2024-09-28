@@ -1,8 +1,7 @@
+import { AttributeValue } from '../common/AttributeValue';
 export declare class Attribute {
-    name: string;
-    type: string;
-    valueString: string;
-    valueInt: number;
-    valueBool: boolean;
-    constructor(name?: string, type?: string, valueString?: string, valueInt?: number, valueBool?: boolean);
+    id: string;
+    version: number;
+    values: AttributeValue[];
+    constructor(id?: string, version?: number, values?: AttributeValue[]);
 }
