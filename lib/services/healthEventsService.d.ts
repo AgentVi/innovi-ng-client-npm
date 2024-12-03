@@ -1,8 +1,8 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { TriggerTestHealthEventRequestBody } from '../messages/TriggerTestHealthEventRequestBody';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { OpenClosedStatusCode } from '../enums/OpenClosedStatusCode';
-import { TriggerTestHealthEventRequestBody } from '../messages/TriggerTestHealthEventRequestBody';
 import * as i0 from "@angular/core";
 /**
  * Services for health events queries
