@@ -1,7 +1,7 @@
-import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
-import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
+import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 export declare class IntegrationActionFilter {
     sensorIds: string[];
     ruleIds: string[];
