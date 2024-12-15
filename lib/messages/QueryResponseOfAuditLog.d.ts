@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { AuditLog } from '../entities/AuditLog';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfAuditLog extends QueryResponse {
     list: AuditLog[];
     code: number;
