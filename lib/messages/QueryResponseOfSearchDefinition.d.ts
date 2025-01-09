@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { SearchDefinition } from '../entities/SearchDefinition';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfSearchDefinition extends QueryResponse {
     list: SearchDefinition[];
     code: number;
