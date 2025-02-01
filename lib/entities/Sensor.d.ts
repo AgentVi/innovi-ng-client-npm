@@ -1,14 +1,14 @@
+import { SensorDebugInfo } from '../common/SensorDebugInfo';
 import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
+import { BaseEntity } from '../entities/BaseEntity';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { StringKeyValue } from '../common/StringKeyValue';
-import { Thresholds } from '../common/Thresholds';
-import { SensorDebugInfo } from '../common/SensorDebugInfo';
-import { BaseEntity } from '../entities/BaseEntity';
 import { SensorResolutionCode } from '../enums/SensorResolutionCode';
 import { Coordinate } from '../common/Coordinate';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { StringKeyValue } from '../common/StringKeyValue';
+import { Thresholds } from '../common/Thresholds';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
 export declare class Sensor extends BaseEntity {
     accountId: string;
