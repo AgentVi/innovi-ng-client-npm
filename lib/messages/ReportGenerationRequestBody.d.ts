@@ -1,7 +1,7 @@
-import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
 import { ReportFormatCode } from '../enums/ReportFormatCode';
 import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
 export declare class ReportGenerationRequestBody {
     sensorIds: string[];
     folderIds: string[];
