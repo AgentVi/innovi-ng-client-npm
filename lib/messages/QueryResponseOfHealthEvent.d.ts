@@ -1,5 +1,5 @@
-import { HealthEvent } from '../entities/HealthEvent';
 import { QueryResponse } from '../messages/QueryResponse';
+import { HealthEvent } from '../entities/HealthEvent';
 export declare class QueryResponseOfHealthEvent extends QueryResponse {
     list: HealthEvent[];
     code: number;
