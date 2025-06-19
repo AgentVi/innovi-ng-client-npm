@@ -1,15 +1,15 @@
-import { SensorDebugInfo } from '../common/SensorDebugInfo';
-import { BaseEntity } from '../entities/BaseEntity';
-import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { SensorResolutionCode } from '../enums/SensorResolutionCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { Coordinate } from '../common/Coordinate';
 import { FovGeoAttributes } from '../common/FovGeoAttributes';
 import { StringKeyValue } from '../common/StringKeyValue';
 import { Thresholds } from '../common/Thresholds';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
 import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
+import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { BaseEntity } from '../entities/BaseEntity';
+import { SensorResolutionCode } from '../enums/SensorResolutionCode';
+import { SensorDebugInfo } from '../common/SensorDebugInfo';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 export declare class Sensor extends BaseEntity {
     accountId: string;
     folderId: string;
@@ -50,7 +50,6 @@ export declare class Sensor extends BaseEntity {
     personRecognition: boolean;
     anonymizationType: SensorAnonymizationTypeCode;
     trackerImprovementInterval: number;
-    advancedSearch: boolean;
     id: string;
     _type: string;
     createdOn: number;
