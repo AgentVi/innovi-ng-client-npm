@@ -63,6 +63,7 @@ export declare enum ErrorCode {
     FileNotFound = 605,
     OpenFileError = 606,
     WriteFileError = 607,
+    FrameNotFoundError = 608,
     SecurityTokenError = 700,
     NoSecurityTokenFound = 701,
     EmptySecurityToken = 702,
