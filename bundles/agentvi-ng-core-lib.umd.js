@@ -3154,8 +3154,6 @@
        ErrorCode[ErrorCode["OpenFileError"] = 606] = "OpenFileError";
        // Can't write file 
        ErrorCode[ErrorCode["WriteFileError"] = 607] = "WriteFileError";
-       // Video frame/media not found 
-       ErrorCode[ErrorCode["FrameNotFoundError"] = 608] = "FrameNotFoundError";
        // Security token error 
        ErrorCode[ErrorCode["SecurityTokenError"] = 700] = "SecurityTokenError";
        // Security token not provided 
