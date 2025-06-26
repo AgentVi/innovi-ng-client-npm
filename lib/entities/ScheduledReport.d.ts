@@ -1,8 +1,8 @@
-import { TimeUnitCode } from '../enums/TimeUnitCode';
-import { BaseEntity } from '../entities/BaseEntity';
 import { ReportTypeCode } from '../enums/ReportTypeCode';
 import { ReportFormatCode } from '../enums/ReportFormatCode';
 import { ReportDataTypeCode } from '../enums/ReportDataTypeCode';
+import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class ScheduledReport extends BaseEntity {
     accountId: string;
     reportId: string;
