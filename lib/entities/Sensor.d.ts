@@ -6,10 +6,10 @@ import { Thresholds } from '../common/Thresholds';
 import { SensorDebugInfo } from '../common/SensorDebugInfo';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
+import { ViewTypeCode } from '../enums/ViewTypeCode';
 import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
-import { ViewTypeCode } from '../enums/ViewTypeCode';
 export declare class Sensor extends BaseEntity {
     accountId: string;
     folderId: string;
