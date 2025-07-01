@@ -2258,6 +2258,17 @@
    }());
 
    /*
+      Point of Interest (POI) type
+   */
+   var Poi = /** @class */ (function (_super) {
+       __extends(Poi, _super);
+       function Poi() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return Poi;
+   }(BaseEntity));
+
+   /*
       Mapping description of digital IO port
    */
    var PortMapping = /** @class */ (function () {
@@ -6260,6 +6271,16 @@
 
    /*
    */
+   var EntityResponseOfPoi = /** @class */ (function (_super) {
+       __extends(EntityResponseOfPoi, _super);
+       function EntityResponseOfPoi() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfPoi;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfPreset = /** @class */ (function (_super) {
        __extends(EntityResponseOfPreset, _super);
        function EntityResponseOfPreset() {
@@ -8130,6 +8151,16 @@
            this.id = id;
        }
        return SearchIdsRequest;
+   }());
+
+   /*
+   */
+   var SearchPoiRequest = /** @class */ (function () {
+       function SearchPoiRequest(sensorId, objectId) {
+           this.sensorId = sensorId;
+           this.objectId = objectId;
+       }
+       return SearchPoiRequest;
    }());
 
    /*
@@ -13222,6 +13253,13 @@
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/events"], __read(params)));
        };
+       /**
+        * Get single POI (Point of Interest) by sensorId and objectId
+        * @Return EntityResponse<Poi>
+        */
+       SearchService.prototype.getPoi = function (sensorId, objectId) {
+           return this.rest.get(this.baseUrl + "/search/poi/" + sensorId + "/" + objectId);
+       };
        return SearchService;
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -16630,6 +16668,7 @@
    exports.EntityResponseOfJobStatus = EntityResponseOfJobStatus;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfMember = EntityResponseOfMember;
+   exports.EntityResponseOfPoi = EntityResponseOfPoi;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -16774,6 +16813,7 @@
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
    exports.PersonRecognitionService = PersonRecognitionService;
+   exports.Poi = Poi;
    exports.PoiBoundingBox = PoiBoundingBox;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
@@ -16892,6 +16932,7 @@
    exports.SearchIdRequest = SearchIdRequest;
    exports.SearchIdsRequest = SearchIdsRequest;
    exports.SearchObject = SearchObject;
+   exports.SearchPoiRequest = SearchPoiRequest;
    exports.SearchService = SearchService;
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
    exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
