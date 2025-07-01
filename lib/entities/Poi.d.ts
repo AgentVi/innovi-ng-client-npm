@@ -2,7 +2,7 @@ import { BaseEntity } from '../entities/BaseEntity';
 export declare class Poi extends BaseEntity {
     sensorId: string;
     objectId: string;
-    pOI: string;
+    poi: string;
     timestamp: number;
     id: string;
     _type: string;
