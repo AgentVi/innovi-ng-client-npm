@@ -1,7 +1,7 @@
-import { FindUserAccountRole } from '../entities/FindUserAccountRole';
-import { OriginTypeCode } from '../enums/OriginTypeCode';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
+import { FindUserAccountRole } from '../entities/FindUserAccountRole';
+import { OriginTypeCode } from '../enums/OriginTypeCode';
 export declare class FindUser {
     id: string;
     name: string;
