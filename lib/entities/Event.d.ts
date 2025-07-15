@@ -29,6 +29,7 @@ export declare class Event extends BaseEntity {
     eventBboxes: BoundingBox[];
     externalModelName: string;
     testEvent: boolean;
+    hasSimilarity: boolean;
     id: string;
     _type: string;
     createdOn: number;
