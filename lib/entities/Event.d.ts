@@ -1,3 +1,4 @@
+import { Coordinate } from '../common/Coordinate';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
 import { ObjectInfo } from '../common/ObjectInfo';
 import { BoundingBox } from '../common/BoundingBox';
@@ -5,7 +6,6 @@ import { BaseEntity } from '../entities/BaseEntity';
 import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { EventStatusCode } from '../enums/EventStatusCode';
-import { Coordinate } from '../common/Coordinate';
 export declare class Event extends BaseEntity {
     sensorId: string;
     extSensorId: string;
@@ -29,6 +29,7 @@ export declare class Event extends BaseEntity {
     eventBboxes: BoundingBox[];
     externalModelName: string;
     testEvent: boolean;
+    hasSimilarity: boolean;
     id: string;
     _type: string;
     createdOn: number;
