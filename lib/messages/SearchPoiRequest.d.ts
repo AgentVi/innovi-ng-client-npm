@@ -1,5 +1,5 @@
 export declare class SearchPoiRequest {
-    sensorIds: string[];
-    objectIds: string[];
-    constructor(sensorIds?: string[], objectIds?: string[]);
+    sensorId: string;
+    objectId: string;
+    constructor(sensorId?: string, objectId?: string);
 }

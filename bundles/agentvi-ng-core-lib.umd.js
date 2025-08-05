@@ -2269,17 +2269,6 @@
    }(BaseEntity));
 
    /*
-      Point of Interest (POI) Picture type
-   */
-   var PoiPicture = /** @class */ (function (_super) {
-       __extends(PoiPicture, _super);
-       function PoiPicture() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return PoiPicture;
-   }(BaseEntity));
-
-   /*
       Mapping description of digital IO port
    */
    var PortMapping = /** @class */ (function () {
@@ -5831,16 +5820,6 @@
 
    /*
    */
-   var EntitiesResponseOfPoi = /** @class */ (function (_super) {
-       __extends(EntitiesResponseOfPoi, _super);
-       function EntitiesResponseOfPoi() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntitiesResponseOfPoi;
-   }(EntitiesResponse));
-
-   /*
-   */
    var EntitiesResponseOfReportDefinition = /** @class */ (function (_super) {
        __extends(EntitiesResponseOfReportDefinition, _super);
        function EntitiesResponseOfReportDefinition() {
@@ -6292,12 +6271,12 @@
 
    /*
    */
-   var EntityResponseOfPoiPicture = /** @class */ (function (_super) {
-       __extends(EntityResponseOfPoiPicture, _super);
-       function EntityResponseOfPoiPicture() {
+   var EntityResponseOfPoi = /** @class */ (function (_super) {
+       __extends(EntityResponseOfPoi, _super);
+       function EntityResponseOfPoi() {
            return _super !== null && _super.apply(this, arguments) || this;
        }
-       return EntityResponseOfPoiPicture;
+       return EntityResponseOfPoi;
    }(EntityResponse));
 
    /*
@@ -8177,19 +8156,10 @@
 
    /*
    */
-   var SearchPoiPictureRequest = /** @class */ (function () {
-       function SearchPoiPictureRequest(poiId) {
-           this.poiId = poiId;
-       }
-       return SearchPoiPictureRequest;
-   }());
-
-   /*
-   */
    var SearchPoiRequest = /** @class */ (function () {
-       function SearchPoiRequest(sensorIds, objectIds) {
-           this.sensorIds = sensorIds;
-           this.objectIds = objectIds;
+       function SearchPoiRequest(sensorId, objectId) {
+           this.sensorId = sensorId;
+           this.objectId = objectId;
        }
        return SearchPoiRequest;
    }());
@@ -13285,26 +13255,11 @@
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/events"], __read(params)));
        };
        /**
-        * Get POI (Point of Interest) by arrays of sensorIds and objectIds
-        * @Return EntitiesResponse<Poi>
+        * Get single POI (Point of Interest) by sensorId and objectId
+        * @Return EntityResponse<Poi>
         */
-       SearchService.prototype.getPoi = function (sensorIds, objectIds) {
-           var _a;
-           var params = new Array();
-           if (sensorIds != null) {
-               params.push("sensorIds=" + sensorIds);
-           }
-           if (objectIds != null) {
-               params.push("objectIds=" + objectIds);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/poi"], __read(params)));
-       };
-       /**
-        * Get single POI picture by poiId to retrieve display image
-        * @Return EntityResponse<PoiPicture>
-        */
-       SearchService.prototype.getPoiPicture = function (poiId) {
-           return this.rest.get(this.baseUrl + "/poi-picture/" + poiId);
+       SearchService.prototype.getPoi = function (sensorId, objectId) {
+           return this.rest.get(this.baseUrl + "/poi/" + sensorId + "/" + objectId);
        };
        return SearchService;
    }());
@@ -16668,7 +16623,6 @@
    exports.EntitiesResponseOfIntegrationAction = EntitiesResponseOfIntegrationAction;
    exports.EntitiesResponseOfIntegrationStatus = EntitiesResponseOfIntegrationStatus;
    exports.EntitiesResponseOfLicense = EntitiesResponseOfLicense;
-   exports.EntitiesResponseOfPoi = EntitiesResponseOfPoi;
    exports.EntitiesResponseOfReportDefinition = EntitiesResponseOfReportDefinition;
    exports.EntitiesResponseOfRule = EntitiesResponseOfRule;
    exports.EntitiesResponseOfRuleSpec = EntitiesResponseOfRuleSpec;
@@ -16715,7 +16669,7 @@
    exports.EntityResponseOfJobStatus = EntityResponseOfJobStatus;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfMember = EntityResponseOfMember;
-   exports.EntityResponseOfPoiPicture = EntityResponseOfPoiPicture;
+   exports.EntityResponseOfPoi = EntityResponseOfPoi;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -16862,7 +16816,6 @@
    exports.PersonRecognitionService = PersonRecognitionService;
    exports.Poi = Poi;
    exports.PoiBoundingBox = PoiBoundingBox;
-   exports.PoiPicture = PoiPicture;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16980,7 +16933,6 @@
    exports.SearchIdRequest = SearchIdRequest;
    exports.SearchIdsRequest = SearchIdsRequest;
    exports.SearchObject = SearchObject;
-   exports.SearchPoiPictureRequest = SearchPoiPictureRequest;
    exports.SearchPoiRequest = SearchPoiRequest;
    exports.SearchService = SearchService;
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
