@@ -29,7 +29,6 @@ export declare class SearchEvent extends BaseEntity {
     score: number;
     externalModelName: string;
     testEvent: boolean;
-    poiId: string;
     id: string;
     _type: string;
     createdOn: number;
