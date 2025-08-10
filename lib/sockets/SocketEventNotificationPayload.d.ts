@@ -1,5 +1,5 @@
-import { SocketOpCode } from '../enums/SocketOpCode';
 import { Event } from '../entities/Event';
+import { SocketOpCode } from '../enums/SocketOpCode';
 export declare class SocketEventNotificationPayload {
     code: SocketOpCode;
     error: string;
