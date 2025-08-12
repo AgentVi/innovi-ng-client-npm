@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { Group } from '../entities/Group';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfGroup extends QueryResponse {
     list: Group[];
     code: number;
