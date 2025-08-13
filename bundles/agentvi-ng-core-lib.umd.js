@@ -1318,11 +1318,12 @@
       Status of a search session
    */
    var SearchStatus = /** @class */ (function () {
-       function SearchStatus(sessionId, isFinished, total, progress) {
+       function SearchStatus(sessionId, isFinished, total, progress, isPromptSearch) {
            this.sessionId = sessionId;
            this.isFinished = isFinished;
            this.total = total;
            this.progress = progress;
+           this.isPromptSearch = isPromptSearch;
        }
        return SearchStatus;
    }());
@@ -8103,7 +8104,7 @@
    /*
    */
    var SearchEventFindRequestBody = /** @class */ (function () {
-       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
+       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize, isPromptSearch) {
            this.sensorIds = sensorIds;
            this.objectType = objectType;
            this.tolerance = tolerance;
@@ -8112,6 +8113,7 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
+           this.isPromptSearch = isPromptSearch;
        }
        return SearchEventFindRequestBody;
    }());
@@ -8221,8 +8223,9 @@
    /*
    */
    var SearchSessionIdRequest = /** @class */ (function () {
-       function SearchSessionIdRequest(sessionId) {
+       function SearchSessionIdRequest(sessionId, isPromptSearch) {
            this.sessionId = sessionId;
+           this.isPromptSearch = isPromptSearch;
        }
        return SearchSessionIdRequest;
    }());
@@ -13060,22 +13063,37 @@
         * Get search session status
         * @Return: EntityResponse<SearchStatus>
         */
-       SearchService.prototype.getSearchStatus = function (sessionId) {
-           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/status");
+       SearchService.prototype.getSearchStatus = function (sessionId, isPromptSearch) {
+           var _a;
+           var params = new Array();
+           if (isPromptSearch != null) {
+               params.push("isPromptSearch=" + isPromptSearch);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/status"], __read(params)));
        };
        /**
         * Cancel search session and drop results
         * @Return: ActionResponse
         */
-       SearchService.prototype.cancelSearchSession = function (sessionId) {
-           return this.rest.delete(this.baseUrl + "/sessions/" + sessionId);
+       SearchService.prototype.cancelSearchSession = function (sessionId, isPromptSearch) {
+           var _a;
+           var params = new Array();
+           if (isPromptSearch != null) {
+               params.push("isPromptSearch=" + isPromptSearch);
+           }
+           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId], __read(params)));
        };
        /**
         * Stop search session
         * @Return: ActionResponse
         */
-       SearchService.prototype.stopSearchSession = function (sessionId) {
-           return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/stop", null);
+       SearchService.prototype.stopSearchSession = function (sessionId, isPromptSearch) {
+           var _a;
+           var params = new Array();
+           if (isPromptSearch != null) {
+               params.push("isPromptSearch=" + isPromptSearch);
+           }
+           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/stop", null], __read(params)));
        };
        /**
         * Get single search event item by id and sessionId
@@ -13114,8 +13132,13 @@
         * Find list of sensor Ids related to the search results
         * @Return: EntitiesResponse<StringIntValue>
         */
-       SearchService.prototype.findSensorsIds = function (sessionId) {
-           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/sensorsIds");
+       SearchService.prototype.findSensorsIds = function (sessionId, isPromptSearch) {
+           var _a;
+           var params = new Array();
+           if (isPromptSearch != null) {
+               params.push("isPromptSearch=" + isPromptSearch);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensorsIds"], __read(params)));
        };
        /**
         * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
