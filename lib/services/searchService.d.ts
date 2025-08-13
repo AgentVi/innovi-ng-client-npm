@@ -67,17 +67,17 @@ export declare class SearchService {
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
      */
-    getSearchStatus(sessionId?: string, isPromptSearch?: boolean): import("rxjs").Observable<any>;
+    getSearchStatus(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Cancel search session and drop results
      * @Return: ActionResponse
      */
-    cancelSearchSession(sessionId?: string, isPromptSearch?: boolean): import("rxjs").Observable<any>;
+    cancelSearchSession(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Stop search session
      * @Return: ActionResponse
      */
-    stopSearchSession(sessionId?: string, isPromptSearch?: boolean): import("rxjs").Observable<any>;
+    stopSearchSession(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Get single search event item by id and sessionId
      * @Return: EntityResponse<SearchDefinition>
@@ -102,7 +102,7 @@ export declare class SearchService {
      * Find list of sensor Ids related to the search results
      * @Return: EntitiesResponse<StringIntValue>
      */
-    findSensorsIds(sessionId?: string, isPromptSearch?: boolean): import("rxjs").Observable<any>;
+    findSensorsIds(sessionId?: string): import("rxjs").Observable<any>;
     /**
      * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
      * @Return: QueryResponse<SearchDefinition> entities list is null
