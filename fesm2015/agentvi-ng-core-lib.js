@@ -613,7 +613,7 @@ class IntegrationSpec {
    Login data (returned by the API after successful login)
 */
 class LoginData {
-    constructor(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, acceptedPrivacyCompliance, platformType) {
+    constructor(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, platformType) {
         this.accessToken = accessToken;
         this.accountRole = accountRole;
         this.permissions = permissions;
@@ -624,7 +624,6 @@ class LoginData {
         this.userStatus = userStatus;
         this.changePassword = changePassword;
         this.acceptedEula = acceptedEula;
-        this.acceptedPrivacyCompliance = acceptedPrivacyCompliance;
         this.platformType = platformType;
     }
 }
