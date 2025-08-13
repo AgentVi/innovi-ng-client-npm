@@ -1,13 +1,13 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { RulePolygon } from '../common/RulePolygon';
 import { Sensor } from '../entities/Sensor';
-import { Coordinate } from '../common/Coordinate';
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { SensorStatusCode } from '../enums/SensorStatusCode';
-import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { SensorsGroup } from '../common/SensorsGroup';
+import { Coordinate } from '../common/Coordinate';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
+import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { RulePolygon } from '../common/RulePolygon';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Preset } from '../entities/Preset';
 import * as i0 from "@angular/core";
 /**
