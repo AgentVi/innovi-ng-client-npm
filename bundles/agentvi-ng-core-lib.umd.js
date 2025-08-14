@@ -682,7 +682,7 @@
       Login data (returned by the API after successful login)
    */
    var LoginData = /** @class */ (function () {
-       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, acceptedPrivacyCompliance, platformType) {
+       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, platformType) {
            this.accessToken = accessToken;
            this.accountRole = accountRole;
            this.permissions = permissions;
@@ -693,7 +693,6 @@
            this.userStatus = userStatus;
            this.changePassword = changePassword;
            this.acceptedEula = acceptedEula;
-           this.acceptedPrivacyCompliance = acceptedPrivacyCompliance;
            this.platformType = platformType;
        }
        return LoginData;
