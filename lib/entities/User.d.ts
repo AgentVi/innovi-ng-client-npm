@@ -13,6 +13,7 @@ export declare class User extends BaseEntity {
     defaultAccount: string;
     description: string;
     acceptedEula: boolean;
+    acceptedPrivacyCompliance: boolean;
     originId: string;
     originType: OriginTypeCode;
     id: string;
