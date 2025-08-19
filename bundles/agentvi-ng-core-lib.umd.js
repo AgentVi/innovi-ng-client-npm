@@ -682,7 +682,7 @@
       Login data (returned by the API after successful login)
    */
    var LoginData = /** @class */ (function () {
-       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, acceptedPrivacyCompliance, platformType) {
+       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, platformType) {
            this.accessToken = accessToken;
            this.accountRole = accountRole;
            this.permissions = permissions;
@@ -693,7 +693,6 @@
            this.userStatus = userStatus;
            this.changePassword = changePassword;
            this.acceptedEula = acceptedEula;
-           this.acceptedPrivacyCompliance = acceptedPrivacyCompliance;
            this.platformType = platformType;
        }
        return LoginData;
@@ -1319,12 +1318,11 @@
       Status of a search session
    */
    var SearchStatus = /** @class */ (function () {
-       function SearchStatus(sessionId, isFinished, total, progress, isPromptSearch) {
+       function SearchStatus(sessionId, isFinished, total, progress) {
            this.sessionId = sessionId;
            this.isFinished = isFinished;
            this.total = total;
            this.progress = progress;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchStatus;
    }());
@@ -4200,8 +4198,6 @@
        SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
        // [WARNING] Insufficient auto-calibration 
        SensorStateMask[SensorStateMask["INSUFFICIENT_AUTO_CALIBRATION_WARN"] = 128] = "INSUFFICIENT_AUTO_CALIBRATION_WARN";
-       // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
-       SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
        // [ERROR] Communication error [0x00010000] 
        SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
        // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 
@@ -4232,6 +4228,16 @@
        SensorStateMask[SensorStateMask["SOURCE_ERROR_BAD_URI"] = 536870912] = "SOURCE_ERROR_BAD_URI";
        // [ERROR] Large time gap in stream, check the source stream [0x40000000] 
        SensorStateMask[SensorStateMask["SOURCE_ERROR_LARGE_FRAME_GAP"] = 1073741824] = "SOURCE_ERROR_LARGE_FRAME_GAP";
+       // [ERROR] Frame bursts detected in source stream [0x00000200] 
+       SensorStateMask[SensorStateMask["SOURCE_FRAME_BURSTS_ERROR"] = 512] = "SOURCE_FRAME_BURSTS_ERROR";
+       // [ERROR] Source stream queue is full, check the source stream [0x00000400] 
+       SensorStateMask[SensorStateMask["SOURCE_STREAM_QUEUE_FULL_ERROR"] = 1024] = "SOURCE_STREAM_QUEUE_FULL_ERROR";
+       // [ERROR] Source clock time discrepancy detected, check the source stream [0x00000800] 
+       SensorStateMask[SensorStateMask["SOURCE_CLOCK_TIME_DISCREPANCY_ERROR"] = 2048] = "SOURCE_CLOCK_TIME_DISCREPANCY_ERROR";
+       // [ERROR] Source input frame rate is too low [0x00001000] 
+       SensorStateMask[SensorStateMask["SOURCE_LOW_INPUT_FRAME_RATE_ERROR"] = 4096] = "SOURCE_LOW_INPUT_FRAME_RATE_ERROR";
+       // [ERROR] Failed to write frame to recording [0x00008000] 
+       SensorStateMask[SensorStateMask["RECORDING_FAILED_TO_WRITE_FRAME_ERROR"] = 32768] = "RECORDING_FAILED_TO_WRITE_FRAME_ERROR";
    })(exports.SensorStateMask || (exports.SensorStateMask = {}));
 
    /*
@@ -8105,7 +8111,7 @@
    /*
    */
    var SearchEventFindRequestBody = /** @class */ (function () {
-       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize, isPromptSearch) {
+       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
            this.sensorIds = sensorIds;
            this.objectType = objectType;
            this.tolerance = tolerance;
@@ -8114,7 +8120,6 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchEventFindRequestBody;
    }());
@@ -8224,9 +8229,8 @@
    /*
    */
    var SearchSessionIdRequest = /** @class */ (function () {
-       function SearchSessionIdRequest(sessionId, isPromptSearch) {
+       function SearchSessionIdRequest(sessionId) {
            this.sessionId = sessionId;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchSessionIdRequest;
    }());
@@ -13064,37 +13068,22 @@
         * Get search session status
         * @Return: EntityResponse<SearchStatus>
         */
-       SearchService.prototype.getSearchStatus = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/status"], __read(params)));
+       SearchService.prototype.getSearchStatus = function (sessionId) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/status");
        };
        /**
         * Cancel search session and drop results
         * @Return: ActionResponse
         */
-       SearchService.prototype.cancelSearchSession = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId], __read(params)));
+       SearchService.prototype.cancelSearchSession = function (sessionId) {
+           return this.rest.delete(this.baseUrl + "/sessions/" + sessionId);
        };
        /**
         * Stop search session
         * @Return: ActionResponse
         */
-       SearchService.prototype.stopSearchSession = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/stop", null], __read(params)));
+       SearchService.prototype.stopSearchSession = function (sessionId) {
+           return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/stop", null);
        };
        /**
         * Get single search event item by id and sessionId
@@ -13133,13 +13122,8 @@
         * Find list of sensor Ids related to the search results
         * @Return: EntitiesResponse<StringIntValue>
         */
-       SearchService.prototype.findSensorsIds = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensorsIds"], __read(params)));
+       SearchService.prototype.findSensorsIds = function (sessionId) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/sensorsIds");
        };
        /**
         * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
