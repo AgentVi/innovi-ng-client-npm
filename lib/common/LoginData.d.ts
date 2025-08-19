@@ -14,6 +14,7 @@ export declare class LoginData {
     userStatus: UserStatusCode;
     changePassword: boolean;
     acceptedEula: boolean;
+    acceptedPrivacyCompliance: boolean;
     platformType: PlatformTypeCode;
-    constructor(accessToken?: string, accountRole?: AccountRole, permissions?: Permission[], userId?: string, userName?: string, userEmail?: string, userType?: UserTypeCode, userStatus?: UserStatusCode, changePassword?: boolean, acceptedEula?: boolean, platformType?: PlatformTypeCode);
+    constructor(accessToken?: string, accountRole?: AccountRole, permissions?: Permission[], userId?: string, userName?: string, userEmail?: string, userType?: UserTypeCode, userStatus?: UserStatusCode, changePassword?: boolean, acceptedEula?: boolean, acceptedPrivacyCompliance?: boolean, platformType?: PlatformTypeCode);
 }

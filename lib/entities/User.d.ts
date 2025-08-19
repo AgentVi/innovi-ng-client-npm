@@ -1,7 +1,7 @@
-import { UserStatusCode } from '../enums/UserStatusCode';
-import { OriginTypeCode } from '../enums/OriginTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
 import { UserTypeCode } from '../enums/UserTypeCode';
+import { UserStatusCode } from '../enums/UserStatusCode';
+import { OriginTypeCode } from '../enums/OriginTypeCode';
 export declare class User extends BaseEntity {
     name: string;
     email: string;
@@ -13,6 +13,7 @@ export declare class User extends BaseEntity {
     defaultAccount: string;
     description: string;
     acceptedEula: boolean;
+    acceptedPrivacyCompliance: boolean;
     originId: string;
     originType: OriginTypeCode;
     id: string;
