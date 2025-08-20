@@ -1,14 +1,14 @@
-import { FovGeoAttributes } from '../common/FovGeoAttributes';
-import { StringKeyValue } from '../common/StringKeyValue';
-import { Thresholds } from '../common/Thresholds';
 import { ViewTypeCode } from '../enums/ViewTypeCode';
 import { SensorAnonymizationTypeCode } from '../enums/SensorAnonymizationTypeCode';
+import { BaseEntity } from '../entities/BaseEntity';
 import { SensorTypeCode } from '../enums/SensorTypeCode';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
 import { SensorResolutionCode } from '../enums/SensorResolutionCode';
-import { BaseEntity } from '../entities/BaseEntity';
+import { FovGeoAttributes } from '../common/FovGeoAttributes';
+import { Thresholds } from '../common/Thresholds';
 import { StreamTypeCode } from '../enums/StreamTypeCode';
 import { Coordinate } from '../common/Coordinate';
+import { StringKeyValue } from '../common/StringKeyValue';
 import { SensorDebugInfo } from '../common/SensorDebugInfo';
 export declare class Sensor extends BaseEntity {
     accountId: string;
@@ -26,6 +26,7 @@ export declare class Sensor extends BaseEntity {
     metadata: boolean;
     anomalyDetection: boolean;
     unattendedObject: boolean;
+    faceRecognition: boolean;
     alarmInterval: number;
     maxBBoxPerFrame: number;
     maxFrameRate: number;
