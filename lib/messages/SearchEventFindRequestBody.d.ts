@@ -9,6 +9,5 @@ export declare class SearchEventFindRequestBody {
     sort: string;
     page: number;
     pageSize: number;
-    isPromptSearch: boolean;
-    constructor(sensorIds?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number, isPromptSearch?: boolean);
+    constructor(sensorIds?: string[], objectType?: ObjectTypeCode[], tolerance?: LevelTypeCode, from?: number, to?: number, sort?: string, page?: number, pageSize?: number);
 }
