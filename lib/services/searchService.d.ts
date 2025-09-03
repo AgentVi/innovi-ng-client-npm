@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { SearchDefinition } from '../entities/SearchDefinition';
 import { SearchEventFindRequestBody } from '../messages/SearchEventFindRequestBody';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -144,15 +144,10 @@ export declare class SearchService {
      */
     getSensorHeatmapEvents(sessionId?: string, sensorId?: string, row?: number, col?: number, page?: number, pageSize?: number): import("rxjs").Observable<any>;
     /**
-     * Get POI (Point of Interest) by arrays of sensorIds and objectIds
-     * @Return EntitiesResponse<Poi>
+     * Get single POI (Point of Interest) by sensorId and objectId
+     * @Return EntityResponse<Poi>
      */
-    getPoi(sensorIds?: string[], objectIds?: string[]): import("rxjs").Observable<any>;
-    /**
-     * Get single POI picture by poiId to retrieve display image
-     * @Return EntityResponse<PoiPicture>
-     */
-    getPoiPicture(poiId?: string): import("rxjs").Observable<any>;
+    getPoi(sensorId?: string, objectId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SearchService>;
 }

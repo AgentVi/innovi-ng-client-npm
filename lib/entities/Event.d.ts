@@ -30,7 +30,6 @@ export declare class Event extends BaseEntity {
     externalModelName: string;
     testEvent: boolean;
     hasSimilarity: boolean;
-    poiId: string;
     id: string;
     _type: string;
     createdOn: number;

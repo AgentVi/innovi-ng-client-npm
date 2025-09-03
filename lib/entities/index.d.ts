@@ -43,7 +43,6 @@ export * from './ObjectTypeCount';
 export * from './ObjectsPath';
 export * from './OnvifChannel';
 export * from './Poi';
-export * from './PoiPicture';
 export * from './PortMapping';
 export * from './Preset';
 export * from './ReportDefinition';
