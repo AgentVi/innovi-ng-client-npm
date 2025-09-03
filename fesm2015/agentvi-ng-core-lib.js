@@ -914,11 +914,12 @@ class SearchShape extends RulePolygon {
    Status of a search session
 */
 class SearchStatus {
-    constructor(sessionId, isFinished, total, progress) {
+    constructor(sessionId, isFinished, total, progress, isPromptSearch) {
         this.sessionId = sessionId;
         this.isFinished = isFinished;
         this.total = total;
         this.progress = progress;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -6546,7 +6547,7 @@ class SearchEventFindRequest {
 /*
 */
 class SearchEventFindRequestBody {
-    constructor(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
+    constructor(sensorIds, objectType, tolerance, from, to, sort, page, pageSize, isPromptSearch) {
         this.sensorIds = sensorIds;
         this.objectType = objectType;
         this.tolerance = tolerance;
@@ -6555,6 +6556,7 @@ class SearchEventFindRequestBody {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -6653,8 +6655,9 @@ class SearchServiceUpdateRequest {
 /*
 */
 class SearchSessionIdRequest {
-    constructor(sessionId) {
+    constructor(sessionId, isPromptSearch) {
         this.sessionId = sessionId;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -11154,22 +11157,34 @@ class SearchService {
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
      */
-    getSearchStatus(sessionId) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/status`);
+    getSearchStatus(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/status`, ...params);
     }
     /**
      * Cancel search session and drop results
      * @Return: ActionResponse
      */
-    cancelSearchSession(sessionId) {
-        return this.rest.delete(`${this.baseUrl}/sessions/${sessionId}`);
+    cancelSearchSession(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.delete(`${this.baseUrl}/sessions/${sessionId}`, ...params);
     }
     /**
      * Stop search session
      * @Return: ActionResponse
      */
-    stopSearchSession(sessionId) {
-        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/stop`, null);
+    stopSearchSession(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/stop`, null, ...params);
     }
     /**
      * Get single search event item by id and sessionId
@@ -11207,8 +11222,12 @@ class SearchService {
      * Find list of sensor Ids related to the search results
      * @Return: EntitiesResponse<StringIntValue>
      */
-    findSensorsIds(sessionId) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensorsIds`);
+    findSensorsIds(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensorsIds`, ...params);
     }
     /**
      * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
