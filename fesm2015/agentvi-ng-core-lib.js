@@ -914,11 +914,12 @@ class SearchShape extends RulePolygon {
    Status of a search session
 */
 class SearchStatus {
-    constructor(sessionId, isFinished, total, progress) {
+    constructor(sessionId, isFinished, total, progress, isPromptSearch) {
         this.sessionId = sessionId;
         this.isFinished = isFinished;
         this.total = total;
         this.progress = progress;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -3488,8 +3489,6 @@ var SensorStateMask;
     SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
     // [WARNING] Insufficient auto-calibration 
     SensorStateMask[SensorStateMask["INSUFFICIENT_AUTO_CALIBRATION_WARN"] = 128] = "INSUFFICIENT_AUTO_CALIBRATION_WARN";
-    // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
-    SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
     // [ERROR] Communication error [0x00010000] 
     SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
     // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 
@@ -3520,6 +3519,16 @@ var SensorStateMask;
     SensorStateMask[SensorStateMask["SOURCE_ERROR_BAD_URI"] = 536870912] = "SOURCE_ERROR_BAD_URI";
     // [ERROR] Large time gap in stream, check the source stream [0x40000000] 
     SensorStateMask[SensorStateMask["SOURCE_ERROR_LARGE_FRAME_GAP"] = 1073741824] = "SOURCE_ERROR_LARGE_FRAME_GAP";
+    // [ERROR] Frame bursts detected in source stream [0x00000200] 
+    SensorStateMask[SensorStateMask["SOURCE_FRAME_BURSTS_ERROR"] = 512] = "SOURCE_FRAME_BURSTS_ERROR";
+    // [ERROR] Source stream queue is full, check the source stream [0x00000400] 
+    SensorStateMask[SensorStateMask["SOURCE_STREAM_QUEUE_FULL_ERROR"] = 1024] = "SOURCE_STREAM_QUEUE_FULL_ERROR";
+    // [ERROR] Source clock time discrepancy detected, check the source stream [0x00000800] 
+    SensorStateMask[SensorStateMask["SOURCE_CLOCK_TIME_DISCREPANCY_ERROR"] = 2048] = "SOURCE_CLOCK_TIME_DISCREPANCY_ERROR";
+    // [ERROR] Source input frame rate is too low [0x00001000] 
+    SensorStateMask[SensorStateMask["SOURCE_LOW_INPUT_FRAME_RATE_ERROR"] = 4096] = "SOURCE_LOW_INPUT_FRAME_RATE_ERROR";
+    // [ERROR] Failed to write frame to recording [0x00008000] 
+    SensorStateMask[SensorStateMask["RECORDING_FAILED_TO_WRITE_FRAME_ERROR"] = 32768] = "RECORDING_FAILED_TO_WRITE_FRAME_ERROR";
 })(SensorStateMask || (SensorStateMask = {}));
 
 /*
@@ -6546,7 +6555,7 @@ class SearchEventFindRequest {
 /*
 */
 class SearchEventFindRequestBody {
-    constructor(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
+    constructor(sensorIds, objectType, tolerance, from, to, sort, page, pageSize, isPromptSearch) {
         this.sensorIds = sensorIds;
         this.objectType = objectType;
         this.tolerance = tolerance;
@@ -6555,6 +6564,7 @@ class SearchEventFindRequestBody {
         this.sort = sort;
         this.page = page;
         this.pageSize = pageSize;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -6653,8 +6663,9 @@ class SearchServiceUpdateRequest {
 /*
 */
 class SearchSessionIdRequest {
-    constructor(sessionId) {
+    constructor(sessionId, isPromptSearch) {
         this.sessionId = sessionId;
+        this.isPromptSearch = isPromptSearch;
     }
 }
 
@@ -11154,22 +11165,34 @@ class SearchService {
      * Get search session status
      * @Return: EntityResponse<SearchStatus>
      */
-    getSearchStatus(sessionId) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/status`);
+    getSearchStatus(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/status`, ...params);
     }
     /**
      * Cancel search session and drop results
      * @Return: ActionResponse
      */
-    cancelSearchSession(sessionId) {
-        return this.rest.delete(`${this.baseUrl}/sessions/${sessionId}`);
+    cancelSearchSession(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.delete(`${this.baseUrl}/sessions/${sessionId}`, ...params);
     }
     /**
      * Stop search session
      * @Return: ActionResponse
      */
-    stopSearchSession(sessionId) {
-        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/stop`, null);
+    stopSearchSession(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.post(`${this.baseUrl}/sessions/${sessionId}/stop`, null, ...params);
     }
     /**
      * Get single search event item by id and sessionId
@@ -11207,8 +11230,12 @@ class SearchService {
      * Find list of sensor Ids related to the search results
      * @Return: EntitiesResponse<StringIntValue>
      */
-    findSensorsIds(sessionId) {
-        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensorsIds`);
+    findSensorsIds(sessionId, isPromptSearch) {
+        const params = new Array();
+        if (isPromptSearch != null) {
+            params.push(`isPromptSearch=${isPromptSearch}`);
+        }
+        return this.rest.get(`${this.baseUrl}/sessions/${sessionId}/sensorsIds`, ...params);
     }
     /**
      * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
