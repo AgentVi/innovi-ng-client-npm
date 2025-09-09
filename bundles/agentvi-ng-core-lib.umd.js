@@ -2271,6 +2271,17 @@
    }(BaseEntity));
 
    /*
+      Unrecognized Point of Interest (POI) type
+   */
+   var PoiUnrecognized = /** @class */ (function (_super) {
+       __extends(PoiUnrecognized, _super);
+       function PoiUnrecognized() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return PoiUnrecognized;
+   }(BaseEntity));
+
+   /*
       Mapping description of digital IO port
    */
    var PortMapping = /** @class */ (function () {
@@ -6283,6 +6294,16 @@
 
    /*
    */
+   var EntityResponseOfPoiUnrecognized = /** @class */ (function (_super) {
+       __extends(EntityResponseOfPoiUnrecognized, _super);
+       function EntityResponseOfPoiUnrecognized() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfPoiUnrecognized;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfPreset = /** @class */ (function (_super) {
        __extends(EntityResponseOfPreset, _super);
        function EntityResponseOfPreset() {
@@ -8165,6 +8186,15 @@
            this.objectId = objectId;
        }
        return SearchPoiRequest;
+   }());
+
+   /*
+   */
+   var SearchPoiUnrecognizedRequest = /** @class */ (function () {
+       function SearchPoiUnrecognizedRequest(poiId) {
+           this.poiId = poiId;
+       }
+       return SearchPoiUnrecognizedRequest;
    }());
 
    /*
@@ -13285,6 +13315,13 @@
        SearchService.prototype.getPoi = function (sensorId, objectId) {
            return this.rest.get(this.baseUrl + "/poi/" + sensorId + "/" + objectId);
        };
+       /**
+        * Get single unrecognized POI by poiId
+        * @Return EntityResponse<PoiUnrecognized>
+        */
+       SearchService.prototype.getPoiUnrecognized = function (poiId) {
+           return this.rest.get(this.baseUrl + "/poi-unrecognized/" + poiId);
+       };
        return SearchService;
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -16694,6 +16731,7 @@
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfMember = EntityResponseOfMember;
    exports.EntityResponseOfPoi = EntityResponseOfPoi;
+   exports.EntityResponseOfPoiUnrecognized = EntityResponseOfPoiUnrecognized;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -16840,6 +16878,7 @@
    exports.PersonRecognitionService = PersonRecognitionService;
    exports.Poi = Poi;
    exports.PoiBoundingBox = PoiBoundingBox;
+   exports.PoiUnrecognized = PoiUnrecognized;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16958,6 +16997,7 @@
    exports.SearchIdsRequest = SearchIdsRequest;
    exports.SearchObject = SearchObject;
    exports.SearchPoiRequest = SearchPoiRequest;
+   exports.SearchPoiUnrecognizedRequest = SearchPoiUnrecognizedRequest;
    exports.SearchService = SearchService;
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
    exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
