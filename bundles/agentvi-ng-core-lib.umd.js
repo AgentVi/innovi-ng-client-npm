@@ -2271,6 +2271,17 @@
    }(BaseEntity));
 
    /*
+      Unrecognized Point of Interest (POI) type
+   */
+   var PoiUnrecognized = /** @class */ (function (_super) {
+       __extends(PoiUnrecognized, _super);
+       function PoiUnrecognized() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return PoiUnrecognized;
+   }(BaseEntity));
+
+   /*
       Mapping description of digital IO port
    */
    var PortMapping = /** @class */ (function () {
@@ -4200,6 +4211,8 @@
        SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
        // [WARNING] Insufficient auto-calibration 
        SensorStateMask[SensorStateMask["INSUFFICIENT_AUTO_CALIBRATION_WARN"] = 128] = "INSUFFICIENT_AUTO_CALIBRATION_WARN";
+       // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
+       SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
        // [ERROR] Communication error [0x00010000] 
        SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
        // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 
@@ -4230,16 +4243,6 @@
        SensorStateMask[SensorStateMask["SOURCE_ERROR_BAD_URI"] = 536870912] = "SOURCE_ERROR_BAD_URI";
        // [ERROR] Large time gap in stream, check the source stream [0x40000000] 
        SensorStateMask[SensorStateMask["SOURCE_ERROR_LARGE_FRAME_GAP"] = 1073741824] = "SOURCE_ERROR_LARGE_FRAME_GAP";
-       // [ERROR] Frame bursts detected in source stream [0x00000200] 
-       SensorStateMask[SensorStateMask["SOURCE_FRAME_BURSTS_ERROR"] = 512] = "SOURCE_FRAME_BURSTS_ERROR";
-       // [ERROR] Source stream queue is full, check the source stream [0x00000400] 
-       SensorStateMask[SensorStateMask["SOURCE_STREAM_QUEUE_FULL_ERROR"] = 1024] = "SOURCE_STREAM_QUEUE_FULL_ERROR";
-       // [ERROR] Source clock time discrepancy detected, check the source stream [0x00000800] 
-       SensorStateMask[SensorStateMask["SOURCE_CLOCK_TIME_DISCREPANCY_ERROR"] = 2048] = "SOURCE_CLOCK_TIME_DISCREPANCY_ERROR";
-       // [ERROR] Source input frame rate is too low [0x00001000] 
-       SensorStateMask[SensorStateMask["SOURCE_LOW_INPUT_FRAME_RATE_ERROR"] = 4096] = "SOURCE_LOW_INPUT_FRAME_RATE_ERROR";
-       // [ERROR] Failed to write frame to recording [0x00008000] 
-       SensorStateMask[SensorStateMask["RECORDING_FAILED_TO_WRITE_FRAME_ERROR"] = 32768] = "RECORDING_FAILED_TO_WRITE_FRAME_ERROR";
    })(exports.SensorStateMask || (exports.SensorStateMask = {}));
 
    /*
@@ -6291,6 +6294,16 @@
 
    /*
    */
+   var EntityResponseOfPoiUnrecognized = /** @class */ (function (_super) {
+       __extends(EntityResponseOfPoiUnrecognized, _super);
+       function EntityResponseOfPoiUnrecognized() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfPoiUnrecognized;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfPreset = /** @class */ (function (_super) {
        __extends(EntityResponseOfPreset, _super);
        function EntityResponseOfPreset() {
@@ -8173,6 +8186,15 @@
            this.objectId = objectId;
        }
        return SearchPoiRequest;
+   }());
+
+   /*
+   */
+   var SearchPoiUnrecognizedRequest = /** @class */ (function () {
+       function SearchPoiUnrecognizedRequest(poiId) {
+           this.poiId = poiId;
+       }
+       return SearchPoiUnrecognizedRequest;
    }());
 
    /*
@@ -13293,6 +13315,13 @@
        SearchService.prototype.getPoi = function (sensorId, objectId) {
            return this.rest.get(this.baseUrl + "/poi/" + sensorId + "/" + objectId);
        };
+       /**
+        * Get single unrecognized POI by poiId
+        * @Return EntityResponse<PoiUnrecognized>
+        */
+       SearchService.prototype.getPoiUnrecognized = function (poiId) {
+           return this.rest.get(this.baseUrl + "/poi-unrecognized/" + poiId);
+       };
        return SearchService;
    }());
    /** @nocollapse */ SearchService.ɵfac = function SearchService_Factory(t) { return new (t || SearchService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
@@ -16702,6 +16731,7 @@
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfMember = EntityResponseOfMember;
    exports.EntityResponseOfPoi = EntityResponseOfPoi;
+   exports.EntityResponseOfPoiUnrecognized = EntityResponseOfPoiUnrecognized;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -16848,6 +16878,7 @@
    exports.PersonRecognitionService = PersonRecognitionService;
    exports.Poi = Poi;
    exports.PoiBoundingBox = PoiBoundingBox;
+   exports.PoiUnrecognized = PoiUnrecognized;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -16966,6 +16997,7 @@
    exports.SearchIdsRequest = SearchIdsRequest;
    exports.SearchObject = SearchObject;
    exports.SearchPoiRequest = SearchPoiRequest;
+   exports.SearchPoiUnrecognizedRequest = SearchPoiUnrecognizedRequest;
    exports.SearchService = SearchService;
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
    exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
