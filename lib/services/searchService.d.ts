@@ -148,11 +148,6 @@ export declare class SearchService {
      * @Return EntityResponse<Poi>
      */
     getPoi(sensorId?: string, objectId?: string): import("rxjs").Observable<any>;
-    /**
-     * Get single unrecognized POI by poiId
-     * @Return EntityResponse<PoiUnrecognized>
-     */
-    getPoiUnrecognized(poiId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SearchService>;
 }
