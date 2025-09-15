@@ -1,9 +1,9 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
 import { SearchDefinition } from '../entities/SearchDefinition';
 import { SearchEventFindRequestBody } from '../messages/SearchEventFindRequestBody';
+import { ObjectTypeCode } from '../enums/ObjectTypeCode';
 import * as i0 from "@angular/core";
 /**
  * Services for metadata search actions
@@ -148,11 +148,6 @@ export declare class SearchService {
      * @Return EntityResponse<Poi>
      */
     getPoi(sensorId?: string, objectId?: string): import("rxjs").Observable<any>;
-    /**
-     * Get single unrecognized POI by poiId
-     * @Return EntityResponse<PoiUnrecognized>
-     */
-    getPoiUnrecognized(poiId?: string): import("rxjs").Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<SearchService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SearchService>;
 }
