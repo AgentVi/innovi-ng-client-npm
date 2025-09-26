@@ -1,11 +1,11 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
+import { Member } from '../entities/Member';
 import { UserTypeCode } from '../enums/UserTypeCode';
 import { UserStatusCode } from '../enums/UserStatusCode';
 import { UserInvitation } from '../common/UserInvitation';
 import { MemberRegistration } from '../common/MemberRegistration';
 import { ServiceAccountRegistration } from '../common/ServiceAccountRegistration';
-import { Member } from '../entities/Member';
 import * as i0 from "@angular/core";
 /**
  * List of all account members related actions for account administrator only
