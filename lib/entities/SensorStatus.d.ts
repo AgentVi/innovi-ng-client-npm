@@ -1,5 +1,5 @@
-import { BaseEntity } from '../entities/BaseEntity';
 import { SensorStatusCode } from '../enums/SensorStatusCode';
+import { BaseEntity } from '../entities/BaseEntity';
 export declare class SensorStatus extends BaseEntity {
     sensorId: string;
     accountId: string;

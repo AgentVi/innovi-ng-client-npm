@@ -1,5 +1,5 @@
-import { RecurrentTimeFrame } from '../common/RecurrentTimeFrame';
 import { BaseEntity } from '../entities/BaseEntity';
+import { RecurrentTimeFrame } from '../common/RecurrentTimeFrame';
 export declare class Schedule extends BaseEntity {
     accountId: string;
     folderId: string;

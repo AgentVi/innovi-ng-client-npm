@@ -1,6 +1,6 @@
+import { EventStatusCode } from '../enums/EventStatusCode';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
 import { SeverityTypeCode } from '../enums/SeverityTypeCode';
-import { EventStatusCode } from '../enums/EventStatusCode';
 export declare class EventsCountByObjectRequest {
     folderId: string;
     sensorId: string;
