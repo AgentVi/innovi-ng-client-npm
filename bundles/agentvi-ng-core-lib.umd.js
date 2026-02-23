@@ -64,8 +64,16 @@
       Account specific settings
    */
    var AccountSettings = /** @class */ (function () {
-       function AccountSettings(playerSourceUri) {
+       function AccountSettings(retentionDays, objectColors, ruleColor, maskColor, enableAnomalyByDefault, dateFormat, dateTimeFormat, playerSourceUri, eventClipLengthSec) {
+           this.retentionDays = retentionDays;
+           this.objectColors = objectColors;
+           this.ruleColor = ruleColor;
+           this.maskColor = maskColor;
+           this.enableAnomalyByDefault = enableAnomalyByDefault;
+           this.dateFormat = dateFormat;
+           this.dateTimeFormat = dateTimeFormat;
            this.playerSourceUri = playerSourceUri;
+           this.eventClipLengthSec = eventClipLengthSec;
        }
        return AccountSettings;
    }());
@@ -290,28 +298,14 @@
       Attribute
    */
    var Attribute = /** @class */ (function () {
-       function Attribute(id, version, values) {
-           this.id = id;
-           this.version = version;
-           this.values = values;
-       }
-       return Attribute;
-   }());
-
-   /*
-   */
-   var AttributeValue = /** @class */ (function () {
-       function AttributeValue(id, confidence, type, valueString, valueInt, valueBool, valueFloat, valueArray) {
-           this.id = id;
-           this.confidence = confidence;
+       function Attribute(name, type, valueString, valueInt, valueBool) {
+           this.name = name;
            this.type = type;
            this.valueString = valueString;
            this.valueInt = valueInt;
            this.valueBool = valueBool;
-           this.valueFloat = valueFloat;
-           this.valueArray = valueArray;
        }
-       return AttributeValue;
+       return Attribute;
    }());
 
    /*
@@ -682,7 +676,7 @@
       Login data (returned by the API after successful login)
    */
    var LoginData = /** @class */ (function () {
-       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, acceptedPrivacyCompliance, platformType) {
+       function LoginData(accessToken, accountRole, permissions, userId, userName, userEmail, userType, userStatus, changePassword, acceptedEula, platformType) {
            this.accessToken = accessToken;
            this.accountRole = accountRole;
            this.permissions = permissions;
@@ -693,7 +687,6 @@
            this.userStatus = userStatus;
            this.changePassword = changePassword;
            this.acceptedEula = acceptedEula;
-           this.acceptedPrivacyCompliance = acceptedPrivacyCompliance;
            this.platformType = platformType;
        }
        return LoginData;
@@ -933,7 +926,7 @@
       Rule specification describe rule parameters
    */
    var RuleSpec = /** @class */ (function () {
-       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
+       function RuleSpec(behaviorType, ruleTypeName, objectTypes, isLineDrawing, dwellTime, minSpeed, peopleInGroup, clusterDistance, intervalTime, referenceCrop, objectHierarchy, sensorTypes, externalModel, viewTypes, excludeObjectTypes, autoSensitivity, sensitivity, existsInWatchlist) {
            this.behaviorType = behaviorType;
            this.ruleTypeName = ruleTypeName;
            this.objectTypes = objectTypes;
@@ -942,6 +935,7 @@
            this.minSpeed = minSpeed;
            this.peopleInGroup = peopleInGroup;
            this.clusterDistance = clusterDistance;
+           this.intervalTime = intervalTime;
            this.referenceCrop = referenceCrop;
            this.objectHierarchy = objectHierarchy;
            this.sensorTypes = sensorTypes;
@@ -1319,12 +1313,11 @@
       Status of a search session
    */
    var SearchStatus = /** @class */ (function () {
-       function SearchStatus(sessionId, isFinished, total, progress, isPromptSearch) {
+       function SearchStatus(sessionId, isFinished, total, progress) {
            this.sessionId = sessionId;
            this.isFinished = isFinished;
            this.total = total;
            this.progress = progress;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchStatus;
    }());
@@ -1373,7 +1366,9 @@
       Sensor debug information
    */
    var SensorDebugInfo = /** @class */ (function () {
-       function SensorDebugInfo(saveEventImages) {
+       function SensorDebugInfo(saveCrops, saveFrames, saveEventImages) {
+           this.saveCrops = saveCrops;
+           this.saveFrames = saveFrames;
            this.saveEventImages = saveEventImages;
        }
        return SensorDebugInfo;
@@ -2033,9 +2028,31 @@
    }(BaseEntity));
 
    /*
+      System functionality (feature) description
+   */
+   var Feature = /** @class */ (function (_super) {
+       __extends(Feature, _super);
+       function Feature() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return Feature;
+   }(BaseEntity));
+
+   /*
+      Group of features
+   */
+   var FeaturesGroup = /** @class */ (function (_super) {
+       __extends(FeaturesGroup, _super);
+       function FeaturesGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return FeaturesGroup;
+   }(BaseEntity));
+
+   /*
    */
    var FindUser = /** @class */ (function () {
-       function FindUser(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description, originId, originType) {
+       function FindUser(id, name, email, mobile, type, status, lastSignIn, accountRoles, defaultAccount, description) {
            this.id = id;
            this.name = name;
            this.email = email;
@@ -2046,8 +2063,6 @@
            this.accountRoles = accountRoles;
            this.defaultAccount = defaultAccount;
            this.description = description;
-           this.originId = originId;
-           this.originType = originType;
        }
        return FindUser;
    }());
@@ -2258,28 +2273,6 @@
        }
        return OnvifChannel;
    }());
-
-   /*
-      Point of Interest (POI) type
-   */
-   var Poi = /** @class */ (function (_super) {
-       __extends(Poi, _super);
-       function Poi() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return Poi;
-   }(BaseEntity));
-
-   /*
-      Unrecognized Point of Interest (POI) type
-   */
-   var PoiUnrecognized = /** @class */ (function (_super) {
-       __extends(PoiUnrecognized, _super);
-       function PoiUnrecognized() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return PoiUnrecognized;
-   }(BaseEntity));
 
    /*
       Mapping description of digital IO port
@@ -3696,6 +3689,85 @@
    })(exports.EventStatusCode || (exports.EventStatusCode = {}));
 
    /*
+      Feature codes
+   */
+   exports.FeatureCode = void 0;
+   (function (FeatureCode) {
+       // Undefined [0] 
+       FeatureCode[FeatureCode["UNDEFINED"] = 0] = "UNDEFINED";
+       // Record sensor metadata feature [10] 
+       FeatureCode[FeatureCode["FEATURE_SENSOR_METADATA"] = 10] = "FEATURE_SENSOR_METADATA";
+       // Record sensor frames feature [11] 
+       FeatureCode[FeatureCode["FEATURE_SENSOR_RECORDING"] = 11] = "FEATURE_SENSOR_RECORDING";
+       // Face Recognition lite feature (Free Version) [20] 
+       FeatureCode[FeatureCode["FEATURE_FR_LITE"] = 20] = "FEATURE_FR_LITE";
+       // Face Recognition full feature (Paid Version) [21] 
+       FeatureCode[FeatureCode["FEATURE_FR_FULL"] = 21] = "FEATURE_FR_FULL";
+       // Rail Trespassing [22] 
+       FeatureCode[FeatureCode["FEATURE_RAIL_TRESPASSING"] = 22] = "FEATURE_RAIL_TRESPASSING";
+       // Expanded reporting capabilities [23] 
+       FeatureCode[FeatureCode["FEATURE_REPORTING_FULL"] = 23] = "FEATURE_REPORTING_FULL";
+       // Action analysis [24] 
+       FeatureCode[FeatureCode["FEATURE_ACTION_ANALYSIS"] = 24] = "FEATURE_ACTION_ANALYSIS";
+       // Alarm filtering [25] 
+       FeatureCode[FeatureCode["FEATURE_ALARM_FILTERING"] = 25] = "FEATURE_ALARM_FILTERING";
+       // Person recognition [26] 
+       FeatureCode[FeatureCode["FEATURE_PERSON_RECOGNITION"] = 26] = "FEATURE_PERSON_RECOGNITION";
+       // View pose keypoints in Investigation [27] 
+       FeatureCode[FeatureCode["FEATURE_VIEW_POSE_KEYPOINTS"] = 27] = "FEATURE_VIEW_POSE_KEYPOINTS";
+       // Two people on motorcycle [28] 
+       FeatureCode[FeatureCode["FEATURE_TWO_PEOPLE_ON_MOTORCYCLE"] = 28] = "FEATURE_TWO_PEOPLE_ON_MOTORCYCLE";
+       // Anonymization [29] 
+       FeatureCode[FeatureCode["FEATURE_ANONYMIZATION"] = 29] = "FEATURE_ANONYMIZATION";
+       // Anomaly rule - hide/expose the object type 'Other/Unknow' INNOVI_UNKNOWNS [16842752] - [30] 
+       FeatureCode[FeatureCode["FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER"] = 30] = "FEATURE_INTERNAL_ANOMALY_OBJECT_TYPE_OTHER";
+       // BI Dashboard [31] 
+       FeatureCode[FeatureCode["FEATURE_BI_DASHBOARD"] = 31] = "FEATURE_BI_DASHBOARD";
+       // Account administrator module [2048] 
+       FeatureCode[FeatureCode["MODULE_ADMIN"] = 2048] = "MODULE_ADMIN";
+       // Crossing a line rule [2049] 
+       FeatureCode[FeatureCode["RULE_CROSSING"] = 2049] = "RULE_CROSSING";
+       // Counter flow rule [2050] 
+       FeatureCode[FeatureCode["RULE_COUNTER_FLOW"] = 2050] = "RULE_COUNTER_FLOW";
+       // Moving in an area rule [2051] 
+       FeatureCode[FeatureCode["RULE_MOVING"] = 2051] = "RULE_MOVING";
+       // Stopped vehicle rule only [2052] 
+       FeatureCode[FeatureCode["RULE_STOPPED"] = 2052] = "RULE_STOPPED";
+       // Occupancy a.k.a. Crowd density rule [2056] 
+       FeatureCode[FeatureCode["RULE_OCCUPANCY"] = 2056] = "RULE_OCCUPANCY";
+       // Grouping rule [2064] 
+       FeatureCode[FeatureCode["RULE_GROUPING"] = 2064] = "RULE_GROUPING";
+       // Ignore (yellow) mask rule [2080] 
+       FeatureCode[FeatureCode["RULE_IGNORE_MASK"] = 2080] = "RULE_IGNORE_MASK";
+       // Anomaly detection rule [2112] 
+       FeatureCode[FeatureCode["RULE_ANOMALY"] = 2112] = "RULE_ANOMALY";
+       // Unattended object detection rule [2176] 
+       FeatureCode[FeatureCode["RULE_UNATTENDED_OBJECT"] = 2176] = "RULE_UNATTENDED_OBJECT";
+       // Asset protection (missing object detection) rule [2304] 
+       FeatureCode[FeatureCode["RULE_ASSET_PROTECTION"] = 2304] = "RULE_ASSET_PROTECTION";
+       // Smoke and Fire rule [2305] 
+       FeatureCode[FeatureCode["RULE_SMOKEANDFIRE"] = 2305] = "RULE_SMOKEANDFIRE";
+       // Traffic statistics rule [2560] 
+       FeatureCode[FeatureCode["RULE_TRAFFIC_STATISTICS"] = 2560] = "RULE_TRAFFIC_STATISTICS";
+       // Count statistics rule [3072] 
+       FeatureCode[FeatureCode["RULE_COUNT_STATISTICS"] = 3072] = "RULE_COUNT_STATISTICS";
+       // Area occupancy a.k.a. Crowd statistics rule [3073] 
+       FeatureCode[FeatureCode["RULE_AREA_OCCUPANCY_STATISTICS"] = 3073] = "RULE_AREA_OCCUPANCY_STATISTICS";
+       // Monitor (real time events) module [4096] 
+       FeatureCode[FeatureCode["MODULE_MONITOR"] = 4096] = "MODULE_MONITOR";
+       // Google maps support module [4097] 
+       FeatureCode[FeatureCode["MAP_GOOGLE"] = 4097] = "MAP_GOOGLE";
+       // Leaflet maps support module [4098] 
+       FeatureCode[FeatureCode["MAP_LEAFLET"] = 4098] = "MAP_LEAFLET";
+       // Investigation (search) module [8192] 
+       FeatureCode[FeatureCode["MODULE_INVESTIGATION"] = 8192] = "MODULE_INVESTIGATION";
+       // Analytics (BI) module [8192] 
+       FeatureCode[FeatureCode["MODULE_ANALYTICS"] = 16384] = "MODULE_ANALYTICS";
+       // Slip and Fall rule [34816] 
+       FeatureCode[FeatureCode["RULE_SLIP_AND_FALL"] = 34816] = "RULE_SLIP_AND_FALL";
+   })(exports.FeatureCode || (exports.FeatureCode = {}));
+
+   /*
       Integration status code
    */
    exports.IntegrationStatusCode = void 0;
@@ -3909,21 +3981,6 @@
        // Closed (i.e. resolved) [2] 
        OpenClosedStatusCode[OpenClosedStatusCode["CLOSED"] = 2] = "CLOSED";
    })(exports.OpenClosedStatusCode || (exports.OpenClosedStatusCode = {}));
-
-   /*
-      Origin type code
-   */
-   exports.OriginTypeCode = void 0;
-   (function (OriginTypeCode) {
-       // Undefined [0] 
-       OriginTypeCode[OriginTypeCode["UNDEFINED"] = 0] = "UNDEFINED";
-       // Registration by Email [1] 
-       OriginTypeCode[OriginTypeCode["EMAIL"] = 1] = "EMAIL";
-       // Registration by LDAP user [2] 
-       OriginTypeCode[OriginTypeCode["LDAP_USER"] = 2] = "LDAP_USER";
-       // Registration by LDAP user group [3] 
-       OriginTypeCode[OriginTypeCode["LDAP_GROUP"] = 3] = "LDAP_GROUP";
-   })(exports.OriginTypeCode || (exports.OriginTypeCode = {}));
 
    /*
       Permission Mask
@@ -4211,6 +4268,8 @@
        SensorStateMask[SensorStateMask["SOURCE_INITIALIZING_STREAM_WARN"] = 64] = "SOURCE_INITIALIZING_STREAM_WARN";
        // [WARNING] Insufficient auto-calibration 
        SensorStateMask[SensorStateMask["INSUFFICIENT_AUTO_CALIBRATION_WARN"] = 128] = "INSUFFICIENT_AUTO_CALIBRATION_WARN";
+       // [INACTIVE] Sensor is not active due to user action (enable/disable, attach/detach) 
+       SensorStateMask[SensorStateMask["SENSOR_INACTIVE"] = 4096] = "SENSOR_INACTIVE";
        // [ERROR] Communication error [0x00010000] 
        SensorStateMask[SensorStateMask["NO_COMM_ERROR"] = 65536] = "NO_COMM_ERROR";
        // [ERROR] Internal sensor error, contact Agent Vi support [0x00020000] 
@@ -4241,16 +4300,6 @@
        SensorStateMask[SensorStateMask["SOURCE_ERROR_BAD_URI"] = 536870912] = "SOURCE_ERROR_BAD_URI";
        // [ERROR] Large time gap in stream, check the source stream [0x40000000] 
        SensorStateMask[SensorStateMask["SOURCE_ERROR_LARGE_FRAME_GAP"] = 1073741824] = "SOURCE_ERROR_LARGE_FRAME_GAP";
-       // [ERROR] Frame bursts detected in source stream [0x00000200] 
-       SensorStateMask[SensorStateMask["SOURCE_FRAME_BURSTS_ERROR"] = 512] = "SOURCE_FRAME_BURSTS_ERROR";
-       // [ERROR] Source stream queue is full, check the source stream [0x00000400] 
-       SensorStateMask[SensorStateMask["SOURCE_STREAM_QUEUE_FULL_ERROR"] = 1024] = "SOURCE_STREAM_QUEUE_FULL_ERROR";
-       // [ERROR] Source clock time discrepancy detected, check the source stream [0x00000800] 
-       SensorStateMask[SensorStateMask["SOURCE_CLOCK_TIME_DISCREPANCY_ERROR"] = 2048] = "SOURCE_CLOCK_TIME_DISCREPANCY_ERROR";
-       // [ERROR] Source input frame rate is too low [0x00001000] 
-       SensorStateMask[SensorStateMask["SOURCE_LOW_INPUT_FRAME_RATE_ERROR"] = 4096] = "SOURCE_LOW_INPUT_FRAME_RATE_ERROR";
-       // [ERROR] Failed to write frame to recording [0x00008000] 
-       SensorStateMask[SensorStateMask["RECORDING_FAILED_TO_WRITE_FRAME_ERROR"] = 32768] = "RECORDING_FAILED_TO_WRITE_FRAME_ERROR";
    })(exports.SensorStateMask || (exports.SensorStateMask = {}));
 
    /*
@@ -5781,6 +5830,26 @@
 
    /*
    */
+   var EntitiesResponseOfFeature = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfFeature, _super);
+       function EntitiesResponseOfFeature() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfFeature;
+   }(EntitiesResponse));
+
+   /*
+   */
+   var EntitiesResponseOfFeaturesGroup = /** @class */ (function (_super) {
+       __extends(EntitiesResponseOfFeaturesGroup, _super);
+       function EntitiesResponseOfFeaturesGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntitiesResponseOfFeaturesGroup;
+   }(EntitiesResponse));
+
+   /*
+   */
    var EntitiesResponseOfFolder = /** @class */ (function (_super) {
        __extends(EntitiesResponseOfFolder, _super);
        function EntitiesResponseOfFolder() {
@@ -6202,6 +6271,26 @@
 
    /*
    */
+   var EntityResponseOfFeature = /** @class */ (function (_super) {
+       __extends(EntityResponseOfFeature, _super);
+       function EntityResponseOfFeature() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfFeature;
+   }(EntityResponse));
+
+   /*
+   */
+   var EntityResponseOfFeaturesGroup = /** @class */ (function (_super) {
+       __extends(EntityResponseOfFeaturesGroup, _super);
+       function EntityResponseOfFeaturesGroup() {
+           return _super !== null && _super.apply(this, arguments) || this;
+       }
+       return EntityResponseOfFeaturesGroup;
+   }(EntityResponse));
+
+   /*
+   */
    var EntityResponseOfFolder = /** @class */ (function (_super) {
        __extends(EntityResponseOfFolder, _super);
        function EntityResponseOfFolder() {
@@ -6288,26 +6377,6 @@
            return _super !== null && _super.apply(this, arguments) || this;
        }
        return EntityResponseOfMember;
-   }(EntityResponse));
-
-   /*
-   */
-   var EntityResponseOfPoi = /** @class */ (function (_super) {
-       __extends(EntityResponseOfPoi, _super);
-       function EntityResponseOfPoi() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntityResponseOfPoi;
-   }(EntityResponse));
-
-   /*
-   */
-   var EntityResponseOfPoiUnrecognized = /** @class */ (function (_super) {
-       __extends(EntityResponseOfPoiUnrecognized, _super);
-       function EntityResponseOfPoiUnrecognized() {
-           return _super !== null && _super.apply(this, arguments) || this;
-       }
-       return EntityResponseOfPoiUnrecognized;
    }(EntityResponse));
 
    /*
@@ -6763,6 +6832,121 @@
 
    /*
    */
+   var FeatureIdRequest = /** @class */ (function () {
+       function FeatureIdRequest(id) {
+           this.id = id;
+       }
+       return FeatureIdRequest;
+   }());
+
+   /*
+   */
+   var FeatureIdsRequest = /** @class */ (function () {
+       function FeatureIdsRequest(id) {
+           this.id = id;
+       }
+       return FeatureIdsRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupIdRequest = /** @class */ (function () {
+       function FeaturesGroupIdRequest(id) {
+           this.id = id;
+       }
+       return FeaturesGroupIdRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupIdsRequest = /** @class */ (function () {
+       function FeaturesGroupIdsRequest(id) {
+           this.id = id;
+       }
+       return FeaturesGroupIdsRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupsServiceCreateRequest = /** @class */ (function () {
+       function FeaturesGroupsServiceCreateRequest(body) {
+           this.body = body;
+       }
+       return FeaturesGroupsServiceCreateRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupsServiceFindRequest = /** @class */ (function () {
+       function FeaturesGroupsServiceFindRequest(search, sort) {
+           this.search = search;
+           this.sort = sort;
+       }
+       return FeaturesGroupsServiceFindRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupsServiceSetFeaturesRequest = /** @class */ (function () {
+       function FeaturesGroupsServiceSetFeaturesRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return FeaturesGroupsServiceSetFeaturesRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupsServiceSetNameRequest = /** @class */ (function () {
+       function FeaturesGroupsServiceSetNameRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return FeaturesGroupsServiceSetNameRequest;
+   }());
+
+   /*
+   */
+   var FeaturesGroupsServiceUpdateRequest = /** @class */ (function () {
+       function FeaturesGroupsServiceUpdateRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return FeaturesGroupsServiceUpdateRequest;
+   }());
+
+   /*
+   */
+   var FeaturesServiceCreateRequest = /** @class */ (function () {
+       function FeaturesServiceCreateRequest(body) {
+           this.body = body;
+       }
+       return FeaturesServiceCreateRequest;
+   }());
+
+   /*
+   */
+   var FeaturesServiceFindRequest = /** @class */ (function () {
+       function FeaturesServiceFindRequest(search, category, sort) {
+           this.search = search;
+           this.category = category;
+           this.sort = sort;
+       }
+       return FeaturesServiceFindRequest;
+   }());
+
+   /*
+   */
+   var FeaturesServiceUpdateRequest = /** @class */ (function () {
+       function FeaturesServiceUpdateRequest(id, body) {
+           this.id = id;
+           this.body = body;
+       }
+       return FeaturesServiceUpdateRequest;
+   }());
+
+   /*
+   */
    var FolderExtIdsRequest = /** @class */ (function () {
        function FolderExtIdsRequest(id) {
            this.id = id;
@@ -6883,9 +7067,8 @@
    /*
    */
    var GetPoiFromImageRequestBody = /** @class */ (function () {
-       function GetPoiFromImageRequestBody(base64EncodedJpeg, searchUnrecognized) {
+       function GetPoiFromImageRequestBody(base64EncodedJpeg) {
            this.base64EncodedJpeg = base64EncodedJpeg;
-           this.searchUnrecognized = searchUnrecognized;
        }
        return GetPoiFromImageRequestBody;
    }());
@@ -8134,7 +8317,7 @@
    /*
    */
    var SearchEventFindRequestBody = /** @class */ (function () {
-       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize, isPromptSearch) {
+       function SearchEventFindRequestBody(sensorIds, objectType, tolerance, from, to, sort, page, pageSize) {
            this.sensorIds = sensorIds;
            this.objectType = objectType;
            this.tolerance = tolerance;
@@ -8143,7 +8326,6 @@
            this.sort = sort;
            this.page = page;
            this.pageSize = pageSize;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchEventFindRequestBody;
    }());
@@ -8184,25 +8366,6 @@
            this.id = id;
        }
        return SearchIdsRequest;
-   }());
-
-   /*
-   */
-   var SearchPoiRequest = /** @class */ (function () {
-       function SearchPoiRequest(sensorId, objectId) {
-           this.sensorId = sensorId;
-           this.objectId = objectId;
-       }
-       return SearchPoiRequest;
-   }());
-
-   /*
-   */
-   var SearchPoiUnrecognizedRequest = /** @class */ (function () {
-       function SearchPoiUnrecognizedRequest(poiId) {
-           this.poiId = poiId;
-       }
-       return SearchPoiUnrecognizedRequest;
    }());
 
    /*
@@ -8262,9 +8425,8 @@
    /*
    */
    var SearchSessionIdRequest = /** @class */ (function () {
-       function SearchSessionIdRequest(sessionId, isPromptSearch) {
+       function SearchSessionIdRequest(sessionId) {
            this.sessionId = sessionId;
-           this.isPromptSearch = isPromptSearch;
        }
        return SearchSessionIdRequest;
    }());
@@ -10287,11 +10449,81 @@
            return this.rest.get(this.baseUrl + "/machine/" + machineId);
        };
        /**
+        * Get all sensors assigned to the appliance (getSensors)
+        * @Return: QueryResponse<Sensor>
+        */
+       AppliancesService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (type != null) {
+               params.push("type=" + type);
+           }
+           if (status != null) {
+               params.push("status=" + status);
+           }
+           if (stream != null) {
+               params.push("stream=" + stream);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           if (page != null) {
+               params.push("page=" + page);
+           }
+           if (pageSize != null) {
+               params.push("pageSize=" + pageSize);
+           }
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fields != null) {
+               params.push("fields=" + fields);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/sensors"], __read(params)));
+       };
+       /**
+        * Import sensors from CSV file
+        * The file must include header with the columns:
+        * @return ActionResponse
+        */
+       AppliancesService.prototype.importSensors = function (id, csvFile) {
+           return this.rest.upload(csvFile, this.baseUrl + "/" + id + "/sensors/import");
+       };
+       /**
+        * Export appliance sensors to CSV file
+        * @return StreamContent
+        */
+       AppliancesService.prototype.exportSensors = function (id, format, fileName) {
+           var _a;
+           var params = new Array();
+           if (format != null) {
+               params.push("format=" + format);
+           }
+           if (fileName != null) {
+               params.push("fileName=" + fileName);
+           }
+           return (_a = this.rest).download.apply(_a, __spreadArray(["appliances", this.baseUrl + "/" + id + "/sensors/export"], __read(params)));
+       };
+       /**
         * Get all appliance agents
         * @Return: EntitiesResponse<Agent>
         */
        AppliancesService.prototype.getApplianceAgents = function (id) {
            return this.rest.get(this.baseUrl + "/" + id + "/agents");
+       };
+       /**
+        * Add new sensor and assigned it to a specific appliance
+        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
+        * @Return: EntityResponse<Sensor> The updated sensor
+        */
+       AppliancesService.prototype.addApplianceSensor = function (id, body) {
+           return this.rest.post(this.baseUrl + "/" + id + "/sensors", typeof body === 'object' ? JSON.stringify(body) : body);
        };
        /**
         * Register new appliance in the system
@@ -10564,6 +10796,30 @@
                params.push("subFolders=" + subFolders);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/count/by-agent-state"], __read(params)));
+       };
+       /**
+        * Attach multiple sensors to the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkAttach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/attach", null], __read(params)));
+       };
+       /**
+        * Detach multiple sensors from the device
+        * @Return: ActionResponse
+        */
+       AppliancesService.prototype.bulkDetach = function (id, sensorId) {
+           var _a;
+           var params = new Array();
+           if (sensorId != null) {
+               params.push("sensorId=" + sensorId);
+           }
+           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/" + id + "/detach", null], __read(params)));
        };
        return AppliancesService;
    }());
@@ -13102,37 +13358,22 @@
         * Get search session status
         * @Return: EntityResponse<SearchStatus>
         */
-       SearchService.prototype.getSearchStatus = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/status"], __read(params)));
+       SearchService.prototype.getSearchStatus = function (sessionId) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/status");
        };
        /**
         * Cancel search session and drop results
         * @Return: ActionResponse
         */
-       SearchService.prototype.cancelSearchSession = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).delete.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId], __read(params)));
+       SearchService.prototype.cancelSearchSession = function (sessionId) {
+           return this.rest.delete(this.baseUrl + "/sessions/" + sessionId);
        };
        /**
         * Stop search session
         * @Return: ActionResponse
         */
-       SearchService.prototype.stopSearchSession = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).post.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/stop", null], __read(params)));
+       SearchService.prototype.stopSearchSession = function (sessionId) {
+           return this.rest.post(this.baseUrl + "/sessions/" + sessionId + "/stop", null);
        };
        /**
         * Get single search event item by id and sessionId
@@ -13171,13 +13412,8 @@
         * Find list of sensor Ids related to the search results
         * @Return: EntitiesResponse<StringIntValue>
         */
-       SearchService.prototype.findSensorsIds = function (sessionId, isPromptSearch) {
-           var _a;
-           var params = new Array();
-           if (isPromptSearch != null) {
-               params.push("isPromptSearch=" + isPromptSearch);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensorsIds"], __read(params)));
+       SearchService.prototype.findSensorsIds = function (sessionId) {
+           return this.rest.get(this.baseUrl + "/sessions/" + sessionId + "/sensorsIds");
        };
        /**
         * Get total search events count by filter. Notice that this does not create anything, but the POST verb allow for the query parameters to be passed in the body.
@@ -13315,20 +13551,6 @@
                params.push("pageSize=" + pageSize);
            }
            return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/sessions/" + sessionId + "/sensor-heatmap/" + sensorId + "/events"], __read(params)));
-       };
-       /**
-        * Get single POI (Point of Interest) by sensorId and objectId
-        * @Return EntityResponse<Poi>
-        */
-       SearchService.prototype.getPoi = function (sensorId, objectId) {
-           return this.rest.get(this.baseUrl + "/poi/" + sensorId + "/" + objectId);
-       };
-       /**
-        * Get single unrecognized POI by poiId
-        * @Return EntityResponse<PoiUnrecognized>
-        */
-       SearchService.prototype.getPoiUnrecognized = function (poiId) {
-           return this.rest.get(this.baseUrl + "/poi-unrecognized/" + poiId);
        };
        return SearchService;
    }());
@@ -13790,100 +14012,6 @@
         */
        SensorsService.prototype.removeSensorModel = function (id, modelId) {
            return this.rest.delete(this.baseUrl + "/" + id + "/models/" + modelId);
-       };
-       /**
-        * Get all sensors assigned to the appliance (getSensors)
-        * @Return: QueryResponse<Sensor>
-        */
-       SensorsService.prototype.findApplianceSensors = function (id, search, type, status, stream, sort, page, pageSize, format, fields, fileName) {
-           var _a;
-           var params = new Array();
-           if (search != null) {
-               params.push("search=" + search);
-           }
-           if (type != null) {
-               params.push("type=" + type);
-           }
-           if (status != null) {
-               params.push("status=" + status);
-           }
-           if (stream != null) {
-               params.push("stream=" + stream);
-           }
-           if (sort != null) {
-               params.push("sort=" + sort);
-           }
-           if (page != null) {
-               params.push("page=" + page);
-           }
-           if (pageSize != null) {
-               params.push("pageSize=" + pageSize);
-           }
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fields != null) {
-               params.push("fields=" + fields);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).get.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/" + id], __read(params)));
-       };
-       /**
-        * Import sensors from CSV file
-        * The file must include header with the columns:
-        * @return ActionResponse
-        */
-       SensorsService.prototype.importSensors = function (id, csvFile) {
-           return this.rest.upload(csvFile, this.baseUrl + "/for-appliance/" + id + "/import");
-       };
-       /**
-        * Export appliance sensors to CSV file
-        * @return StreamContent
-        */
-       SensorsService.prototype.exportSensors = function (id, format, fileName) {
-           var _a;
-           var params = new Array();
-           if (format != null) {
-               params.push("format=" + format);
-           }
-           if (fileName != null) {
-               params.push("fileName=" + fileName);
-           }
-           return (_a = this.rest).download.apply(_a, __spreadArray(["sensors", this.baseUrl + "/for-appliance/" + id + "/export"], __read(params)));
-       };
-       /**
-        * Add new sensor and assigned it to a specific appliance
-        * The sensor will be created with status PENDING, the status will be changed when the agent will establish connection to the proxy
-        * @Return: EntityResponse<Sensor> The updated sensor
-        */
-       SensorsService.prototype.addApplianceSensor = function (id, body) {
-           return this.rest.post(this.baseUrl + "/for-appliance/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
-       };
-       /**
-        * Attach multiple sensors to the device
-        * @Return: ActionResponse
-        */
-       SensorsService.prototype.bulkAttach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/" + id + "/attach", null], __read(params)));
-       };
-       /**
-        * Detach multiple sensors from the device
-        * @Return: ActionResponse
-        */
-       SensorsService.prototype.bulkDetach = function (id, sensorId) {
-           var _a;
-           var params = new Array();
-           if (sensorId != null) {
-               params.push("sensorId=" + sensorId);
-           }
-           return (_a = this.rest).put.apply(_a, __spreadArray([this.baseUrl + "/for-appliance/" + id + "/detach", null], __read(params)));
        };
        return SensorsService;
    }());
@@ -14987,6 +15115,157 @@
    /** @nocollapse */ SysEventsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysEventsService, factory: SysEventsService.ɵfac });
    (function () {
        (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysEventsService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Features groups services for system administrator only
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysFeaturesGroupsService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysFeaturesGroupsService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/features/groups';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Create new features group
+        * @Return: EntityResponse<FeaturesGroup>
+        */
+       SysFeaturesGroupsService.prototype.create = function (body) {
+           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update features group
+        * @Return: EntityResponse<FeaturesGroup>
+        */
+       SysFeaturesGroupsService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete Feature from the system
+        * @Return: ActionResponse
+        */
+       SysFeaturesGroupsService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single features group by id
+        * @Return: EntityResponse<FeaturesGroup>
+        */
+       SysFeaturesGroupsService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Find features groups by filters
+        * @Return: QueryResponse<FeaturesGroup>
+        */
+       SysFeaturesGroupsService.prototype.find = function (search, sort) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       return SysFeaturesGroupsService;
+   }());
+   /** @nocollapse */ SysFeaturesGroupsService.ɵfac = function SysFeaturesGroupsService_Factory(t) { return new (t || SysFeaturesGroupsService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysFeaturesGroupsService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesGroupsService, factory: SysFeaturesGroupsService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesGroupsService, [{
+               type: i0.Injectable
+           }], function () {
+           return [{ type: CoreConfig, decorators: [{
+                           type: i0.Inject,
+                           args: ['config']
+                       }] }, { type: RestUtil }];
+       }, null);
+   })();
+
+   /**
+    * Features services for system administrator only
+    * @RequestHeader X-API-KEY The key to identify the application (portal)
+    * @RequestHeader X-ACCESS-TOKEN The token to identify the logged-in user
+    */
+   var SysFeaturesService = /** @class */ (function () {
+       /**
+        * Class constructor
+        */
+       function SysFeaturesService(config, rest) {
+           this.config = config;
+           this.rest = rest;
+           // URL to web api
+           this.baseUrl = '/sys/features';
+           this.baseUrl = this.config.api + this.baseUrl;
+       }
+       /**
+        * Create new Feature
+        * @Return: EntityResponse<Feature>
+        */
+       SysFeaturesService.prototype.create = function (body) {
+           return this.rest.post("" + this.baseUrl, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Update Feature
+        * @Return: EntityResponse<Feature>
+        */
+       SysFeaturesService.prototype.update = function (id, body) {
+           return this.rest.put(this.baseUrl + "/" + id, typeof body === 'object' ? JSON.stringify(body) : body);
+       };
+       /**
+        * Delete Feature from the system
+        * @Return: ActionResponse
+        */
+       SysFeaturesService.prototype.delete = function (id) {
+           return this.rest.delete(this.baseUrl + "/" + id);
+       };
+       /**
+        * Get single feature by id
+        * @Return: EntityResponse<Feature>
+        */
+       SysFeaturesService.prototype.get = function (id) {
+           return this.rest.get(this.baseUrl + "/" + id);
+       };
+       /**
+        * Find features by filters
+        * @Return: QueryResponse<Feature>
+        */
+       SysFeaturesService.prototype.find = function (search, category, sort) {
+           var _a;
+           var params = new Array();
+           if (search != null) {
+               params.push("search=" + search);
+           }
+           if (category != null) {
+               params.push("category=" + category);
+           }
+           if (sort != null) {
+               params.push("sort=" + sort);
+           }
+           return (_a = this.rest).get.apply(_a, __spreadArray(["" + this.baseUrl], __read(params)));
+       };
+       return SysFeaturesService;
+   }());
+   /** @nocollapse */ SysFeaturesService.ɵfac = function SysFeaturesService_Factory(t) { return new (t || SysFeaturesService)(i0__namespace.ɵɵinject('config'), i0__namespace.ɵɵinject(RestUtil)); };
+   /** @nocollapse */ SysFeaturesService.ɵprov = /** @pureOrBreakMyCode */ i0__namespace.ɵɵdefineInjectable({ token: SysFeaturesService, factory: SysFeaturesService.ɵfac });
+   (function () {
+       (typeof ngDevMode === "undefined" || ngDevMode) && i0__namespace.ɵsetClassMetadata(SysFeaturesService, [{
                type: i0.Injectable
            }], function () {
            return [{ type: CoreConfig, decorators: [{
@@ -16226,6 +16505,8 @@
        SysAppliancesService,
        SysConfigurationsService,
        SysEventsService,
+       SysFeaturesGroupsService,
+       SysFeaturesService,
        SysKeysService,
        SysModelsService,
        SysReportsService,
@@ -16590,7 +16871,6 @@
    exports.AppliancesServiceStatusOvertimeRequest = AppliancesServiceStatusOvertimeRequest;
    exports.AppliancesServiceUpdateApplianceRequest = AppliancesServiceUpdateApplianceRequest;
    exports.Attribute = Attribute;
-   exports.AttributeValue = AttributeValue;
    exports.AuditLog = AuditLog;
    exports.AuditLogIdRequest = AuditLogIdRequest;
    exports.AuditLogService = AuditLogService;
@@ -16686,6 +16966,8 @@
    exports.EntitiesResponseOfDigitalIO = EntitiesResponseOfDigitalIO;
    exports.EntitiesResponseOfDistributionOfLong = EntitiesResponseOfDistributionOfLong;
    exports.EntitiesResponseOfEvent = EntitiesResponseOfEvent;
+   exports.EntitiesResponseOfFeature = EntitiesResponseOfFeature;
+   exports.EntitiesResponseOfFeaturesGroup = EntitiesResponseOfFeaturesGroup;
    exports.EntitiesResponseOfFolder = EntitiesResponseOfFolder;
    exports.EntitiesResponseOfGroup = EntitiesResponseOfGroup;
    exports.EntitiesResponseOfIntegration = EntitiesResponseOfIntegration;
@@ -16729,6 +17011,8 @@
    exports.EntityResponseOfDistributionOfLong = EntityResponseOfDistributionOfLong;
    exports.EntityResponseOfEvent = EntityResponseOfEvent;
    exports.EntityResponseOfEventCountTimeSeries = EntityResponseOfEventCountTimeSeries;
+   exports.EntityResponseOfFeature = EntityResponseOfFeature;
+   exports.EntityResponseOfFeaturesGroup = EntityResponseOfFeaturesGroup;
    exports.EntityResponseOfFolder = EntityResponseOfFolder;
    exports.EntityResponseOfGeoReferenceData = EntityResponseOfGeoReferenceData;
    exports.EntityResponseOfGroup = EntityResponseOfGroup;
@@ -16738,8 +17022,6 @@
    exports.EntityResponseOfJobStatus = EntityResponseOfJobStatus;
    exports.EntityResponseOfLicense = EntityResponseOfLicense;
    exports.EntityResponseOfMember = EntityResponseOfMember;
-   exports.EntityResponseOfPoi = EntityResponseOfPoi;
-   exports.EntityResponseOfPoiUnrecognized = EntityResponseOfPoiUnrecognized;
    exports.EntityResponseOfPreset = EntityResponseOfPreset;
    exports.EntityResponseOfReportDefinition = EntityResponseOfReportDefinition;
    exports.EntityResponseOfRule = EntityResponseOfRule;
@@ -16787,6 +17069,20 @@
    exports.ExportUsageReportRequest = ExportUsageReportRequest;
    exports.ExportWatchListRequest = ExportWatchListRequest;
    exports.ExternalModelResults = ExternalModelResults;
+   exports.Feature = Feature;
+   exports.FeatureIdRequest = FeatureIdRequest;
+   exports.FeatureIdsRequest = FeatureIdsRequest;
+   exports.FeaturesGroup = FeaturesGroup;
+   exports.FeaturesGroupIdRequest = FeaturesGroupIdRequest;
+   exports.FeaturesGroupIdsRequest = FeaturesGroupIdsRequest;
+   exports.FeaturesGroupsServiceCreateRequest = FeaturesGroupsServiceCreateRequest;
+   exports.FeaturesGroupsServiceFindRequest = FeaturesGroupsServiceFindRequest;
+   exports.FeaturesGroupsServiceSetFeaturesRequest = FeaturesGroupsServiceSetFeaturesRequest;
+   exports.FeaturesGroupsServiceSetNameRequest = FeaturesGroupsServiceSetNameRequest;
+   exports.FeaturesGroupsServiceUpdateRequest = FeaturesGroupsServiceUpdateRequest;
+   exports.FeaturesServiceCreateRequest = FeaturesServiceCreateRequest;
+   exports.FeaturesServiceFindRequest = FeaturesServiceFindRequest;
+   exports.FeaturesServiceUpdateRequest = FeaturesServiceUpdateRequest;
    exports.FindUser = FindUser;
    exports.FindUserAccountRole = FindUserAccountRole;
    exports.Folder = Folder;
@@ -16884,9 +17180,7 @@
    exports.PeopleCountingReportRequest = PeopleCountingReportRequest;
    exports.Permission = Permission;
    exports.PersonRecognitionService = PersonRecognitionService;
-   exports.Poi = Poi;
    exports.PoiBoundingBox = PoiBoundingBox;
-   exports.PoiUnrecognized = PoiUnrecognized;
    exports.Point = Point;
    exports.PortMapping = PortMapping;
    exports.Preset = Preset;
@@ -17004,8 +17298,6 @@
    exports.SearchIdRequest = SearchIdRequest;
    exports.SearchIdsRequest = SearchIdsRequest;
    exports.SearchObject = SearchObject;
-   exports.SearchPoiRequest = SearchPoiRequest;
-   exports.SearchPoiUnrecognizedRequest = SearchPoiUnrecognizedRequest;
    exports.SearchService = SearchService;
    exports.SearchServiceCreateRequest = SearchServiceCreateRequest;
    exports.SearchServiceExecuteRequest = SearchServiceExecuteRequest;
@@ -17112,6 +17404,8 @@
    exports.SysEventsServiceStatisticsRequest = SysEventsServiceStatisticsRequest;
    exports.SysExportAllAccountsUsageReportRequest = SysExportAllAccountsUsageReportRequest;
    exports.SysExportUsageReportRequest = SysExportUsageReportRequest;
+   exports.SysFeaturesGroupsService = SysFeaturesGroupsService;
+   exports.SysFeaturesService = SysFeaturesService;
    exports.SysKeysService = SysKeysService;
    exports.SysKeysServiceCreateApiKeyRequest = SysKeysServiceCreateApiKeyRequest;
    exports.SysKeysServiceCreatePasswordRequest = SysKeysServiceCreatePasswordRequest;

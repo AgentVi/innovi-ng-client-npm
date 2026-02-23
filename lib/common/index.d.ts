@@ -17,7 +17,6 @@ export * from './ApplianceRegistration';
 export * from './ApplianceStatusTimeSeries';
 export * from './ApplianceStatusTimestamped';
 export * from './Attribute';
-export * from './AttributeValue';
 export * from './BoundingBox';
 export * from './BoundingMap';
 export * from './Coordinate';

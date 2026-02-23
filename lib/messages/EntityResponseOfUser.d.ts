@@ -1,5 +1,5 @@
-import { EntityResponse } from '../messages/EntityResponse';
 import { User } from '../entities/User';
+import { EntityResponse } from '../messages/EntityResponse';
 export declare class EntityResponseOfUser extends EntityResponse {
     entity: User;
     code: number;
