@@ -1,5 +1,5 @@
-import { EntityResponse } from '../messages/EntityResponse';
 import { IntegrationAction } from '../entities/IntegrationAction';
+import { EntityResponse } from '../messages/EntityResponse';
 export declare class EntityResponseOfIntegrationAction extends EntityResponse {
     entity: IntegrationAction;
     code: number;

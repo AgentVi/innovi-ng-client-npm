@@ -1,5 +1,5 @@
-import { AgentStatusCode } from '../enums/AgentStatusCode';
 import { ApplianceStatusCode } from '../enums/ApplianceStatusCode';
+import { AgentStatusCode } from '../enums/AgentStatusCode';
 export declare class SysAppliancesServiceFindRequest {
     accountId: string;
     search: string;
