@@ -1,5 +1,5 @@
-import { Account } from '../entities/Account';
 import { QueryResponse } from '../messages/QueryResponse';
+import { Account } from '../entities/Account';
 export declare class QueryResponseOfAccount extends QueryResponse {
     list: Account[];
     code: number;

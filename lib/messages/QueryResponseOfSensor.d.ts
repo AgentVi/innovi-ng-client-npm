@@ -1,5 +1,5 @@
-import { QueryResponse } from '../messages/QueryResponse';
 import { Sensor } from '../entities/Sensor';
+import { QueryResponse } from '../messages/QueryResponse';
 export declare class QueryResponseOfSensor extends QueryResponse {
     list: Sensor[];
     code: number;

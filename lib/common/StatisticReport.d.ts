@@ -1,5 +1,5 @@
-import { ObjectTypeReport } from '../common/ObjectTypeReport';
 import { BehaviorTypeCode } from '../enums/BehaviorTypeCode';
+import { ObjectTypeReport } from '../common/ObjectTypeReport';
 export declare class StatisticReport {
     accountId: string;
     sensorId: string;

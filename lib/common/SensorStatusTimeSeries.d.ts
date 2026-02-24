@@ -1,5 +1,5 @@
-import { SensorStatusTimestamped } from '../common/SensorStatusTimestamped';
 import { TimeUnitCode } from '../enums/TimeUnitCode';
+import { SensorStatusTimestamped } from '../common/SensorStatusTimestamped';
 export declare class SensorStatusTimeSeries {
     accountId: string;
     sensorId: string;
