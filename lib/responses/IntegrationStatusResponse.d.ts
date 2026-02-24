@@ -1,6 +1,6 @@
-import { EntityTypeCode } from '../enums/EntityTypeCode';
 import { IntegrationTypeCode } from '../enums/IntegrationTypeCode';
 import { BaseEntity } from '../entities/BaseEntity';
+import { EntityTypeCode } from '../enums/EntityTypeCode';
 export declare class IntegrationStatusResponse extends BaseEntity {
     source: EntityTypeCode;
     accountId: string;

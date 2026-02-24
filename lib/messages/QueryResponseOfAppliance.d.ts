@@ -1,5 +1,5 @@
-import { Appliance } from '../entities/Appliance';
 import { QueryResponse } from '../messages/QueryResponse';
+import { Appliance } from '../entities/Appliance';
 export declare class QueryResponseOfAppliance extends QueryResponse {
     list: Appliance[];
     code: number;
