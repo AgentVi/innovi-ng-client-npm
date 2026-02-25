@@ -1,5 +1,5 @@
-import { OpenClosedStatusCode } from '../enums/OpenClosedStatusCode';
 import { EntityTypeCode } from '../enums/EntityTypeCode';
+import { OpenClosedStatusCode } from '../enums/OpenClosedStatusCode';
 export declare class HealthEventFindRequest {
     folderId: string;
     from: number;

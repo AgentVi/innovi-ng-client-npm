@@ -1,5 +1,5 @@
-import { ScheduledReport } from '../entities/ScheduledReport';
 import { QueryResponse } from '../messages/QueryResponse';
+import { ScheduledReport } from '../entities/ScheduledReport';
 export declare class QueryResponseOfScheduledReport extends QueryResponse {
     list: ScheduledReport[];
     code: number;
