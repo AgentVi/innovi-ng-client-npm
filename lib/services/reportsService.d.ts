@@ -1,7 +1,7 @@
 import { RestUtil } from '../../utils/rest-util';
 import { CoreConfig } from '../../config';
-import { JobStatusCode } from '../enums/JobStatusCode';
 import { ReportGenerationRequestBody } from '../messages/ReportGenerationRequestBody';
+import { JobStatusCode } from '../enums/JobStatusCode';
 import * as i0 from "@angular/core";
 /**
  * Services for reports definition actions

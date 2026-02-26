@@ -1,5 +1,5 @@
-import { SearchEvent } from '../entities/SearchEvent';
 import { BaseEntity } from '../entities/BaseEntity';
+import { SearchEvent } from '../entities/SearchEvent';
 export declare class CaseInfo extends BaseEntity {
     accountId: string;
     name: string;

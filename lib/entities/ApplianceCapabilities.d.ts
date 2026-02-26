@@ -1,8 +1,8 @@
+import { StringKeyValue } from '../common/StringKeyValue';
 import { ProductTypeCode } from '../enums/ProductTypeCode';
 import { DiskInfo } from '../common/DiskInfo';
 import { DockerCredentials } from '../common/DockerCredentials';
 import { ConfigurationVersion } from '../entities/ConfigurationVersion';
-import { StringKeyValue } from '../common/StringKeyValue';
 export declare class ApplianceCapabilities {
     productType: ProductTypeCode;
     serialNumber: string;
